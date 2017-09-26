@@ -7,15 +7,41 @@ This module contains definitions
 for the following management objects\:
   aaa\: Admin plane AAA configuration
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+class AaaAdminPassword(Enum):
+    """
+    AaaAdminPassword
+
+    Aaa admin password
+
+    .. data:: type5 = 5
+
+    	Type 5 password
+
+    .. data:: type8 = 8
+
+    	Type 8 password
+
+    .. data:: type9 = 9
+
+    	Type 9 password
+
+    """
+
+    type5 = Enum.YLeaf(5, "type5")
+
+    type8 = Enum.YLeaf(8, "type8")
+
+    type9 = Enum.YLeaf(9, "type9")
 
 
 
@@ -41,11 +67,16 @@ class Aaa(Entity):
 
         self.yang_name = "aaa"
         self.yang_parent_name = "Cisco-IOS-XR-aaa-locald-admin-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"usernames" : ("usernames", Aaa.Usernames)}
+        self._child_list_classes = {}
 
         self.usernames = Aaa.Usernames()
         self.usernames.parent = self
         self._children_name_map["usernames"] = "usernames"
         self._children_yang_names.add("usernames")
+        self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa"
 
 
     class Usernames(Entity):
@@ -69,32 +100,17 @@ class Aaa(Entity):
 
             self.yang_name = "usernames"
             self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"username" : ("username", Aaa.Usernames.Username)}
 
             self.username = YList(self)
+            self._segment_path = lambda: "usernames"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Aaa.Usernames, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Aaa.Usernames, self).__setattr__(name, value)
+            self._perform_setattr(Aaa.Usernames, [], name, value)
 
 
         class Username(Entity):
@@ -109,9 +125,7 @@ class Aaa(Entity):
             .. attribute:: secret
             
             	Specify the secret for the admin user
-            	**type**\:  str
-            
-            	**pattern:** (!.+)\|([^!].+)
+            	**type**\:   :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.Secret>`
             
             .. attribute:: usergroup_under_usernames
             
@@ -130,40 +144,87 @@ class Aaa(Entity):
 
                 self.yang_name = "username"
                 self.yang_parent_name = "usernames"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"secret" : ("secret", Aaa.Usernames.Username.Secret), "usergroup-under-usernames" : ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames)}
+                self._child_list_classes = {}
 
                 self.name = YLeaf(YType.str, "name")
 
-                self.secret = YLeaf(YType.str, "secret")
+                self.secret = Aaa.Usernames.Username.Secret()
+                self.secret.parent = self
+                self._children_name_map["secret"] = "secret"
+                self._children_yang_names.add("secret")
 
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
                 self._children_name_map["usergroup_under_usernames"] = "usergroup-under-usernames"
                 self._children_yang_names.add("usergroup-under-usernames")
+                self._segment_path = lambda: "username" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("name",
-                                "secret") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Aaa.Usernames.Username, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Aaa.Usernames.Username, self).__setattr__(name, value)
+                self._perform_setattr(Aaa.Usernames.Username, ['name'], name, value)
+
+
+            class Secret(Entity):
+                """
+                Specify the secret for the admin user
+                
+                .. attribute:: secret5
+                
+                	The user's secret password
+                	**type**\:  str
+                
+                	**pattern:** (!.+)\|([^!].+)
+                
+                .. attribute:: secret8
+                
+                	Type 8 password
+                	**type**\:  str
+                
+                	**pattern:** (!.+)\|([^!].+)
+                
+                .. attribute:: secret9
+                
+                	Type 9 password
+                	**type**\:  str
+                
+                	**pattern:** (!.+)\|([^!].+)
+                
+                .. attribute:: type
+                
+                	Password type
+                	**type**\:   :py:class:`AaaAdminPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.AaaAdminPassword>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-locald-admin-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Usernames.Username.Secret, self).__init__()
+
+                    self.yang_name = "secret"
+                    self.yang_parent_name = "username"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.secret5 = YLeaf(YType.str, "secret5")
+
+                    self.secret8 = YLeaf(YType.str, "secret8")
+
+                    self.secret9 = YLeaf(YType.str, "secret9")
+
+                    self.type = YLeaf(YType.enumeration, "type")
+                    self._segment_path = lambda: "secret"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Usernames.Username.Secret, ['secret5', 'secret8', 'secret9', 'type'], name, value)
 
 
             class UsergroupUnderUsernames(Entity):
@@ -188,32 +249,16 @@ class Aaa(Entity):
 
                     self.yang_name = "usergroup-under-usernames"
                     self.yang_parent_name = "username"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"usergroup-under-username" : ("usergroup_under_username", Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername)}
 
                     self.usergroup_under_username = YList(self)
+                    self._segment_path = lambda: "usergroup-under-usernames"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Aaa.Usernames.Username.UsergroupUnderUsernames, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Aaa.Usernames.Username.UsergroupUnderUsernames, self).__setattr__(name, value)
+                    self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames, [], name, value)
 
 
                 class UsergroupUnderUsername(Entity):
@@ -239,303 +284,16 @@ class Aaa(Entity):
 
                         self.yang_name = "usergroup-under-username"
                         self.yang_parent_name = "usergroup-under-usernames"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.name = YLeaf(YType.str, "name")
+                        self._segment_path = lambda: "usergroup-under-username" + "[name='" + self.name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return self.name.is_set
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.name.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "usergroup-under-username" + "[name='" + self.name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "name"):
-                            self.name = value
-                            self.name.value_namespace = name_space
-                            self.name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.usergroup_under_username:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.usergroup_under_username:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "usergroup-under-usernames" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "usergroup-under-username"):
-                        for c in self.usergroup_under_username:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.usergroup_under_username.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "usergroup-under-username"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.name.is_set or
-                    self.secret.is_set or
-                    (self.usergroup_under_usernames is not None and self.usergroup_under_usernames.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.name.yfilter != YFilter.not_set or
-                    self.secret.yfilter != YFilter.not_set or
-                    (self.usergroup_under_usernames is not None and self.usergroup_under_usernames.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "username" + "[name='" + self.name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.name.get_name_leafdata())
-                if (self.secret.is_set or self.secret.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.secret.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "usergroup-under-usernames"):
-                    if (self.usergroup_under_usernames is None):
-                        self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
-                        self.usergroup_under_usernames.parent = self
-                        self._children_name_map["usergroup_under_usernames"] = "usergroup-under-usernames"
-                    return self.usergroup_under_usernames
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "usergroup-under-usernames" or name == "name" or name == "secret"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "name"):
-                    self.name = value
-                    self.name.value_namespace = name_space
-                    self.name.value_namespace_prefix = name_space_prefix
-                if(value_path == "secret"):
-                    self.secret = value
-                    self.secret.value_namespace = name_space
-                    self.secret.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.username:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.username:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "usernames" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "username"):
-                for c in self.username:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Aaa.Usernames.Username()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.username.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "username"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.usernames is not None and self.usernames.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.usernames is not None and self.usernames.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "usernames"):
-            if (self.usernames is None):
-                self.usernames = Aaa.Usernames()
-                self.usernames.parent = self
-                self._children_name_map["usernames"] = "usernames"
-            return self.usernames
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "usernames"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                        self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Aaa()

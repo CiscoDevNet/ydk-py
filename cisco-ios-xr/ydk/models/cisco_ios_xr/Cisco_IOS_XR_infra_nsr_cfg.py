@@ -1,0 +1,92 @@
+""" Cisco_IOS_XR_infra_nsr_cfg 
+
+This module contains a collection of YANG definitions
+for Cisco IOS\-XR infra\-nsr package configuration.
+
+This module contains definitions
+for the following management objects\:
+  nsr\: NSR global configuration
+
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+"""
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
+from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+
+class Nsr(Entity):
+    """
+    NSR global configuration
+    
+    .. attribute:: process_failure
+    
+    	Recovery action for process failures on active RP/DRP
+    	**type**\:   :py:class:`ProcessFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_nsr_cfg.Nsr.ProcessFailure>`
+    
+    
+
+    """
+
+    _prefix = 'infra-nsr-cfg'
+    _revision = '2017-06-27'
+
+    def __init__(self):
+        super(Nsr, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "nsr"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-nsr-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"process-failure" : ("process_failure", Nsr.ProcessFailure)}
+        self._child_list_classes = {}
+
+        self.process_failure = Nsr.ProcessFailure()
+        self.process_failure.parent = self
+        self._children_name_map["process_failure"] = "process-failure"
+        self._children_yang_names.add("process-failure")
+        self._segment_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr"
+
+
+    class ProcessFailure(Entity):
+        """
+        Recovery action for process failures on active
+        RP/DRP
+        
+        .. attribute:: switchover
+        
+        	Enable RP/DRP switchover on process failures
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'infra-nsr-cfg'
+        _revision = '2017-06-27'
+
+        def __init__(self):
+            super(Nsr.ProcessFailure, self).__init__()
+
+            self.yang_name = "process-failure"
+            self.yang_parent_name = "nsr"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.switchover = YLeaf(YType.empty, "switchover")
+            self._segment_path = lambda: "process-failure"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Nsr.ProcessFailure, ['switchover'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Nsr()
+        return self._top_entity
+

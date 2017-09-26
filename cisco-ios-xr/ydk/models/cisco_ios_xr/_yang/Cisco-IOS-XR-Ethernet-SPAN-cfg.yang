@@ -48,7 +48,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
        Cisco-IOS-XR-l2vpn-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -202,9 +202,19 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
     description
       "Common node of span-monitor-session,
       span-monitor-session";
-    leaf acl {
-      type empty;
+
+    container acl {
+      presence "Indicates a acl node is configured.";
       description "Enable ACL matching for traffic mirroring";
+      leaf acl-enable {
+        type empty;
+        mandatory true;
+        description "Enable ACL";
+      }
+      leaf acl-name {
+        type dt1:Span-acl-name;
+        description "ACL Name";
+      }
     }
   }
 

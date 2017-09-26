@@ -37,7 +37,7 @@ module Cisco-IOS-XR-ip-sbfd-cfg {
        sbfd: SBFD Configuration ,Seamless-BFD is method for detecting
          faultsbetween two different nodes in a network
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

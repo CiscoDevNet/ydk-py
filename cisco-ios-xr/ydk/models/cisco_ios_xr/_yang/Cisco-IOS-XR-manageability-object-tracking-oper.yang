@@ -10,8 +10,6 @@ module Cisco-IOS-XR-manageability-object-tracking-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-manageability-object-tracking-datatypes {
     prefix "dt1";
   }
@@ -43,7 +41,7 @@ module Cisco-IOS-XR-manageability-object-tracking-oper {
      for the following management objects:
        object-tracking: Object Tracking operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

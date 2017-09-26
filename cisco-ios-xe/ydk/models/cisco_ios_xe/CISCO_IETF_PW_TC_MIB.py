@@ -4,16 +4,15 @@ This MIB Module provides Textual Conventions
 and OBJECT\-IDENTITY Objects to be used PW services.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Cpwoperstatus(Enum):
+class CpwOperStatus(Enum):
     """
-    Cpwoperstatus
+    CpwOperStatus
 
     Indicate the operational status of the PW VC. 
 
@@ -76,9 +75,9 @@ class Cpwoperstatus(Enum):
     lowerLayerDown = Enum.YLeaf(7, "lowerLayerDown")
 
 
-class Cpwvctype(Enum):
+class CpwVcType(Enum):
     """
-    Cpwvctype
+    CpwVcType
 
     Indicate the VC type (i.e. the carried service). 
 

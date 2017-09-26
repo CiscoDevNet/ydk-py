@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub2 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,7 +27,7 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-dhcpd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

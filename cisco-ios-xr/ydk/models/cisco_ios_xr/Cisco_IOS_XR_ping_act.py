@@ -7,7 +7,6 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,6 +41,10 @@ class Ping(Entity):
 
         self.yang_name = "ping"
         self.yang_parent_name = "Cisco-IOS-XR-ping-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.input = Ping.Input()
         self.input.parent = self
@@ -52,6 +55,7 @@ class Ping(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._children_yang_names.add("output")
+        self._segment_path = lambda: "Cisco-IOS-XR-ping-act:ping"
 
 
     class Input(Entity):
@@ -85,6 +89,10 @@ class Ping(Entity):
 
             self.yang_name = "input"
             self.yang_parent_name = "ping"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"destination" : ("destination", Ping.Input.Destination), "ipv6" : ("ipv6", Ping.Input.Ipv6)}
+            self._child_list_classes = {"ipv4" : ("ipv4", Ping.Input.Ipv4)}
 
             self.destination = Ping.Input.Destination()
             self.destination.parent = self
@@ -97,30 +105,11 @@ class Ping(Entity):
             self._children_yang_names.add("ipv6")
 
             self.ipv4 = YList(self)
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ping.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ping.Input, self).__setattr__(name, value)
+            self._perform_setattr(Ping.Input, [], name, value)
 
 
         class Destination(Entity):
@@ -238,6 +227,10 @@ class Ping(Entity):
 
                 self.yang_name = "destination"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.data_size = YLeaf(YType.uint64, "data-size")
 
@@ -268,203 +261,11 @@ class Ping(Entity):
                 self.verbose = YLeaf(YType.boolean, "verbose")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self._segment_path = lambda: "destination"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("data_size",
-                                "destination",
-                                "do_not_frag",
-                                "interval",
-                                "outgoing_interface",
-                                "pattern",
-                                "priority",
-                                "repeat_count",
-                                "source",
-                                "sweep",
-                                "timeout",
-                                "type_of_service",
-                                "validate",
-                                "verbose",
-                                "vrf_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ping.Input.Destination, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ping.Input.Destination, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.data_size.is_set or
-                    self.destination.is_set or
-                    self.do_not_frag.is_set or
-                    self.interval.is_set or
-                    self.outgoing_interface.is_set or
-                    self.pattern.is_set or
-                    self.priority.is_set or
-                    self.repeat_count.is_set or
-                    self.source.is_set or
-                    self.sweep.is_set or
-                    self.timeout.is_set or
-                    self.type_of_service.is_set or
-                    self.validate.is_set or
-                    self.verbose.is_set or
-                    self.vrf_name.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.data_size.yfilter != YFilter.not_set or
-                    self.destination.yfilter != YFilter.not_set or
-                    self.do_not_frag.yfilter != YFilter.not_set or
-                    self.interval.yfilter != YFilter.not_set or
-                    self.outgoing_interface.yfilter != YFilter.not_set or
-                    self.pattern.yfilter != YFilter.not_set or
-                    self.priority.yfilter != YFilter.not_set or
-                    self.repeat_count.yfilter != YFilter.not_set or
-                    self.source.yfilter != YFilter.not_set or
-                    self.sweep.yfilter != YFilter.not_set or
-                    self.timeout.yfilter != YFilter.not_set or
-                    self.type_of_service.yfilter != YFilter.not_set or
-                    self.validate.yfilter != YFilter.not_set or
-                    self.verbose.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "destination" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ping-act:ping/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.data_size.is_set or self.data_size.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.data_size.get_name_leafdata())
-                if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.destination.get_name_leafdata())
-                if (self.do_not_frag.is_set or self.do_not_frag.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.do_not_frag.get_name_leafdata())
-                if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.interval.get_name_leafdata())
-                if (self.outgoing_interface.is_set or self.outgoing_interface.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.outgoing_interface.get_name_leafdata())
-                if (self.pattern.is_set or self.pattern.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.pattern.get_name_leafdata())
-                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.priority.get_name_leafdata())
-                if (self.repeat_count.is_set or self.repeat_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.repeat_count.get_name_leafdata())
-                if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source.get_name_leafdata())
-                if (self.sweep.is_set or self.sweep.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.sweep.get_name_leafdata())
-                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timeout.get_name_leafdata())
-                if (self.type_of_service.is_set or self.type_of_service.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type_of_service.get_name_leafdata())
-                if (self.validate.is_set or self.validate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.validate.get_name_leafdata())
-                if (self.verbose.is_set or self.verbose.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.verbose.get_name_leafdata())
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "data-size" or name == "destination" or name == "do-not-frag" or name == "interval" or name == "outgoing-interface" or name == "pattern" or name == "priority" or name == "repeat-count" or name == "source" or name == "sweep" or name == "timeout" or name == "type-of-service" or name == "validate" or name == "verbose" or name == "vrf-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "data-size"):
-                    self.data_size = value
-                    self.data_size.value_namespace = name_space
-                    self.data_size.value_namespace_prefix = name_space_prefix
-                if(value_path == "destination"):
-                    self.destination = value
-                    self.destination.value_namespace = name_space
-                    self.destination.value_namespace_prefix = name_space_prefix
-                if(value_path == "do-not-frag"):
-                    self.do_not_frag = value
-                    self.do_not_frag.value_namespace = name_space
-                    self.do_not_frag.value_namespace_prefix = name_space_prefix
-                if(value_path == "interval"):
-                    self.interval = value
-                    self.interval.value_namespace = name_space
-                    self.interval.value_namespace_prefix = name_space_prefix
-                if(value_path == "outgoing-interface"):
-                    self.outgoing_interface = value
-                    self.outgoing_interface.value_namespace = name_space
-                    self.outgoing_interface.value_namespace_prefix = name_space_prefix
-                if(value_path == "pattern"):
-                    self.pattern = value
-                    self.pattern.value_namespace = name_space
-                    self.pattern.value_namespace_prefix = name_space_prefix
-                if(value_path == "priority"):
-                    self.priority = value
-                    self.priority.value_namespace = name_space
-                    self.priority.value_namespace_prefix = name_space_prefix
-                if(value_path == "repeat-count"):
-                    self.repeat_count = value
-                    self.repeat_count.value_namespace = name_space
-                    self.repeat_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "source"):
-                    self.source = value
-                    self.source.value_namespace = name_space
-                    self.source.value_namespace_prefix = name_space_prefix
-                if(value_path == "sweep"):
-                    self.sweep = value
-                    self.sweep.value_namespace = name_space
-                    self.sweep.value_namespace_prefix = name_space_prefix
-                if(value_path == "timeout"):
-                    self.timeout = value
-                    self.timeout.value_namespace = name_space
-                    self.timeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "type-of-service"):
-                    self.type_of_service = value
-                    self.type_of_service.value_namespace = name_space
-                    self.type_of_service.value_namespace_prefix = name_space_prefix
-                if(value_path == "validate"):
-                    self.validate = value
-                    self.validate.value_namespace = name_space
-                    self.validate.value_namespace_prefix = name_space_prefix
-                if(value_path == "verbose"):
-                    self.verbose = value
-                    self.verbose.value_namespace = name_space
-                    self.verbose.value_namespace_prefix = name_space_prefix
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(Ping.Input.Destination, ['data_size', 'destination', 'do_not_frag', 'interval', 'outgoing_interface', 'pattern', 'priority', 'repeat_count', 'source', 'sweep', 'timeout', 'type_of_service', 'validate', 'verbose', 'vrf_name'], name, value)
 
 
         class Ipv4(Entity):
@@ -570,6 +371,10 @@ class Ping(Entity):
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.destination = YLeaf(YType.str, "destination")
 
@@ -596,185 +401,11 @@ class Ping(Entity):
                 self.verbose = YLeaf(YType.boolean, "verbose")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self._segment_path = lambda: "ipv4" + "[destination='" + self.destination.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("destination",
-                                "data_size",
-                                "do_not_frag",
-                                "interval",
-                                "pattern",
-                                "repeat_count",
-                                "source",
-                                "sweep",
-                                "timeout",
-                                "type_of_service",
-                                "validate",
-                                "verbose",
-                                "vrf_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ping.Input.Ipv4, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ping.Input.Ipv4, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.destination.is_set or
-                    self.data_size.is_set or
-                    self.do_not_frag.is_set or
-                    self.interval.is_set or
-                    self.pattern.is_set or
-                    self.repeat_count.is_set or
-                    self.source.is_set or
-                    self.sweep.is_set or
-                    self.timeout.is_set or
-                    self.type_of_service.is_set or
-                    self.validate.is_set or
-                    self.verbose.is_set or
-                    self.vrf_name.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.destination.yfilter != YFilter.not_set or
-                    self.data_size.yfilter != YFilter.not_set or
-                    self.do_not_frag.yfilter != YFilter.not_set or
-                    self.interval.yfilter != YFilter.not_set or
-                    self.pattern.yfilter != YFilter.not_set or
-                    self.repeat_count.yfilter != YFilter.not_set or
-                    self.source.yfilter != YFilter.not_set or
-                    self.sweep.yfilter != YFilter.not_set or
-                    self.timeout.yfilter != YFilter.not_set or
-                    self.type_of_service.yfilter != YFilter.not_set or
-                    self.validate.yfilter != YFilter.not_set or
-                    self.verbose.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ipv4" + "[destination='" + self.destination.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ping-act:ping/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.destination.get_name_leafdata())
-                if (self.data_size.is_set or self.data_size.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.data_size.get_name_leafdata())
-                if (self.do_not_frag.is_set or self.do_not_frag.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.do_not_frag.get_name_leafdata())
-                if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.interval.get_name_leafdata())
-                if (self.pattern.is_set or self.pattern.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.pattern.get_name_leafdata())
-                if (self.repeat_count.is_set or self.repeat_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.repeat_count.get_name_leafdata())
-                if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source.get_name_leafdata())
-                if (self.sweep.is_set or self.sweep.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.sweep.get_name_leafdata())
-                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timeout.get_name_leafdata())
-                if (self.type_of_service.is_set or self.type_of_service.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type_of_service.get_name_leafdata())
-                if (self.validate.is_set or self.validate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.validate.get_name_leafdata())
-                if (self.verbose.is_set or self.verbose.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.verbose.get_name_leafdata())
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "destination" or name == "data-size" or name == "do-not-frag" or name == "interval" or name == "pattern" or name == "repeat-count" or name == "source" or name == "sweep" or name == "timeout" or name == "type-of-service" or name == "validate" or name == "verbose" or name == "vrf-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "destination"):
-                    self.destination = value
-                    self.destination.value_namespace = name_space
-                    self.destination.value_namespace_prefix = name_space_prefix
-                if(value_path == "data-size"):
-                    self.data_size = value
-                    self.data_size.value_namespace = name_space
-                    self.data_size.value_namespace_prefix = name_space_prefix
-                if(value_path == "do-not-frag"):
-                    self.do_not_frag = value
-                    self.do_not_frag.value_namespace = name_space
-                    self.do_not_frag.value_namespace_prefix = name_space_prefix
-                if(value_path == "interval"):
-                    self.interval = value
-                    self.interval.value_namespace = name_space
-                    self.interval.value_namespace_prefix = name_space_prefix
-                if(value_path == "pattern"):
-                    self.pattern = value
-                    self.pattern.value_namespace = name_space
-                    self.pattern.value_namespace_prefix = name_space_prefix
-                if(value_path == "repeat-count"):
-                    self.repeat_count = value
-                    self.repeat_count.value_namespace = name_space
-                    self.repeat_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "source"):
-                    self.source = value
-                    self.source.value_namespace = name_space
-                    self.source.value_namespace_prefix = name_space_prefix
-                if(value_path == "sweep"):
-                    self.sweep = value
-                    self.sweep.value_namespace = name_space
-                    self.sweep.value_namespace_prefix = name_space_prefix
-                if(value_path == "timeout"):
-                    self.timeout = value
-                    self.timeout.value_namespace = name_space
-                    self.timeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "type-of-service"):
-                    self.type_of_service = value
-                    self.type_of_service.value_namespace = name_space
-                    self.type_of_service.value_namespace_prefix = name_space_prefix
-                if(value_path == "validate"):
-                    self.validate = value
-                    self.validate.value_namespace = name_space
-                    self.validate.value_namespace_prefix = name_space_prefix
-                if(value_path == "verbose"):
-                    self.verbose = value
-                    self.verbose.value_namespace = name_space
-                    self.verbose.value_namespace_prefix = name_space_prefix
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(Ping.Input.Ipv4, ['destination', 'data_size', 'do_not_frag', 'interval', 'pattern', 'repeat_count', 'source', 'sweep', 'timeout', 'type_of_service', 'validate', 'verbose', 'vrf_name'], name, value)
 
 
         class Ipv6(Entity):
@@ -875,6 +506,10 @@ class Ping(Entity):
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.data_size = YLeaf(YType.uint64, "data-size")
 
@@ -899,252 +534,11 @@ class Ping(Entity):
                 self.verbose = YLeaf(YType.boolean, "verbose")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self._segment_path = lambda: "ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("data_size",
-                                "destination",
-                                "interval",
-                                "outgoing_interface",
-                                "pattern",
-                                "priority",
-                                "repeat_count",
-                                "source",
-                                "sweep",
-                                "timeout",
-                                "verbose",
-                                "vrf_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ping.Input.Ipv6, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ping.Input.Ipv6, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.data_size.is_set or
-                    self.destination.is_set or
-                    self.interval.is_set or
-                    self.outgoing_interface.is_set or
-                    self.pattern.is_set or
-                    self.priority.is_set or
-                    self.repeat_count.is_set or
-                    self.source.is_set or
-                    self.sweep.is_set or
-                    self.timeout.is_set or
-                    self.verbose.is_set or
-                    self.vrf_name.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.data_size.yfilter != YFilter.not_set or
-                    self.destination.yfilter != YFilter.not_set or
-                    self.interval.yfilter != YFilter.not_set or
-                    self.outgoing_interface.yfilter != YFilter.not_set or
-                    self.pattern.yfilter != YFilter.not_set or
-                    self.priority.yfilter != YFilter.not_set or
-                    self.repeat_count.yfilter != YFilter.not_set or
-                    self.source.yfilter != YFilter.not_set or
-                    self.sweep.yfilter != YFilter.not_set or
-                    self.timeout.yfilter != YFilter.not_set or
-                    self.verbose.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ipv6" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ping-act:ping/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.data_size.is_set or self.data_size.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.data_size.get_name_leafdata())
-                if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.destination.get_name_leafdata())
-                if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.interval.get_name_leafdata())
-                if (self.outgoing_interface.is_set or self.outgoing_interface.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.outgoing_interface.get_name_leafdata())
-                if (self.pattern.is_set or self.pattern.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.pattern.get_name_leafdata())
-                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.priority.get_name_leafdata())
-                if (self.repeat_count.is_set or self.repeat_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.repeat_count.get_name_leafdata())
-                if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source.get_name_leafdata())
-                if (self.sweep.is_set or self.sweep.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.sweep.get_name_leafdata())
-                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timeout.get_name_leafdata())
-                if (self.verbose.is_set or self.verbose.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.verbose.get_name_leafdata())
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "data-size" or name == "destination" or name == "interval" or name == "outgoing-interface" or name == "pattern" or name == "priority" or name == "repeat-count" or name == "source" or name == "sweep" or name == "timeout" or name == "verbose" or name == "vrf-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "data-size"):
-                    self.data_size = value
-                    self.data_size.value_namespace = name_space
-                    self.data_size.value_namespace_prefix = name_space_prefix
-                if(value_path == "destination"):
-                    self.destination = value
-                    self.destination.value_namespace = name_space
-                    self.destination.value_namespace_prefix = name_space_prefix
-                if(value_path == "interval"):
-                    self.interval = value
-                    self.interval.value_namespace = name_space
-                    self.interval.value_namespace_prefix = name_space_prefix
-                if(value_path == "outgoing-interface"):
-                    self.outgoing_interface = value
-                    self.outgoing_interface.value_namespace = name_space
-                    self.outgoing_interface.value_namespace_prefix = name_space_prefix
-                if(value_path == "pattern"):
-                    self.pattern = value
-                    self.pattern.value_namespace = name_space
-                    self.pattern.value_namespace_prefix = name_space_prefix
-                if(value_path == "priority"):
-                    self.priority = value
-                    self.priority.value_namespace = name_space
-                    self.priority.value_namespace_prefix = name_space_prefix
-                if(value_path == "repeat-count"):
-                    self.repeat_count = value
-                    self.repeat_count.value_namespace = name_space
-                    self.repeat_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "source"):
-                    self.source = value
-                    self.source.value_namespace = name_space
-                    self.source.value_namespace_prefix = name_space_prefix
-                if(value_path == "sweep"):
-                    self.sweep = value
-                    self.sweep.value_namespace = name_space
-                    self.sweep.value_namespace_prefix = name_space_prefix
-                if(value_path == "timeout"):
-                    self.timeout = value
-                    self.timeout.value_namespace = name_space
-                    self.timeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "verbose"):
-                    self.verbose = value
-                    self.verbose.value_namespace = name_space
-                    self.verbose.value_namespace_prefix = name_space_prefix
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ipv4:
-                if (c.has_data()):
-                    return True
-            return (
-                (self.destination is not None and self.destination.has_data()) or
-                (self.ipv6 is not None and self.ipv6.has_data()))
-
-        def has_operation(self):
-            for c in self.ipv4:
-                if (c.has_operation()):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.destination is not None and self.destination.has_operation()) or
-                (self.ipv6 is not None and self.ipv6.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ping-act:ping/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "destination"):
-                if (self.destination is None):
-                    self.destination = Ping.Input.Destination()
-                    self.destination.parent = self
-                    self._children_name_map["destination"] = "destination"
-                return self.destination
-
-            if (child_yang_name == "ipv4"):
-                for c in self.ipv4:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ping.Input.Ipv4()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ipv4.append(c)
-                return c
-
-            if (child_yang_name == "ipv6"):
-                if (self.ipv6 is None):
-                    self.ipv6 = Ping.Input.Ipv6()
-                    self.ipv6.parent = self
-                    self._children_name_map["ipv6"] = "ipv6"
-                return self.ipv6
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "destination" or name == "ipv4" or name == "ipv6"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(Ping.Input.Ipv6, ['data_size', 'destination', 'interval', 'outgoing_interface', 'pattern', 'priority', 'repeat_count', 'source', 'sweep', 'timeout', 'verbose', 'vrf_name'], name, value)
 
 
     class Output(Entity):
@@ -1168,11 +562,17 @@ class Ping(Entity):
 
             self.yang_name = "output"
             self.yang_parent_name = "ping"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"ping-response" : ("ping_response", Ping.Output.PingResponse)}
+            self._child_list_classes = {}
 
             self.ping_response = Ping.Output.PingResponse()
             self.ping_response.parent = self
             self._children_name_map["ping_response"] = "ping-response"
             self._children_yang_names.add("ping-response")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/%s" % self._segment_path()
 
 
         class PingResponse(Entity):
@@ -1201,6 +601,10 @@ class Ping(Entity):
 
                 self.yang_name = "ping-response"
                 self.yang_parent_name = "output"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"ipv6" : ("ipv6", Ping.Output.PingResponse.Ipv6)}
+                self._child_list_classes = {"ipv4" : ("ipv4", Ping.Output.PingResponse.Ipv4)}
 
                 self.ipv6 = Ping.Output.PingResponse.Ipv6()
                 self.ipv6.parent = self
@@ -1208,30 +612,11 @@ class Ping(Entity):
                 self._children_yang_names.add("ipv6")
 
                 self.ipv4 = YList(self)
+                self._segment_path = lambda: "ping-response"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ping.Output.PingResponse, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ping.Output.PingResponse, self).__setattr__(name, value)
+                self._perform_setattr(Ping.Output.PingResponse, [], name, value)
 
 
             class Ipv4(Entity):
@@ -1376,6 +761,10 @@ class Ping(Entity):
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "ping-response"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"replies" : ("replies", Ping.Output.PingResponse.Ipv4.Replies)}
+                    self._child_list_classes = {}
 
                     self.destination = YLeaf(YType.str, "destination")
 
@@ -1415,46 +804,11 @@ class Ping(Entity):
                     self.replies.parent = self
                     self._children_name_map["replies"] = "replies"
                     self._children_yang_names.add("replies")
+                    self._segment_path = lambda: "ipv4" + "[destination='" + self.destination.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("destination",
-                                    "data_size",
-                                    "hits",
-                                    "interval",
-                                    "pattern",
-                                    "ping_error_response",
-                                    "repeat_count",
-                                    "rotate_pattern",
-                                    "rtt_avg",
-                                    "rtt_max",
-                                    "rtt_min",
-                                    "success_rate",
-                                    "sweep",
-                                    "sweep_max",
-                                    "sweep_min",
-                                    "timeout",
-                                    "total") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ping.Output.PingResponse.Ipv4, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ping.Output.PingResponse.Ipv4, self).__setattr__(name, value)
+                    self._perform_setattr(Ping.Output.PingResponse.Ipv4, ['destination', 'data_size', 'hits', 'interval', 'pattern', 'ping_error_response', 'repeat_count', 'rotate_pattern', 'rtt_avg', 'rtt_max', 'rtt_min', 'success_rate', 'sweep', 'sweep_max', 'sweep_min', 'timeout', 'total'], name, value)
 
 
                 class Replies(Entity):
@@ -1478,32 +832,16 @@ class Ping(Entity):
 
                         self.yang_name = "replies"
                         self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"reply" : ("reply", Ping.Output.PingResponse.Ipv4.Replies.Reply)}
 
                         self.reply = YList(self)
+                        self._segment_path = lambda: "replies"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ping.Output.PingResponse.Ipv4.Replies, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ping.Output.PingResponse.Ipv4.Replies, self).__setattr__(name, value)
+                        self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies, [], name, value)
 
 
                     class Reply(Entity):
@@ -1539,6 +877,10 @@ class Ping(Entity):
 
                             self.yang_name = "reply"
                             self.yang_parent_name = "replies"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"broadcast-reply-addresses" : ("broadcast_reply_addresses", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses)}
+                            self._child_list_classes = {}
 
                             self.reply_index = YLeaf(YType.uint64, "reply-index")
 
@@ -1548,31 +890,10 @@ class Ping(Entity):
                             self.broadcast_reply_addresses.parent = self
                             self._children_name_map["broadcast_reply_addresses"] = "broadcast-reply-addresses"
                             self._children_yang_names.add("broadcast-reply-addresses")
+                            self._segment_path = lambda: "reply" + "[reply-index='" + self.reply_index.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("reply_index",
-                                            "result") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ping.Output.PingResponse.Ipv4.Replies.Reply, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ping.Output.PingResponse.Ipv4.Replies.Reply, self).__setattr__(name, value)
+                            self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply, ['reply_index', 'result'], name, value)
 
 
                         class BroadcastReplyAddresses(Entity):
@@ -1596,32 +917,16 @@ class Ping(Entity):
 
                                 self.yang_name = "broadcast-reply-addresses"
                                 self.yang_parent_name = "reply"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"broadcast-reply-address" : ("broadcast_reply_address", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress)}
 
                                 self.broadcast_reply_address = YList(self)
+                                self._segment_path = lambda: "broadcast-reply-addresses"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, self).__setattr__(name, value)
+                                self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, [], name, value)
 
 
                             class BroadcastReplyAddress(Entity):
@@ -1650,452 +955,18 @@ class Ping(Entity):
 
                                     self.yang_name = "broadcast-reply-address"
                                     self.yang_parent_name = "broadcast-reply-addresses"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
                                     self.reply_address = YLeaf(YType.str, "reply-address")
 
                                     self.result = YLeaf(YType.str, "result")
+                                    self._segment_path = lambda: "broadcast-reply-address" + "[reply-address='" + self.reply_address.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("reply_address",
-                                                    "result") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return (
-                                        self.reply_address.is_set or
-                                        self.result.is_set)
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.reply_address.yfilter != YFilter.not_set or
-                                        self.result.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "broadcast-reply-address" + "[reply-address='" + self.reply_address.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.reply_address.is_set or self.reply_address.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.reply_address.get_name_leafdata())
-                                    if (self.result.is_set or self.result.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.result.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "reply-address" or name == "result"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "reply-address"):
-                                        self.reply_address = value
-                                        self.reply_address.value_namespace = name_space
-                                        self.reply_address.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "result"):
-                                        self.result = value
-                                        self.result.value_namespace = name_space
-                                        self.result.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.broadcast_reply_address:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.broadcast_reply_address:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "broadcast-reply-addresses" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "broadcast-reply-address"):
-                                    for c in self.broadcast_reply_address:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.broadcast_reply_address.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "broadcast-reply-address"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-                        def has_data(self):
-                            return (
-                                self.reply_index.is_set or
-                                self.result.is_set or
-                                (self.broadcast_reply_addresses is not None and self.broadcast_reply_addresses.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.reply_index.yfilter != YFilter.not_set or
-                                self.result.yfilter != YFilter.not_set or
-                                (self.broadcast_reply_addresses is not None and self.broadcast_reply_addresses.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "reply" + "[reply-index='" + self.reply_index.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.reply_index.is_set or self.reply_index.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.reply_index.get_name_leafdata())
-                            if (self.result.is_set or self.result.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.result.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "broadcast-reply-addresses"):
-                                if (self.broadcast_reply_addresses is None):
-                                    self.broadcast_reply_addresses = Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses()
-                                    self.broadcast_reply_addresses.parent = self
-                                    self._children_name_map["broadcast_reply_addresses"] = "broadcast-reply-addresses"
-                                return self.broadcast_reply_addresses
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "broadcast-reply-addresses" or name == "reply-index" or name == "result"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "reply-index"):
-                                self.reply_index = value
-                                self.reply_index.value_namespace = name_space
-                                self.reply_index.value_namespace_prefix = name_space_prefix
-                            if(value_path == "result"):
-                                self.result = value
-                                self.result.value_namespace = name_space
-                                self.result.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.reply:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.reply:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "replies" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "reply"):
-                            for c in self.reply:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Ping.Output.PingResponse.Ipv4.Replies.Reply()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.reply.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "reply"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.destination.is_set or
-                        self.data_size.is_set or
-                        self.hits.is_set or
-                        self.interval.is_set or
-                        self.pattern.is_set or
-                        self.ping_error_response.is_set or
-                        self.repeat_count.is_set or
-                        self.rotate_pattern.is_set or
-                        self.rtt_avg.is_set or
-                        self.rtt_max.is_set or
-                        self.rtt_min.is_set or
-                        self.success_rate.is_set or
-                        self.sweep.is_set or
-                        self.sweep_max.is_set or
-                        self.sweep_min.is_set or
-                        self.timeout.is_set or
-                        self.total.is_set or
-                        (self.replies is not None and self.replies.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.destination.yfilter != YFilter.not_set or
-                        self.data_size.yfilter != YFilter.not_set or
-                        self.hits.yfilter != YFilter.not_set or
-                        self.interval.yfilter != YFilter.not_set or
-                        self.pattern.yfilter != YFilter.not_set or
-                        self.ping_error_response.yfilter != YFilter.not_set or
-                        self.repeat_count.yfilter != YFilter.not_set or
-                        self.rotate_pattern.yfilter != YFilter.not_set or
-                        self.rtt_avg.yfilter != YFilter.not_set or
-                        self.rtt_max.yfilter != YFilter.not_set or
-                        self.rtt_min.yfilter != YFilter.not_set or
-                        self.success_rate.yfilter != YFilter.not_set or
-                        self.sweep.yfilter != YFilter.not_set or
-                        self.sweep_max.yfilter != YFilter.not_set or
-                        self.sweep_min.yfilter != YFilter.not_set or
-                        self.timeout.yfilter != YFilter.not_set or
-                        self.total.yfilter != YFilter.not_set or
-                        (self.replies is not None and self.replies.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "ipv4" + "[destination='" + self.destination.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination.get_name_leafdata())
-                    if (self.data_size.is_set or self.data_size.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.data_size.get_name_leafdata())
-                    if (self.hits.is_set or self.hits.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.hits.get_name_leafdata())
-                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.interval.get_name_leafdata())
-                    if (self.pattern.is_set or self.pattern.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.pattern.get_name_leafdata())
-                    if (self.ping_error_response.is_set or self.ping_error_response.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ping_error_response.get_name_leafdata())
-                    if (self.repeat_count.is_set or self.repeat_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.repeat_count.get_name_leafdata())
-                    if (self.rotate_pattern.is_set or self.rotate_pattern.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rotate_pattern.get_name_leafdata())
-                    if (self.rtt_avg.is_set or self.rtt_avg.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_avg.get_name_leafdata())
-                    if (self.rtt_max.is_set or self.rtt_max.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_max.get_name_leafdata())
-                    if (self.rtt_min.is_set or self.rtt_min.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_min.get_name_leafdata())
-                    if (self.success_rate.is_set or self.success_rate.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.success_rate.get_name_leafdata())
-                    if (self.sweep.is_set or self.sweep.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep.get_name_leafdata())
-                    if (self.sweep_max.is_set or self.sweep_max.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep_max.get_name_leafdata())
-                    if (self.sweep_min.is_set or self.sweep_min.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep_min.get_name_leafdata())
-                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.timeout.get_name_leafdata())
-                    if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.total.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "replies"):
-                        if (self.replies is None):
-                            self.replies = Ping.Output.PingResponse.Ipv4.Replies()
-                            self.replies.parent = self
-                            self._children_name_map["replies"] = "replies"
-                        return self.replies
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "replies" or name == "destination" or name == "data-size" or name == "hits" or name == "interval" or name == "pattern" or name == "ping-error-response" or name == "repeat-count" or name == "rotate-pattern" or name == "rtt-avg" or name == "rtt-max" or name == "rtt-min" or name == "success-rate" or name == "sweep" or name == "sweep-max" or name == "sweep-min" or name == "timeout" or name == "total"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "destination"):
-                        self.destination = value
-                        self.destination.value_namespace = name_space
-                        self.destination.value_namespace_prefix = name_space_prefix
-                    if(value_path == "data-size"):
-                        self.data_size = value
-                        self.data_size.value_namespace = name_space
-                        self.data_size.value_namespace_prefix = name_space_prefix
-                    if(value_path == "hits"):
-                        self.hits = value
-                        self.hits.value_namespace = name_space
-                        self.hits.value_namespace_prefix = name_space_prefix
-                    if(value_path == "interval"):
-                        self.interval = value
-                        self.interval.value_namespace = name_space
-                        self.interval.value_namespace_prefix = name_space_prefix
-                    if(value_path == "pattern"):
-                        self.pattern = value
-                        self.pattern.value_namespace = name_space
-                        self.pattern.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ping-error-response"):
-                        self.ping_error_response = value
-                        self.ping_error_response.value_namespace = name_space
-                        self.ping_error_response.value_namespace_prefix = name_space_prefix
-                    if(value_path == "repeat-count"):
-                        self.repeat_count = value
-                        self.repeat_count.value_namespace = name_space
-                        self.repeat_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rotate-pattern"):
-                        self.rotate_pattern = value
-                        self.rotate_pattern.value_namespace = name_space
-                        self.rotate_pattern.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-avg"):
-                        self.rtt_avg = value
-                        self.rtt_avg.value_namespace = name_space
-                        self.rtt_avg.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-max"):
-                        self.rtt_max = value
-                        self.rtt_max.value_namespace = name_space
-                        self.rtt_max.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-min"):
-                        self.rtt_min = value
-                        self.rtt_min.value_namespace = name_space
-                        self.rtt_min.value_namespace_prefix = name_space_prefix
-                    if(value_path == "success-rate"):
-                        self.success_rate = value
-                        self.success_rate.value_namespace = name_space
-                        self.success_rate.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep"):
-                        self.sweep = value
-                        self.sweep.value_namespace = name_space
-                        self.sweep.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep-max"):
-                        self.sweep_max = value
-                        self.sweep_max.value_namespace = name_space
-                        self.sweep_max.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep-min"):
-                        self.sweep_min = value
-                        self.sweep_min.value_namespace = name_space
-                        self.sweep_min.value_namespace_prefix = name_space_prefix
-                    if(value_path == "timeout"):
-                        self.timeout = value
-                        self.timeout.value_namespace = name_space
-                        self.timeout.value_namespace_prefix = name_space_prefix
-                    if(value_path == "total"):
-                        self.total = value
-                        self.total.value_namespace = name_space
-                        self.total.value_namespace_prefix = name_space_prefix
+                                    self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, ['reply_address', 'result'], name, value)
 
 
             class Ipv6(Entity):
@@ -2235,6 +1106,10 @@ class Ping(Entity):
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "ping-response"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"replies" : ("replies", Ping.Output.PingResponse.Ipv6.Replies)}
+                    self._child_list_classes = {}
 
                     self.data_size = YLeaf(YType.uint64, "data-size")
 
@@ -2272,45 +1147,11 @@ class Ping(Entity):
                     self.replies.parent = self
                     self._children_name_map["replies"] = "replies"
                     self._children_yang_names.add("replies")
+                    self._segment_path = lambda: "ipv6"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("data_size",
-                                    "destination",
-                                    "hits",
-                                    "interval",
-                                    "pattern",
-                                    "repeat_count",
-                                    "rotate_pattern",
-                                    "rtt_avg",
-                                    "rtt_max",
-                                    "rtt_min",
-                                    "success_rate",
-                                    "sweep",
-                                    "sweep_max",
-                                    "sweep_min",
-                                    "timeout",
-                                    "total") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ping.Output.PingResponse.Ipv6, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ping.Output.PingResponse.Ipv6, self).__setattr__(name, value)
+                    self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['data_size', 'destination', 'hits', 'interval', 'pattern', 'repeat_count', 'rotate_pattern', 'rtt_avg', 'rtt_max', 'rtt_min', 'success_rate', 'sweep', 'sweep_max', 'sweep_min', 'timeout', 'total'], name, value)
 
 
                 class Replies(Entity):
@@ -2334,32 +1175,17 @@ class Ping(Entity):
 
                         self.yang_name = "replies"
                         self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"reply" : ("reply", Ping.Output.PingResponse.Ipv6.Replies.Reply)}
 
                         self.reply = YList(self)
+                        self._segment_path = lambda: "replies"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ping.Output.PingResponse.Ipv6.Replies, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ping.Output.PingResponse.Ipv6.Replies, self).__setattr__(name, value)
+                        self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies, [], name, value)
 
 
                     class Reply(Entity):
@@ -2390,494 +1216,19 @@ class Ping(Entity):
 
                             self.yang_name = "reply"
                             self.yang_parent_name = "replies"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.reply_index = YLeaf(YType.uint64, "reply-index")
 
                             self.result = YLeaf(YType.str, "result")
+                            self._segment_path = lambda: "reply" + "[reply-index='" + self.reply_index.get() + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/replies/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("reply_index",
-                                            "result") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ping.Output.PingResponse.Ipv6.Replies.Reply, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ping.Output.PingResponse.Ipv6.Replies.Reply, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.reply_index.is_set or
-                                self.result.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.reply_index.yfilter != YFilter.not_set or
-                                self.result.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "reply" + "[reply-index='" + self.reply_index.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                path_buffer = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/replies/%s" % self.get_segment_path()
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.reply_index.is_set or self.reply_index.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.reply_index.get_name_leafdata())
-                            if (self.result.is_set or self.result.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.result.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "reply-index" or name == "result"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "reply-index"):
-                                self.reply_index = value
-                                self.reply_index.value_namespace = name_space
-                                self.reply_index.value_namespace_prefix = name_space_prefix
-                            if(value_path == "result"):
-                                self.result = value
-                                self.result.value_namespace = name_space
-                                self.result.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.reply:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.reply:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "replies" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "reply"):
-                            for c in self.reply:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Ping.Output.PingResponse.Ipv6.Replies.Reply()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.reply.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "reply"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.data_size.is_set or
-                        self.destination.is_set or
-                        self.hits.is_set or
-                        self.interval.is_set or
-                        self.pattern.is_set or
-                        self.repeat_count.is_set or
-                        self.rotate_pattern.is_set or
-                        self.rtt_avg.is_set or
-                        self.rtt_max.is_set or
-                        self.rtt_min.is_set or
-                        self.success_rate.is_set or
-                        self.sweep.is_set or
-                        self.sweep_max.is_set or
-                        self.sweep_min.is_set or
-                        self.timeout.is_set or
-                        self.total.is_set or
-                        (self.replies is not None and self.replies.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.data_size.yfilter != YFilter.not_set or
-                        self.destination.yfilter != YFilter.not_set or
-                        self.hits.yfilter != YFilter.not_set or
-                        self.interval.yfilter != YFilter.not_set or
-                        self.pattern.yfilter != YFilter.not_set or
-                        self.repeat_count.yfilter != YFilter.not_set or
-                        self.rotate_pattern.yfilter != YFilter.not_set or
-                        self.rtt_avg.yfilter != YFilter.not_set or
-                        self.rtt_max.yfilter != YFilter.not_set or
-                        self.rtt_min.yfilter != YFilter.not_set or
-                        self.success_rate.yfilter != YFilter.not_set or
-                        self.sweep.yfilter != YFilter.not_set or
-                        self.sweep_max.yfilter != YFilter.not_set or
-                        self.sweep_min.yfilter != YFilter.not_set or
-                        self.timeout.yfilter != YFilter.not_set or
-                        self.total.yfilter != YFilter.not_set or
-                        (self.replies is not None and self.replies.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "ipv6" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.data_size.is_set or self.data_size.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.data_size.get_name_leafdata())
-                    if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination.get_name_leafdata())
-                    if (self.hits.is_set or self.hits.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.hits.get_name_leafdata())
-                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.interval.get_name_leafdata())
-                    if (self.pattern.is_set or self.pattern.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.pattern.get_name_leafdata())
-                    if (self.repeat_count.is_set or self.repeat_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.repeat_count.get_name_leafdata())
-                    if (self.rotate_pattern.is_set or self.rotate_pattern.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rotate_pattern.get_name_leafdata())
-                    if (self.rtt_avg.is_set or self.rtt_avg.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_avg.get_name_leafdata())
-                    if (self.rtt_max.is_set or self.rtt_max.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_max.get_name_leafdata())
-                    if (self.rtt_min.is_set or self.rtt_min.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.rtt_min.get_name_leafdata())
-                    if (self.success_rate.is_set or self.success_rate.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.success_rate.get_name_leafdata())
-                    if (self.sweep.is_set or self.sweep.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep.get_name_leafdata())
-                    if (self.sweep_max.is_set or self.sweep_max.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep_max.get_name_leafdata())
-                    if (self.sweep_min.is_set or self.sweep_min.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sweep_min.get_name_leafdata())
-                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.timeout.get_name_leafdata())
-                    if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.total.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "replies"):
-                        if (self.replies is None):
-                            self.replies = Ping.Output.PingResponse.Ipv6.Replies()
-                            self.replies.parent = self
-                            self._children_name_map["replies"] = "replies"
-                        return self.replies
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "replies" or name == "data-size" or name == "destination" or name == "hits" or name == "interval" or name == "pattern" or name == "repeat-count" or name == "rotate-pattern" or name == "rtt-avg" or name == "rtt-max" or name == "rtt-min" or name == "success-rate" or name == "sweep" or name == "sweep-max" or name == "sweep-min" or name == "timeout" or name == "total"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "data-size"):
-                        self.data_size = value
-                        self.data_size.value_namespace = name_space
-                        self.data_size.value_namespace_prefix = name_space_prefix
-                    if(value_path == "destination"):
-                        self.destination = value
-                        self.destination.value_namespace = name_space
-                        self.destination.value_namespace_prefix = name_space_prefix
-                    if(value_path == "hits"):
-                        self.hits = value
-                        self.hits.value_namespace = name_space
-                        self.hits.value_namespace_prefix = name_space_prefix
-                    if(value_path == "interval"):
-                        self.interval = value
-                        self.interval.value_namespace = name_space
-                        self.interval.value_namespace_prefix = name_space_prefix
-                    if(value_path == "pattern"):
-                        self.pattern = value
-                        self.pattern.value_namespace = name_space
-                        self.pattern.value_namespace_prefix = name_space_prefix
-                    if(value_path == "repeat-count"):
-                        self.repeat_count = value
-                        self.repeat_count.value_namespace = name_space
-                        self.repeat_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rotate-pattern"):
-                        self.rotate_pattern = value
-                        self.rotate_pattern.value_namespace = name_space
-                        self.rotate_pattern.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-avg"):
-                        self.rtt_avg = value
-                        self.rtt_avg.value_namespace = name_space
-                        self.rtt_avg.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-max"):
-                        self.rtt_max = value
-                        self.rtt_max.value_namespace = name_space
-                        self.rtt_max.value_namespace_prefix = name_space_prefix
-                    if(value_path == "rtt-min"):
-                        self.rtt_min = value
-                        self.rtt_min.value_namespace = name_space
-                        self.rtt_min.value_namespace_prefix = name_space_prefix
-                    if(value_path == "success-rate"):
-                        self.success_rate = value
-                        self.success_rate.value_namespace = name_space
-                        self.success_rate.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep"):
-                        self.sweep = value
-                        self.sweep.value_namespace = name_space
-                        self.sweep.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep-max"):
-                        self.sweep_max = value
-                        self.sweep_max.value_namespace = name_space
-                        self.sweep_max.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sweep-min"):
-                        self.sweep_min = value
-                        self.sweep_min.value_namespace = name_space
-                        self.sweep_min.value_namespace_prefix = name_space_prefix
-                    if(value_path == "timeout"):
-                        self.timeout = value
-                        self.timeout.value_namespace = name_space
-                        self.timeout.value_namespace_prefix = name_space_prefix
-                    if(value_path == "total"):
-                        self.total = value
-                        self.total.value_namespace = name_space
-                        self.total.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.ipv4:
-                    if (c.has_data()):
-                        return True
-                return (self.ipv6 is not None and self.ipv6.has_data())
-
-            def has_operation(self):
-                for c in self.ipv4:
-                    if (c.has_operation()):
-                        return True
-                return (
-                    self.yfilter != YFilter.not_set or
-                    (self.ipv6 is not None and self.ipv6.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ping-response" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ping-act:ping/output/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "ipv4"):
-                    for c in self.ipv4:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Ping.Output.PingResponse.Ipv4()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.ipv4.append(c)
-                    return c
-
-                if (child_yang_name == "ipv6"):
-                    if (self.ipv6 is None):
-                        self.ipv6 = Ping.Output.PingResponse.Ipv6()
-                        self.ipv6.parent = self
-                        self._children_name_map["ipv6"] = "ipv6"
-                    return self.ipv6
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ipv4" or name == "ipv6"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.ping_response is not None and self.ping_response.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.ping_response is not None and self.ping_response.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "output" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ping-act:ping/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ping-response"):
-                if (self.ping_response is None):
-                    self.ping_response = Ping.Output.PingResponse()
-                    self.ping_response.parent = self
-                    self._children_name_map["ping_response"] = "ping-response"
-                return self.ping_response
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ping-response"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.input is not None and self.input.has_data()) or
-            (self.output is not None and self.output.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()) or
-            (self.output is not None and self.output.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-ping-act:ping" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Ping.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        if (child_yang_name == "output"):
-            if (self.output is None):
-                self.output = Ping.Output()
-                self.output.parent = self
-                self._children_name_map["output"] = "output"
-            return self.output
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input" or name == "output"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies.Reply, ['reply_index', 'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ping()

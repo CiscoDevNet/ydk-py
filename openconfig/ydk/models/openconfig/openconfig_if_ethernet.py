@@ -4,7 +4,6 @@ Model for managing Ethernet interfaces \-\- augments the IETF YANG
 model for interfaces described by RFC 7223
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,7 +11,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ethernet_Speed(Identity):
+class ETHERNETSPEED(Identity):
     """
     base type to specify available Ethernet link
     speeds
@@ -25,12 +24,12 @@ class Ethernet_Speed(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Ethernet_Speed, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:ETHERNET_SPEED")
+        super(ETHERNETSPEED, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:ETHERNET_SPEED")
 
 
-class Speed_1Gb(Identity):
+class SPEED100GB(Identity):
     """
-    1 GBps Ethernet
+    100 GBps Ethernet
     
     
 
@@ -40,10 +39,25 @@ class Speed_1Gb(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Speed_1Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_1GB")
+        super(SPEED100GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100GB")
 
 
-class Speed_10Gb(Identity):
+class SPEED100MB(Identity):
+    """
+    100 Mbps Ethernet
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self):
+        super(SPEED100MB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100MB")
+
+
+class SPEED10GB(Identity):
     """
     10 GBps Ethernet
     
@@ -55,40 +69,10 @@ class Speed_10Gb(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Speed_10Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10GB")
+        super(SPEED10GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10GB")
 
 
-class Speed_50Gb(Identity):
-    """
-    50 GBps Ethernet
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self):
-        super(Speed_50Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_50GB")
-
-
-class Speed_25Gb(Identity):
-    """
-    25 GBps Ethernet
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self):
-        super(Speed_25Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_25GB")
-
-
-class Speed_10Mb(Identity):
+class SPEED10MB(Identity):
     """
     10 Mbps Ethernet
     
@@ -100,10 +84,40 @@ class Speed_10Mb(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Speed_10Mb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10MB")
+        super(SPEED10MB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10MB")
 
 
-class Speed_40Gb(Identity):
+class SPEED1GB(Identity):
+    """
+    1 GBps Ethernet
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self):
+        super(SPEED1GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_1GB")
+
+
+class SPEED25GB(Identity):
+    """
+    25 GBps Ethernet
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self):
+        super(SPEED25GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_25GB")
+
+
+class SPEED40GB(Identity):
     """
     40 GBps Ethernet
     
@@ -115,10 +129,25 @@ class Speed_40Gb(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Speed_40Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_40GB")
+        super(SPEED40GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_40GB")
 
 
-class Speed_Unknown(Identity):
+class SPEED50GB(Identity):
+    """
+    50 GBps Ethernet
+    
+    
+
+    """
+
+    _prefix = 'oc-eth'
+    _revision = '2016-05-26'
+
+    def __init__(self):
+        super(SPEED50GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_50GB")
+
+
+class SPEEDUNKNOWN(Identity):
     """
     Interface speed is unknown.  Systems may report
     speed UNKNOWN when an interface is down or unpopuplated (e.g.,
@@ -132,36 +161,6 @@ class Speed_Unknown(Identity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Speed_Unknown, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_UNKNOWN")
-
-
-class Speed_100Gb(Identity):
-    """
-    100 GBps Ethernet
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self):
-        super(Speed_100Gb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100GB")
-
-
-class Speed_100Mb(Identity):
-    """
-    100 Mbps Ethernet
-    
-    
-
-    """
-
-    _prefix = 'oc-eth'
-    _revision = '2016-05-26'
-
-    def __init__(self):
-        super(Speed_100Mb, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100MB")
+        super(SPEEDUNKNOWN, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_UNKNOWN")
 
 

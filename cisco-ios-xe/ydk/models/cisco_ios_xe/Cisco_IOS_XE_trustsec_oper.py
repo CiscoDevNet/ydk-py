@@ -7,7 +7,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -214,6 +213,10 @@ class TrustsecState(Entity):
 
         self.yang_name = "trustsec-state"
         self.yang_parent_name = "Cisco-IOS-XE-trustsec-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"cts-rolebased-policies" : ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies), "cts-rolebased-sgtmaps" : ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps), "cts-sxp-connections" : ("cts_sxp_connections", TrustsecState.CtsSxpConnections)}
+        self._child_list_classes = {}
 
         self.cts_rolebased_policies = TrustsecState.CtsRolebasedPolicies()
         self.cts_rolebased_policies.parent = self
@@ -229,274 +232,7 @@ class TrustsecState(Entity):
         self.cts_sxp_connections.parent = self
         self._children_name_map["cts_sxp_connections"] = "cts-sxp-connections"
         self._children_yang_names.add("cts-sxp-connections")
-
-
-    class CtsRolebasedSgtmaps(Entity):
-        """
-        Security Group Tag value corresponding to an IP\-Address 
-        in the given VRF instance in this device
-        
-        .. attribute:: cts_rolebased_sgtmap
-        
-        	Security Group Tag is assigned for an IP\-Address based on the user permissions and authorization  level as configured by the network administrator in Identity Service Engine server or in the device locally
-        	**type**\: list of    :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
-        
-        
-
-        """
-
-        _prefix = 'trustsec-ios-xe-oper'
-        _revision = '2017-02-07'
-
-        def __init__(self):
-            super(TrustsecState.CtsRolebasedSgtmaps, self).__init__()
-
-            self.yang_name = "cts-rolebased-sgtmaps"
-            self.yang_parent_name = "trustsec-state"
-
-            self.cts_rolebased_sgtmap = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(TrustsecState.CtsRolebasedSgtmaps, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(TrustsecState.CtsRolebasedSgtmaps, self).__setattr__(name, value)
-
-
-        class CtsRolebasedSgtmap(Entity):
-            """
-            Security Group Tag is assigned for an IP\-Address
-            based on the user permissions and authorization 
-            level as configured by the network administrator
-            in Identity Service Engine server or in the device locally
-            
-            .. attribute:: ip  <key>
-            
-            	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
-            	**type**\: one of the below types:
-            
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-            
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-            
-            
-            ----
-            .. attribute:: vrf_name  <key>
-            
-            	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
-            	**type**\:  str
-            
-            .. attribute:: sgt
-            
-            	Security Group Tag value corresponding to the given IP\-Address
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: source
-            
-            	Source information via which the Security Group Tag binding was learned in this device
-            	**type**\:   :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
-            
-            
-
-            """
-
-            _prefix = 'trustsec-ios-xe-oper'
-            _revision = '2017-02-07'
-
-            def __init__(self):
-                super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__init__()
-
-                self.yang_name = "cts-rolebased-sgtmap"
-                self.yang_parent_name = "cts-rolebased-sgtmaps"
-
-                self.ip = YLeaf(YType.str, "ip")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.sgt = YLeaf(YType.int32, "sgt")
-
-                self.source = YLeaf(YType.enumeration, "source")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ip",
-                                "vrf_name",
-                                "sgt",
-                                "source") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ip.is_set or
-                    self.vrf_name.is_set or
-                    self.sgt.is_set or
-                    self.source.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ip.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set or
-                    self.sgt.yfilter != YFilter.not_set or
-                    self.source.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cts-rolebased-sgtmap" + "[ip='" + self.ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ip.get_name_leafdata())
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-                if (self.sgt.is_set or self.sgt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.sgt.get_name_leafdata())
-                if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ip" or name == "vrf-name" or name == "sgt" or name == "source"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ip"):
-                    self.ip = value
-                    self.ip.value_namespace = name_space
-                    self.ip.value_namespace_prefix = name_space_prefix
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "sgt"):
-                    self.sgt = value
-                    self.sgt.value_namespace = name_space
-                    self.sgt.value_namespace_prefix = name_space_prefix
-                if(value_path == "source"):
-                    self.source = value
-                    self.source.value_namespace = name_space
-                    self.source.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cts_rolebased_sgtmap:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cts_rolebased_sgtmap:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cts-rolebased-sgtmaps" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cts-rolebased-sgtmap"):
-                for c in self.cts_rolebased_sgtmap:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cts_rolebased_sgtmap.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cts-rolebased-sgtmap"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+        self._segment_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state"
 
 
     class CtsRolebasedPolicies(Entity):
@@ -522,32 +258,17 @@ class TrustsecState(Entity):
 
             self.yang_name = "cts-rolebased-policies"
             self.yang_parent_name = "trustsec-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cts-rolebased-policy" : ("cts_rolebased_policy", TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy)}
 
             self.cts_rolebased_policy = YList(self)
+            self._segment_path = lambda: "cts-rolebased-policies"
+            self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(TrustsecState.CtsRolebasedPolicies, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(TrustsecState.CtsRolebasedPolicies, self).__setattr__(name, value)
+            self._perform_setattr(TrustsecState.CtsRolebasedPolicies, [], name, value)
 
 
         class CtsRolebasedPolicy(Entity):
@@ -670,6 +391,10 @@ class TrustsecState(Entity):
 
                 self.yang_name = "cts-rolebased-policy"
                 self.yang_parent_name = "cts-rolebased-policies"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.src_sgt = YLeaf(YType.int32, "src-sgt")
 
@@ -700,260 +425,118 @@ class TrustsecState(Entity):
                 self.total_deny_count = YLeaf(YType.uint64, "total-deny-count")
 
                 self.total_permit_count = YLeaf(YType.uint64, "total-permit-count")
+                self._segment_path = lambda: "cts-rolebased-policy" + "[src-sgt='" + self.src_sgt.get() + "']" + "[dst-sgt='" + self.dst_sgt.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("src_sgt",
-                                "dst_sgt",
-                                "hardware_deny_count",
-                                "hardware_monitor_count",
-                                "hardware_permit_count",
-                                "last_updated_time",
-                                "monitor_mode",
-                                "num_of_sgacl",
-                                "policy_life_time",
-                                "sgacl_name",
-                                "software_deny_count",
-                                "software_monitor_count",
-                                "software_permit_count",
-                                "total_deny_count",
-                                "total_permit_count") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy, self).__setattr__(name, value)
+                self._perform_setattr(TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy, ['src_sgt', 'dst_sgt', 'hardware_deny_count', 'hardware_monitor_count', 'hardware_permit_count', 'last_updated_time', 'monitor_mode', 'num_of_sgacl', 'policy_life_time', 'sgacl_name', 'software_deny_count', 'software_monitor_count', 'software_permit_count', 'total_deny_count', 'total_permit_count'], name, value)
 
-            def has_data(self):
-                return (
-                    self.src_sgt.is_set or
-                    self.dst_sgt.is_set or
-                    self.hardware_deny_count.is_set or
-                    self.hardware_monitor_count.is_set or
-                    self.hardware_permit_count.is_set or
-                    self.last_updated_time.is_set or
-                    self.monitor_mode.is_set or
-                    self.num_of_sgacl.is_set or
-                    self.policy_life_time.is_set or
-                    self.sgacl_name.is_set or
-                    self.software_deny_count.is_set or
-                    self.software_monitor_count.is_set or
-                    self.software_permit_count.is_set or
-                    self.total_deny_count.is_set or
-                    self.total_permit_count.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.src_sgt.yfilter != YFilter.not_set or
-                    self.dst_sgt.yfilter != YFilter.not_set or
-                    self.hardware_deny_count.yfilter != YFilter.not_set or
-                    self.hardware_monitor_count.yfilter != YFilter.not_set or
-                    self.hardware_permit_count.yfilter != YFilter.not_set or
-                    self.last_updated_time.yfilter != YFilter.not_set or
-                    self.monitor_mode.yfilter != YFilter.not_set or
-                    self.num_of_sgacl.yfilter != YFilter.not_set or
-                    self.policy_life_time.yfilter != YFilter.not_set or
-                    self.sgacl_name.yfilter != YFilter.not_set or
-                    self.software_deny_count.yfilter != YFilter.not_set or
-                    self.software_monitor_count.yfilter != YFilter.not_set or
-                    self.software_permit_count.yfilter != YFilter.not_set or
-                    self.total_deny_count.yfilter != YFilter.not_set or
-                    self.total_permit_count.yfilter != YFilter.not_set)
+    class CtsRolebasedSgtmaps(Entity):
+        """
+        Security Group Tag value corresponding to an IP\-Address 
+        in the given VRF instance in this device
+        
+        .. attribute:: cts_rolebased_sgtmap
+        
+        	Security Group Tag is assigned for an IP\-Address based on the user permissions and authorization  level as configured by the network administrator in Identity Service Engine server or in the device locally
+        	**type**\: list of    :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cts-rolebased-policy" + "[src-sgt='" + self.src_sgt.get() + "']" + "[dst-sgt='" + self.dst_sgt.get() + "']" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'trustsec-ios-xe-oper'
+        _revision = '2017-02-07'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-policies/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(TrustsecState.CtsRolebasedSgtmaps, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.src_sgt.is_set or self.src_sgt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.src_sgt.get_name_leafdata())
-                if (self.dst_sgt.is_set or self.dst_sgt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dst_sgt.get_name_leafdata())
-                if (self.hardware_deny_count.is_set or self.hardware_deny_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.hardware_deny_count.get_name_leafdata())
-                if (self.hardware_monitor_count.is_set or self.hardware_monitor_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.hardware_monitor_count.get_name_leafdata())
-                if (self.hardware_permit_count.is_set or self.hardware_permit_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.hardware_permit_count.get_name_leafdata())
-                if (self.last_updated_time.is_set or self.last_updated_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.last_updated_time.get_name_leafdata())
-                if (self.monitor_mode.is_set or self.monitor_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.monitor_mode.get_name_leafdata())
-                if (self.num_of_sgacl.is_set or self.num_of_sgacl.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.num_of_sgacl.get_name_leafdata())
-                if (self.policy_life_time.is_set or self.policy_life_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.policy_life_time.get_name_leafdata())
-                if (self.sgacl_name.is_set or self.sgacl_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.sgacl_name.get_name_leafdata())
-                if (self.software_deny_count.is_set or self.software_deny_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.software_deny_count.get_name_leafdata())
-                if (self.software_monitor_count.is_set or self.software_monitor_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.software_monitor_count.get_name_leafdata())
-                if (self.software_permit_count.is_set or self.software_permit_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.software_permit_count.get_name_leafdata())
-                if (self.total_deny_count.is_set or self.total_deny_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.total_deny_count.get_name_leafdata())
-                if (self.total_permit_count.is_set or self.total_permit_count.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.total_permit_count.get_name_leafdata())
+            self.yang_name = "cts-rolebased-sgtmaps"
+            self.yang_parent_name = "trustsec-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cts-rolebased-sgtmap" : ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap)}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.cts_rolebased_sgtmap = YList(self)
+            self._segment_path = lambda: "cts-rolebased-sgtmaps"
+            self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps, [], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "src-sgt" or name == "dst-sgt" or name == "hardware-deny-count" or name == "hardware-monitor-count" or name == "hardware-permit-count" or name == "last-updated-time" or name == "monitor-mode" or name == "num-of-sgacl" or name == "policy-life-time" or name == "sgacl-name" or name == "software-deny-count" or name == "software-monitor-count" or name == "software-permit-count" or name == "total-deny-count" or name == "total-permit-count"):
-                    return True
-                return False
+        class CtsRolebasedSgtmap(Entity):
+            """
+            Security Group Tag is assigned for an IP\-Address
+            based on the user permissions and authorization 
+            level as configured by the network administrator
+            in Identity Service Engine server or in the device locally
+            
+            .. attribute:: ip  <key>
+            
+            	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+            
+            
+            ----
+            	**type**\:  str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+            
+            
+            ----
+            .. attribute:: vrf_name  <key>
+            
+            	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
+            	**type**\:  str
+            
+            .. attribute:: sgt
+            
+            	Security Group Tag value corresponding to the given IP\-Address
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: source
+            
+            	Source information via which the Security Group Tag binding was learned in this device
+            	**type**\:   :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
+            
+            
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "src-sgt"):
-                    self.src_sgt = value
-                    self.src_sgt.value_namespace = name_space
-                    self.src_sgt.value_namespace_prefix = name_space_prefix
-                if(value_path == "dst-sgt"):
-                    self.dst_sgt = value
-                    self.dst_sgt.value_namespace = name_space
-                    self.dst_sgt.value_namespace_prefix = name_space_prefix
-                if(value_path == "hardware-deny-count"):
-                    self.hardware_deny_count = value
-                    self.hardware_deny_count.value_namespace = name_space
-                    self.hardware_deny_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "hardware-monitor-count"):
-                    self.hardware_monitor_count = value
-                    self.hardware_monitor_count.value_namespace = name_space
-                    self.hardware_monitor_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "hardware-permit-count"):
-                    self.hardware_permit_count = value
-                    self.hardware_permit_count.value_namespace = name_space
-                    self.hardware_permit_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "last-updated-time"):
-                    self.last_updated_time = value
-                    self.last_updated_time.value_namespace = name_space
-                    self.last_updated_time.value_namespace_prefix = name_space_prefix
-                if(value_path == "monitor-mode"):
-                    self.monitor_mode = value
-                    self.monitor_mode.value_namespace = name_space
-                    self.monitor_mode.value_namespace_prefix = name_space_prefix
-                if(value_path == "num-of-sgacl"):
-                    self.num_of_sgacl = value
-                    self.num_of_sgacl.value_namespace = name_space
-                    self.num_of_sgacl.value_namespace_prefix = name_space_prefix
-                if(value_path == "policy-life-time"):
-                    self.policy_life_time = value
-                    self.policy_life_time.value_namespace = name_space
-                    self.policy_life_time.value_namespace_prefix = name_space_prefix
-                if(value_path == "sgacl-name"):
-                    self.sgacl_name = value
-                    self.sgacl_name.value_namespace = name_space
-                    self.sgacl_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "software-deny-count"):
-                    self.software_deny_count = value
-                    self.software_deny_count.value_namespace = name_space
-                    self.software_deny_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "software-monitor-count"):
-                    self.software_monitor_count = value
-                    self.software_monitor_count.value_namespace = name_space
-                    self.software_monitor_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "software-permit-count"):
-                    self.software_permit_count = value
-                    self.software_permit_count.value_namespace = name_space
-                    self.software_permit_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "total-deny-count"):
-                    self.total_deny_count = value
-                    self.total_deny_count.value_namespace = name_space
-                    self.total_deny_count.value_namespace_prefix = name_space_prefix
-                if(value_path == "total-permit-count"):
-                    self.total_permit_count = value
-                    self.total_permit_count.value_namespace = name_space
-                    self.total_permit_count.value_namespace_prefix = name_space_prefix
+            """
 
-        def has_data(self):
-            for c in self.cts_rolebased_policy:
-                if (c.has_data()):
-                    return True
-            return False
+            _prefix = 'trustsec-ios-xe-oper'
+            _revision = '2017-02-07'
 
-        def has_operation(self):
-            for c in self.cts_rolebased_policy:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
+            def __init__(self):
+                super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cts-rolebased-policies" + path_buffer
+                self.yang_name = "cts-rolebased-sgtmap"
+                self.yang_parent_name = "cts-rolebased-sgtmaps"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            return path_buffer
+                self.ip = YLeaf(YType.str, "ip")
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-            leaf_name_data = LeafDataList()
+                self.sgt = YLeaf(YType.int32, "sgt")
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+                self.source = YLeaf(YType.enumeration, "source")
+                self._segment_path = lambda: "cts-rolebased-sgtmap" + "[ip='" + self.ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/%s" % self._segment_path()
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cts-rolebased-policy"):
-                for c in self.cts_rolebased_policy:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cts_rolebased_policy.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cts-rolebased-policy"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+            def __setattr__(self, name, value):
+                self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, ['ip', 'vrf_name', 'sgt', 'source'], name, value)
 
 
     class CtsSxpConnections(Entity):
@@ -981,32 +564,17 @@ class TrustsecState(Entity):
 
             self.yang_name = "cts-sxp-connections"
             self.yang_parent_name = "trustsec-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cts-sxp-connection" : ("cts_sxp_connection", TrustsecState.CtsSxpConnections.CtsSxpConnection)}
 
             self.cts_sxp_connection = YList(self)
+            self._segment_path = lambda: "cts-sxp-connections"
+            self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(TrustsecState.CtsSxpConnections, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(TrustsecState.CtsSxpConnections, self).__setattr__(name, value)
+            self._perform_setattr(TrustsecState.CtsSxpConnections, [], name, value)
 
 
         class CtsSxpConnection(Entity):
@@ -1096,6 +664,10 @@ class TrustsecState(Entity):
 
                 self.yang_name = "cts-sxp-connection"
                 self.yang_parent_name = "cts-sxp-connections"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.peer_ip = YLeaf(YType.str, "peer-ip")
 
@@ -1112,263 +684,11 @@ class TrustsecState(Entity):
                 self.speaker_duration = YLeaf(YType.uint64, "speaker-duration")
 
                 self.speaker_state = YLeaf(YType.enumeration, "speaker-state")
+                self._segment_path = lambda: "cts-sxp-connection" + "[peer-ip='" + self.peer_ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-sxp-connections/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("peer_ip",
-                                "vrf_name",
-                                "listener_duration",
-                                "listener_state",
-                                "local_mode",
-                                "source_ip",
-                                "speaker_duration",
-                                "speaker_state") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(TrustsecState.CtsSxpConnections.CtsSxpConnection, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(TrustsecState.CtsSxpConnections.CtsSxpConnection, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.peer_ip.is_set or
-                    self.vrf_name.is_set or
-                    self.listener_duration.is_set or
-                    self.listener_state.is_set or
-                    self.local_mode.is_set or
-                    self.source_ip.is_set or
-                    self.speaker_duration.is_set or
-                    self.speaker_state.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.peer_ip.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set or
-                    self.listener_duration.yfilter != YFilter.not_set or
-                    self.listener_state.yfilter != YFilter.not_set or
-                    self.local_mode.yfilter != YFilter.not_set or
-                    self.source_ip.yfilter != YFilter.not_set or
-                    self.speaker_duration.yfilter != YFilter.not_set or
-                    self.speaker_state.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cts-sxp-connection" + "[peer-ip='" + self.peer_ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-sxp-connections/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.peer_ip.is_set or self.peer_ip.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.peer_ip.get_name_leafdata())
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-                if (self.listener_duration.is_set or self.listener_duration.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.listener_duration.get_name_leafdata())
-                if (self.listener_state.is_set or self.listener_state.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.listener_state.get_name_leafdata())
-                if (self.local_mode.is_set or self.local_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.local_mode.get_name_leafdata())
-                if (self.source_ip.is_set or self.source_ip.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source_ip.get_name_leafdata())
-                if (self.speaker_duration.is_set or self.speaker_duration.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.speaker_duration.get_name_leafdata())
-                if (self.speaker_state.is_set or self.speaker_state.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.speaker_state.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "peer-ip" or name == "vrf-name" or name == "listener-duration" or name == "listener-state" or name == "local-mode" or name == "source-ip" or name == "speaker-duration" or name == "speaker-state"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "peer-ip"):
-                    self.peer_ip = value
-                    self.peer_ip.value_namespace = name_space
-                    self.peer_ip.value_namespace_prefix = name_space_prefix
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "listener-duration"):
-                    self.listener_duration = value
-                    self.listener_duration.value_namespace = name_space
-                    self.listener_duration.value_namespace_prefix = name_space_prefix
-                if(value_path == "listener-state"):
-                    self.listener_state = value
-                    self.listener_state.value_namespace = name_space
-                    self.listener_state.value_namespace_prefix = name_space_prefix
-                if(value_path == "local-mode"):
-                    self.local_mode = value
-                    self.local_mode.value_namespace = name_space
-                    self.local_mode.value_namespace_prefix = name_space_prefix
-                if(value_path == "source-ip"):
-                    self.source_ip = value
-                    self.source_ip.value_namespace = name_space
-                    self.source_ip.value_namespace_prefix = name_space_prefix
-                if(value_path == "speaker-duration"):
-                    self.speaker_duration = value
-                    self.speaker_duration.value_namespace = name_space
-                    self.speaker_duration.value_namespace_prefix = name_space_prefix
-                if(value_path == "speaker-state"):
-                    self.speaker_state = value
-                    self.speaker_state.value_namespace = name_space
-                    self.speaker_state.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cts_sxp_connection:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cts_sxp_connection:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cts-sxp-connections" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cts-sxp-connection"):
-                for c in self.cts_sxp_connection:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = TrustsecState.CtsSxpConnections.CtsSxpConnection()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cts_sxp_connection.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cts-sxp-connection"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.cts_rolebased_policies is not None and self.cts_rolebased_policies.has_data()) or
-            (self.cts_rolebased_sgtmaps is not None and self.cts_rolebased_sgtmaps.has_data()) or
-            (self.cts_sxp_connections is not None and self.cts_sxp_connections.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.cts_rolebased_policies is not None and self.cts_rolebased_policies.has_operation()) or
-            (self.cts_rolebased_sgtmaps is not None and self.cts_rolebased_sgtmaps.has_operation()) or
-            (self.cts_sxp_connections is not None and self.cts_sxp_connections.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-trustsec-oper:trustsec-state" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cts-rolebased-policies"):
-            if (self.cts_rolebased_policies is None):
-                self.cts_rolebased_policies = TrustsecState.CtsRolebasedPolicies()
-                self.cts_rolebased_policies.parent = self
-                self._children_name_map["cts_rolebased_policies"] = "cts-rolebased-policies"
-            return self.cts_rolebased_policies
-
-        if (child_yang_name == "cts-rolebased-sgtmaps"):
-            if (self.cts_rolebased_sgtmaps is None):
-                self.cts_rolebased_sgtmaps = TrustsecState.CtsRolebasedSgtmaps()
-                self.cts_rolebased_sgtmaps.parent = self
-                self._children_name_map["cts_rolebased_sgtmaps"] = "cts-rolebased-sgtmaps"
-            return self.cts_rolebased_sgtmaps
-
-        if (child_yang_name == "cts-sxp-connections"):
-            if (self.cts_sxp_connections is None):
-                self.cts_sxp_connections = TrustsecState.CtsSxpConnections()
-                self.cts_sxp_connections.parent = self
-                self._children_name_map["cts_sxp_connections"] = "cts-sxp-connections"
-            return self.cts_sxp_connections
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cts-rolebased-policies" or name == "cts-rolebased-sgtmaps" or name == "cts-sxp-connections"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(TrustsecState.CtsSxpConnections.CtsSxpConnection, ['peer_ip', 'vrf_name', 'listener_duration', 'listener_state', 'local_mode', 'source_ip', 'speaker_duration', 'speaker_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TrustsecState()

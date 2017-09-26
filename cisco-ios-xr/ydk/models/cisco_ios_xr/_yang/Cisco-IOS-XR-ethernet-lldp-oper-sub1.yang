@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ethernet-lldp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -285,6 +285,10 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
     container network-addresses {
       description "Management Addresses";
       uses LLDP-ADDRESS-ENTRY;
+    }
+    leaf peer-mac-address {
+      type yang:mac-address;
+      description "Peer Mac Address";
     }
     leaf port-description {
       type string;

@@ -38,7 +38,7 @@ module Cisco-IOS-XR-lpts-ifib-oper {
      for the following management objects:
        lpts-ifib: lpts ifib database
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

@@ -9,8 +9,6 @@ module Cisco-IOS-XR-parser-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -34,12 +32,12 @@ module Cisco-IOS-XR-parser-cfg {
      for the following management objects:
        parser: Parser configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-06-02" {
+  revision "2017-05-09" {
     description
-      "IOS XR 5.3.2 revision.";
+      "IOS XR 6.3.1 revision.";
   }
 
   revision "2015-01-07" {
@@ -130,6 +128,14 @@ module Cisco-IOS-XR-parser-cfg {
           range "1000..5000";
         }
         description "maximum number of commands in history";
+      }
+    }
+
+    container interactive {
+      description "interactive mode";
+      leaf interactive-disable {
+        type boolean;
+        description "disable interactive mode";
       }
     }
 

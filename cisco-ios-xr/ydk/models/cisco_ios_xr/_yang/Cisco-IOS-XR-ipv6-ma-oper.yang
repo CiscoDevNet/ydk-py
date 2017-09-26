@@ -38,7 +38,7 @@ module Cisco-IOS-XR-ipv6-ma-oper {
      for the following management objects:
        ipv6-network: IPv6 network operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-10-20" {

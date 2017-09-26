@@ -13,7 +13,7 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-lpts-pre-ifib-oper-sub1 {
-    revision-date 2016-02-22;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -39,8 +39,13 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
      for the following management objects:
        lpts-pifib: lpts pre-ifib data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-02-22" {
     description
@@ -130,6 +135,11 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
               uses PIFIB-SHOW-ENTRY;
             }
           }
+        }
+
+        container dynamic-flows-stats {
+          description "Dynamic Flows Statistics";
+          uses PIFIB-DYNFLOWS-DATA;
         }
         leaf node-name {
           type xr:Node-id;

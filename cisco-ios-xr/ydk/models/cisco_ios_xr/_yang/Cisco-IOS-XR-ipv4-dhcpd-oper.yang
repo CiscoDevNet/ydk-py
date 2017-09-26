@@ -43,7 +43,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
        dhcp-client: DHCP client operational data
        ipv4-dhcpd: ipv4 dhcpd
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

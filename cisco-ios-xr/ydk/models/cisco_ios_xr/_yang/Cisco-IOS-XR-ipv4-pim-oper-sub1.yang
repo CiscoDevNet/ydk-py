@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ipv4-pim-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -35,8 +35,18 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-pim package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-27" {
+    description
+      "Removed deprecated leaves under traffic-counters. Added missing leaves under context. Removed checkpoint-statistics container because the corresponding CLI command requires cisco-support permissions.";
+  }
 
   revision "2015-11-09" {
     description
@@ -337,35 +347,6 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     }
   }
 
-  grouping PIM-CHKPT-TABLE-STATS {
-    description "PIM chkpt table stats";
-    leaf table-description {
-      type string;
-      description "Table description";
-    }
-    leaf table-name {
-      type uint32;
-      description "Table name";
-    }
-    leaf is-mirrored {
-      type boolean;
-      description "Table mirrored";
-    }
-    leaf-list statistic {
-      type uint32;
-      description "Stats array";
-    }
-  }
-
-  grouping PIM-CHKPT-STATS {
-    description "PIM chkpt stats";
-
-    list checkpoint-table {
-      description "Array of chkpt table stats";
-      uses PIM-CHKPT-TABLE-STATS;
-    }
-  }
-
   grouping PIM-MSTATIC-BAG {
     description "Multicast Static Routes entry";
 
@@ -597,6 +578,14 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     leaf mdt-default-group {
       type inet:ipv4-address;
       description "MDT Default group";
+    }
+    leaf mdt-source {
+      type inet:ipv4-address;
+      description "MDT source";
+    }
+    leaf mdt-source-interface {
+      type string;
+      description "MDT Source Interface Name";
     }
     leaf mdt-interface {
       type xr:Interface-name;
@@ -1173,6 +1162,22 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       type uint32;
       description "BGP remote interface state";
     }
+    leaf physical-interface-count {
+      type uint64;
+      description "Enabled Physical Interface Count";
+    }
+    leaf virtual-interface-count {
+      type uint64;
+      description "Enabled Virtual Interface Count";
+    }
+    leaf virtual-mlc-interface-name {
+      type string;
+      description "Virtual master line card Interface";
+    }
+    leaf mdt-immediate-switch {
+      type boolean;
+      description "MDT Immediate Switch";
+    }
     leaf-list mldp-root-address {
       type uint32;
       description "MLDP Root addresses";
@@ -1539,6 +1544,34 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     }
   }
 
+  grouping PIM-GRP-MAP-INFORPF-BAG {
+    description "PIM group-map information";
+
+    container rpf-neighbor {
+      description "RPF neighbor to the RP";
+      uses PIM-ADDRTYPE;
+    }
+
+    container group-map-information {
+      description "Group Mapping information";
+      uses PIM-GRP-MAP-BAG;
+    }
+    leaf are-we-rp {
+      type boolean;
+      description "Are we the RP?";
+    }
+    leaf rpf-interface-name {
+      type xr:Interface-name;
+      description "RPF interface to the RP";
+    }
+    leaf rpf-vrf-name {
+      type string {
+        length "0..33";
+      }
+      description "RPF VRF Name";
+    }
+  }
+
   grouping PIM-PKTQ-STATS {
     description "PIM packet queue statistics per priority";
     leaf enqueued-packets {
@@ -1879,46 +1912,57 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       description
         "Packets dropped due to truncated Joins or Prunes";
     }
-    leaf-list packet-enqueued {
-      type uint32;
-      max-elements "2";
-      description
-        "Packets Enqueued per priority Deprecated by
-        PacketQueue";
-    }
-    leaf-list packet-dequeued {
-      type uint32;
-      max-elements "2";
-      description
-        "Packets Dequeued per priority Deprecated by
-        PacketQueue";
-    }
-    leaf-list packet-queue-length {
-      type uint32;
-      max-elements "2";
-      description
-        "Packet Queue Length per priority Deprecated by
-        PacketQueue";
-    }
-    leaf-list packet-queue-size {
-      type uint32;
-      max-elements "2";
-      description
-        "Packet Queue Size per priority Deprecated by
-        PacketQueue";
-    }
-    leaf-list packet-tail-drop {
-      type uint32;
-      max-elements "2";
-      description
-        "Packet Tail Drop per priority Deprecated by
-        PacketQueue";
-    }
 
     list packet-queue {
       max-elements "2";
       description "Packet queue state and statistics";
       uses PIM-PKTQ;
+    }
+  }
+
+  grouping PIM-GRP-MAP-BAG {
+    description "PIM group-map basic information";
+
+    container prefix {
+      description "Group range prefix";
+      uses PIM-ADDRTYPE;
+    }
+
+    container rp-address {
+      description "Rendezvous Point Address";
+      uses PIM-ADDRTYPE;
+    }
+    leaf prefix-length {
+      type int32;
+      description "Group range prefix length";
+    }
+    leaf client {
+      type Pim-show-range-client;
+      description "Client mapping learnt from";
+    }
+    leaf protocol {
+      type Pim-show-protocol;
+      description "Protocol mode of the range";
+    }
+    leaf group-count {
+      type uint32;
+      description "No. of groups in this range";
+    }
+    leaf is-used {
+      type boolean;
+      description "Is this mapping being used?";
+    }
+    leaf mrib-active {
+      type boolean;
+      description "Is this mapping active in MRIB?";
+    }
+    leaf is-override {
+      type boolean;
+      description "Is this the override range?";
+    }
+    leaf priority {
+      type uint32;
+      description "Bootstrap priority";
     }
   }
 
@@ -2084,7 +2128,7 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       type boolean;
       description "Data MDT join";
     }
-    leaf mvp-nv6-safi-join {
+    leaf mvpnv6-safi-join {
       type boolean;
       description "MVPN IPv6 Safi join";
     }
@@ -2354,7 +2398,7 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       type boolean;
       description "BGP C JOIN";
     }
-    leaf bgpjp-time {
+    leaf bgp-jp-time {
       type uint64;
       description "BGP C JP Time";
     }
@@ -2929,80 +2973,6 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     }
   }
 
-  grouping PIM-GRP-MAP-BAG {
-    description "PIM group-map basic information";
-
-    container prefix {
-      description "Group range prefix";
-      uses PIM-ADDRTYPE;
-    }
-
-    container rp-address {
-      description "Rendezvous Point Address";
-      uses PIM-ADDRTYPE;
-    }
-    leaf prefix-length {
-      type int32;
-      description "Group range prefix length";
-    }
-    leaf client {
-      type Pim-show-range-client;
-      description "Client mapping learnt from";
-    }
-    leaf protocol {
-      type Pim-show-protocol;
-      description "Protocol mode of the range";
-    }
-    leaf group-count {
-      type uint32;
-      description "No. of groups in this range";
-    }
-    leaf is-used {
-      type boolean;
-      description "Is this mapping being used?";
-    }
-    leaf mrib-active {
-      type boolean;
-      description "Is this mapping active in MRIB?";
-    }
-    leaf is-override {
-      type boolean;
-      description "Is this the override range?";
-    }
-    leaf priority {
-      type uint32;
-      description "Bootstrap priority";
-    }
-  }
-
-  grouping PIM-GRP-MAP-INFORPF-BAG {
-    description "PIM group-map information";
-
-    container rpf-neighbor {
-      description "RPF neighbor to the RP";
-      uses PIM-ADDRTYPE;
-    }
-
-    container group-map-information {
-      description "Group Mapping information";
-      uses PIM-GRP-MAP-BAG;
-    }
-    leaf are-we-rp {
-      type boolean;
-      description "Are we the RP?";
-    }
-    leaf rpf-interface-name {
-      type xr:Interface-name;
-      description "RPF interface to the RP";
-    }
-    leaf rpf-vrf-name {
-      type string {
-        length "0..33";
-      }
-      description "RPF VRF Name";
-    }
-  }
-
   grouping PIM-MROUTE-BAG {
     description "Multicast Route MIB entry";
 
@@ -3143,11 +3113,6 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
 
   grouping PIM-TT-SUMM-BAG {
     description "PIM topology table summary";
-
-    container group-address {
-      description "Group Address";
-      uses PIM-ADDRTYPE;
-    }
     leaf group-ranges {
       type uint32;
       description "No. of (*,G/M) routes";

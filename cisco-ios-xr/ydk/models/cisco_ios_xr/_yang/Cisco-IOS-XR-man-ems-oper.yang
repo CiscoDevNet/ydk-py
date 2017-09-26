@@ -9,8 +9,6 @@ module Cisco-IOS-XR-man-ems-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-man-ems-oper-sub1 {
     revision-date 2015-11-09;
   }
@@ -38,7 +36,7 @@ module Cisco-IOS-XR-man-ems-oper {
      for the following management objects:
        grpc: grpc commands
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -53,12 +51,12 @@ module Cisco-IOS-XR-man-ems-oper {
 
     container statistics {
       description "Grpc Statistics";
-      uses GRPC-CONFIGURATION-INFO;
+      uses GRPC-STATISTICS-INFO-B;
     }
 
     container status {
       description "Grpc Status";
-      uses GRPC-CONFIGURATION-INFO;
+      uses GRPC-STATUS-INFO-B;
     }
   }
 }

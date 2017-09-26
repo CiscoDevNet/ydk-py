@@ -9,8 +9,6 @@ module Cisco-IOS-XR-ncs1k-mxp-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
     revision-date 2015-11-09;
   }
@@ -38,7 +36,7 @@ module Cisco-IOS-XR-ncs1k-mxp-oper {
      for the following management objects:
        hw-module: mxp hw-module command chain
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

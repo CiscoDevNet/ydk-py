@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   cfg\-hist\-gl\: Configuration History Global path information
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -110,32 +109,16 @@ class CfgHistGl(Entity):
 
         self.yang_name = "cfg-hist-gl"
         self.yang_parent_name = "Cisco-IOS-XR-config-cfgmgr-exec-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"record-type" : ("record_type", CfgHistGl.RecordType)}
 
         self.record_type = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(CfgHistGl, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(CfgHistGl, self).__setattr__(name, value)
+        self._perform_setattr(CfgHistGl, [], name, value)
 
 
     class RecordType(Entity):
@@ -167,34 +150,19 @@ class CfgHistGl(Entity):
 
             self.yang_name = "record-type"
             self.yang_parent_name = "cfg-hist-gl"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"record" : ("record", CfgHistGl.RecordType.Record)}
 
             self.record_type = YLeaf(YType.str, "record-type")
 
             self.record = YList(self)
+            self._segment_path = lambda: "record-type" + "[record-type='" + self.record_type.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("record_type") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CfgHistGl.RecordType, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CfgHistGl.RecordType, self).__setattr__(name, value)
+            self._perform_setattr(CfgHistGl.RecordType, ['record_type'], name, value)
 
 
         class Record(Entity):
@@ -238,6 +206,10 @@ class CfgHistGl(Entity):
 
                 self.yang_name = "record"
                 self.yang_parent_name = "record-type"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"info" : ("info", CfgHistGl.RecordType.Record.Info)}
+                self._child_list_classes = {}
 
                 self.record = YLeaf(YType.int32, "record")
 
@@ -249,32 +221,10 @@ class CfgHistGl(Entity):
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._children_yang_names.add("info")
+                self._segment_path = lambda: "record" + "[record='" + self.record.get() + "']"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("record",
-                                "record_type",
-                                "timestamp") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CfgHistGl.RecordType.Record, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CfgHistGl.RecordType.Record, self).__setattr__(name, value)
+                self._perform_setattr(CfgHistGl.RecordType.Record, ['record', 'record_type', 'timestamp'], name, value)
 
 
             class Info(Entity):
@@ -340,6 +290,10 @@ class CfgHistGl(Entity):
 
                     self.yang_name = "info"
                     self.yang_parent_name = "record"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"alarm-info" : ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo), "backup-info" : ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo), "cfscheck-info" : ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo), "commit-info" : ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo), "oir-info" : ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo), "shutdown-info" : ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo), "startup-info" : ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo)}
+                    self._child_list_classes = {}
 
                     self.a = YLeaf(YType.uint32, "a")
 
@@ -379,31 +333,10 @@ class CfgHistGl(Entity):
                     self.startup_info.parent = self
                     self._children_name_map["startup_info"] = "startup-info"
                     self._children_yang_names.add("startup-info")
+                    self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("a",
-                                    "type") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(CfgHistGl.RecordType.Record.Info, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(CfgHistGl.RecordType.Record.Info, self).__setattr__(name, value)
+                    self._perform_setattr(CfgHistGl.RecordType.Record.Info, ['a', 'type'], name, value)
 
 
                 class AlarmInfo(Entity):
@@ -432,90 +365,51 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.state = YLeaf(YType.str, "state")
 
                         self.where = YLeaf(YType.str, "where")
+                        self._segment_path = lambda: "alarm-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("state",
-                                        "where") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.AlarmInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.AlarmInfo, self).__setattr__(name, value)
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.AlarmInfo, ['state', 'where'], name, value)
 
-                    def has_data(self):
-                        return (
-                            self.state.is_set or
-                            self.where.is_set)
 
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.where.yfilter != YFilter.not_set)
+                class BackupInfo(Entity):
+                    """
+                    backup info
+                    
+                    .. attribute:: comment
+                    
+                    	Comment
+                    	**type**\:  str
+                    
+                    
 
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "alarm-info" + path_buffer
+                    """
 
-                        return path_buffer
+                    _prefix = 'config-cfgmgr-exec-oper'
+                    _revision = '2015-11-09'
 
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                    def __init__(self):
+                        super(CfgHistGl.RecordType.Record.Info.BackupInfo, self).__init__()
 
-                        leaf_name_data = LeafDataList()
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.where.is_set or self.where.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.where.get_name_leafdata())
+                        self.yang_name = "backup-info"
+                        self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
+                        self.comment = YLeaf(YType.str, "comment")
+                        self._segment_path = lambda: "backup-info"
 
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "state" or name == "where"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "where"):
-                            self.where = value
-                            self.where.value_namespace = name_space
-                            self.where.value_namespace_prefix = name_space_prefix
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.BackupInfo, ['comment'], name, value)
 
 
                 class CfscheckInfo(Entity):
@@ -544,90 +438,18 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "cfscheck-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.line = YLeaf(YType.str, "line")
 
                         self.user_id = YLeaf(YType.str, "user-id")
+                        self._segment_path = lambda: "cfscheck-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("line",
-                                        "user_id") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.CfscheckInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.CfscheckInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.line.is_set or
-                            self.user_id.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.line.yfilter != YFilter.not_set or
-                            self.user_id.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "cfscheck-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.line.is_set or self.line.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.line.get_name_leafdata())
-                        if (self.user_id.is_set or self.user_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.user_id.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "line" or name == "user-id"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "line"):
-                            self.line = value
-                            self.line.value_namespace = name_space
-                            self.line.value_namespace_prefix = name_space_prefix
-                        if(value_path == "user-id"):
-                            self.user_id = value
-                            self.user_id.value_namespace = name_space
-                            self.user_id.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.CfscheckInfo, ['line', 'user_id'], name, value)
 
 
                 class CommitInfo(Entity):
@@ -676,6 +498,10 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "commit-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.client_name = YLeaf(YType.str, "client-name")
 
@@ -688,122 +514,10 @@ class CfgHistGl(Entity):
                         self.line = YLeaf(YType.str, "line")
 
                         self.user_id = YLeaf(YType.str, "user-id")
+                        self._segment_path = lambda: "commit-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("client_name",
-                                        "comment",
-                                        "commit_id",
-                                        "label",
-                                        "line",
-                                        "user_id") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.CommitInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.CommitInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.client_name.is_set or
-                            self.comment.is_set or
-                            self.commit_id.is_set or
-                            self.label.is_set or
-                            self.line.is_set or
-                            self.user_id.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.client_name.yfilter != YFilter.not_set or
-                            self.comment.yfilter != YFilter.not_set or
-                            self.commit_id.yfilter != YFilter.not_set or
-                            self.label.yfilter != YFilter.not_set or
-                            self.line.yfilter != YFilter.not_set or
-                            self.user_id.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "commit-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.client_name.get_name_leafdata())
-                        if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.comment.get_name_leafdata())
-                        if (self.commit_id.is_set or self.commit_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.commit_id.get_name_leafdata())
-                        if (self.label.is_set or self.label.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.label.get_name_leafdata())
-                        if (self.line.is_set or self.line.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.line.get_name_leafdata())
-                        if (self.user_id.is_set or self.user_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.user_id.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "client-name" or name == "comment" or name == "commit-id" or name == "label" or name == "line" or name == "user-id"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "client-name"):
-                            self.client_name = value
-                            self.client_name.value_namespace = name_space
-                            self.client_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "comment"):
-                            self.comment = value
-                            self.comment.value_namespace = name_space
-                            self.comment.value_namespace_prefix = name_space_prefix
-                        if(value_path == "commit-id"):
-                            self.commit_id = value
-                            self.commit_id.value_namespace = name_space
-                            self.commit_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "label"):
-                            self.label = value
-                            self.label.value_namespace = name_space
-                            self.label.value_namespace_prefix = name_space_prefix
-                        if(value_path == "line"):
-                            self.line = value
-                            self.line.value_namespace = name_space
-                            self.line.value_namespace_prefix = name_space_prefix
-                        if(value_path == "user-id"):
-                            self.user_id = value
-                            self.user_id.value_namespace = name_space
-                            self.user_id.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.CommitInfo, ['client_name', 'comment', 'commit_id', 'label', 'line', 'user_id'], name, value)
 
 
                 class OirInfo(Entity):
@@ -837,101 +551,20 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "oir-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.config_name = YLeaf(YType.str, "config-name")
 
                         self.config_type = YLeaf(YType.str, "config-type")
 
                         self.operation_ = YLeaf(YType.str, "operation")
+                        self._segment_path = lambda: "oir-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("config_name",
-                                        "config_type",
-                                        "operation_") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.OirInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.OirInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.config_name.is_set or
-                            self.config_type.is_set or
-                            self.operation_.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.config_name.yfilter != YFilter.not_set or
-                            self.config_type.yfilter != YFilter.not_set or
-                            self.operation_.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "oir-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.config_name.is_set or self.config_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.config_name.get_name_leafdata())
-                        if (self.config_type.is_set or self.config_type.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.config_type.get_name_leafdata())
-                        if (self.operation_.is_set or self.operation_.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.operation_.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "config-name" or name == "config-type" or name == "operation"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "config-name"):
-                            self.config_name = value
-                            self.config_name.value_namespace = name_space
-                            self.config_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "config-type"):
-                            self.config_type = value
-                            self.config_type.value_namespace = name_space
-                            self.config_type.value_namespace_prefix = name_space_prefix
-                        if(value_path == "operation"):
-                            self.operation_ = value
-                            self.operation_.value_namespace = name_space
-                            self.operation_.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.OirInfo, ['config_name', 'config_type', 'operation_'], name, value)
 
 
                 class ShutdownInfo(Entity):
@@ -955,78 +588,16 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "shutdown-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.comment = YLeaf(YType.str, "comment")
+                        self._segment_path = lambda: "shutdown-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("comment") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.ShutdownInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.ShutdownInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return self.comment.is_set
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.comment.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "shutdown-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.comment.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "comment"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "comment"):
-                            self.comment = value
-                            self.comment.value_namespace = name_space
-                            self.comment.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.ShutdownInfo, ['comment'], name, value)
 
 
                 class StartupInfo(Entity):
@@ -1055,495 +626,18 @@ class CfgHistGl(Entity):
 
                         self.yang_name = "startup-info"
                         self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.boot_path = YLeaf(YType.str, "boot-path")
 
                         self.how_booted = YLeaf(YType.str, "how-booted")
+                        self._segment_path = lambda: "startup-info"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("boot_path",
-                                        "how_booted") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.StartupInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.StartupInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.boot_path.is_set or
-                            self.how_booted.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.boot_path.yfilter != YFilter.not_set or
-                            self.how_booted.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "startup-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.boot_path.is_set or self.boot_path.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.boot_path.get_name_leafdata())
-                        if (self.how_booted.is_set or self.how_booted.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.how_booted.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "boot-path" or name == "how-booted"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "boot-path"):
-                            self.boot_path = value
-                            self.boot_path.value_namespace = name_space
-                            self.boot_path.value_namespace_prefix = name_space_prefix
-                        if(value_path == "how-booted"):
-                            self.how_booted = value
-                            self.how_booted.value_namespace = name_space
-                            self.how_booted.value_namespace_prefix = name_space_prefix
-
-
-                class BackupInfo(Entity):
-                    """
-                    backup info
-                    
-                    .. attribute:: comment
-                    
-                    	Comment
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'config-cfgmgr-exec-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(CfgHistGl.RecordType.Record.Info.BackupInfo, self).__init__()
-
-                        self.yang_name = "backup-info"
-                        self.yang_parent_name = "info"
-
-                        self.comment = YLeaf(YType.str, "comment")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("comment") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(CfgHistGl.RecordType.Record.Info.BackupInfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(CfgHistGl.RecordType.Record.Info.BackupInfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return self.comment.is_set
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.comment.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "backup-info" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.comment.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "comment"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "comment"):
-                            self.comment = value
-                            self.comment.value_namespace = name_space
-                            self.comment.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.a.is_set or
-                        self.type.is_set or
-                        (self.alarm_info is not None and self.alarm_info.has_data()) or
-                        (self.backup_info is not None and self.backup_info.has_data()) or
-                        (self.cfscheck_info is not None and self.cfscheck_info.has_data()) or
-                        (self.commit_info is not None and self.commit_info.has_data()) or
-                        (self.oir_info is not None and self.oir_info.has_data()) or
-                        (self.shutdown_info is not None and self.shutdown_info.has_data()) or
-                        (self.startup_info is not None and self.startup_info.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.a.yfilter != YFilter.not_set or
-                        self.type.yfilter != YFilter.not_set or
-                        (self.alarm_info is not None and self.alarm_info.has_operation()) or
-                        (self.backup_info is not None and self.backup_info.has_operation()) or
-                        (self.cfscheck_info is not None and self.cfscheck_info.has_operation()) or
-                        (self.commit_info is not None and self.commit_info.has_operation()) or
-                        (self.oir_info is not None and self.oir_info.has_operation()) or
-                        (self.shutdown_info is not None and self.shutdown_info.has_operation()) or
-                        (self.startup_info is not None and self.startup_info.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "info" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.a.is_set or self.a.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.a.get_name_leafdata())
-                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.type.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "alarm-info"):
-                        if (self.alarm_info is None):
-                            self.alarm_info = CfgHistGl.RecordType.Record.Info.AlarmInfo()
-                            self.alarm_info.parent = self
-                            self._children_name_map["alarm_info"] = "alarm-info"
-                        return self.alarm_info
-
-                    if (child_yang_name == "backup-info"):
-                        if (self.backup_info is None):
-                            self.backup_info = CfgHistGl.RecordType.Record.Info.BackupInfo()
-                            self.backup_info.parent = self
-                            self._children_name_map["backup_info"] = "backup-info"
-                        return self.backup_info
-
-                    if (child_yang_name == "cfscheck-info"):
-                        if (self.cfscheck_info is None):
-                            self.cfscheck_info = CfgHistGl.RecordType.Record.Info.CfscheckInfo()
-                            self.cfscheck_info.parent = self
-                            self._children_name_map["cfscheck_info"] = "cfscheck-info"
-                        return self.cfscheck_info
-
-                    if (child_yang_name == "commit-info"):
-                        if (self.commit_info is None):
-                            self.commit_info = CfgHistGl.RecordType.Record.Info.CommitInfo()
-                            self.commit_info.parent = self
-                            self._children_name_map["commit_info"] = "commit-info"
-                        return self.commit_info
-
-                    if (child_yang_name == "oir-info"):
-                        if (self.oir_info is None):
-                            self.oir_info = CfgHistGl.RecordType.Record.Info.OirInfo()
-                            self.oir_info.parent = self
-                            self._children_name_map["oir_info"] = "oir-info"
-                        return self.oir_info
-
-                    if (child_yang_name == "shutdown-info"):
-                        if (self.shutdown_info is None):
-                            self.shutdown_info = CfgHistGl.RecordType.Record.Info.ShutdownInfo()
-                            self.shutdown_info.parent = self
-                            self._children_name_map["shutdown_info"] = "shutdown-info"
-                        return self.shutdown_info
-
-                    if (child_yang_name == "startup-info"):
-                        if (self.startup_info is None):
-                            self.startup_info = CfgHistGl.RecordType.Record.Info.StartupInfo()
-                            self.startup_info.parent = self
-                            self._children_name_map["startup_info"] = "startup-info"
-                        return self.startup_info
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "alarm-info" or name == "backup-info" or name == "cfscheck-info" or name == "commit-info" or name == "oir-info" or name == "shutdown-info" or name == "startup-info" or name == "a" or name == "type"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "a"):
-                        self.a = value
-                        self.a.value_namespace = name_space
-                        self.a.value_namespace_prefix = name_space_prefix
-                    if(value_path == "type"):
-                        self.type = value
-                        self.type.value_namespace = name_space
-                        self.type.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.record.is_set or
-                    self.record_type.is_set or
-                    self.timestamp.is_set or
-                    (self.info is not None and self.info.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.record.yfilter != YFilter.not_set or
-                    self.record_type.yfilter != YFilter.not_set or
-                    self.timestamp.yfilter != YFilter.not_set or
-                    (self.info is not None and self.info.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "record" + "[record='" + self.record.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.record.is_set or self.record.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.record.get_name_leafdata())
-                if (self.record_type.is_set or self.record_type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.record_type.get_name_leafdata())
-                if (self.timestamp.is_set or self.timestamp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timestamp.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "info"):
-                    if (self.info is None):
-                        self.info = CfgHistGl.RecordType.Record.Info()
-                        self.info.parent = self
-                        self._children_name_map["info"] = "info"
-                    return self.info
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "info" or name == "record" or name == "record-type" or name == "timestamp"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "record"):
-                    self.record = value
-                    self.record.value_namespace = name_space
-                    self.record.value_namespace_prefix = name_space_prefix
-                if(value_path == "record-type"):
-                    self.record_type = value
-                    self.record_type.value_namespace = name_space
-                    self.record_type.value_namespace_prefix = name_space_prefix
-                if(value_path == "timestamp"):
-                    self.timestamp = value
-                    self.timestamp.value_namespace = name_space
-                    self.timestamp.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.record:
-                if (c.has_data()):
-                    return True
-            return self.record_type.is_set
-
-        def has_operation(self):
-            for c in self.record:
-                if (c.has_operation()):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                self.record_type.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "record-type" + "[record-type='" + self.record_type.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.record_type.is_set or self.record_type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.record_type.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "record"):
-                for c in self.record:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CfgHistGl.RecordType.Record()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.record.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "record" or name == "record-type"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "record-type"):
-                self.record_type = value
-                self.record_type.value_namespace = name_space
-                self.record_type.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.record_type:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.record_type:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "record-type"):
-            for c in self.record_type:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = CfgHistGl.RecordType()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.record_type.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "record-type"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                        self._perform_setattr(CfgHistGl.RecordType.Record.Info.StartupInfo, ['boot_path', 'how_booted'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CfgHistGl()

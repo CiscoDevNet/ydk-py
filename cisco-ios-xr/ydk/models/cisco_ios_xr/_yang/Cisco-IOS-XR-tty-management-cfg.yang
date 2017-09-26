@@ -39,7 +39,7 @@ module Cisco-IOS-XR-tty-management-cfg {
        Cisco-IOS-XR-tty-server-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-09-25" {

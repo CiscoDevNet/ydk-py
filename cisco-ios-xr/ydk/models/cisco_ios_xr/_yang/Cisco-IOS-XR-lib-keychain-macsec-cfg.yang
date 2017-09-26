@@ -35,7 +35,7 @@ module Cisco-IOS-XR-lib-keychain-macsec-cfg {
      for the following management objects:
        mac-sec-keychains: Configure a Key Chain
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -108,6 +108,19 @@ module Cisco-IOS-XR-lib-keychain-macsec-cfg {
       }
     }
     description "Mac sec crypto alg";
+  }
+  typedef Mac-sec-encryption {
+    type enumeration {
+      enum type7 {
+        value 0;
+        description "Type7";
+      }
+      enum type6 {
+        value 2;
+        description "Type6";
+      }
+    }
+    description "Mac sec encryption";
   }
 
   container mac-sec-keychains {
@@ -227,8 +240,8 @@ module Cisco-IOS-XR-lib-keychain-macsec-cfg {
               description "Cryptographic Algorithm";
             }
             leaf encryption-type {
-              type int32;
-              default "0";
+              type Mac-sec-encryption;
+              default "type7";
               description "encryption type used to store key";
             }
           }

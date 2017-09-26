@@ -34,8 +34,13 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
      for the following management objects:
        router-convergence: Configure Router Convergence Monitoring
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

@@ -7,11 +7,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -274,6 +273,90 @@ class OtuForwardErrorCorrection(Enum):
     enhanced_hg20 = Enum.YLeaf(32, "enhanced-hg20")
 
     enhanced_hg7 = Enum.YLeaf(64, "enhanced-hg7")
+
+
+class OtuMode(Enum):
+    """
+    OtuMode
+
+    Otu mode
+
+    .. data:: mode_invalid = 0
+
+    	prbs Mode Invalid
+
+    .. data:: mode_source = 1
+
+    	Prbs Mode Source
+
+    .. data:: mode_sink = 2
+
+    	Prbs Mode Sink
+
+    .. data:: mode_source_sink = 3
+
+    	Prbs Mode Source_Sink
+
+    """
+
+    mode_invalid = Enum.YLeaf(0, "mode-invalid")
+
+    mode_source = Enum.YLeaf(1, "mode-source")
+
+    mode_sink = Enum.YLeaf(2, "mode-sink")
+
+    mode_source_sink = Enum.YLeaf(3, "mode-source-sink")
+
+
+class OtuPattern(Enum):
+    """
+    OtuPattern
+
+    Otu pattern
+
+    .. data:: pattern_none = 0
+
+    	prbs pattern None
+
+    .. data:: pattern_pn31 = 1
+
+    	Prbs pattern pn31
+
+    .. data:: pattern_pn23 = 2
+
+    	Prbs pattern pn23
+
+    .. data:: pattern_pn11 = 4
+
+    	Prbs pattern pn11
+
+    .. data:: pattern_inverted_pn31 = 8
+
+    	Prbs pattern inverted pn31
+
+    .. data:: pattern_inverted_pn11 = 16
+
+    	Prbs pattern inverted pn11
+
+    .. data:: pattern_pn15 = 32
+
+    	Prbs pattern pn15
+
+    """
+
+    pattern_none = Enum.YLeaf(0, "pattern-none")
+
+    pattern_pn31 = Enum.YLeaf(1, "pattern-pn31")
+
+    pattern_pn23 = Enum.YLeaf(2, "pattern-pn23")
+
+    pattern_pn11 = Enum.YLeaf(4, "pattern-pn11")
+
+    pattern_inverted_pn31 = Enum.YLeaf(8, "pattern-inverted-pn31")
+
+    pattern_inverted_pn11 = Enum.YLeaf(16, "pattern-inverted-pn11")
+
+    pattern_pn15 = Enum.YLeaf(32, "pattern-pn15")
 
 
 

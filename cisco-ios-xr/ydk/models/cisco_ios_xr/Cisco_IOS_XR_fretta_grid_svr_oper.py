@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   grid\: GRID operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,11 +40,16 @@ class Grid(Entity):
 
         self.yang_name = "grid"
         self.yang_parent_name = "Cisco-IOS-XR-fretta-grid-svr-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Grid.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = Grid.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-fretta-grid-svr-oper:grid"
 
 
     class Nodes(Entity):
@@ -69,32 +73,17 @@ class Grid(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "grid"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Grid.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-fretta-grid-svr-oper:grid/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Grid.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Grid.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Grid.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -130,6 +119,10 @@ class Grid(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"client-xr" : ("client_xr", Grid.Nodes.Node.ClientXr), "clients" : ("clients", Grid.Nodes.Node.Clients)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -142,30 +135,11 @@ class Grid(Entity):
                 self.clients.parent = self
                 self._children_name_map["clients"] = "clients"
                 self._children_yang_names.add("clients")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Grid.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Grid.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(Grid.Nodes.Node, ['node_name'], name, value)
 
 
             class ClientXr(Entity):
@@ -189,32 +163,16 @@ class Grid(Entity):
 
                     self.yang_name = "client-xr"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"client" : ("client", Grid.Nodes.Node.ClientXr.Client)}
 
                     self.client = YList(self)
+                    self._segment_path = lambda: "client-xr"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Grid.Nodes.Node.ClientXr, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Grid.Nodes.Node.ClientXr, self).__setattr__(name, value)
+                    self._perform_setattr(Grid.Nodes.Node.ClientXr, [], name, value)
 
 
                 class Client(Entity):
@@ -245,34 +203,18 @@ class Grid(Entity):
 
                         self.yang_name = "client"
                         self.yang_parent_name = "client-xr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"client-data" : ("client_data", Grid.Nodes.Node.ClientXr.Client.ClientData)}
 
                         self.client_name = YLeaf(YType.str, "client-name")
 
                         self.client_data = YList(self)
+                        self._segment_path = lambda: "client" + "[client-name='" + self.client_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("client_name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Grid.Nodes.Node.ClientXr.Client, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Grid.Nodes.Node.ClientXr.Client, self).__setattr__(name, value)
+                        self._perform_setattr(Grid.Nodes.Node.ClientXr.Client, ['client_name'], name, value)
 
 
                     class ClientData(Entity):
@@ -298,199 +240,16 @@ class Grid(Entity):
 
                             self.yang_name = "client-data"
                             self.yang_parent_name = "client"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.res_id = YLeaf(YType.uint32, "res-id")
+                            self._segment_path = lambda: "client-data"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("res_id") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Grid.Nodes.Node.ClientXr.Client.ClientData, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Grid.Nodes.Node.ClientXr.Client.ClientData, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.res_id.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.res_id.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "client-data" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.res_id.is_set or self.res_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.res_id.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "res-id"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "res-id"):
-                                self.res_id = value
-                                self.res_id.value_namespace = name_space
-                                self.res_id.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.client_data:
-                            if (c.has_data()):
-                                return True
-                        return self.client_name.is_set
-
-                    def has_operation(self):
-                        for c in self.client_data:
-                            if (c.has_operation()):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.client_name.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "client" + "[client-name='" + self.client_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.client_name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "client-data"):
-                            for c in self.client_data:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Grid.Nodes.Node.ClientXr.Client.ClientData()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.client_data.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "client-data" or name == "client-name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "client-name"):
-                            self.client_name = value
-                            self.client_name.value_namespace = name_space
-                            self.client_name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.client:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.client:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "client-xr" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "client"):
-                        for c in self.client:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Grid.Nodes.Node.ClientXr.Client()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.client.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "client"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                            self._perform_setattr(Grid.Nodes.Node.ClientXr.Client.ClientData, ['res_id'], name, value)
 
 
             class Clients(Entity):
@@ -514,32 +273,16 @@ class Grid(Entity):
 
                     self.yang_name = "clients"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"client" : ("client", Grid.Nodes.Node.Clients.Client)}
 
                     self.client = YList(self)
+                    self._segment_path = lambda: "clients"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Grid.Nodes.Node.Clients, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Grid.Nodes.Node.Clients, self).__setattr__(name, value)
+                    self._perform_setattr(Grid.Nodes.Node.Clients, [], name, value)
 
 
                 class Client(Entity):
@@ -570,34 +313,18 @@ class Grid(Entity):
 
                         self.yang_name = "client"
                         self.yang_parent_name = "clients"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"client-data" : ("client_data", Grid.Nodes.Node.Clients.Client.ClientData)}
 
                         self.client_name = YLeaf(YType.str, "client-name")
 
                         self.client_data = YList(self)
+                        self._segment_path = lambda: "client" + "[client-name='" + self.client_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("client_name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Grid.Nodes.Node.Clients.Client, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Grid.Nodes.Node.Clients.Client, self).__setattr__(name, value)
+                        self._perform_setattr(Grid.Nodes.Node.Clients.Client, ['client_name'], name, value)
 
 
                     class ClientData(Entity):
@@ -623,368 +350,16 @@ class Grid(Entity):
 
                             self.yang_name = "client-data"
                             self.yang_parent_name = "client"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.res_id = YLeaf(YType.uint32, "res-id")
+                            self._segment_path = lambda: "client-data"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("res_id") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Grid.Nodes.Node.Clients.Client.ClientData, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Grid.Nodes.Node.Clients.Client.ClientData, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.res_id.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.res_id.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "client-data" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.res_id.is_set or self.res_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.res_id.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "res-id"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "res-id"):
-                                self.res_id = value
-                                self.res_id.value_namespace = name_space
-                                self.res_id.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.client_data:
-                            if (c.has_data()):
-                                return True
-                        return self.client_name.is_set
-
-                    def has_operation(self):
-                        for c in self.client_data:
-                            if (c.has_operation()):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.client_name.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "client" + "[client-name='" + self.client_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.client_name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "client-data"):
-                            for c in self.client_data:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Grid.Nodes.Node.Clients.Client.ClientData()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.client_data.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "client-data" or name == "client-name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "client-name"):
-                            self.client_name = value
-                            self.client_name.value_namespace = name_space
-                            self.client_name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.client:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.client:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "clients" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "client"):
-                        for c in self.client:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Grid.Nodes.Node.Clients.Client()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.client.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "client"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.client_xr is not None and self.client_xr.has_data()) or
-                    (self.clients is not None and self.clients.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.client_xr is not None and self.client_xr.has_operation()) or
-                    (self.clients is not None and self.clients.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "client-xr"):
-                    if (self.client_xr is None):
-                        self.client_xr = Grid.Nodes.Node.ClientXr()
-                        self.client_xr.parent = self
-                        self._children_name_map["client_xr"] = "client-xr"
-                    return self.client_xr
-
-                if (child_yang_name == "clients"):
-                    if (self.clients is None):
-                        self.clients = Grid.Nodes.Node.Clients()
-                        self.clients.parent = self
-                        self._children_name_map["clients"] = "clients"
-                    return self.clients
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "client-xr" or name == "clients" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Grid.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-fretta-grid-svr-oper:grid" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Grid.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Grid.Nodes.Node.Clients.Client.ClientData, ['res_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Grid()

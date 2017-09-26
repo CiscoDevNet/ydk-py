@@ -10,8 +10,6 @@ module Cisco-IOS-XR-asr9k-lc-ethctrl-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -37,7 +35,7 @@ module Cisco-IOS-XR-asr9k-lc-ethctrl-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

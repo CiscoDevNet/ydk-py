@@ -14,7 +14,7 @@ module Cisco-IOS-XR-ip-iarm-v6-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ip-iarm-v6-oper-sub1 {
-    revision-date 2016-12-19;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -41,8 +41,13 @@ module Cisco-IOS-XR-ip-iarm-v6-oper {
        ipv6arm: IPv6 Address Repository Manager (IPv6 ARM)
          operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-19" {
     description

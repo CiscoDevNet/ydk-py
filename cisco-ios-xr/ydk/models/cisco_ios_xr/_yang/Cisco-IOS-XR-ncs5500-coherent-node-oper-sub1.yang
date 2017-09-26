@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,7 +25,7 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ncs5500-coherent-node package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -72,13 +70,12 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
 
   grouping COH-PORTMODE-ALL-DETAILS {
     description "Optics controllers port Information";
-    leaf num-entries {
+    leaf idx {
       type uint32;
-      description "Number of dev map entries";
+      description "dev map idx";
     }
 
     list portmode-entry {
-      max-elements "6";
       description "portmode entry";
       uses PORTMODE-INFO;
     }
@@ -93,11 +90,15 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
       description "ifname";
     }
     leaf intf-handle {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "intf handle";
     }
     leaf admin-state {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "admin state";
     }
     leaf admin-up {
@@ -114,7 +115,6 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
     description "Hundredgig interface info";
 
     list eth-data {
-      max-elements "2";
       description "eth data";
       uses COH-ETH-INTERFACE-DATA;
     }
@@ -152,18 +152,6 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
       }
       description "CLEI code number";
     }
-    leaf module-hardware-version-number {
-      type uint16;
-      description "module hardware version number";
-    }
-    leaf module-firmware-running-version-number {
-      type uint16;
-      description "module firmware running version number";
-    }
-    leaf module-firmware-committed-version-number {
-      type uint16;
-      description "module firmware committed version number";
-    }
     leaf vendorname {
       type string {
         length "0..16";
@@ -187,6 +175,18 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
         length "0..16";
       }
       description "vid";
+    }
+    leaf module-hardware-version-number {
+      type uint16;
+      description "module hardware version number";
+    }
+    leaf module-firmware-running-version-number {
+      type uint16;
+      description "module firmware running version number";
+    }
+    leaf module-firmware-committed-version-number {
+      type uint16;
+      description "module firmware committed version number";
     }
     leaf ctp-type {
       type uint32;
@@ -255,51 +255,75 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
       description "provisioned frequency";
     }
     leaf configured-tx-power {
-      type int32;
+      type string {
+        length "0..128";
+      }
       description "configured tx power";
     }
     leaf provisioned-tx-power {
-      type int32;
+      type string {
+        length "0..128";
+      }
       description "provisioned tx power";
     }
     leaf configured-cd-min {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "configured cd min";
     }
     leaf provisioned-cd-min {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "provisioned cd min";
     }
     leaf configured-cd-max {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "configured cd max";
     }
     leaf provisioned-cd-max {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "provisioned cd max";
     }
     leaf configured-traffic-type {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "configured traffic type";
     }
     leaf provisioned-traffic-type {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "provisioned traffic type";
     }
     leaf configured-loopback-mode {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "configured loopback mode";
     }
     leaf provisioned-loopback-mode {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "provisioned loopback mode";
     }
     leaf expected-ctp2-led-state {
-      type int32;
+      type string {
+        length "0..128";
+      }
       description "expected ctp2 led state";
     }
     leaf provisioned-ctp2-led-state {
-      type int32;
+      type string {
+        length "0..128";
+      }
       description "provisioned ctp2 led state";
     }
     leaf led-op-rc {
@@ -518,7 +542,6 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
     }
 
     list port-data {
-      max-elements "6";
       description "port data";
       uses COH-PORT-DATA;
     }
@@ -527,12 +550,16 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
   grouping COH-DEV-MAP-ENTRY {
     description "coherent device mapping entry";
     leaf device-address {
-      type uint32;
-      description "Device address";
+      type string {
+        length "0..128";
+      }
+      description "device address";
     }
     leaf ifhandle {
-      type uint32;
-      description "Interface handle";
+      type string {
+        length "0..128";
+      }
+      description "ifhandle";
     }
     leaf intf-name {
       type string {
@@ -544,13 +571,12 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
 
   grouping COH-DEV-MAP-DATA {
     description "Coherent device mapping Information";
-    leaf num-entries {
+    leaf idx {
       type uint32;
-      description "Number of dev map entries";
+      description "idx";
     }
 
     list dev-map {
-      max-elements "32";
       description "dev map";
       uses COH-DEV-MAP-ENTRY;
     }
@@ -614,7 +640,9 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
       description "cd max";
     }
     leaf traffic-type {
-      type uint32;
+      type string {
+        length "0..128";
+      }
       description "traffic type";
     }
   }
@@ -707,7 +735,6 @@ submodule Cisco-IOS-XR-ncs5500-coherent-node-oper-sub1 {
     }
 
     list port-stat {
-      max-elements "6";
       description "port stat";
       uses COH-PORT-OP-STATS;
     }

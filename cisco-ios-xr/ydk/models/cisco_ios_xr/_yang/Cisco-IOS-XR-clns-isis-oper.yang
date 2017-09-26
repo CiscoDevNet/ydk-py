@@ -16,11 +16,11 @@ module Cisco-IOS-XR-clns-isis-oper {
   import Cisco-IOS-XR-clns-isis-datatypes { prefix "dt1"; }
 
   include Cisco-IOS-XR-clns-isis-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   include Cisco-IOS-XR-clns-isis-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -46,8 +46,18 @@ module Cisco-IOS-XR-clns-isis-oper {
      for the following management objects:
        isis: IS-IS operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

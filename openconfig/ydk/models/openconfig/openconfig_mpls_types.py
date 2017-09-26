@@ -3,7 +3,6 @@
 General types for MPLS / TE data model
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -95,10 +94,9 @@ class TunnelType(Enum):
 
 
 
-class PathSetupProtocol(Identity):
+class LspOperStatus(Identity):
     """
-    base identity for supported MPLS signaling
-    protocols
+    Base identity for LSP operational status
     
     
 
@@ -108,54 +106,7 @@ class PathSetupProtocol(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(PathSetupProtocol, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-protocol")
-
-
-class TunnelAdminStatus(Identity):
-    """
-    Base identity for tunnel administrative status
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(TunnelAdminStatus, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:tunnel-admin-status")
-
-
-class NullLabelType(Identity):
-    """
-    Base identity from which specific null\-label types are
-    derived.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(NullLabelType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:null-label-type")
-
-
-class TunnelType(Identity):
-    """
-    Base identity from which specific tunnel types are
-    derived.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(TunnelType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:tunnel-type")
+        super(LspOperStatus, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:lsp-oper-status")
 
 
 class LspRole(Identity):
@@ -174,9 +125,10 @@ class LspRole(Identity):
         super(LspRole, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:lsp-role")
 
 
-class LspOperStatus(Identity):
+class NullLabelType(Identity):
     """
-    Base identity for LSP operational status
+    Base identity from which specific null\-label types are
+    derived.
     
     
 
@@ -186,7 +138,23 @@ class LspOperStatus(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(LspOperStatus, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:lsp-oper-status")
+        super(NullLabelType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:null-label-type")
+
+
+class PathSetupProtocol(Identity):
+    """
+    base identity for supported MPLS signaling
+    protocols
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(PathSetupProtocol, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-protocol")
 
 
 class ProtectionType(Identity):
@@ -204,9 +172,9 @@ class ProtectionType(Identity):
         super(ProtectionType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:protection-type")
 
 
-class PathSetupRsvp(Identity):
+class TunnelAdminStatus(Identity):
     """
-    RSVP\-TE signaling protocol
+    Base identity for tunnel administrative status
     
     
 
@@ -216,12 +184,13 @@ class PathSetupRsvp(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(PathSetupRsvp, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-rsvp")
+        super(TunnelAdminStatus, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:tunnel-admin-status")
 
 
-class Unprotected(Identity):
+class TunnelType(Identity):
     """
-    no protection is desired
+    Base identity from which specific tunnel types are
+    derived.
     
     
 
@@ -231,12 +200,12 @@ class Unprotected(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(Unprotected, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:unprotected")
+        super(TunnelType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:tunnel-type")
 
 
-class Implicit(Identity):
+class ADMINDOWN(Identity):
     """
-    Implicit null label is used.
+    LSP is administratively down
     
     
 
@@ -246,71 +215,10 @@ class Implicit(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(Implicit, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:IMPLICIT")
+        super(ADMINDOWN, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:ADMIN_DOWN")
 
 
-class Down(Identity):
-    """
-    LSP is operationally down or out of service
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Down, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:DOWN")
-
-
-class Up(Identity):
-    """
-    LSP is operationally active and available
-    for traffic.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Up, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:UP")
-
-
-class PathSetupLdp(Identity):
-    """
-    LDP \- RFC 5036
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(PathSetupLdp, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-ldp")
-
-
-class Transit(Identity):
-    """
-    Label switched path is a transit LSP
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Transit, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:TRANSIT")
-
-
-class Admin_Up(Identity):
+class ADMINUP(Identity):
     """
     LSP is administratively up
     
@@ -322,12 +230,12 @@ class Admin_Up(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(Admin_Up, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:ADMIN_UP")
+        super(ADMINUP, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:ADMIN_UP")
 
 
-class LinkProtectionRequested(Identity):
+class DOWN(Identity):
     """
-    link protection is desired
+    LSP is operationally down or out of service
     
     
 
@@ -337,7 +245,69 @@ class LinkProtectionRequested(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(LinkProtectionRequested, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:link-protection-requested")
+        super(DOWN, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:DOWN")
+
+
+class EGRESS(Identity):
+    """
+    Label switched path is an egress (tailend)
+    LSP
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(EGRESS, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:EGRESS")
+
+
+class EXPLICIT(Identity):
+    """
+    Explicit null label is used.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(EXPLICIT, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:EXPLICIT")
+
+
+class IMPLICIT(Identity):
+    """
+    Implicit null label is used.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(IMPLICIT, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:IMPLICIT")
+
+
+class INGRESS(Identity):
+    """
+    Label switched path is an ingress (headend)
+    LSP
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(INGRESS, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:INGRESS")
 
 
 class LinkNodeProtectionRequested(Identity):
@@ -355,7 +325,22 @@ class LinkNodeProtectionRequested(Identity):
         super(LinkNodeProtectionRequested, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:link-node-protection-requested")
 
 
-class P2Mp(Identity):
+class LinkProtectionRequested(Identity):
+    """
+    link protection is desired
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(LinkProtectionRequested, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:link-protection-requested")
+
+
+class P2MP(Identity):
     """
     TE point\-to\-multipoint tunnel type.
     
@@ -367,69 +352,7 @@ class P2Mp(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(P2Mp, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:P2MP")
-
-
-class PathSetupSr(Identity):
-    """
-    Segment routing
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(PathSetupSr, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-sr")
-
-
-class Ingress(Identity):
-    """
-    Label switched path is an ingress (headend)
-    LSP
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Ingress, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:INGRESS")
-
-
-class Egress(Identity):
-    """
-    Label switched path is an egress (tailend)
-    LSP
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Egress, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:EGRESS")
-
-
-class Admin_Down(Identity):
-    """
-    LSP is administratively down
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(Admin_Down, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:ADMIN_DOWN")
+        super(P2MP, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:P2MP")
 
 
 class P2P(Identity):
@@ -447,9 +370,9 @@ class P2P(Identity):
         super(P2P, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:P2P")
 
 
-class Explicit(Identity):
+class PathSetupLdp(Identity):
     """
-    Explicit null label is used.
+    LDP \- RFC 5036
     
     
 
@@ -459,6 +382,82 @@ class Explicit(Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        super(Explicit, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:EXPLICIT")
+        super(PathSetupLdp, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-ldp")
+
+
+class PathSetupRsvp(Identity):
+    """
+    RSVP\-TE signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(PathSetupRsvp, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-rsvp")
+
+
+class PathSetupSr(Identity):
+    """
+    Segment routing
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(PathSetupSr, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:path-setup-sr")
+
+
+class TRANSIT(Identity):
+    """
+    Label switched path is a transit LSP
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(TRANSIT, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:TRANSIT")
+
+
+class UP(Identity):
+    """
+    LSP is operationally active and available
+    for traffic.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(UP, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:UP")
+
+
+class Unprotected(Identity):
+    """
+    no protection is desired
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(Unprotected, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:unprotected")
 
 

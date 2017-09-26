@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import ietf-yang-types { prefix "yang"; }
-
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   /*** META INFORMATION ***/
@@ -31,7 +29,7 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-bfd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -67,64 +65,6 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
       }
     }
     description "Bfd mp download state";
-  }
-  typedef Mpls-lib-c {
-    type enumeration {
-      enum mpls-lib-c-type-null {
-        value 0;
-        description "NULL Ctype";
-      }
-      enum mpls-lib-c-type-ipv4 {
-        value 1;
-        description "IPv4 UDP";
-      }
-      enum mpls-lib-c-type-ipv4-p2p-tunnel {
-        value 7;
-        description "IPv4 point-to-point TE tunnel";
-      }
-      enum mpls-lib-c-type-ipv6-p2p-tunnel {
-        value 8;
-        description "IPv6 point-to-point TE tunnel";
-      }
-      enum mpls-lib-c-type-ipv4-uni {
-        value 9;
-        description "IPv4 unicast";
-      }
-      enum mpls-lib-c-type-ipv4-p2mp-tunnel {
-        value 13;
-        description "IPv4 point-to-point TE tunnel";
-      }
-      enum mpls-lib-c-type-ipv6-p2mp-tunnel {
-        value 14;
-        description "IPv6 point-to-point TE tunnel";
-      }
-      enum mpls-lib-c-type-ipv4-tp-tunnel {
-        value 15;
-        description "IPv4 transport protocol tunnel";
-      }
-      enum mpls-lib-c-type-ipv6-tp-tunnel {
-        value 16;
-        description "IPv6 transport protocol tunnel";
-      }
-      enum mpls-lib-c-type-p2p-binding-label {
-        value 17;
-        description "P2P transport tunnel binding label";
-      }
-    }
-    description "Mpls lib c";
-  }
-  typedef Bfd-api-fec {
-    type enumeration {
-      enum bfd-api-fec-type-none {
-        value 0;
-        description "bfd api fec type none";
-      }
-      enum bfd-api-fec-type-p2p-te {
-        value 1;
-        description "bfd api fec type p2p te";
-      }
-    }
-    description "Bfd api fec";
   }
   typedef Bfd-mgmt-session-diag {
     type enumeration {
@@ -512,6 +452,16 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
       type uint32;
       description "Max Session Number";
     }
+    leaf pps-all-percentage {
+      type uint32;
+      units "percentage";
+      description "All PPS percentage";
+    }
+    leaf ppsmp-percentage {
+      type uint32;
+      units "percentage";
+      description "MP PPS percentage";
+    }
   }
 
   grouping BFD-MGMT-LSP-PING-INFO {
@@ -596,140 +546,18 @@ submodule Cisco-IOS-XR-ip-bfd-oper-sub1 {
     }
   }
 
-  grouping TE-S2L-FEC {
-    description "A sub-LSP FEC";
-    leaf s2l-fec-subgroup-id {
-      type uint16;
-      description "sub-LSP subgroup ID";
-    }
-    leaf s2l-fec-lsp-id {
-      type uint16;
-      description "LSP ID";
-    }
-    leaf s2l-fec-tunnel-id {
-      type uint16;
-      description "Tunnel ID";
-    }
-    leaf s2l-fec-extended-tunnel-id {
-      type inet:ipv4-address;
-      description "Extended tunnel ID";
-    }
-    leaf s2l-fec-source {
-      type inet:ipv4-address;
-      description "LSP source address";
-    }
-    leaf s2l-fec-dest {
-      type inet:ipv4-address;
-      description "sub-LSP destination address";
-    }
-    leaf s2l-fec-p2mp-id {
-      type uint32;
-      description "P2MP ID";
-    }
-    leaf s2l-fec-subgroup-originator {
-      type inet:ipv4-address;
-      description "Subgroup Originator";
-    }
-    leaf s2l-fec-ctype {
-      type Mpls-lib-c;
-      description "Session identifier (ctype)";
-    }
-    leaf s2l-fec-vrf {
-      type string;
-      description "VRF; currently only for GMPLS tunnels";
-    }
-  }
-
-  grouping BFD-FEC-DUMMY {
-    description "BFD FEC DUMMY";
-    leaf dummy {
-      type yang:hex-string;
-      description "dummy";
-    }
-  }
-
-  grouping BFD-FEC-UNION {
-    description "BFD FEC UNION";
-
-    container dummy {
-      when "../bfdfe-ctype = 'bfd-api-fec-type-none'" {
-        description "../BFDFECType = 'BFD_API_FEC_TYPE_NONE'";
-      }
-      description "dummy";
-      uses BFD-FEC-DUMMY;
-    }
-
-    container te-s2l-fec {
-      when "../bfdfe-ctype = 'bfd-api-fec-type-p2p-te'" {
-        description "../BFDFECType = 'BFD_API_FEC_TYPE_P2P_TE'";
-      }
-      description "te s2l fec";
-      uses TE-S2L-FEC;
-    }
-    leaf bfdfe-ctype {
-      type Bfd-api-fec;
-      description "BFDFECType";
-    }
-  }
-
-  grouping BFD-MGMT-SESSION-KEY {
-    description "BFD Universal Session Key";
+  grouping BFD-MGMT-SESSION-ASSOCIATION-INFORMATION {
+    description "BFD Session Association Information";
 
     container ip-destination-address {
       description "IPv4/v6 dest address";
       uses IP-ADDR-T-UNION;
-    }
-
-    container ip-source-address {
-      description "IPv4/v6 source address";
-      uses IP-ADDR-T-UNION;
-    }
-
-    container bfdfec {
-      description "Union of FECs";
-      uses BFD-FEC-UNION;
-    }
-
-    container target-address {
-      description "sbfd target address";
-      uses IP-ADDR-T-UNION;
-    }
-    leaf session-key-type {
-      type uint32;
-      description "Session Key Type";
     }
     leaf interface-name {
       type string {
         length "0..64";
       }
       description "Session Interface Name";
-    }
-    leaf vrf-name {
-      type string {
-        length "0..120";
-      }
-      description "Session VRF Name";
-    }
-    leaf incoming-label {
-      type uint32;
-      description "Incoming Label";
-    }
-    leaf sbfd-enabled {
-      type int32;
-      description "SBFD enable flag";
-    }
-    leaf sbfd-target-type {
-      type uint32;
-      description "SBFD target type";
-    }
-  }
-
-  grouping BFD-MGMT-SESSION-ASSOCIATION-INFORMATION {
-    description "BFD Session Association Information";
-
-    container session-key {
-      description "Session Key";
-      uses BFD-MGMT-SESSION-KEY;
     }
     leaf sessiontype {
       type Bfd-session;

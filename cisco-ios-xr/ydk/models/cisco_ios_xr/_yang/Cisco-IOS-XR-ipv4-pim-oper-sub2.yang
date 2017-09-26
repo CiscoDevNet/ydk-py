@@ -29,8 +29,18 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-pim package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-27" {
+    description
+      "Removed deprecated leaves under traffic-counters. Added missing leaves under context. Removed checkpoint-statistics container because the corresponding CLI command requires cisco-support permissions.";
+  }
 
   revision "2015-11-09" {
     description

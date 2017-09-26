@@ -11,11 +11,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -85,7 +84,7 @@ class Lldp(Entity):
     """
 
     _prefix = 'ethernet-lldp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(Lldp, self).__init__()
@@ -93,6 +92,10 @@ class Lldp(Entity):
 
         self.yang_name = "lldp"
         self.yang_parent_name = "Cisco-IOS-XR-ethernet-lldp-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"tlv-select" : ("tlv_select", Lldp.TlvSelect)}
+        self._child_list_classes = {}
 
         self.enable = YLeaf(YType.boolean, "enable")
 
@@ -109,35 +112,10 @@ class Lldp(Entity):
         self.tlv_select = None
         self._children_name_map["tlv_select"] = "tlv-select"
         self._children_yang_names.add("tlv-select")
+        self._segment_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in ("enable",
-                        "enable_subintf",
-                        "extended_show_width",
-                        "holdtime",
-                        "reinit",
-                        "timer") and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(Lldp, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(Lldp, self).__setattr__(name, value)
+        self._perform_setattr(Lldp, ['enable', 'enable_subintf', 'extended_show_width', 'holdtime', 'reinit', 'timer'], name, value)
 
 
     class TlvSelect(Entity):
@@ -183,13 +161,17 @@ class Lldp(Entity):
         """
 
         _prefix = 'ethernet-lldp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Lldp.TlvSelect, self).__init__()
 
             self.yang_name = "tlv-select"
             self.yang_parent_name = "lldp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"management-address" : ("management_address", Lldp.TlvSelect.ManagementAddress), "port-description" : ("port_description", Lldp.TlvSelect.PortDescription), "system-capabilities" : ("system_capabilities", Lldp.TlvSelect.SystemCapabilities), "system-description" : ("system_description", Lldp.TlvSelect.SystemDescription), "system-name" : ("system_name", Lldp.TlvSelect.SystemName)}
+            self._child_list_classes = {}
             self.is_presence_container = True
 
             self.tlv_select_enter = YLeaf(YType.boolean, "tlv-select-enter")
@@ -218,418 +200,11 @@ class Lldp(Entity):
             self.system_name.parent = self
             self._children_name_map["system_name"] = "system-name"
             self._children_yang_names.add("system-name")
+            self._segment_path = lambda: "tlv-select"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("tlv_select_enter") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Lldp.TlvSelect, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Lldp.TlvSelect, self).__setattr__(name, value)
-
-
-        class SystemName(Entity):
-            """
-            System Name TLV
-            
-            .. attribute:: disable
-            
-            	disable System Name TLV
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
-            
-
-            """
-
-            _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Lldp.TlvSelect.SystemName, self).__init__()
-
-                self.yang_name = "system-name"
-                self.yang_parent_name = "tlv-select"
-
-                self.disable = YLeaf(YType.boolean, "disable")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("disable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lldp.TlvSelect.SystemName, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lldp.TlvSelect.SystemName, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.disable.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.disable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "system-name" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "disable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "disable"):
-                    self.disable = value
-                    self.disable.value_namespace = name_space
-                    self.disable.value_namespace_prefix = name_space_prefix
-
-
-        class PortDescription(Entity):
-            """
-            Port Description TLV
-            
-            .. attribute:: disable
-            
-            	disable Port Description TLV
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
-            
-
-            """
-
-            _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Lldp.TlvSelect.PortDescription, self).__init__()
-
-                self.yang_name = "port-description"
-                self.yang_parent_name = "tlv-select"
-
-                self.disable = YLeaf(YType.boolean, "disable")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("disable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lldp.TlvSelect.PortDescription, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lldp.TlvSelect.PortDescription, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.disable.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.disable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "port-description" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "disable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "disable"):
-                    self.disable = value
-                    self.disable.value_namespace = name_space
-                    self.disable.value_namespace_prefix = name_space_prefix
-
-
-        class SystemDescription(Entity):
-            """
-            System Description TLV
-            
-            .. attribute:: disable
-            
-            	disable System Description TLV
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
-            
-
-            """
-
-            _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Lldp.TlvSelect.SystemDescription, self).__init__()
-
-                self.yang_name = "system-description"
-                self.yang_parent_name = "tlv-select"
-
-                self.disable = YLeaf(YType.boolean, "disable")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("disable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lldp.TlvSelect.SystemDescription, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lldp.TlvSelect.SystemDescription, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.disable.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.disable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "system-description" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "disable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "disable"):
-                    self.disable = value
-                    self.disable.value_namespace = name_space
-                    self.disable.value_namespace_prefix = name_space_prefix
-
-
-        class SystemCapabilities(Entity):
-            """
-            System Capabilities TLV
-            
-            .. attribute:: disable
-            
-            	disable System Capabilities TLV
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
-            
-
-            """
-
-            _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Lldp.TlvSelect.SystemCapabilities, self).__init__()
-
-                self.yang_name = "system-capabilities"
-                self.yang_parent_name = "tlv-select"
-
-                self.disable = YLeaf(YType.boolean, "disable")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("disable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lldp.TlvSelect.SystemCapabilities, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lldp.TlvSelect.SystemCapabilities, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.disable.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.disable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "system-capabilities" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "disable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "disable"):
-                    self.disable = value
-                    self.disable.value_namespace = name_space
-                    self.disable.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(Lldp.TlvSelect, ['tlv_select_enter'], name, value)
 
 
         class ManagementAddress(Entity):
@@ -648,272 +223,168 @@ class Lldp(Entity):
             """
 
             _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Lldp.TlvSelect.ManagementAddress, self).__init__()
 
                 self.yang_name = "management-address"
                 self.yang_parent_name = "tlv-select"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.disable = YLeaf(YType.boolean, "disable")
+                self._segment_path = lambda: "management-address"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("disable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lldp.TlvSelect.ManagementAddress, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lldp.TlvSelect.ManagementAddress, self).__setattr__(name, value)
+                self._perform_setattr(Lldp.TlvSelect.ManagementAddress, ['disable'], name, value)
 
-            def has_data(self):
-                return self.disable.is_set
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.disable.yfilter != YFilter.not_set)
+        class PortDescription(Entity):
+            """
+            Port Description TLV
+            
+            .. attribute:: disable
+            
+            	disable Port Description TLV
+            	**type**\:  bool
+            
+            	**default value**\: false
+            
+            
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "management-address" + path_buffer
+            """
 
-                return path_buffer
+            _prefix = 'ethernet-lldp-cfg'
+            _revision = '2017-05-01'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __init__(self):
+                super(Lldp.TlvSelect.PortDescription, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable.get_name_leafdata())
+                self.yang_name = "port-description"
+                self.yang_parent_name = "tlv-select"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+                self.disable = YLeaf(YType.boolean, "disable")
+                self._segment_path = lambda: "port-description"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lldp.TlvSelect.PortDescription, ['disable'], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "disable"):
-                    return True
-                return False
+        class SystemCapabilities(Entity):
+            """
+            System Capabilities TLV
+            
+            .. attribute:: disable
+            
+            	disable System Capabilities TLV
+            	**type**\:  bool
+            
+            	**default value**\: false
+            
+            
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "disable"):
-                    self.disable = value
-                    self.disable.value_namespace = name_space
-                    self.disable.value_namespace_prefix = name_space_prefix
+            """
 
-        def has_data(self):
-            return (
-                self.tlv_select_enter.is_set or
-                (self.management_address is not None and self.management_address.has_data()) or
-                (self.port_description is not None and self.port_description.has_data()) or
-                (self.system_capabilities is not None and self.system_capabilities.has_data()) or
-                (self.system_description is not None and self.system_description.has_data()) or
-                (self.system_name is not None and self.system_name.has_data()))
+            _prefix = 'ethernet-lldp-cfg'
+            _revision = '2017-05-01'
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.tlv_select_enter.yfilter != YFilter.not_set or
-                (self.management_address is not None and self.management_address.has_operation()) or
-                (self.port_description is not None and self.port_description.has_operation()) or
-                (self.system_capabilities is not None and self.system_capabilities.has_operation()) or
-                (self.system_description is not None and self.system_description.has_operation()) or
-                (self.system_name is not None and self.system_name.has_operation()))
+            def __init__(self):
+                super(Lldp.TlvSelect.SystemCapabilities, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "tlv-select" + path_buffer
+                self.yang_name = "system-capabilities"
+                self.yang_parent_name = "tlv-select"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            return path_buffer
+                self.disable = YLeaf(YType.boolean, "disable")
+                self._segment_path = lambda: "system-capabilities"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lldp.TlvSelect.SystemCapabilities, ['disable'], name, value)
 
-            leaf_name_data = LeafDataList()
-            if (self.tlv_select_enter.is_set or self.tlv_select_enter.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.tlv_select_enter.get_name_leafdata())
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+        class SystemDescription(Entity):
+            """
+            System Description TLV
+            
+            .. attribute:: disable
+            
+            	disable System Description TLV
+            	**type**\:  bool
+            
+            	**default value**\: false
+            
+            
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+            """
 
-            if (child_yang_name == "management-address"):
-                if (self.management_address is None):
-                    self.management_address = Lldp.TlvSelect.ManagementAddress()
-                    self.management_address.parent = self
-                    self._children_name_map["management_address"] = "management-address"
-                return self.management_address
+            _prefix = 'ethernet-lldp-cfg'
+            _revision = '2017-05-01'
 
-            if (child_yang_name == "port-description"):
-                if (self.port_description is None):
-                    self.port_description = Lldp.TlvSelect.PortDescription()
-                    self.port_description.parent = self
-                    self._children_name_map["port_description"] = "port-description"
-                return self.port_description
+            def __init__(self):
+                super(Lldp.TlvSelect.SystemDescription, self).__init__()
 
-            if (child_yang_name == "system-capabilities"):
-                if (self.system_capabilities is None):
-                    self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
-                    self.system_capabilities.parent = self
-                    self._children_name_map["system_capabilities"] = "system-capabilities"
-                return self.system_capabilities
+                self.yang_name = "system-description"
+                self.yang_parent_name = "tlv-select"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            if (child_yang_name == "system-description"):
-                if (self.system_description is None):
-                    self.system_description = Lldp.TlvSelect.SystemDescription()
-                    self.system_description.parent = self
-                    self._children_name_map["system_description"] = "system-description"
-                return self.system_description
+                self.disable = YLeaf(YType.boolean, "disable")
+                self._segment_path = lambda: "system-description"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
 
-            if (child_yang_name == "system-name"):
-                if (self.system_name is None):
-                    self.system_name = Lldp.TlvSelect.SystemName()
-                    self.system_name.parent = self
-                    self._children_name_map["system_name"] = "system-name"
-                return self.system_name
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lldp.TlvSelect.SystemDescription, ['disable'], name, value)
 
-            return None
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "management-address" or name == "port-description" or name == "system-capabilities" or name == "system-description" or name == "system-name" or name == "tlv-select-enter"):
-                return True
-            return False
+        class SystemName(Entity):
+            """
+            System Name TLV
+            
+            .. attribute:: disable
+            
+            	disable System Name TLV
+            	**type**\:  bool
+            
+            	**default value**\: false
+            
+            
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "tlv-select-enter"):
-                self.tlv_select_enter = value
-                self.tlv_select_enter.value_namespace = name_space
-                self.tlv_select_enter.value_namespace_prefix = name_space_prefix
+            """
 
-    def has_data(self):
-        return (
-            self.enable.is_set or
-            self.enable_subintf.is_set or
-            self.extended_show_width.is_set or
-            self.holdtime.is_set or
-            self.reinit.is_set or
-            self.timer.is_set or
-            (self.tlv_select is not None))
+            _prefix = 'ethernet-lldp-cfg'
+            _revision = '2017-05-01'
 
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            self.enable.yfilter != YFilter.not_set or
-            self.enable_subintf.yfilter != YFilter.not_set or
-            self.extended_show_width.yfilter != YFilter.not_set or
-            self.holdtime.yfilter != YFilter.not_set or
-            self.reinit.yfilter != YFilter.not_set or
-            self.timer.yfilter != YFilter.not_set or
-            (self.tlv_select is not None and self.tlv_select.has_operation()))
+            def __init__(self):
+                super(Lldp.TlvSelect.SystemName, self).__init__()
 
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp" + path_buffer
+                self.yang_name = "system-name"
+                self.yang_parent_name = "tlv-select"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-        return path_buffer
+                self.disable = YLeaf(YType.boolean, "disable")
+                self._segment_path = lambda: "system-name"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
 
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.enable.get_name_leafdata())
-        if (self.enable_subintf.is_set or self.enable_subintf.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.enable_subintf.get_name_leafdata())
-        if (self.extended_show_width.is_set or self.extended_show_width.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.extended_show_width.get_name_leafdata())
-        if (self.holdtime.is_set or self.holdtime.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.holdtime.get_name_leafdata())
-        if (self.reinit.is_set or self.reinit.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.reinit.get_name_leafdata())
-        if (self.timer.is_set or self.timer.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.timer.get_name_leafdata())
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "tlv-select"):
-            if (self.tlv_select is None):
-                self.tlv_select = Lldp.TlvSelect()
-                self.tlv_select.parent = self
-                self._children_name_map["tlv_select"] = "tlv-select"
-            return self.tlv_select
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "tlv-select" or name == "enable" or name == "enable-subintf" or name == "extended-show-width" or name == "holdtime" or name == "reinit" or name == "timer"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        if(value_path == "enable"):
-            self.enable = value
-            self.enable.value_namespace = name_space
-            self.enable.value_namespace_prefix = name_space_prefix
-        if(value_path == "enable-subintf"):
-            self.enable_subintf = value
-            self.enable_subintf.value_namespace = name_space
-            self.enable_subintf.value_namespace_prefix = name_space_prefix
-        if(value_path == "extended-show-width"):
-            self.extended_show_width = value
-            self.extended_show_width.value_namespace = name_space
-            self.extended_show_width.value_namespace_prefix = name_space_prefix
-        if(value_path == "holdtime"):
-            self.holdtime = value
-            self.holdtime.value_namespace = name_space
-            self.holdtime.value_namespace_prefix = name_space_prefix
-        if(value_path == "reinit"):
-            self.reinit = value
-            self.reinit.value_namespace = name_space
-            self.reinit.value_namespace_prefix = name_space_prefix
-        if(value_path == "timer"):
-            self.timer = value
-            self.timer.value_namespace = name_space
-            self.timer.value_namespace_prefix = name_space_prefix
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lldp.TlvSelect.SystemName, ['disable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Lldp()

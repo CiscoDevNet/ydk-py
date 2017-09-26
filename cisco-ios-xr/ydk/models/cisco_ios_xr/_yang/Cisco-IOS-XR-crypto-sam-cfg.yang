@@ -9,8 +9,6 @@ module Cisco-IOS-XR-crypto-sam-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -34,7 +32,7 @@ module Cisco-IOS-XR-crypto-sam-cfg {
      for the following management objects:
        crypto: Crypto configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-01-07" {

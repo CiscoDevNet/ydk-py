@@ -23,7 +23,7 @@ module Cisco-IOS-XR-isis-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ISIS action package configuration.
 
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
     
     revision "2016-06-30" {
@@ -103,6 +103,22 @@ module Cisco-IOS-XR-isis-act {
         }
     }
 
+    rpc clear-isis-local-lsp {
+        description "Clean and regenerate local LSPs";
+        input {
+            container instance {
+                description "Clean and regenerate local LSPs from single IS-IS instance";
+                leaf instance-identifier {
+                    description "IS-IS process instance identifier";
+                    type string;
+                }
+            }
+            leaf local-lsp {
+                description "Clean and regenerate local LSPs";
+                type empty;
+            }
+        }
+    }
 
     rpc clear-isis {
         description "Clear IS-IS data structures";

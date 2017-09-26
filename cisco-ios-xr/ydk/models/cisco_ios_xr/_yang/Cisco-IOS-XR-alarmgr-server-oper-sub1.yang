@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-alarmgr-server-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,7 +25,7 @@ submodule Cisco-IOS-XR-alarmgr-server-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR alarmgr-server package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -254,8 +252,12 @@ submodule Cisco-IOS-XR-alarmgr-server-oper-sub1 {
         value 16;
         description "OTS group of alarms";
       }
-      enum last {
+      enum timing {
         value 17;
+        description "Timing group of alarms";
+      }
+      enum last {
+        value 18;
         description "Last unused group";
       }
     }

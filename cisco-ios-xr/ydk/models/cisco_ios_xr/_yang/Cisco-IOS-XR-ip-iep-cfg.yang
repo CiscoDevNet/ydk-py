@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ip-iep-cfg {
      for the following management objects:
        ip-explicit-paths: IP Explicit Path config data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -125,6 +125,9 @@ module Cisco-IOS-XR-ip-iep-cfg {
                 description "Index number";
               }
               leaf ip-address {
+                when "../hop-type != 'next-label'" {
+                  description "../HopType != NextLabel";
+                }
                 type inet:ipv4-address-no-zone;
                 default "0.0.0.0";
                 description "IP address of the hop";
@@ -136,17 +139,28 @@ module Cisco-IOS-XR-ip-iep-cfg {
                   "Include or exclude this hop in the path";
               }
               leaf if-index {
+                when "../hop-type != 'next-label'" {
+                  description "../HopType != NextLabel";
+                }
                 type int32;
                 default "0";
                 description "Ifindex value";
               }
               leaf num-type {
+                when "../hop-type != 'next-label'" {
+                  description "../HopType != NextLabel";
+                }
                 type Ip-iep-num;
                 default "numbered";
                 description "Number type Numbered or Unnumbered";
               }
               leaf mpls-label {
-                type int32;
+                when "../hop-type = 'next-label'" {
+                  description "../HopType = NextLabel";
+                }
+                type uint32 {
+                  range "0..1048575";
+                }
                 description "MPLS Label";
               }
             }

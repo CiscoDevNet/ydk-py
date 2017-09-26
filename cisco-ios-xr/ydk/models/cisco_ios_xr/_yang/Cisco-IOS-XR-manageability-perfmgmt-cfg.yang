@@ -37,8 +37,13 @@ module Cisco-IOS-XR-manageability-perfmgmt-cfg {
      for the following management objects:
        perf-mgmt: Performance Management configuration & operations
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

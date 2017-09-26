@@ -34,7 +34,7 @@ module Cisco-IOS-XR-pfm-oper {
      for the following management objects:
        platform-fault-manager: PFM data space
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2017-03-28" {

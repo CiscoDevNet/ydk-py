@@ -6,7 +6,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -36,32 +35,16 @@ class MdtSubscriptions(Entity):
 
         self.yang_name = "mdt-subscriptions"
         self.yang_parent_name = "Cisco-IOS-XE-mdt-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"mdt-subscription" : ("mdt_subscription", MdtSubscriptions.MdtSubscription)}
 
         self.mdt_subscription = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(MdtSubscriptions, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(MdtSubscriptions, self).__setattr__(name, value)
+        self._perform_setattr(MdtSubscriptions, [], name, value)
 
 
     class MdtSubscription(Entity):
@@ -97,6 +80,10 @@ class MdtSubscriptions(Entity):
 
             self.yang_name = "mdt-subscription"
             self.yang_parent_name = "mdt-subscriptions"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"base" : ("base", MdtSubscriptions.MdtSubscription.Base)}
+            self._child_list_classes = {"mdt-receivers" : ("mdt_receivers", MdtSubscriptions.MdtSubscription.MdtReceivers)}
 
             self.subscription_id = YLeaf(YType.uint32, "subscription-id")
 
@@ -106,30 +93,11 @@ class MdtSubscriptions(Entity):
             self._children_yang_names.add("base")
 
             self.mdt_receivers = YList(self)
+            self._segment_path = lambda: "mdt-subscription" + "[subscription-id='" + self.subscription_id.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("subscription_id") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(MdtSubscriptions.MdtSubscription, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(MdtSubscriptions.MdtSubscription, self).__setattr__(name, value)
+            self._perform_setattr(MdtSubscriptions.MdtSubscription, ['subscription_id'], name, value)
 
 
         class Base(Entity):
@@ -201,6 +169,10 @@ class MdtSubscriptions(Entity):
 
                 self.yang_name = "base"
                 self.yang_parent_name = "mdt-subscription"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.encoding = YLeaf(YType.str, "encoding")
 
@@ -215,131 +187,10 @@ class MdtSubscriptions(Entity):
                 self.stream = YLeaf(YType.str, "stream")
 
                 self.xpath = YLeaf(YType.str, "xpath")
+                self._segment_path = lambda: "base"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("encoding",
-                                "no_filter",
-                                "no_synch_on_start",
-                                "no_trigger",
-                                "period",
-                                "stream",
-                                "xpath") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(MdtSubscriptions.MdtSubscription.Base, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(MdtSubscriptions.MdtSubscription.Base, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.encoding.is_set or
-                    self.no_filter.is_set or
-                    self.no_synch_on_start.is_set or
-                    self.no_trigger.is_set or
-                    self.period.is_set or
-                    self.stream.is_set or
-                    self.xpath.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.encoding.yfilter != YFilter.not_set or
-                    self.no_filter.yfilter != YFilter.not_set or
-                    self.no_synch_on_start.yfilter != YFilter.not_set or
-                    self.no_trigger.yfilter != YFilter.not_set or
-                    self.period.yfilter != YFilter.not_set or
-                    self.stream.yfilter != YFilter.not_set or
-                    self.xpath.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "base" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.encoding.is_set or self.encoding.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.encoding.get_name_leafdata())
-                if (self.no_filter.is_set or self.no_filter.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.no_filter.get_name_leafdata())
-                if (self.no_synch_on_start.is_set or self.no_synch_on_start.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.no_synch_on_start.get_name_leafdata())
-                if (self.no_trigger.is_set or self.no_trigger.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.no_trigger.get_name_leafdata())
-                if (self.period.is_set or self.period.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.period.get_name_leafdata())
-                if (self.stream.is_set or self.stream.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.stream.get_name_leafdata())
-                if (self.xpath.is_set or self.xpath.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.xpath.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "encoding" or name == "no-filter" or name == "no-synch-on-start" or name == "no-trigger" or name == "period" or name == "stream" or name == "xpath"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "encoding"):
-                    self.encoding = value
-                    self.encoding.value_namespace = name_space
-                    self.encoding.value_namespace_prefix = name_space_prefix
-                if(value_path == "no-filter"):
-                    self.no_filter = value
-                    self.no_filter.value_namespace = name_space
-                    self.no_filter.value_namespace_prefix = name_space_prefix
-                if(value_path == "no-synch-on-start"):
-                    self.no_synch_on_start = value
-                    self.no_synch_on_start.value_namespace = name_space
-                    self.no_synch_on_start.value_namespace_prefix = name_space_prefix
-                if(value_path == "no-trigger"):
-                    self.no_trigger = value
-                    self.no_trigger.value_namespace = name_space
-                    self.no_trigger.value_namespace_prefix = name_space_prefix
-                if(value_path == "period"):
-                    self.period = value
-                    self.period.value_namespace = name_space
-                    self.period.value_namespace_prefix = name_space_prefix
-                if(value_path == "stream"):
-                    self.stream = value
-                    self.stream.value_namespace = name_space
-                    self.stream.value_namespace_prefix = name_space_prefix
-                if(value_path == "xpath"):
-                    self.xpath = value
-                    self.xpath.value_namespace = name_space
-                    self.xpath.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['encoding', 'no_filter', 'no_synch_on_start', 'no_trigger', 'period', 'stream', 'xpath'], name, value)
 
 
         class MdtReceivers(Entity):
@@ -395,231 +246,20 @@ class MdtSubscriptions(Entity):
 
                 self.yang_name = "mdt-receivers"
                 self.yang_parent_name = "mdt-subscription"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.address = YLeaf(YType.str, "address")
 
                 self.port = YLeaf(YType.uint16, "port")
 
                 self.protocol = YLeaf(YType.str, "protocol")
+                self._segment_path = lambda: "mdt-receivers" + "[address='" + self.address.get() + "']" + "[port='" + self.port.get() + "']"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("address",
-                                "port",
-                                "protocol") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(MdtSubscriptions.MdtSubscription.MdtReceivers, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(MdtSubscriptions.MdtSubscription.MdtReceivers, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.address.is_set or
-                    self.port.is_set or
-                    self.protocol.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.address.yfilter != YFilter.not_set or
-                    self.port.yfilter != YFilter.not_set or
-                    self.protocol.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "mdt-receivers" + "[address='" + self.address.get() + "']" + "[port='" + self.port.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.address.is_set or self.address.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.address.get_name_leafdata())
-                if (self.port.is_set or self.port.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.port.get_name_leafdata())
-                if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.protocol.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "address" or name == "port" or name == "protocol"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "address"):
-                    self.address = value
-                    self.address.value_namespace = name_space
-                    self.address.value_namespace_prefix = name_space_prefix
-                if(value_path == "port"):
-                    self.port = value
-                    self.port.value_namespace = name_space
-                    self.port.value_namespace_prefix = name_space_prefix
-                if(value_path == "protocol"):
-                    self.protocol = value
-                    self.protocol.value_namespace = name_space
-                    self.protocol.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.mdt_receivers:
-                if (c.has_data()):
-                    return True
-            return (
-                self.subscription_id.is_set or
-                (self.base is not None and self.base.has_data()))
-
-        def has_operation(self):
-            for c in self.mdt_receivers:
-                if (c.has_operation()):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                self.subscription_id.yfilter != YFilter.not_set or
-                (self.base is not None and self.base.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "mdt-subscription" + "[subscription-id='" + self.subscription_id.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.subscription_id.is_set or self.subscription_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.subscription_id.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "base"):
-                if (self.base is None):
-                    self.base = MdtSubscriptions.MdtSubscription.Base()
-                    self.base.parent = self
-                    self._children_name_map["base"] = "base"
-                return self.base
-
-            if (child_yang_name == "mdt-receivers"):
-                for c in self.mdt_receivers:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = MdtSubscriptions.MdtSubscription.MdtReceivers()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.mdt_receivers.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "base" or name == "mdt-receivers" or name == "subscription-id"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "subscription-id"):
-                self.subscription_id = value
-                self.subscription_id.value_namespace = name_space
-                self.subscription_id.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.mdt_subscription:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.mdt_subscription:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "mdt-subscription"):
-            for c in self.mdt_subscription:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = MdtSubscriptions.MdtSubscription()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.mdt_subscription.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "mdt-subscription"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(MdtSubscriptions.MdtSubscription.MdtReceivers, ['address', 'port', 'protocol'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MdtSubscriptions()

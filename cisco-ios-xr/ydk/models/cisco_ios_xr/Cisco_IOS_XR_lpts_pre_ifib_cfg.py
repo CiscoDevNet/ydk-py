@@ -8,15 +8,35 @@ This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+class LptsDynamicFlowConfig(Enum):
+    """
+    LptsDynamicFlowConfig
+
+    Lpts dynamic flow config
+
+    .. data:: flows_config = 0
+
+    	LPTS Flows Limit
+
+    .. data:: platform_config = 1
+
+    	Platform Limit
+
+    """
+
+    flows_config = Enum.YLeaf(0, "flows-config")
+
+    platform_config = Enum.YLeaf(1, "platform-config")
 
 
 class LptsFlow(Enum):
@@ -487,6 +507,10 @@ class LptsFlow(Enum):
 
     	EXR packets.
 
+    .. data:: platform_limit = 97
+
+    	Platform Limit.
+
     """
 
     config_default = Enum.YLeaf(0, "config-default")
@@ -682,6 +706,8 @@ class LptsFlow(Enum):
     onepk = Enum.YLeaf(95, "onepk")
 
     exr = Enum.YLeaf(96, "exr")
+
+    platform_limit = Enum.YLeaf(97, "platform-limit")
 
 
 class LptsPreIFibPrecedenceNumber(Enum):

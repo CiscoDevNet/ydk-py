@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,8 +27,13 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-tcp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-02-26" {
     description
@@ -1318,6 +1321,14 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
     leaf iq-sock-aborts {
       type uint32;
       description "Number of aborted socket-lib writes";
+    }
+    leaf iq-ingress-drops {
+      type uint32;
+      description "Number of total ingress dropped packets";
+    }
+    leaf total-i-qs {
+      type uint32;
+      description "Number of TCP internal queues in use";
     }
   }
 

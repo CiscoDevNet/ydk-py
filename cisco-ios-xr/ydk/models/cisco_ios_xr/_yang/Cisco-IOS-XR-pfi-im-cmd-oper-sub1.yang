@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-pfi-im-cmd-oper-sub2 {
-    revision-date 2016-12-18;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -35,8 +35,18 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pfi-im-cmd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-18" {
     description
@@ -86,13 +96,13 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         value 8;
         description "stats counter mpls exp";
       }
-      enum stats-counter-ipv4-bgppa {
+      enum stats-counter-ipv4-bgp-pa {
         value 9;
-        description "stats counter ipv4 bgppa";
+        description "stats counter ipv4 bgp pa";
       }
-      enum stats-counter-src-bgppa {
+      enum stats-counter-src-bgp-pa {
         value 10;
-        description "stats counter src bgppa";
+        description "stats counter src bgp pa";
       }
       enum stats-counter-basic {
         value 11;
@@ -255,6 +265,23 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       }
     }
     description "Tunnel ka df state";
+  }
+  typedef Tunl-ip-mode-dir {
+    type enumeration {
+      enum tunl-ip-mode-dir-none {
+        description "tunl ip mode dir none";
+      }
+      enum tunl-ip-mode-dir-decap {
+        description "tunl ip mode dir decap";
+      }
+      enum tunl-ip-mode-dir-encap {
+        description "tunl ip mode dir encap";
+      }
+      enum tunl-ip-mode-dir-max {
+        description "tunl ip mode dir max";
+      }
+    }
+    description "Tunl ip mode dir";
   }
   typedef Tunnel-gre-mode {
     type enumeration {
@@ -2811,6 +2838,54 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         value 344;
         description "im attr media 100gbase pas loop";
       }
+      enum im-attr-media-50gbase-cr2 {
+        value 345;
+        description "im attr media 50gbase cr2";
+      }
+      enum im-attr-media-50gbase-sr2 {
+        value 346;
+        description "im attr media 50gbase sr2";
+      }
+      enum im-attr-media-50gbase-psm2 {
+        value 347;
+        description "im attr media 50gbase psm2";
+      }
+      enum im-attr-media-200gbase-cr4 {
+        value 348;
+        description "im attr media 200gbase cr4";
+      }
+      enum im-attr-media-400gbase-fr4 {
+        value 349;
+        description "im attr media 400gbase fr4";
+      }
+      enum im-attr-media-400gbase-dr4 {
+        value 350;
+        description "im attr media 400gbase dr4";
+      }
+      enum im-attr-media-400gbase-cr4 {
+        value 351;
+        description "im attr media 400gbase cr4";
+      }
+      enum im-attr-media-10gbase-cr {
+        value 352;
+        description "im attr media 10gbase cr";
+      }
+      enum im-attr-media-10gbase-aoc {
+        value 353;
+        description "im attr media 10gbase aoc";
+      }
+      enum im-attr-media-40gbase-aoc {
+        value 354;
+        description "im attr media 40gbase aoc";
+      }
+      enum im-attr-media-40gbase-acu {
+        value 355;
+        description "im attr media 40gbase acu";
+      }
+      enum im-attr-media-100gbase-acu {
+        value 356;
+        description "im attr media 100gbase acu";
+      }
     }
     description "Im attr media";
   }
@@ -3413,9 +3488,9 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       type Tunnel-gre-mode;
       description "Tunnel GRE Mode";
     }
-    leaf tunnel-mode-decap {
-      type int32;
-      description "Tunnel Mode Decap";
+    leaf tunnel-mode-direction {
+      type Tunl-ip-mode-dir;
+      description "Tunnel Mode Direction";
     }
     leaf keepalive-state {
       type Tunnel-ka-df-state;
@@ -3505,9 +3580,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
   }
 
   grouping BM-LACP-LINK-DATA {
-    description
-      "Link properties for a port using LACP
-      (Deprecated)";
+    description "Link properties for a port using LACP ";
     leaf interface-handle {
       type xr:Interface-name;
       description "Member's interface handle";
@@ -3642,10 +3715,10 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description "MAC address of this member (deprecated)";
       uses BM-MAC-ADDR-ST;
     }
-    leaf bandwidth {
-      type uint32;
-      units "kbit/s";
-      description "Bandwidth of this member (kbps)";
+    leaf interface-name {
+      xr:event-telemetry "Subscribe Telemetry Event";
+      type xr:Interface-name;
+      description "Member's interface name";
     }
     leaf port-priority {
       type uint16;
@@ -3663,13 +3736,18 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       type uint16;
       description "Member's link order number";
     }
-    leaf interface-name {
-      type xr:Interface-name;
-      description "Member's interface name";
-    }
     leaf iccp-node {
       type uint32;
       description "Location of member";
+    }
+    leaf bandwidth {
+      type uint32;
+      units "kbit/s";
+      description "Bandwidth of this member (kbps)";
+    }
+    leaf lacp-enabled {
+      type string;
+      description "Boolean indicating LACP enabled or not";
     }
     leaf member-type {
       type Bmd-member-type-enum;
@@ -4652,10 +4730,12 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
   grouping IM-CMD-IP-INFO-ST {
     description "IM CMD IP INFO ST";
     leaf ip-address {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type inet:ipv4-address;
       description "Interface IPv4 address";
     }
     leaf subnet-mask-length {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Interface subnet mask length";
     }
@@ -4697,6 +4777,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
   grouping IM-CMD-MAC-ADDR-ST {
     description "IM CMD MAC ADDR ST";
     leaf address {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type yang:mac-address;
       description "MAC Address";
     }
@@ -4804,8 +4885,8 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       uses NV-OPTICAL-INTERFACE-INFO;
     }
     leaf interface-handle {
-      type xr:Interface-name;
-      description "Interface";
+      type string;
+      description "Interface name";
     }
     leaf interface-type {
       type string;
@@ -4818,10 +4899,12 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description "Hardware type description string";
     }
     leaf state {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type Im-state-enum;
       description "Interface state";
     }
     leaf line-state {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type Im-state-enum;
       description "Line protocol state";
     }
@@ -4836,6 +4919,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description "Interface encapsulation description string";
     }
     leaf mtu {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       units "byte";
       description "MTU in bytes";
@@ -4870,6 +4954,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description "Interface scramble config";
     }
     leaf duplexity {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type Im-attr-duplex;
       description "Interface duplexity";
     }
@@ -4890,6 +4975,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description "Output flow control configuration";
     }
     leaf bandwidth {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Interface bandwidth (Kb/s)";
     }
@@ -4928,6 +5014,10 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
     leaf transport-mode {
       type Im-attr-transport-mode;
       description "Interface transport mode";
+    }
+    leaf fast-shutdown {
+      type boolean;
+      description "Fast Shutdown flag";
     }
     leaf if-index {
       type uint32;

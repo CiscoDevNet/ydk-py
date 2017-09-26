@@ -25,7 +25,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR IPv6 OSPFv3 action package configuration.
 
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
    
     revision "2016-09-14" {
@@ -33,8 +33,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
             "IOS XR 6.2.1 revision.";
     }
 
-    rpc act-ospfv3-routes {
-        description "Clear OSPFv3 Routes Table";
+    rpc clear-ospfv3-routes {
+        description "Clear OSPFv3 route table";
         input {
             container instance {
                 description "Clear data from OSPFv3 instance";
@@ -51,8 +51,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
         }
     }
 
-    rpc act-ospfv3-redistribution {
-        description "Clear OSPFv3 Route Redistribution";
+    rpc clear-ospfv3-redistribution {
+        description "Clear OSPFv3 route redistribution";
         input {
             container instance {
                 description "Clear data from OSPFv3 instance";
@@ -62,15 +62,15 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
                 }
             }
             leaf redistribution {
-                description "Clear OSPFv3 Route Redistribution";
+                description "Clear OSPFv3 route redistribution";
                 mandatory true;
                 type empty;
             }
         }
     }
 
-    rpc act-ospfv3-process {
-        description "Reset OSPFv3 Process";
+    rpc clear-ospfv3-process {
+        description "Clear (reset) OSPFv3 Process";
         input {
             container instance {
                 description "Clear data from OSPFv3 instance";
@@ -87,8 +87,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
         }
     }
 
-    rpc act-ospfv3-statistics-neighbor {
-        description "Neighbor statistics per neighbor id";
+    rpc clear-ospfv3-statistics-neighbor {
+        description "Clear OSPFv3 neighbor statistics per interface or neighbor id";
         input {
             container instance {
                 description "Clear data from OSPFv3 instance";
@@ -110,8 +110,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
         }
     }
 
-    rpc act-ospfv3-statistics {
-        description "Clear OSPFv3 Counters And Statistics";
+    rpc clear-ospfv3-statistics {
+        description "Clear OSPFv3 counters and statistics";
         input {
             container instance {
                 description "Clear data from OSPFv3 instance";
@@ -174,7 +174,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-act {
         }
     }
 
-    rpc act-ospfv3-instance-vrf {
+    rpc clear-ospfv3-instance-vrf {
         description "Clear one or more non-default OSPFv3 VRFs in process";
         input {
             container instance {

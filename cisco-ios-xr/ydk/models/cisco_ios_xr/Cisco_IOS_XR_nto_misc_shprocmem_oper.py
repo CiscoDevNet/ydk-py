@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   processes\-memory\: Process statistics
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,11 +40,16 @@ class ProcessesMemory(Entity):
 
         self.yang_name = "processes-memory"
         self.yang_parent_name = "Cisco-IOS-XR-nto-misc-shprocmem-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", ProcessesMemory.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = ProcessesMemory.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory"
 
 
     class Nodes(Entity):
@@ -69,32 +73,17 @@ class ProcessesMemory(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "processes-memory"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", ProcessesMemory.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ProcessesMemory.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ProcessesMemory.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(ProcessesMemory.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -125,6 +114,10 @@ class ProcessesMemory(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"job-ids" : ("job_ids", ProcessesMemory.Nodes.Node.JobIds)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -132,30 +125,11 @@ class ProcessesMemory(Entity):
                 self.job_ids.parent = self
                 self._children_name_map["job_ids"] = "job-ids"
                 self._children_yang_names.add("job-ids")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ProcessesMemory.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ProcessesMemory.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(ProcessesMemory.Nodes.Node, ['node_name'], name, value)
 
 
             class JobIds(Entity):
@@ -179,32 +153,16 @@ class ProcessesMemory(Entity):
 
                     self.yang_name = "job-ids"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"job-id" : ("job_id", ProcessesMemory.Nodes.Node.JobIds.JobId)}
 
                     self.job_id = YList(self)
+                    self._segment_path = lambda: "job-ids"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(ProcessesMemory.Nodes.Node.JobIds, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(ProcessesMemory.Nodes.Node.JobIds, self).__setattr__(name, value)
+                    self._perform_setattr(ProcessesMemory.Nodes.Node.JobIds, [], name, value)
 
 
                 class JobId(Entity):
@@ -270,6 +228,10 @@ class ProcessesMemory(Entity):
 
                         self.yang_name = "job-id"
                         self.yang_parent_name = "job-ids"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.job_id = YLeaf(YType.int32, "job-id")
 
@@ -284,348 +246,10 @@ class ProcessesMemory(Entity):
                         self.stack_seg_size = YLeaf(YType.uint32, "stack-seg-size")
 
                         self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
+                        self._segment_path = lambda: "job-id" + "[job-id='" + self.job_id.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("job_id",
-                                        "data_seg_size",
-                                        "jid",
-                                        "malloc_size",
-                                        "name",
-                                        "stack_seg_size",
-                                        "text_seg_size") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(ProcessesMemory.Nodes.Node.JobIds.JobId, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(ProcessesMemory.Nodes.Node.JobIds.JobId, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.job_id.is_set or
-                            self.data_seg_size.is_set or
-                            self.jid.is_set or
-                            self.malloc_size.is_set or
-                            self.name.is_set or
-                            self.stack_seg_size.is_set or
-                            self.text_seg_size.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.job_id.yfilter != YFilter.not_set or
-                            self.data_seg_size.yfilter != YFilter.not_set or
-                            self.jid.yfilter != YFilter.not_set or
-                            self.malloc_size.yfilter != YFilter.not_set or
-                            self.name.yfilter != YFilter.not_set or
-                            self.stack_seg_size.yfilter != YFilter.not_set or
-                            self.text_seg_size.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "job-id" + "[job-id='" + self.job_id.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.job_id.is_set or self.job_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.job_id.get_name_leafdata())
-                        if (self.data_seg_size.is_set or self.data_seg_size.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.data_seg_size.get_name_leafdata())
-                        if (self.jid.is_set or self.jid.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.jid.get_name_leafdata())
-                        if (self.malloc_size.is_set or self.malloc_size.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.malloc_size.get_name_leafdata())
-                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.name.get_name_leafdata())
-                        if (self.stack_seg_size.is_set or self.stack_seg_size.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.stack_seg_size.get_name_leafdata())
-                        if (self.text_seg_size.is_set or self.text_seg_size.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.text_seg_size.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "job-id" or name == "data-seg-size" or name == "jid" or name == "malloc-size" or name == "name" or name == "stack-seg-size" or name == "text-seg-size"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "job-id"):
-                            self.job_id = value
-                            self.job_id.value_namespace = name_space
-                            self.job_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "data-seg-size"):
-                            self.data_seg_size = value
-                            self.data_seg_size.value_namespace = name_space
-                            self.data_seg_size.value_namespace_prefix = name_space_prefix
-                        if(value_path == "jid"):
-                            self.jid = value
-                            self.jid.value_namespace = name_space
-                            self.jid.value_namespace_prefix = name_space_prefix
-                        if(value_path == "malloc-size"):
-                            self.malloc_size = value
-                            self.malloc_size.value_namespace = name_space
-                            self.malloc_size.value_namespace_prefix = name_space_prefix
-                        if(value_path == "name"):
-                            self.name = value
-                            self.name.value_namespace = name_space
-                            self.name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "stack-seg-size"):
-                            self.stack_seg_size = value
-                            self.stack_seg_size.value_namespace = name_space
-                            self.stack_seg_size.value_namespace_prefix = name_space_prefix
-                        if(value_path == "text-seg-size"):
-                            self.text_seg_size = value
-                            self.text_seg_size.value_namespace = name_space
-                            self.text_seg_size.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.job_id:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.job_id:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "job-ids" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "job-id"):
-                        for c in self.job_id:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = ProcessesMemory.Nodes.Node.JobIds.JobId()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.job_id.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "job-id"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.job_ids is not None and self.job_ids.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.job_ids is not None and self.job_ids.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "job-ids"):
-                    if (self.job_ids is None):
-                        self.job_ids = ProcessesMemory.Nodes.Node.JobIds()
-                        self.job_ids.parent = self
-                        self._children_name_map["job_ids"] = "job-ids"
-                    return self.job_ids
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "job-ids" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ProcessesMemory.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = ProcessesMemory.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                        self._perform_setattr(ProcessesMemory.Nodes.Node.JobIds.JobId, ['job_id', 'data_seg_size', 'jid', 'malloc_size', 'name', 'stack_seg_size', 'text_seg_size'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ProcessesMemory()

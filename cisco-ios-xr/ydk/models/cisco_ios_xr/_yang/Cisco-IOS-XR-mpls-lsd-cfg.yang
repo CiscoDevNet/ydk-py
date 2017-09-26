@@ -9,8 +9,6 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -34,7 +32,7 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
      for the following management objects:
        mpls-lsd: MPLS LSD configuration data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

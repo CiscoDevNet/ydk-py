@@ -2,16 +2,15 @@
 
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Atmservicecategory(Enum):
+class AtmServiceCategory(Enum):
     """
-    Atmservicecategory
+    AtmServiceCategory
 
     ATM Service Categories use this data type
 
@@ -42,9 +41,9 @@ class Atmservicecategory(Enum):
     ubr = Enum.YLeaf(6, "ubr")
 
 
-class Truthvalue(Enum):
+class TruthValue(Enum):
     """
-    Truthvalue
+    TruthValue
 
     Boolean values use this data type from RFC\-1903
 

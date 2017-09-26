@@ -4,7 +4,6 @@ The MIB module to describe DS1, E1, DS2, and
 E2 interfaces objects.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,56 +11,56 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ds1Mib(Entity):
+class DS1MIB(Entity):
     """
     
     
     .. attribute:: dsx1chanmappingtable
     
     	The DS1 Channel Mapping table.  This table maps a DS1 channel number on a particular DS3 into an ifIndex.  In the presence of DS2s, this table can be used to map a DS2 channel number on a DS3 into an ifIndex, or used to map a DS1 channel number on a DS2 onto an ifIndex
-    	**type**\:   :py:class:`Dsx1Chanmappingtable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Chanmappingtable>`
+    	**type**\:   :py:class:`Dsx1Chanmappingtable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Chanmappingtable>`
     
     .. attribute:: dsx1configtable
     
     	The DS1 Configuration table
-    	**type**\:   :py:class:`Dsx1Configtable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable>`
+    	**type**\:   :py:class:`Dsx1Configtable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable>`
     
     .. attribute:: dsx1currenttable
     
     	The DS1 current table contains various statistics being collected for the current 15 minute interval
-    	**type**\:   :py:class:`Dsx1Currenttable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Currenttable>`
+    	**type**\:   :py:class:`Dsx1Currenttable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Currenttable>`
     
     .. attribute:: dsx1farendcurrenttable
     
     	The DS1 Far End Current table contains various statistics being collected for the current 15 minute interval.  The statistics are collected from the far end messages on the Facilities Data Link.  The definitions are the same as described for the near\-end information
-    	**type**\:   :py:class:`Dsx1Farendcurrenttable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendcurrenttable>`
+    	**type**\:   :py:class:`Dsx1Farendcurrenttable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendcurrenttable>`
     
     .. attribute:: dsx1farendintervaltable
     
     	The DS1 Far End Interval Table contains various statistics collected by each DS1 interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals. Each row in this table represents one such interval (identified by dsx1FarEndIntervalNumber) for one specific instance (identified by dsx1FarEndIntervalIndex)
-    	**type**\:   :py:class:`Dsx1Farendintervaltable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendintervaltable>`
+    	**type**\:   :py:class:`Dsx1Farendintervaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendintervaltable>`
     
     .. attribute:: dsx1farendtotaltable
     
     	The DS1 Far End Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:   :py:class:`Dsx1Farendtotaltable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendtotaltable>`
+    	**type**\:   :py:class:`Dsx1Farendtotaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendtotaltable>`
     
     .. attribute:: dsx1fractable
     
     	This table is deprecated in favour of using ifStackTable.  The table was mandatory for systems dividing a DS1 into channels containing different data streams that are of local interest.  Systems which are indifferent to data content, such as CSUs, need not implement it.  The DS1 fractional table identifies which DS1 channels associated with a CSU are being used to support a logical interface, i.e., an entry in the interfaces table from the Internet\-standard MIB.  For example, consider an application managing a North American ISDN Primary Rate link whose division is a 384 kbit/s H1 \_B\_ Channel for Video, a second H1 for data to a primary routing peer, and 12 64 kbit/s H0 \_B\_ Channels. Consider that some subset of the H0 channels are used for voice and the remainder are available for dynamic data calls.  We count a total of 14 interfaces multiplexed onto the DS1 interface. Six DS1 channels (for the sake of the example, channels 1..6) are used for Video, six more (7..11 and 13) are used for data, and the remaining 12 are are in channels 12 and 14..24.  Let us further imagine that ifIndex 2 is of type DS1 and refers to the DS1 interface, and that the interfaces layered onto it are numbered 3..16.  We might describe the allocation of channels, in the dsx1FracTable, as follows\: dsx1FracIfIndex.2. 1 = 3  dsx1FracIfIndex.2.13 = 4 dsx1FracIfIndex.2. 2 = 3  dsx1FracIfIndex.2.14 = 6 dsx1FracIfIndex.2. 3 = 3  dsx1FracIfIndex.2.15 = 7 dsx1FracIfIndex.2. 4 = 3  dsx1FracIfIndex.2.16 = 8 dsx1FracIfIndex.2. 5 = 3  dsx1FracIfIndex.2.17 = 9 dsx1FracIfIndex.2. 6 = 3  dsx1FracIfIndex.2.18 = 10 dsx1FracIfIndex.2. 7 = 4  dsx1FracIfIndex.2.19 = 11 dsx1FracIfIndex.2. 8 = 4  dsx1FracIfIndex.2.20 = 12 dsx1FracIfIndex.2. 9 = 4  dsx1FracIfIndex.2.21 = 13 dsx1FracIfIndex.2.10 = 4  dsx1FracIfIndex.2.22 = 14 dsx1FracIfIndex.2.11 = 4  dsx1FracIfIndex.2.23 = 15 dsx1FracIfIndex.2.12 = 5  dsx1FracIfIndex.2.24 = 16  For North American (DS1) interfaces, there are 24 legal channels, numbered 1 through 24.  For G.704 interfaces, there are 31 legal channels, numbered 1 through 31.  The channels (1..31) correspond directly to the equivalently numbered time\-slots
-    	**type**\:   :py:class:`Dsx1Fractable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Fractable>`
+    	**type**\:   :py:class:`Dsx1Fractable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Fractable>`
     
     	**status**\: deprecated
     
     .. attribute:: dsx1intervaltable
     
     	The DS1 Interval Table contains various statistics collected by each DS1 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx1IntervalNumber) for one specific instance (identified by dsx1IntervalIndex)
-    	**type**\:   :py:class:`Dsx1Intervaltable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Intervaltable>`
+    	**type**\:   :py:class:`Dsx1Intervaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Intervaltable>`
     
     .. attribute:: dsx1totaltable
     
     	The DS1 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:   :py:class:`Dsx1Totaltable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Totaltable>`
+    	**type**\:   :py:class:`Dsx1Totaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Totaltable>`
     
     
 
@@ -71,66 +70,76 @@ class Ds1Mib(Entity):
     _revision = '1998-08-01'
 
     def __init__(self):
-        super(Ds1Mib, self).__init__()
+        super(DS1MIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "DS1-MIB"
         self.yang_parent_name = "DS1-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"dsx1ChanMappingTable" : ("dsx1chanmappingtable", DS1MIB.Dsx1Chanmappingtable), "dsx1ConfigTable" : ("dsx1configtable", DS1MIB.Dsx1Configtable), "dsx1CurrentTable" : ("dsx1currenttable", DS1MIB.Dsx1Currenttable), "dsx1FarEndCurrentTable" : ("dsx1farendcurrenttable", DS1MIB.Dsx1Farendcurrenttable), "dsx1FarEndIntervalTable" : ("dsx1farendintervaltable", DS1MIB.Dsx1Farendintervaltable), "dsx1FarEndTotalTable" : ("dsx1farendtotaltable", DS1MIB.Dsx1Farendtotaltable), "dsx1FracTable" : ("dsx1fractable", DS1MIB.Dsx1Fractable), "dsx1IntervalTable" : ("dsx1intervaltable", DS1MIB.Dsx1Intervaltable), "dsx1TotalTable" : ("dsx1totaltable", DS1MIB.Dsx1Totaltable)}
+        self._child_list_classes = {}
 
-        self.dsx1chanmappingtable = Ds1Mib.Dsx1Chanmappingtable()
+        self.dsx1chanmappingtable = DS1MIB.Dsx1Chanmappingtable()
         self.dsx1chanmappingtable.parent = self
         self._children_name_map["dsx1chanmappingtable"] = "dsx1ChanMappingTable"
         self._children_yang_names.add("dsx1ChanMappingTable")
 
-        self.dsx1configtable = Ds1Mib.Dsx1Configtable()
+        self.dsx1configtable = DS1MIB.Dsx1Configtable()
         self.dsx1configtable.parent = self
         self._children_name_map["dsx1configtable"] = "dsx1ConfigTable"
         self._children_yang_names.add("dsx1ConfigTable")
 
-        self.dsx1currenttable = Ds1Mib.Dsx1Currenttable()
+        self.dsx1currenttable = DS1MIB.Dsx1Currenttable()
         self.dsx1currenttable.parent = self
         self._children_name_map["dsx1currenttable"] = "dsx1CurrentTable"
         self._children_yang_names.add("dsx1CurrentTable")
 
-        self.dsx1farendcurrenttable = Ds1Mib.Dsx1Farendcurrenttable()
+        self.dsx1farendcurrenttable = DS1MIB.Dsx1Farendcurrenttable()
         self.dsx1farendcurrenttable.parent = self
         self._children_name_map["dsx1farendcurrenttable"] = "dsx1FarEndCurrentTable"
         self._children_yang_names.add("dsx1FarEndCurrentTable")
 
-        self.dsx1farendintervaltable = Ds1Mib.Dsx1Farendintervaltable()
+        self.dsx1farendintervaltable = DS1MIB.Dsx1Farendintervaltable()
         self.dsx1farendintervaltable.parent = self
         self._children_name_map["dsx1farendintervaltable"] = "dsx1FarEndIntervalTable"
         self._children_yang_names.add("dsx1FarEndIntervalTable")
 
-        self.dsx1farendtotaltable = Ds1Mib.Dsx1Farendtotaltable()
+        self.dsx1farendtotaltable = DS1MIB.Dsx1Farendtotaltable()
         self.dsx1farendtotaltable.parent = self
         self._children_name_map["dsx1farendtotaltable"] = "dsx1FarEndTotalTable"
         self._children_yang_names.add("dsx1FarEndTotalTable")
 
-        self.dsx1fractable = Ds1Mib.Dsx1Fractable()
+        self.dsx1fractable = DS1MIB.Dsx1Fractable()
         self.dsx1fractable.parent = self
         self._children_name_map["dsx1fractable"] = "dsx1FracTable"
         self._children_yang_names.add("dsx1FracTable")
 
-        self.dsx1intervaltable = Ds1Mib.Dsx1Intervaltable()
+        self.dsx1intervaltable = DS1MIB.Dsx1Intervaltable()
         self.dsx1intervaltable.parent = self
         self._children_name_map["dsx1intervaltable"] = "dsx1IntervalTable"
         self._children_yang_names.add("dsx1IntervalTable")
 
-        self.dsx1totaltable = Ds1Mib.Dsx1Totaltable()
+        self.dsx1totaltable = DS1MIB.Dsx1Totaltable()
         self.dsx1totaltable.parent = self
         self._children_name_map["dsx1totaltable"] = "dsx1TotalTable"
         self._children_yang_names.add("dsx1TotalTable")
+        self._segment_path = lambda: "DS1-MIB:DS1-MIB"
 
 
-    class Dsx1Configtable(Entity):
+    class Dsx1Chanmappingtable(Entity):
         """
-        The DS1 Configuration table.
+        The DS1 Channel Mapping table.  This table maps a
+        DS1 channel number on a particular DS3 into an
+        ifIndex.  In the presence of DS2s, this table can
+        be used to map a DS2 channel number on a DS3 into
+        an ifIndex, or used to map a DS1 channel number on
+        a DS2 onto an ifIndex.
         
-        .. attribute:: dsx1configentry
+        .. attribute:: dsx1chanmappingentry
         
-        	An entry in the DS1 Configuration table
-        	**type**\: list of    :py:class:`Dsx1Configentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry>`
+        	An entry in the DS1 Channel Mapping table.  There is an entry in this table corresponding to each ds1 ifEntry within any interface that is channelized to the individual ds1 ifEntry level.  This table is intended to facilitate mapping from channelized interface / channel number to DS1 ifEntry.  (e.g. mapping (DS3 ifIndex, DS1 Channel Number) \-> ifIndex)  While this table provides information that can also be found in the ifStackTable and dsx1ConfigTable, it provides this same information with a single table lookup, rather than by walking the ifStackTable to find the various constituent ds1 ifTable entries, and testing various dsx1ConfigTable entries to check for the entry with the applicable DS1 channel number
+        	**type**\: list of    :py:class:`Dsx1Chanmappingentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry>`
         
         
 
@@ -140,36 +149,130 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Configtable, self).__init__()
+            super(DS1MIB.Dsx1Chanmappingtable, self).__init__()
+
+            self.yang_name = "dsx1ChanMappingTable"
+            self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1ChanMappingEntry" : ("dsx1chanmappingentry", DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry)}
+
+            self.dsx1chanmappingentry = YList(self)
+            self._segment_path = lambda: "dsx1ChanMappingTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DS1MIB.Dsx1Chanmappingtable, [], name, value)
+
+
+        class Dsx1Chanmappingentry(Entity):
+            """
+            An entry in the DS1 Channel Mapping table.  There
+            is an entry in this table corresponding to each
+            ds1 ifEntry within any interface that is
+            channelized to the individual ds1 ifEntry level.
+            
+            This table is intended to facilitate mapping from
+            channelized interface / channel number to DS1
+            ifEntry.  (e.g. mapping (DS3 ifIndex, DS1 Channel
+            Number) \-> ifIndex)
+            
+            While this table provides information that can
+            also be found in the ifStackTable and
+            dsx1ConfigTable, it provides this same information
+            with a single table lookup, rather than by walking
+            the ifStackTable to find the various constituent
+            ds1 ifTable entries, and testing various
+            dsx1ConfigTable entries to check for the entry
+            with the applicable DS1 channel number.
+            
+            .. attribute:: ifindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            
+            .. attribute:: dsx1ds1channelnumber  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..28
+            
+            	**refers to**\:  :py:class:`dsx1ds1channelnumber <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry>`
+            
+            .. attribute:: dsx1chanmappedifindex
+            
+            	This object indicates the ifIndex value assigned by the agent for the individual ds1 ifEntry that corresponds to the given DS1 channel number (specified by the INDEX element dsx1Ds1ChannelNumber) of the given channelized interface (specified by INDEX element ifIndex)
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            
+
+            """
+
+            _prefix = 'DS1-MIB'
+            _revision = '1998-08-01'
+
+            def __init__(self):
+                super(DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry, self).__init__()
+
+                self.yang_name = "dsx1ChanMappingEntry"
+                self.yang_parent_name = "dsx1ChanMappingTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.dsx1ds1channelnumber = YLeaf(YType.str, "dsx1Ds1ChannelNumber")
+
+                self.dsx1chanmappedifindex = YLeaf(YType.int32, "dsx1ChanMappedIfIndex")
+                self._segment_path = lambda: "dsx1ChanMappingEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[dsx1Ds1ChannelNumber='" + self.dsx1ds1channelnumber.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ChanMappingTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry, ['ifindex', 'dsx1ds1channelnumber', 'dsx1chanmappedifindex'], name, value)
+
+
+    class Dsx1Configtable(Entity):
+        """
+        The DS1 Configuration table.
+        
+        .. attribute:: dsx1configentry
+        
+        	An entry in the DS1 Configuration table
+        	**type**\: list of    :py:class:`Dsx1Configentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry>`
+        
+        
+
+        """
+
+        _prefix = 'DS1-MIB'
+        _revision = '1998-08-01'
+
+        def __init__(self):
+            super(DS1MIB.Dsx1Configtable, self).__init__()
 
             self.yang_name = "dsx1ConfigTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1ConfigEntry" : ("dsx1configentry", DS1MIB.Dsx1Configtable.Dsx1Configentry)}
 
             self.dsx1configentry = YList(self)
+            self._segment_path = lambda: "dsx1ConfigTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Configtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Configtable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Configtable, [], name, value)
 
 
         class Dsx1Configentry(Entity):
@@ -186,7 +289,7 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1channelization
             
             	Indicates whether this ds1/e1 is channelized or unchannelized.  The value of enabledDs0 indicates that this is a DS1 channelized into DS0s.  The value of enabledDs1 indicated that this is a DS2 channelized into DS1s.  Setting this value will cause the creation or deletion of entries in the ifTable for the DS0s that are within the DS1
-            	**type**\:   :py:class:`Dsx1Channelization <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Channelization>`
+            	**type**\:   :py:class:`Dsx1Channelization <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Channelization>`
             
             .. attribute:: dsx1circuitidentifier
             
@@ -228,7 +331,7 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1linecoding
             
             	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx1JBZS refers the Jammed Bit Zero Suppression, in which the AT&T specification of at least one pulse every 8 bit periods is literally implemented by forcing a pulse in bit 8 of each channel. Thus, only seven bits per channel, or 1.344 Mbps, is available for data.  dsx1B8ZS refers to the use of a specified pattern of normal bits and bipolar violations which are used to replace a sequence of eight zero bits.  ANSI Clear Channels may use dsx1ZBTSI, or Zero Byte Time Slot Interchange.  E1 links, with or without CRC, use dsx1HDB3 or dsx1AMI.  dsx1AMI refers to a mode wherein no zero code suppression is present and the line encoding does not solve the problem directly.  In this application, the higher layer must provide data which meets or exceeds the pulse density requirements, such as inverting HDLC data.  dsx1B6ZS refers to the user of a specifed pattern of normal bits and bipolar violations which are used to replace a sequence of six zero bits.  Used for DS2
-            	**type**\:   :py:class:`Dsx1Linecoding <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Linecoding>`
+            	**type**\:   :py:class:`Dsx1Linecoding <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linecoding>`
             
             .. attribute:: dsx1linelength
             
@@ -249,7 +352,7 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1linestatuschangetrapenable
             
             	Indicates whether dsx1LineStatusChange traps should be generated for this interface
-            	**type**\:   :py:class:`Dsx1Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Linestatuschangetrapenable>`
+            	**type**\:   :py:class:`Dsx1Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linestatuschangetrapenable>`
             
             .. attribute:: dsx1linestatuslastchange
             
@@ -261,12 +364,12 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1linetype
             
             	This variable indicates  the  variety  of  DS1 Line  implementing  this  circuit.  The type of circuit affects the number of bits  per  second that  the circuit can reasonably carry, as well as the interpretation of the  usage  and  error statistics.  The values, in sequence, describe\:  TITLE\:         SPECIFICATION\: dsx1ESF         Extended SuperFrame DS1 (T1.107) dsx1D4          AT&T D4 format DS1 (T1.107) dsx1E1          ITU\-T Recommendation G.704                  (Table 4a) dsx1E1\-CRC      ITU\-T Recommendation G.704                  (Table 4b) dsxE1\-MF        G.704 (Table 4a) with TS16                  multiframing enabled dsx1E1\-CRC\-MF   G.704 (Table 4b) with TS16                  multiframing enabled dsx1Unframed    DS1 with No Framing dsx1E1Unframed  E1 with No Framing (G.703) dsx1DS2M12      DS2 frame format (T1.107) dsx1E2          E2 frame format (G.704)  For clarification, the capacity for each E1 type is as listed below\: dsx1E1Unframed \- E1, no framing = 32 x 64k = 2048k dsx1E1 or dsx1E1CRC \- E1, with framing,    no signalling = 31 x 64k = 1984k dsx1E1MF or dsx1E1CRCMF \- E1, with framing,    signalling = 30 x 64k = 1920k  For further information See ITU\-T Recomm G.704
-            	**type**\:   :py:class:`Dsx1Linetype <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Linetype>`
+            	**type**\:   :py:class:`Dsx1Linetype <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linetype>`
             
             .. attribute:: dsx1loopbackconfig
             
             	This variable represents the desired loopback configuration of the DS1 interface.  Agents supporting read/write access should return inconsistentValue in response to a requested loopback state that the interface does not support.  The values mean\:  dsx1NoLoop  Not in the loopback state.  A device that is not capable of performing a loopback on the interface shall always return this as its value.  dsx1PayloadLoop  The received signal at this interface is looped through the device.  Typically the received signal is looped back for retransmission after it has passed through the device's framing function.  dsx1LineLoop  The received signal at this interface does not go through the device (minimum penetration) but is looped back out.  dsx1OtherLoop  Loopbacks that are not defined here.  dsx1InwardLoop  The transmitted signal at this interface is looped back and received by the same interface. What is transmitted onto the line is product dependent.  dsx1DualLoop  Both dsx1LineLoop and dsx1InwardLoop will be active simultaneously
-            	**type**\:   :py:class:`Dsx1Loopbackconfig <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Loopbackconfig>`
+            	**type**\:   :py:class:`Dsx1Loopbackconfig <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Loopbackconfig>`
             
             .. attribute:: dsx1loopbackstatus
             
@@ -278,12 +381,12 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1sendcode
             
             	This variable indicates what type of code is being sent across the DS1 interface by the device. Setting this variable causes the interface to send the code requested.  The values mean\: dsx1SendNoCode sending looped or normal data  dsx1SendLineCode sending a request for a line loopback  dsx1SendPayloadCode sending a request for a payload loopback  dsx1SendResetCode sending a loopback termination request  dsx1SendQRS sending a Quasi\-Random Signal  (QRS)  test pattern  dsx1Send511Pattern sending a 511 bit fixed test pattern  dsx1Send3in24Pattern sending a fixed test pattern of 3 bits set in 24  dsx1SendOtherTestPattern sending a test pattern  other  than  those described by this object
-            	**type**\:   :py:class:`Dsx1Sendcode <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Sendcode>`
+            	**type**\:   :py:class:`Dsx1Sendcode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Sendcode>`
             
             .. attribute:: dsx1signalmode
             
             	'none' indicates that no bits are reserved for signaling on this channel.  'robbedBit' indicates that DS1 Robbed Bit  Sig\- naling is in use.  'bitOriented' indicates that E1 Channel  Asso\- ciated Signaling is in use.  'messageOriented' indicates that Common  Chan\- nel Signaling is in use either on channel 16 of an E1 link or channel 24 of a DS1
-            	**type**\:   :py:class:`Dsx1Signalmode <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Signalmode>`
+            	**type**\:   :py:class:`Dsx1Signalmode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Signalmode>`
             
             .. attribute:: dsx1timeelapsed
             
@@ -295,7 +398,7 @@ class Ds1Mib(Entity):
             .. attribute:: dsx1transmitclocksource
             
             	The source of Transmit Clock. 'loopTiming' indicates that the recovered re\- ceive clock is used as the transmit clock.  'localTiming' indicates that a local clock source is used or when an external clock is attached to the box containing the interface.  'throughTiming' indicates that recovered re\- ceive clock from another interface is used as the transmit clock
-            	**type**\:   :py:class:`Dsx1Transmitclocksource <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry.Dsx1Transmitclocksource>`
+            	**type**\:   :py:class:`Dsx1Transmitclocksource <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Transmitclocksource>`
             
             .. attribute:: dsx1validintervals
             
@@ -312,10 +415,14 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Configtable.Dsx1Configentry, self).__init__()
+                super(DS1MIB.Dsx1Configtable.Dsx1Configentry, self).__init__()
 
                 self.yang_name = "dsx1ConfigEntry"
                 self.yang_parent_name = "dsx1ConfigTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1lineindex = YLeaf(YType.int32, "dsx1LineIndex")
 
@@ -356,49 +463,11 @@ class Ds1Mib(Entity):
                 self.dsx1transmitclocksource = YLeaf(YType.enumeration, "dsx1TransmitClockSource")
 
                 self.dsx1validintervals = YLeaf(YType.int32, "dsx1ValidIntervals")
+                self._segment_path = lambda: "dsx1ConfigEntry" + "[dsx1LineIndex='" + self.dsx1lineindex.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1lineindex",
-                                "dsx1channelization",
-                                "dsx1circuitidentifier",
-                                "dsx1ds1channelnumber",
-                                "dsx1fdl",
-                                "dsx1ifindex",
-                                "dsx1invalidintervals",
-                                "dsx1linecoding",
-                                "dsx1linelength",
-                                "dsx1linestatus",
-                                "dsx1linestatuschangetrapenable",
-                                "dsx1linestatuslastchange",
-                                "dsx1linetype",
-                                "dsx1loopbackconfig",
-                                "dsx1loopbackstatus",
-                                "dsx1sendcode",
-                                "dsx1signalmode",
-                                "dsx1timeelapsed",
-                                "dsx1transmitclocksource",
-                                "dsx1validintervals") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Configtable.Dsx1Configentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Configtable.Dsx1Configentry, self).__setattr__(name, value)
+                self._perform_setattr(DS1MIB.Dsx1Configtable.Dsx1Configentry, ['dsx1lineindex', 'dsx1channelization', 'dsx1circuitidentifier', 'dsx1ds1channelnumber', 'dsx1fdl', 'dsx1ifindex', 'dsx1invalidintervals', 'dsx1linecoding', 'dsx1linelength', 'dsx1linestatus', 'dsx1linestatuschangetrapenable', 'dsx1linestatuslastchange', 'dsx1linetype', 'dsx1loopbackconfig', 'dsx1loopbackstatus', 'dsx1sendcode', 'dsx1signalmode', 'dsx1timeelapsed', 'dsx1transmitclocksource', 'dsx1validintervals'], name, value)
 
             class Dsx1Channelization(Enum):
                 """
@@ -904,262 +973,6 @@ class Ds1Mib(Entity):
                 throughTiming = Enum.YLeaf(3, "throughTiming")
 
 
-            def has_data(self):
-                return (
-                    self.dsx1lineindex.is_set or
-                    self.dsx1channelization.is_set or
-                    self.dsx1circuitidentifier.is_set or
-                    self.dsx1ds1channelnumber.is_set or
-                    self.dsx1fdl.is_set or
-                    self.dsx1ifindex.is_set or
-                    self.dsx1invalidintervals.is_set or
-                    self.dsx1linecoding.is_set or
-                    self.dsx1linelength.is_set or
-                    self.dsx1linestatus.is_set or
-                    self.dsx1linestatuschangetrapenable.is_set or
-                    self.dsx1linestatuslastchange.is_set or
-                    self.dsx1linetype.is_set or
-                    self.dsx1loopbackconfig.is_set or
-                    self.dsx1loopbackstatus.is_set or
-                    self.dsx1sendcode.is_set or
-                    self.dsx1signalmode.is_set or
-                    self.dsx1timeelapsed.is_set or
-                    self.dsx1transmitclocksource.is_set or
-                    self.dsx1validintervals.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1lineindex.yfilter != YFilter.not_set or
-                    self.dsx1channelization.yfilter != YFilter.not_set or
-                    self.dsx1circuitidentifier.yfilter != YFilter.not_set or
-                    self.dsx1ds1channelnumber.yfilter != YFilter.not_set or
-                    self.dsx1fdl.yfilter != YFilter.not_set or
-                    self.dsx1ifindex.yfilter != YFilter.not_set or
-                    self.dsx1invalidintervals.yfilter != YFilter.not_set or
-                    self.dsx1linecoding.yfilter != YFilter.not_set or
-                    self.dsx1linelength.yfilter != YFilter.not_set or
-                    self.dsx1linestatus.yfilter != YFilter.not_set or
-                    self.dsx1linestatuschangetrapenable.yfilter != YFilter.not_set or
-                    self.dsx1linestatuslastchange.yfilter != YFilter.not_set or
-                    self.dsx1linetype.yfilter != YFilter.not_set or
-                    self.dsx1loopbackconfig.yfilter != YFilter.not_set or
-                    self.dsx1loopbackstatus.yfilter != YFilter.not_set or
-                    self.dsx1sendcode.yfilter != YFilter.not_set or
-                    self.dsx1signalmode.yfilter != YFilter.not_set or
-                    self.dsx1timeelapsed.yfilter != YFilter.not_set or
-                    self.dsx1transmitclocksource.yfilter != YFilter.not_set or
-                    self.dsx1validintervals.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1ConfigEntry" + "[dsx1LineIndex='" + self.dsx1lineindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1ConfigTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1lineindex.is_set or self.dsx1lineindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1lineindex.get_name_leafdata())
-                if (self.dsx1channelization.is_set or self.dsx1channelization.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1channelization.get_name_leafdata())
-                if (self.dsx1circuitidentifier.is_set or self.dsx1circuitidentifier.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1circuitidentifier.get_name_leafdata())
-                if (self.dsx1ds1channelnumber.is_set or self.dsx1ds1channelnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1ds1channelnumber.get_name_leafdata())
-                if (self.dsx1fdl.is_set or self.dsx1fdl.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1fdl.get_name_leafdata())
-                if (self.dsx1ifindex.is_set or self.dsx1ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1ifindex.get_name_leafdata())
-                if (self.dsx1invalidintervals.is_set or self.dsx1invalidintervals.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1invalidintervals.get_name_leafdata())
-                if (self.dsx1linecoding.is_set or self.dsx1linecoding.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linecoding.get_name_leafdata())
-                if (self.dsx1linelength.is_set or self.dsx1linelength.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linelength.get_name_leafdata())
-                if (self.dsx1linestatus.is_set or self.dsx1linestatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linestatus.get_name_leafdata())
-                if (self.dsx1linestatuschangetrapenable.is_set or self.dsx1linestatuschangetrapenable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linestatuschangetrapenable.get_name_leafdata())
-                if (self.dsx1linestatuslastchange.is_set or self.dsx1linestatuslastchange.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linestatuslastchange.get_name_leafdata())
-                if (self.dsx1linetype.is_set or self.dsx1linetype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1linetype.get_name_leafdata())
-                if (self.dsx1loopbackconfig.is_set or self.dsx1loopbackconfig.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1loopbackconfig.get_name_leafdata())
-                if (self.dsx1loopbackstatus.is_set or self.dsx1loopbackstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1loopbackstatus.get_name_leafdata())
-                if (self.dsx1sendcode.is_set or self.dsx1sendcode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1sendcode.get_name_leafdata())
-                if (self.dsx1signalmode.is_set or self.dsx1signalmode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1signalmode.get_name_leafdata())
-                if (self.dsx1timeelapsed.is_set or self.dsx1timeelapsed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1timeelapsed.get_name_leafdata())
-                if (self.dsx1transmitclocksource.is_set or self.dsx1transmitclocksource.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1transmitclocksource.get_name_leafdata())
-                if (self.dsx1validintervals.is_set or self.dsx1validintervals.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1validintervals.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1LineIndex" or name == "dsx1Channelization" or name == "dsx1CircuitIdentifier" or name == "dsx1Ds1ChannelNumber" or name == "dsx1Fdl" or name == "dsx1IfIndex" or name == "dsx1InvalidIntervals" or name == "dsx1LineCoding" or name == "dsx1LineLength" or name == "dsx1LineStatus" or name == "dsx1LineStatusChangeTrapEnable" or name == "dsx1LineStatusLastChange" or name == "dsx1LineType" or name == "dsx1LoopbackConfig" or name == "dsx1LoopbackStatus" or name == "dsx1SendCode" or name == "dsx1SignalMode" or name == "dsx1TimeElapsed" or name == "dsx1TransmitClockSource" or name == "dsx1ValidIntervals"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1LineIndex"):
-                    self.dsx1lineindex = value
-                    self.dsx1lineindex.value_namespace = name_space
-                    self.dsx1lineindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1Channelization"):
-                    self.dsx1channelization = value
-                    self.dsx1channelization.value_namespace = name_space
-                    self.dsx1channelization.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CircuitIdentifier"):
-                    self.dsx1circuitidentifier = value
-                    self.dsx1circuitidentifier.value_namespace = name_space
-                    self.dsx1circuitidentifier.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1Ds1ChannelNumber"):
-                    self.dsx1ds1channelnumber = value
-                    self.dsx1ds1channelnumber.value_namespace = name_space
-                    self.dsx1ds1channelnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1Fdl"):
-                    self.dsx1fdl = value
-                    self.dsx1fdl.value_namespace = name_space
-                    self.dsx1fdl.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IfIndex"):
-                    self.dsx1ifindex = value
-                    self.dsx1ifindex.value_namespace = name_space
-                    self.dsx1ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1InvalidIntervals"):
-                    self.dsx1invalidintervals = value
-                    self.dsx1invalidintervals.value_namespace = name_space
-                    self.dsx1invalidintervals.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineCoding"):
-                    self.dsx1linecoding = value
-                    self.dsx1linecoding.value_namespace = name_space
-                    self.dsx1linecoding.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineLength"):
-                    self.dsx1linelength = value
-                    self.dsx1linelength.value_namespace = name_space
-                    self.dsx1linelength.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineStatus"):
-                    self.dsx1linestatus = value
-                    self.dsx1linestatus.value_namespace = name_space
-                    self.dsx1linestatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineStatusChangeTrapEnable"):
-                    self.dsx1linestatuschangetrapenable = value
-                    self.dsx1linestatuschangetrapenable.value_namespace = name_space
-                    self.dsx1linestatuschangetrapenable.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineStatusLastChange"):
-                    self.dsx1linestatuslastchange = value
-                    self.dsx1linestatuslastchange.value_namespace = name_space
-                    self.dsx1linestatuslastchange.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LineType"):
-                    self.dsx1linetype = value
-                    self.dsx1linetype.value_namespace = name_space
-                    self.dsx1linetype.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LoopbackConfig"):
-                    self.dsx1loopbackconfig = value
-                    self.dsx1loopbackconfig.value_namespace = name_space
-                    self.dsx1loopbackconfig.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1LoopbackStatus"):
-                    self.dsx1loopbackstatus = value
-                    self.dsx1loopbackstatus.value_namespace = name_space
-                    self.dsx1loopbackstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1SendCode"):
-                    self.dsx1sendcode = value
-                    self.dsx1sendcode.value_namespace = name_space
-                    self.dsx1sendcode.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1SignalMode"):
-                    self.dsx1signalmode = value
-                    self.dsx1signalmode.value_namespace = name_space
-                    self.dsx1signalmode.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TimeElapsed"):
-                    self.dsx1timeelapsed = value
-                    self.dsx1timeelapsed.value_namespace = name_space
-                    self.dsx1timeelapsed.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TransmitClockSource"):
-                    self.dsx1transmitclocksource = value
-                    self.dsx1transmitclocksource.value_namespace = name_space
-                    self.dsx1transmitclocksource.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1ValidIntervals"):
-                    self.dsx1validintervals = value
-                    self.dsx1validintervals.value_namespace = name_space
-                    self.dsx1validintervals.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1configentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1configentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1ConfigTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1ConfigEntry"):
-                for c in self.dsx1configentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Configtable.Dsx1Configentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1configentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1ConfigEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
 
     class Dsx1Currenttable(Entity):
         """
@@ -1170,7 +983,7 @@ class Ds1Mib(Entity):
         .. attribute:: dsx1currententry
         
         	An entry in the DS1 Current table
-        	**type**\: list of    :py:class:`Dsx1Currententry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Currenttable.Dsx1Currententry>`
+        	**type**\: list of    :py:class:`Dsx1Currententry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Currenttable.Dsx1Currententry>`
         
         
 
@@ -1180,36 +993,21 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Currenttable, self).__init__()
+            super(DS1MIB.Dsx1Currenttable, self).__init__()
 
             self.yang_name = "dsx1CurrentTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1CurrentEntry" : ("dsx1currententry", DS1MIB.Dsx1Currenttable.Dsx1Currententry)}
 
             self.dsx1currententry = YList(self)
+            self._segment_path = lambda: "dsx1CurrentTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Currenttable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Currenttable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Currenttable, [], name, value)
 
 
         class Dsx1Currententry(Entity):
@@ -1301,10 +1099,14 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Currenttable.Dsx1Currententry, self).__init__()
+                super(DS1MIB.Dsx1Currenttable.Dsx1Currententry, self).__init__()
 
                 self.yang_name = "dsx1CurrentEntry"
                 self.yang_parent_name = "dsx1CurrentTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1currentindex = YLeaf(YType.int32, "dsx1CurrentIndex")
 
@@ -1327,1035 +1129,11 @@ class Ds1Mib(Entity):
                 self.dsx1currentsess = YLeaf(YType.uint32, "dsx1CurrentSESs")
 
                 self.dsx1currentuass = YLeaf(YType.uint32, "dsx1CurrentUASs")
+                self._segment_path = lambda: "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + self.dsx1currentindex.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1CurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1currentindex",
-                                "dsx1currentbess",
-                                "dsx1currentcsss",
-                                "dsx1currentdms",
-                                "dsx1currentess",
-                                "dsx1currentlcvs",
-                                "dsx1currentless",
-                                "dsx1currentpcvs",
-                                "dsx1currentsefss",
-                                "dsx1currentsess",
-                                "dsx1currentuass") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Currenttable.Dsx1Currententry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Currenttable.Dsx1Currententry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1currentindex.is_set or
-                    self.dsx1currentbess.is_set or
-                    self.dsx1currentcsss.is_set or
-                    self.dsx1currentdms.is_set or
-                    self.dsx1currentess.is_set or
-                    self.dsx1currentlcvs.is_set or
-                    self.dsx1currentless.is_set or
-                    self.dsx1currentpcvs.is_set or
-                    self.dsx1currentsefss.is_set or
-                    self.dsx1currentsess.is_set or
-                    self.dsx1currentuass.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1currentindex.yfilter != YFilter.not_set or
-                    self.dsx1currentbess.yfilter != YFilter.not_set or
-                    self.dsx1currentcsss.yfilter != YFilter.not_set or
-                    self.dsx1currentdms.yfilter != YFilter.not_set or
-                    self.dsx1currentess.yfilter != YFilter.not_set or
-                    self.dsx1currentlcvs.yfilter != YFilter.not_set or
-                    self.dsx1currentless.yfilter != YFilter.not_set or
-                    self.dsx1currentpcvs.yfilter != YFilter.not_set or
-                    self.dsx1currentsefss.yfilter != YFilter.not_set or
-                    self.dsx1currentsess.yfilter != YFilter.not_set or
-                    self.dsx1currentuass.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + self.dsx1currentindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1CurrentTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1currentindex.is_set or self.dsx1currentindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentindex.get_name_leafdata())
-                if (self.dsx1currentbess.is_set or self.dsx1currentbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentbess.get_name_leafdata())
-                if (self.dsx1currentcsss.is_set or self.dsx1currentcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentcsss.get_name_leafdata())
-                if (self.dsx1currentdms.is_set or self.dsx1currentdms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentdms.get_name_leafdata())
-                if (self.dsx1currentess.is_set or self.dsx1currentess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentess.get_name_leafdata())
-                if (self.dsx1currentlcvs.is_set or self.dsx1currentlcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentlcvs.get_name_leafdata())
-                if (self.dsx1currentless.is_set or self.dsx1currentless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentless.get_name_leafdata())
-                if (self.dsx1currentpcvs.is_set or self.dsx1currentpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentpcvs.get_name_leafdata())
-                if (self.dsx1currentsefss.is_set or self.dsx1currentsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentsefss.get_name_leafdata())
-                if (self.dsx1currentsess.is_set or self.dsx1currentsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentsess.get_name_leafdata())
-                if (self.dsx1currentuass.is_set or self.dsx1currentuass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1currentuass.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1CurrentIndex" or name == "dsx1CurrentBESs" or name == "dsx1CurrentCSSs" or name == "dsx1CurrentDMs" or name == "dsx1CurrentESs" or name == "dsx1CurrentLCVs" or name == "dsx1CurrentLESs" or name == "dsx1CurrentPCVs" or name == "dsx1CurrentSEFSs" or name == "dsx1CurrentSESs" or name == "dsx1CurrentUASs"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1CurrentIndex"):
-                    self.dsx1currentindex = value
-                    self.dsx1currentindex.value_namespace = name_space
-                    self.dsx1currentindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentBESs"):
-                    self.dsx1currentbess = value
-                    self.dsx1currentbess.value_namespace = name_space
-                    self.dsx1currentbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentCSSs"):
-                    self.dsx1currentcsss = value
-                    self.dsx1currentcsss.value_namespace = name_space
-                    self.dsx1currentcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentDMs"):
-                    self.dsx1currentdms = value
-                    self.dsx1currentdms.value_namespace = name_space
-                    self.dsx1currentdms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentESs"):
-                    self.dsx1currentess = value
-                    self.dsx1currentess.value_namespace = name_space
-                    self.dsx1currentess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentLCVs"):
-                    self.dsx1currentlcvs = value
-                    self.dsx1currentlcvs.value_namespace = name_space
-                    self.dsx1currentlcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentLESs"):
-                    self.dsx1currentless = value
-                    self.dsx1currentless.value_namespace = name_space
-                    self.dsx1currentless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentPCVs"):
-                    self.dsx1currentpcvs = value
-                    self.dsx1currentpcvs.value_namespace = name_space
-                    self.dsx1currentpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentSEFSs"):
-                    self.dsx1currentsefss = value
-                    self.dsx1currentsefss.value_namespace = name_space
-                    self.dsx1currentsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentSESs"):
-                    self.dsx1currentsess = value
-                    self.dsx1currentsess.value_namespace = name_space
-                    self.dsx1currentsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1CurrentUASs"):
-                    self.dsx1currentuass = value
-                    self.dsx1currentuass.value_namespace = name_space
-                    self.dsx1currentuass.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1currententry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1currententry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1CurrentTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1CurrentEntry"):
-                for c in self.dsx1currententry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Currenttable.Dsx1Currententry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1currententry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1CurrentEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Dsx1Intervaltable(Entity):
-        """
-        The DS1 Interval Table contains various
-        statistics collected by each DS1 Interface over
-        the previous 24 hours of operation.  The past 24
-        hours are broken into 96 completed 15 minute
-        intervals.  Each row in this table represents one
-        such interval (identified by dsx1IntervalNumber)
-        for one specific instance (identified by
-        dsx1IntervalIndex).
-        
-        .. attribute:: dsx1intervalentry
-        
-        	An entry in the DS1 Interval table
-        	**type**\: list of    :py:class:`Dsx1Intervalentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Intervaltable.Dsx1Intervalentry>`
-        
-        
-
-        """
-
-        _prefix = 'DS1-MIB'
-        _revision = '1998-08-01'
-
-        def __init__(self):
-            super(Ds1Mib.Dsx1Intervaltable, self).__init__()
-
-            self.yang_name = "dsx1IntervalTable"
-            self.yang_parent_name = "DS1-MIB"
-
-            self.dsx1intervalentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Intervaltable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Intervaltable, self).__setattr__(name, value)
-
-
-        class Dsx1Intervalentry(Entity):
-            """
-            An entry in the DS1 Interval table.
-            
-            .. attribute:: dsx1intervalindex  <key>
-            
-            	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: dsx1intervalnumber  <key>
-            
-            	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
-            	**type**\:  int
-            
-            	**range:** 1..96
-            
-            .. attribute:: dsx1intervalbess
-            
-            	The number of Bursty Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalcsss
-            
-            	The number of Controlled Slip Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervaldms
-            
-            	The number of Degraded Minutes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervaless
-            
-            	The number of Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervallcvs
-            
-            	The number of Line Code Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalless
-            
-            	The number of Line Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalpcvs
-            
-            	The number of Path Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalsefss
-            
-            	The number of Severely Errored Framing Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalsess
-            
-            	The number of Severely Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervaluass
-            
-            	The number of Unavailable Seconds.  This object may decrease if the occurance of unavailable seconds occurs across an inteval boundary
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1intervalvaliddata
-            
-            	This variable indicates if the data for this interval is valid
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'DS1-MIB'
-            _revision = '1998-08-01'
-
-            def __init__(self):
-                super(Ds1Mib.Dsx1Intervaltable.Dsx1Intervalentry, self).__init__()
-
-                self.yang_name = "dsx1IntervalEntry"
-                self.yang_parent_name = "dsx1IntervalTable"
-
-                self.dsx1intervalindex = YLeaf(YType.int32, "dsx1IntervalIndex")
-
-                self.dsx1intervalnumber = YLeaf(YType.int32, "dsx1IntervalNumber")
-
-                self.dsx1intervalbess = YLeaf(YType.uint32, "dsx1IntervalBESs")
-
-                self.dsx1intervalcsss = YLeaf(YType.uint32, "dsx1IntervalCSSs")
-
-                self.dsx1intervaldms = YLeaf(YType.uint32, "dsx1IntervalDMs")
-
-                self.dsx1intervaless = YLeaf(YType.uint32, "dsx1IntervalESs")
-
-                self.dsx1intervallcvs = YLeaf(YType.uint32, "dsx1IntervalLCVs")
-
-                self.dsx1intervalless = YLeaf(YType.uint32, "dsx1IntervalLESs")
-
-                self.dsx1intervalpcvs = YLeaf(YType.uint32, "dsx1IntervalPCVs")
-
-                self.dsx1intervalsefss = YLeaf(YType.uint32, "dsx1IntervalSEFSs")
-
-                self.dsx1intervalsess = YLeaf(YType.uint32, "dsx1IntervalSESs")
-
-                self.dsx1intervaluass = YLeaf(YType.uint32, "dsx1IntervalUASs")
-
-                self.dsx1intervalvaliddata = YLeaf(YType.boolean, "dsx1IntervalValidData")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1intervalindex",
-                                "dsx1intervalnumber",
-                                "dsx1intervalbess",
-                                "dsx1intervalcsss",
-                                "dsx1intervaldms",
-                                "dsx1intervaless",
-                                "dsx1intervallcvs",
-                                "dsx1intervalless",
-                                "dsx1intervalpcvs",
-                                "dsx1intervalsefss",
-                                "dsx1intervalsess",
-                                "dsx1intervaluass",
-                                "dsx1intervalvaliddata") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Intervaltable.Dsx1Intervalentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Intervaltable.Dsx1Intervalentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1intervalindex.is_set or
-                    self.dsx1intervalnumber.is_set or
-                    self.dsx1intervalbess.is_set or
-                    self.dsx1intervalcsss.is_set or
-                    self.dsx1intervaldms.is_set or
-                    self.dsx1intervaless.is_set or
-                    self.dsx1intervallcvs.is_set or
-                    self.dsx1intervalless.is_set or
-                    self.dsx1intervalpcvs.is_set or
-                    self.dsx1intervalsefss.is_set or
-                    self.dsx1intervalsess.is_set or
-                    self.dsx1intervaluass.is_set or
-                    self.dsx1intervalvaliddata.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1intervalindex.yfilter != YFilter.not_set or
-                    self.dsx1intervalnumber.yfilter != YFilter.not_set or
-                    self.dsx1intervalbess.yfilter != YFilter.not_set or
-                    self.dsx1intervalcsss.yfilter != YFilter.not_set or
-                    self.dsx1intervaldms.yfilter != YFilter.not_set or
-                    self.dsx1intervaless.yfilter != YFilter.not_set or
-                    self.dsx1intervallcvs.yfilter != YFilter.not_set or
-                    self.dsx1intervalless.yfilter != YFilter.not_set or
-                    self.dsx1intervalpcvs.yfilter != YFilter.not_set or
-                    self.dsx1intervalsefss.yfilter != YFilter.not_set or
-                    self.dsx1intervalsess.yfilter != YFilter.not_set or
-                    self.dsx1intervaluass.yfilter != YFilter.not_set or
-                    self.dsx1intervalvaliddata.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + self.dsx1intervalindex.get() + "']" + "[dsx1IntervalNumber='" + self.dsx1intervalnumber.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1IntervalTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1intervalindex.is_set or self.dsx1intervalindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalindex.get_name_leafdata())
-                if (self.dsx1intervalnumber.is_set or self.dsx1intervalnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalnumber.get_name_leafdata())
-                if (self.dsx1intervalbess.is_set or self.dsx1intervalbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalbess.get_name_leafdata())
-                if (self.dsx1intervalcsss.is_set or self.dsx1intervalcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalcsss.get_name_leafdata())
-                if (self.dsx1intervaldms.is_set or self.dsx1intervaldms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervaldms.get_name_leafdata())
-                if (self.dsx1intervaless.is_set or self.dsx1intervaless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervaless.get_name_leafdata())
-                if (self.dsx1intervallcvs.is_set or self.dsx1intervallcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervallcvs.get_name_leafdata())
-                if (self.dsx1intervalless.is_set or self.dsx1intervalless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalless.get_name_leafdata())
-                if (self.dsx1intervalpcvs.is_set or self.dsx1intervalpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalpcvs.get_name_leafdata())
-                if (self.dsx1intervalsefss.is_set or self.dsx1intervalsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalsefss.get_name_leafdata())
-                if (self.dsx1intervalsess.is_set or self.dsx1intervalsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalsess.get_name_leafdata())
-                if (self.dsx1intervaluass.is_set or self.dsx1intervaluass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervaluass.get_name_leafdata())
-                if (self.dsx1intervalvaliddata.is_set or self.dsx1intervalvaliddata.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1intervalvaliddata.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1IntervalIndex" or name == "dsx1IntervalNumber" or name == "dsx1IntervalBESs" or name == "dsx1IntervalCSSs" or name == "dsx1IntervalDMs" or name == "dsx1IntervalESs" or name == "dsx1IntervalLCVs" or name == "dsx1IntervalLESs" or name == "dsx1IntervalPCVs" or name == "dsx1IntervalSEFSs" or name == "dsx1IntervalSESs" or name == "dsx1IntervalUASs" or name == "dsx1IntervalValidData"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1IntervalIndex"):
-                    self.dsx1intervalindex = value
-                    self.dsx1intervalindex.value_namespace = name_space
-                    self.dsx1intervalindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalNumber"):
-                    self.dsx1intervalnumber = value
-                    self.dsx1intervalnumber.value_namespace = name_space
-                    self.dsx1intervalnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalBESs"):
-                    self.dsx1intervalbess = value
-                    self.dsx1intervalbess.value_namespace = name_space
-                    self.dsx1intervalbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalCSSs"):
-                    self.dsx1intervalcsss = value
-                    self.dsx1intervalcsss.value_namespace = name_space
-                    self.dsx1intervalcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalDMs"):
-                    self.dsx1intervaldms = value
-                    self.dsx1intervaldms.value_namespace = name_space
-                    self.dsx1intervaldms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalESs"):
-                    self.dsx1intervaless = value
-                    self.dsx1intervaless.value_namespace = name_space
-                    self.dsx1intervaless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalLCVs"):
-                    self.dsx1intervallcvs = value
-                    self.dsx1intervallcvs.value_namespace = name_space
-                    self.dsx1intervallcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalLESs"):
-                    self.dsx1intervalless = value
-                    self.dsx1intervalless.value_namespace = name_space
-                    self.dsx1intervalless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalPCVs"):
-                    self.dsx1intervalpcvs = value
-                    self.dsx1intervalpcvs.value_namespace = name_space
-                    self.dsx1intervalpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalSEFSs"):
-                    self.dsx1intervalsefss = value
-                    self.dsx1intervalsefss.value_namespace = name_space
-                    self.dsx1intervalsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalSESs"):
-                    self.dsx1intervalsess = value
-                    self.dsx1intervalsess.value_namespace = name_space
-                    self.dsx1intervalsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalUASs"):
-                    self.dsx1intervaluass = value
-                    self.dsx1intervaluass.value_namespace = name_space
-                    self.dsx1intervaluass.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1IntervalValidData"):
-                    self.dsx1intervalvaliddata = value
-                    self.dsx1intervalvaliddata.value_namespace = name_space
-                    self.dsx1intervalvaliddata.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1intervalentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1intervalentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1IntervalTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1IntervalEntry"):
-                for c in self.dsx1intervalentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Intervaltable.Dsx1Intervalentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1intervalentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1IntervalEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Dsx1Totaltable(Entity):
-        """
-        The DS1 Total Table contains the cumulative sum
-        of the various statistics for the 24 hour period
-        preceding the current interval.
-        
-        .. attribute:: dsx1totalentry
-        
-        	An entry in the DS1 Total table
-        	**type**\: list of    :py:class:`Dsx1Totalentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Totaltable.Dsx1Totalentry>`
-        
-        
-
-        """
-
-        _prefix = 'DS1-MIB'
-        _revision = '1998-08-01'
-
-        def __init__(self):
-            super(Ds1Mib.Dsx1Totaltable, self).__init__()
-
-            self.yang_name = "dsx1TotalTable"
-            self.yang_parent_name = "DS1-MIB"
-
-            self.dsx1totalentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Totaltable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Totaltable, self).__setattr__(name, value)
-
-
-        class Dsx1Totalentry(Entity):
-            """
-            An entry in the DS1 Total table.
-            
-            .. attribute:: dsx1totalindex  <key>
-            
-            	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: dsx1totalbess
-            
-            	The number of Bursty Errored Seconds (BESs) encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totalcsss
-            
-            	The number of Controlled Slip Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totaldms
-            
-            	The number of Degraded Minutes (DMs) encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totaless
-            
-            	The sum of Errored Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totallcvs
-            
-            	The number of Line Code Violations (LCVs) encountered by a DS1 interface in the current 15 minute interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totalless
-            
-            	The number of Line Errored Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totalpcvs
-            
-            	The number of Path Coding Violations encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totalsefss
-            
-            	The number of Severely Errored Framing Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totalsess
-            
-            	The number of Severely Errored Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx1totaluass
-            
-            	The number of Unavailable Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'DS1-MIB'
-            _revision = '1998-08-01'
-
-            def __init__(self):
-                super(Ds1Mib.Dsx1Totaltable.Dsx1Totalentry, self).__init__()
-
-                self.yang_name = "dsx1TotalEntry"
-                self.yang_parent_name = "dsx1TotalTable"
-
-                self.dsx1totalindex = YLeaf(YType.int32, "dsx1TotalIndex")
-
-                self.dsx1totalbess = YLeaf(YType.uint32, "dsx1TotalBESs")
-
-                self.dsx1totalcsss = YLeaf(YType.uint32, "dsx1TotalCSSs")
-
-                self.dsx1totaldms = YLeaf(YType.uint32, "dsx1TotalDMs")
-
-                self.dsx1totaless = YLeaf(YType.uint32, "dsx1TotalESs")
-
-                self.dsx1totallcvs = YLeaf(YType.uint32, "dsx1TotalLCVs")
-
-                self.dsx1totalless = YLeaf(YType.uint32, "dsx1TotalLESs")
-
-                self.dsx1totalpcvs = YLeaf(YType.uint32, "dsx1TotalPCVs")
-
-                self.dsx1totalsefss = YLeaf(YType.uint32, "dsx1TotalSEFSs")
-
-                self.dsx1totalsess = YLeaf(YType.uint32, "dsx1TotalSESs")
-
-                self.dsx1totaluass = YLeaf(YType.uint32, "dsx1TotalUASs")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1totalindex",
-                                "dsx1totalbess",
-                                "dsx1totalcsss",
-                                "dsx1totaldms",
-                                "dsx1totaless",
-                                "dsx1totallcvs",
-                                "dsx1totalless",
-                                "dsx1totalpcvs",
-                                "dsx1totalsefss",
-                                "dsx1totalsess",
-                                "dsx1totaluass") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Totaltable.Dsx1Totalentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Totaltable.Dsx1Totalentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1totalindex.is_set or
-                    self.dsx1totalbess.is_set or
-                    self.dsx1totalcsss.is_set or
-                    self.dsx1totaldms.is_set or
-                    self.dsx1totaless.is_set or
-                    self.dsx1totallcvs.is_set or
-                    self.dsx1totalless.is_set or
-                    self.dsx1totalpcvs.is_set or
-                    self.dsx1totalsefss.is_set or
-                    self.dsx1totalsess.is_set or
-                    self.dsx1totaluass.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1totalindex.yfilter != YFilter.not_set or
-                    self.dsx1totalbess.yfilter != YFilter.not_set or
-                    self.dsx1totalcsss.yfilter != YFilter.not_set or
-                    self.dsx1totaldms.yfilter != YFilter.not_set or
-                    self.dsx1totaless.yfilter != YFilter.not_set or
-                    self.dsx1totallcvs.yfilter != YFilter.not_set or
-                    self.dsx1totalless.yfilter != YFilter.not_set or
-                    self.dsx1totalpcvs.yfilter != YFilter.not_set or
-                    self.dsx1totalsefss.yfilter != YFilter.not_set or
-                    self.dsx1totalsess.yfilter != YFilter.not_set or
-                    self.dsx1totaluass.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1TotalEntry" + "[dsx1TotalIndex='" + self.dsx1totalindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1TotalTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1totalindex.is_set or self.dsx1totalindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalindex.get_name_leafdata())
-                if (self.dsx1totalbess.is_set or self.dsx1totalbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalbess.get_name_leafdata())
-                if (self.dsx1totalcsss.is_set or self.dsx1totalcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalcsss.get_name_leafdata())
-                if (self.dsx1totaldms.is_set or self.dsx1totaldms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totaldms.get_name_leafdata())
-                if (self.dsx1totaless.is_set or self.dsx1totaless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totaless.get_name_leafdata())
-                if (self.dsx1totallcvs.is_set or self.dsx1totallcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totallcvs.get_name_leafdata())
-                if (self.dsx1totalless.is_set or self.dsx1totalless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalless.get_name_leafdata())
-                if (self.dsx1totalpcvs.is_set or self.dsx1totalpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalpcvs.get_name_leafdata())
-                if (self.dsx1totalsefss.is_set or self.dsx1totalsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalsefss.get_name_leafdata())
-                if (self.dsx1totalsess.is_set or self.dsx1totalsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totalsess.get_name_leafdata())
-                if (self.dsx1totaluass.is_set or self.dsx1totaluass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1totaluass.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1TotalIndex" or name == "dsx1TotalBESs" or name == "dsx1TotalCSSs" or name == "dsx1TotalDMs" or name == "dsx1TotalESs" or name == "dsx1TotalLCVs" or name == "dsx1TotalLESs" or name == "dsx1TotalPCVs" or name == "dsx1TotalSEFSs" or name == "dsx1TotalSESs" or name == "dsx1TotalUASs"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1TotalIndex"):
-                    self.dsx1totalindex = value
-                    self.dsx1totalindex.value_namespace = name_space
-                    self.dsx1totalindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalBESs"):
-                    self.dsx1totalbess = value
-                    self.dsx1totalbess.value_namespace = name_space
-                    self.dsx1totalbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalCSSs"):
-                    self.dsx1totalcsss = value
-                    self.dsx1totalcsss.value_namespace = name_space
-                    self.dsx1totalcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalDMs"):
-                    self.dsx1totaldms = value
-                    self.dsx1totaldms.value_namespace = name_space
-                    self.dsx1totaldms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalESs"):
-                    self.dsx1totaless = value
-                    self.dsx1totaless.value_namespace = name_space
-                    self.dsx1totaless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalLCVs"):
-                    self.dsx1totallcvs = value
-                    self.dsx1totallcvs.value_namespace = name_space
-                    self.dsx1totallcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalLESs"):
-                    self.dsx1totalless = value
-                    self.dsx1totalless.value_namespace = name_space
-                    self.dsx1totalless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalPCVs"):
-                    self.dsx1totalpcvs = value
-                    self.dsx1totalpcvs.value_namespace = name_space
-                    self.dsx1totalpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalSEFSs"):
-                    self.dsx1totalsefss = value
-                    self.dsx1totalsefss.value_namespace = name_space
-                    self.dsx1totalsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalSESs"):
-                    self.dsx1totalsess = value
-                    self.dsx1totalsess.value_namespace = name_space
-                    self.dsx1totalsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1TotalUASs"):
-                    self.dsx1totaluass = value
-                    self.dsx1totaluass.value_namespace = name_space
-                    self.dsx1totaluass.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1totalentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1totalentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1TotalTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1TotalEntry"):
-                for c in self.dsx1totalentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Totaltable.Dsx1Totalentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1totalentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1TotalEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(DS1MIB.Dsx1Currenttable.Dsx1Currententry, ['dsx1currentindex', 'dsx1currentbess', 'dsx1currentcsss', 'dsx1currentdms', 'dsx1currentess', 'dsx1currentlcvs', 'dsx1currentless', 'dsx1currentpcvs', 'dsx1currentsefss', 'dsx1currentsess', 'dsx1currentuass'], name, value)
 
 
     class Dsx1Farendcurrenttable(Entity):
@@ -2370,7 +1148,7 @@ class Ds1Mib(Entity):
         .. attribute:: dsx1farendcurrententry
         
         	An entry in the DS1 Far End Current table
-        	**type**\: list of    :py:class:`Dsx1Farendcurrententry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendcurrenttable.Dsx1Farendcurrententry>`
+        	**type**\: list of    :py:class:`Dsx1Farendcurrententry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry>`
         
         
 
@@ -2380,36 +1158,21 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Farendcurrenttable, self).__init__()
+            super(DS1MIB.Dsx1Farendcurrenttable, self).__init__()
 
             self.yang_name = "dsx1FarEndCurrentTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1FarEndCurrentEntry" : ("dsx1farendcurrententry", DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry)}
 
             self.dsx1farendcurrententry = YList(self)
+            self._segment_path = lambda: "dsx1FarEndCurrentTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Farendcurrenttable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Farendcurrenttable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Farendcurrenttable, [], name, value)
 
 
         class Dsx1Farendcurrententry(Entity):
@@ -2515,10 +1278,14 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, self).__init__()
+                super(DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, self).__init__()
 
                 self.yang_name = "dsx1FarEndCurrentEntry"
                 self.yang_parent_name = "dsx1FarEndCurrentTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1farendcurrentindex = YLeaf(YType.int32, "dsx1FarEndCurrentIndex")
 
@@ -2545,242 +1312,11 @@ class Ds1Mib(Entity):
                 self.dsx1farendtimeelapsed = YLeaf(YType.int32, "dsx1FarEndTimeElapsed")
 
                 self.dsx1farendvalidintervals = YLeaf(YType.int32, "dsx1FarEndValidIntervals")
+                self._segment_path = lambda: "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + self.dsx1farendcurrentindex.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1farendcurrentindex",
-                                "dsx1farendcurrentbess",
-                                "dsx1farendcurrentcsss",
-                                "dsx1farendcurrentdms",
-                                "dsx1farendcurrentess",
-                                "dsx1farendcurrentless",
-                                "dsx1farendcurrentpcvs",
-                                "dsx1farendcurrentsefss",
-                                "dsx1farendcurrentsess",
-                                "dsx1farendcurrentuass",
-                                "dsx1farendinvalidintervals",
-                                "dsx1farendtimeelapsed",
-                                "dsx1farendvalidintervals") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1farendcurrentindex.is_set or
-                    self.dsx1farendcurrentbess.is_set or
-                    self.dsx1farendcurrentcsss.is_set or
-                    self.dsx1farendcurrentdms.is_set or
-                    self.dsx1farendcurrentess.is_set or
-                    self.dsx1farendcurrentless.is_set or
-                    self.dsx1farendcurrentpcvs.is_set or
-                    self.dsx1farendcurrentsefss.is_set or
-                    self.dsx1farendcurrentsess.is_set or
-                    self.dsx1farendcurrentuass.is_set or
-                    self.dsx1farendinvalidintervals.is_set or
-                    self.dsx1farendtimeelapsed.is_set or
-                    self.dsx1farendvalidintervals.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentindex.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentbess.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentcsss.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentdms.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentess.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentless.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentpcvs.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentsefss.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentsess.yfilter != YFilter.not_set or
-                    self.dsx1farendcurrentuass.yfilter != YFilter.not_set or
-                    self.dsx1farendinvalidintervals.yfilter != YFilter.not_set or
-                    self.dsx1farendtimeelapsed.yfilter != YFilter.not_set or
-                    self.dsx1farendvalidintervals.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + self.dsx1farendcurrentindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1FarEndCurrentTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1farendcurrentindex.is_set or self.dsx1farendcurrentindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentindex.get_name_leafdata())
-                if (self.dsx1farendcurrentbess.is_set or self.dsx1farendcurrentbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentbess.get_name_leafdata())
-                if (self.dsx1farendcurrentcsss.is_set or self.dsx1farendcurrentcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentcsss.get_name_leafdata())
-                if (self.dsx1farendcurrentdms.is_set or self.dsx1farendcurrentdms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentdms.get_name_leafdata())
-                if (self.dsx1farendcurrentess.is_set or self.dsx1farendcurrentess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentess.get_name_leafdata())
-                if (self.dsx1farendcurrentless.is_set or self.dsx1farendcurrentless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentless.get_name_leafdata())
-                if (self.dsx1farendcurrentpcvs.is_set or self.dsx1farendcurrentpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentpcvs.get_name_leafdata())
-                if (self.dsx1farendcurrentsefss.is_set or self.dsx1farendcurrentsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentsefss.get_name_leafdata())
-                if (self.dsx1farendcurrentsess.is_set or self.dsx1farendcurrentsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentsess.get_name_leafdata())
-                if (self.dsx1farendcurrentuass.is_set or self.dsx1farendcurrentuass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendcurrentuass.get_name_leafdata())
-                if (self.dsx1farendinvalidintervals.is_set or self.dsx1farendinvalidintervals.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendinvalidintervals.get_name_leafdata())
-                if (self.dsx1farendtimeelapsed.is_set or self.dsx1farendtimeelapsed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtimeelapsed.get_name_leafdata())
-                if (self.dsx1farendvalidintervals.is_set or self.dsx1farendvalidintervals.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendvalidintervals.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1FarEndCurrentIndex" or name == "dsx1FarEndCurrentBESs" or name == "dsx1FarEndCurrentCSSs" or name == "dsx1FarEndCurrentDMs" or name == "dsx1FarEndCurrentESs" or name == "dsx1FarEndCurrentLESs" or name == "dsx1FarEndCurrentPCVs" or name == "dsx1FarEndCurrentSEFSs" or name == "dsx1FarEndCurrentSESs" or name == "dsx1FarEndCurrentUASs" or name == "dsx1FarEndInvalidIntervals" or name == "dsx1FarEndTimeElapsed" or name == "dsx1FarEndValidIntervals"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1FarEndCurrentIndex"):
-                    self.dsx1farendcurrentindex = value
-                    self.dsx1farendcurrentindex.value_namespace = name_space
-                    self.dsx1farendcurrentindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentBESs"):
-                    self.dsx1farendcurrentbess = value
-                    self.dsx1farendcurrentbess.value_namespace = name_space
-                    self.dsx1farendcurrentbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentCSSs"):
-                    self.dsx1farendcurrentcsss = value
-                    self.dsx1farendcurrentcsss.value_namespace = name_space
-                    self.dsx1farendcurrentcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentDMs"):
-                    self.dsx1farendcurrentdms = value
-                    self.dsx1farendcurrentdms.value_namespace = name_space
-                    self.dsx1farendcurrentdms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentESs"):
-                    self.dsx1farendcurrentess = value
-                    self.dsx1farendcurrentess.value_namespace = name_space
-                    self.dsx1farendcurrentess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentLESs"):
-                    self.dsx1farendcurrentless = value
-                    self.dsx1farendcurrentless.value_namespace = name_space
-                    self.dsx1farendcurrentless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentPCVs"):
-                    self.dsx1farendcurrentpcvs = value
-                    self.dsx1farendcurrentpcvs.value_namespace = name_space
-                    self.dsx1farendcurrentpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentSEFSs"):
-                    self.dsx1farendcurrentsefss = value
-                    self.dsx1farendcurrentsefss.value_namespace = name_space
-                    self.dsx1farendcurrentsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentSESs"):
-                    self.dsx1farendcurrentsess = value
-                    self.dsx1farendcurrentsess.value_namespace = name_space
-                    self.dsx1farendcurrentsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndCurrentUASs"):
-                    self.dsx1farendcurrentuass = value
-                    self.dsx1farendcurrentuass.value_namespace = name_space
-                    self.dsx1farendcurrentuass.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndInvalidIntervals"):
-                    self.dsx1farendinvalidintervals = value
-                    self.dsx1farendinvalidintervals.value_namespace = name_space
-                    self.dsx1farendinvalidintervals.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTimeElapsed"):
-                    self.dsx1farendtimeelapsed = value
-                    self.dsx1farendtimeelapsed.value_namespace = name_space
-                    self.dsx1farendtimeelapsed.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndValidIntervals"):
-                    self.dsx1farendvalidintervals = value
-                    self.dsx1farendvalidintervals.value_namespace = name_space
-                    self.dsx1farendvalidintervals.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1farendcurrententry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1farendcurrententry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1FarEndCurrentTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1FarEndCurrentEntry"):
-                for c in self.dsx1farendcurrententry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Farendcurrenttable.Dsx1Farendcurrententry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1farendcurrententry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1FarEndCurrentEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, ['dsx1farendcurrentindex', 'dsx1farendcurrentbess', 'dsx1farendcurrentcsss', 'dsx1farendcurrentdms', 'dsx1farendcurrentess', 'dsx1farendcurrentless', 'dsx1farendcurrentpcvs', 'dsx1farendcurrentsefss', 'dsx1farendcurrentsess', 'dsx1farendcurrentuass', 'dsx1farendinvalidintervals', 'dsx1farendtimeelapsed', 'dsx1farendvalidintervals'], name, value)
 
 
     class Dsx1Farendintervaltable(Entity):
@@ -2797,7 +1333,7 @@ class Ds1Mib(Entity):
         .. attribute:: dsx1farendintervalentry
         
         	An entry in the DS1 Far End Interval table
-        	**type**\: list of    :py:class:`Dsx1Farendintervalentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendintervaltable.Dsx1Farendintervalentry>`
+        	**type**\: list of    :py:class:`Dsx1Farendintervalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry>`
         
         
 
@@ -2807,36 +1343,21 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Farendintervaltable, self).__init__()
+            super(DS1MIB.Dsx1Farendintervaltable, self).__init__()
 
             self.yang_name = "dsx1FarEndIntervalTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1FarEndIntervalEntry" : ("dsx1farendintervalentry", DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry)}
 
             self.dsx1farendintervalentry = YList(self)
+            self._segment_path = lambda: "dsx1FarEndIntervalTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Farendintervaltable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Farendintervaltable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Farendintervaltable, [], name, value)
 
 
         class Dsx1Farendintervalentry(Entity):
@@ -2933,10 +1454,14 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Farendintervaltable.Dsx1Farendintervalentry, self).__init__()
+                super(DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry, self).__init__()
 
                 self.yang_name = "dsx1FarEndIntervalEntry"
                 self.yang_parent_name = "dsx1FarEndIntervalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1farendintervalindex = YLeaf(YType.int32, "dsx1FarEndIntervalIndex")
 
@@ -2961,233 +1486,11 @@ class Ds1Mib(Entity):
                 self.dsx1farendintervaluass = YLeaf(YType.uint32, "dsx1FarEndIntervalUASs")
 
                 self.dsx1farendintervalvaliddata = YLeaf(YType.boolean, "dsx1FarEndIntervalValidData")
+                self._segment_path = lambda: "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + self.dsx1farendintervalindex.get() + "']" + "[dsx1FarEndIntervalNumber='" + self.dsx1farendintervalnumber.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1farendintervalindex",
-                                "dsx1farendintervalnumber",
-                                "dsx1farendintervalbess",
-                                "dsx1farendintervalcsss",
-                                "dsx1farendintervaldms",
-                                "dsx1farendintervaless",
-                                "dsx1farendintervalless",
-                                "dsx1farendintervalpcvs",
-                                "dsx1farendintervalsefss",
-                                "dsx1farendintervalsess",
-                                "dsx1farendintervaluass",
-                                "dsx1farendintervalvaliddata") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Farendintervaltable.Dsx1Farendintervalentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Farendintervaltable.Dsx1Farendintervalentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1farendintervalindex.is_set or
-                    self.dsx1farendintervalnumber.is_set or
-                    self.dsx1farendintervalbess.is_set or
-                    self.dsx1farendintervalcsss.is_set or
-                    self.dsx1farendintervaldms.is_set or
-                    self.dsx1farendintervaless.is_set or
-                    self.dsx1farendintervalless.is_set or
-                    self.dsx1farendintervalpcvs.is_set or
-                    self.dsx1farendintervalsefss.is_set or
-                    self.dsx1farendintervalsess.is_set or
-                    self.dsx1farendintervaluass.is_set or
-                    self.dsx1farendintervalvaliddata.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalindex.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalnumber.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalbess.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalcsss.yfilter != YFilter.not_set or
-                    self.dsx1farendintervaldms.yfilter != YFilter.not_set or
-                    self.dsx1farendintervaless.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalless.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalpcvs.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalsefss.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalsess.yfilter != YFilter.not_set or
-                    self.dsx1farendintervaluass.yfilter != YFilter.not_set or
-                    self.dsx1farendintervalvaliddata.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + self.dsx1farendintervalindex.get() + "']" + "[dsx1FarEndIntervalNumber='" + self.dsx1farendintervalnumber.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1FarEndIntervalTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1farendintervalindex.is_set or self.dsx1farendintervalindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalindex.get_name_leafdata())
-                if (self.dsx1farendintervalnumber.is_set or self.dsx1farendintervalnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalnumber.get_name_leafdata())
-                if (self.dsx1farendintervalbess.is_set or self.dsx1farendintervalbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalbess.get_name_leafdata())
-                if (self.dsx1farendintervalcsss.is_set or self.dsx1farendintervalcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalcsss.get_name_leafdata())
-                if (self.dsx1farendintervaldms.is_set or self.dsx1farendintervaldms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervaldms.get_name_leafdata())
-                if (self.dsx1farendintervaless.is_set or self.dsx1farendintervaless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervaless.get_name_leafdata())
-                if (self.dsx1farendintervalless.is_set or self.dsx1farendintervalless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalless.get_name_leafdata())
-                if (self.dsx1farendintervalpcvs.is_set or self.dsx1farendintervalpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalpcvs.get_name_leafdata())
-                if (self.dsx1farendintervalsefss.is_set or self.dsx1farendintervalsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalsefss.get_name_leafdata())
-                if (self.dsx1farendintervalsess.is_set or self.dsx1farendintervalsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalsess.get_name_leafdata())
-                if (self.dsx1farendintervaluass.is_set or self.dsx1farendintervaluass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervaluass.get_name_leafdata())
-                if (self.dsx1farendintervalvaliddata.is_set or self.dsx1farendintervalvaliddata.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendintervalvaliddata.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1FarEndIntervalIndex" or name == "dsx1FarEndIntervalNumber" or name == "dsx1FarEndIntervalBESs" or name == "dsx1FarEndIntervalCSSs" or name == "dsx1FarEndIntervalDMs" or name == "dsx1FarEndIntervalESs" or name == "dsx1FarEndIntervalLESs" or name == "dsx1FarEndIntervalPCVs" or name == "dsx1FarEndIntervalSEFSs" or name == "dsx1FarEndIntervalSESs" or name == "dsx1FarEndIntervalUASs" or name == "dsx1FarEndIntervalValidData"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1FarEndIntervalIndex"):
-                    self.dsx1farendintervalindex = value
-                    self.dsx1farendintervalindex.value_namespace = name_space
-                    self.dsx1farendintervalindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalNumber"):
-                    self.dsx1farendintervalnumber = value
-                    self.dsx1farendintervalnumber.value_namespace = name_space
-                    self.dsx1farendintervalnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalBESs"):
-                    self.dsx1farendintervalbess = value
-                    self.dsx1farendintervalbess.value_namespace = name_space
-                    self.dsx1farendintervalbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalCSSs"):
-                    self.dsx1farendintervalcsss = value
-                    self.dsx1farendintervalcsss.value_namespace = name_space
-                    self.dsx1farendintervalcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalDMs"):
-                    self.dsx1farendintervaldms = value
-                    self.dsx1farendintervaldms.value_namespace = name_space
-                    self.dsx1farendintervaldms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalESs"):
-                    self.dsx1farendintervaless = value
-                    self.dsx1farendintervaless.value_namespace = name_space
-                    self.dsx1farendintervaless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalLESs"):
-                    self.dsx1farendintervalless = value
-                    self.dsx1farendintervalless.value_namespace = name_space
-                    self.dsx1farendintervalless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalPCVs"):
-                    self.dsx1farendintervalpcvs = value
-                    self.dsx1farendintervalpcvs.value_namespace = name_space
-                    self.dsx1farendintervalpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalSEFSs"):
-                    self.dsx1farendintervalsefss = value
-                    self.dsx1farendintervalsefss.value_namespace = name_space
-                    self.dsx1farendintervalsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalSESs"):
-                    self.dsx1farendintervalsess = value
-                    self.dsx1farendintervalsess.value_namespace = name_space
-                    self.dsx1farendintervalsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalUASs"):
-                    self.dsx1farendintervaluass = value
-                    self.dsx1farendintervaluass.value_namespace = name_space
-                    self.dsx1farendintervaluass.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndIntervalValidData"):
-                    self.dsx1farendintervalvaliddata = value
-                    self.dsx1farendintervalvaliddata.value_namespace = name_space
-                    self.dsx1farendintervalvaliddata.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1farendintervalentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1farendintervalentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1FarEndIntervalTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1FarEndIntervalEntry"):
-                for c in self.dsx1farendintervalentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Farendintervaltable.Dsx1Farendintervalentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1farendintervalentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1FarEndIntervalEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry, ['dsx1farendintervalindex', 'dsx1farendintervalnumber', 'dsx1farendintervalbess', 'dsx1farendintervalcsss', 'dsx1farendintervaldms', 'dsx1farendintervaless', 'dsx1farendintervalless', 'dsx1farendintervalpcvs', 'dsx1farendintervalsefss', 'dsx1farendintervalsess', 'dsx1farendintervaluass', 'dsx1farendintervalvaliddata'], name, value)
 
 
     class Dsx1Farendtotaltable(Entity):
@@ -3199,7 +1502,7 @@ class Ds1Mib(Entity):
         .. attribute:: dsx1farendtotalentry
         
         	An entry in the DS1 Far End Total table
-        	**type**\: list of    :py:class:`Dsx1Farendtotalentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Farendtotaltable.Dsx1Farendtotalentry>`
+        	**type**\: list of    :py:class:`Dsx1Farendtotalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry>`
         
         
 
@@ -3209,36 +1512,21 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Farendtotaltable, self).__init__()
+            super(DS1MIB.Dsx1Farendtotaltable, self).__init__()
 
             self.yang_name = "dsx1FarEndTotalTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1FarEndTotalEntry" : ("dsx1farendtotalentry", DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry)}
 
             self.dsx1farendtotalentry = YList(self)
+            self._segment_path = lambda: "dsx1FarEndTotalTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Farendtotaltable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Farendtotaltable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Farendtotaltable, [], name, value)
 
 
         class Dsx1Farendtotalentry(Entity):
@@ -3323,10 +1611,14 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Farendtotaltable.Dsx1Farendtotalentry, self).__init__()
+                super(DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry, self).__init__()
 
                 self.yang_name = "dsx1FarEndTotalEntry"
                 self.yang_parent_name = "dsx1FarEndTotalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1farendtotalindex = YLeaf(YType.int32, "dsx1FarEndTotalIndex")
 
@@ -3347,215 +1639,11 @@ class Ds1Mib(Entity):
                 self.dsx1farendtotalsess = YLeaf(YType.uint32, "dsx1FarEndTotalSESs")
 
                 self.dsx1farendtotaluass = YLeaf(YType.uint32, "dsx1FarEndTotalUASs")
+                self._segment_path = lambda: "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + self.dsx1farendtotalindex.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1farendtotalindex",
-                                "dsx1farendtotalbess",
-                                "dsx1farendtotalcsss",
-                                "dsx1farendtotaldms",
-                                "dsx1farendtotaless",
-                                "dsx1farendtotalless",
-                                "dsx1farendtotalpcvs",
-                                "dsx1farendtotalsefss",
-                                "dsx1farendtotalsess",
-                                "dsx1farendtotaluass") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Farendtotaltable.Dsx1Farendtotalentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Farendtotaltable.Dsx1Farendtotalentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1farendtotalindex.is_set or
-                    self.dsx1farendtotalbess.is_set or
-                    self.dsx1farendtotalcsss.is_set or
-                    self.dsx1farendtotaldms.is_set or
-                    self.dsx1farendtotaless.is_set or
-                    self.dsx1farendtotalless.is_set or
-                    self.dsx1farendtotalpcvs.is_set or
-                    self.dsx1farendtotalsefss.is_set or
-                    self.dsx1farendtotalsess.is_set or
-                    self.dsx1farendtotaluass.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalindex.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalbess.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalcsss.yfilter != YFilter.not_set or
-                    self.dsx1farendtotaldms.yfilter != YFilter.not_set or
-                    self.dsx1farendtotaless.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalless.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalpcvs.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalsefss.yfilter != YFilter.not_set or
-                    self.dsx1farendtotalsess.yfilter != YFilter.not_set or
-                    self.dsx1farendtotaluass.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + self.dsx1farendtotalindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1FarEndTotalTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1farendtotalindex.is_set or self.dsx1farendtotalindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalindex.get_name_leafdata())
-                if (self.dsx1farendtotalbess.is_set or self.dsx1farendtotalbess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalbess.get_name_leafdata())
-                if (self.dsx1farendtotalcsss.is_set or self.dsx1farendtotalcsss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalcsss.get_name_leafdata())
-                if (self.dsx1farendtotaldms.is_set or self.dsx1farendtotaldms.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotaldms.get_name_leafdata())
-                if (self.dsx1farendtotaless.is_set or self.dsx1farendtotaless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotaless.get_name_leafdata())
-                if (self.dsx1farendtotalless.is_set or self.dsx1farendtotalless.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalless.get_name_leafdata())
-                if (self.dsx1farendtotalpcvs.is_set or self.dsx1farendtotalpcvs.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalpcvs.get_name_leafdata())
-                if (self.dsx1farendtotalsefss.is_set or self.dsx1farendtotalsefss.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalsefss.get_name_leafdata())
-                if (self.dsx1farendtotalsess.is_set or self.dsx1farendtotalsess.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotalsess.get_name_leafdata())
-                if (self.dsx1farendtotaluass.is_set or self.dsx1farendtotaluass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1farendtotaluass.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1FarEndTotalIndex" or name == "dsx1FarEndTotalBESs" or name == "dsx1FarEndTotalCSSs" or name == "dsx1FarEndTotalDMs" or name == "dsx1FarEndTotalESs" or name == "dsx1FarEndTotalLESs" or name == "dsx1FarEndTotalPCVs" or name == "dsx1FarEndTotalSEFSs" or name == "dsx1FarEndTotalSESs" or name == "dsx1FarEndTotalUASs"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1FarEndTotalIndex"):
-                    self.dsx1farendtotalindex = value
-                    self.dsx1farendtotalindex.value_namespace = name_space
-                    self.dsx1farendtotalindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalBESs"):
-                    self.dsx1farendtotalbess = value
-                    self.dsx1farendtotalbess.value_namespace = name_space
-                    self.dsx1farendtotalbess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalCSSs"):
-                    self.dsx1farendtotalcsss = value
-                    self.dsx1farendtotalcsss.value_namespace = name_space
-                    self.dsx1farendtotalcsss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalDMs"):
-                    self.dsx1farendtotaldms = value
-                    self.dsx1farendtotaldms.value_namespace = name_space
-                    self.dsx1farendtotaldms.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalESs"):
-                    self.dsx1farendtotaless = value
-                    self.dsx1farendtotaless.value_namespace = name_space
-                    self.dsx1farendtotaless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalLESs"):
-                    self.dsx1farendtotalless = value
-                    self.dsx1farendtotalless.value_namespace = name_space
-                    self.dsx1farendtotalless.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalPCVs"):
-                    self.dsx1farendtotalpcvs = value
-                    self.dsx1farendtotalpcvs.value_namespace = name_space
-                    self.dsx1farendtotalpcvs.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalSEFSs"):
-                    self.dsx1farendtotalsefss = value
-                    self.dsx1farendtotalsefss.value_namespace = name_space
-                    self.dsx1farendtotalsefss.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalSESs"):
-                    self.dsx1farendtotalsess = value
-                    self.dsx1farendtotalsess.value_namespace = name_space
-                    self.dsx1farendtotalsess.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FarEndTotalUASs"):
-                    self.dsx1farendtotaluass = value
-                    self.dsx1farendtotaluass.value_namespace = name_space
-                    self.dsx1farendtotaluass.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1farendtotalentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1farendtotalentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1FarEndTotalTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1FarEndTotalEntry"):
-                for c in self.dsx1farendtotalentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Farendtotaltable.Dsx1Farendtotalentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1farendtotalentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1FarEndTotalEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry, ['dsx1farendtotalindex', 'dsx1farendtotalbess', 'dsx1farendtotalcsss', 'dsx1farendtotaldms', 'dsx1farendtotaless', 'dsx1farendtotalless', 'dsx1farendtotalpcvs', 'dsx1farendtotalsefss', 'dsx1farendtotalsess', 'dsx1farendtotaluass'], name, value)
 
 
     class Dsx1Fractable(Entity):
@@ -3619,7 +1707,7 @@ class Ds1Mib(Entity):
         .. attribute:: dsx1fracentry
         
         	An entry in the DS1 Fractional table
-        	**type**\: list of    :py:class:`Dsx1Fracentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Fractable.Dsx1Fracentry>`
+        	**type**\: list of    :py:class:`Dsx1Fracentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Fractable.Dsx1Fracentry>`
         
         	**status**\: deprecated
         
@@ -3631,36 +1719,21 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Fractable, self).__init__()
+            super(DS1MIB.Dsx1Fractable, self).__init__()
 
             self.yang_name = "dsx1FracTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1FracEntry" : ("dsx1fracentry", DS1MIB.Dsx1Fractable.Dsx1Fracentry)}
 
             self.dsx1fracentry = YList(self)
+            self._segment_path = lambda: "dsx1FracTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Fractable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Fractable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Fractable, [], name, value)
 
 
         class Dsx1Fracentry(Entity):
@@ -3702,177 +1775,42 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Fractable.Dsx1Fracentry, self).__init__()
+                super(DS1MIB.Dsx1Fractable.Dsx1Fracentry, self).__init__()
 
                 self.yang_name = "dsx1FracEntry"
                 self.yang_parent_name = "dsx1FracTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.dsx1fracindex = YLeaf(YType.int32, "dsx1FracIndex")
 
                 self.dsx1fracnumber = YLeaf(YType.int32, "dsx1FracNumber")
 
                 self.dsx1fracifindex = YLeaf(YType.int32, "dsx1FracIfIndex")
+                self._segment_path = lambda: "dsx1FracEntry" + "[dsx1FracIndex='" + self.dsx1fracindex.get() + "']" + "[dsx1FracNumber='" + self.dsx1fracnumber.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FracTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dsx1fracindex",
-                                "dsx1fracnumber",
-                                "dsx1fracifindex") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Fractable.Dsx1Fracentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Fractable.Dsx1Fracentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dsx1fracindex.is_set or
-                    self.dsx1fracnumber.is_set or
-                    self.dsx1fracifindex.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dsx1fracindex.yfilter != YFilter.not_set or
-                    self.dsx1fracnumber.yfilter != YFilter.not_set or
-                    self.dsx1fracifindex.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1FracEntry" + "[dsx1FracIndex='" + self.dsx1fracindex.get() + "']" + "[dsx1FracNumber='" + self.dsx1fracnumber.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1FracTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dsx1fracindex.is_set or self.dsx1fracindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1fracindex.get_name_leafdata())
-                if (self.dsx1fracnumber.is_set or self.dsx1fracnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1fracnumber.get_name_leafdata())
-                if (self.dsx1fracifindex.is_set or self.dsx1fracifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1fracifindex.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dsx1FracIndex" or name == "dsx1FracNumber" or name == "dsx1FracIfIndex"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dsx1FracIndex"):
-                    self.dsx1fracindex = value
-                    self.dsx1fracindex.value_namespace = name_space
-                    self.dsx1fracindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FracNumber"):
-                    self.dsx1fracnumber = value
-                    self.dsx1fracnumber.value_namespace = name_space
-                    self.dsx1fracnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1FracIfIndex"):
-                    self.dsx1fracifindex = value
-                    self.dsx1fracifindex.value_namespace = name_space
-                    self.dsx1fracifindex.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.dsx1fracentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.dsx1fracentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1FracTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dsx1FracEntry"):
-                for c in self.dsx1fracentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Fractable.Dsx1Fracentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1fracentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1FracEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(DS1MIB.Dsx1Fractable.Dsx1Fracentry, ['dsx1fracindex', 'dsx1fracnumber', 'dsx1fracifindex'], name, value)
 
 
-    class Dsx1Chanmappingtable(Entity):
+    class Dsx1Intervaltable(Entity):
         """
-        The DS1 Channel Mapping table.  This table maps a
-        DS1 channel number on a particular DS3 into an
-        ifIndex.  In the presence of DS2s, this table can
-        be used to map a DS2 channel number on a DS3 into
-        an ifIndex, or used to map a DS1 channel number on
-        a DS2 onto an ifIndex.
+        The DS1 Interval Table contains various
+        statistics collected by each DS1 Interface over
+        the previous 24 hours of operation.  The past 24
+        hours are broken into 96 completed 15 minute
+        intervals.  Each row in this table represents one
+        such interval (identified by dsx1IntervalNumber)
+        for one specific instance (identified by
+        dsx1IntervalIndex).
         
-        .. attribute:: dsx1chanmappingentry
+        .. attribute:: dsx1intervalentry
         
-        	An entry in the DS1 Channel Mapping table.  There is an entry in this table corresponding to each ds1 ifEntry within any interface that is channelized to the individual ds1 ifEntry level.  This table is intended to facilitate mapping from channelized interface / channel number to DS1 ifEntry.  (e.g. mapping (DS3 ifIndex, DS1 Channel Number) \-> ifIndex)  While this table provides information that can also be found in the ifStackTable and dsx1ConfigTable, it provides this same information with a single table lookup, rather than by walking the ifStackTable to find the various constituent ds1 ifTable entries, and testing various dsx1ConfigTable entries to check for the entry with the applicable DS1 channel number
-        	**type**\: list of    :py:class:`Dsx1Chanmappingentry <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Chanmappingtable.Dsx1Chanmappingentry>`
+        	An entry in the DS1 Interval table
+        	**type**\: list of    :py:class:`Dsx1Intervalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry>`
         
         
 
@@ -3882,83 +1820,115 @@ class Ds1Mib(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(Ds1Mib.Dsx1Chanmappingtable, self).__init__()
+            super(DS1MIB.Dsx1Intervaltable, self).__init__()
 
-            self.yang_name = "dsx1ChanMappingTable"
+            self.yang_name = "dsx1IntervalTable"
             self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1IntervalEntry" : ("dsx1intervalentry", DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry)}
 
-            self.dsx1chanmappingentry = YList(self)
+            self.dsx1intervalentry = YList(self)
+            self._segment_path = lambda: "dsx1IntervalTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ds1Mib.Dsx1Chanmappingtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ds1Mib.Dsx1Chanmappingtable, self).__setattr__(name, value)
+            self._perform_setattr(DS1MIB.Dsx1Intervaltable, [], name, value)
 
 
-        class Dsx1Chanmappingentry(Entity):
+        class Dsx1Intervalentry(Entity):
             """
-            An entry in the DS1 Channel Mapping table.  There
-            is an entry in this table corresponding to each
-            ds1 ifEntry within any interface that is
-            channelized to the individual ds1 ifEntry level.
+            An entry in the DS1 Interval table.
             
-            This table is intended to facilitate mapping from
-            channelized interface / channel number to DS1
-            ifEntry.  (e.g. mapping (DS3 ifIndex, DS1 Channel
-            Number) \-> ifIndex)
+            .. attribute:: dsx1intervalindex  <key>
             
-            While this table provides information that can
-            also be found in the ifStackTable and
-            dsx1ConfigTable, it provides this same information
-            with a single table lookup, rather than by walking
-            the ifStackTable to find the various constituent
-            ds1 ifTable entries, and testing various
-            dsx1ConfigTable entries to check for the entry
-            with the applicable DS1 channel number.
-            
-            .. attribute:: ifindex  <key>
-            
-            	
+            	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
             	**type**\:  int
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry>`
+            .. attribute:: dsx1intervalnumber  <key>
             
-            .. attribute:: dsx1ds1channelnumber  <key>
-            
-            	
+            	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
             	**type**\:  int
             
-            	**range:** 0..28
+            	**range:** 1..96
             
-            	**refers to**\:  :py:class:`dsx1ds1channelnumber <ydk.models.cisco_ios_xe.DS1_MIB.Ds1Mib.Dsx1Configtable.Dsx1Configentry>`
+            .. attribute:: dsx1intervalbess
             
-            .. attribute:: dsx1chanmappedifindex
-            
-            	This object indicates the ifIndex value assigned by the agent for the individual ds1 ifEntry that corresponds to the given DS1 channel number (specified by the INDEX element dsx1Ds1ChannelNumber) of the given channelized interface (specified by INDEX element ifIndex)
+            	The number of Bursty Errored Seconds
             	**type**\:  int
             
-            	**range:** 1..2147483647
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalcsss
+            
+            	The number of Controlled Slip Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervaldms
+            
+            	The number of Degraded Minutes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervaless
+            
+            	The number of Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervallcvs
+            
+            	The number of Line Code Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalless
+            
+            	The number of Line Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalpcvs
+            
+            	The number of Path Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalsefss
+            
+            	The number of Severely Errored Framing Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalsess
+            
+            	The number of Severely Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervaluass
+            
+            	The number of Unavailable Seconds.  This object may decrease if the occurance of unavailable seconds occurs across an inteval boundary
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1intervalvaliddata
+            
+            	This variable indicates if the data for this interval is valid
+            	**type**\:  bool
             
             
 
@@ -3968,284 +1938,209 @@ class Ds1Mib(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(Ds1Mib.Dsx1Chanmappingtable.Dsx1Chanmappingentry, self).__init__()
+                super(DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry, self).__init__()
 
-                self.yang_name = "dsx1ChanMappingEntry"
-                self.yang_parent_name = "dsx1ChanMappingTable"
+                self.yang_name = "dsx1IntervalEntry"
+                self.yang_parent_name = "dsx1IntervalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.ifindex = YLeaf(YType.str, "ifIndex")
+                self.dsx1intervalindex = YLeaf(YType.int32, "dsx1IntervalIndex")
 
-                self.dsx1ds1channelnumber = YLeaf(YType.str, "dsx1Ds1ChannelNumber")
+                self.dsx1intervalnumber = YLeaf(YType.int32, "dsx1IntervalNumber")
 
-                self.dsx1chanmappedifindex = YLeaf(YType.int32, "dsx1ChanMappedIfIndex")
+                self.dsx1intervalbess = YLeaf(YType.uint32, "dsx1IntervalBESs")
+
+                self.dsx1intervalcsss = YLeaf(YType.uint32, "dsx1IntervalCSSs")
+
+                self.dsx1intervaldms = YLeaf(YType.uint32, "dsx1IntervalDMs")
+
+                self.dsx1intervaless = YLeaf(YType.uint32, "dsx1IntervalESs")
+
+                self.dsx1intervallcvs = YLeaf(YType.uint32, "dsx1IntervalLCVs")
+
+                self.dsx1intervalless = YLeaf(YType.uint32, "dsx1IntervalLESs")
+
+                self.dsx1intervalpcvs = YLeaf(YType.uint32, "dsx1IntervalPCVs")
+
+                self.dsx1intervalsefss = YLeaf(YType.uint32, "dsx1IntervalSEFSs")
+
+                self.dsx1intervalsess = YLeaf(YType.uint32, "dsx1IntervalSESs")
+
+                self.dsx1intervaluass = YLeaf(YType.uint32, "dsx1IntervalUASs")
+
+                self.dsx1intervalvaliddata = YLeaf(YType.boolean, "dsx1IntervalValidData")
+                self._segment_path = lambda: "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + self.dsx1intervalindex.get() + "']" + "[dsx1IntervalNumber='" + self.dsx1intervalnumber.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1IntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifindex",
-                                "dsx1ds1channelnumber",
-                                "dsx1chanmappedifindex") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ds1Mib.Dsx1Chanmappingtable.Dsx1Chanmappingentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ds1Mib.Dsx1Chanmappingtable.Dsx1Chanmappingentry, self).__setattr__(name, value)
+                self._perform_setattr(DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry, ['dsx1intervalindex', 'dsx1intervalnumber', 'dsx1intervalbess', 'dsx1intervalcsss', 'dsx1intervaldms', 'dsx1intervaless', 'dsx1intervallcvs', 'dsx1intervalless', 'dsx1intervalpcvs', 'dsx1intervalsefss', 'dsx1intervalsess', 'dsx1intervaluass', 'dsx1intervalvaliddata'], name, value)
 
-            def has_data(self):
-                return (
-                    self.ifindex.is_set or
-                    self.dsx1ds1channelnumber.is_set or
-                    self.dsx1chanmappedifindex.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifindex.yfilter != YFilter.not_set or
-                    self.dsx1ds1channelnumber.yfilter != YFilter.not_set or
-                    self.dsx1chanmappedifindex.yfilter != YFilter.not_set)
+    class Dsx1Totaltable(Entity):
+        """
+        The DS1 Total Table contains the cumulative sum
+        of the various statistics for the 24 hour period
+        preceding the current interval.
+        
+        .. attribute:: dsx1totalentry
+        
+        	An entry in the DS1 Total table
+        	**type**\: list of    :py:class:`Dsx1Totalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Totaltable.Dsx1Totalentry>`
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dsx1ChanMappingEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[dsx1Ds1ChannelNumber='" + self.dsx1ds1channelnumber.get() + "']" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'DS1-MIB'
+        _revision = '1998-08-01'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "DS1-MIB:DS1-MIB/dsx1ChanMappingTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(DS1MIB.Dsx1Totaltable, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindex.get_name_leafdata())
-                if (self.dsx1ds1channelnumber.is_set or self.dsx1ds1channelnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1ds1channelnumber.get_name_leafdata())
-                if (self.dsx1chanmappedifindex.is_set or self.dsx1chanmappedifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dsx1chanmappedifindex.get_name_leafdata())
+            self.yang_name = "dsx1TotalTable"
+            self.yang_parent_name = "DS1-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx1TotalEntry" : ("dsx1totalentry", DS1MIB.Dsx1Totaltable.Dsx1Totalentry)}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.dsx1totalentry = YList(self)
+            self._segment_path = lambda: "dsx1TotalTable"
+            self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(DS1MIB.Dsx1Totaltable, [], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifIndex" or name == "dsx1Ds1ChannelNumber" or name == "dsx1ChanMappedIfIndex"):
-                    return True
-                return False
+        class Dsx1Totalentry(Entity):
+            """
+            An entry in the DS1 Total table.
+            
+            .. attribute:: dsx1totalindex  <key>
+            
+            	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: dsx1totalbess
+            
+            	The number of Bursty Errored Seconds (BESs) encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totalcsss
+            
+            	The number of Controlled Slip Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totaldms
+            
+            	The number of Degraded Minutes (DMs) encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totaless
+            
+            	The sum of Errored Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totallcvs
+            
+            	The number of Line Code Violations (LCVs) encountered by a DS1 interface in the current 15 minute interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totalless
+            
+            	The number of Line Errored Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totalpcvs
+            
+            	The number of Path Coding Violations encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totalsefss
+            
+            	The number of Severely Errored Framing Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totalsess
+            
+            	The number of Severely Errored Seconds encountered by a DS1 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx1totaluass
+            
+            	The number of Unavailable Seconds encountered by a DS1 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifIndex"):
-                    self.ifindex = value
-                    self.ifindex.value_namespace = name_space
-                    self.ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1Ds1ChannelNumber"):
-                    self.dsx1ds1channelnumber = value
-                    self.dsx1ds1channelnumber.value_namespace = name_space
-                    self.dsx1ds1channelnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "dsx1ChanMappedIfIndex"):
-                    self.dsx1chanmappedifindex = value
-                    self.dsx1chanmappedifindex.value_namespace = name_space
-                    self.dsx1chanmappedifindex.value_namespace_prefix = name_space_prefix
+            """
 
-        def has_data(self):
-            for c in self.dsx1chanmappingentry:
-                if (c.has_data()):
-                    return True
-            return False
+            _prefix = 'DS1-MIB'
+            _revision = '1998-08-01'
 
-        def has_operation(self):
-            for c in self.dsx1chanmappingentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
+            def __init__(self):
+                super(DS1MIB.Dsx1Totaltable.Dsx1Totalentry, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "dsx1ChanMappingTable" + path_buffer
+                self.yang_name = "dsx1TotalEntry"
+                self.yang_parent_name = "dsx1TotalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            return path_buffer
+                self.dsx1totalindex = YLeaf(YType.int32, "dsx1TotalIndex")
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "DS1-MIB:DS1-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                self.dsx1totalbess = YLeaf(YType.uint32, "dsx1TotalBESs")
 
-            leaf_name_data = LeafDataList()
+                self.dsx1totalcsss = YLeaf(YType.uint32, "dsx1TotalCSSs")
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+                self.dsx1totaldms = YLeaf(YType.uint32, "dsx1TotalDMs")
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+                self.dsx1totaless = YLeaf(YType.uint32, "dsx1TotalESs")
 
-            if (child_yang_name == "dsx1ChanMappingEntry"):
-                for c in self.dsx1chanmappingentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ds1Mib.Dsx1Chanmappingtable.Dsx1Chanmappingentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.dsx1chanmappingentry.append(c)
-                return c
+                self.dsx1totallcvs = YLeaf(YType.uint32, "dsx1TotalLCVs")
 
-            return None
+                self.dsx1totalless = YLeaf(YType.uint32, "dsx1TotalLESs")
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dsx1ChanMappingEntry"):
-                return True
-            return False
+                self.dsx1totalpcvs = YLeaf(YType.uint32, "dsx1TotalPCVs")
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self.dsx1totalsefss = YLeaf(YType.uint32, "dsx1TotalSEFSs")
 
-    def has_data(self):
-        return (
-            (self.dsx1chanmappingtable is not None and self.dsx1chanmappingtable.has_data()) or
-            (self.dsx1configtable is not None and self.dsx1configtable.has_data()) or
-            (self.dsx1currenttable is not None and self.dsx1currenttable.has_data()) or
-            (self.dsx1farendcurrenttable is not None and self.dsx1farendcurrenttable.has_data()) or
-            (self.dsx1farendintervaltable is not None and self.dsx1farendintervaltable.has_data()) or
-            (self.dsx1farendtotaltable is not None and self.dsx1farendtotaltable.has_data()) or
-            (self.dsx1fractable is not None and self.dsx1fractable.has_data()) or
-            (self.dsx1intervaltable is not None and self.dsx1intervaltable.has_data()) or
-            (self.dsx1totaltable is not None and self.dsx1totaltable.has_data()))
+                self.dsx1totalsess = YLeaf(YType.uint32, "dsx1TotalSESs")
 
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.dsx1chanmappingtable is not None and self.dsx1chanmappingtable.has_operation()) or
-            (self.dsx1configtable is not None and self.dsx1configtable.has_operation()) or
-            (self.dsx1currenttable is not None and self.dsx1currenttable.has_operation()) or
-            (self.dsx1farendcurrenttable is not None and self.dsx1farendcurrenttable.has_operation()) or
-            (self.dsx1farendintervaltable is not None and self.dsx1farendintervaltable.has_operation()) or
-            (self.dsx1farendtotaltable is not None and self.dsx1farendtotaltable.has_operation()) or
-            (self.dsx1fractable is not None and self.dsx1fractable.has_operation()) or
-            (self.dsx1intervaltable is not None and self.dsx1intervaltable.has_operation()) or
-            (self.dsx1totaltable is not None and self.dsx1totaltable.has_operation()))
+                self.dsx1totaluass = YLeaf(YType.uint32, "dsx1TotalUASs")
+                self._segment_path = lambda: "dsx1TotalEntry" + "[dsx1TotalIndex='" + self.dsx1totalindex.get() + "']"
+                self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1TotalTable/%s" % self._segment_path()
 
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "DS1-MIB:DS1-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "dsx1ChanMappingTable"):
-            if (self.dsx1chanmappingtable is None):
-                self.dsx1chanmappingtable = Ds1Mib.Dsx1Chanmappingtable()
-                self.dsx1chanmappingtable.parent = self
-                self._children_name_map["dsx1chanmappingtable"] = "dsx1ChanMappingTable"
-            return self.dsx1chanmappingtable
-
-        if (child_yang_name == "dsx1ConfigTable"):
-            if (self.dsx1configtable is None):
-                self.dsx1configtable = Ds1Mib.Dsx1Configtable()
-                self.dsx1configtable.parent = self
-                self._children_name_map["dsx1configtable"] = "dsx1ConfigTable"
-            return self.dsx1configtable
-
-        if (child_yang_name == "dsx1CurrentTable"):
-            if (self.dsx1currenttable is None):
-                self.dsx1currenttable = Ds1Mib.Dsx1Currenttable()
-                self.dsx1currenttable.parent = self
-                self._children_name_map["dsx1currenttable"] = "dsx1CurrentTable"
-            return self.dsx1currenttable
-
-        if (child_yang_name == "dsx1FarEndCurrentTable"):
-            if (self.dsx1farendcurrenttable is None):
-                self.dsx1farendcurrenttable = Ds1Mib.Dsx1Farendcurrenttable()
-                self.dsx1farendcurrenttable.parent = self
-                self._children_name_map["dsx1farendcurrenttable"] = "dsx1FarEndCurrentTable"
-            return self.dsx1farendcurrenttable
-
-        if (child_yang_name == "dsx1FarEndIntervalTable"):
-            if (self.dsx1farendintervaltable is None):
-                self.dsx1farendintervaltable = Ds1Mib.Dsx1Farendintervaltable()
-                self.dsx1farendintervaltable.parent = self
-                self._children_name_map["dsx1farendintervaltable"] = "dsx1FarEndIntervalTable"
-            return self.dsx1farendintervaltable
-
-        if (child_yang_name == "dsx1FarEndTotalTable"):
-            if (self.dsx1farendtotaltable is None):
-                self.dsx1farendtotaltable = Ds1Mib.Dsx1Farendtotaltable()
-                self.dsx1farendtotaltable.parent = self
-                self._children_name_map["dsx1farendtotaltable"] = "dsx1FarEndTotalTable"
-            return self.dsx1farendtotaltable
-
-        if (child_yang_name == "dsx1FracTable"):
-            if (self.dsx1fractable is None):
-                self.dsx1fractable = Ds1Mib.Dsx1Fractable()
-                self.dsx1fractable.parent = self
-                self._children_name_map["dsx1fractable"] = "dsx1FracTable"
-            return self.dsx1fractable
-
-        if (child_yang_name == "dsx1IntervalTable"):
-            if (self.dsx1intervaltable is None):
-                self.dsx1intervaltable = Ds1Mib.Dsx1Intervaltable()
-                self.dsx1intervaltable.parent = self
-                self._children_name_map["dsx1intervaltable"] = "dsx1IntervalTable"
-            return self.dsx1intervaltable
-
-        if (child_yang_name == "dsx1TotalTable"):
-            if (self.dsx1totaltable is None):
-                self.dsx1totaltable = Ds1Mib.Dsx1Totaltable()
-                self.dsx1totaltable.parent = self
-                self._children_name_map["dsx1totaltable"] = "dsx1TotalTable"
-            return self.dsx1totaltable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "dsx1ChanMappingTable" or name == "dsx1ConfigTable" or name == "dsx1CurrentTable" or name == "dsx1FarEndCurrentTable" or name == "dsx1FarEndIntervalTable" or name == "dsx1FarEndTotalTable" or name == "dsx1FracTable" or name == "dsx1IntervalTable" or name == "dsx1TotalTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            def __setattr__(self, name, value):
+                self._perform_setattr(DS1MIB.Dsx1Totaltable.Dsx1Totalentry, ['dsx1totalindex', 'dsx1totalbess', 'dsx1totalcsss', 'dsx1totaldms', 'dsx1totaless', 'dsx1totallcvs', 'dsx1totalless', 'dsx1totalpcvs', 'dsx1totalsefss', 'dsx1totalsess', 'dsx1totaluass'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = Ds1Mib()
+        self._top_entity = DS1MIB()
         return self._top_entity
 

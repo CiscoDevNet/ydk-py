@@ -42,7 +42,7 @@ module Cisco-IOS-XR-dnx-netflow-oper {
      for the following management objects:
        net-flow: NetFlow operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

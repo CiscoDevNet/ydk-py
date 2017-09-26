@@ -11,12 +11,10 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ipv4-acl-datatypes { prefix "dt1"; }
 
   include Cisco-IOS-XR-ipv4-ace-cfg {
-    revision-date 2016-11-07;
+    revision-date 2017-06-08;
   }
 
   /*** META INFORMATION ***/
@@ -42,12 +40,12 @@ module Cisco-IOS-XR-ipv4-acl-cfg {
      for the following management objects:
        ipv4-acl-and-prefix-list: IPv4 ACL configuration data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2016-11-07" {
+  revision "2017-06-08" {
     description
-      "6.2.1 revision.";
+      "6.3.1 fragment-type revision.";
   }
 
   revision "2015-11-09" {

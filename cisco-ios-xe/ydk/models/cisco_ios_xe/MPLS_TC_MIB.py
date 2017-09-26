@@ -6,16 +6,15 @@ management information bases (MIBs) for managing
 MPLS networks.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Mplsinitialcreationsource(Enum):
+class MplsInitialCreationSource(Enum):
     """
-    Mplsinitialcreationsource
+    MplsInitialCreationSource
 
     The entity that originally created the object in
 
@@ -88,9 +87,9 @@ class Mplsinitialcreationsource(Enum):
     unknown = Enum.YLeaf(7, "unknown")
 
 
-class Mplsldplabeltypes(Enum):
+class MplsLdpLabelTypes(Enum):
     """
-    Mplsldplabeltypes
+    MplsLdpLabelTypes
 
     The Layer 2 label types which are defined for MPLS
 

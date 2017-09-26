@@ -11,7 +11,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -33,8 +33,13 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-te package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -1119,6 +1124,25 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         description
           "BFD GAL mode is supported on bidirectional
           tunnels only";
+      }
+      enum mtunnel-fail-reason-destination-invalid {
+        description
+          "Termination is supported with unnumbered
+          destination only";
+      }
+      enum mtunnel-fail-reason-termination-bandwidth-mismatch {
+        description
+          "Termination bandwidth should match signalled
+          bandwidth";
+      }
+      enum mtunnel-fail-reason-termination-has-protection {
+        description "Termination supports only working path-option";
+      }
+      enum "mtunnel-fail-reason-termination-has-invalid-src-dest"+
+        "-ifindex" {
+        description
+          "Termination case must have source and
+          destination valid ifindex";
       }
     }
     description "Reason for tunnel being down";
@@ -8708,6 +8732,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     container bandwidth-cfg {
       description "Configured OTN Bandwidth for tunnel";
       uses TE-ODU-V3-BW;
+    }
+    leaf config-bit-rate {
+      type uint32;
+      units "kbit/s";
+      description "Configured OTN Bandwidth in kbps";
     }
   }
 

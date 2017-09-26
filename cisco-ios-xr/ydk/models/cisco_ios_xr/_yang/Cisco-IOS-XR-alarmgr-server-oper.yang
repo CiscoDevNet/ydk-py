@@ -39,7 +39,7 @@ module Cisco-IOS-XR-alarmgr-server-oper {
      for the following management objects:
        alarms: Show Alarms associated with XR
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

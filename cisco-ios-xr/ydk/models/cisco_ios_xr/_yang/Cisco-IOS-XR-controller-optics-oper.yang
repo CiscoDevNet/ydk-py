@@ -13,7 +13,7 @@ module Cisco-IOS-XR-controller-optics-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-controller-optics-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -39,8 +39,13 @@ module Cisco-IOS-XR-controller-optics-oper {
      for the following management objects:
        optics-oper: Optics operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

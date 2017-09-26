@@ -41,7 +41,7 @@ module Cisco-IOS-XR-subscriber-srg-oper {
          information
        subscriber-redundancy-agent: subscriber redundancy agent
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

@@ -38,7 +38,7 @@ module Cisco-IOS-XR-crypto-sam-oper {
      for the following management objects:
        sam: Software authentication manager certificate information
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-01-07" {

@@ -107,6 +107,8 @@ class CodecServiceProvider(object):
         name = bundle_name if not user_provided_repo else _USER_PROVIDED_REPO
         self.logger.log(_TRACE_LEVEL_NUM, "Initializing root schema for {}".format(name))
         # TODO: turn on and off libyang logging
+        # TODO: segmentation fault, unable to pass test_on_demand.py
+        # capabilities = []
         capabilities = self._get_bundle_capabilities(bundle_name)
         lookup_tables = self._get_bundle_capability_lookup_tables(bundle_name)
         self._root_schema_table[name] = repo.create_root_schema(lookup_tables, capabilities)

@@ -42,8 +42,18 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -247,7 +257,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
     }
     description "Mpls ldp label advertise";
   }
-  typedef Mpls-ldp-advertise-bgpacl {
+  typedef Mpls-ldp-advertise-bgp-acl {
     type enumeration {
       enum peer-acl {
         value 1;
@@ -256,7 +266,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
           ACL";
       }
     }
-    description "Mpls ldp advertise bgpacl";
+    description "Mpls ldp advertise bgp acl";
   }
 
   grouping ENABLE {
@@ -314,7 +324,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             key "root-address policy-mode";
             description "Route Policy";
             leaf root-address {
-              type inet:ip-address-no-zone;
+              type inet:ipv4-address-no-zone;
               description "Neighbor Address";
             }
             leaf policy-mode {
@@ -724,7 +734,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                   "ACL containing list of neighbors for BGP
                   route redistribution";
                 leaf type {
-                  type Mpls-ldp-advertise-bgpacl;
+                  type Mpls-ldp-advertise-bgp-acl;
                   description "advertise to peer acl type";
                 }
                 leaf peer-acl-name {
@@ -1174,7 +1184,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             container discovery {
               description "Configure Discovery parameters";
               leaf transport-address {
-                type string;
+                type inet:ip-address-no-zone;
                 description
                   "Global discovery transport address for
                   address family";

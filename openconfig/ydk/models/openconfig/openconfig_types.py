@@ -5,7 +5,6 @@ are used across OpenConfig models. It can be imported by modules
 that make use of these types.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Address_Family(Identity):
+class ADDRESSFAMILY(Identity):
     """
     A base identity for all address families
     
@@ -22,28 +21,13 @@ class Address_Family(Identity):
     """
 
     _prefix = 'oc-types'
-    _revision = '2016-05-31'
+    _revision = '2017-01-13'
 
     def __init__(self):
-        super(Address_Family, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:ADDRESS_FAMILY")
+        super(ADDRESSFAMILY, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:ADDRESS_FAMILY")
 
 
-class Ipv6(Identity):
-    """
-    The IPv6 address family
-    
-    
-
-    """
-
-    _prefix = 'oc-types'
-    _revision = '2016-05-31'
-
-    def __init__(self):
-        super(Ipv6, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV6")
-
-
-class Ipv4(Identity):
+class IPV4(Identity):
     """
     The IPv4 address family
     
@@ -52,9 +36,54 @@ class Ipv4(Identity):
     """
 
     _prefix = 'oc-types'
-    _revision = '2016-05-31'
+    _revision = '2017-01-13'
 
     def __init__(self):
-        super(Ipv4, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV4")
+        super(IPV4, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV4")
+
+
+class IPV6(Identity):
+    """
+    The IPv6 address family
+    
+    
+
+    """
+
+    _prefix = 'oc-types'
+    _revision = '2017-01-13'
+
+    def __init__(self):
+        super(IPV6, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV6")
+
+
+class L2ETHERNET(Identity):
+    """
+    The 802.3 Ethernet address family
+    
+    
+
+    """
+
+    _prefix = 'oc-types'
+    _revision = '2017-01-13'
+
+    def __init__(self):
+        super(L2ETHERNET, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:L2_ETHERNET")
+
+
+class MPLS(Identity):
+    """
+    The MPLS address family
+    
+    
+
+    """
+
+    _prefix = 'oc-types'
+    _revision = '2017-01-13'
+
+    def __init__(self):
+        super(MPLS, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:MPLS")
 
 

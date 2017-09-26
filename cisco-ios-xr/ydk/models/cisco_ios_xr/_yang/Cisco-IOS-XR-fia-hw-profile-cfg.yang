@@ -35,7 +35,7 @@ module Cisco-IOS-XR-fia-hw-profile-cfg {
      for the following management objects:
        hw-module-profile-config: none
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-06-22" {
@@ -133,6 +133,106 @@ module Cisco-IOS-XR-fia-hw-profile-cfg {
                 units "percentage";
                 description
                   "curve out percentage of TCAM table entries";
+              }
+            }
+          }
+        }
+      }
+
+      container stats {
+        description "Configure stats";
+        leaf counter-profile {
+          type int32;
+          description
+            "Configure stats for qos-enhanced and
+            acl-permit";
+        }
+      }
+
+      container qos {
+        description "Configure profile.";
+
+        container hqos-enable-all {
+          description "Configure Hqos profile";
+          leaf hqos-enable {
+            type int32;
+            description " Hqos profile value";
+          }
+        }
+
+        container ingress-model-root-def {
+          description "Configure Ingress Model Default";
+          leaf ingress-model-leaf-def {
+            type int32;
+            description "Ingress Model Default";
+          }
+        }
+
+        container ingress-models {
+          description "Configure Ingress Model Root";
+
+          list ingress-model {
+            key "node-name";
+            description "Configure Ingress Model";
+            leaf node-name {
+              type xr:Cisco-ios-xr-string;
+              description "NodeName";
+            }
+
+            list ingress-model-leaf {
+              key "location";
+              description "Configure Ingress Model Leaf";
+              leaf ingress-model-leaf {
+                type int32;
+                mandatory true;
+                description "IngressModelLeaf";
+              }
+              leaf location {
+                type int32;
+                description "Location";
+              }
+            }
+          }
+        }
+
+        container trunks {
+          description "Configure Max Trunk Size";
+          leaf trunk-size {
+            type int32;
+            description "Max Trunk Size";
+          }
+        }
+
+        container class-maps-root-def {
+          description "Configure Class Maps Default";
+          leaf class-map-size-def {
+            type int32;
+            description "Class Map Size Default";
+          }
+        }
+
+        container class-maps {
+          description "Configure Class Map Root";
+
+          list class-map {
+            key "node-name";
+            description "Configure Class Maps";
+            leaf node-name {
+              type xr:Cisco-ios-xr-string;
+              description "NodeName";
+            }
+
+            list class-map-size {
+              key "location";
+              description "Class Map Size";
+              leaf class-map-size {
+                type int32;
+                mandatory true;
+                description "ClassMapSize";
+              }
+              leaf location {
+                type int32;
+                description "Location";
               }
             }
           }

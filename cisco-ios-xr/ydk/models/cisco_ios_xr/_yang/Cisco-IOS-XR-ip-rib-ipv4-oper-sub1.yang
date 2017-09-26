@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-rib-ipv4 package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -42,6 +42,70 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
   typedef Ipv4-rib-edm-addr {
     type inet:ipv4-address;
     description "Ipv4 rib edm addr";
+  }
+
+  grouping IPV4-RIB-EDM-TABLE {
+    description "Information of a routing table";
+    leaf tableid {
+      type uint32;
+      description "Table id";
+    }
+    leaf afi {
+      type uint32;
+      description "Address Family";
+    }
+    leaf safi {
+      type uint32;
+      description "sub Address Family";
+    }
+    leaf vrf-name {
+      type string;
+      description "VRF Name of the table";
+    }
+    leaf table-name {
+      type string;
+      description "Name of the table";
+    }
+    leaf version {
+      type uint64;
+      description "Table version";
+    }
+    leaf conf-prefix-limit {
+      type uint32;
+      description "Configured prefix limit";
+    }
+    leaf current-prefix-count {
+      type uint32;
+      description "Num prefixes in table";
+    }
+    leaf num-svdlcl-prefix {
+      type uint32;
+      description "Num SVD local prefixes";
+    }
+    leaf num-svdrem-prefix {
+      type uint32;
+      description "Num SVD remote prefixes";
+    }
+    leaf table-version {
+      type uint64;
+      description "Version no. of the table";
+    }
+    leaf prefix-limit-notified {
+      type boolean;
+      description "Prefix limit state indicator";
+    }
+    leaf fwd-referenced {
+      type boolean;
+      description "Table in fwd reference state?";
+    }
+    leaf deleted {
+      type boolean;
+      description "Table deleted?";
+    }
+    leaf initial-converge {
+      type boolean;
+      description "Table has reached convergence";
+    }
   }
 
   grouping RIB-EDM-ROUTE-COUNT {
@@ -279,30 +343,37 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
     list ipv4-rib-edm-path {
       description "ipv4 rib edm path";
       leaf address {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type Ipv4-rib-edm-addr;
         description "Nexthop";
       }
       leaf information-source {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type Ipv4-rib-edm-addr;
         description "Infosource";
       }
       leaf v6-nexthop {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type inet:ipv6-address;
         description "V6 nexthop";
       }
       leaf v6-information-source {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type inet:ipv6-address;
         description "V6 Infosource";
       }
       leaf interface-name {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type xr:Interface-name;
         description "Interface Name";
       }
       leaf metric {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Metrics";
       }
       leaf load-metric {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Load Metrics";
       }
@@ -311,6 +382,7 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description "Flags extended to 64 bits";
       }
       leaf flags {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint16;
         description "Flags";
       }
@@ -323,38 +395,47 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description "Looping path";
       }
       leaf next-hop-table-id {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Nexthop tableid";
       }
       leaf next-hop-vrf-name {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type string;
         description "VRF Name of the nh table";
       }
       leaf next-hop-table-name {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type string;
         description "NH table name";
       }
       leaf next-hop-afi {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "NH afi";
       }
       leaf next-hop-safi {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "NH safi";
       }
       leaf route-label {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Label associated with this path";
       }
       leaf tunnel-id {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Tunnel ID associated with this path";
       }
       leaf pathid {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Path id of this path";
       }
       leaf backup-pathid {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Path id of this path's backup";
       }
@@ -363,10 +444,12 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description "Refcnt of backup";
       }
       leaf number-of-extended-communities {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "Number of extended communities";
       }
       leaf mvpn-present {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "MVPN attribute present";
       }
@@ -375,22 +458,27 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description "Path RT present";
       }
       leaf vrf-import-rt-present {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "VRFIMPORTRTPresent";
       }
       leaf source-asrt-present {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "SOURCEASRTPresent";
       }
       leaf source-rd-present {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "SOURCERDPresent";
       }
       leaf segmented-nexthop-present {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "SegmentedNexthopPresent";
       }
       leaf next-hop-id {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "NHID associated with this path";
       }
@@ -399,18 +487,22 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description "NHID references";
       }
       leaf ospf-area-id {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type string;
         description "OSPF area associated with the path";
       }
       leaf has-labelstk {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type boolean;
         description "Path has a label stack";
       }
       leaf num-labels {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint8;
         description "Number of labels in stack";
       }
       leaf binding-label {
+        xr:event-telemetry "Subscribe Telemetry Event";
         type uint32;
         description "binding Label for this path";
       }
@@ -422,15 +514,23 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         type uint64;
         description "Fib mpls encap id";
       }
-      leaf-list remote-backup-addr {
-        type Ipv4-rib-edm-addr;
+      list remote-backup-addr {
         max-elements "2";
+
         description "Remote backup node address";
+          leaf entry {
+                      xr:event-telemetry "Subscribe Telemetry Event";
+
+                      type Ipv4-rib-edm-addr;
+          }
       }
-      leaf-list labelstk {
-        type uint32;
-        max-elements "3";
-        description "Labels for this path";
+      list labelstk {
+        description "Outgoing label stack for this path";
+          leaf entry {
+                      xr:event-telemetry "Subscribe Telemetry Event";
+
+                      type uint32;
+          }
       }
     }
   }
@@ -457,10 +557,12 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
       description "Route version";
     }
     leaf protocol-id {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Protocol advertising the route";
     }
     leaf protocol-name {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type string;
       description " Name of Protocol";
     }
@@ -473,10 +575,12 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
       description "Client adding the route to RIB";
     }
     leaf route-type {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint16;
       description "Route type";
     }
     leaf priority {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint8;
       description "Route priority";
     }
@@ -485,18 +589,22 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
       description "SVD Type of route";
     }
     leaf flags {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Route flags";
     }
     leaf extended-flags {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint64;
       description "Extended Route flags";
     }
     leaf tag {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Opaque proto specific info";
     }
     leaf distance {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Distance of the route";
     }
@@ -505,10 +613,12 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
       description "Diversion distance of the route";
     }
     leaf metric {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Route metric";
     }
     leaf paths-count {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Number of paths";
     }
@@ -521,18 +631,22 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
       description "BGP Traffic Index";
     }
     leaf route-precedence {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint8;
       description "Route ip precedence";
     }
     leaf qos-group {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint8;
       description "Route qos group";
     }
     leaf flow-tag {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint8;
       description "Flow tag";
     }
     leaf fwd-class {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint8;
       description "Forward Class";
     }

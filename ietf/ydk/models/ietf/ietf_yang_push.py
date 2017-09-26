@@ -4,7 +4,6 @@ This module contains conceptual YANG specifications
 for YANG push.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,10 +40,10 @@ class ChangeType(Enum):
 
 
 
-class YangPush(Identity):
+class CustomStream(Identity):
     """
-    A conceptual datastream consisting of all datastore
-    updates, including operational and configuration data.
+    A conceptual datastream for datastore
+    updates with custom updates as defined by a user.
     
     
 
@@ -54,22 +53,7 @@ class YangPush(Identity):
     _revision = '2016-10-28'
 
     def __init__(self):
-        super(YangPush, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:yang-push")
-
-
-class Http2(Identity):
-    """
-    HTTP2 notifications as a transport
-    
-    
-
-    """
-
-    _prefix = 'yp'
-    _revision = '2016-10-28'
-
-    def __init__(self):
-        super(Http2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:http2")
+        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
 
 
 class ErrorDataNotAuthorized(Identity):
@@ -87,10 +71,9 @@ class ErrorDataNotAuthorized(Identity):
         super(ErrorDataNotAuthorized, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:error-data-not-authorized")
 
 
-class CustomStream(Identity):
+class Http2(Identity):
     """
-    A conceptual datastream for datastore
-    updates with custom updates as defined by a user.
+    HTTP2 notifications as a transport
     
     
 
@@ -100,6 +83,22 @@ class CustomStream(Identity):
     _revision = '2016-10-28'
 
     def __init__(self):
-        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
+        super(Http2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:http2")
+
+
+class YangPush(Identity):
+    """
+    A conceptual datastream consisting of all datastore
+    updates, including operational and configuration data.
+    
+    
+
+    """
+
+    _prefix = 'yp'
+    _revision = '2016-10-28'
+
+    def __init__(self):
+        super(YangPush, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:yang-push")
 
 

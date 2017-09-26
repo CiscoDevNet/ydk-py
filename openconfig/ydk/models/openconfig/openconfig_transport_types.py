@@ -4,7 +4,6 @@ This module contains general type definitions and identities
 for optical transport models.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -76,7 +75,7 @@ class LoopbackModeType(Enum):
 
 
 
-class Ethernet_Pmd_Type(Identity):
+class ETHERNETPMDTYPE(Identity):
     """
     Ethernet compliance codes (PMD) supported by transceivers
     
@@ -88,26 +87,10 @@ class Ethernet_Pmd_Type(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Ethernet_Pmd_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETHERNET_PMD_TYPE")
+        super(ETHERNETPMDTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETHERNET_PMD_TYPE")
 
 
-class Tributary_Protocol_Type(Identity):
-    """
-    Base identity for protocol framing used by tributary
-    signals.
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Tributary_Protocol_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIBUTARY_PROTOCOL_TYPE")
-
-
-class Fiber_Connector_Type(Identity):
+class FIBERCONNECTORTYPE(Identity):
     """
     Type of optical fiber connector
     
@@ -119,10 +102,10 @@ class Fiber_Connector_Type(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Fiber_Connector_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:FIBER_CONNECTOR_TYPE")
+        super(FIBERCONNECTORTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:FIBER_CONNECTOR_TYPE")
 
 
-class Logical_Element_Protocol_Type(Identity):
+class LOGICALELEMENTPROTOCOLTYPE(Identity):
     """
     Type of protocol framing used on the logical channel or
     tributary
@@ -135,72 +118,10 @@ class Logical_Element_Protocol_Type(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Logical_Element_Protocol_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:LOGICAL_ELEMENT_PROTOCOL_TYPE")
+        super(LOGICALELEMENTPROTOCOLTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:LOGICAL_ELEMENT_PROTOCOL_TYPE")
 
 
-class Sonet_Application_Code(Identity):
-    """
-    Supported SONET/SDH application codes
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Sonet_Application_Code, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SONET_APPLICATION_CODE")
-
-
-class Tributary_Rate_Class_Type(Identity):
-    """
-    Rate of tributary signal \_\- identities will typically reflect
-    rounded bit rate.
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Tributary_Rate_Class_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIBUTARY_RATE_CLASS_TYPE")
-
-
-class Transceiver_Form_Factor_Type(Identity):
-    """
-    Base identity for identifying the type of pluggable optic
-    transceiver (i.e,. form factor) used in a port.
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Transceiver_Form_Factor_Type, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRANSCEIVER_FORM_FACTOR_TYPE")
-
-
-class Otn_Application_Code(Identity):
-    """
-    Supported OTN application codes
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Otn_Application_Code, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTN_APPLICATION_CODE")
-
-
-class Optical_Channel(Identity):
+class OPTICALCHANNEL(Identity):
     """
     Optical channels act as carriers for transport traffic
     directed over a line system.  They are represented as
@@ -214,12 +135,12 @@ class Optical_Channel(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Optical_Channel, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OPTICAL_CHANNEL")
+        super(OPTICALCHANNEL, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OPTICAL_CHANNEL")
 
 
-class Eth_40Gbase_Lr4(Identity):
+class OTNAPPLICATIONCODE(Identity):
     """
-    Ethernet compliance code\: 40GBASE\_LR4
+    Supported OTN application codes
     
     
 
@@ -229,13 +150,12 @@ class Eth_40Gbase_Lr4(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Eth_40Gbase_Lr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_LR4")
+        super(OTNAPPLICATIONCODE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTN_APPLICATION_CODE")
 
 
-class Qsfp(Identity):
+class SONETAPPLICATIONCODE(Identity):
     """
-    Quad Small Form\-factor Pluggable transceiver that can support
-    up to 4x10G physical channels
+    Supported SONET/SDH application codes
     
     
 
@@ -245,12 +165,13 @@ class Qsfp(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Qsfp, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:QSFP")
+        super(SONETAPPLICATIONCODE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SONET_APPLICATION_CODE")
 
 
-class Other(Identity):
+class TRANSCEIVERFORMFACTORTYPE(Identity):
     """
-    Represents a transceiver form factor not otherwise listed
+    Base identity for identifying the type of pluggable optic
+    transceiver (i.e,. form factor) used in a port.
     
     
 
@@ -260,12 +181,13 @@ class Other(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Other, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTHER")
+        super(TRANSCEIVERFORMFACTORTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRANSCEIVER_FORM_FACTOR_TYPE")
 
 
-class Trib_Rate_100G(Identity):
+class TRIBUTARYPROTOCOLTYPE(Identity):
     """
-    100G tributary signal rate
+    Base identity for protocol framing used by tributary
+    signals.
     
     
 
@@ -275,12 +197,13 @@ class Trib_Rate_100G(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Trib_Rate_100G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_100G")
+        super(TRIBUTARYPROTOCOLTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIBUTARY_PROTOCOL_TYPE")
 
 
-class Prot_10Ge_Lan(Identity):
+class TRIBUTARYRATECLASSTYPE(Identity):
     """
-    10G Ethernet LAN protocol
+    Rate of tributary signal \_\- identities will typically reflect
+    rounded bit rate.
     
     
 
@@ -290,117 +213,10 @@ class Prot_10Ge_Lan(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_10Ge_Lan, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_10GE_LAN")
+        super(TRIBUTARYRATECLASSTYPE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIBUTARY_RATE_CLASS_TYPE")
 
 
-class Eth_4X10Gbase_Lr(Identity):
-    """
-    Ethernet compliance code\: 4x10GBASE\_LR
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_4X10Gbase_Lr, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_4X10GBASE_LR")
-
-
-class Cfp4(Identity):
-    """
-    1/4 C form\-factor pluggable, that can support up to a
-    100 Gb/s signal with 10x10G or 4x25G physical channels
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Cfp4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP4")
-
-
-class P1L1_2D2(Identity):
-    """
-    OTN application code\: P1L1\_2D2
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(P1L1_2D2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1L1_2D2")
-
-
-class Prot_Otucn(Identity):
-    """
-    OTU Cn protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Otucn, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTUCN")
-
-
-class Eth_100Gbase_Sr4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_SR4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Sr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_SR4")
-
-
-class Eth_100G_Acc(Identity):
-    """
-    Ethernet compliance code\: 100G\_ACC
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100G_Acc, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100G_ACC")
-
-
-class Prot_Otu4(Identity):
-    """
-    OTU4 signal protocol (112G) for transporting
-    100GE signal
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Otu4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU4")
-
-
-class Cfp(Identity):
+class CFP(Identity):
     """
     C form\-factor pluggable, that can support up to a
     100 Gb/s signal with 10x10G or 4x25G physical channels
@@ -413,509 +229,10 @@ class Cfp(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Cfp, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP")
+        super(CFP, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP")
 
 
-class Xfp(Identity):
-    """
-    10 Gigabit small form factor pluggable transceiver supporting
-    10 GbE and OTU2
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Xfp, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:XFP")
-
-
-class Prot_Otu2E(Identity):
-    """
-    OTU 2e protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Otu2E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU2E")
-
-
-class Eth_10Gbase_Zr(Identity):
-    """
-    Ethernet compliance code\: 10GBASE\_ZR
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_10Gbase_Zr, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_ZR")
-
-
-class Prot_40Ge(Identity):
-    """
-    40G Ethernet port protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_40Ge, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_40GE")
-
-
-class Eth_100Gbase_Cr4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_CR4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Cr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CR4")
-
-
-class Prot_Odu3(Identity):
-    """
-    ODU 3 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Odu3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU3")
-
-
-class Lc_Connector(Identity):
-    """
-    LC type fiber connector
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Lc_Connector, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:LC_CONNECTOR")
-
-
-class Prot_10Ge_Wan(Identity):
-    """
-    10G Ethernet WAN protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_10Ge_Wan, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_10GE_WAN")
-
-
-class Prot_100Ge(Identity):
-    """
-    100G Ethernet protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_100Ge, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_100GE")
-
-
-class Prot_Odu4(Identity):
-    """
-    ODU 4 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Odu4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU4")
-
-
-class Sonet_Undefined(Identity):
-    """
-    SONET/SDH application code\: undefined
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Sonet_Undefined, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SONET_UNDEFINED")
-
-
-class Prot_Otu2(Identity):
-    """
-    OTU 2 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Otu2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU2")
-
-
-class Eth_100Gbase_Psm4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_PSM4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Psm4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_PSM4")
-
-
-class Eth_100Gbase_Er4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_ER4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Er4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_ER4")
-
-
-class P1S1_2D2(Identity):
-    """
-    OTN application code\: P1S1\_2D2
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(P1S1_2D2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1S1_2D2")
-
-
-class Non_Pluggable(Identity):
-    """
-    Represents a port that does not require a pluggable optic,
-    e.g., with on\-board optics like COBO
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Non_Pluggable, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:NON_PLUGGABLE")
-
-
-class Sfp_Plus(Identity):
-    """
-    Enhanced small form\-factor pluggable transceiver supporting
-    up to 16 Gb/s signals, including 10 GbE and OTU2
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Sfp_Plus, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SFP_PLUS")
-
-
-class Eth_40Gbase_Cr4(Identity):
-    """
-    Ethernet compliance code\: 40GBASE\_CR4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_40Gbase_Cr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_CR4")
-
-
-class Trib_Rate_2__Dot__5G(Identity):
-    """
-    2.5G tributary signal rate
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Trib_Rate_2__Dot__5G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_2.5G")
-
-
-class Eth_4X10Gbase_Sr(Identity):
-    """
-    Ethernet compliance code\: 4x10GBASE\_SR
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_4X10Gbase_Sr, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_4X10GBASE_SR")
-
-
-class Prot_Stm64(Identity):
-    """
-    STM 64 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Stm64, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM64")
-
-
-class Cfp2_Aco(Identity):
-    """
-    CFP2 analog coherent optics transceiver, supporting
-    100 Gb, 200Gb, and 250 Gb/s signal.
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Cfp2_Aco, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP2_ACO")
-
-
-class Vsr2000_3R5(Identity):
-    """
-    SONET/SDH application code\: VSR2000\_3R5
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Vsr2000_3R5, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R5")
-
-
-class Prot_Ethernet(Identity):
-    """
-    Ethernet protocol framing
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Ethernet, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ETHERNET")
-
-
-class Prot_Otu3(Identity):
-    """
-    OTU 3 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Otu3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU3")
-
-
-class Prot_Oc768(Identity):
-    """
-    OC 768 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Oc768, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC768")
-
-
-class Eth_40Gbase_Sr4(Identity):
-    """
-    Ethernet compliance code\: 40GBASE\_SR4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_40Gbase_Sr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_SR4")
-
-
-class Eth_40Gbase_Psm4(Identity):
-    """
-    Ethernet compliance code\: 40GBASE\_PSM4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_40Gbase_Psm4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_PSM4")
-
-
-class Vsr2000_3R3(Identity):
-    """
-    SONET/SDH application code\: VSR2000\_3R3
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Vsr2000_3R3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R3")
-
-
-class Prot_Odu2E(Identity):
-    """
-    ODU 2e protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Odu2E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU2E")
-
-
-class Prot_Odu2(Identity):
-    """
-    ODU 2 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Odu2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU2")
-
-
-class Eth_100G_Aoc(Identity):
-    """
-    Ethernet compliance code\: 100G\_AOC
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100G_Aoc, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100G_AOC")
-
-
-class Prot_Stm256(Identity):
-    """
-    STM 256 protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Stm256, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM256")
-
-
-class Cfp2(Identity):
+class CFP2(Identity):
     """
     1/2 C form\-factor pluggable, that can support up to a
     200 Gb/s signal with 10x10G, 4x25G, or 8x25G physical
@@ -929,12 +246,13 @@ class Cfp2(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Cfp2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP2")
+        super(CFP2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP2")
 
 
-class Eth_Undefined(Identity):
+class CFP2ACO(Identity):
     """
-    Ethernet compliance code\: undefined
+    CFP2 analog coherent optics transceiver, supporting
+    100 Gb, 200Gb, and 250 Gb/s signal.
     
     
 
@@ -944,12 +262,13 @@ class Eth_Undefined(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Eth_Undefined, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_UNDEFINED")
+        super(CFP2ACO, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP2_ACO")
 
 
-class Trib_Rate_1G(Identity):
+class CFP4(Identity):
     """
-    1G tributary signal rate
+    1/4 C form\-factor pluggable, that can support up to a
+    100 Gb/s signal with 10x10G or 4x25G physical channels
     
     
 
@@ -959,12 +278,12 @@ class Trib_Rate_1G(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Trib_Rate_1G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_1G")
+        super(CFP4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:CFP4")
 
 
-class Prot_Oc48(Identity):
+class ETH100GACC(Identity):
     """
-    OC48 protocol
+    Ethernet compliance code\: 100G\_ACC
     
     
 
@@ -974,12 +293,12 @@ class Prot_Oc48(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_Oc48, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC48")
+        super(ETH100GACC, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100G_ACC")
 
 
-class Trib_Rate_40G(Identity):
+class ETH100GAOC(Identity):
     """
-    40G tributary signal rate
+    Ethernet compliance code\: 100G\_AOC
     
     
 
@@ -989,25 +308,10 @@ class Trib_Rate_40G(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Trib_Rate_40G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_40G")
+        super(ETH100GAOC, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100G_AOC")
 
 
-class Eth_10Gbase_Lr(Identity):
-    """
-    Ethernet compliance code\: 10GBASE\_LR
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_10Gbase_Lr, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_LR")
-
-
-class Eth_100Gbase_Clr4(Identity):
+class ETH100GBASECLR4(Identity):
     """
     Ethernet compliance code\: 100GBASE\_CLR4
     
@@ -1019,10 +323,145 @@ class Eth_100Gbase_Clr4(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Eth_100Gbase_Clr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CLR4")
+        super(ETH100GBASECLR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CLR4")
 
 
-class Eth_10Gbase_Lrm(Identity):
+class ETH100GBASECR4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_CR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASECR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CR4")
+
+
+class ETH100GBASECWDM4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_CWDM4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASECWDM4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CWDM4")
+
+
+class ETH100GBASEER4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_ER4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASEER4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_ER4")
+
+
+class ETH100GBASELR4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_LR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASELR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_LR4")
+
+
+class ETH100GBASEPSM4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_PSM4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASEPSM4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_PSM4")
+
+
+class ETH100GBASESR10(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_SR10
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASESR10, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_SR10")
+
+
+class ETH100GBASESR4(Identity):
+    """
+    Ethernet compliance code\: 100GBASE\_SR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH100GBASESR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_SR4")
+
+
+class ETH10GBASEER(Identity):
+    """
+    Ethernet compliance code\: 10GBASE\_ER
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH10GBASEER, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_ER")
+
+
+class ETH10GBASELR(Identity):
+    """
+    Ethernet compliance code\: 10GBASE\_LR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH10GBASELR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_LR")
+
+
+class ETH10GBASELRM(Identity):
     """
     Ethernet compliance code\: 10GBASE\_LRM
     
@@ -1034,10 +473,10 @@ class Eth_10Gbase_Lrm(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Eth_10Gbase_Lrm, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_LRM")
+        super(ETH10GBASELRM, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_LRM")
 
 
-class Eth_10Gbase_Sr(Identity):
+class ETH10GBASESR(Identity):
     """
     Ethernet compliance code\: 10GBASE\_SR
     
@@ -1049,12 +488,12 @@ class Eth_10Gbase_Sr(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Eth_10Gbase_Sr, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_SR")
+        super(ETH10GBASESR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_SR")
 
 
-class Trib_Rate_10G(Identity):
+class ETH10GBASEZR(Identity):
     """
-    10G tributary signal rate
+    Ethernet compliance code\: 10GBASE\_ZR
     
     
 
@@ -1064,13 +503,12 @@ class Trib_Rate_10G(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Trib_Rate_10G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_10G")
+        super(ETH10GBASEZR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_ZR")
 
 
-class Sfp(Identity):
+class ETH40GBASECR4(Identity):
     """
-    Small form\-factor pluggable transceiver supporting up to
-    10 Gb/s signal
+    Ethernet compliance code\: 40GBASE\_CR4
     
     
 
@@ -1080,12 +518,12 @@ class Sfp(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Sfp, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SFP")
+        super(ETH40GBASECR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_CR4")
 
 
-class Prot_Stm16(Identity):
+class ETH40GBASEER4(Identity):
     """
-    STM 16 protocol
+    Ethernet compliance code\: 40GBASE\_ER4
     
     
 
@@ -1095,12 +533,12 @@ class Prot_Stm16(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_Stm16, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM16")
+        super(ETH40GBASEER4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_ER4")
 
 
-class Prot_Otu1E(Identity):
+class ETH40GBASELR4(Identity):
     """
-    OTU 1e protocol
+    Ethernet compliance code\: 40GBASE\_LR4
     
     
 
@@ -1110,12 +548,12 @@ class Prot_Otu1E(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_Otu1E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU1E")
+        super(ETH40GBASELR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_LR4")
 
 
-class Prot_1Ge(Identity):
+class ETH40GBASEPSM4(Identity):
     """
-    1G Ethernet protocol
+    Ethernet compliance code\: 40GBASE\_PSM4
     
     
 
@@ -1125,10 +563,85 @@ class Prot_1Ge(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_1Ge, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_1GE")
+        super(ETH40GBASEPSM4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_PSM4")
 
 
-class Mpo_Connector(Identity):
+class ETH40GBASESR4(Identity):
+    """
+    Ethernet compliance code\: 40GBASE\_SR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH40GBASESR4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_SR4")
+
+
+class ETH4X10GBASELR(Identity):
+    """
+    Ethernet compliance code\: 4x10GBASE\_LR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH4X10GBASELR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_4X10GBASE_LR")
+
+
+class ETH4X10GBASESR(Identity):
+    """
+    Ethernet compliance code\: 4x10GBASE\_SR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETH4X10GBASESR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_4X10GBASE_SR")
+
+
+class ETHUNDEFINED(Identity):
+    """
+    Ethernet compliance code\: undefined
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(ETHUNDEFINED, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_UNDEFINED")
+
+
+class LCCONNECTOR(Identity):
+    """
+    LC type fiber connector
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(LCCONNECTOR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:LC_CONNECTOR")
+
+
+class MPOCONNECTOR(Identity):
     """
     MPO (multi\-fiber push\-on/pull\-off) type fiber connector
     1x12 fibers
@@ -1141,10 +654,478 @@ class Mpo_Connector(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Mpo_Connector, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:MPO_CONNECTOR")
+        super(MPOCONNECTOR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:MPO_CONNECTOR")
 
 
-class Qsfp28(Identity):
+class NONPLUGGABLE(Identity):
+    """
+    Represents a port that does not require a pluggable optic,
+    e.g., with on\-board optics like COBO
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(NONPLUGGABLE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:NON_PLUGGABLE")
+
+
+class OTHER(Identity):
+    """
+    Represents a transceiver form factor not otherwise listed
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(OTHER, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTHER")
+
+
+class OTNUNDEFINED(Identity):
+    """
+    OTN application code\: undefined
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(OTNUNDEFINED, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTN_UNDEFINED")
+
+
+class P1L12D1(Identity):
+    """
+    OTN application code\: P1L1\_2D1
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(P1L12D1, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1L1_2D1")
+
+
+class P1L12D2(Identity):
+    """
+    OTN application code\: P1L1\_2D2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(P1L12D2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1L1_2D2")
+
+
+class P1S12D2(Identity):
+    """
+    OTN application code\: P1S1\_2D2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(P1S12D2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1S1_2D2")
+
+
+class PROT100GE(Identity):
+    """
+    100G Ethernet protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT100GE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_100GE")
+
+
+class PROT100GMLG(Identity):
+    """
+    100G MLG protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT100GMLG, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_100G_MLG")
+
+
+class PROT10GELAN(Identity):
+    """
+    10G Ethernet LAN protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT10GELAN, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_10GE_LAN")
+
+
+class PROT10GEWAN(Identity):
+    """
+    10G Ethernet WAN protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT10GEWAN, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_10GE_WAN")
+
+
+class PROT1GE(Identity):
+    """
+    1G Ethernet protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT1GE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_1GE")
+
+
+class PROT40GE(Identity):
+    """
+    40G Ethernet port protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROT40GE, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_40GE")
+
+
+class PROTETHERNET(Identity):
+    """
+    Ethernet protocol framing
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTETHERNET, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ETHERNET")
+
+
+class PROTOC192(Identity):
+    """
+    OC 192 (9.6GB) port protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOC192, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC192")
+
+
+class PROTOC48(Identity):
+    """
+    OC48 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOC48, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC48")
+
+
+class PROTOC768(Identity):
+    """
+    OC 768 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOC768, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC768")
+
+
+class PROTODU2(Identity):
+    """
+    ODU 2 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTODU2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU2")
+
+
+class PROTODU2E(Identity):
+    """
+    ODU 2e protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTODU2E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU2E")
+
+
+class PROTODU3(Identity):
+    """
+    ODU 3 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTODU3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU3")
+
+
+class PROTODU4(Identity):
+    """
+    ODU 4 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTODU4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_ODU4")
+
+
+class PROTOTN(Identity):
+    """
+    OTN protocol framing
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTN, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTN")
+
+
+class PROTOTU1E(Identity):
+    """
+    OTU 1e protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTU1E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU1E")
+
+
+class PROTOTU2(Identity):
+    """
+    OTU 2 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTU2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU2")
+
+
+class PROTOTU2E(Identity):
+    """
+    OTU 2e protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTU2E, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU2E")
+
+
+class PROTOTU3(Identity):
+    """
+    OTU 3 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTU3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU3")
+
+
+class PROTOTU4(Identity):
+    """
+    OTU4 signal protocol (112G) for transporting
+    100GE signal
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTU4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTU4")
+
+
+class PROTOTUCN(Identity):
+    """
+    OTU Cn protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTOTUCN, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTUCN")
+
+
+class PROTSTM16(Identity):
+    """
+    STM 16 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTSTM16, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM16")
+
+
+class PROTSTM256(Identity):
+    """
+    STM 256 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTSTM256, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM256")
+
+
+class PROTSTM64(Identity):
+    """
+    STM 64 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(PROTSTM64, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_STM64")
+
+
+class QSFP(Identity):
+    """
+    Quad Small Form\-factor Pluggable transceiver that can support
+    up to 4x10G physical channels
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(QSFP, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:QSFP")
+
+
+class QSFP28(Identity):
     """
     QSFP pluggable optic with support for up to 4x28G physical
     channels
@@ -1157,12 +1138,12 @@ class Qsfp28(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Qsfp28, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:QSFP28")
+        super(QSFP28, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:QSFP28")
 
 
-class Otn_Undefined(Identity):
+class SCCONNECTOR(Identity):
     """
-    OTN application code\: undefined
+    SC type fiber connector
     
     
 
@@ -1172,7 +1153,174 @@ class Otn_Undefined(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Otn_Undefined, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:OTN_UNDEFINED")
+        super(SCCONNECTOR, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SC_CONNECTOR")
+
+
+class SFP(Identity):
+    """
+    Small form\-factor pluggable transceiver supporting up to
+    10 Gb/s signal
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(SFP, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SFP")
+
+
+class SFPPLUS(Identity):
+    """
+    Enhanced small form\-factor pluggable transceiver supporting
+    up to 16 Gb/s signals, including 10 GbE and OTU2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(SFPPLUS, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SFP_PLUS")
+
+
+class SONETUNDEFINED(Identity):
+    """
+    SONET/SDH application code\: undefined
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(SONETUNDEFINED, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SONET_UNDEFINED")
+
+
+class TRIBRATE100G(Identity):
+    """
+    100G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(TRIBRATE100G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_100G")
+
+
+class TRIBRATE10G(Identity):
+    """
+    10G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(TRIBRATE10G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_10G")
+
+
+class TRIBRATE1G(Identity):
+    """
+    1G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(TRIBRATE1G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_1G")
+
+
+class TRIBRATE2DOT5G(Identity):
+    """
+    2.5G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(TRIBRATE2DOT5G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_2.5G")
+
+
+class TRIBRATE40G(Identity):
+    """
+    40G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(TRIBRATE40G, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:TRIB_RATE_40G")
+
+
+class VSR20003R2(Identity):
+    """
+    SONET/SDH application code\: VSR2000\_3R2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(VSR20003R2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R2")
+
+
+class VSR20003R3(Identity):
+    """
+    SONET/SDH application code\: VSR2000\_3R3
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(VSR20003R3, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R3")
+
+
+class VSR20003R5(Identity):
+    """
+    SONET/SDH application code\: VSR2000\_3R5
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        super(VSR20003R5, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R5")
 
 
 class X2(Identity):
@@ -1191,9 +1339,10 @@ class X2(Identity):
         super(X2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:X2")
 
 
-class Prot_Otn(Identity):
+class XFP(Identity):
     """
-    OTN protocol framing
+    10 Gigabit small form factor pluggable transceiver supporting
+    10 GbE and OTU2
     
     
 
@@ -1203,156 +1352,6 @@ class Prot_Otn(Identity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(Prot_Otn, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OTN")
-
-
-class Sc_Connector(Identity):
-    """
-    SC type fiber connector
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Sc_Connector, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:SC_CONNECTOR")
-
-
-class Vsr2000_3R2(Identity):
-    """
-    SONET/SDH application code\: VSR2000\_3R2
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Vsr2000_3R2, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:VSR2000_3R2")
-
-
-class Eth_100Gbase_Cwdm4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_CWDM4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Cwdm4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_CWDM4")
-
-
-class Prot_100G_Mlg(Identity):
-    """
-    100G MLG protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_100G_Mlg, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_100G_MLG")
-
-
-class Eth_100Gbase_Lr4(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_LR4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Lr4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_LR4")
-
-
-class Prot_Oc192(Identity):
-    """
-    OC 192 (9.6GB) port protocol
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Prot_Oc192, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:PROT_OC192")
-
-
-class Eth_40Gbase_Er4(Identity):
-    """
-    Ethernet compliance code\: 40GBASE\_ER4
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_40Gbase_Er4, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_40GBASE_ER4")
-
-
-class Eth_100Gbase_Sr10(Identity):
-    """
-    Ethernet compliance code\: 100GBASE\_SR10
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_100Gbase_Sr10, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_100GBASE_SR10")
-
-
-class P1L1_2D1(Identity):
-    """
-    OTN application code\: P1L1\_2D1
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(P1L1_2D1, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:P1L1_2D1")
-
-
-class Eth_10Gbase_Er(Identity):
-    """
-    Ethernet compliance code\: 10GBASE\_ER
-    
-    
-
-    """
-
-    _prefix = 'oc-opt-types'
-    _revision = '2016-06-17'
-
-    def __init__(self):
-        super(Eth_10Gbase_Er, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:ETH_10GBASE_ER")
+        super(XFP, self).__init__("http://openconfig.net/yang/transport-types", "openconfig-transport-types", "openconfig-transport-types:XFP")
 
 

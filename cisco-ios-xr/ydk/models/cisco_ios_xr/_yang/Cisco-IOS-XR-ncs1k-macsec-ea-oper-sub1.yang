@@ -27,7 +27,7 @@ submodule Cisco-IOS-XR-ncs1k-macsec-ea-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ncs1k-macsec-ea package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -90,9 +90,7 @@ submodule Cisco-IOS-XR-ncs1k-macsec-ea-oper-sub1 {
       description "Protection Enabled";
     }
     leaf secure-channel-id {
-      type string {
-        length "0..20";
-      }
+      type uint64;
       description "Secure Channel Id";
     }
     leaf confidentiality-offset {

@@ -37,7 +37,7 @@ module Cisco-IOS-XR-infra-syslog-cfg {
        syslog-service: Syslog Timestamp Services
        syslog: syslog
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-06-22" {
@@ -713,10 +713,14 @@ module Cisco-IOS-XR-infra-syslog-cfg {
             description "List of the IPv6 logging host";
 
             list ipv6 {
+              must "ipv6-severity-port" {
+                description "ipv6-severity-port must be present.";
+              }
               key "address";
               description "IPv6 address of the logging host";
 
               container ipv6-severity-port {
+                presence "Indicates ipv6-severity-port container is configured.";
                 description "Severity/Port for the logging host";
                 leaf severity {
                   type int32;
@@ -790,6 +794,9 @@ module Cisco-IOS-XR-infra-syslog-cfg {
             description "List of the logging host";
 
             list host {
+              must "host-severity-port" {
+                description "host-severity-port must be present.";
+              }
               key "host-name";
               description "Name of the logging host";
 
@@ -847,6 +854,7 @@ module Cisco-IOS-XR-infra-syslog-cfg {
               }
 
               container host-severity-port {
+                presence "Indicates host-severity-port container is configured.";
                 description "Severity/Port for the logging host";
                 leaf severity {
                   type int32;
@@ -870,6 +878,9 @@ module Cisco-IOS-XR-infra-syslog-cfg {
             description "List of the IPv4 logging host";
 
             list ipv4 {
+              must "ipv4-severity-port" {
+                description "ipv4-severity-port must be present.";
+              }
               key "address";
               description "IPv4 address of the logging host";
 
@@ -890,6 +901,7 @@ module Cisco-IOS-XR-infra-syslog-cfg {
               }
 
               container ipv4-severity-port {
+                presence "Indicates ipv4-severity-port container is configured.";
                 description "Severity/Port for the logging host";
                 leaf severity {
                   type int32;

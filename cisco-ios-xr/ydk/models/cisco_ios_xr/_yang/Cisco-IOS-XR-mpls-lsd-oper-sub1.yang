@@ -31,8 +31,13 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-lsd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -301,6 +306,9 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       enum mgmt-lsd-lbl-ctx-type-any {
         description "Any";
       }
+      enum mgmt-lsd-lbl-ctx-type-lbl-blk-srlb {
+        description "LBL BLK SRLB";
+      }
     }
     description "Mgmt lsd lbl ctx";
   }
@@ -432,6 +440,19 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     }
   }
 
+  grouping MPLS-LSD-SRLB-INCONSISTENCY {
+    description "SRLB Inconsistency";
+    leaf start-srlb-range {
+      type uint32;
+      description
+        "Start label of Segment Routing Local Block range";
+    }
+    leaf end-srlb-range {
+      type uint32;
+      description "End label of Segment Routing Local Block range";
+    }
+  }
+
   grouping MPLS-LSD-APP-CONNECTED-STATS {
     description "LSD application connection statistics";
     leaf rt-set-msg-count {
@@ -473,12 +494,12 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     }
     leaf-list label-context-count {
       type uint32;
-      max-elements "29";
+      max-elements "30";
       description "Label context count";
     }
     leaf-list label-context-pending-count {
       type uint32;
-      max-elements "29";
+      max-elements "30";
       description "Label context pending count";
     }
   }
@@ -1711,6 +1732,22 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     }
   }
 
+  grouping MPLS-LSD-LBL-CTX-LBL-BLK-SRLB {
+    description "Label block SRLB context";
+    leaf start-label {
+      type uint32;
+      description "Start Label";
+    }
+    leaf offset {
+      type uint32;
+      description "Offset";
+    }
+    leaf size {
+      type uint32;
+      description "Number of labels";
+    }
+  }
+
   grouping MPLS-LSD-LBL-CTX-TE-BINDING {
     description "Traffic Engineering Binding context";
     leaf te-identifier {
@@ -2516,6 +2553,17 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       }
       description "MPLS TE tunnel binding context";
       uses MPLS-LSD-LBL-CTX-TE-BINDING;
+    }
+
+    container label-block-srlb-data {
+      when "../label-context-type ="+
+        " 'mgmt-lsd-lbl-ctx-type-lbl-blk-srlb'" {
+          description
+            "../LabelContextType =
+            'MGMT_LSD_LBL_CTX_TYPE_LBL_BLK_SRLB'";
+      }
+      description "Label block SRLB context";
+      uses MPLS-LSD-LBL-CTX-LBL-BLK-SRLB;
     }
     leaf label-context-type {
       type Mgmt-lsd-lbl-ctx;

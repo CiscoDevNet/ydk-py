@@ -13,11 +13,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-rgmgr\-cfg,
 modules with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,11 +46,16 @@ class NvSatelliteGlobal(Entity):
 
         self.yang_name = "nv-satellite-global"
         self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"chassis-mac" : ("chassis_mac", NvSatelliteGlobal.ChassisMac)}
+        self._child_list_classes = {}
 
         self.chassis_mac = NvSatelliteGlobal.ChassisMac()
         self.chassis_mac.parent = self
         self._children_name_map["chassis_mac"] = "chassis-mac"
         self._children_yang_names.add("chassis-mac")
+        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global"
 
 
     class ChassisMac(Entity):
@@ -97,148 +101,21 @@ class NvSatelliteGlobal(Entity):
 
             self.yang_name = "chassis-mac"
             self.yang_parent_name = "nv-satellite-global"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.mac1 = YLeaf(YType.uint32, "mac1")
 
             self.mac2 = YLeaf(YType.uint32, "mac2")
 
             self.mac3 = YLeaf(YType.uint32, "mac3")
+            self._segment_path = lambda: "chassis-mac"
+            self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("mac1",
-                            "mac2",
-                            "mac3") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(NvSatelliteGlobal.ChassisMac, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(NvSatelliteGlobal.ChassisMac, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.mac1.is_set or
-                self.mac2.is_set or
-                self.mac3.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.mac1.yfilter != YFilter.not_set or
-                self.mac2.yfilter != YFilter.not_set or
-                self.mac3.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "chassis-mac" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.mac1.is_set or self.mac1.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.mac1.get_name_leafdata())
-            if (self.mac2.is_set or self.mac2.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.mac2.get_name_leafdata())
-            if (self.mac3.is_set or self.mac3.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.mac3.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "mac1" or name == "mac2" or name == "mac3"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "mac1"):
-                self.mac1 = value
-                self.mac1.value_namespace = name_space
-                self.mac1.value_namespace_prefix = name_space_prefix
-            if(value_path == "mac2"):
-                self.mac2 = value
-                self.mac2.value_namespace = name_space
-                self.mac2.value_namespace_prefix = name_space_prefix
-            if(value_path == "mac3"):
-                self.mac3 = value
-                self.mac3.value_namespace = name_space
-                self.mac3.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.chassis_mac is not None and self.chassis_mac.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.chassis_mac is not None and self.chassis_mac.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "chassis-mac"):
-            if (self.chassis_mac is None):
-                self.chassis_mac = NvSatelliteGlobal.ChassisMac()
-                self.chassis_mac.parent = self
-                self._children_name_map["chassis_mac"] = "chassis-mac"
-            return self.chassis_mac
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "chassis-mac"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(NvSatelliteGlobal.ChassisMac, ['mac1', 'mac2', 'mac3'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvSatelliteGlobal()
@@ -266,32 +143,16 @@ class NvSatellites(Entity):
 
         self.yang_name = "nv-satellites"
         self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"nv-satellite" : ("nv_satellite", NvSatellites.NvSatellite)}
 
         self.nv_satellite = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(NvSatellites, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(NvSatellites, self).__setattr__(name, value)
+        self._perform_setattr(NvSatellites, [], name, value)
 
 
     class NvSatellite(Entity):
@@ -414,6 +275,10 @@ class NvSatellites(Entity):
 
             self.yang_name = "nv-satellite"
             self.yang_parent_name = "nv-satellites"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"candidate-fabric-ports" : ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts), "connection-info" : ("connection_info", NvSatellites.NvSatellite.ConnectionInfo), "redundancy" : ("redundancy", NvSatellites.NvSatellite.Redundancy), "upgrade-on-connect" : ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)}
+            self._child_list_classes = {}
 
             self.satellite_id = YLeaf(YType.uint32, "satellite-id")
 
@@ -458,155 +323,11 @@ class NvSatellites(Entity):
             self.upgrade_on_connect.parent = self
             self._children_name_map["upgrade_on_connect"] = "upgrade-on-connect"
             self._children_yang_names.add("upgrade-on-connect")
+            self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + self.satellite_id.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("satellite_id",
-                            "delayed_switchback",
-                            "description",
-                            "device_name",
-                            "disc_timeout",
-                            "enable",
-                            "ip_address",
-                            "secret",
-                            "serial_number",
-                            "timeout_warning",
-                            "type",
-                            "vrf") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(NvSatellites.NvSatellite, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(NvSatellites.NvSatellite, self).__setattr__(name, value)
-
-
-        class UpgradeOnConnect(Entity):
-            """
-            Satellite auto\-upgrade capability
-            
-            .. attribute:: connect_type
-            
-            	When to upgrade the satellite
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: reference
-            
-            	Reference name
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__init__()
-
-                self.yang_name = "upgrade-on-connect"
-                self.yang_parent_name = "nv-satellite"
-
-                self.connect_type = YLeaf(YType.uint32, "connect-type")
-
-                self.reference = YLeaf(YType.str, "reference")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("connect_type",
-                                "reference") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.connect_type.is_set or
-                    self.reference.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.connect_type.yfilter != YFilter.not_set or
-                    self.reference.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "upgrade-on-connect" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.connect_type.is_set or self.connect_type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.connect_type.get_name_leafdata())
-                if (self.reference.is_set or self.reference.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.reference.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "connect-type" or name == "reference"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "connect-type"):
-                    self.connect_type = value
-                    self.connect_type.value_namespace = name_space
-                    self.connect_type.value_namespace_prefix = name_space_prefix
-                if(value_path == "reference"):
-                    self.reference = value
-                    self.reference.value_namespace = name_space
-                    self.reference.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'delayed_switchback', 'description', 'device_name', 'disc_timeout', 'enable', 'ip_address', 'secret', 'serial_number', 'timeout_warning', 'type', 'vrf'], name, value)
 
 
         class CandidateFabricPorts(Entity):
@@ -631,32 +352,16 @@ class NvSatellites(Entity):
 
                 self.yang_name = "candidate-fabric-ports"
                 self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {"candidate-fabric-port" : ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort)}
 
                 self.candidate_fabric_port = YList(self)
+                self._segment_path = lambda: "candidate-fabric-ports"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__setattr__(name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts, [], name, value)
 
 
             class CandidateFabricPort(Entity):
@@ -704,6 +409,10 @@ class NvSatellites(Entity):
 
                     self.yang_name = "candidate-fabric-port"
                     self.yang_parent_name = "candidate-fabric-ports"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.port_type = YLeaf(YType.str, "port-type")
 
@@ -712,161 +421,10 @@ class NvSatellites(Entity):
                     self.sub_slot = YLeaf(YType.uint32, "sub-slot")
 
                     self.port_range = YLeaf(YType.str, "port-range")
+                    self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + self.port_type.get() + "']" + "[slot='" + self.slot.get() + "']" + "[sub-slot='" + self.sub_slot.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("port_type",
-                                    "slot",
-                                    "sub_slot",
-                                    "port_range") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.port_type.is_set or
-                        self.slot.is_set or
-                        self.sub_slot.is_set or
-                        self.port_range.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.port_type.yfilter != YFilter.not_set or
-                        self.slot.yfilter != YFilter.not_set or
-                        self.sub_slot.yfilter != YFilter.not_set or
-                        self.port_range.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "candidate-fabric-port" + "[port-type='" + self.port_type.get() + "']" + "[slot='" + self.slot.get() + "']" + "[sub-slot='" + self.sub_slot.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.port_type.is_set or self.port_type.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.port_type.get_name_leafdata())
-                    if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slot.get_name_leafdata())
-                    if (self.sub_slot.is_set or self.sub_slot.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sub_slot.get_name_leafdata())
-                    if (self.port_range.is_set or self.port_range.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.port_range.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "port-type" or name == "slot" or name == "sub-slot" or name == "port-range"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "port-type"):
-                        self.port_type = value
-                        self.port_type.value_namespace = name_space
-                        self.port_type.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slot"):
-                        self.slot = value
-                        self.slot.value_namespace = name_space
-                        self.slot.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sub-slot"):
-                        self.sub_slot = value
-                        self.sub_slot.value_namespace = name_space
-                        self.sub_slot.value_namespace_prefix = name_space_prefix
-                    if(value_path == "port-range"):
-                        self.port_range = value
-                        self.port_range.value_namespace = name_space
-                        self.port_range.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.candidate_fabric_port:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.candidate_fabric_port:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "candidate-fabric-ports" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "candidate-fabric-port"):
-                    for c in self.candidate_fabric_port:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.candidate_fabric_port.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate-fabric-port"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
+                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
 
 
         class ConnectionInfo(Entity):
@@ -897,90 +455,18 @@ class NvSatellites(Entity):
 
                 self.yang_name = "connection-info"
                 self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.password = YLeaf(YType.str, "password")
 
                 self.username = YLeaf(YType.str, "username")
+                self._segment_path = lambda: "connection-info"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("password",
-                                "username") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NvSatellites.NvSatellite.ConnectionInfo, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NvSatellites.NvSatellite.ConnectionInfo, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.password.is_set or
-                    self.username.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.password.yfilter != YFilter.not_set or
-                    self.username.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "connection-info" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.password.is_set or self.password.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.password.get_name_leafdata())
-                if (self.username.is_set or self.username.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.username.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "password" or name == "username"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "password"):
-                    self.password = value
-                    self.password.value_namespace = name_space
-                    self.password.value_namespace_prefix = name_space_prefix
-                if(value_path == "username"):
-                    self.username = value
-                    self.username.value_namespace = name_space
-                    self.username.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['password', 'username'], name, value)
 
 
         class Redundancy(Entity):
@@ -1006,305 +492,79 @@ class NvSatellites(Entity):
 
                 self.yang_name = "redundancy"
                 self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.host_priority = YLeaf(YType.uint32, "host-priority")
+                self._segment_path = lambda: "redundancy"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("host_priority") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NvSatellites.NvSatellite.Redundancy, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NvSatellites.NvSatellite.Redundancy, self).__setattr__(name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
 
-            def has_data(self):
-                return self.host_priority.is_set
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.host_priority.yfilter != YFilter.not_set)
+        class UpgradeOnConnect(Entity):
+            """
+            Satellite auto\-upgrade capability
+            
+            .. attribute:: connect_type
+            
+            	When to upgrade the satellite
+            	**type**\:   :py:class:`ConnectType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect.ConnectType>`
+            
+            .. attribute:: reference
+            
+            	Reference name
+            	**type**\:  str
+            
+            
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "redundancy" + path_buffer
+            """
 
-                return path_buffer
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2015-11-09'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __init__(self):
+                super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.host_priority.is_set or self.host_priority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.host_priority.get_name_leafdata())
+                self.yang_name = "upgrade-on-connect"
+                self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+                self.connect_type = YLeaf(YType.enumeration, "connect-type")
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+                self.reference = YLeaf(YType.str, "reference")
+                self._segment_path = lambda: "upgrade-on-connect"
 
-                return None
+            def __setattr__(self, name, value):
+                self._perform_setattr(NvSatellites.NvSatellite.UpgradeOnConnect, ['connect_type', 'reference'], name, value)
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "host-priority"):
-                    return True
-                return False
+            class ConnectType(Enum):
+                """
+                ConnectType
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "host-priority"):
-                    self.host_priority = value
-                    self.host_priority.value_namespace = name_space
-                    self.host_priority.value_namespace_prefix = name_space_prefix
+                When to upgrade the satellite
 
-        def has_data(self):
-            return (
-                self.satellite_id.is_set or
-                self.delayed_switchback.is_set or
-                self.description.is_set or
-                self.device_name.is_set or
-                self.disc_timeout.is_set or
-                self.enable.is_set or
-                self.ip_address.is_set or
-                self.secret.is_set or
-                self.serial_number.is_set or
-                self.timeout_warning.is_set or
-                self.type.is_set or
-                self.vrf.is_set or
-                (self.candidate_fabric_ports is not None and self.candidate_fabric_ports.has_data()) or
-                (self.connection_info is not None and self.connection_info.has_data()) or
-                (self.redundancy is not None and self.redundancy.has_data()) or
-                (self.upgrade_on_connect is not None and self.upgrade_on_connect.has_data()))
+                .. data:: on_connection = 1
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.satellite_id.yfilter != YFilter.not_set or
-                self.delayed_switchback.yfilter != YFilter.not_set or
-                self.description.yfilter != YFilter.not_set or
-                self.device_name.yfilter != YFilter.not_set or
-                self.disc_timeout.yfilter != YFilter.not_set or
-                self.enable.yfilter != YFilter.not_set or
-                self.ip_address.yfilter != YFilter.not_set or
-                self.secret.yfilter != YFilter.not_set or
-                self.serial_number.yfilter != YFilter.not_set or
-                self.timeout_warning.yfilter != YFilter.not_set or
-                self.type.yfilter != YFilter.not_set or
-                self.vrf.yfilter != YFilter.not_set or
-                (self.candidate_fabric_ports is not None and self.candidate_fabric_ports.has_operation()) or
-                (self.connection_info is not None and self.connection_info.has_operation()) or
-                (self.redundancy is not None and self.redundancy.has_operation()) or
-                (self.upgrade_on_connect is not None and self.upgrade_on_connect.has_operation()))
+                	Satellite Upgrade on Connection
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nv-satellite" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
+                .. data:: on_first_connection = 2
 
-            return path_buffer
+                	Satellite Upgrade on First Connection after
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                	configuration or host boot
 
-            leaf_name_data = LeafDataList()
-            if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.satellite_id.get_name_leafdata())
-            if (self.delayed_switchback.is_set or self.delayed_switchback.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.delayed_switchback.get_name_leafdata())
-            if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.description.get_name_leafdata())
-            if (self.device_name.is_set or self.device_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.device_name.get_name_leafdata())
-            if (self.disc_timeout.is_set or self.disc_timeout.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.disc_timeout.get_name_leafdata())
-            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.enable.get_name_leafdata())
-            if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ip_address.get_name_leafdata())
-            if (self.secret.is_set or self.secret.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.secret.get_name_leafdata())
-            if (self.serial_number.is_set or self.serial_number.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.serial_number.get_name_leafdata())
-            if (self.timeout_warning.is_set or self.timeout_warning.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.timeout_warning.get_name_leafdata())
-            if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.type.get_name_leafdata())
-            if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vrf.get_name_leafdata())
+                """
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+                on_connection = Enum.YLeaf(1, "on-connection")
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+                on_first_connection = Enum.YLeaf(2, "on-first-connection")
 
-            if (child_yang_name == "candidate-fabric-ports"):
-                if (self.candidate_fabric_ports is None):
-                    self.candidate_fabric_ports = NvSatellites.NvSatellite.CandidateFabricPorts()
-                    self.candidate_fabric_ports.parent = self
-                    self._children_name_map["candidate_fabric_ports"] = "candidate-fabric-ports"
-                return self.candidate_fabric_ports
-
-            if (child_yang_name == "connection-info"):
-                if (self.connection_info is None):
-                    self.connection_info = NvSatellites.NvSatellite.ConnectionInfo()
-                    self.connection_info.parent = self
-                    self._children_name_map["connection_info"] = "connection-info"
-                return self.connection_info
-
-            if (child_yang_name == "redundancy"):
-                if (self.redundancy is None):
-                    self.redundancy = NvSatellites.NvSatellite.Redundancy()
-                    self.redundancy.parent = self
-                    self._children_name_map["redundancy"] = "redundancy"
-                return self.redundancy
-
-            if (child_yang_name == "upgrade-on-connect"):
-                if (self.upgrade_on_connect is None):
-                    self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
-                    self.upgrade_on_connect.parent = self
-                    self._children_name_map["upgrade_on_connect"] = "upgrade-on-connect"
-                return self.upgrade_on_connect
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "candidate-fabric-ports" or name == "connection-info" or name == "redundancy" or name == "upgrade-on-connect" or name == "satellite-id" or name == "delayed-switchback" or name == "description" or name == "device-name" or name == "disc-timeout" or name == "enable" or name == "ip-address" or name == "secret" or name == "serial-number" or name == "timeout-warning" or name == "type" or name == "vrf"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "satellite-id"):
-                self.satellite_id = value
-                self.satellite_id.value_namespace = name_space
-                self.satellite_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "delayed-switchback"):
-                self.delayed_switchback = value
-                self.delayed_switchback.value_namespace = name_space
-                self.delayed_switchback.value_namespace_prefix = name_space_prefix
-            if(value_path == "description"):
-                self.description = value
-                self.description.value_namespace = name_space
-                self.description.value_namespace_prefix = name_space_prefix
-            if(value_path == "device-name"):
-                self.device_name = value
-                self.device_name.value_namespace = name_space
-                self.device_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "disc-timeout"):
-                self.disc_timeout = value
-                self.disc_timeout.value_namespace = name_space
-                self.disc_timeout.value_namespace_prefix = name_space_prefix
-            if(value_path == "enable"):
-                self.enable = value
-                self.enable.value_namespace = name_space
-                self.enable.value_namespace_prefix = name_space_prefix
-            if(value_path == "ip-address"):
-                self.ip_address = value
-                self.ip_address.value_namespace = name_space
-                self.ip_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "secret"):
-                self.secret = value
-                self.secret.value_namespace = name_space
-                self.secret.value_namespace_prefix = name_space_prefix
-            if(value_path == "serial-number"):
-                self.serial_number = value
-                self.serial_number.value_namespace = name_space
-                self.serial_number.value_namespace_prefix = name_space_prefix
-            if(value_path == "timeout-warning"):
-                self.timeout_warning = value
-                self.timeout_warning.value_namespace = name_space
-                self.timeout_warning.value_namespace_prefix = name_space_prefix
-            if(value_path == "type"):
-                self.type = value
-                self.type.value_namespace = name_space
-                self.type.value_namespace_prefix = name_space_prefix
-            if(value_path == "vrf"):
-                self.vrf = value
-                self.vrf.value_namespace = name_space
-                self.vrf.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.nv_satellite:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.nv_satellite:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nv-satellite"):
-            for c in self.nv_satellite:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = NvSatellites.NvSatellite()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.nv_satellite.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nv-satellite"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
 
     def clone_ptr(self):
         self._top_entity = NvSatellites()

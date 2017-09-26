@@ -5,7 +5,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -285,9 +284,9 @@ class AclUdpPortType(Enum):
     xdmcp = Enum.YLeaf(177, "xdmcp")
 
 
-class Bgp_Ipv4_Af_Type(Enum):
+class BgpIpv4AfType(Enum):
     """
-    Bgp\_Ipv4\_Af\_Type
+    BgpIpv4AfType
 
     .. data:: unicast = 0
 
@@ -320,9 +319,9 @@ class Bgp_Ipv4_Af_Type(Enum):
     mvpn = Enum.YLeaf(6, "mvpn")
 
 
-class Bgp_Ipv6_Af_Type(Enum):
+class BgpIpv6AfType(Enum):
     """
-    Bgp\_Ipv6\_Af\_Type
+    BgpIpv6AfType
 
     .. data:: unicast = 0
 
@@ -405,9 +404,9 @@ class CommunityWellKnownType(Enum):
     no_export = Enum.YLeaf(4, "no-export")
 
 
-class Cos_ValueType(Enum):
+class CosValueType(Enum):
     """
-    Cos\_ValueType
+    CosValueType
 
     .. data:: cos = 0
 
@@ -527,9 +526,9 @@ class DscpType(Enum):
     precedence = Enum.YLeaf(58, "precedence")
 
 
-class Exp_ValueType(Enum):
+class ExpValueType(Enum):
     """
-    Exp\_ValueType
+    ExpValueType
 
     .. data:: cos = 0
 
@@ -694,9 +693,9 @@ class MonthType(Enum):
     Dec = Enum.YLeaf(11, "Dec")
 
 
-class Prec_ValueType(Enum):
+class PrecValueType(Enum):
     """
-    Prec\_ValueType
+    PrecValueType
 
     .. data:: cos = 0
 
@@ -756,9 +755,9 @@ class PrecedenceType(Enum):
     routine = Enum.YLeaf(7, "routine")
 
 
-class Qos_ValueType(Enum):
+class QosValueType(Enum):
     """
-    Qos\_ValueType
+    QosValueType
 
     .. data:: cos = 0
 

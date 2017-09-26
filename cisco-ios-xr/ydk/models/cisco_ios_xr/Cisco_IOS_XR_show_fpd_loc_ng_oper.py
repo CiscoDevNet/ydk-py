@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   show\-fpd\: Show hw\-module fpd
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -58,7 +57,7 @@ class ShowFpd(Entity):
     """
 
     _prefix = 'show-fpd-loc-ng-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(ShowFpd, self).__init__()
@@ -66,6 +65,10 @@ class ShowFpd(Entity):
 
         self.yang_name = "show-fpd"
         self.yang_parent_name = "Cisco-IOS-XR-show-fpd-loc-ng-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"help-locations" : ("help_locations", ShowFpd.HelpLocations), "hw-module-fpd" : ("hw_module_fpd", ShowFpd.HwModuleFpd), "hw-module-fpd-help-fpd" : ("hw_module_fpd_help_fpd", ShowFpd.HwModuleFpdHelpFpd), "location-help" : ("location_help", ShowFpd.LocationHelp), "locations" : ("locations", ShowFpd.Locations), "package" : ("package", ShowFpd.Package)}
+        self._child_list_classes = {}
 
         self.help_locations = ShowFpd.HelpLocations()
         self.help_locations.parent = self
@@ -96,58 +99,44 @@ class ShowFpd(Entity):
         self.package.parent = self
         self._children_name_map["package"] = "package"
         self._children_yang_names.add("package")
+        self._segment_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd"
 
 
-    class Locations(Entity):
+    class HelpLocations(Entity):
         """
-        location table
+        help location table
         
-        .. attribute:: location
+        .. attribute:: help_location
         
         	location
-        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location>`
+        	**type**\: list of    :py:class:`HelpLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation>`
         
         
 
         """
 
         _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.Locations, self).__init__()
+            super(ShowFpd.HelpLocations, self).__init__()
 
-            self.yang_name = "locations"
+            self.yang_name = "help-locations"
             self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"help-location" : ("help_location", ShowFpd.HelpLocations.HelpLocation)}
 
-            self.location = YList(self)
+            self.help_location = YList(self)
+            self._segment_path = lambda: "help-locations"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.Locations, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.Locations, self).__setattr__(name, value)
+            self._perform_setattr(ShowFpd.HelpLocations, [], name, value)
 
 
-        class Location(Entity):
+        class HelpLocation(Entity):
             """
             location
             
@@ -158,128 +147,81 @@ class ShowFpd(Entity):
             
             	**length:** 1..32
             
-            .. attribute:: fpd
+            .. attribute:: help_fpd
             
             	Display fpds on given locations
-            	**type**\: list of    :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd>`
+            	**type**\:   :py:class:`HelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd>`
             
             
 
             """
 
             _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.Locations.Location, self).__init__()
+                super(ShowFpd.HelpLocations.HelpLocation, self).__init__()
 
-                self.yang_name = "location"
-                self.yang_parent_name = "locations"
+                self.yang_name = "help-location"
+                self.yang_parent_name = "help-locations"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"help-fpd" : ("help_fpd", ShowFpd.HelpLocations.HelpLocation.HelpFpd)}
+                self._child_list_classes = {}
 
                 self.location_name = YLeaf(YType.str, "location-name")
 
-                self.fpd = YList(self)
+                self.help_fpd = ShowFpd.HelpLocations.HelpLocation.HelpFpd()
+                self.help_fpd.parent = self
+                self._children_name_map["help_fpd"] = "help-fpd"
+                self._children_yang_names.add("help-fpd")
+                self._segment_path = lambda: "help-location" + "[location-name='" + self.location_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/help-locations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("location_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.Locations.Location, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.Locations.Location, self).__setattr__(name, value)
+                self._perform_setattr(ShowFpd.HelpLocations.HelpLocation, ['location_name'], name, value)
 
 
-            class Fpd(Entity):
+            class HelpFpd(Entity):
                 """
                 Display fpds on given locations
                 
-                .. attribute:: fpd_name  <key>
+                .. attribute:: fpd_name
                 
-                	Fpd Name
-                	**type**\:  str
-                
-                	**length:** 1..32
-                
-                .. attribute:: fpd_info_detaile
-                
-                	 fpd list with all detailes
-                	**type**\: list of    :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd.FpdInfoDetaile>`
+                	Fpd name list
+                	**type**\: list of    :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName>`
                 
                 
 
                 """
 
                 _prefix = 'show-fpd-loc-ng-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ShowFpd.Locations.Location.Fpd, self).__init__()
+                    super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__init__()
 
-                    self.yang_name = "fpd"
-                    self.yang_parent_name = "location"
+                    self.yang_name = "help-fpd"
+                    self.yang_parent_name = "help-location"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"fpd-name" : ("fpd_name", ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName)}
 
-                    self.fpd_name = YLeaf(YType.str, "fpd-name")
-
-                    self.fpd_info_detaile = YList(self)
+                    self.fpd_name = YList(self)
+                    self._segment_path = lambda: "help-fpd"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("fpd_name") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(ShowFpd.Locations.Location.Fpd, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(ShowFpd.Locations.Location.Fpd, self).__setattr__(name, value)
+                    self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd, [], name, value)
 
 
-                class FpdInfoDetaile(Entity):
+                class FpdName(Entity):
                     """
-                     fpd list with all detailes
-                    
-                    .. attribute:: card_name
-                    
-                    	Name of card on which fpd is located
-                    	**type**\:  str
+                    Fpd name list
                     
                     .. attribute:: fpd_name
                     
                     	fpd name
-                    	**type**\:  str
-                    
-                    .. attribute:: hw_version
-                    
-                    	hadware version
                     	**type**\:  str
                     
                     .. attribute:: location
@@ -287,373 +229,30 @@ class ShowFpd(Entity):
                     	fpd location
                     	**type**\:  str
                     
-                    .. attribute:: programd_version
-                    
-                    	image programd version
-                    	**type**\:  str
-                    
-                    .. attribute:: running_version
-                    
-                    	image running version 
-                    	**type**\:  str
-                    
-                    .. attribute:: secure_boot_attr
-                    
-                    	secure boot attribur
-                    	**type**\:  str
-                    
-                    .. attribute:: status
-                    
-                    	status of the fpd
-                    	**type**\:  str
-                    
                     
 
                     """
 
                     _prefix = 'show-fpd-loc-ng-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ShowFpd.Locations.Location.Fpd.FpdInfoDetaile, self).__init__()
+                        super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__init__()
 
-                        self.yang_name = "fpd-info-detaile"
-                        self.yang_parent_name = "fpd"
-
-                        self.card_name = YLeaf(YType.str, "card-name")
+                        self.yang_name = "fpd-name"
+                        self.yang_parent_name = "help-fpd"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.fpd_name = YLeaf(YType.str, "fpd-name")
 
-                        self.hw_version = YLeaf(YType.str, "hw-version")
-
                         self.location = YLeaf(YType.str, "location")
-
-                        self.programd_version = YLeaf(YType.str, "programd-version")
-
-                        self.running_version = YLeaf(YType.str, "running-version")
-
-                        self.secure_boot_attr = YLeaf(YType.str, "secure-boot-attr")
-
-                        self.status = YLeaf(YType.str, "status")
+                        self._segment_path = lambda: "fpd-name"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("card_name",
-                                        "fpd_name",
-                                        "hw_version",
-                                        "location",
-                                        "programd_version",
-                                        "running_version",
-                                        "secure_boot_attr",
-                                        "status") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(ShowFpd.Locations.Location.Fpd.FpdInfoDetaile, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(ShowFpd.Locations.Location.Fpd.FpdInfoDetaile, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.card_name.is_set or
-                            self.fpd_name.is_set or
-                            self.hw_version.is_set or
-                            self.location.is_set or
-                            self.programd_version.is_set or
-                            self.running_version.is_set or
-                            self.secure_boot_attr.is_set or
-                            self.status.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.card_name.yfilter != YFilter.not_set or
-                            self.fpd_name.yfilter != YFilter.not_set or
-                            self.hw_version.yfilter != YFilter.not_set or
-                            self.location.yfilter != YFilter.not_set or
-                            self.programd_version.yfilter != YFilter.not_set or
-                            self.running_version.yfilter != YFilter.not_set or
-                            self.secure_boot_attr.yfilter != YFilter.not_set or
-                            self.status.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "fpd-info-detaile" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.card_name.is_set or self.card_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.card_name.get_name_leafdata())
-                        if (self.fpd_name.is_set or self.fpd_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.fpd_name.get_name_leafdata())
-                        if (self.hw_version.is_set or self.hw_version.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.hw_version.get_name_leafdata())
-                        if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.location.get_name_leafdata())
-                        if (self.programd_version.is_set or self.programd_version.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.programd_version.get_name_leafdata())
-                        if (self.running_version.is_set or self.running_version.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.running_version.get_name_leafdata())
-                        if (self.secure_boot_attr.is_set or self.secure_boot_attr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.secure_boot_attr.get_name_leafdata())
-                        if (self.status.is_set or self.status.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.status.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "card-name" or name == "fpd-name" or name == "hw-version" or name == "location" or name == "programd-version" or name == "running-version" or name == "secure-boot-attr" or name == "status"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "card-name"):
-                            self.card_name = value
-                            self.card_name.value_namespace = name_space
-                            self.card_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "fpd-name"):
-                            self.fpd_name = value
-                            self.fpd_name.value_namespace = name_space
-                            self.fpd_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "hw-version"):
-                            self.hw_version = value
-                            self.hw_version.value_namespace = name_space
-                            self.hw_version.value_namespace_prefix = name_space_prefix
-                        if(value_path == "location"):
-                            self.location = value
-                            self.location.value_namespace = name_space
-                            self.location.value_namespace_prefix = name_space_prefix
-                        if(value_path == "programd-version"):
-                            self.programd_version = value
-                            self.programd_version.value_namespace = name_space
-                            self.programd_version.value_namespace_prefix = name_space_prefix
-                        if(value_path == "running-version"):
-                            self.running_version = value
-                            self.running_version.value_namespace = name_space
-                            self.running_version.value_namespace_prefix = name_space_prefix
-                        if(value_path == "secure-boot-attr"):
-                            self.secure_boot_attr = value
-                            self.secure_boot_attr.value_namespace = name_space
-                            self.secure_boot_attr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "status"):
-                            self.status = value
-                            self.status.value_namespace = name_space
-                            self.status.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.fpd_info_detaile:
-                        if (c.has_data()):
-                            return True
-                    return self.fpd_name.is_set
-
-                def has_operation(self):
-                    for c in self.fpd_info_detaile:
-                        if (c.has_operation()):
-                            return True
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.fpd_name.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "fpd" + "[fpd-name='" + self.fpd_name.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.fpd_name.is_set or self.fpd_name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.fpd_name.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "fpd-info-detaile"):
-                        for c in self.fpd_info_detaile:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = ShowFpd.Locations.Location.Fpd.FpdInfoDetaile()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.fpd_info_detaile.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "fpd-info-detaile" or name == "fpd-name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "fpd-name"):
-                        self.fpd_name = value
-                        self.fpd_name.value_namespace = name_space
-                        self.fpd_name.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.fpd:
-                    if (c.has_data()):
-                        return True
-                return self.location_name.is_set
-
-            def has_operation(self):
-                for c in self.fpd:
-                    if (c.has_operation()):
-                        return True
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.location_name.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "location" + "[location-name='" + self.location_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.location_name.is_set or self.location_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.location_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "fpd"):
-                    for c in self.fpd:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = ShowFpd.Locations.Location.Fpd()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.fpd.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "fpd" or name == "location-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "location-name"):
-                    self.location_name = value
-                    self.location_name.value_namespace = name_space
-                    self.location_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.location:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.location:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "locations" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "location"):
-                for c in self.location:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.Locations.Location()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.location.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "location"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                        self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, ['fpd_name', 'location'], name, value)
 
 
     class HwModuleFpd(Entity):
@@ -671,39 +270,24 @@ class ShowFpd(Entity):
         """
 
         _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(ShowFpd.HwModuleFpd, self).__init__()
 
             self.yang_name = "hw-module-fpd"
             self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"fpd-info-detaile" : ("fpd_info_detaile", ShowFpd.HwModuleFpd.FpdInfoDetaile)}
 
             self.fpd_info_detaile = YList(self)
+            self._segment_path = lambda: "hw-module-fpd"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.HwModuleFpd, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.HwModuleFpd, self).__setattr__(name, value)
+            self._perform_setattr(ShowFpd.HwModuleFpd, [], name, value)
 
 
         class FpdInfoDetaile(Entity):
@@ -755,13 +339,17 @@ class ShowFpd(Entity):
             """
 
             _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(ShowFpd.HwModuleFpd.FpdInfoDetaile, self).__init__()
 
                 self.yang_name = "fpd-info-detaile"
                 self.yang_parent_name = "hw-module-fpd"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.card_name = YLeaf(YType.str, "card-name")
 
@@ -778,638 +366,11 @@ class ShowFpd(Entity):
                 self.secure_boot_attr = YLeaf(YType.str, "secure-boot-attr")
 
                 self.status = YLeaf(YType.str, "status")
+                self._segment_path = lambda: "fpd-info-detaile"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("card_name",
-                                "fpd_name",
-                                "hw_version",
-                                "location",
-                                "programd_version",
-                                "running_version",
-                                "secure_boot_attr",
-                                "status") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.HwModuleFpd.FpdInfoDetaile, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.HwModuleFpd.FpdInfoDetaile, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.card_name.is_set or
-                    self.fpd_name.is_set or
-                    self.hw_version.is_set or
-                    self.location.is_set or
-                    self.programd_version.is_set or
-                    self.running_version.is_set or
-                    self.secure_boot_attr.is_set or
-                    self.status.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.card_name.yfilter != YFilter.not_set or
-                    self.fpd_name.yfilter != YFilter.not_set or
-                    self.hw_version.yfilter != YFilter.not_set or
-                    self.location.yfilter != YFilter.not_set or
-                    self.programd_version.yfilter != YFilter.not_set or
-                    self.running_version.yfilter != YFilter.not_set or
-                    self.secure_boot_attr.yfilter != YFilter.not_set or
-                    self.status.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "fpd-info-detaile" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.card_name.is_set or self.card_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.card_name.get_name_leafdata())
-                if (self.fpd_name.is_set or self.fpd_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.fpd_name.get_name_leafdata())
-                if (self.hw_version.is_set or self.hw_version.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.hw_version.get_name_leafdata())
-                if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.location.get_name_leafdata())
-                if (self.programd_version.is_set or self.programd_version.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.programd_version.get_name_leafdata())
-                if (self.running_version.is_set or self.running_version.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running_version.get_name_leafdata())
-                if (self.secure_boot_attr.is_set or self.secure_boot_attr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.secure_boot_attr.get_name_leafdata())
-                if (self.status.is_set or self.status.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.status.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "card-name" or name == "fpd-name" or name == "hw-version" or name == "location" or name == "programd-version" or name == "running-version" or name == "secure-boot-attr" or name == "status"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "card-name"):
-                    self.card_name = value
-                    self.card_name.value_namespace = name_space
-                    self.card_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "fpd-name"):
-                    self.fpd_name = value
-                    self.fpd_name.value_namespace = name_space
-                    self.fpd_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "hw-version"):
-                    self.hw_version = value
-                    self.hw_version.value_namespace = name_space
-                    self.hw_version.value_namespace_prefix = name_space_prefix
-                if(value_path == "location"):
-                    self.location = value
-                    self.location.value_namespace = name_space
-                    self.location.value_namespace_prefix = name_space_prefix
-                if(value_path == "programd-version"):
-                    self.programd_version = value
-                    self.programd_version.value_namespace = name_space
-                    self.programd_version.value_namespace_prefix = name_space_prefix
-                if(value_path == "running-version"):
-                    self.running_version = value
-                    self.running_version.value_namespace = name_space
-                    self.running_version.value_namespace_prefix = name_space_prefix
-                if(value_path == "secure-boot-attr"):
-                    self.secure_boot_attr = value
-                    self.secure_boot_attr.value_namespace = name_space
-                    self.secure_boot_attr.value_namespace_prefix = name_space_prefix
-                if(value_path == "status"):
-                    self.status = value
-                    self.status.value_namespace = name_space
-                    self.status.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.fpd_info_detaile:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.fpd_info_detaile:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "hw-module-fpd" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "fpd-info-detaile"):
-                for c in self.fpd_info_detaile:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.HwModuleFpd.FpdInfoDetaile()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.fpd_info_detaile.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "fpd-info-detaile"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class HelpLocations(Entity):
-        """
-        help location table
-        
-        .. attribute:: help_location
-        
-        	location
-        	**type**\: list of    :py:class:`HelpLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation>`
-        
-        
-
-        """
-
-        _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(ShowFpd.HelpLocations, self).__init__()
-
-            self.yang_name = "help-locations"
-            self.yang_parent_name = "show-fpd"
-
-            self.help_location = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.HelpLocations, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.HelpLocations, self).__setattr__(name, value)
-
-
-        class HelpLocation(Entity):
-            """
-            location
-            
-            .. attribute:: location_name  <key>
-            
-            	Fpd location
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            .. attribute:: help_fpd
-            
-            	Display fpds on given locations
-            	**type**\:   :py:class:`HelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd>`
-            
-            
-
-            """
-
-            _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ShowFpd.HelpLocations.HelpLocation, self).__init__()
-
-                self.yang_name = "help-location"
-                self.yang_parent_name = "help-locations"
-
-                self.location_name = YLeaf(YType.str, "location-name")
-
-                self.help_fpd = ShowFpd.HelpLocations.HelpLocation.HelpFpd()
-                self.help_fpd.parent = self
-                self._children_name_map["help_fpd"] = "help-fpd"
-                self._children_yang_names.add("help-fpd")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("location_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.HelpLocations.HelpLocation, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.HelpLocations.HelpLocation, self).__setattr__(name, value)
-
-
-            class HelpFpd(Entity):
-                """
-                Display fpds on given locations
-                
-                .. attribute:: fpd_name
-                
-                	Fpd name list
-                	**type**\: list of    :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName>`
-                
-                
-
-                """
-
-                _prefix = 'show-fpd-loc-ng-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__init__()
-
-                    self.yang_name = "help-fpd"
-                    self.yang_parent_name = "help-location"
-
-                    self.fpd_name = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__setattr__(name, value)
-
-
-                class FpdName(Entity):
-                    """
-                    Fpd name list
-                    
-                    .. attribute:: fpd_name
-                    
-                    	fpd name
-                    	**type**\:  str
-                    
-                    .. attribute:: location
-                    
-                    	fpd location
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'show-fpd-loc-ng-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__init__()
-
-                        self.yang_name = "fpd-name"
-                        self.yang_parent_name = "help-fpd"
-
-                        self.fpd_name = YLeaf(YType.str, "fpd-name")
-
-                        self.location = YLeaf(YType.str, "location")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("fpd_name",
-                                        "location") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.fpd_name.is_set or
-                            self.location.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.fpd_name.yfilter != YFilter.not_set or
-                            self.location.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "fpd-name" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.fpd_name.is_set or self.fpd_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.fpd_name.get_name_leafdata())
-                        if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.location.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "fpd-name" or name == "location"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "fpd-name"):
-                            self.fpd_name = value
-                            self.fpd_name.value_namespace = name_space
-                            self.fpd_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "location"):
-                            self.location = value
-                            self.location.value_namespace = name_space
-                            self.location.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.fpd_name:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.fpd_name:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "help-fpd" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "fpd-name"):
-                        for c in self.fpd_name:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.fpd_name.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "fpd-name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.location_name.is_set or
-                    (self.help_fpd is not None and self.help_fpd.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.location_name.yfilter != YFilter.not_set or
-                    (self.help_fpd is not None and self.help_fpd.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "help-location" + "[location-name='" + self.location_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/help-locations/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.location_name.is_set or self.location_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.location_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "help-fpd"):
-                    if (self.help_fpd is None):
-                        self.help_fpd = ShowFpd.HelpLocations.HelpLocation.HelpFpd()
-                        self.help_fpd.parent = self
-                        self._children_name_map["help_fpd"] = "help-fpd"
-                    return self.help_fpd
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "help-fpd" or name == "location-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "location-name"):
-                    self.location_name = value
-                    self.location_name.value_namespace = name_space
-                    self.location_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.help_location:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.help_location:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "help-locations" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "help-location"):
-                for c in self.help_location:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.HelpLocations.HelpLocation()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.help_location.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "help-location"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, ['card_name', 'fpd_name', 'hw_version', 'location', 'programd_version', 'running_version', 'secure_boot_attr', 'status'], name, value)
 
 
     class HwModuleFpdHelpFpd(Entity):
@@ -1426,39 +387,24 @@ class ShowFpd(Entity):
         """
 
         _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(ShowFpd.HwModuleFpdHelpFpd, self).__init__()
 
             self.yang_name = "hw-module-fpd-help-fpd"
             self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"fpd-name" : ("fpd_name", ShowFpd.HwModuleFpdHelpFpd.FpdName)}
 
             self.fpd_name = YList(self)
+            self._segment_path = lambda: "hw-module-fpd-help-fpd"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.HwModuleFpdHelpFpd, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.HwModuleFpdHelpFpd, self).__setattr__(name, value)
+            self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd, [], name, value)
 
 
         class FpdName(Entity):
@@ -1480,154 +426,295 @@ class ShowFpd(Entity):
             """
 
             _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(ShowFpd.HwModuleFpdHelpFpd.FpdName, self).__init__()
 
                 self.yang_name = "fpd-name"
                 self.yang_parent_name = "hw-module-fpd-help-fpd"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.fpd_name = YLeaf(YType.str, "fpd-name")
 
                 self.location = YLeaf(YType.str, "location")
+                self._segment_path = lambda: "fpd-name"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd-help-fpd/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("fpd_name",
-                                "location") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.HwModuleFpdHelpFpd.FpdName, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.HwModuleFpdHelpFpd.FpdName, self).__setattr__(name, value)
+                self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, ['fpd_name', 'location'], name, value)
 
-            def has_data(self):
-                return (
-                    self.fpd_name.is_set or
-                    self.location.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.fpd_name.yfilter != YFilter.not_set or
-                    self.location.yfilter != YFilter.not_set)
+    class LocationHelp(Entity):
+        """
+        fpd upgradable locations
+        
+        .. attribute:: location_name
+        
+        	card location list
+        	**type**\: list of    :py:class:`LocationName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp.LocationName>`
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "fpd-name" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'show-fpd-loc-ng-oper'
+        _revision = '2017-05-01'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd-help-fpd/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(ShowFpd.LocationHelp, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.fpd_name.is_set or self.fpd_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.fpd_name.get_name_leafdata())
-                if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.location.get_name_leafdata())
+            self.yang_name = "location-help"
+            self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"location-name" : ("location_name", ShowFpd.LocationHelp.LocationName)}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.location_name = YList(self)
+            self._segment_path = lambda: "location-help"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(ShowFpd.LocationHelp, [], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "fpd-name" or name == "location"):
-                    return True
-                return False
+        class LocationName(Entity):
+            """
+            card location list
+            
+            .. attribute:: location_name
+            
+            	card location
+            	**type**\:  str
+            
+            
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "fpd-name"):
-                    self.fpd_name = value
-                    self.fpd_name.value_namespace = name_space
-                    self.fpd_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "location"):
-                    self.location = value
-                    self.location.value_namespace = name_space
-                    self.location.value_namespace_prefix = name_space_prefix
+            """
 
-        def has_data(self):
-            for c in self.fpd_name:
-                if (c.has_data()):
-                    return True
-            return False
+            _prefix = 'show-fpd-loc-ng-oper'
+            _revision = '2017-05-01'
 
-        def has_operation(self):
-            for c in self.fpd_name:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
+            def __init__(self):
+                super(ShowFpd.LocationHelp.LocationName, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "hw-module-fpd-help-fpd" + path_buffer
+                self.yang_name = "location-name"
+                self.yang_parent_name = "location-help"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            return path_buffer
+                self.location_name = YLeaf(YType.str, "location-name")
+                self._segment_path = lambda: "location-name"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/location-help/%s" % self._segment_path()
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __setattr__(self, name, value):
+                self._perform_setattr(ShowFpd.LocationHelp.LocationName, ['location_name'], name, value)
 
-            leaf_name_data = LeafDataList()
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+    class Locations(Entity):
+        """
+        location table
+        
+        .. attribute:: location
+        
+        	location
+        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location>`
+        
+        
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+        """
 
-            if (child_yang_name == "fpd-name"):
-                for c in self.fpd_name:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.HwModuleFpdHelpFpd.FpdName()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.fpd_name.append(c)
-                return c
+        _prefix = 'show-fpd-loc-ng-oper'
+        _revision = '2017-05-01'
 
-            return None
+        def __init__(self):
+            super(ShowFpd.Locations, self).__init__()
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "fpd-name"):
-                return True
-            return False
+            self.yang_name = "locations"
+            self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"location" : ("location", ShowFpd.Locations.Location)}
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+            self.location = YList(self)
+            self._segment_path = lambda: "locations"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ShowFpd.Locations, [], name, value)
+
+
+        class Location(Entity):
+            """
+            location
+            
+            .. attribute:: location_name  <key>
+            
+            	Fpd location
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            .. attribute:: fpd
+            
+            	Display fpds on given locations
+            	**type**\: list of    :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd>`
+            
+            
+
+            """
+
+            _prefix = 'show-fpd-loc-ng-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(ShowFpd.Locations.Location, self).__init__()
+
+                self.yang_name = "location"
+                self.yang_parent_name = "locations"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"fpd" : ("fpd", ShowFpd.Locations.Location.Fpd)}
+
+                self.location_name = YLeaf(YType.str, "location-name")
+
+                self.fpd = YList(self)
+                self._segment_path = lambda: "location" + "[location-name='" + self.location_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ShowFpd.Locations.Location, ['location_name'], name, value)
+
+
+            class Fpd(Entity):
+                """
+                Display fpds on given locations
+                
+                .. attribute:: fpd_name  <key>
+                
+                	Fpd Name
+                	**type**\:  str
+                
+                	**length:** 1..32
+                
+                .. attribute:: fpd_info_detaile
+                
+                	 fpd list with all detailes
+                	**type**\: list of    :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd.FpdInfoDetaile>`
+                
+                
+
+                """
+
+                _prefix = 'show-fpd-loc-ng-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(ShowFpd.Locations.Location.Fpd, self).__init__()
+
+                    self.yang_name = "fpd"
+                    self.yang_parent_name = "location"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"fpd-info-detaile" : ("fpd_info_detaile", ShowFpd.Locations.Location.Fpd.FpdInfoDetaile)}
+
+                    self.fpd_name = YLeaf(YType.str, "fpd-name")
+
+                    self.fpd_info_detaile = YList(self)
+                    self._segment_path = lambda: "fpd" + "[fpd-name='" + self.fpd_name.get() + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ShowFpd.Locations.Location.Fpd, ['fpd_name'], name, value)
+
+
+                class FpdInfoDetaile(Entity):
+                    """
+                     fpd list with all detailes
+                    
+                    .. attribute:: card_name
+                    
+                    	Name of card on which fpd is located
+                    	**type**\:  str
+                    
+                    .. attribute:: fpd_name
+                    
+                    	fpd name
+                    	**type**\:  str
+                    
+                    .. attribute:: hw_version
+                    
+                    	hadware version
+                    	**type**\:  str
+                    
+                    .. attribute:: location
+                    
+                    	fpd location
+                    	**type**\:  str
+                    
+                    .. attribute:: programd_version
+                    
+                    	image programd version
+                    	**type**\:  str
+                    
+                    .. attribute:: running_version
+                    
+                    	image running version 
+                    	**type**\:  str
+                    
+                    .. attribute:: secure_boot_attr
+                    
+                    	secure boot attribur
+                    	**type**\:  str
+                    
+                    .. attribute:: status
+                    
+                    	status of the fpd
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'show-fpd-loc-ng-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(ShowFpd.Locations.Location.Fpd.FpdInfoDetaile, self).__init__()
+
+                        self.yang_name = "fpd-info-detaile"
+                        self.yang_parent_name = "fpd"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.card_name = YLeaf(YType.str, "card-name")
+
+                        self.fpd_name = YLeaf(YType.str, "fpd-name")
+
+                        self.hw_version = YLeaf(YType.str, "hw-version")
+
+                        self.location = YLeaf(YType.str, "location")
+
+                        self.programd_version = YLeaf(YType.str, "programd-version")
+
+                        self.running_version = YLeaf(YType.str, "running-version")
+
+                        self.secure_boot_attr = YLeaf(YType.str, "secure-boot-attr")
+
+                        self.status = YLeaf(YType.str, "status")
+                        self._segment_path = lambda: "fpd-info-detaile"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ShowFpd.Locations.Location.Fpd.FpdInfoDetaile, ['card_name', 'fpd_name', 'hw_version', 'location', 'programd_version', 'running_version', 'secure_boot_attr', 'status'], name, value)
 
 
     class Package(Entity):
@@ -1644,39 +731,24 @@ class ShowFpd(Entity):
         """
 
         _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(ShowFpd.Package, self).__init__()
 
             self.yang_name = "package"
             self.yang_parent_name = "show-fpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"fpd-pkg-data" : ("fpd_pkg_data", ShowFpd.Package.FpdPkgData)}
 
             self.fpd_pkg_data = YList(self)
+            self._segment_path = lambda: "package"
+            self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.Package, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.Package, self).__setattr__(name, value)
+            self._perform_setattr(ShowFpd.Package, [], name, value)
 
 
         class FpdPkgData(Entity):
@@ -1718,13 +790,17 @@ class ShowFpd(Entity):
             """
 
             _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(ShowFpd.Package.FpdPkgData, self).__init__()
 
                 self.yang_name = "fpd-pkg-data"
                 self.yang_parent_name = "package"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.card_type = YLeaf(YType.str, "card-type")
 
@@ -1737,473 +813,11 @@ class ShowFpd(Entity):
                 self.min_sw_ver = YLeaf(YType.str, "min-sw-ver")
 
                 self.upgrade_method = YLeaf(YType.str, "upgrade-method")
+                self._segment_path = lambda: "fpd-pkg-data"
+                self._absolute_path = lambda: "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/package/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("card_type",
-                                "fpd_desc",
-                                "fpd_ver",
-                                "min_hw_ver",
-                                "min_sw_ver",
-                                "upgrade_method") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.Package.FpdPkgData, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.Package.FpdPkgData, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.card_type.is_set or
-                    self.fpd_desc.is_set or
-                    self.fpd_ver.is_set or
-                    self.min_hw_ver.is_set or
-                    self.min_sw_ver.is_set or
-                    self.upgrade_method.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.card_type.yfilter != YFilter.not_set or
-                    self.fpd_desc.yfilter != YFilter.not_set or
-                    self.fpd_ver.yfilter != YFilter.not_set or
-                    self.min_hw_ver.yfilter != YFilter.not_set or
-                    self.min_sw_ver.yfilter != YFilter.not_set or
-                    self.upgrade_method.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "fpd-pkg-data" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/package/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.card_type.is_set or self.card_type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.card_type.get_name_leafdata())
-                if (self.fpd_desc.is_set or self.fpd_desc.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.fpd_desc.get_name_leafdata())
-                if (self.fpd_ver.is_set or self.fpd_ver.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.fpd_ver.get_name_leafdata())
-                if (self.min_hw_ver.is_set or self.min_hw_ver.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.min_hw_ver.get_name_leafdata())
-                if (self.min_sw_ver.is_set or self.min_sw_ver.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.min_sw_ver.get_name_leafdata())
-                if (self.upgrade_method.is_set or self.upgrade_method.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.upgrade_method.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "card-type" or name == "fpd-desc" or name == "fpd-ver" or name == "min-hw-ver" or name == "min-sw-ver" or name == "upgrade-method"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "card-type"):
-                    self.card_type = value
-                    self.card_type.value_namespace = name_space
-                    self.card_type.value_namespace_prefix = name_space_prefix
-                if(value_path == "fpd-desc"):
-                    self.fpd_desc = value
-                    self.fpd_desc.value_namespace = name_space
-                    self.fpd_desc.value_namespace_prefix = name_space_prefix
-                if(value_path == "fpd-ver"):
-                    self.fpd_ver = value
-                    self.fpd_ver.value_namespace = name_space
-                    self.fpd_ver.value_namespace_prefix = name_space_prefix
-                if(value_path == "min-hw-ver"):
-                    self.min_hw_ver = value
-                    self.min_hw_ver.value_namespace = name_space
-                    self.min_hw_ver.value_namespace_prefix = name_space_prefix
-                if(value_path == "min-sw-ver"):
-                    self.min_sw_ver = value
-                    self.min_sw_ver.value_namespace = name_space
-                    self.min_sw_ver.value_namespace_prefix = name_space_prefix
-                if(value_path == "upgrade-method"):
-                    self.upgrade_method = value
-                    self.upgrade_method.value_namespace = name_space
-                    self.upgrade_method.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.fpd_pkg_data:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.fpd_pkg_data:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "package" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "fpd-pkg-data"):
-                for c in self.fpd_pkg_data:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.Package.FpdPkgData()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.fpd_pkg_data.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "fpd-pkg-data"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class LocationHelp(Entity):
-        """
-        fpd upgradable locations
-        
-        .. attribute:: location_name
-        
-        	card location list
-        	**type**\: list of    :py:class:`LocationName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp.LocationName>`
-        
-        
-
-        """
-
-        _prefix = 'show-fpd-loc-ng-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(ShowFpd.LocationHelp, self).__init__()
-
-            self.yang_name = "location-help"
-            self.yang_parent_name = "show-fpd"
-
-            self.location_name = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(ShowFpd.LocationHelp, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(ShowFpd.LocationHelp, self).__setattr__(name, value)
-
-
-        class LocationName(Entity):
-            """
-            card location list
-            
-            .. attribute:: location_name
-            
-            	card location
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'show-fpd-loc-ng-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ShowFpd.LocationHelp.LocationName, self).__init__()
-
-                self.yang_name = "location-name"
-                self.yang_parent_name = "location-help"
-
-                self.location_name = YLeaf(YType.str, "location-name")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("location_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(ShowFpd.LocationHelp.LocationName, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(ShowFpd.LocationHelp.LocationName, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.location_name.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.location_name.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "location-name" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/location-help/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.location_name.is_set or self.location_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.location_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "location-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "location-name"):
-                    self.location_name = value
-                    self.location_name.value_namespace = name_space
-                    self.location_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.location_name:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.location_name:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "location-help" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "location-name"):
-                for c in self.location_name:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = ShowFpd.LocationHelp.LocationName()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.location_name.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "location-name"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.help_locations is not None and self.help_locations.has_data()) or
-            (self.hw_module_fpd is not None and self.hw_module_fpd.has_data()) or
-            (self.hw_module_fpd_help_fpd is not None and self.hw_module_fpd_help_fpd.has_data()) or
-            (self.location_help is not None and self.location_help.has_data()) or
-            (self.locations is not None and self.locations.has_data()) or
-            (self.package is not None and self.package.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.help_locations is not None and self.help_locations.has_operation()) or
-            (self.hw_module_fpd is not None and self.hw_module_fpd.has_operation()) or
-            (self.hw_module_fpd_help_fpd is not None and self.hw_module_fpd_help_fpd.has_operation()) or
-            (self.location_help is not None and self.location_help.has_operation()) or
-            (self.locations is not None and self.locations.has_operation()) or
-            (self.package is not None and self.package.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "help-locations"):
-            if (self.help_locations is None):
-                self.help_locations = ShowFpd.HelpLocations()
-                self.help_locations.parent = self
-                self._children_name_map["help_locations"] = "help-locations"
-            return self.help_locations
-
-        if (child_yang_name == "hw-module-fpd"):
-            if (self.hw_module_fpd is None):
-                self.hw_module_fpd = ShowFpd.HwModuleFpd()
-                self.hw_module_fpd.parent = self
-                self._children_name_map["hw_module_fpd"] = "hw-module-fpd"
-            return self.hw_module_fpd
-
-        if (child_yang_name == "hw-module-fpd-help-fpd"):
-            if (self.hw_module_fpd_help_fpd is None):
-                self.hw_module_fpd_help_fpd = ShowFpd.HwModuleFpdHelpFpd()
-                self.hw_module_fpd_help_fpd.parent = self
-                self._children_name_map["hw_module_fpd_help_fpd"] = "hw-module-fpd-help-fpd"
-            return self.hw_module_fpd_help_fpd
-
-        if (child_yang_name == "location-help"):
-            if (self.location_help is None):
-                self.location_help = ShowFpd.LocationHelp()
-                self.location_help.parent = self
-                self._children_name_map["location_help"] = "location-help"
-            return self.location_help
-
-        if (child_yang_name == "locations"):
-            if (self.locations is None):
-                self.locations = ShowFpd.Locations()
-                self.locations.parent = self
-                self._children_name_map["locations"] = "locations"
-            return self.locations
-
-        if (child_yang_name == "package"):
-            if (self.package is None):
-                self.package = ShowFpd.Package()
-                self.package.parent = self
-                self._children_name_map["package"] = "package"
-            return self.package
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "help-locations" or name == "hw-module-fpd" or name == "hw-module-fpd-help-fpd" or name == "location-help" or name == "locations" or name == "package"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(ShowFpd.Package.FpdPkgData, ['card_type', 'fpd_desc', 'fpd_ver', 'min_hw_ver', 'min_sw_ver', 'upgrade_method'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ShowFpd()

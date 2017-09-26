@@ -47,8 +47,13 @@ module Cisco-IOS-XR-bundlemgr-cfg {
        Cisco-IOS-XR-rgmgr-cfg,
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-16" {
     description

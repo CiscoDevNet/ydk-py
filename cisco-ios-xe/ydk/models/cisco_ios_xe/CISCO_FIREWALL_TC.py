@@ -6,16 +6,15 @@ pertaining to configuration, status and activity
 of firewalls.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Cfwapplicationprotocol(Enum):
+class CFWApplicationProtocol(Enum):
     """
-    Cfwapplicationprotocol
+    CFWApplicationProtocol
 
     This type denotes the application (OSI Layer 7)
 
@@ -716,9 +715,9 @@ class Cfwapplicationprotocol(Enum):
     msnMsgr = Enum.YLeaf(170, "msnMsgr")
 
 
-class Cfwnetworkprotocol(Enum):
+class CFWNetworkProtocol(Enum):
     """
-    Cfwnetworkprotocol
+    CFWNetworkProtocol
 
     This type denotes protocols operating at 
 
@@ -791,9 +790,9 @@ class Cfwnetworkprotocol(Enum):
     tcp = Enum.YLeaf(7, "tcp")
 
 
-class Cfwpolicytargettype(Enum):
+class CFWPolicyTargetType(Enum):
     """
-    Cfwpolicytargettype
+    CFWPolicyTargetType
 
     This type is used to represent the type of 
 
@@ -910,9 +909,50 @@ class Cfwpolicytargettype(Enum):
     context = Enum.YLeaf(8, "context")
 
 
-class Cfwurlfvendorid(Enum):
+class CFWUrlServerStatus(Enum):
     """
-    Cfwurlfvendorid
+    CFWUrlServerStatus
+
+    This type denotes the status of the URL filtering 
+
+    server which the firewall uses to implement URL
+
+    filtering.
+
+    The following values are defined\:
+
+    'online' 
+
+        Indicates that the Server is online
+
+    'offline'
+
+        Indicates that the Server is offline
+
+    'indeterminate'
+
+        Indicates that the Server status 
+
+        cannot be determined
+
+    .. data:: online = 1
+
+    .. data:: offline = 2
+
+    .. data:: indeterminate = 3
+
+    """
+
+    online = Enum.YLeaf(1, "online")
+
+    offline = Enum.YLeaf(2, "offline")
+
+    indeterminate = Enum.YLeaf(3, "indeterminate")
+
+
+class CFWUrlfVendorId(Enum):
+    """
+    CFWUrlfVendorId
 
     This type denotes the vendor of a URL filtering
 
@@ -969,47 +1009,6 @@ class Cfwurlfvendorid(Enum):
     websense = Enum.YLeaf(2, "websense")
 
     n2h2 = Enum.YLeaf(3, "n2h2")
-
-
-class Cfwurlserverstatus(Enum):
-    """
-    Cfwurlserverstatus
-
-    This type denotes the status of the URL filtering 
-
-    server which the firewall uses to implement URL
-
-    filtering.
-
-    The following values are defined\:
-
-    'online' 
-
-        Indicates that the Server is online
-
-    'offline'
-
-        Indicates that the Server is offline
-
-    'indeterminate'
-
-        Indicates that the Server status 
-
-        cannot be determined
-
-    .. data:: online = 1
-
-    .. data:: offline = 2
-
-    .. data:: indeterminate = 3
-
-    """
-
-    online = Enum.YLeaf(1, "online")
-
-    offline = Enum.YLeaf(2, "offline")
-
-    indeterminate = Enum.YLeaf(3, "indeterminate")
 
 
 

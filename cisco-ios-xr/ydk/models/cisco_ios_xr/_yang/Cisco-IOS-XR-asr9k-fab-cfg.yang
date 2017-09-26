@@ -9,8 +9,6 @@ module Cisco-IOS-XR-asr9k-fab-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -32,9 +30,9 @@ module Cisco-IOS-XR-asr9k-fab-cfg {
 
      This module contains definitions
      for the following management objects:
-       fab-vqi-config: Configure Fabric
+       fab-vqi-config: Configure Fabric Operation Mode
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -42,28 +40,28 @@ module Cisco-IOS-XR-asr9k-fab-cfg {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Asr9k-fab-mode {
+    type enumeration {
+      enum a99-highbandwidth {
+        value 2;
+        description "A99 High bandwidth mode";
+      }
+    }
+    description "Asr9k fab mode";
+  }
 
   container fab-vqi-config {
-    description "Configure Fabric";
+    description "Configure Fabric Operation Mode";
 
-    container operates {
-      description "none";
-
-      list operate {
-        key "id1";
-        description "none";
-        leaf id1 {
-          type xr:Cisco-ios-xr-string;
-          description "none";
-        }
-        leaf id1-xr {
-          type int32;
-          description "none";
-        }
-        leaf id2 {
-          type int32;
-          description "none";
-        }
+    container mode {
+      description "Mode Type";
+      leaf fab-mode-type-xr {
+        type Asr9k-fab-mode;
+        description "Mode Type";
+      }
+      leaf fab-mode-type {
+        type Asr9k-fab-mode;
+        description "Mode Type";
       }
     }
   }

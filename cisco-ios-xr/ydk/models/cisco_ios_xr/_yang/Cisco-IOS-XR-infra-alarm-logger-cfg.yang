@@ -39,12 +39,12 @@ module Cisco-IOS-XR-infra-alarm-logger-cfg {
        Cisco-IOS-XR-infra-syslog-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2016-08-10" {
+  revision "2017-02-23" {
     description
-      "Added Alarm filter feature";
+      "Added pre-config suppression feature";
   }
 
   revision "2015-01-07" {
@@ -70,11 +70,27 @@ module Cisco-IOS-XR-infra-alarm-logger-cfg {
           }
         }
       }
+      leaf pre-config-suppression {
+        type empty;
+        description
+          "Suppress events from a card/VM till its
+          configuration is complete";
+      }
       leaf severity-level {
         type dt1:Alarm-logger-severity-level;
         description
           "Log all events with equal or higher (lower
           level) severity than this";
+      }
+      leaf pre-config-suppression-timeout {
+        type uint32 {
+          range "1..60";
+        }
+        units "minute";
+        default "15";
+        description
+          "Timeout (in minutes) for pre-config events
+          suppression (default 15)";
       }
       leaf buffer-size {
         type uint32 {

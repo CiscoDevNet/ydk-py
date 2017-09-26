@@ -10,8 +10,6 @@ module Cisco-IOS-XR-tty-management-cmd-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-tty-management-cmd-oper-sub1 {
     revision-date 2015-11-09;
   }
@@ -39,7 +37,7 @@ module Cisco-IOS-XR-tty-management-cmd-oper {
      for the following management objects:
        show-users: Show users statistics
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

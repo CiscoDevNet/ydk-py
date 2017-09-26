@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
 
   import ietf-yang-types { prefix "yang"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,8 +27,13 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR drivers-media-eth package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2017-04-04" {
     description
@@ -282,8 +285,16 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
         value 8;
         description "hundred gbps";
       }
-      enum ethernet-speed-types-count {
+      enum two-hundred-gbps {
         value 9;
+        description "two hundred gbps";
+      }
+      enum four-hundred-gbps {
+        value 10;
+        description "four hundred gbps";
+      }
+      enum ethernet-speed-types-count {
+        value 11;
         description "ethernet speed types count";
       }
     }
@@ -1537,6 +1548,27 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       enum ethernet-100gbase-pas-loop {
         description "Passive loopback";
       }
+      enum ethernet-50gbase-cr2 {
+        description "2 lane copper (very short reach)";
+      }
+      enum ethernet-50gbase-sr2 {
+        description "fiber over 2 lane optics (short reach)";
+      }
+      enum ethernet-50gbase-psm2 {
+        description "2 parallel single mode fibers";
+      }
+      enum ethernet-200gbase-cr4 {
+        description "4 lanes Passive Copper";
+      }
+      enum ethernet-400gbase-fr4 {
+        description "Duplex SMF LC Connector 2km";
+      }
+      enum ethernet-400gbase-dr4 {
+        description "SMF with MPO-12 connector";
+      }
+      enum ethernet-400gbase-cr4 {
+        description "4 lanes Passive Copper";
+      }
       enum ethernet-base-max {
         description "ethernet base max";
       }
@@ -1973,6 +2005,18 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
     }
   }
 
+  grouping EXTENDED-LOOPBACK-TYPE {
+    description "EXTENDED LOOPBACK TYPE";
+    leaf level {
+      type uint32;
+      description "Level";
+    }
+    leaf loopback {
+      type Ethernet-loopback;
+      description "Port operational loopback";
+    }
+  }
+
   grouping ETHER-FEC-DETAILS-TYPE {
     description "ETHER FEC DETAILS TYPE";
     leaf fec {
@@ -2303,6 +2347,11 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
     leaf loopback {
       type Ethernet-loopback;
       description "Port operational loopback";
+    }
+
+    list extended-loopback {
+      description "Port operational extended loopback";
+      uses EXTENDED-LOOPBACK-TYPE;
     }
   }
 

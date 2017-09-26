@@ -16,7 +16,7 @@ module Cisco-IOS-XR-evpn-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-evpn-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -42,8 +42,13 @@ module Cisco-IOS-XR-evpn-oper {
      for the following management objects:
        evpn: EVPN Operational Table
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

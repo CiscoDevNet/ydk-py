@@ -35,7 +35,7 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
      for the following management objects:
        sr: Segment Routing
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -76,6 +76,25 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
         }
         mandatory true;
         description "SRGB Upper Bound";
+      }
+    }
+
+    container local-block {
+      presence "Indicates a local-block node is configured.";
+      description "Segment Routing Local Block of Labels";
+      leaf lower-bound {
+        type uint32 {
+          range "15000..1048574";
+        }
+        mandatory true;
+        description "SRLB Lower Bound";
+      }
+      leaf upper-bound {
+        type uint32 {
+          range "15001..1048575";
+        }
+        mandatory true;
+        description "SRLB Upper Bound";
       }
     }
 

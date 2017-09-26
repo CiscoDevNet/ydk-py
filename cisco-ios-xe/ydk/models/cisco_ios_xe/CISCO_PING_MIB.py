@@ -3,7 +3,6 @@
 Modified description of ciscoPingAddress object.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -11,14 +10,14 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CiscoPingMib(Entity):
+class CISCOPINGMIB(Entity):
     """
     
     
     .. attribute:: ciscopingtable
     
     	A table of ping request entries
-    	**type**\:   :py:class:`Ciscopingtable <ydk.models.cisco_ios_xe.CISCO_PING_MIB.CiscoPingMib.Ciscopingtable>`
+    	**type**\:   :py:class:`Ciscopingtable <ydk.models.cisco_ios_xe.CISCO_PING_MIB.CISCOPINGMIB.Ciscopingtable>`
     
     
 
@@ -28,16 +27,21 @@ class CiscoPingMib(Entity):
     _revision = '2001-08-28'
 
     def __init__(self):
-        super(CiscoPingMib, self).__init__()
+        super(CISCOPINGMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-PING-MIB"
         self.yang_parent_name = "CISCO-PING-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"ciscoPingTable" : ("ciscopingtable", CISCOPINGMIB.Ciscopingtable)}
+        self._child_list_classes = {}
 
-        self.ciscopingtable = CiscoPingMib.Ciscopingtable()
+        self.ciscopingtable = CISCOPINGMIB.Ciscopingtable()
         self.ciscopingtable.parent = self
         self._children_name_map["ciscopingtable"] = "ciscoPingTable"
         self._children_yang_names.add("ciscoPingTable")
+        self._segment_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB"
 
 
     class Ciscopingtable(Entity):
@@ -47,7 +51,7 @@ class CiscoPingMib(Entity):
         .. attribute:: ciscopingentry
         
         	A ping request entry.  A management station wishing to create an entry should first generate a pseudo\-random serial number to be used as the index to this sparse table.  The station should then create the associated instance of the row status and row owner objects.  It must also, either in the same or in successive PDUs, create the associated instance of the protocol and address objects.  It should also modify the default values for the other configuration objects if the defaults are not appropriate.  Once the appropriate instance of all the configuration objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the request.  Note that this entire procedure may be initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non\-defaulted configuration objects.  Once the ping sequence has been activated, it cannot be stopped \-\- it will run until the configured number of packets have been sent.  Once the sequence completes, the management station should retrieve the values of the status objects of interest, and should then delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completing
-        	**type**\: list of    :py:class:`Ciscopingentry <ydk.models.cisco_ios_xe.CISCO_PING_MIB.CiscoPingMib.Ciscopingtable.Ciscopingentry>`
+        	**type**\: list of    :py:class:`Ciscopingentry <ydk.models.cisco_ios_xe.CISCO_PING_MIB.CISCOPINGMIB.Ciscopingtable.Ciscopingentry>`
         
         
 
@@ -57,36 +61,21 @@ class CiscoPingMib(Entity):
         _revision = '2001-08-28'
 
         def __init__(self):
-            super(CiscoPingMib.Ciscopingtable, self).__init__()
+            super(CISCOPINGMIB.Ciscopingtable, self).__init__()
 
             self.yang_name = "ciscoPingTable"
             self.yang_parent_name = "CISCO-PING-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ciscoPingEntry" : ("ciscopingentry", CISCOPINGMIB.Ciscopingtable.Ciscopingentry)}
 
             self.ciscopingentry = YList(self)
+            self._segment_path = lambda: "ciscoPingTable"
+            self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoPingMib.Ciscopingtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoPingMib.Ciscopingtable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOPINGMIB.Ciscopingtable, [], name, value)
 
 
         class Ciscopingentry(Entity):
@@ -165,7 +154,7 @@ class CiscoPingMib(Entity):
             .. attribute:: ciscopingentrystatus
             
             	The status of this table entry.  Once the entry status is set to active, the associate entry cannot be modified until the sequence completes (ciscoPingCompleted is true)
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ciscopingmaxrtt
             
@@ -211,7 +200,7 @@ class CiscoPingMib(Entity):
             .. attribute:: ciscopingprotocol
             
             	The protocol to use. Once an instance of this object is created, its value can not be changed
-            	**type**\:   :py:class:`Cisconetworkprotocol <ydk.models.cisco_ios_xe.CISCO_TC.Cisconetworkprotocol>`
+            	**type**\:   :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
             
             .. attribute:: ciscopingreceivedpackets
             
@@ -247,10 +236,14 @@ class CiscoPingMib(Entity):
             _revision = '2001-08-28'
 
             def __init__(self):
-                super(CiscoPingMib.Ciscopingtable.Ciscopingentry, self).__init__()
+                super(CISCOPINGMIB.Ciscopingtable.Ciscopingentry, self).__init__()
 
                 self.yang_name = "ciscoPingEntry"
                 self.yang_parent_name = "ciscoPingTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ciscopingserialnumber = YLeaf(YType.int32, "ciscoPingSerialNumber")
 
@@ -285,327 +278,13 @@ class CiscoPingMib(Entity):
                 self.ciscopingtraponcompletion = YLeaf(YType.boolean, "ciscoPingTrapOnCompletion")
 
                 self.ciscopingvrfname = YLeaf(YType.str, "ciscoPingVrfName")
+                self._segment_path = lambda: "ciscoPingEntry" + "[ciscoPingSerialNumber='" + self.ciscopingserialnumber.get() + "']"
+                self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ciscopingserialnumber",
-                                "ciscopingaddress",
-                                "ciscopingavgrtt",
-                                "ciscopingcompleted",
-                                "ciscopingdelay",
-                                "ciscopingentryowner",
-                                "ciscopingentrystatus",
-                                "ciscopingmaxrtt",
-                                "ciscopingminrtt",
-                                "ciscopingpacketcount",
-                                "ciscopingpacketsize",
-                                "ciscopingpackettimeout",
-                                "ciscopingprotocol",
-                                "ciscopingreceivedpackets",
-                                "ciscopingsentpackets",
-                                "ciscopingtraponcompletion",
-                                "ciscopingvrfname") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoPingMib.Ciscopingtable.Ciscopingentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoPingMib.Ciscopingtable.Ciscopingentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ciscopingserialnumber.is_set or
-                    self.ciscopingaddress.is_set or
-                    self.ciscopingavgrtt.is_set or
-                    self.ciscopingcompleted.is_set or
-                    self.ciscopingdelay.is_set or
-                    self.ciscopingentryowner.is_set or
-                    self.ciscopingentrystatus.is_set or
-                    self.ciscopingmaxrtt.is_set or
-                    self.ciscopingminrtt.is_set or
-                    self.ciscopingpacketcount.is_set or
-                    self.ciscopingpacketsize.is_set or
-                    self.ciscopingpackettimeout.is_set or
-                    self.ciscopingprotocol.is_set or
-                    self.ciscopingreceivedpackets.is_set or
-                    self.ciscopingsentpackets.is_set or
-                    self.ciscopingtraponcompletion.is_set or
-                    self.ciscopingvrfname.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ciscopingserialnumber.yfilter != YFilter.not_set or
-                    self.ciscopingaddress.yfilter != YFilter.not_set or
-                    self.ciscopingavgrtt.yfilter != YFilter.not_set or
-                    self.ciscopingcompleted.yfilter != YFilter.not_set or
-                    self.ciscopingdelay.yfilter != YFilter.not_set or
-                    self.ciscopingentryowner.yfilter != YFilter.not_set or
-                    self.ciscopingentrystatus.yfilter != YFilter.not_set or
-                    self.ciscopingmaxrtt.yfilter != YFilter.not_set or
-                    self.ciscopingminrtt.yfilter != YFilter.not_set or
-                    self.ciscopingpacketcount.yfilter != YFilter.not_set or
-                    self.ciscopingpacketsize.yfilter != YFilter.not_set or
-                    self.ciscopingpackettimeout.yfilter != YFilter.not_set or
-                    self.ciscopingprotocol.yfilter != YFilter.not_set or
-                    self.ciscopingreceivedpackets.yfilter != YFilter.not_set or
-                    self.ciscopingsentpackets.yfilter != YFilter.not_set or
-                    self.ciscopingtraponcompletion.yfilter != YFilter.not_set or
-                    self.ciscopingvrfname.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ciscoPingEntry" + "[ciscoPingSerialNumber='" + self.ciscopingserialnumber.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ciscopingserialnumber.is_set or self.ciscopingserialnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingserialnumber.get_name_leafdata())
-                if (self.ciscopingaddress.is_set or self.ciscopingaddress.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingaddress.get_name_leafdata())
-                if (self.ciscopingavgrtt.is_set or self.ciscopingavgrtt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingavgrtt.get_name_leafdata())
-                if (self.ciscopingcompleted.is_set or self.ciscopingcompleted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingcompleted.get_name_leafdata())
-                if (self.ciscopingdelay.is_set or self.ciscopingdelay.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingdelay.get_name_leafdata())
-                if (self.ciscopingentryowner.is_set or self.ciscopingentryowner.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingentryowner.get_name_leafdata())
-                if (self.ciscopingentrystatus.is_set or self.ciscopingentrystatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingentrystatus.get_name_leafdata())
-                if (self.ciscopingmaxrtt.is_set or self.ciscopingmaxrtt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingmaxrtt.get_name_leafdata())
-                if (self.ciscopingminrtt.is_set or self.ciscopingminrtt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingminrtt.get_name_leafdata())
-                if (self.ciscopingpacketcount.is_set or self.ciscopingpacketcount.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingpacketcount.get_name_leafdata())
-                if (self.ciscopingpacketsize.is_set or self.ciscopingpacketsize.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingpacketsize.get_name_leafdata())
-                if (self.ciscopingpackettimeout.is_set or self.ciscopingpackettimeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingpackettimeout.get_name_leafdata())
-                if (self.ciscopingprotocol.is_set or self.ciscopingprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingprotocol.get_name_leafdata())
-                if (self.ciscopingreceivedpackets.is_set or self.ciscopingreceivedpackets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingreceivedpackets.get_name_leafdata())
-                if (self.ciscopingsentpackets.is_set or self.ciscopingsentpackets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingsentpackets.get_name_leafdata())
-                if (self.ciscopingtraponcompletion.is_set or self.ciscopingtraponcompletion.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingtraponcompletion.get_name_leafdata())
-                if (self.ciscopingvrfname.is_set or self.ciscopingvrfname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ciscopingvrfname.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ciscoPingSerialNumber" or name == "ciscoPingAddress" or name == "ciscoPingAvgRtt" or name == "ciscoPingCompleted" or name == "ciscoPingDelay" or name == "ciscoPingEntryOwner" or name == "ciscoPingEntryStatus" or name == "ciscoPingMaxRtt" or name == "ciscoPingMinRtt" or name == "ciscoPingPacketCount" or name == "ciscoPingPacketSize" or name == "ciscoPingPacketTimeout" or name == "ciscoPingProtocol" or name == "ciscoPingReceivedPackets" or name == "ciscoPingSentPackets" or name == "ciscoPingTrapOnCompletion" or name == "ciscoPingVrfName"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ciscoPingSerialNumber"):
-                    self.ciscopingserialnumber = value
-                    self.ciscopingserialnumber.value_namespace = name_space
-                    self.ciscopingserialnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingAddress"):
-                    self.ciscopingaddress = value
-                    self.ciscopingaddress.value_namespace = name_space
-                    self.ciscopingaddress.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingAvgRtt"):
-                    self.ciscopingavgrtt = value
-                    self.ciscopingavgrtt.value_namespace = name_space
-                    self.ciscopingavgrtt.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingCompleted"):
-                    self.ciscopingcompleted = value
-                    self.ciscopingcompleted.value_namespace = name_space
-                    self.ciscopingcompleted.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingDelay"):
-                    self.ciscopingdelay = value
-                    self.ciscopingdelay.value_namespace = name_space
-                    self.ciscopingdelay.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingEntryOwner"):
-                    self.ciscopingentryowner = value
-                    self.ciscopingentryowner.value_namespace = name_space
-                    self.ciscopingentryowner.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingEntryStatus"):
-                    self.ciscopingentrystatus = value
-                    self.ciscopingentrystatus.value_namespace = name_space
-                    self.ciscopingentrystatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingMaxRtt"):
-                    self.ciscopingmaxrtt = value
-                    self.ciscopingmaxrtt.value_namespace = name_space
-                    self.ciscopingmaxrtt.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingMinRtt"):
-                    self.ciscopingminrtt = value
-                    self.ciscopingminrtt.value_namespace = name_space
-                    self.ciscopingminrtt.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingPacketCount"):
-                    self.ciscopingpacketcount = value
-                    self.ciscopingpacketcount.value_namespace = name_space
-                    self.ciscopingpacketcount.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingPacketSize"):
-                    self.ciscopingpacketsize = value
-                    self.ciscopingpacketsize.value_namespace = name_space
-                    self.ciscopingpacketsize.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingPacketTimeout"):
-                    self.ciscopingpackettimeout = value
-                    self.ciscopingpackettimeout.value_namespace = name_space
-                    self.ciscopingpackettimeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingProtocol"):
-                    self.ciscopingprotocol = value
-                    self.ciscopingprotocol.value_namespace = name_space
-                    self.ciscopingprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingReceivedPackets"):
-                    self.ciscopingreceivedpackets = value
-                    self.ciscopingreceivedpackets.value_namespace = name_space
-                    self.ciscopingreceivedpackets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingSentPackets"):
-                    self.ciscopingsentpackets = value
-                    self.ciscopingsentpackets.value_namespace = name_space
-                    self.ciscopingsentpackets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingTrapOnCompletion"):
-                    self.ciscopingtraponcompletion = value
-                    self.ciscopingtraponcompletion.value_namespace = name_space
-                    self.ciscopingtraponcompletion.value_namespace_prefix = name_space_prefix
-                if(value_path == "ciscoPingVrfName"):
-                    self.ciscopingvrfname = value
-                    self.ciscopingvrfname.value_namespace = name_space
-                    self.ciscopingvrfname.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ciscopingentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ciscopingentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ciscoPingTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-PING-MIB:CISCO-PING-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ciscoPingEntry"):
-                for c in self.ciscopingentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoPingMib.Ciscopingtable.Ciscopingentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ciscopingentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ciscoPingEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.ciscopingtable is not None and self.ciscopingtable.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.ciscopingtable is not None and self.ciscopingtable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-PING-MIB:CISCO-PING-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "ciscoPingTable"):
-            if (self.ciscopingtable is None):
-                self.ciscopingtable = CiscoPingMib.Ciscopingtable()
-                self.ciscopingtable.parent = self
-                self._children_name_map["ciscopingtable"] = "ciscoPingTable"
-            return self.ciscopingtable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "ciscoPingTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCOPINGMIB.Ciscopingtable.Ciscopingentry, ['ciscopingserialnumber', 'ciscopingaddress', 'ciscopingavgrtt', 'ciscopingcompleted', 'ciscopingdelay', 'ciscopingentryowner', 'ciscopingentrystatus', 'ciscopingmaxrtt', 'ciscopingminrtt', 'ciscopingpacketcount', 'ciscopingpacketsize', 'ciscopingpackettimeout', 'ciscopingprotocol', 'ciscopingreceivedpackets', 'ciscopingsentpackets', 'ciscopingtraponcompletion', 'ciscopingvrfname'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoPingMib()
+        self._top_entity = CISCOPINGMIB()
         return self._top_entity
 

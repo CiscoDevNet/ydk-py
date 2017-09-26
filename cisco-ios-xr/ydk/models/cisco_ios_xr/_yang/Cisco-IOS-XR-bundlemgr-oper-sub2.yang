@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-bundlemgr-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -35,8 +35,18 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR bundlemgr package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2016-02-22" {
+    description
+      "Description updated.";
+  }
 
   revision "2015-11-09" {
     description
@@ -2715,9 +2725,7 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
   }
 
   grouping BM-LACP-LINK-DATA {
-    description
-      "Link properties for a port using LACP
-      (Deprecated)";
+    description "Link properties for a port using LACP ";
     leaf interface-handle {
       type xr:Interface-name;
       description "Member's interface handle";
@@ -2852,10 +2860,10 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       description "MAC address of this member (deprecated)";
       uses BM-MAC-ADDR-ST;
     }
-    leaf bandwidth {
-      type uint32;
-      units "kbit/s";
-      description "Bandwidth of this member (kbps)";
+    leaf interface-name {
+      xr:event-telemetry "Subscribe Telemetry Event";
+      type xr:Interface-name;
+      description "Member's interface name";
     }
     leaf port-priority {
       type uint16;
@@ -2873,13 +2881,18 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       type uint16;
       description "Member's link order number";
     }
-    leaf interface-name {
-      type xr:Interface-name;
-      description "Member's interface name";
-    }
     leaf iccp-node {
       type uint32;
       description "Location of member";
+    }
+    leaf bandwidth {
+      type uint32;
+      units "kbit/s";
+      description "Bandwidth of this member (kbps)";
+    }
+    leaf lacp-enabled {
+      type string;
+      description "Boolean indicating LACP enabled or not";
     }
     leaf member-type {
       type Bmd-member-type-enum;

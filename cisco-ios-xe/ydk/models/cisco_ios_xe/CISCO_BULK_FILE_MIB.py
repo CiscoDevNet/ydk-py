@@ -4,7 +4,6 @@ The MIB module for creating and deleting bulk files of
 SNMP data for file transfer.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,34 +11,34 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CiscoBulkFileMib(Entity):
+class CISCOBULKFILEMIB(Entity):
     """
     
     
     .. attribute:: cbfdefine
     
     	
-    	**type**\:   :py:class:`Cbfdefine <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefine>`
+    	**type**\:   :py:class:`Cbfdefine <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefine>`
     
     .. attribute:: cbfdefinefiletable
     
     	A table of bulk file definition and creation controls
-    	**type**\:   :py:class:`Cbfdefinefiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable>`
+    	**type**\:   :py:class:`Cbfdefinefiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable>`
     
     .. attribute:: cbfdefineobjecttable
     
     	A table of objects to go in bulk files
-    	**type**\:   :py:class:`Cbfdefineobjecttable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefineobjecttable>`
+    	**type**\:   :py:class:`Cbfdefineobjecttable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable>`
     
     .. attribute:: cbfstatus
     
     	
-    	**type**\:   :py:class:`Cbfstatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfstatus>`
+    	**type**\:   :py:class:`Cbfstatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatus>`
     
     .. attribute:: cbfstatusfiletable
     
     	A table of bulk file status
-    	**type**\:   :py:class:`Cbfstatusfiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfstatusfiletable>`
+    	**type**\:   :py:class:`Cbfstatusfiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable>`
     
     
 
@@ -49,36 +48,41 @@ class CiscoBulkFileMib(Entity):
     _revision = '2002-06-10'
 
     def __init__(self):
-        super(CiscoBulkFileMib, self).__init__()
+        super(CISCOBULKFILEMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-BULK-FILE-MIB"
         self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"cbfDefine" : ("cbfdefine", CISCOBULKFILEMIB.Cbfdefine), "cbfDefineFileTable" : ("cbfdefinefiletable", CISCOBULKFILEMIB.Cbfdefinefiletable), "cbfDefineObjectTable" : ("cbfdefineobjecttable", CISCOBULKFILEMIB.Cbfdefineobjecttable), "cbfStatus" : ("cbfstatus", CISCOBULKFILEMIB.Cbfstatus), "cbfStatusFileTable" : ("cbfstatusfiletable", CISCOBULKFILEMIB.Cbfstatusfiletable)}
+        self._child_list_classes = {}
 
-        self.cbfdefine = CiscoBulkFileMib.Cbfdefine()
+        self.cbfdefine = CISCOBULKFILEMIB.Cbfdefine()
         self.cbfdefine.parent = self
         self._children_name_map["cbfdefine"] = "cbfDefine"
         self._children_yang_names.add("cbfDefine")
 
-        self.cbfdefinefiletable = CiscoBulkFileMib.Cbfdefinefiletable()
+        self.cbfdefinefiletable = CISCOBULKFILEMIB.Cbfdefinefiletable()
         self.cbfdefinefiletable.parent = self
         self._children_name_map["cbfdefinefiletable"] = "cbfDefineFileTable"
         self._children_yang_names.add("cbfDefineFileTable")
 
-        self.cbfdefineobjecttable = CiscoBulkFileMib.Cbfdefineobjecttable()
+        self.cbfdefineobjecttable = CISCOBULKFILEMIB.Cbfdefineobjecttable()
         self.cbfdefineobjecttable.parent = self
         self._children_name_map["cbfdefineobjecttable"] = "cbfDefineObjectTable"
         self._children_yang_names.add("cbfDefineObjectTable")
 
-        self.cbfstatus = CiscoBulkFileMib.Cbfstatus()
+        self.cbfstatus = CISCOBULKFILEMIB.Cbfstatus()
         self.cbfstatus.parent = self
         self._children_name_map["cbfstatus"] = "cbfStatus"
         self._children_yang_names.add("cbfStatus")
 
-        self.cbfstatusfiletable = CiscoBulkFileMib.Cbfstatusfiletable()
+        self.cbfstatusfiletable = CISCOBULKFILEMIB.Cbfstatusfiletable()
         self.cbfstatusfiletable.parent = self
         self._children_name_map["cbfstatusfiletable"] = "cbfStatusFileTable"
         self._children_yang_names.add("cbfStatusFileTable")
+        self._segment_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
 
 
     class Cbfdefine(Entity):
@@ -149,10 +153,14 @@ class CiscoBulkFileMib(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CiscoBulkFileMib.Cbfdefine, self).__init__()
+            super(CISCOBULKFILEMIB.Cbfdefine, self).__init__()
 
             self.yang_name = "cbfDefine"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cbfdefinefiles = YLeaf(YType.uint32, "cbfDefineFiles")
 
@@ -169,292 +177,11 @@ class CiscoBulkFileMib(Entity):
             self.cbfdefineobjects = YLeaf(YType.uint32, "cbfDefineObjects")
 
             self.cbfdefineobjectsrefused = YLeaf(YType.uint32, "cbfDefineObjectsRefused")
+            self._segment_path = lambda: "cbfDefine"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cbfdefinefiles",
-                            "cbfdefinefilesrefused",
-                            "cbfdefinehighfiles",
-                            "cbfdefinehighobjects",
-                            "cbfdefinemaxfiles",
-                            "cbfdefinemaxobjects",
-                            "cbfdefineobjects",
-                            "cbfdefineobjectsrefused") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoBulkFileMib.Cbfdefine, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoBulkFileMib.Cbfdefine, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cbfdefinefiles.is_set or
-                self.cbfdefinefilesrefused.is_set or
-                self.cbfdefinehighfiles.is_set or
-                self.cbfdefinehighobjects.is_set or
-                self.cbfdefinemaxfiles.is_set or
-                self.cbfdefinemaxobjects.is_set or
-                self.cbfdefineobjects.is_set or
-                self.cbfdefineobjectsrefused.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cbfdefinefiles.yfilter != YFilter.not_set or
-                self.cbfdefinefilesrefused.yfilter != YFilter.not_set or
-                self.cbfdefinehighfiles.yfilter != YFilter.not_set or
-                self.cbfdefinehighobjects.yfilter != YFilter.not_set or
-                self.cbfdefinemaxfiles.yfilter != YFilter.not_set or
-                self.cbfdefinemaxobjects.yfilter != YFilter.not_set or
-                self.cbfdefineobjects.yfilter != YFilter.not_set or
-                self.cbfdefineobjectsrefused.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cbfDefine" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cbfdefinefiles.is_set or self.cbfdefinefiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinefiles.get_name_leafdata())
-            if (self.cbfdefinefilesrefused.is_set or self.cbfdefinefilesrefused.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinefilesrefused.get_name_leafdata())
-            if (self.cbfdefinehighfiles.is_set or self.cbfdefinehighfiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinehighfiles.get_name_leafdata())
-            if (self.cbfdefinehighobjects.is_set or self.cbfdefinehighobjects.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinehighobjects.get_name_leafdata())
-            if (self.cbfdefinemaxfiles.is_set or self.cbfdefinemaxfiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinemaxfiles.get_name_leafdata())
-            if (self.cbfdefinemaxobjects.is_set or self.cbfdefinemaxobjects.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefinemaxobjects.get_name_leafdata())
-            if (self.cbfdefineobjects.is_set or self.cbfdefineobjects.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefineobjects.get_name_leafdata())
-            if (self.cbfdefineobjectsrefused.is_set or self.cbfdefineobjectsrefused.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfdefineobjectsrefused.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cbfDefineFiles" or name == "cbfDefineFilesRefused" or name == "cbfDefineHighFiles" or name == "cbfDefineHighObjects" or name == "cbfDefineMaxFiles" or name == "cbfDefineMaxObjects" or name == "cbfDefineObjects" or name == "cbfDefineObjectsRefused"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cbfDefineFiles"):
-                self.cbfdefinefiles = value
-                self.cbfdefinefiles.value_namespace = name_space
-                self.cbfdefinefiles.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineFilesRefused"):
-                self.cbfdefinefilesrefused = value
-                self.cbfdefinefilesrefused.value_namespace = name_space
-                self.cbfdefinefilesrefused.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineHighFiles"):
-                self.cbfdefinehighfiles = value
-                self.cbfdefinehighfiles.value_namespace = name_space
-                self.cbfdefinehighfiles.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineHighObjects"):
-                self.cbfdefinehighobjects = value
-                self.cbfdefinehighobjects.value_namespace = name_space
-                self.cbfdefinehighobjects.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineMaxFiles"):
-                self.cbfdefinemaxfiles = value
-                self.cbfdefinemaxfiles.value_namespace = name_space
-                self.cbfdefinemaxfiles.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineMaxObjects"):
-                self.cbfdefinemaxobjects = value
-                self.cbfdefinemaxobjects.value_namespace = name_space
-                self.cbfdefinemaxobjects.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineObjects"):
-                self.cbfdefineobjects = value
-                self.cbfdefineobjects.value_namespace = name_space
-                self.cbfdefineobjects.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfDefineObjectsRefused"):
-                self.cbfdefineobjectsrefused = value
-                self.cbfdefineobjectsrefused.value_namespace = name_space
-                self.cbfdefineobjectsrefused.value_namespace_prefix = name_space_prefix
-
-
-    class Cbfstatus(Entity):
-        """
-        
-        
-        .. attribute:: cbfstatusfiles
-        
-        	The current number of file statuses in cbfStatusFileTable
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatusfilesbumped
-        
-        	The number times the oldest entry was deleted due to exceeding cbfStatusMaxFiles
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatushighfiles
-        
-        	The maximum value of cbfStatusFiles since system  initialization
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cbfstatusmaxfiles
-        
-        	The maximum number of file statuses this system can hold in cbfStatusFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number deletes the oldest finished entries until the new limit is satisfied
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'CISCO-BULK-FILE-MIB'
-        _revision = '2002-06-10'
-
-        def __init__(self):
-            super(CiscoBulkFileMib.Cbfstatus, self).__init__()
-
-            self.yang_name = "cbfStatus"
-            self.yang_parent_name = "CISCO-BULK-FILE-MIB"
-
-            self.cbfstatusfiles = YLeaf(YType.uint32, "cbfStatusFiles")
-
-            self.cbfstatusfilesbumped = YLeaf(YType.uint32, "cbfStatusFilesBumped")
-
-            self.cbfstatushighfiles = YLeaf(YType.uint32, "cbfStatusHighFiles")
-
-            self.cbfstatusmaxfiles = YLeaf(YType.uint32, "cbfStatusMaxFiles")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cbfstatusfiles",
-                            "cbfstatusfilesbumped",
-                            "cbfstatushighfiles",
-                            "cbfstatusmaxfiles") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoBulkFileMib.Cbfstatus, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoBulkFileMib.Cbfstatus, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cbfstatusfiles.is_set or
-                self.cbfstatusfilesbumped.is_set or
-                self.cbfstatushighfiles.is_set or
-                self.cbfstatusmaxfiles.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cbfstatusfiles.yfilter != YFilter.not_set or
-                self.cbfstatusfilesbumped.yfilter != YFilter.not_set or
-                self.cbfstatushighfiles.yfilter != YFilter.not_set or
-                self.cbfstatusmaxfiles.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cbfStatus" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cbfstatusfiles.is_set or self.cbfstatusfiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfstatusfiles.get_name_leafdata())
-            if (self.cbfstatusfilesbumped.is_set or self.cbfstatusfilesbumped.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfstatusfilesbumped.get_name_leafdata())
-            if (self.cbfstatushighfiles.is_set or self.cbfstatushighfiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfstatushighfiles.get_name_leafdata())
-            if (self.cbfstatusmaxfiles.is_set or self.cbfstatusmaxfiles.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cbfstatusmaxfiles.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cbfStatusFiles" or name == "cbfStatusFilesBumped" or name == "cbfStatusHighFiles" or name == "cbfStatusMaxFiles"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cbfStatusFiles"):
-                self.cbfstatusfiles = value
-                self.cbfstatusfiles.value_namespace = name_space
-                self.cbfstatusfiles.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfStatusFilesBumped"):
-                self.cbfstatusfilesbumped = value
-                self.cbfstatusfilesbumped.value_namespace = name_space
-                self.cbfstatusfilesbumped.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfStatusHighFiles"):
-                self.cbfstatushighfiles = value
-                self.cbfstatushighfiles.value_namespace = name_space
-                self.cbfstatushighfiles.value_namespace_prefix = name_space_prefix
-            if(value_path == "cbfStatusMaxFiles"):
-                self.cbfstatusmaxfiles = value
-                self.cbfstatusmaxfiles.value_namespace = name_space
-                self.cbfstatusmaxfiles.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefine, ['cbfdefinefiles', 'cbfdefinefilesrefused', 'cbfdefinehighfiles', 'cbfdefinehighobjects', 'cbfdefinemaxfiles', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefineobjectsrefused'], name, value)
 
 
     class Cbfdefinefiletable(Entity):
@@ -464,7 +191,7 @@ class CiscoBulkFileMib(Entity):
         .. attribute:: cbfdefinefileentry
         
         	Information for creation of a bulk file.  To creat a bulk file an application creates an entry in this table and corresponding entries in cbfDefineObjectTable.  When the entry in this table and the corresponding entries in cbfDefineObjectTable are 'active' the appliction uses cbfDefineFileNow to create the file and a corresponding entry in cbfStatusFileTable.  Deleting an entry in cbfDefineFileTable deletes all corresponding entries in cbfDefineObjectTable and cbfStatusFileTable.  An entry may not be modified or deleted while its cbfDefineFileNow has the value 'running'
-        	**type**\: list of    :py:class:`Cbfdefinefileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry>`
+        	**type**\: list of    :py:class:`Cbfdefinefileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
         
         
 
@@ -474,36 +201,21 @@ class CiscoBulkFileMib(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CiscoBulkFileMib.Cbfdefinefiletable, self).__init__()
+            super(CISCOBULKFILEMIB.Cbfdefinefiletable, self).__init__()
 
             self.yang_name = "cbfDefineFileTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbfDefineFileEntry" : ("cbfdefinefileentry", CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry)}
 
             self.cbfdefinefileentry = YList(self)
+            self._segment_path = lambda: "cbfDefineFileTable"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoBulkFileMib.Cbfdefinefiletable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoBulkFileMib.Cbfdefinefiletable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable, [], name, value)
 
 
         class Cbfdefinefileentry(Entity):
@@ -535,12 +247,12 @@ class CiscoBulkFileMib(Entity):
             .. attribute:: cbfdefinefileentrystatus
             
             	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineFileEntry
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: cbfdefinefileformat
             
             	The format of the data in the file\:  StandardBER        standard SNMP ASN.1 BER bulkBinary        a binary format specified with this MIB bulkASCII        a human\-readable form of bulkBinary variantBERWithCksum ASN.1 BER encoding with checksum variantBinWithCksum a binary format with checksum      A given system may support any or all of these
-            	**type**\:   :py:class:`Cbfdefinefileformat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefileformat>`
+            	**type**\:   :py:class:`Cbfdefinefileformat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefileformat>`
             
             .. attribute:: cbfdefinefilename
             
@@ -557,12 +269,12 @@ class CiscoBulkFileMib(Entity):
             .. attribute:: cbfdefinefilenow
             
             	The control to cause file creation.  The only values that can be set are 'create' and 'forcedCreate'. These can be set only  when the value is 'ready'.  Setting it to 'create' begins a  file creation and creates a corresponding entry in  cbfStatusFileTable. The system may choose to use an already  existing copy of the file instead of creating a new one. This may happen if there has been no configuration change on the  system and a request to recreate the file is received.  Setting this object to 'forcedCreate' forces the system to  create a new copy of the file.  The value is 'notActve' as long as cbfDefineFileEntryStatus or any corresponding cbfDefineObjectEntryStatus is not active.  When cbfDefineFileEntryStatus becomes active and all corresponding cbfDefineObjectEntryStatuses are active this  object automatically goes to 'ready'
-            	**type**\:   :py:class:`Cbfdefinefilenow <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilenow>`
+            	**type**\:   :py:class:`Cbfdefinefilenow <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilenow>`
             
             .. attribute:: cbfdefinefilestorage
             
             	The type of file storage to use\:  ephemeral        data exists in small amounts until read volatile        data exists in volatile memory permanent        data survives reboot  An ephemeral file is suitable to be read only one time.  Note that this value is taken as advisory and may be overridden by explicit device or path choices in cbfDefineFile.  A given system may support any or all of these
-            	**type**\:   :py:class:`Cbfdefinefilestorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilestorage>`
+            	**type**\:   :py:class:`Cbfdefinefilestorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilestorage>`
             
             
 
@@ -572,10 +284,14 @@ class CiscoBulkFileMib(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry, self).__init__()
+                super(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, self).__init__()
 
                 self.yang_name = "cbfDefineFileEntry"
                 self.yang_parent_name = "cbfDefineFileTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cbfdefinefileindex = YLeaf(YType.uint32, "cbfDefineFileIndex")
 
@@ -590,36 +306,11 @@ class CiscoBulkFileMib(Entity):
                 self.cbfdefinefilenow = YLeaf(YType.enumeration, "cbfDefineFileNow")
 
                 self.cbfdefinefilestorage = YLeaf(YType.enumeration, "cbfDefineFileStorage")
+                self._segment_path = lambda: "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cbfdefinefileindex",
-                                "cbfdefinefileentrystatus",
-                                "cbfdefinefileformat",
-                                "cbfdefinefilename",
-                                "cbfdefinefilenotifyoncompletion",
-                                "cbfdefinefilenow",
-                                "cbfdefinefilestorage") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, ['cbfdefinefileindex', 'cbfdefinefileentrystatus', 'cbfdefinefileformat', 'cbfdefinefilename', 'cbfdefinefilenotifyoncompletion', 'cbfdefinefilenow', 'cbfdefinefilestorage'], name, value)
 
             class Cbfdefinefileformat(Enum):
                 """
@@ -754,158 +445,6 @@ class CiscoBulkFileMib(Entity):
                 permanent = Enum.YLeaf(3, "permanent")
 
 
-            def has_data(self):
-                return (
-                    self.cbfdefinefileindex.is_set or
-                    self.cbfdefinefileentrystatus.is_set or
-                    self.cbfdefinefileformat.is_set or
-                    self.cbfdefinefilename.is_set or
-                    self.cbfdefinefilenotifyoncompletion.is_set or
-                    self.cbfdefinefilenow.is_set or
-                    self.cbfdefinefilestorage.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cbfdefinefileindex.yfilter != YFilter.not_set or
-                    self.cbfdefinefileentrystatus.yfilter != YFilter.not_set or
-                    self.cbfdefinefileformat.yfilter != YFilter.not_set or
-                    self.cbfdefinefilename.yfilter != YFilter.not_set or
-                    self.cbfdefinefilenotifyoncompletion.yfilter != YFilter.not_set or
-                    self.cbfdefinefilenow.yfilter != YFilter.not_set or
-                    self.cbfdefinefilestorage.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cbfdefinefileindex.is_set or self.cbfdefinefileindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefileindex.get_name_leafdata())
-                if (self.cbfdefinefileentrystatus.is_set or self.cbfdefinefileentrystatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefileentrystatus.get_name_leafdata())
-                if (self.cbfdefinefileformat.is_set or self.cbfdefinefileformat.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefileformat.get_name_leafdata())
-                if (self.cbfdefinefilename.is_set or self.cbfdefinefilename.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefilename.get_name_leafdata())
-                if (self.cbfdefinefilenotifyoncompletion.is_set or self.cbfdefinefilenotifyoncompletion.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefilenotifyoncompletion.get_name_leafdata())
-                if (self.cbfdefinefilenow.is_set or self.cbfdefinefilenow.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefilenow.get_name_leafdata())
-                if (self.cbfdefinefilestorage.is_set or self.cbfdefinefilestorage.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefilestorage.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cbfDefineFileIndex" or name == "cbfDefineFileEntryStatus" or name == "cbfDefineFileFormat" or name == "cbfDefineFileName" or name == "cbfDefineFileNotifyOnCompletion" or name == "cbfDefineFileNow" or name == "cbfDefineFileStorage"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cbfDefineFileIndex"):
-                    self.cbfdefinefileindex = value
-                    self.cbfdefinefileindex.value_namespace = name_space
-                    self.cbfdefinefileindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileEntryStatus"):
-                    self.cbfdefinefileentrystatus = value
-                    self.cbfdefinefileentrystatus.value_namespace = name_space
-                    self.cbfdefinefileentrystatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileFormat"):
-                    self.cbfdefinefileformat = value
-                    self.cbfdefinefileformat.value_namespace = name_space
-                    self.cbfdefinefileformat.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileName"):
-                    self.cbfdefinefilename = value
-                    self.cbfdefinefilename.value_namespace = name_space
-                    self.cbfdefinefilename.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileNotifyOnCompletion"):
-                    self.cbfdefinefilenotifyoncompletion = value
-                    self.cbfdefinefilenotifyoncompletion.value_namespace = name_space
-                    self.cbfdefinefilenotifyoncompletion.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileNow"):
-                    self.cbfdefinefilenow = value
-                    self.cbfdefinefilenow.value_namespace = name_space
-                    self.cbfdefinefilenow.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineFileStorage"):
-                    self.cbfdefinefilestorage = value
-                    self.cbfdefinefilestorage.value_namespace = name_space
-                    self.cbfdefinefilestorage.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cbfdefinefileentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cbfdefinefileentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cbfDefineFileTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cbfDefineFileEntry"):
-                for c in self.cbfdefinefileentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cbfdefinefileentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cbfDefineFileEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
 
     class Cbfdefineobjecttable(Entity):
         """
@@ -914,7 +453,7 @@ class CiscoBulkFileMib(Entity):
         .. attribute:: cbfdefineobjectentry
         
         	Information about one object for a particular file.  An application uses cbfDefineObjectEntryStatus to create entries in this table in correspondence with entries in cbfDefineFileTable, which must be created first.  Entries in this table may not be changed, created or deleted while the corresponding value of cbfDefineFileNow is 'running'
-        	**type**\: list of    :py:class:`Cbfdefineobjectentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry>`
+        	**type**\: list of    :py:class:`Cbfdefineobjectentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry>`
         
         
 
@@ -924,36 +463,21 @@ class CiscoBulkFileMib(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CiscoBulkFileMib.Cbfdefineobjecttable, self).__init__()
+            super(CISCOBULKFILEMIB.Cbfdefineobjecttable, self).__init__()
 
             self.yang_name = "cbfDefineObjectTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbfDefineObjectEntry" : ("cbfdefineobjectentry", CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry)}
 
             self.cbfdefineobjectentry = YList(self)
+            self._segment_path = lambda: "cbfDefineObjectTable"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoBulkFileMib.Cbfdefineobjecttable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoBulkFileMib.Cbfdefineobjecttable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable, [], name, value)
 
 
         class Cbfdefineobjectentry(Entity):
@@ -974,7 +498,7 @@ class CiscoBulkFileMib(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry>`
+            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
             
             .. attribute:: cbfdefineobjectindex  <key>
             
@@ -986,12 +510,12 @@ class CiscoBulkFileMib(Entity):
             .. attribute:: cbfdefineobjectclass
             
             	The meaning of each object class is given below\:  object          a single MIB object is retrieved.  lexicalTable    an entire table or partial table                 is retrieved in lexical order of rows.  leastCpuTable   an entire table is retrieved with                 lowest CPU utilization.                 Lexical ordering of rows may not be                  maintained and is dependent upon                  individual MIB implementation
-            	**type**\:   :py:class:`Cbfdefineobjectclass <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry.Cbfdefineobjectclass>`
+            	**type**\:   :py:class:`Cbfdefineobjectclass <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry.Cbfdefineobjectclass>`
             
             .. attribute:: cbfdefineobjectentrystatus
             
             	The control that allows creation, modification, and deletion of entries.  For detailed rules see the DESCRIPTION for cbfDefineObjectEntry
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: cbfdefineobjectid
             
@@ -1029,10 +553,14 @@ class CiscoBulkFileMib(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry, self).__init__()
+                super(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, self).__init__()
 
                 self.yang_name = "cbfDefineObjectEntry"
                 self.yang_parent_name = "cbfDefineObjectTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cbfdefinefileindex = YLeaf(YType.str, "cbfDefineFileIndex")
 
@@ -1049,37 +577,11 @@ class CiscoBulkFileMib(Entity):
                 self.cbfdefineobjectnumentries = YLeaf(YType.uint32, "cbfDefineObjectNumEntries")
 
                 self.cbfdefineobjecttableinstance = YLeaf(YType.str, "cbfDefineObjectTableInstance")
+                self._segment_path = lambda: "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfDefineObjectIndex='" + self.cbfdefineobjectindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cbfdefinefileindex",
-                                "cbfdefineobjectindex",
-                                "cbfdefineobjectclass",
-                                "cbfdefineobjectentrystatus",
-                                "cbfdefineobjectid",
-                                "cbfdefineobjectlastpolledinst",
-                                "cbfdefineobjectnumentries",
-                                "cbfdefineobjecttableinstance") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectentrystatus', 'cbfdefineobjectid', 'cbfdefineobjectlastpolledinst', 'cbfdefineobjectnumentries', 'cbfdefineobjecttableinstance'], name, value)
 
             class Cbfdefineobjectclass(Enum):
                 """
@@ -1118,175 +620,38 @@ class CiscoBulkFileMib(Entity):
                 leastCpuTable = Enum.YLeaf(3, "leastCpuTable")
 
 
-            def has_data(self):
-                return (
-                    self.cbfdefinefileindex.is_set or
-                    self.cbfdefineobjectindex.is_set or
-                    self.cbfdefineobjectclass.is_set or
-                    self.cbfdefineobjectentrystatus.is_set or
-                    self.cbfdefineobjectid.is_set or
-                    self.cbfdefineobjectlastpolledinst.is_set or
-                    self.cbfdefineobjectnumentries.is_set or
-                    self.cbfdefineobjecttableinstance.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cbfdefinefileindex.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectindex.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectclass.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectentrystatus.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectid.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectlastpolledinst.yfilter != YFilter.not_set or
-                    self.cbfdefineobjectnumentries.yfilter != YFilter.not_set or
-                    self.cbfdefineobjecttableinstance.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfDefineObjectIndex='" + self.cbfdefineobjectindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cbfdefinefileindex.is_set or self.cbfdefinefileindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefileindex.get_name_leafdata())
-                if (self.cbfdefineobjectindex.is_set or self.cbfdefineobjectindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectindex.get_name_leafdata())
-                if (self.cbfdefineobjectclass.is_set or self.cbfdefineobjectclass.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectclass.get_name_leafdata())
-                if (self.cbfdefineobjectentrystatus.is_set or self.cbfdefineobjectentrystatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectentrystatus.get_name_leafdata())
-                if (self.cbfdefineobjectid.is_set or self.cbfdefineobjectid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectid.get_name_leafdata())
-                if (self.cbfdefineobjectlastpolledinst.is_set or self.cbfdefineobjectlastpolledinst.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectlastpolledinst.get_name_leafdata())
-                if (self.cbfdefineobjectnumentries.is_set or self.cbfdefineobjectnumentries.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjectnumentries.get_name_leafdata())
-                if (self.cbfdefineobjecttableinstance.is_set or self.cbfdefineobjecttableinstance.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefineobjecttableinstance.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cbfDefineFileIndex" or name == "cbfDefineObjectIndex" or name == "cbfDefineObjectClass" or name == "cbfDefineObjectEntryStatus" or name == "cbfDefineObjectID" or name == "cbfDefineObjectLastPolledInst" or name == "cbfDefineObjectNumEntries" or name == "cbfDefineObjectTableInstance"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cbfDefineFileIndex"):
-                    self.cbfdefinefileindex = value
-                    self.cbfdefinefileindex.value_namespace = name_space
-                    self.cbfdefinefileindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectIndex"):
-                    self.cbfdefineobjectindex = value
-                    self.cbfdefineobjectindex.value_namespace = name_space
-                    self.cbfdefineobjectindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectClass"):
-                    self.cbfdefineobjectclass = value
-                    self.cbfdefineobjectclass.value_namespace = name_space
-                    self.cbfdefineobjectclass.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectEntryStatus"):
-                    self.cbfdefineobjectentrystatus = value
-                    self.cbfdefineobjectentrystatus.value_namespace = name_space
-                    self.cbfdefineobjectentrystatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectID"):
-                    self.cbfdefineobjectid = value
-                    self.cbfdefineobjectid.value_namespace = name_space
-                    self.cbfdefineobjectid.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectLastPolledInst"):
-                    self.cbfdefineobjectlastpolledinst = value
-                    self.cbfdefineobjectlastpolledinst.value_namespace = name_space
-                    self.cbfdefineobjectlastpolledinst.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectNumEntries"):
-                    self.cbfdefineobjectnumentries = value
-                    self.cbfdefineobjectnumentries.value_namespace = name_space
-                    self.cbfdefineobjectnumentries.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfDefineObjectTableInstance"):
-                    self.cbfdefineobjecttableinstance = value
-                    self.cbfdefineobjecttableinstance.value_namespace = name_space
-                    self.cbfdefineobjecttableinstance.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cbfdefineobjectentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cbfdefineobjectentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cbfDefineObjectTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cbfDefineObjectEntry"):
-                for c in self.cbfdefineobjectentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoBulkFileMib.Cbfdefineobjecttable.Cbfdefineobjectentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cbfdefineobjectentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cbfDefineObjectEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Cbfstatusfiletable(Entity):
+    class Cbfstatus(Entity):
         """
-        A table of bulk file status.
         
-        .. attribute:: cbfstatusfileentry
         
-        	Status for a particular file.  An entry exists in this table for each time cbfDefineFileNow has been set to 'create' and the corresponding entry here has not been explicitly deleted by the application or bumped to make room for a new entry.  Deleting an entry with cbfStatusFileState 'running' aborts the file creation attempt.  It is implementation and file\-system specific whether deleting the entry also deletes the file
-        	**type**\: list of    :py:class:`Cbfstatusfileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry>`
+        .. attribute:: cbfstatusfiles
+        
+        	The current number of file statuses in cbfStatusFileTable
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatusfilesbumped
+        
+        	The number times the oldest entry was deleted due to exceeding cbfStatusMaxFiles
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatushighfiles
+        
+        	The maximum value of cbfStatusFiles since system  initialization
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cbfstatusmaxfiles
+        
+        	The maximum number of file statuses this system can hold in cbfStatusFileTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  Changing this number deletes the oldest finished entries until the new limit is satisfied
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         
 
@@ -1296,36 +661,61 @@ class CiscoBulkFileMib(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CiscoBulkFileMib.Cbfstatusfiletable, self).__init__()
+            super(CISCOBULKFILEMIB.Cbfstatus, self).__init__()
+
+            self.yang_name = "cbfStatus"
+            self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cbfstatusfiles = YLeaf(YType.uint32, "cbfStatusFiles")
+
+            self.cbfstatusfilesbumped = YLeaf(YType.uint32, "cbfStatusFilesBumped")
+
+            self.cbfstatushighfiles = YLeaf(YType.uint32, "cbfStatusHighFiles")
+
+            self.cbfstatusmaxfiles = YLeaf(YType.uint32, "cbfStatusMaxFiles")
+            self._segment_path = lambda: "cbfStatus"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatus, ['cbfstatusfiles', 'cbfstatusfilesbumped', 'cbfstatushighfiles', 'cbfstatusmaxfiles'], name, value)
+
+
+    class Cbfstatusfiletable(Entity):
+        """
+        A table of bulk file status.
+        
+        .. attribute:: cbfstatusfileentry
+        
+        	Status for a particular file.  An entry exists in this table for each time cbfDefineFileNow has been set to 'create' and the corresponding entry here has not been explicitly deleted by the application or bumped to make room for a new entry.  Deleting an entry with cbfStatusFileState 'running' aborts the file creation attempt.  It is implementation and file\-system specific whether deleting the entry also deletes the file
+        	**type**\: list of    :py:class:`Cbfstatusfileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-BULK-FILE-MIB'
+        _revision = '2002-06-10'
+
+        def __init__(self):
+            super(CISCOBULKFILEMIB.Cbfstatusfiletable, self).__init__()
 
             self.yang_name = "cbfStatusFileTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbfStatusFileEntry" : ("cbfstatusfileentry", CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry)}
 
             self.cbfstatusfileentry = YList(self)
+            self._segment_path = lambda: "cbfStatusFileTable"
+            self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoBulkFileMib.Cbfstatusfiletable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoBulkFileMib.Cbfstatusfiletable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable, [], name, value)
 
 
         class Cbfstatusfileentry(Entity):
@@ -1350,7 +740,7 @@ class CiscoBulkFileMib(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfdefinefiletable.Cbfdefinefileentry>`
+            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
             
             .. attribute:: cbfstatusfileindex  <key>
             
@@ -1369,12 +759,12 @@ class CiscoBulkFileMib(Entity):
             .. attribute:: cbfstatusfileentrystatus
             
             	The control that allows deletion of entries. For detailed rules see the DESCRIPTION for cbfStatusFileEntry.  This object may not be set to any value other than 'destroy'
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: cbfstatusfilestate
             
             	The file state\:  running    data is being written to the file ready      the file is ready to be read emptied    an ephemeral file was successfully consumed noSpace    no data due to insufficient file space badName    no data due to a name or path problem writeErr   no data due to fatal file write error noMem      no data due to insufficient dynamic memory buffErr    implementation buffer too small aborted    short terminated by operator command  Only the 'ready' state implies that the file is available for transfer.  The disposition of files after an error is implementation and file\-syste specific
-            	**type**\:   :py:class:`Cbfstatusfilestate <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry.Cbfstatusfilestate>`
+            	**type**\:   :py:class:`Cbfstatusfilestate <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry.Cbfstatusfilestate>`
             
             
 
@@ -1384,10 +774,14 @@ class CiscoBulkFileMib(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry, self).__init__()
+                super(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, self).__init__()
 
                 self.yang_name = "cbfStatusFileEntry"
                 self.yang_parent_name = "cbfStatusFileTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cbfdefinefileindex = YLeaf(YType.str, "cbfDefineFileIndex")
 
@@ -1398,34 +792,11 @@ class CiscoBulkFileMib(Entity):
                 self.cbfstatusfileentrystatus = YLeaf(YType.enumeration, "cbfStatusFileEntryStatus")
 
                 self.cbfstatusfilestate = YLeaf(YType.enumeration, "cbfStatusFileState")
+                self._segment_path = lambda: "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfStatusFileIndex='" + self.cbfstatusfileindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cbfdefinefileindex",
-                                "cbfstatusfileindex",
-                                "cbfstatusfilecompletiontime",
-                                "cbfstatusfileentrystatus",
-                                "cbfstatusfilestate") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus', 'cbfstatusfilestate'], name, value)
 
             class Cbfstatusfilestate(Enum):
                 """
@@ -1498,227 +869,7 @@ class CiscoBulkFileMib(Entity):
                 aborted = Enum.YLeaf(9, "aborted")
 
 
-            def has_data(self):
-                return (
-                    self.cbfdefinefileindex.is_set or
-                    self.cbfstatusfileindex.is_set or
-                    self.cbfstatusfilecompletiontime.is_set or
-                    self.cbfstatusfileentrystatus.is_set or
-                    self.cbfstatusfilestate.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cbfdefinefileindex.yfilter != YFilter.not_set or
-                    self.cbfstatusfileindex.yfilter != YFilter.not_set or
-                    self.cbfstatusfilecompletiontime.yfilter != YFilter.not_set or
-                    self.cbfstatusfileentrystatus.yfilter != YFilter.not_set or
-                    self.cbfstatusfilestate.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + self.cbfdefinefileindex.get() + "']" + "[cbfStatusFileIndex='" + self.cbfstatusfileindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cbfdefinefileindex.is_set or self.cbfdefinefileindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfdefinefileindex.get_name_leafdata())
-                if (self.cbfstatusfileindex.is_set or self.cbfstatusfileindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfstatusfileindex.get_name_leafdata())
-                if (self.cbfstatusfilecompletiontime.is_set or self.cbfstatusfilecompletiontime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfstatusfilecompletiontime.get_name_leafdata())
-                if (self.cbfstatusfileentrystatus.is_set or self.cbfstatusfileentrystatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfstatusfileentrystatus.get_name_leafdata())
-                if (self.cbfstatusfilestate.is_set or self.cbfstatusfilestate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cbfstatusfilestate.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cbfDefineFileIndex" or name == "cbfStatusFileIndex" or name == "cbfStatusFileCompletionTime" or name == "cbfStatusFileEntryStatus" or name == "cbfStatusFileState"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cbfDefineFileIndex"):
-                    self.cbfdefinefileindex = value
-                    self.cbfdefinefileindex.value_namespace = name_space
-                    self.cbfdefinefileindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfStatusFileIndex"):
-                    self.cbfstatusfileindex = value
-                    self.cbfstatusfileindex.value_namespace = name_space
-                    self.cbfstatusfileindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfStatusFileCompletionTime"):
-                    self.cbfstatusfilecompletiontime = value
-                    self.cbfstatusfilecompletiontime.value_namespace = name_space
-                    self.cbfstatusfilecompletiontime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfStatusFileEntryStatus"):
-                    self.cbfstatusfileentrystatus = value
-                    self.cbfstatusfileentrystatus.value_namespace = name_space
-                    self.cbfstatusfileentrystatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "cbfStatusFileState"):
-                    self.cbfstatusfilestate = value
-                    self.cbfstatusfilestate.value_namespace = name_space
-                    self.cbfstatusfilestate.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cbfstatusfileentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cbfstatusfileentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cbfStatusFileTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cbfStatusFileEntry"):
-                for c in self.cbfstatusfileentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoBulkFileMib.Cbfstatusfiletable.Cbfstatusfileentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cbfstatusfileentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cbfStatusFileEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.cbfdefine is not None and self.cbfdefine.has_data()) or
-            (self.cbfdefinefiletable is not None and self.cbfdefinefiletable.has_data()) or
-            (self.cbfdefineobjecttable is not None and self.cbfdefineobjecttable.has_data()) or
-            (self.cbfstatus is not None and self.cbfstatus.has_data()) or
-            (self.cbfstatusfiletable is not None and self.cbfstatusfiletable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.cbfdefine is not None and self.cbfdefine.has_operation()) or
-            (self.cbfdefinefiletable is not None and self.cbfdefinefiletable.has_operation()) or
-            (self.cbfdefineobjecttable is not None and self.cbfdefineobjecttable.has_operation()) or
-            (self.cbfstatus is not None and self.cbfstatus.has_operation()) or
-            (self.cbfstatusfiletable is not None and self.cbfstatusfiletable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cbfDefine"):
-            if (self.cbfdefine is None):
-                self.cbfdefine = CiscoBulkFileMib.Cbfdefine()
-                self.cbfdefine.parent = self
-                self._children_name_map["cbfdefine"] = "cbfDefine"
-            return self.cbfdefine
-
-        if (child_yang_name == "cbfDefineFileTable"):
-            if (self.cbfdefinefiletable is None):
-                self.cbfdefinefiletable = CiscoBulkFileMib.Cbfdefinefiletable()
-                self.cbfdefinefiletable.parent = self
-                self._children_name_map["cbfdefinefiletable"] = "cbfDefineFileTable"
-            return self.cbfdefinefiletable
-
-        if (child_yang_name == "cbfDefineObjectTable"):
-            if (self.cbfdefineobjecttable is None):
-                self.cbfdefineobjecttable = CiscoBulkFileMib.Cbfdefineobjecttable()
-                self.cbfdefineobjecttable.parent = self
-                self._children_name_map["cbfdefineobjecttable"] = "cbfDefineObjectTable"
-            return self.cbfdefineobjecttable
-
-        if (child_yang_name == "cbfStatus"):
-            if (self.cbfstatus is None):
-                self.cbfstatus = CiscoBulkFileMib.Cbfstatus()
-                self.cbfstatus.parent = self
-                self._children_name_map["cbfstatus"] = "cbfStatus"
-            return self.cbfstatus
-
-        if (child_yang_name == "cbfStatusFileTable"):
-            if (self.cbfstatusfiletable is None):
-                self.cbfstatusfiletable = CiscoBulkFileMib.Cbfstatusfiletable()
-                self.cbfstatusfiletable.parent = self
-                self._children_name_map["cbfstatusfiletable"] = "cbfStatusFileTable"
-            return self.cbfstatusfiletable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cbfDefine" or name == "cbfDefineFileTable" or name == "cbfDefineObjectTable" or name == "cbfStatus" or name == "cbfStatusFileTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
     def clone_ptr(self):
-        self._top_entity = CiscoBulkFileMib()
+        self._top_entity = CISCOBULKFILEMIB()
         return self._top_entity
 

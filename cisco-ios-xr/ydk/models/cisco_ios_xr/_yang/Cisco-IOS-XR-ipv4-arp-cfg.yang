@@ -39,6 +39,7 @@ module Cisco-IOS-XR-ipv4-arp-cfg {
      This module contains definitions
      for the following management objects:
        arp: ARP configuraiton
+       iedge-cfg: iedge cfg
        arpgmp: arpgmp
        arp-redundancy: arp redundancy
 
@@ -46,8 +47,13 @@ module Cisco-IOS-XR-ipv4-arp-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -110,6 +116,18 @@ module Cisco-IOS-XR-ipv4-arp-cfg {
         range "0..7";
       }
       description "Configure outer cos values for arp packets";
+    }
+  }
+
+  container iedge-cfg {
+    description "iedge cfg";
+    leaf subscriber-uncond-proxy {
+      type empty;
+      description "ARP Subscriber Enable Unconditional Proxy ARP";
+    }
+    leaf subscriber-scale-mode {
+      type empty;
+      description "ARP Subscriber Scale Mode Configuration";
     }
   }
 
@@ -341,6 +359,10 @@ module Cisco-IOS-XR-ipv4-arp-cfg {
         description
           "Enable the dynamic learning of ARP entries(for
           local subnet) on the interface";
+      }
+      leaf learning-solicited {
+        type empty;
+        description "ARP learning solicited configuration";
       }
       leaf gratuitous-ignore {
         type empty;

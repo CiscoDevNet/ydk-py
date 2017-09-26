@@ -7,11 +7,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-tty\-server\-oper
 module with state data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -61,7 +60,7 @@ class HostAfIdBase(Identity):
     """
 
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
-    _revision = '2015-01-07'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(HostAfIdBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:Host-af-id-base")
@@ -76,7 +75,7 @@ class Ipv4(Identity):
     """
 
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
-    _revision = '2015-01-07'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv4")
@@ -91,7 +90,7 @@ class Ipv6(Identity):
     """
 
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
-    _revision = '2015-01-07'
+    _revision = '2017-05-01'
 
     def __init__(self):
         super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv6")

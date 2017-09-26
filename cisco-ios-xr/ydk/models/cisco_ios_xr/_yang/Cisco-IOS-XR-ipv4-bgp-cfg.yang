@@ -49,8 +49,18 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-08-27" {
     description
@@ -684,7 +694,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping ADDITIONAL-PATHS-SEND {
     description "Common node of global-af, vrf-global-af";
     leaf additional-paths-send {
-      type dt1:Bgpaf-additional-paths-cfg;
+      type dt1:Bgp-af-additional-paths-cfg;
       description "Advertise additional paths Send capability";
     }
   }
@@ -1509,7 +1519,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     container additional-paths-selection {
       description "Configure additional paths selection";
       leaf selection {
-        type dt1:Bgpaf-additional-paths-cfg;
+        type dt1:Bgp-af-additional-paths-cfg;
         description "Enable/disable selection ";
       }
       leaf route-policy-name {
@@ -2074,11 +2084,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
-  grouping INTERNAL-VPN-CLIENT-IBGPCE {
+  grouping INTERNAL-VPN-CLIENT-IBGP-CE {
     description
       "Common node of neighbor-group, neighbor,
       vrf-neighbor, session-group";
-    leaf internal-vpn-client-ibgpce {
+    leaf internal-vpn-client-ibgp-ce {
       type boolean;
       description
         "TRUE to preserve the CE path attributes.FALSE to
@@ -2210,7 +2220,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping ADDITIONAL-PATHS-RECEIVE {
     description "Common node of global-af, vrf-global-af";
     leaf additional-paths-receive {
-      type dt1:Bgpaf-additional-paths-cfg;
+      type dt1:Bgp-af-additional-paths-cfg;
       description "Advertise additional paths Receive capability";
     }
   }
@@ -2424,10 +2434,22 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
-  grouping PREFIX-ORF-POLICY {
+  grouping ENFORCE-MULTIPLE-LABELS {
     description
       "Common node of neighbor-group-af, neighbor-af,
       vrf-neighbor-af, af-group-af";
+    leaf enforce-multiple-labels {
+      type boolean;
+      description "TRUE to enforce multiple labels support.";
+    }
+  }
+
+  grouping PREFIX-ORF-POLICY {
+    description
+      "Common node of neighbor-group-af, neighbor-af,
+      vrf-neighbor-af, af-group-afCommon node of
+      neighbor-group-af, neighbor-af, vrf-neighbor-af,
+      af-group-af";
     leaf prefix-orf-policy {
       type string;
       description "Prefix ORF policy name for incoming updates";
@@ -2700,12 +2722,12 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
-  grouping ADVERTISE-LOCAL-L2VPNEVPN {
+  grouping ADVERTISE-LOCAL-L2VPN-EVPN {
     description
       "Common node of neighbor-group-af, neighbor-af,
       vrf-neighbor-af, af-group-af";
 
-    container advertise-local-l2vpnevpn {
+    container advertise-local-l2vpn-evpn {
       description
         "Advertise Of Local Routes to the peer with
         different RT";
@@ -2955,12 +2977,12 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
-  grouping ADVERTISE-L2VPNEVPN {
+  grouping ADVERTISE-L2VPN-EVPN {
     description
       "Common node of neighbor-group-af, neighbor-af,
       vrf-neighbor-af, af-group-af";
 
-    container advertise-l2vpnevpn {
+    container advertise-l2vpn-evpn {
       description "Advertise Translated Routes to the peer";
       leaf af-name {
         type dt1:Bgp-address-family;
@@ -3458,9 +3480,10 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses FLOWSPEC-VALIDATION;
-                      uses ADVERTISE-L2VPNEVPN;
-                      uses ADVERTISE-LOCAL-L2VPNEVPN;
+                      uses ADVERTISE-L2VPN-EVPN;
+                      uses ADVERTISE-LOCAL-L2VPN-EVPN;
                       uses ENCAPSULATION-TYPE;
+                      uses ENFORCE-MULTIPLE-LABELS;
                       uses AS-OVERRIDE;
                       uses MULTIPATH;
                       uses SEND-COMMUNITY-EBGP-GRACEFUL-SHUTDOWN;
@@ -3494,7 +3517,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-VRF-IMP-DISABLE-V4;
                     }
                   }
-                  uses INTERNAL-VPN-CLIENT-IBGPCE;
+                  uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
                   uses EBGP-MULTIHOP;
@@ -3616,10 +3639,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
                       uses FLOWSPEC-VALIDATION;
-                      uses ADVERTISE-L2VPNEVPN;
-                      uses ADVERTISE-LOCAL-L2VPNEVPN;
+                      uses ADVERTISE-L2VPN-EVPN;
+                      uses ADVERTISE-LOCAL-L2VPN-EVPN;
                       uses ENCAPSULATION-TYPE;
                       uses RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
+                      uses ENFORCE-MULTIPLE-LABELS;
                       uses AS-OVERRIDE;
                       uses MULTIPATH;
                       uses SEND-COMMUNITY-EBGP-GRACEFUL-SHUTDOWN;
@@ -3652,7 +3676,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-VRF-IMP-DISABLE-V4;
                     }
                   }
-                  uses INTERNAL-VPN-CLIENT-IBGPCE;
+                  uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
                   uses EBGP-MULTIHOP;
@@ -3766,10 +3790,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
                       uses FLOWSPEC-VALIDATION;
-                      uses ADVERTISE-L2VPNEVPN;
-                      uses ADVERTISE-LOCAL-L2VPNEVPN;
+                      uses ADVERTISE-L2VPN-EVPN;
+                      uses ADVERTISE-LOCAL-L2VPN-EVPN;
                       uses ENCAPSULATION-TYPE;
                       uses RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
+                      uses ENFORCE-MULTIPLE-LABELS;
                       uses AS-OVERRIDE;
                       uses MULTIPATH;
                       uses SEND-COMMUNITY-EBGP-GRACEFUL-SHUTDOWN;
@@ -3813,7 +3838,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     type xr:Cisco-ios-xr-string;
                     description "BGP neighbor group name";
                   }
-                  uses INTERNAL-VPN-CLIENT-IBGPCE;
+                  uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
                   uses EBGP-MULTIHOP;
@@ -3912,10 +3937,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
                       uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
                       uses FLOWSPEC-VALIDATION;
-                      uses ADVERTISE-L2VPNEVPN;
-                      uses ADVERTISE-LOCAL-L2VPNEVPN;
+                      uses ADVERTISE-L2VPN-EVPN;
+                      uses ADVERTISE-LOCAL-L2VPN-EVPN;
                       uses ENCAPSULATION-TYPE;
                       uses RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
+                      uses ENFORCE-MULTIPLE-LABELS;
                       uses AS-OVERRIDE;
                       uses MULTIPATH;
                       uses SEND-COMMUNITY-EBGP-GRACEFUL-SHUTDOWN;
@@ -3970,7 +3996,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     type xr:Cisco-ios-xr-string;
                     description "BGP session group name";
                   }
-                  uses INTERNAL-VPN-CLIENT-IBGPCE;
+                  uses INTERNAL-VPN-CLIENT-IBGP-CE;
                   uses LOCAL-ADDRESS;
                   uses BMP-ACTIVATE-TABLE;
                   uses EBGP-MULTIHOP;
@@ -5067,20 +5093,27 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         description "Initial refresh to generate BGP updates";
         leaf delay {
           type uint32 {
-            range "0..3600";
+            range "1..3600";
           }
           units "second";
+          must "not(../skip)";
           description
             "Delay in seconds before sending Refresh
             request to Peers";
         }
         leaf spread {
           type uint32 {
-            range "0..3600";
+            range "1..3600";
           }
+          must "../delay and not(../skip)";
           description
             "Spread over which to send initial Refresh
             request to Peers";
+        }
+        leaf skip {
+          type empty;
+          must "not(../delay or ../spread)";
+          description "Skip Route Refresh request to Peers";
         }
       }
 
@@ -5181,10 +5214,8 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         description "VRF for BMP Server";
       }
       leaf shutdown {
-        type boolean;
-        description
-          "TRUE to shutdown the BMP Server ConnectionFALSE
-          to bring back the BMP Server Connection";
+        type empty;
+        description "Shutdown connection to BMP server";
       }
       leaf update-source-interface {
         type xr:Interface-name;

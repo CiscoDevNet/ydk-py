@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,8 +25,18 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR controller-otu package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-03-13" {
+    description
+      "PRBS Info added";
+  }
 
   revision "2015-11-09" {
     description
@@ -332,6 +340,90 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
       }
     }
     description "Otu state et";
+  }
+  typedef Otu-prbs-status {
+    type enumeration {
+      enum locked {
+        value 0;
+        description "Locked";
+      }
+      enum unlocked {
+        value 1;
+        description "Unlocked";
+      }
+      enum not-applicable {
+        value 2;
+        description "Not Applicable";
+      }
+    }
+    description "Otu prbs status";
+  }
+  typedef Otu-prbs-pattern {
+    type enumeration {
+      enum not-applicable {
+        value 0;
+        description "OTU PRBS pattern not applicable";
+      }
+      enum pn31 {
+        value 1;
+        description "PN31";
+      }
+      enum pn23 {
+        value 2;
+        description "PN23";
+      }
+      enum pn11 {
+        value 4;
+        description "PN11";
+      }
+      enum inverted-pn31 {
+        value 8;
+        description "INVERTED PN31";
+      }
+      enum inverted-pn11 {
+        value 16;
+        description "INVERTED PN11";
+      }
+      enum pn15 {
+        value 32;
+        description "PN15";
+      }
+    }
+    description "Otu prbs pattern";
+  }
+  typedef Otu-prbs-mode {
+    type enumeration {
+      enum not-applicable {
+        value 0;
+        description "OTU PRBS mode not applicable";
+      }
+      enum source {
+        value 1;
+        description "Source";
+      }
+      enum sink {
+        value 2;
+        description "Sink";
+      }
+      enum source-sink {
+        value 3;
+        description "Source Sink";
+      }
+    }
+    description "Otu prbs mode";
+  }
+  typedef Otu-prbs-test {
+    type enumeration {
+      enum disable {
+        value 0;
+        description "Disable";
+      }
+      enum enable {
+        value 1;
+        description "Enable";
+      }
+    }
+    description "Otu prbs test";
   }
 
   grouping FEC-OPER-DATA {
@@ -743,6 +835,30 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
     leaf auto-tti-flag {
       type boolean;
       description "Auto tti flag";
+    }
+    leaf description {
+      type string;
+      description "Controller description string";
+    }
+  }
+
+  grouping OTU-PRBS-INFO {
+    description "PRBS";
+    leaf otu-prbs-test {
+      type Otu-prbs-test;
+      description "otu prbs test";
+    }
+    leaf otu-prbs-mode {
+      type Otu-prbs-mode;
+      description "otu prbs mode";
+    }
+    leaf otu-prbs-pattern {
+      type Otu-prbs-pattern;
+      description "otu prbs pattern";
+    }
+    leaf otu-prbs-status {
+      type Otu-prbs-status;
+      description "otu prbs status";
     }
   }
 }

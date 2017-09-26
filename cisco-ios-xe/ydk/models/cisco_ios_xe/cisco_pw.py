@@ -15,7 +15,6 @@ Terms and Acronyms
 
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -122,81 +121,6 @@ class PwOperStateType(Enum):
 
 
 
-class PwLoadBalanceType(Identity):
-    """
-    Base type for load\-balancing type
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLoadBalanceType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-load-balance-type")
-
-
-class PwVcType(Identity):
-    """
-    Base identity for VC type in PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwVcType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type")
-
-
-class PwSignalingProtocolType(Identity):
-    """
-    Base identity for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSignalingProtocolType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-type")
-
-
-class PwSequencingType(Identity):
-    """
-    Sequencing options for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-type")
-
-
-class PwEncapsulationType(Identity):
-    """
-    Base identity for PW encapsulations.
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwEncapsulationType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encapsulation-type")
-
-
 class PseudowireConfig(Entity):
     """
     Pseudowire configuration data.
@@ -229,6 +153,10 @@ class PseudowireConfig(Entity):
 
         self.yang_name = "pseudowire-config"
         self.yang_parent_name = "cisco-pw"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"global" : ("global_", PseudowireConfig.Global_), "pw-static-oam-classes" : ("pw_static_oam_classes", PseudowireConfig.PwStaticOamClasses), "pw-templates" : ("pw_templates", PseudowireConfig.PwTemplates)}
+        self._child_list_classes = {}
 
         self.global_ = PseudowireConfig.Global_()
         self.global_.parent = self
@@ -244,6 +172,7 @@ class PseudowireConfig(Entity):
         self.pw_templates.parent = self
         self._children_name_map["pw_templates"] = "pw-templates"
         self._children_yang_names.add("pw-templates")
+        self._segment_path = lambda: "cisco-pw:pseudowire-config"
 
 
     class Global_(Entity):
@@ -305,6 +234,10 @@ class PseudowireConfig(Entity):
 
             self.yang_name = "global"
             self.yang_parent_name = "pseudowire-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.predictive_redundancy = YLeaf(YType.boolean, "predictive-redundancy")
 
@@ -319,131 +252,119 @@ class PseudowireConfig(Entity):
             self.vc_state_notification_enabled = YLeaf(YType.boolean, "vc-state-notification-enabled")
 
             self.vc_state_notification_rate = YLeaf(YType.uint32, "vc-state-notification-rate")
+            self._segment_path = lambda: "global"
+            self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("predictive_redundancy",
-                            "pw_grouping",
-                            "pw_oam_refresh_transmit",
-                            "pw_status",
-                            "vc_state_notification_batch_size",
-                            "vc_state_notification_enabled",
-                            "vc_state_notification_rate") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(PseudowireConfig.Global_, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(PseudowireConfig.Global_, self).__setattr__(name, value)
+            self._perform_setattr(PseudowireConfig.Global_, ['predictive_redundancy', 'pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'vc_state_notification_batch_size', 'vc_state_notification_enabled', 'vc_state_notification_rate'], name, value)
 
-        def has_data(self):
-            return (
-                self.predictive_redundancy.is_set or
-                self.pw_grouping.is_set or
-                self.pw_oam_refresh_transmit.is_set or
-                self.pw_status.is_set or
-                self.vc_state_notification_batch_size.is_set or
-                self.vc_state_notification_enabled.is_set or
-                self.vc_state_notification_rate.is_set)
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.predictive_redundancy.yfilter != YFilter.not_set or
-                self.pw_grouping.yfilter != YFilter.not_set or
-                self.pw_oam_refresh_transmit.yfilter != YFilter.not_set or
-                self.pw_status.yfilter != YFilter.not_set or
-                self.vc_state_notification_batch_size.yfilter != YFilter.not_set or
-                self.vc_state_notification_enabled.yfilter != YFilter.not_set or
-                self.vc_state_notification_rate.yfilter != YFilter.not_set)
+    class PwStaticOamClasses(Entity):
+        """
+        List of pseudowire static oam classes.
+        
+        .. attribute:: pw_static_oam_class
+        
+        	Pseudowire static oam class configuration
+        	**type**\: list of    :py:class:`PwStaticOamClass <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses.PwStaticOamClass>`
+        
+        
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "global" + path_buffer
+        """
 
-            return path_buffer
+        _prefix = 'l2vpn-pw'
+        _revision = '2016-12-07'
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "cisco-pw:pseudowire-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(PseudowireConfig.PwStaticOamClasses, self).__init__()
 
-            leaf_name_data = LeafDataList()
-            if (self.predictive_redundancy.is_set or self.predictive_redundancy.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.predictive_redundancy.get_name_leafdata())
-            if (self.pw_grouping.is_set or self.pw_grouping.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.pw_grouping.get_name_leafdata())
-            if (self.pw_oam_refresh_transmit.is_set or self.pw_oam_refresh_transmit.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.pw_oam_refresh_transmit.get_name_leafdata())
-            if (self.pw_status.is_set or self.pw_status.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.pw_status.get_name_leafdata())
-            if (self.vc_state_notification_batch_size.is_set or self.vc_state_notification_batch_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_state_notification_batch_size.get_name_leafdata())
-            if (self.vc_state_notification_enabled.is_set or self.vc_state_notification_enabled.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_state_notification_enabled.get_name_leafdata())
-            if (self.vc_state_notification_rate.is_set or self.vc_state_notification_rate.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_state_notification_rate.get_name_leafdata())
+            self.yang_name = "pw-static-oam-classes"
+            self.yang_parent_name = "pseudowire-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"pw-static-oam-class" : ("pw_static_oam_class", PseudowireConfig.PwStaticOamClasses.PwStaticOamClass)}
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+            self.pw_static_oam_class = YList(self)
+            self._segment_path = lambda: "pw-static-oam-classes"
+            self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(PseudowireConfig.PwStaticOamClasses, [], name, value)
 
-            return None
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "predictive-redundancy" or name == "pw-grouping" or name == "pw-oam-refresh-transmit" or name == "pw-status" or name == "vc-state-notification-batch-size" or name == "vc-state-notification-enabled" or name == "vc-state-notification-rate"):
-                return True
-            return False
+        class PwStaticOamClass(Entity):
+            """
+            Pseudowire static oam class configuration
+            
+            .. attribute:: name  <key>
+            
+            	OAM class name
+            	**type**\:  str
+            
+            .. attribute:: ack
+            
+            	Enable ack
+            	**type**\:  bool
+            
+            .. attribute:: keepalive
+            
+            	Keepalive in seconds
+            	**type**\:  int
+            
+            	**range:** 1..4095
+            
+            	**default value**\: 600
+            
+            .. attribute:: timeout_refresh_ack
+            
+            	Ack timeout in seconds
+            	**type**\:  int
+            
+            	**range:** 1..4095
+            
+            	**default value**\: 600
+            
+            .. attribute:: timeout_refresh_send
+            
+            	Refresh timeout in seconds
+            	**type**\:  int
+            
+            	**range:** 1..4095
+            
+            	**default value**\: 30
+            
+            
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "predictive-redundancy"):
-                self.predictive_redundancy = value
-                self.predictive_redundancy.value_namespace = name_space
-                self.predictive_redundancy.value_namespace_prefix = name_space_prefix
-            if(value_path == "pw-grouping"):
-                self.pw_grouping = value
-                self.pw_grouping.value_namespace = name_space
-                self.pw_grouping.value_namespace_prefix = name_space_prefix
-            if(value_path == "pw-oam-refresh-transmit"):
-                self.pw_oam_refresh_transmit = value
-                self.pw_oam_refresh_transmit.value_namespace = name_space
-                self.pw_oam_refresh_transmit.value_namespace_prefix = name_space_prefix
-            if(value_path == "pw-status"):
-                self.pw_status = value
-                self.pw_status.value_namespace = name_space
-                self.pw_status.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-state-notification-batch-size"):
-                self.vc_state_notification_batch_size = value
-                self.vc_state_notification_batch_size.value_namespace = name_space
-                self.vc_state_notification_batch_size.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-state-notification-enabled"):
-                self.vc_state_notification_enabled = value
-                self.vc_state_notification_enabled.value_namespace = name_space
-                self.vc_state_notification_enabled.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-state-notification-rate"):
-                self.vc_state_notification_rate = value
-                self.vc_state_notification_rate.value_namespace = name_space
-                self.vc_state_notification_rate.value_namespace_prefix = name_space_prefix
+            """
+
+            _prefix = 'l2vpn-pw'
+            _revision = '2016-12-07'
+
+            def __init__(self):
+                super(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, self).__init__()
+
+                self.yang_name = "pw-static-oam-class"
+                self.yang_parent_name = "pw-static-oam-classes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.ack = YLeaf(YType.boolean, "ack")
+
+                self.keepalive = YLeaf(YType.uint32, "keepalive")
+
+                self.timeout_refresh_ack = YLeaf(YType.uint32, "timeout-refresh-ack")
+
+                self.timeout_refresh_send = YLeaf(YType.uint32, "timeout-refresh-send")
+                self._segment_path = lambda: "pw-static-oam-class" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-static-oam-classes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_ack', 'timeout_refresh_send'], name, value)
 
 
     class PwTemplates(Entity):
@@ -468,32 +389,17 @@ class PseudowireConfig(Entity):
 
             self.yang_name = "pw-templates"
             self.yang_parent_name = "pseudowire-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"pw-template" : ("pw_template", PseudowireConfig.PwTemplates.PwTemplate)}
 
             self.pw_template = YList(self)
+            self._segment_path = lambda: "pw-templates"
+            self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(PseudowireConfig.PwTemplates, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(PseudowireConfig.PwTemplates, self).__setattr__(name, value)
+            self._perform_setattr(PseudowireConfig.PwTemplates, [], name, value)
 
 
         class PwTemplate(Entity):
@@ -598,6 +504,10 @@ class PseudowireConfig(Entity):
 
                 self.yang_name = "pw-template"
                 self.yang_parent_name = "pw-templates"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"load-balance" : ("load_balance", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance), "port-profile-spec" : ("port_profile_spec", PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec), "preferred-path" : ("preferred_path", PseudowireConfig.PwTemplates.PwTemplate.PreferredPath), "sequencing" : ("sequencing", PseudowireConfig.PwTemplates.PwTemplate.Sequencing), "status" : ("status", PseudowireConfig.PwTemplates.PwTemplate.Status), "switchover-delay" : ("switchover_delay", PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay), "vccv" : ("vccv", PseudowireConfig.PwTemplates.PwTemplate.Vccv)}
+                self._child_list_classes = {}
 
                 self.name = YLeaf(YType.str, "name")
 
@@ -651,38 +561,11 @@ class PseudowireConfig(Entity):
                 self.vccv.parent = self
                 self._children_name_map["vccv"] = "vccv"
                 self._children_yang_names.add("vccv")
+                self._segment_path = lambda: "pw-template" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-templates/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("name",
-                                "control_word",
-                                "encapsulation",
-                                "mac_withdraw",
-                                "signaling_protocol",
-                                "source_ip",
-                                "switching_tlv",
-                                "tag_rewrite_ingress_vlan",
-                                "vc_type") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(PseudowireConfig.PwTemplates.PwTemplate, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(PseudowireConfig.PwTemplates.PwTemplate, self).__setattr__(name, value)
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'control_word', 'encapsulation', 'mac_withdraw', 'signaling_protocol', 'source_ip', 'switching_tlv', 'tag_rewrite_ingress_vlan', 'vc_type'], name, value)
 
 
             class LoadBalance(Entity):
@@ -718,6 +601,10 @@ class PseudowireConfig(Entity):
 
                     self.yang_name = "load-balance"
                     self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"flow-label" : ("flow_label", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel)}
+                    self._child_list_classes = {}
 
                     self.ethernet = YLeaf(YType.identityref, "ethernet")
 
@@ -727,31 +614,10 @@ class PseudowireConfig(Entity):
                     self.flow_label.parent = self
                     self._children_name_map["flow_label"] = "flow-label"
                     self._children_yang_names.add("flow-label")
+                    self._segment_path = lambda: "load-balance"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("ethernet",
-                                    "ip") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, self).__setattr__(name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
 
 
                 class FlowLabel(Entity):
@@ -788,38 +654,20 @@ class PseudowireConfig(Entity):
 
                         self.yang_name = "flow-label"
                         self.yang_parent_name = "load-balance"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.direction = YLeaf(YType.enumeration, "direction")
 
                         self.static = YLeaf(YType.boolean, "static")
 
                         self.tlv_code_17 = YLeaf(YType.boolean, "tlv-code-17")
+                        self._segment_path = lambda: "flow-label"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("direction",
-                                        "static",
-                                        "tlv_code_17") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, self).__setattr__(name, value)
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'static', 'tlv_code_17'], name, value)
 
                     class Direction(Enum):
                         """
@@ -847,803 +695,6 @@ class PseudowireConfig(Entity):
 
                         both = Enum.YLeaf(3, "both")
 
-
-                    def has_data(self):
-                        return (
-                            self.direction.is_set or
-                            self.static.is_set or
-                            self.tlv_code_17.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.direction.yfilter != YFilter.not_set or
-                            self.static.yfilter != YFilter.not_set or
-                            self.tlv_code_17.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "flow-label" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.direction.get_name_leafdata())
-                        if (self.static.is_set or self.static.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.static.get_name_leafdata())
-                        if (self.tlv_code_17.is_set or self.tlv_code_17.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.tlv_code_17.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "direction" or name == "static" or name == "tlv-code-17"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "direction"):
-                            self.direction = value
-                            self.direction.value_namespace = name_space
-                            self.direction.value_namespace_prefix = name_space_prefix
-                        if(value_path == "static"):
-                            self.static = value
-                            self.static.value_namespace = name_space
-                            self.static.value_namespace_prefix = name_space_prefix
-                        if(value_path == "tlv-code-17"):
-                            self.tlv_code_17 = value
-                            self.tlv_code_17.value_namespace = name_space
-                            self.tlv_code_17.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.ethernet.is_set or
-                        self.ip.is_set or
-                        (self.flow_label is not None and self.flow_label.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.ethernet.yfilter != YFilter.not_set or
-                        self.ip.yfilter != YFilter.not_set or
-                        (self.flow_label is not None and self.flow_label.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "load-balance" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.ethernet.is_set or self.ethernet.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ethernet.get_name_leafdata())
-                    if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ip.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "flow-label"):
-                        if (self.flow_label is None):
-                            self.flow_label = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel()
-                            self.flow_label.parent = self
-                            self._children_name_map["flow_label"] = "flow-label"
-                        return self.flow_label
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "flow-label" or name == "ethernet" or name == "ip"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "ethernet"):
-                        self.ethernet = value
-                        self.ethernet.value_namespace = name_space
-                        self.ethernet.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ip"):
-                        self.ip = value
-                        self.ip.value_namespace = name_space
-                        self.ip.value_namespace_prefix = name_space_prefix
-
-
-            class PreferredPath(Entity):
-                """
-                Preferred path for the PW
-                
-                .. attribute:: address
-                
-                	TODO
-                	**type**\: one of the below types:
-                
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                .. attribute:: disable_fallback
-                
-                	Disable fall back to alternative route
-                	**type**\:  bool
-                
-                .. attribute:: hostname
-                
-                	TODO
-                	**type**\:  str
-                
-                .. attribute:: interface
-                
-                	Reference to a tunnel interface
-                	**type**\:  str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__init__()
-
-                    self.yang_name = "preferred-path"
-                    self.yang_parent_name = "pw-template"
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.disable_fallback = YLeaf(YType.boolean, "disable-fallback")
-
-                    self.hostname = YLeaf(YType.str, "hostname")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("address",
-                                    "disable_fallback",
-                                    "hostname",
-                                    "interface") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.address.is_set or
-                        self.disable_fallback.is_set or
-                        self.hostname.is_set or
-                        self.interface.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.address.yfilter != YFilter.not_set or
-                        self.disable_fallback.yfilter != YFilter.not_set or
-                        self.hostname.yfilter != YFilter.not_set or
-                        self.interface.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "preferred-path" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.address.get_name_leafdata())
-                    if (self.disable_fallback.is_set or self.disable_fallback.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.disable_fallback.get_name_leafdata())
-                    if (self.hostname.is_set or self.hostname.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.hostname.get_name_leafdata())
-                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.interface.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "address" or name == "disable-fallback" or name == "hostname" or name == "interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "address"):
-                        self.address = value
-                        self.address.value_namespace = name_space
-                        self.address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "disable-fallback"):
-                        self.disable_fallback = value
-                        self.disable_fallback.value_namespace = name_space
-                        self.disable_fallback.value_namespace_prefix = name_space_prefix
-                    if(value_path == "hostname"):
-                        self.hostname = value
-                        self.hostname.value_namespace = name_space
-                        self.hostname.value_namespace_prefix = name_space_prefix
-                    if(value_path == "interface"):
-                        self.interface = value
-                        self.interface.value_namespace = name_space
-                        self.interface.value_namespace_prefix = name_space_prefix
-
-
-            class Sequencing(Entity):
-                """
-                Sequencing options
-                
-                .. attribute:: direction
-                
-                	TODO
-                	**type**\:   :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
-                
-                .. attribute:: resync
-                
-                	TODO
-                	**type**\:  int
-                
-                	**range:** 5..65535
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__init__()
-
-                    self.yang_name = "sequencing"
-                    self.yang_parent_name = "pw-template"
-
-                    self.direction = YLeaf(YType.identityref, "direction")
-
-                    self.resync = YLeaf(YType.int32, "resync")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("direction",
-                                    "resync") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.direction.is_set or
-                        self.resync.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.direction.yfilter != YFilter.not_set or
-                        self.resync.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "sequencing" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.direction.get_name_leafdata())
-                    if (self.resync.is_set or self.resync.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.resync.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "direction" or name == "resync"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "direction"):
-                        self.direction = value
-                        self.direction.value_namespace = name_space
-                        self.direction.value_namespace_prefix = name_space_prefix
-                    if(value_path == "resync"):
-                        self.resync = value
-                        self.resync.value_namespace = name_space
-                        self.resync.value_namespace_prefix = name_space_prefix
-
-
-            class Vccv(Entity):
-                """
-                VCCV configuration
-                
-                .. attribute:: control_word
-                
-                	Enable VCCV verification type
-                	**type**\:  bool
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__init__()
-
-                    self.yang_name = "vccv"
-                    self.yang_parent_name = "pw-template"
-
-                    self.control_word = YLeaf(YType.boolean, "control-word")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("control_word") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return self.control_word.is_set
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.control_word.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "vccv" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.control_word.is_set or self.control_word.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.control_word.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "control-word"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "control-word"):
-                        self.control_word = value
-                        self.control_word.value_namespace = name_space
-                        self.control_word.value_namespace_prefix = name_space_prefix
-
-
-            class SwitchoverDelay(Entity):
-                """
-                Timer configuration related to pseudowire redundancy
-                switchover and restoring to primary
-                
-                .. attribute:: never
-                
-                	The primary pseudowire never takes over for the backup
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: switchover_timer
-                
-                	Specifies how long the backup pseudowire should wait before taking over
-                	**type**\:  int
-                
-                	**range:** 0..120
-                
-                .. attribute:: timer
-                
-                	Specifies how long the primary pseudowire should wait after it becomes active to take over for the backup pseudowire
-                	**type**\:  int
-                
-                	**range:** 0..180
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__init__()
-
-                    self.yang_name = "switchover-delay"
-                    self.yang_parent_name = "pw-template"
-
-                    self.never = YLeaf(YType.boolean, "never")
-
-                    self.switchover_timer = YLeaf(YType.uint8, "switchover-timer")
-
-                    self.timer = YLeaf(YType.uint8, "timer")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("never",
-                                    "switchover_timer",
-                                    "timer") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.never.is_set or
-                        self.switchover_timer.is_set or
-                        self.timer.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.never.yfilter != YFilter.not_set or
-                        self.switchover_timer.yfilter != YFilter.not_set or
-                        self.timer.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "switchover-delay" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.never.is_set or self.never.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.never.get_name_leafdata())
-                    if (self.switchover_timer.is_set or self.switchover_timer.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.switchover_timer.get_name_leafdata())
-                    if (self.timer.is_set or self.timer.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.timer.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "never" or name == "switchover-timer" or name == "timer"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "never"):
-                        self.never = value
-                        self.never.value_namespace = name_space
-                        self.never.value_namespace_prefix = name_space_prefix
-                    if(value_path == "switchover-timer"):
-                        self.switchover_timer = value
-                        self.switchover_timer.value_namespace = name_space
-                        self.switchover_timer.value_namespace_prefix = name_space_prefix
-                    if(value_path == "timer"):
-                        self.timer = value
-                        self.timer.value_namespace = name_space
-                        self.timer.value_namespace_prefix = name_space_prefix
-
-
-            class Status(Entity):
-                """
-                TODO
-                
-                .. attribute:: decoupled
-                
-                	Reflect standby status of the attachment circuit as up on the pseudowire
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: disable
-                
-                	Do not send pseudowire status to peer
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: peer_topo_dual_homed
-                
-                	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
-                	**type**\:  bool
-                
-                .. attribute:: redundancy_master
-                
-                	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: route_watch_disable
-                
-                	Disable listening for routing events to trigger redundancy status changes
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__init__()
-
-                    self.yang_name = "status"
-                    self.yang_parent_name = "pw-template"
-
-                    self.decoupled = YLeaf(YType.boolean, "decoupled")
-
-                    self.disable = YLeaf(YType.boolean, "disable")
-
-                    self.peer_topo_dual_homed = YLeaf(YType.boolean, "peer-topo-dual-homed")
-
-                    self.redundancy_master = YLeaf(YType.boolean, "redundancy-master")
-
-                    self.route_watch_disable = YLeaf(YType.boolean, "route-watch-disable")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("decoupled",
-                                    "disable",
-                                    "peer_topo_dual_homed",
-                                    "redundancy_master",
-                                    "route_watch_disable") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.decoupled.is_set or
-                        self.disable.is_set or
-                        self.peer_topo_dual_homed.is_set or
-                        self.redundancy_master.is_set or
-                        self.route_watch_disable.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.decoupled.yfilter != YFilter.not_set or
-                        self.disable.yfilter != YFilter.not_set or
-                        self.peer_topo_dual_homed.yfilter != YFilter.not_set or
-                        self.redundancy_master.yfilter != YFilter.not_set or
-                        self.route_watch_disable.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "status" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.decoupled.is_set or self.decoupled.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.decoupled.get_name_leafdata())
-                    if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.disable.get_name_leafdata())
-                    if (self.peer_topo_dual_homed.is_set or self.peer_topo_dual_homed.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.peer_topo_dual_homed.get_name_leafdata())
-                    if (self.redundancy_master.is_set or self.redundancy_master.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.redundancy_master.get_name_leafdata())
-                    if (self.route_watch_disable.is_set or self.route_watch_disable.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.route_watch_disable.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "decoupled" or name == "disable" or name == "peer-topo-dual-homed" or name == "redundancy-master" or name == "route-watch-disable"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "decoupled"):
-                        self.decoupled = value
-                        self.decoupled.value_namespace = name_space
-                        self.decoupled.value_namespace_prefix = name_space_prefix
-                    if(value_path == "disable"):
-                        self.disable = value
-                        self.disable.value_namespace = name_space
-                        self.disable.value_namespace_prefix = name_space_prefix
-                    if(value_path == "peer-topo-dual-homed"):
-                        self.peer_topo_dual_homed = value
-                        self.peer_topo_dual_homed.value_namespace = name_space
-                        self.peer_topo_dual_homed.value_namespace_prefix = name_space_prefix
-                    if(value_path == "redundancy-master"):
-                        self.redundancy_master = value
-                        self.redundancy_master.value_namespace = name_space
-                        self.redundancy_master.value_namespace_prefix = name_space_prefix
-                    if(value_path == "route-watch-disable"):
-                        self.route_watch_disable = value
-                        self.route_watch_disable.value_namespace = name_space
-                        self.route_watch_disable.value_namespace_prefix = name_space_prefix
 
 
             class PortProfileSpec(Entity):
@@ -1702,6 +753,10 @@ class PseudowireConfig(Entity):
 
                     self.yang_name = "port-profile-spec"
                     self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.description = YLeaf(YType.str, "description")
 
@@ -1714,697 +769,276 @@ class PseudowireConfig(Entity):
                     self.shut_force = YLeaf(YType.boolean, "shut-force")
 
                     self.shutdown = YLeaf(YType.boolean, "shutdown")
+                    self._segment_path = lambda: "port-profile-spec"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("description",
-                                    "enabled",
-                                    "max_ports",
-                                    "mtu",
-                                    "shut_force",
-                                    "shutdown") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.description.is_set or
-                        self.enabled.is_set or
-                        self.max_ports.is_set or
-                        self.mtu.is_set or
-                        self.shut_force.is_set or
-                        self.shutdown.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.description.yfilter != YFilter.not_set or
-                        self.enabled.yfilter != YFilter.not_set or
-                        self.max_ports.yfilter != YFilter.not_set or
-                        self.mtu.yfilter != YFilter.not_set or
-                        self.shut_force.yfilter != YFilter.not_set or
-                        self.shutdown.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "port-profile-spec" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.description.get_name_leafdata())
-                    if (self.enabled.is_set or self.enabled.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.enabled.get_name_leafdata())
-                    if (self.max_ports.is_set or self.max_ports.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.max_ports.get_name_leafdata())
-                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.mtu.get_name_leafdata())
-                    if (self.shut_force.is_set or self.shut_force.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.shut_force.get_name_leafdata())
-                    if (self.shutdown.is_set or self.shutdown.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.shutdown.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "description" or name == "enabled" or name == "max-ports" or name == "mtu" or name == "shut-force" or name == "shutdown"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "description"):
-                        self.description = value
-                        self.description.value_namespace = name_space
-                        self.description.value_namespace_prefix = name_space_prefix
-                    if(value_path == "enabled"):
-                        self.enabled = value
-                        self.enabled.value_namespace = name_space
-                        self.enabled.value_namespace_prefix = name_space_prefix
-                    if(value_path == "max-ports"):
-                        self.max_ports = value
-                        self.max_ports.value_namespace = name_space
-                        self.max_ports.value_namespace_prefix = name_space_prefix
-                    if(value_path == "mtu"):
-                        self.mtu = value
-                        self.mtu.value_namespace = name_space
-                        self.mtu.value_namespace_prefix = name_space_prefix
-                    if(value_path == "shut-force"):
-                        self.shut_force = value
-                        self.shut_force.value_namespace = name_space
-                        self.shut_force.value_namespace_prefix = name_space_prefix
-                    if(value_path == "shutdown"):
-                        self.shutdown = value
-                        self.shutdown.value_namespace = name_space
-                        self.shutdown.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.name.is_set or
-                    self.control_word.is_set or
-                    self.encapsulation.is_set or
-                    self.mac_withdraw.is_set or
-                    self.signaling_protocol.is_set or
-                    self.source_ip.is_set or
-                    self.switching_tlv.is_set or
-                    self.tag_rewrite_ingress_vlan.is_set or
-                    self.vc_type.is_set or
-                    (self.load_balance is not None and self.load_balance.has_data()) or
-                    (self.port_profile_spec is not None and self.port_profile_spec.has_data()) or
-                    (self.preferred_path is not None and self.preferred_path.has_data()) or
-                    (self.sequencing is not None and self.sequencing.has_data()) or
-                    (self.status is not None and self.status.has_data()) or
-                    (self.switchover_delay is not None and self.switchover_delay.has_data()) or
-                    (self.vccv is not None and self.vccv.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.name.yfilter != YFilter.not_set or
-                    self.control_word.yfilter != YFilter.not_set or
-                    self.encapsulation.yfilter != YFilter.not_set or
-                    self.mac_withdraw.yfilter != YFilter.not_set or
-                    self.signaling_protocol.yfilter != YFilter.not_set or
-                    self.source_ip.yfilter != YFilter.not_set or
-                    self.switching_tlv.yfilter != YFilter.not_set or
-                    self.tag_rewrite_ingress_vlan.yfilter != YFilter.not_set or
-                    self.vc_type.yfilter != YFilter.not_set or
-                    (self.load_balance is not None and self.load_balance.has_operation()) or
-                    (self.port_profile_spec is not None and self.port_profile_spec.has_operation()) or
-                    (self.preferred_path is not None and self.preferred_path.has_operation()) or
-                    (self.sequencing is not None and self.sequencing.has_operation()) or
-                    (self.status is not None and self.status.has_operation()) or
-                    (self.switchover_delay is not None and self.switchover_delay.has_operation()) or
-                    (self.vccv is not None and self.vccv.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "pw-template" + "[name='" + self.name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "cisco-pw:pseudowire-config/pw-templates/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.name.get_name_leafdata())
-                if (self.control_word.is_set or self.control_word.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.control_word.get_name_leafdata())
-                if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.encapsulation.get_name_leafdata())
-                if (self.mac_withdraw.is_set or self.mac_withdraw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.mac_withdraw.get_name_leafdata())
-                if (self.signaling_protocol.is_set or self.signaling_protocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.signaling_protocol.get_name_leafdata())
-                if (self.source_ip.is_set or self.source_ip.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.source_ip.get_name_leafdata())
-                if (self.switching_tlv.is_set or self.switching_tlv.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.switching_tlv.get_name_leafdata())
-                if (self.tag_rewrite_ingress_vlan.is_set or self.tag_rewrite_ingress_vlan.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.tag_rewrite_ingress_vlan.get_name_leafdata())
-                if (self.vc_type.is_set or self.vc_type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vc_type.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "load-balance"):
-                    if (self.load_balance is None):
-                        self.load_balance = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance()
-                        self.load_balance.parent = self
-                        self._children_name_map["load_balance"] = "load-balance"
-                    return self.load_balance
-
-                if (child_yang_name == "port-profile-spec"):
-                    if (self.port_profile_spec is None):
-                        self.port_profile_spec = PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec()
-                        self.port_profile_spec.parent = self
-                        self._children_name_map["port_profile_spec"] = "port-profile-spec"
-                    return self.port_profile_spec
-
-                if (child_yang_name == "preferred-path"):
-                    if (self.preferred_path is None):
-                        self.preferred_path = PseudowireConfig.PwTemplates.PwTemplate.PreferredPath()
-                        self.preferred_path.parent = self
-                        self._children_name_map["preferred_path"] = "preferred-path"
-                    return self.preferred_path
-
-                if (child_yang_name == "sequencing"):
-                    if (self.sequencing is None):
-                        self.sequencing = PseudowireConfig.PwTemplates.PwTemplate.Sequencing()
-                        self.sequencing.parent = self
-                        self._children_name_map["sequencing"] = "sequencing"
-                    return self.sequencing
-
-                if (child_yang_name == "status"):
-                    if (self.status is None):
-                        self.status = PseudowireConfig.PwTemplates.PwTemplate.Status()
-                        self.status.parent = self
-                        self._children_name_map["status"] = "status"
-                    return self.status
-
-                if (child_yang_name == "switchover-delay"):
-                    if (self.switchover_delay is None):
-                        self.switchover_delay = PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay()
-                        self.switchover_delay.parent = self
-                        self._children_name_map["switchover_delay"] = "switchover-delay"
-                    return self.switchover_delay
-
-                if (child_yang_name == "vccv"):
-                    if (self.vccv is None):
-                        self.vccv = PseudowireConfig.PwTemplates.PwTemplate.Vccv()
-                        self.vccv.parent = self
-                        self._children_name_map["vccv"] = "vccv"
-                    return self.vccv
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "load-balance" or name == "port-profile-spec" or name == "preferred-path" or name == "sequencing" or name == "status" or name == "switchover-delay" or name == "vccv" or name == "name" or name == "control-word" or name == "encapsulation" or name == "mac-withdraw" or name == "signaling-protocol" or name == "source-ip" or name == "switching-tlv" or name == "tag-rewrite-ingress-vlan" or name == "vc-type"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "name"):
-                    self.name = value
-                    self.name.value_namespace = name_space
-                    self.name.value_namespace_prefix = name_space_prefix
-                if(value_path == "control-word"):
-                    self.control_word = value
-                    self.control_word.value_namespace = name_space
-                    self.control_word.value_namespace_prefix = name_space_prefix
-                if(value_path == "encapsulation"):
-                    self.encapsulation = value
-                    self.encapsulation.value_namespace = name_space
-                    self.encapsulation.value_namespace_prefix = name_space_prefix
-                if(value_path == "mac-withdraw"):
-                    self.mac_withdraw = value
-                    self.mac_withdraw.value_namespace = name_space
-                    self.mac_withdraw.value_namespace_prefix = name_space_prefix
-                if(value_path == "signaling-protocol"):
-                    self.signaling_protocol = value
-                    self.signaling_protocol.value_namespace = name_space
-                    self.signaling_protocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "source-ip"):
-                    self.source_ip = value
-                    self.source_ip.value_namespace = name_space
-                    self.source_ip.value_namespace_prefix = name_space_prefix
-                if(value_path == "switching-tlv"):
-                    self.switching_tlv = value
-                    self.switching_tlv.value_namespace = name_space
-                    self.switching_tlv.value_namespace_prefix = name_space_prefix
-                if(value_path == "tag-rewrite-ingress-vlan"):
-                    self.tag_rewrite_ingress_vlan = value
-                    self.tag_rewrite_ingress_vlan.value_namespace = name_space
-                    self.tag_rewrite_ingress_vlan.value_namespace_prefix = name_space_prefix
-                if(value_path == "vc-type"):
-                    self.vc_type = value
-                    self.vc_type.value_namespace = name_space
-                    self.vc_type.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.pw_template:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.pw_template:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "pw-templates" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "cisco-pw:pseudowire-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "pw-template"):
-                for c in self.pw_template:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = PseudowireConfig.PwTemplates.PwTemplate()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.pw_template.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "pw-template"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class PwStaticOamClasses(Entity):
-        """
-        List of pseudowire static oam classes.
-        
-        .. attribute:: pw_static_oam_class
-        
-        	Pseudowire static oam class configuration
-        	**type**\: list of    :py:class:`PwStaticOamClass <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses.PwStaticOamClass>`
-        
-        
-
-        """
-
-        _prefix = 'l2vpn-pw'
-        _revision = '2016-12-07'
-
-        def __init__(self):
-            super(PseudowireConfig.PwStaticOamClasses, self).__init__()
-
-            self.yang_name = "pw-static-oam-classes"
-            self.yang_parent_name = "pseudowire-config"
-
-            self.pw_static_oam_class = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(PseudowireConfig.PwStaticOamClasses, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(PseudowireConfig.PwStaticOamClasses, self).__setattr__(name, value)
-
-
-        class PwStaticOamClass(Entity):
-            """
-            Pseudowire static oam class configuration
-            
-            .. attribute:: name  <key>
-            
-            	OAM class name
-            	**type**\:  str
-            
-            .. attribute:: ack
-            
-            	Enable ack
-            	**type**\:  bool
-            
-            .. attribute:: keepalive
-            
-            	Keepalive in seconds
-            	**type**\:  int
-            
-            	**range:** 1..4095
-            
-            	**default value**\: 600
-            
-            .. attribute:: timeout_refresh_ack
-            
-            	Ack timeout in seconds
-            	**type**\:  int
-            
-            	**range:** 1..4095
-            
-            	**default value**\: 600
-            
-            .. attribute:: timeout_refresh_send
-            
-            	Refresh timeout in seconds
-            	**type**\:  int
-            
-            	**range:** 1..4095
-            
-            	**default value**\: 30
-            
-            
-
-            """
-
-            _prefix = 'l2vpn-pw'
-            _revision = '2016-12-07'
-
-            def __init__(self):
-                super(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, self).__init__()
-
-                self.yang_name = "pw-static-oam-class"
-                self.yang_parent_name = "pw-static-oam-classes"
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.ack = YLeaf(YType.boolean, "ack")
-
-                self.keepalive = YLeaf(YType.uint32, "keepalive")
-
-                self.timeout_refresh_ack = YLeaf(YType.uint32, "timeout-refresh-ack")
-
-                self.timeout_refresh_send = YLeaf(YType.uint32, "timeout-refresh-send")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("name",
-                                "ack",
-                                "keepalive",
-                                "timeout_refresh_ack",
-                                "timeout_refresh_send") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.name.is_set or
-                    self.ack.is_set or
-                    self.keepalive.is_set or
-                    self.timeout_refresh_ack.is_set or
-                    self.timeout_refresh_send.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.name.yfilter != YFilter.not_set or
-                    self.ack.yfilter != YFilter.not_set or
-                    self.keepalive.yfilter != YFilter.not_set or
-                    self.timeout_refresh_ack.yfilter != YFilter.not_set or
-                    self.timeout_refresh_send.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "pw-static-oam-class" + "[name='" + self.name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "cisco-pw:pseudowire-config/pw-static-oam-classes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.name.get_name_leafdata())
-                if (self.ack.is_set or self.ack.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ack.get_name_leafdata())
-                if (self.keepalive.is_set or self.keepalive.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.keepalive.get_name_leafdata())
-                if (self.timeout_refresh_ack.is_set or self.timeout_refresh_ack.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timeout_refresh_ack.get_name_leafdata())
-                if (self.timeout_refresh_send.is_set or self.timeout_refresh_send.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.timeout_refresh_send.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "name" or name == "ack" or name == "keepalive" or name == "timeout-refresh-ack" or name == "timeout-refresh-send"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "name"):
-                    self.name = value
-                    self.name.value_namespace = name_space
-                    self.name.value_namespace_prefix = name_space_prefix
-                if(value_path == "ack"):
-                    self.ack = value
-                    self.ack.value_namespace = name_space
-                    self.ack.value_namespace_prefix = name_space_prefix
-                if(value_path == "keepalive"):
-                    self.keepalive = value
-                    self.keepalive.value_namespace = name_space
-                    self.keepalive.value_namespace_prefix = name_space_prefix
-                if(value_path == "timeout-refresh-ack"):
-                    self.timeout_refresh_ack = value
-                    self.timeout_refresh_ack.value_namespace = name_space
-                    self.timeout_refresh_ack.value_namespace_prefix = name_space_prefix
-                if(value_path == "timeout-refresh-send"):
-                    self.timeout_refresh_send = value
-                    self.timeout_refresh_send.value_namespace = name_space
-                    self.timeout_refresh_send.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.pw_static_oam_class:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.pw_static_oam_class:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "pw-static-oam-classes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "cisco-pw:pseudowire-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "pw-static-oam-class"):
-                for c in self.pw_static_oam_class:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = PseudowireConfig.PwStaticOamClasses.PwStaticOamClass()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.pw_static_oam_class.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "pw-static-oam-class"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.global_ is not None and self.global_.has_data()) or
-            (self.pw_static_oam_classes is not None and self.pw_static_oam_classes.has_data()) or
-            (self.pw_templates is not None and self.pw_templates.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.global_ is not None and self.global_.has_operation()) or
-            (self.pw_static_oam_classes is not None and self.pw_static_oam_classes.has_operation()) or
-            (self.pw_templates is not None and self.pw_templates.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "cisco-pw:pseudowire-config" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "global"):
-            if (self.global_ is None):
-                self.global_ = PseudowireConfig.Global_()
-                self.global_.parent = self
-                self._children_name_map["global_"] = "global"
-            return self.global_
-
-        if (child_yang_name == "pw-static-oam-classes"):
-            if (self.pw_static_oam_classes is None):
-                self.pw_static_oam_classes = PseudowireConfig.PwStaticOamClasses()
-                self.pw_static_oam_classes.parent = self
-                self._children_name_map["pw_static_oam_classes"] = "pw-static-oam-classes"
-            return self.pw_static_oam_classes
-
-        if (child_yang_name == "pw-templates"):
-            if (self.pw_templates is None):
-                self.pw_templates = PseudowireConfig.PwTemplates()
-                self.pw_templates.parent = self
-                self._children_name_map["pw_templates"] = "pw-templates"
-            return self.pw_templates
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "global" or name == "pw-static-oam-classes" or name == "pw-templates"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'enabled', 'max_ports', 'mtu', 'shut_force', 'shutdown'], name, value)
+
+
+            class PreferredPath(Entity):
+                """
+                Preferred path for the PW
+                
+                .. attribute:: address
+                
+                	TODO
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                	**type**\:  str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                .. attribute:: disable_fallback
+                
+                	Disable fall back to alternative route
+                	**type**\:  bool
+                
+                .. attribute:: hostname
+                
+                	TODO
+                	**type**\:  str
+                
+                .. attribute:: interface
+                
+                	Reference to a tunnel interface
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__init__()
+
+                    self.yang_name = "preferred-path"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.address = YLeaf(YType.str, "address")
+
+                    self.disable_fallback = YLeaf(YType.boolean, "disable-fallback")
+
+                    self.hostname = YLeaf(YType.str, "hostname")
+
+                    self.interface = YLeaf(YType.str, "interface")
+                    self._segment_path = lambda: "preferred-path"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['address', 'disable_fallback', 'hostname', 'interface'], name, value)
+
+
+            class Sequencing(Entity):
+                """
+                Sequencing options
+                
+                .. attribute:: direction
+                
+                	TODO
+                	**type**\:   :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
+                
+                .. attribute:: resync
+                
+                	TODO
+                	**type**\:  int
+                
+                	**range:** 5..65535
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__init__()
+
+                    self.yang_name = "sequencing"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.direction = YLeaf(YType.identityref, "direction")
+
+                    self.resync = YLeaf(YType.int32, "resync")
+                    self._segment_path = lambda: "sequencing"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
+
+
+            class Status(Entity):
+                """
+                TODO
+                
+                .. attribute:: decoupled
+                
+                	Reflect standby status of the attachment circuit as up on the pseudowire
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: disable
+                
+                	Do not send pseudowire status to peer
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: peer_topo_dual_homed
+                
+                	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
+                	**type**\:  bool
+                
+                .. attribute:: redundancy_master
+                
+                	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: route_watch_disable
+                
+                	Disable listening for routing events to trigger redundancy status changes
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__init__()
+
+                    self.yang_name = "status"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.decoupled = YLeaf(YType.boolean, "decoupled")
+
+                    self.disable = YLeaf(YType.boolean, "disable")
+
+                    self.peer_topo_dual_homed = YLeaf(YType.boolean, "peer-topo-dual-homed")
+
+                    self.redundancy_master = YLeaf(YType.boolean, "redundancy-master")
+
+                    self.route_watch_disable = YLeaf(YType.boolean, "route-watch-disable")
+                    self._segment_path = lambda: "status"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'redundancy_master', 'route_watch_disable'], name, value)
+
+
+            class SwitchoverDelay(Entity):
+                """
+                Timer configuration related to pseudowire redundancy
+                switchover and restoring to primary
+                
+                .. attribute:: never
+                
+                	The primary pseudowire never takes over for the backup
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: switchover_timer
+                
+                	Specifies how long the backup pseudowire should wait before taking over
+                	**type**\:  int
+                
+                	**range:** 0..120
+                
+                .. attribute:: timer
+                
+                	Specifies how long the primary pseudowire should wait after it becomes active to take over for the backup pseudowire
+                	**type**\:  int
+                
+                	**range:** 0..180
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__init__()
+
+                    self.yang_name = "switchover-delay"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.never = YLeaf(YType.boolean, "never")
+
+                    self.switchover_timer = YLeaf(YType.uint8, "switchover-timer")
+
+                    self.timer = YLeaf(YType.uint8, "timer")
+                    self._segment_path = lambda: "switchover-delay"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['never', 'switchover_timer', 'timer'], name, value)
+
+
+            class Vccv(Entity):
+                """
+                VCCV configuration
+                
+                .. attribute:: control_word
+                
+                	Enable VCCV verification type
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__init__()
+
+                    self.yang_name = "vccv"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.control_word = YLeaf(YType.boolean, "control-word")
+                    self._segment_path = lambda: "vccv"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireConfig()
@@ -2434,32 +1068,16 @@ class PseudowireState(Entity):
 
         self.yang_name = "pseudowire-state"
         self.yang_parent_name = "cisco-pw"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"pseudowires" : ("pseudowires", PseudowireState.Pseudowires)}
 
         self.pseudowires = YList(self)
+        self._segment_path = lambda: "cisco-pw:pseudowire-state"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(PseudowireState, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(PseudowireState, self).__setattr__(name, value)
+        self._perform_setattr(PseudowireState, [], name, value)
 
 
     class Pseudowires(Entity):
@@ -2611,6 +1229,10 @@ class PseudowireState(Entity):
 
             self.yang_name = "pseudowires"
             self.yang_parent_name = "pseudowire-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"statistics" : ("statistics", PseudowireState.Pseudowires.Statistics)}
+            self._child_list_classes = {}
 
             self.vc_peer_address = YLeaf(YType.str, "vc-peer-address")
 
@@ -2654,48 +1276,11 @@ class PseudowireState(Entity):
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
             self._children_yang_names.add("statistics")
+            self._segment_path = lambda: "pseudowires" + "[vc-peer-address='" + self.vc_peer_address.get() + "']" + "[vc-id='" + self.vc_id.get() + "']" + "[vc-owner-type='" + self.vc_owner_type.get() + "']" + "[vc-name='" + self.vc_name.get() + "']" + "[vc-index='" + self.vc_index.get() + "']"
+            self._absolute_path = lambda: "cisco-pw:pseudowire-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("vc_peer_address",
-                            "vc_id",
-                            "vc_owner_type",
-                            "vc_name",
-                            "vc_index",
-                            "vc_control_word",
-                            "vc_inbound_label",
-                            "vc_inbound_oper_status",
-                            "vc_local_group_id",
-                            "vc_local_if_mtu",
-                            "vc_oper_status",
-                            "vc_outbound_label",
-                            "vc_outbound_oper_status",
-                            "vc_owner_name",
-                            "vc_psn_type",
-                            "vc_remote_control_word",
-                            "vc_remote_group_id",
-                            "vc_remote_if_mtu",
-                            "vc_type") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(PseudowireState.Pseudowires, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(PseudowireState.Pseudowires, self).__setattr__(name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_control_word', 'vc_inbound_label', 'vc_inbound_oper_status', 'vc_local_group_id', 'vc_local_if_mtu', 'vc_oper_status', 'vc_outbound_label', 'vc_outbound_oper_status', 'vc_owner_name', 'vc_psn_type', 'vc_remote_control_word', 'vc_remote_group_id', 'vc_remote_if_mtu', 'vc_type'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -2894,6 +1479,10 @@ class PseudowireState(Entity):
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "pseudowires"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.discontinuity_time = YLeaf(YType.str, "discontinuity-time")
 
@@ -2912,413 +1501,18 @@ class PseudowireState(Entity):
                 self.vc_create_time = YLeaf(YType.uint32, "vc-create-time")
 
                 self.vc_up_time = YLeaf(YType.uint32, "vc-up-time")
+                self._segment_path = lambda: "statistics"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("discontinuity_time",
-                                "in_errors",
-                                "in_octets",
-                                "in_pkts",
-                                "out_errors",
-                                "out_octets",
-                                "out_pkts",
-                                "vc_create_time",
-                                "vc_up_time") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(PseudowireState.Pseudowires.Statistics, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(PseudowireState.Pseudowires.Statistics, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.discontinuity_time.is_set or
-                    self.in_errors.is_set or
-                    self.in_octets.is_set or
-                    self.in_pkts.is_set or
-                    self.out_errors.is_set or
-                    self.out_octets.is_set or
-                    self.out_pkts.is_set or
-                    self.vc_create_time.is_set or
-                    self.vc_up_time.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.discontinuity_time.yfilter != YFilter.not_set or
-                    self.in_errors.yfilter != YFilter.not_set or
-                    self.in_octets.yfilter != YFilter.not_set or
-                    self.in_pkts.yfilter != YFilter.not_set or
-                    self.out_errors.yfilter != YFilter.not_set or
-                    self.out_octets.yfilter != YFilter.not_set or
-                    self.out_pkts.yfilter != YFilter.not_set or
-                    self.vc_create_time.yfilter != YFilter.not_set or
-                    self.vc_up_time.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "statistics" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.discontinuity_time.is_set or self.discontinuity_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.discontinuity_time.get_name_leafdata())
-                if (self.in_errors.is_set or self.in_errors.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.in_errors.get_name_leafdata())
-                if (self.in_octets.is_set or self.in_octets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.in_octets.get_name_leafdata())
-                if (self.in_pkts.is_set or self.in_pkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.in_pkts.get_name_leafdata())
-                if (self.out_errors.is_set or self.out_errors.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.out_errors.get_name_leafdata())
-                if (self.out_octets.is_set or self.out_octets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.out_octets.get_name_leafdata())
-                if (self.out_pkts.is_set or self.out_pkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.out_pkts.get_name_leafdata())
-                if (self.vc_create_time.is_set or self.vc_create_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vc_create_time.get_name_leafdata())
-                if (self.vc_up_time.is_set or self.vc_up_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vc_up_time.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "discontinuity-time" or name == "in-errors" or name == "in-octets" or name == "in-pkts" or name == "out-errors" or name == "out-octets" or name == "out-pkts" or name == "vc-create-time" or name == "vc-up-time"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "discontinuity-time"):
-                    self.discontinuity_time = value
-                    self.discontinuity_time.value_namespace = name_space
-                    self.discontinuity_time.value_namespace_prefix = name_space_prefix
-                if(value_path == "in-errors"):
-                    self.in_errors = value
-                    self.in_errors.value_namespace = name_space
-                    self.in_errors.value_namespace_prefix = name_space_prefix
-                if(value_path == "in-octets"):
-                    self.in_octets = value
-                    self.in_octets.value_namespace = name_space
-                    self.in_octets.value_namespace_prefix = name_space_prefix
-                if(value_path == "in-pkts"):
-                    self.in_pkts = value
-                    self.in_pkts.value_namespace = name_space
-                    self.in_pkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "out-errors"):
-                    self.out_errors = value
-                    self.out_errors.value_namespace = name_space
-                    self.out_errors.value_namespace_prefix = name_space_prefix
-                if(value_path == "out-octets"):
-                    self.out_octets = value
-                    self.out_octets.value_namespace = name_space
-                    self.out_octets.value_namespace_prefix = name_space_prefix
-                if(value_path == "out-pkts"):
-                    self.out_pkts = value
-                    self.out_pkts.value_namespace = name_space
-                    self.out_pkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "vc-create-time"):
-                    self.vc_create_time = value
-                    self.vc_create_time.value_namespace = name_space
-                    self.vc_create_time.value_namespace_prefix = name_space_prefix
-                if(value_path == "vc-up-time"):
-                    self.vc_up_time = value
-                    self.vc_up_time.value_namespace = name_space
-                    self.vc_up_time.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.vc_peer_address.is_set or
-                self.vc_id.is_set or
-                self.vc_owner_type.is_set or
-                self.vc_name.is_set or
-                self.vc_index.is_set or
-                self.vc_control_word.is_set or
-                self.vc_inbound_label.is_set or
-                self.vc_inbound_oper_status.is_set or
-                self.vc_local_group_id.is_set or
-                self.vc_local_if_mtu.is_set or
-                self.vc_oper_status.is_set or
-                self.vc_outbound_label.is_set or
-                self.vc_outbound_oper_status.is_set or
-                self.vc_owner_name.is_set or
-                self.vc_psn_type.is_set or
-                self.vc_remote_control_word.is_set or
-                self.vc_remote_group_id.is_set or
-                self.vc_remote_if_mtu.is_set or
-                self.vc_type.is_set or
-                (self.statistics is not None and self.statistics.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.vc_peer_address.yfilter != YFilter.not_set or
-                self.vc_id.yfilter != YFilter.not_set or
-                self.vc_owner_type.yfilter != YFilter.not_set or
-                self.vc_name.yfilter != YFilter.not_set or
-                self.vc_index.yfilter != YFilter.not_set or
-                self.vc_control_word.yfilter != YFilter.not_set or
-                self.vc_inbound_label.yfilter != YFilter.not_set or
-                self.vc_inbound_oper_status.yfilter != YFilter.not_set or
-                self.vc_local_group_id.yfilter != YFilter.not_set or
-                self.vc_local_if_mtu.yfilter != YFilter.not_set or
-                self.vc_oper_status.yfilter != YFilter.not_set or
-                self.vc_outbound_label.yfilter != YFilter.not_set or
-                self.vc_outbound_oper_status.yfilter != YFilter.not_set or
-                self.vc_owner_name.yfilter != YFilter.not_set or
-                self.vc_psn_type.yfilter != YFilter.not_set or
-                self.vc_remote_control_word.yfilter != YFilter.not_set or
-                self.vc_remote_group_id.yfilter != YFilter.not_set or
-                self.vc_remote_if_mtu.yfilter != YFilter.not_set or
-                self.vc_type.yfilter != YFilter.not_set or
-                (self.statistics is not None and self.statistics.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "pseudowires" + "[vc-peer-address='" + self.vc_peer_address.get() + "']" + "[vc-id='" + self.vc_id.get() + "']" + "[vc-owner-type='" + self.vc_owner_type.get() + "']" + "[vc-name='" + self.vc_name.get() + "']" + "[vc-index='" + self.vc_index.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "cisco-pw:pseudowire-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.vc_peer_address.is_set or self.vc_peer_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_peer_address.get_name_leafdata())
-            if (self.vc_id.is_set or self.vc_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_id.get_name_leafdata())
-            if (self.vc_owner_type.is_set or self.vc_owner_type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_owner_type.get_name_leafdata())
-            if (self.vc_name.is_set or self.vc_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_name.get_name_leafdata())
-            if (self.vc_index.is_set or self.vc_index.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_index.get_name_leafdata())
-            if (self.vc_control_word.is_set or self.vc_control_word.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_control_word.get_name_leafdata())
-            if (self.vc_inbound_label.is_set or self.vc_inbound_label.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_inbound_label.get_name_leafdata())
-            if (self.vc_inbound_oper_status.is_set or self.vc_inbound_oper_status.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_inbound_oper_status.get_name_leafdata())
-            if (self.vc_local_group_id.is_set or self.vc_local_group_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_local_group_id.get_name_leafdata())
-            if (self.vc_local_if_mtu.is_set or self.vc_local_if_mtu.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_local_if_mtu.get_name_leafdata())
-            if (self.vc_oper_status.is_set or self.vc_oper_status.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_oper_status.get_name_leafdata())
-            if (self.vc_outbound_label.is_set or self.vc_outbound_label.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_outbound_label.get_name_leafdata())
-            if (self.vc_outbound_oper_status.is_set or self.vc_outbound_oper_status.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_outbound_oper_status.get_name_leafdata())
-            if (self.vc_owner_name.is_set or self.vc_owner_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_owner_name.get_name_leafdata())
-            if (self.vc_psn_type.is_set or self.vc_psn_type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_psn_type.get_name_leafdata())
-            if (self.vc_remote_control_word.is_set or self.vc_remote_control_word.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_remote_control_word.get_name_leafdata())
-            if (self.vc_remote_group_id.is_set or self.vc_remote_group_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_remote_group_id.get_name_leafdata())
-            if (self.vc_remote_if_mtu.is_set or self.vc_remote_if_mtu.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_remote_if_mtu.get_name_leafdata())
-            if (self.vc_type.is_set or self.vc_type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vc_type.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "statistics"):
-                if (self.statistics is None):
-                    self.statistics = PseudowireState.Pseudowires.Statistics()
-                    self.statistics.parent = self
-                    self._children_name_map["statistics"] = "statistics"
-                return self.statistics
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "statistics" or name == "vc-peer-address" or name == "vc-id" or name == "vc-owner-type" or name == "vc-name" or name == "vc-index" or name == "vc-control-word" or name == "vc-inbound-label" or name == "vc-inbound-oper-status" or name == "vc-local-group-id" or name == "vc-local-if-mtu" or name == "vc-oper-status" or name == "vc-outbound-label" or name == "vc-outbound-oper-status" or name == "vc-owner-name" or name == "vc-psn-type" or name == "vc-remote-control-word" or name == "vc-remote-group-id" or name == "vc-remote-if-mtu" or name == "vc-type"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "vc-peer-address"):
-                self.vc_peer_address = value
-                self.vc_peer_address.value_namespace = name_space
-                self.vc_peer_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-id"):
-                self.vc_id = value
-                self.vc_id.value_namespace = name_space
-                self.vc_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-owner-type"):
-                self.vc_owner_type = value
-                self.vc_owner_type.value_namespace = name_space
-                self.vc_owner_type.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-name"):
-                self.vc_name = value
-                self.vc_name.value_namespace = name_space
-                self.vc_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-index"):
-                self.vc_index = value
-                self.vc_index.value_namespace = name_space
-                self.vc_index.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-control-word"):
-                self.vc_control_word = value
-                self.vc_control_word.value_namespace = name_space
-                self.vc_control_word.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-inbound-label"):
-                self.vc_inbound_label = value
-                self.vc_inbound_label.value_namespace = name_space
-                self.vc_inbound_label.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-inbound-oper-status"):
-                self.vc_inbound_oper_status = value
-                self.vc_inbound_oper_status.value_namespace = name_space
-                self.vc_inbound_oper_status.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-local-group-id"):
-                self.vc_local_group_id = value
-                self.vc_local_group_id.value_namespace = name_space
-                self.vc_local_group_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-local-if-mtu"):
-                self.vc_local_if_mtu = value
-                self.vc_local_if_mtu.value_namespace = name_space
-                self.vc_local_if_mtu.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-oper-status"):
-                self.vc_oper_status = value
-                self.vc_oper_status.value_namespace = name_space
-                self.vc_oper_status.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-outbound-label"):
-                self.vc_outbound_label = value
-                self.vc_outbound_label.value_namespace = name_space
-                self.vc_outbound_label.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-outbound-oper-status"):
-                self.vc_outbound_oper_status = value
-                self.vc_outbound_oper_status.value_namespace = name_space
-                self.vc_outbound_oper_status.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-owner-name"):
-                self.vc_owner_name = value
-                self.vc_owner_name.value_namespace = name_space
-                self.vc_owner_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-psn-type"):
-                self.vc_psn_type = value
-                self.vc_psn_type.value_namespace = name_space
-                self.vc_psn_type.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-remote-control-word"):
-                self.vc_remote_control_word = value
-                self.vc_remote_control_word.value_namespace = name_space
-                self.vc_remote_control_word.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-remote-group-id"):
-                self.vc_remote_group_id = value
-                self.vc_remote_group_id.value_namespace = name_space
-                self.vc_remote_group_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-remote-if-mtu"):
-                self.vc_remote_if_mtu = value
-                self.vc_remote_if_mtu.value_namespace = name_space
-                self.vc_remote_if_mtu.value_namespace_prefix = name_space_prefix
-            if(value_path == "vc-type"):
-                self.vc_type = value
-                self.vc_type.value_namespace = name_space
-                self.vc_type.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.pseudowires:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.pseudowires:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "cisco-pw:pseudowire-state" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "pseudowires"):
-            for c in self.pseudowires:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = PseudowireState.Pseudowires()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.pseudowires.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "pseudowires"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['discontinuity_time', 'in_errors', 'in_octets', 'in_pkts', 'out_errors', 'out_octets', 'out_pkts', 'vc_create_time', 'vc_up_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireState()
         return self._top_entity
 
-class PwLbEthernetType(Identity):
+class PwEncapsulationType(Identity):
     """
-    Base type for load\-balancing with ethernet fields
+    Base identity for PW encapsulations.
     
     
 
@@ -3328,12 +1522,12 @@ class PwLbEthernetType(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwLbEthernetType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ethernet-type")
+        super(PwEncapsulationType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encapsulation-type")
 
 
-class PwVcTypeVlanPassthrough(Identity):
+class PwLoadBalanceType(Identity):
     """
-    Identity for VLAN passthrough VC type (XR)
+    Base type for load\-balancing type
     
     
 
@@ -3343,12 +1537,12 @@ class PwVcTypeVlanPassthrough(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwVcTypeVlanPassthrough, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan-passthrough")
+        super(PwLoadBalanceType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-load-balance-type")
 
 
-class PwVcTypeVlan(Identity):
+class PwSequencingType(Identity):
     """
-    Identity for VLAN VC type
+    Sequencing options for PW
     
     
 
@@ -3358,12 +1552,12 @@ class PwVcTypeVlan(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwVcTypeVlan, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan")
+        super(PwSequencingType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-type")
 
 
-class PwSequencingBoth(Identity):
+class PwSignalingProtocolType(Identity):
     """
-    Receive and Transmit sequencing option for PW
+    Base identity for PW signaling protocol
     
     
 
@@ -3373,7 +1567,22 @@ class PwSequencingBoth(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwSequencingBoth, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-both")
+        super(PwSignalingProtocolType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-type")
+
+
+class PwVcType(Identity):
+    """
+    Base identity for VC type in PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwVcType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type")
 
 
 class PwEncapMpls(Identity):
@@ -3391,10 +1600,9 @@ class PwEncapMpls(Identity):
         super(PwEncapMpls, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encap-mpls")
 
 
-class PwLbEthSrcDstMac(Identity):
+class PwLbEthernetType(Identity):
     """
-    Load\-balancing with ethernet source and destination MAC
-    fields
+    Base type for load\-balancing with ethernet fields
     
     
 
@@ -3404,7 +1612,22 @@ class PwLbEthSrcDstMac(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwLbEthSrcDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-dst-mac")
+        super(PwLbEthernetType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ethernet-type")
+
+
+class PwLbIpDstIp(Identity):
+    """
+    Load\-balancing with IP destination IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbIpDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-dst-ip")
 
 
 class PwLbIpType(Identity):
@@ -3420,6 +1643,81 @@ class PwLbIpType(Identity):
 
     def __init__(self):
         super(PwLbIpType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-type")
+
+
+class PwSequencingBoth(Identity):
+    """
+    Receive and Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingBoth, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-both")
+
+
+class PwSequencingReceive(Identity):
+    """
+    Receive sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingReceive, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-receive")
+
+
+class PwSequencingTransmit(Identity):
+    """
+    Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingTransmit, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-transmit")
+
+
+class PwSignalingProtocolBgp(Identity):
+    """
+    Use BGP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSignalingProtocolBgp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-bgp")
+
+
+class PwSignalingProtocolLdp(Identity):
+    """
+    Use MPLS LDP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSignalingProtocolLdp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-ldp")
 
 
 class PwSignalingProtocolNone(Identity):
@@ -3452,9 +1750,9 @@ class PwVcTypeEther(Identity):
         super(PwVcTypeEther, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-ether")
 
 
-class PwSequencingReceive(Identity):
+class PwVcTypeVlan(Identity):
     """
-    Receive sequencing option for PW
+    Identity for VLAN VC type
     
     
 
@@ -3464,12 +1762,12 @@ class PwSequencingReceive(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwSequencingReceive, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-receive")
+        super(PwVcTypeVlan, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan")
 
 
-class PwSignalingProtocolBgp(Identity):
+class PwVcTypeVlanPassthrough(Identity):
     """
-    Use BGP for PW signaling protocol
+    Identity for VLAN passthrough VC type (XR)
     
     
 
@@ -3479,67 +1777,7 @@ class PwSignalingProtocolBgp(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwSignalingProtocolBgp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-bgp")
-
-
-class PwSequencingTransmit(Identity):
-    """
-    Transmit sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingTransmit, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-transmit")
-
-
-class PwLbEthSrcMac(Identity):
-    """
-    Load\-balancing with ethernet source MAC field
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbEthSrcMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-mac")
-
-
-class PwLbIpDstIp(Identity):
-    """
-    Load\-balancing with IP destination IP field
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbIpDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-dst-ip")
-
-
-class PwLbIpSrcIp(Identity):
-    """
-    Load\-balancing with IP source IP field
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbIpSrcIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-ip")
+        super(PwVcTypeVlanPassthrough, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan-passthrough")
 
 
 class PwLbEthDstMac(Identity):
@@ -3557,9 +1795,10 @@ class PwLbEthDstMac(Identity):
         super(PwLbEthDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-dst-mac")
 
 
-class PwSignalingProtocolLdp(Identity):
+class PwLbEthSrcDstMac(Identity):
     """
-    Use MPLS LDP for PW signaling protocol
+    Load\-balancing with ethernet source and destination MAC
+    fields
     
     
 
@@ -3569,7 +1808,22 @@ class PwSignalingProtocolLdp(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwSignalingProtocolLdp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-ldp")
+        super(PwLbEthSrcDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-dst-mac")
+
+
+class PwLbEthSrcMac(Identity):
+    """
+    Load\-balancing with ethernet source MAC field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbEthSrcMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-mac")
 
 
 class PwLbIpSrcDstIp(Identity):
@@ -3585,5 +1839,20 @@ class PwLbIpSrcDstIp(Identity):
 
     def __init__(self):
         super(PwLbIpSrcDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-dst-ip")
+
+
+class PwLbIpSrcIp(Identity):
+    """
+    Load\-balancing with IP source IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbIpSrcIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-ip")
 
 

@@ -41,7 +41,7 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
        ipv6-rib: RIB operational data
        ipv6-rib-stdby: ipv6 rib stdby
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -398,6 +398,11 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
       list rib-table-id {
         key "tableid";
         description "Specific Table";
+
+        container information {
+          description "Table related Information";
+          uses IPV6-RIB-EDM-TABLE;
+        }
 
         container summary-protos {
           description "RIB table summary";

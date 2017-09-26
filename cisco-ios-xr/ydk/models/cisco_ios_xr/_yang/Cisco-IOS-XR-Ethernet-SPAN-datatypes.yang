@@ -29,7 +29,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -57,8 +57,22 @@ module Cisco-IOS-XR-Ethernet-SPAN-datatypes {
         value 2;
         description "Mirror IPv6 packets";
       }
+      enum mpls-ipv4 {
+        value 3;
+        description "Mirror MPLS-encapsulated IPv4 packets";
+      }
+      enum mpls-ipv6 {
+        value 4;
+        description "Mirror MPLS-encapsulated IPv6 packets";
+      }
     }
     description "Span session class";
+  }
+  typedef Span-acl-name {
+    type string {
+      length "1..80";
+    }
+    description "Span acl name";
   }
   typedef Span-session-id {
     type int32;

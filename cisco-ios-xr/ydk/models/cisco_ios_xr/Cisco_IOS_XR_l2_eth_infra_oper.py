@@ -9,11 +9,10 @@ for the following management objects\:
   vlan\: vlan
   ethernet\-encapsulation\: ethernet encapsulation
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -434,6 +433,243 @@ class VlanService(Enum):
 
 
 
+class EthernetEncapsulation(Entity):
+    """
+    ethernet encapsulation
+    
+    .. attribute:: nodes
+    
+    	Per node Ethernet encapsulation operational data
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes>`
+    
+    
+
+    """
+
+    _prefix = 'l2-eth-infra-oper'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(EthernetEncapsulation, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ethernet-encapsulation"
+        self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", EthernetEncapsulation.Nodes)}
+        self._child_list_classes = {}
+
+        self.nodes = EthernetEncapsulation.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation"
+
+
+    class Nodes(Entity):
+        """
+        Per node Ethernet encapsulation operational data
+        
+        .. attribute:: node
+        
+        	The Ethernet encaps operational data for a particular node
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'l2-eth-infra-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(EthernetEncapsulation.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "ethernet-encapsulation"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", EthernetEncapsulation.Nodes.Node)}
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EthernetEncapsulation.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            The Ethernet encaps operational data for a
+            particular node
+            
+            .. attribute:: node_name  <key>
+            
+            	The identifier for the node
+            	**type**\:  str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: unicast_mac_filters
+            
+            	Unicast MAC filter table (specific to this node)
+            	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters>`
+            
+            
+
+            """
+
+            _prefix = 'l2-eth-infra-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(EthernetEncapsulation.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"unicast-mac-filters" : ("unicast_mac_filters", EthernetEncapsulation.Nodes.Node.UnicastMacFilters)}
+                self._child_list_classes = {}
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.unicast_mac_filters = EthernetEncapsulation.Nodes.Node.UnicastMacFilters()
+                self.unicast_mac_filters.parent = self
+                self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
+                self._children_yang_names.add("unicast-mac-filters")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(EthernetEncapsulation.Nodes.Node, ['node_name'], name, value)
+
+
+            class UnicastMacFilters(Entity):
+                """
+                Unicast MAC filter table (specific to this
+                node)
+                
+                .. attribute:: unicast_mac_filter
+                
+                	Operational data for interface with MAC filters configured
+                	**type**\: list of    :py:class:`UnicastMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter>`
+                
+                
+
+                """
+
+                _prefix = 'l2-eth-infra-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__init__()
+
+                    self.yang_name = "unicast-mac-filters"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"unicast-mac-filter" : ("unicast_mac_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter)}
+
+                    self.unicast_mac_filter = YList(self)
+                    self._segment_path = lambda: "unicast-mac-filters"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, [], name, value)
+
+
+                class UnicastMacFilter(Entity):
+                    """
+                    Operational data for interface with MAC
+                    filters configured
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	The interface name
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: unicast_filter
+                    
+                    	Unicast MAC filter information
+                    	**type**\: list of    :py:class:`UnicastFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2-eth-infra-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__init__()
+
+                        self.yang_name = "unicast-mac-filter"
+                        self.yang_parent_name = "unicast-mac-filters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"unicast-filter" : ("unicast_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter)}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.unicast_filter = YList(self)
+                        self._segment_path = lambda: "unicast-mac-filter" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, ['interface_name'], name, value)
+
+
+                    class UnicastFilter(Entity):
+                        """
+                        Unicast MAC filter information
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: mode
+                        
+                        	Unicast MAC mode
+                        	**type**\:   :py:class:`EthCapsUcastMacMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacMode>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2-eth-infra-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__init__()
+
+                            self.yang_name = "unicast-filter"
+                            self.yang_parent_name = "unicast-mac-filter"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.mode = YLeaf(YType.enumeration, "mode")
+                            self._segment_path = lambda: "unicast-filter"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, ['mac_address', 'mode'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EthernetEncapsulation()
+        return self._top_entity
+
 class MacAccounting(Entity):
     """
     MAC accounting operational data
@@ -456,11 +692,16 @@ class MacAccounting(Entity):
 
         self.yang_name = "mac-accounting"
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"interfaces" : ("interfaces", MacAccounting.Interfaces)}
+        self._child_list_classes = {}
 
         self.interfaces = MacAccounting.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
+        self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting"
 
 
     class Interfaces(Entity):
@@ -485,32 +726,17 @@ class MacAccounting(Entity):
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "mac-accounting"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"interface" : ("interface", MacAccounting.Interfaces.Interface)}
 
             self.interface = YList(self)
+            self._segment_path = lambda: "interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(MacAccounting.Interfaces, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(MacAccounting.Interfaces, self).__setattr__(name, value)
+            self._perform_setattr(MacAccounting.Interfaces, [], name, value)
 
 
         class Interface(Entity):
@@ -524,7 +750,7 @@ class MacAccounting(Entity):
             	The interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: egress_statistic
             
@@ -553,6 +779,10 @@ class MacAccounting(Entity):
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"state" : ("state", MacAccounting.Interfaces.Interface.State)}
+                self._child_list_classes = {"egress-statistic" : ("egress_statistic", MacAccounting.Interfaces.Interface.EgressStatistic), "ingress-statistic" : ("ingress_statistic", MacAccounting.Interfaces.Interface.IngressStatistic)}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -563,30 +793,121 @@ class MacAccounting(Entity):
 
                 self.egress_statistic = YList(self)
                 self.ingress_statistic = YList(self)
+                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("interface_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(MacAccounting.Interfaces.Interface, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(MacAccounting.Interfaces.Interface, self).__setattr__(name, value)
+                self._perform_setattr(MacAccounting.Interfaces.Interface, ['interface_name'], name, value)
+
+
+            class EgressStatistic(Entity):
+                """
+                Egress MAC accounting statistics
+                
+                .. attribute:: bytes
+                
+                	Number of bytes counted
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
+                
+                .. attribute:: mac_address
+                
+                	48bit MAC address
+                	**type**\:  str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: packets
+                
+                	Number of packets counted
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'l2-eth-infra-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__init__()
+
+                    self.yang_name = "egress-statistic"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.bytes = YLeaf(YType.uint64, "bytes")
+
+                    self.mac_address = YLeaf(YType.str, "mac-address")
+
+                    self.packets = YLeaf(YType.uint64, "packets")
+                    self._segment_path = lambda: "egress-statistic"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, ['bytes', 'mac_address', 'packets'], name, value)
+
+
+            class IngressStatistic(Entity):
+                """
+                Ingress MAC accounting statistics
+                
+                .. attribute:: bytes
+                
+                	Number of bytes counted
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
+                
+                .. attribute:: mac_address
+                
+                	48bit MAC address
+                	**type**\:  str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: packets
+                
+                	Number of packets counted
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'l2-eth-infra-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__init__()
+
+                    self.yang_name = "ingress-statistic"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.bytes = YLeaf(YType.uint64, "bytes")
+
+                    self.mac_address = YLeaf(YType.str, "mac-address")
+
+                    self.packets = YLeaf(YType.uint64, "packets")
+                    self._segment_path = lambda: "ingress-statistic"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, ['bytes', 'mac_address', 'packets'], name, value)
 
 
             class State(Entity):
@@ -636,6 +957,10 @@ class MacAccounting(Entity):
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.is_egress_enabled = YLeaf(YType.boolean, "is-egress-enabled")
 
@@ -646,581 +971,10 @@ class MacAccounting(Entity):
                     self.number_available_ingress = YLeaf(YType.uint32, "number-available-ingress")
 
                     self.number_available_on_node = YLeaf(YType.uint32, "number-available-on-node")
+                    self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("is_egress_enabled",
-                                    "is_ingress_enabled",
-                                    "number_available_egress",
-                                    "number_available_ingress",
-                                    "number_available_on_node") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(MacAccounting.Interfaces.Interface.State, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(MacAccounting.Interfaces.Interface.State, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.is_egress_enabled.is_set or
-                        self.is_ingress_enabled.is_set or
-                        self.number_available_egress.is_set or
-                        self.number_available_ingress.is_set or
-                        self.number_available_on_node.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.is_egress_enabled.yfilter != YFilter.not_set or
-                        self.is_ingress_enabled.yfilter != YFilter.not_set or
-                        self.number_available_egress.yfilter != YFilter.not_set or
-                        self.number_available_ingress.yfilter != YFilter.not_set or
-                        self.number_available_on_node.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "state" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.is_egress_enabled.is_set or self.is_egress_enabled.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_egress_enabled.get_name_leafdata())
-                    if (self.is_ingress_enabled.is_set or self.is_ingress_enabled.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_ingress_enabled.get_name_leafdata())
-                    if (self.number_available_egress.is_set or self.number_available_egress.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.number_available_egress.get_name_leafdata())
-                    if (self.number_available_ingress.is_set or self.number_available_ingress.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.number_available_ingress.get_name_leafdata())
-                    if (self.number_available_on_node.is_set or self.number_available_on_node.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.number_available_on_node.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "is-egress-enabled" or name == "is-ingress-enabled" or name == "number-available-egress" or name == "number-available-ingress" or name == "number-available-on-node"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "is-egress-enabled"):
-                        self.is_egress_enabled = value
-                        self.is_egress_enabled.value_namespace = name_space
-                        self.is_egress_enabled.value_namespace_prefix = name_space_prefix
-                    if(value_path == "is-ingress-enabled"):
-                        self.is_ingress_enabled = value
-                        self.is_ingress_enabled.value_namespace = name_space
-                        self.is_ingress_enabled.value_namespace_prefix = name_space_prefix
-                    if(value_path == "number-available-egress"):
-                        self.number_available_egress = value
-                        self.number_available_egress.value_namespace = name_space
-                        self.number_available_egress.value_namespace_prefix = name_space_prefix
-                    if(value_path == "number-available-ingress"):
-                        self.number_available_ingress = value
-                        self.number_available_ingress.value_namespace = name_space
-                        self.number_available_ingress.value_namespace_prefix = name_space_prefix
-                    if(value_path == "number-available-on-node"):
-                        self.number_available_on_node = value
-                        self.number_available_on_node.value_namespace = name_space
-                        self.number_available_on_node.value_namespace_prefix = name_space_prefix
-
-
-            class IngressStatistic(Entity):
-                """
-                Ingress MAC accounting statistics
-                
-                .. attribute:: bytes
-                
-                	Number of bytes counted
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: byte
-                
-                .. attribute:: mac_address
-                
-                	48bit MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: packets
-                
-                	Number of packets counted
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'l2-eth-infra-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__init__()
-
-                    self.yang_name = "ingress-statistic"
-                    self.yang_parent_name = "interface"
-
-                    self.bytes = YLeaf(YType.uint64, "bytes")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.packets = YLeaf(YType.uint64, "packets")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("bytes",
-                                    "mac_address",
-                                    "packets") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.bytes.is_set or
-                        self.mac_address.is_set or
-                        self.packets.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.bytes.yfilter != YFilter.not_set or
-                        self.mac_address.yfilter != YFilter.not_set or
-                        self.packets.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "ingress-statistic" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.bytes.is_set or self.bytes.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.bytes.get_name_leafdata())
-                    if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.mac_address.get_name_leafdata())
-                    if (self.packets.is_set or self.packets.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.packets.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "bytes" or name == "mac-address" or name == "packets"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "bytes"):
-                        self.bytes = value
-                        self.bytes.value_namespace = name_space
-                        self.bytes.value_namespace_prefix = name_space_prefix
-                    if(value_path == "mac-address"):
-                        self.mac_address = value
-                        self.mac_address.value_namespace = name_space
-                        self.mac_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "packets"):
-                        self.packets = value
-                        self.packets.value_namespace = name_space
-                        self.packets.value_namespace_prefix = name_space_prefix
-
-
-            class EgressStatistic(Entity):
-                """
-                Egress MAC accounting statistics
-                
-                .. attribute:: bytes
-                
-                	Number of bytes counted
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: byte
-                
-                .. attribute:: mac_address
-                
-                	48bit MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: packets
-                
-                	Number of packets counted
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'l2-eth-infra-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__init__()
-
-                    self.yang_name = "egress-statistic"
-                    self.yang_parent_name = "interface"
-
-                    self.bytes = YLeaf(YType.uint64, "bytes")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.packets = YLeaf(YType.uint64, "packets")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("bytes",
-                                    "mac_address",
-                                    "packets") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.bytes.is_set or
-                        self.mac_address.is_set or
-                        self.packets.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.bytes.yfilter != YFilter.not_set or
-                        self.mac_address.yfilter != YFilter.not_set or
-                        self.packets.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "egress-statistic" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.bytes.is_set or self.bytes.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.bytes.get_name_leafdata())
-                    if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.mac_address.get_name_leafdata())
-                    if (self.packets.is_set or self.packets.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.packets.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "bytes" or name == "mac-address" or name == "packets"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "bytes"):
-                        self.bytes = value
-                        self.bytes.value_namespace = name_space
-                        self.bytes.value_namespace_prefix = name_space_prefix
-                    if(value_path == "mac-address"):
-                        self.mac_address = value
-                        self.mac_address.value_namespace = name_space
-                        self.mac_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "packets"):
-                        self.packets = value
-                        self.packets.value_namespace = name_space
-                        self.packets.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.egress_statistic:
-                    if (c.has_data()):
-                        return True
-                for c in self.ingress_statistic:
-                    if (c.has_data()):
-                        return True
-                return (
-                    self.interface_name.is_set or
-                    (self.state is not None and self.state.has_data()))
-
-            def has_operation(self):
-                for c in self.egress_statistic:
-                    if (c.has_operation()):
-                        return True
-                for c in self.ingress_statistic:
-                    if (c.has_operation()):
-                        return True
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.interface_name.yfilter != YFilter.not_set or
-                    (self.state is not None and self.state.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "egress-statistic"):
-                    for c in self.egress_statistic:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = MacAccounting.Interfaces.Interface.EgressStatistic()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.egress_statistic.append(c)
-                    return c
-
-                if (child_yang_name == "ingress-statistic"):
-                    for c in self.ingress_statistic:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = MacAccounting.Interfaces.Interface.IngressStatistic()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.ingress_statistic.append(c)
-                    return c
-
-                if (child_yang_name == "state"):
-                    if (self.state is None):
-                        self.state = MacAccounting.Interfaces.Interface.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                    return self.state
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "egress-statistic" or name == "ingress-statistic" or name == "state" or name == "interface-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "interface-name"):
-                    self.interface_name = value
-                    self.interface_name.value_namespace = name_space
-                    self.interface_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.interface:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.interface:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "interfaces" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "interface"):
-                for c in self.interface:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = MacAccounting.Interfaces.Interface()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.interface.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "interface"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.interfaces is not None and self.interfaces.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.interfaces is not None and self.interfaces.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "interfaces"):
-            if (self.interfaces is None):
-                self.interfaces = MacAccounting.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-            return self.interfaces
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "interfaces"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.State, ['is_egress_enabled', 'is_ingress_enabled', 'number_available_egress', 'number_available_ingress', 'number_available_on_node'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MacAccounting()
@@ -1248,11 +1002,16 @@ class Vlan(Entity):
 
         self.yang_name = "vlan"
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Vlan.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = Vlan.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan"
 
 
     class Nodes(Entity):
@@ -1276,32 +1035,17 @@ class Vlan(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "vlan"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Vlan.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Vlan.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Vlan.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Vlan.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -1342,6 +1086,10 @@ class Vlan(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interfaces" : ("interfaces", Vlan.Nodes.Node.Interfaces), "tag-allocations" : ("tag_allocations", Vlan.Nodes.Node.TagAllocations), "trunks" : ("trunks", Vlan.Nodes.Node.Trunks)}
+                self._child_list_classes = {}
 
                 self.node_id = YLeaf(YType.str, "node-id")
 
@@ -1359,1041 +1107,11 @@ class Vlan(Entity):
                 self.trunks.parent = self
                 self._children_name_map["trunks"] = "trunks"
                 self._children_yang_names.add("trunks")
+                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_id") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Vlan.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Vlan.Nodes.Node, self).__setattr__(name, value)
-
-
-            class Trunks(Entity):
-                """
-                VLAN trunk table (specific to this node)
-                
-                .. attribute:: trunk
-                
-                	Operational data for trunk interfaces configured with VLANs
-                	**type**\: list of    :py:class:`Trunk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk>`
-                
-                
-
-                """
-
-                _prefix = 'l2-eth-infra-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vlan.Nodes.Node.Trunks, self).__init__()
-
-                    self.yang_name = "trunks"
-                    self.yang_parent_name = "node"
-
-                    self.trunk = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Vlan.Nodes.Node.Trunks, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Vlan.Nodes.Node.Trunks, self).__setattr__(name, value)
-
-
-                class Trunk(Entity):
-                    """
-                    Operational data for trunk interfaces
-                    configured with VLANs
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	The interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: dot1ad_count
-                    
-                    	Number of subinterfaces with 802.1ad outer tag
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: interface_xr
-                    
-                    	Interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: layer2_sub_interfaces
-                    
-                    	Layer 2 Transport Subinterfaces
-                    	**type**\:   :py:class:`Layer2SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces>`
-                    
-                    .. attribute:: layer3_sub_interfaces
-                    
-                    	Layer 3 Terminated Subinterfaces
-                    	**type**\:   :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
-                    
-                    .. attribute:: mac_filtering
-                    
-                    	IEEE 802.1Q/802.1ad multicast MAC address filtering
-                    	**type**\:   :py:class:`EthFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthFiltering>`
-                    
-                    .. attribute:: mtu
-                    
-                    	L2 MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: qinq_outer_ether_type
-                    
-                    	QinQ Outer Tag Ether Type
-                    	**type**\:   :py:class:`VlanQinqOuterEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtype>`
-                    
-                    .. attribute:: state
-                    
-                    	Interface state
-                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum>`
-                    
-                    .. attribute:: untagged_interface
-                    
-                    	Interface/Sub\-interface handling untagged frames
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    
-
-                    """
-
-                    _prefix = 'l2-eth-infra-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Vlan.Nodes.Node.Trunks.Trunk, self).__init__()
-
-                        self.yang_name = "trunk"
-                        self.yang_parent_name = "trunks"
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.dot1ad_count = YLeaf(YType.uint32, "dot1ad-count")
-
-                        self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                        self.mac_filtering = YLeaf(YType.enumeration, "mac-filtering")
-
-                        self.mtu = YLeaf(YType.uint16, "mtu")
-
-                        self.qinq_outer_ether_type = YLeaf(YType.enumeration, "qinq-outer-ether-type")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.untagged_interface = YLeaf(YType.str, "untagged-interface")
-
-                        self.layer2_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces()
-                        self.layer2_sub_interfaces.parent = self
-                        self._children_name_map["layer2_sub_interfaces"] = "layer2-sub-interfaces"
-                        self._children_yang_names.add("layer2-sub-interfaces")
-
-                        self.layer3_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces()
-                        self.layer3_sub_interfaces.parent = self
-                        self._children_name_map["layer3_sub_interfaces"] = "layer3-sub-interfaces"
-                        self._children_yang_names.add("layer3-sub-interfaces")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface",
-                                        "dot1ad_count",
-                                        "interface_xr",
-                                        "mac_filtering",
-                                        "mtu",
-                                        "qinq_outer_ether_type",
-                                        "state",
-                                        "untagged_interface") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Vlan.Nodes.Node.Trunks.Trunk, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Vlan.Nodes.Node.Trunks.Trunk, self).__setattr__(name, value)
-
-
-                    class Layer2SubInterfaces(Entity):
-                        """
-                        Layer 2 Transport Subinterfaces
-                        
-                        .. attribute:: dot1q_count
-                        
-                        	Number of single tagged subinterfaces
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: qin_any_count
-                        
-                        	Number of double tagged subinterfaces with wildcarded inner tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: qin_q_count
-                        
-                        	Number of double tagged subinterfaces with explicit inner tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: state_counters
-                        
-                        	Numbers of subinterfaces up, down or administratively shut down
-                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
-                        
-                        .. attribute:: total_count
-                        
-                        	Total number of Layer 2 subinterfaces configured
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: untagged_count
-                        
-                        	Number of subinterfaces without VLAN tag configuration
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'l2-eth-infra-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__init__()
-
-                            self.yang_name = "layer2-sub-interfaces"
-                            self.yang_parent_name = "trunk"
-
-                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
-
-                            self.qin_any_count = YLeaf(YType.uint32, "qin-any-count")
-
-                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
-
-                            self.total_count = YLeaf(YType.uint32, "total-count")
-
-                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
-
-                            self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters()
-                            self.state_counters.parent = self
-                            self._children_name_map["state_counters"] = "state-counters"
-                            self._children_yang_names.add("state-counters")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("dot1q_count",
-                                            "qin_any_count",
-                                            "qin_q_count",
-                                            "total_count",
-                                            "untagged_count") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__setattr__(name, value)
-
-
-                        class StateCounters(Entity):
-                            """
-                            Numbers of subinterfaces up, down or
-                            administratively shut down
-                            
-                            .. attribute:: admin_down
-                            
-                            	Number of subinterfaces which are administrativelyshutdown
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: down
-                            
-                            	Number of subinterfaces which are down
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: up
-                            
-                            	Number of subinterfaces which are up
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'l2-eth-infra-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__init__()
-
-                                self.yang_name = "state-counters"
-                                self.yang_parent_name = "layer2-sub-interfaces"
-
-                                self.admin_down = YLeaf(YType.uint32, "admin-down")
-
-                                self.down = YLeaf(YType.uint32, "down")
-
-                                self.up = YLeaf(YType.uint32, "up")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("admin_down",
-                                                "down",
-                                                "up") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.admin_down.is_set or
-                                    self.down.is_set or
-                                    self.up.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.admin_down.yfilter != YFilter.not_set or
-                                    self.down.yfilter != YFilter.not_set or
-                                    self.up.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "state-counters" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.admin_down.is_set or self.admin_down.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.admin_down.get_name_leafdata())
-                                if (self.down.is_set or self.down.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.down.get_name_leafdata())
-                                if (self.up.is_set or self.up.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.up.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "admin-down" or name == "down" or name == "up"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "admin-down"):
-                                    self.admin_down = value
-                                    self.admin_down.value_namespace = name_space
-                                    self.admin_down.value_namespace_prefix = name_space_prefix
-                                if(value_path == "down"):
-                                    self.down = value
-                                    self.down.value_namespace = name_space
-                                    self.down.value_namespace_prefix = name_space_prefix
-                                if(value_path == "up"):
-                                    self.up = value
-                                    self.up.value_namespace = name_space
-                                    self.up.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.dot1q_count.is_set or
-                                self.qin_any_count.is_set or
-                                self.qin_q_count.is_set or
-                                self.total_count.is_set or
-                                self.untagged_count.is_set or
-                                (self.state_counters is not None and self.state_counters.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.dot1q_count.yfilter != YFilter.not_set or
-                                self.qin_any_count.yfilter != YFilter.not_set or
-                                self.qin_q_count.yfilter != YFilter.not_set or
-                                self.total_count.yfilter != YFilter.not_set or
-                                self.untagged_count.yfilter != YFilter.not_set or
-                                (self.state_counters is not None and self.state_counters.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "layer2-sub-interfaces" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.dot1q_count.is_set or self.dot1q_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1q_count.get_name_leafdata())
-                            if (self.qin_any_count.is_set or self.qin_any_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.qin_any_count.get_name_leafdata())
-                            if (self.qin_q_count.is_set or self.qin_q_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.qin_q_count.get_name_leafdata())
-                            if (self.total_count.is_set or self.total_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total_count.get_name_leafdata())
-                            if (self.untagged_count.is_set or self.untagged_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.untagged_count.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "state-counters"):
-                                if (self.state_counters is None):
-                                    self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters()
-                                    self.state_counters.parent = self
-                                    self._children_name_map["state_counters"] = "state-counters"
-                                return self.state_counters
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "state-counters" or name == "dot1q-count" or name == "qin-any-count" or name == "qin-q-count" or name == "total-count" or name == "untagged-count"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "dot1q-count"):
-                                self.dot1q_count = value
-                                self.dot1q_count.value_namespace = name_space
-                                self.dot1q_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "qin-any-count"):
-                                self.qin_any_count = value
-                                self.qin_any_count.value_namespace = name_space
-                                self.qin_any_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "qin-q-count"):
-                                self.qin_q_count = value
-                                self.qin_q_count.value_namespace = name_space
-                                self.qin_q_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total-count"):
-                                self.total_count = value
-                                self.total_count.value_namespace = name_space
-                                self.total_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "untagged-count"):
-                                self.untagged_count = value
-                                self.untagged_count.value_namespace = name_space
-                                self.untagged_count.value_namespace_prefix = name_space_prefix
-
-
-                    class Layer3SubInterfaces(Entity):
-                        """
-                        Layer 3 Terminated Subinterfaces
-                        
-                        .. attribute:: dot1q_count
-                        
-                        	Number of single tagged subinterfaces
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: native_vlan
-                        
-                        	Native VLAN ID configured on trunk
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: qin_q_count
-                        
-                        	Number of double tagged subinterfaces
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: state_counters
-                        
-                        	Numbers of subinterfaces up, down or administratively shut down
-                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters>`
-                        
-                        .. attribute:: total_count
-                        
-                        	Total number of Layer 3 subinterfaces configured
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: untagged_count
-                        
-                        	Number of subinterfaces without VLAN tag configuration
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'l2-eth-infra-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__init__()
-
-                            self.yang_name = "layer3-sub-interfaces"
-                            self.yang_parent_name = "trunk"
-
-                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
-
-                            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
-
-                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
-
-                            self.total_count = YLeaf(YType.uint32, "total-count")
-
-                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
-
-                            self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters()
-                            self.state_counters.parent = self
-                            self._children_name_map["state_counters"] = "state-counters"
-                            self._children_yang_names.add("state-counters")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("dot1q_count",
-                                            "native_vlan",
-                                            "qin_q_count",
-                                            "total_count",
-                                            "untagged_count") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__setattr__(name, value)
-
-
-                        class StateCounters(Entity):
-                            """
-                            Numbers of subinterfaces up, down or
-                            administratively shut down
-                            
-                            .. attribute:: admin_down
-                            
-                            	Number of subinterfaces which are administrativelyshutdown
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: down
-                            
-                            	Number of subinterfaces which are down
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: up
-                            
-                            	Number of subinterfaces which are up
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'l2-eth-infra-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__init__()
-
-                                self.yang_name = "state-counters"
-                                self.yang_parent_name = "layer3-sub-interfaces"
-
-                                self.admin_down = YLeaf(YType.uint32, "admin-down")
-
-                                self.down = YLeaf(YType.uint32, "down")
-
-                                self.up = YLeaf(YType.uint32, "up")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("admin_down",
-                                                "down",
-                                                "up") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.admin_down.is_set or
-                                    self.down.is_set or
-                                    self.up.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.admin_down.yfilter != YFilter.not_set or
-                                    self.down.yfilter != YFilter.not_set or
-                                    self.up.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "state-counters" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.admin_down.is_set or self.admin_down.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.admin_down.get_name_leafdata())
-                                if (self.down.is_set or self.down.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.down.get_name_leafdata())
-                                if (self.up.is_set or self.up.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.up.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "admin-down" or name == "down" or name == "up"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "admin-down"):
-                                    self.admin_down = value
-                                    self.admin_down.value_namespace = name_space
-                                    self.admin_down.value_namespace_prefix = name_space_prefix
-                                if(value_path == "down"):
-                                    self.down = value
-                                    self.down.value_namespace = name_space
-                                    self.down.value_namespace_prefix = name_space_prefix
-                                if(value_path == "up"):
-                                    self.up = value
-                                    self.up.value_namespace = name_space
-                                    self.up.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.dot1q_count.is_set or
-                                self.native_vlan.is_set or
-                                self.qin_q_count.is_set or
-                                self.total_count.is_set or
-                                self.untagged_count.is_set or
-                                (self.state_counters is not None and self.state_counters.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.dot1q_count.yfilter != YFilter.not_set or
-                                self.native_vlan.yfilter != YFilter.not_set or
-                                self.qin_q_count.yfilter != YFilter.not_set or
-                                self.total_count.yfilter != YFilter.not_set or
-                                self.untagged_count.yfilter != YFilter.not_set or
-                                (self.state_counters is not None and self.state_counters.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "layer3-sub-interfaces" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.dot1q_count.is_set or self.dot1q_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1q_count.get_name_leafdata())
-                            if (self.native_vlan.is_set or self.native_vlan.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.native_vlan.get_name_leafdata())
-                            if (self.qin_q_count.is_set or self.qin_q_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.qin_q_count.get_name_leafdata())
-                            if (self.total_count.is_set or self.total_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total_count.get_name_leafdata())
-                            if (self.untagged_count.is_set or self.untagged_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.untagged_count.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "state-counters"):
-                                if (self.state_counters is None):
-                                    self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters()
-                                    self.state_counters.parent = self
-                                    self._children_name_map["state_counters"] = "state-counters"
-                                return self.state_counters
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "state-counters" or name == "dot1q-count" or name == "native-vlan" or name == "qin-q-count" or name == "total-count" or name == "untagged-count"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "dot1q-count"):
-                                self.dot1q_count = value
-                                self.dot1q_count.value_namespace = name_space
-                                self.dot1q_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "native-vlan"):
-                                self.native_vlan = value
-                                self.native_vlan.value_namespace = name_space
-                                self.native_vlan.value_namespace_prefix = name_space_prefix
-                            if(value_path == "qin-q-count"):
-                                self.qin_q_count = value
-                                self.qin_q_count.value_namespace = name_space
-                                self.qin_q_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total-count"):
-                                self.total_count = value
-                                self.total_count.value_namespace = name_space
-                                self.total_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "untagged-count"):
-                                self.untagged_count = value
-                                self.untagged_count.value_namespace = name_space
-                                self.untagged_count.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.interface.is_set or
-                            self.dot1ad_count.is_set or
-                            self.interface_xr.is_set or
-                            self.mac_filtering.is_set or
-                            self.mtu.is_set or
-                            self.qinq_outer_ether_type.is_set or
-                            self.state.is_set or
-                            self.untagged_interface.is_set or
-                            (self.layer2_sub_interfaces is not None and self.layer2_sub_interfaces.has_data()) or
-                            (self.layer3_sub_interfaces is not None and self.layer3_sub_interfaces.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface.yfilter != YFilter.not_set or
-                            self.dot1ad_count.yfilter != YFilter.not_set or
-                            self.interface_xr.yfilter != YFilter.not_set or
-                            self.mac_filtering.yfilter != YFilter.not_set or
-                            self.mtu.yfilter != YFilter.not_set or
-                            self.qinq_outer_ether_type.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.untagged_interface.yfilter != YFilter.not_set or
-                            (self.layer2_sub_interfaces is not None and self.layer2_sub_interfaces.has_operation()) or
-                            (self.layer3_sub_interfaces is not None and self.layer3_sub_interfaces.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "trunk" + "[interface='" + self.interface.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface.get_name_leafdata())
-                        if (self.dot1ad_count.is_set or self.dot1ad_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.dot1ad_count.get_name_leafdata())
-                        if (self.interface_xr.is_set or self.interface_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_xr.get_name_leafdata())
-                        if (self.mac_filtering.is_set or self.mac_filtering.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mac_filtering.get_name_leafdata())
-                        if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mtu.get_name_leafdata())
-                        if (self.qinq_outer_ether_type.is_set or self.qinq_outer_ether_type.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.qinq_outer_ether_type.get_name_leafdata())
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.untagged_interface.is_set or self.untagged_interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.untagged_interface.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "layer2-sub-interfaces"):
-                            if (self.layer2_sub_interfaces is None):
-                                self.layer2_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces()
-                                self.layer2_sub_interfaces.parent = self
-                                self._children_name_map["layer2_sub_interfaces"] = "layer2-sub-interfaces"
-                            return self.layer2_sub_interfaces
-
-                        if (child_yang_name == "layer3-sub-interfaces"):
-                            if (self.layer3_sub_interfaces is None):
-                                self.layer3_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces()
-                                self.layer3_sub_interfaces.parent = self
-                                self._children_name_map["layer3_sub_interfaces"] = "layer3-sub-interfaces"
-                            return self.layer3_sub_interfaces
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "layer2-sub-interfaces" or name == "layer3-sub-interfaces" or name == "interface" or name == "dot1ad-count" or name == "interface-xr" or name == "mac-filtering" or name == "mtu" or name == "qinq-outer-ether-type" or name == "state" or name == "untagged-interface"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface"):
-                            self.interface = value
-                            self.interface.value_namespace = name_space
-                            self.interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "dot1ad-count"):
-                            self.dot1ad_count = value
-                            self.dot1ad_count.value_namespace = name_space
-                            self.dot1ad_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface-xr"):
-                            self.interface_xr = value
-                            self.interface_xr.value_namespace = name_space
-                            self.interface_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mac-filtering"):
-                            self.mac_filtering = value
-                            self.mac_filtering.value_namespace = name_space
-                            self.mac_filtering.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mtu"):
-                            self.mtu = value
-                            self.mtu.value_namespace = name_space
-                            self.mtu.value_namespace_prefix = name_space_prefix
-                        if(value_path == "qinq-outer-ether-type"):
-                            self.qinq_outer_ether_type = value
-                            self.qinq_outer_ether_type.value_namespace = name_space
-                            self.qinq_outer_ether_type.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "untagged-interface"):
-                            self.untagged_interface = value
-                            self.untagged_interface.value_namespace = name_space
-                            self.untagged_interface.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.trunk:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.trunk:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "trunks" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "trunk"):
-                        for c in self.trunk:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Vlan.Nodes.Node.Trunks.Trunk()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.trunk.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "trunk"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                self._perform_setattr(Vlan.Nodes.Node, ['node_id'], name, value)
 
 
             class Interfaces(Entity):
@@ -2417,32 +1135,16 @@ class Vlan(Entity):
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Vlan.Nodes.Node.Interfaces.Interface)}
 
                     self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Vlan.Nodes.Node.Interfaces, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Vlan.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                    self._perform_setattr(Vlan.Nodes.Node.Interfaces, [], name, value)
 
 
                 class Interface(Entity):
@@ -2455,7 +1157,7 @@ class Vlan(Entity):
                     	The interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: encapsulation_details
                     
@@ -2467,7 +1169,7 @@ class Vlan(Entity):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mtu
                     
@@ -2481,7 +1183,7 @@ class Vlan(Entity):
                     	Parent interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: service
                     
@@ -2512,6 +1214,10 @@ class Vlan(Entity):
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"encapsulation-details" : ("encapsulation_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails)}
+                        self._child_list_classes = {}
 
                         self.interface = YLeaf(YType.str, "interface")
 
@@ -2531,36 +1237,10 @@ class Vlan(Entity):
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
                         self._children_yang_names.add("encapsulation-details")
+                        self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface",
-                                        "interface_xr",
-                                        "mtu",
-                                        "parent_interface",
-                                        "service",
-                                        "state",
-                                        "switched_mtu") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Vlan.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Vlan.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'mtu', 'parent_interface', 'service', 'state', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -2641,6 +1321,10 @@ class Vlan(Entity):
 
                             self.yang_name = "encapsulation-details"
                             self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack), "service-instance-details" : ("service_instance_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails), "stack" : ("stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack)}
+                            self._child_list_classes = {}
 
                             self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
 
@@ -2670,41 +1354,15 @@ class Vlan(Entity):
                             self.stack.parent = self
                             self._children_name_map["stack"] = "stack"
                             self._children_yang_names.add("stack")
+                            self._segment_path = lambda: "encapsulation-details"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("dot1ad_native_tag",
-                                            "dot1ad_outer_tag",
-                                            "dot1ad_tag",
-                                            "native_tag",
-                                            "outer_tag",
-                                            "tag",
-                                            "vlan_encapsulation") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, self).__setattr__(name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, ['dot1ad_native_tag', 'dot1ad_outer_tag', 'dot1ad_tag', 'native_tag', 'outer_tag', 'tag', 'vlan_encapsulation'], name, value)
 
 
-                        class Stack(Entity):
+                        class Dot1AdDot1QStack(Entity):
                             """
-                            Stack value
+                            802.1ad 802.1Q stack value
                             
                             .. attribute:: outer_tag
                             
@@ -2728,94 +1386,22 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__init__()
+                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
 
-                                self.yang_name = "stack"
+                                self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("outer_tag",
-                                                "second_tag") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.outer_tag.is_set or
-                                    self.second_tag.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.outer_tag.yfilter != YFilter.not_set or
-                                    self.second_tag.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "stack" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                                if (self.second_tag.is_set or self.second_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.second_tag.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "outer-tag" or name == "second-tag"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "outer-tag"):
-                                    self.outer_tag = value
-                                    self.outer_tag.value_namespace = name_space
-                                    self.outer_tag.value_namespace_prefix = name_space_prefix
-                                if(value_path == "second-tag"):
-                                    self.second_tag = value
-                                    self.second_tag.value_namespace = name_space
-                                    self.second_tag.value_namespace_prefix = name_space_prefix
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
@@ -2890,6 +1476,10 @@ class Vlan(Entity):
 
                                 self.yang_name = "service-instance-details"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
+                                self._child_list_classes = {"pushe" : ("pushe", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe), "tags-to-match" : ("tags_to_match", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)}
 
                                 self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
 
@@ -2912,36 +1502,10 @@ class Vlan(Entity):
 
                                 self.pushe = YList(self)
                                 self.tags_to_match = YList(self)
+                                self._segment_path = lambda: "service-instance-details"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("destination_mac_match",
-                                                "is_exact_match",
-                                                "is_native_preserving",
-                                                "is_native_vlan",
-                                                "payload_ethertype",
-                                                "source_mac_match",
-                                                "tags_popped") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, self).__setattr__(name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, ['destination_mac_match', 'is_exact_match', 'is_native_preserving', 'is_native_vlan', 'payload_ethertype', 'source_mac_match', 'tags_popped'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -2965,32 +1529,16 @@ class Vlan(Entity):
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"local-traffic-tag" : ("local_traffic_tag", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag)}
 
                                     self.local_traffic_tag = YList(self)
+                                    self._segment_path = lambda: "local-traffic-stack"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in () and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__setattr__(name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
 
 
                                 class LocalTrafficTag(Entity):
@@ -3021,147 +1569,60 @@ class Vlan(Entity):
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
                                         self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
                                         self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                        self._segment_path = lambda: "local-traffic-tag"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("ethertype",
-                                                        "vlan_id") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__setattr__(name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
-                                    def has_data(self):
-                                        return (
-                                            self.ethertype.is_set or
-                                            self.vlan_id.is_set)
 
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.ethertype.yfilter != YFilter.not_set or
-                                            self.vlan_id.yfilter != YFilter.not_set)
+                            class Pushe(Entity):
+                                """
+                                VLAN tags pushed on egress
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag
+                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN Id
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
 
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "local-traffic-tag" + path_buffer
+                                """
 
-                                        return path_buffer
+                                _prefix = 'l2-eth-infra-oper'
+                                _revision = '2015-11-09'
 
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                                def __init__(self):
+                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
 
-                                        leaf_name_data = LeafDataList()
-                                        if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                        if (self.vlan_id.is_set or self.vlan_id.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id.get_name_leafdata())
+                                    self.yang_name = "pushe"
+                                    self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
+                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
+                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self._segment_path = lambda: "pushe"
 
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "ethertype" or name == "vlan-id"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "ethertype"):
-                                            self.ethertype = value
-                                            self.ethertype.value_namespace = name_space
-                                            self.ethertype.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "vlan-id"):
-                                            self.vlan_id = value
-                                            self.vlan_id.value_namespace = name_space
-                                            self.vlan_id.value_namespace_prefix = name_space_prefix
-
-                                def has_data(self):
-                                    for c in self.local_traffic_tag:
-                                        if (c.has_data()):
-                                            return True
-                                    return False
-
-                                def has_operation(self):
-                                    for c in self.local_traffic_tag:
-                                        if (c.has_operation()):
-                                            return True
-                                    return self.yfilter != YFilter.not_set
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "local-traffic-stack" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "local-traffic-tag"):
-                                        for c in self.local_traffic_tag:
-                                            segment = c.get_segment_path()
-                                            if (segment_path == segment):
-                                                return c
-                                        c = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag()
-                                        c.parent = self
-                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                        self._local_refs[local_reference_key] = c
-                                        self.local_traffic_tag.append(c)
-                                        return c
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "local-traffic-tag"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    pass
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                             class TagsToMatch(Entity):
@@ -3195,37 +1656,20 @@ class Vlan(Entity):
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"vlan-range" : ("vlan_range", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange)}
 
                                     self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
                                     self.priority = YLeaf(YType.enumeration, "priority")
 
                                     self.vlan_range = YList(self)
+                                    self._segment_path = lambda: "tags-to-match"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("ethertype",
-                                                    "priority") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__setattr__(name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -3258,422 +1702,23 @@ class Vlan(Entity):
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
                                         self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
 
                                         self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
+                                        self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("vlan_id_high",
-                                                        "vlan_id_low") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__setattr__(name, value)
-
-                                    def has_data(self):
-                                        return (
-                                            self.vlan_id_high.is_set or
-                                            self.vlan_id_low.is_set)
-
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.vlan_id_high.yfilter != YFilter.not_set or
-                                            self.vlan_id_low.yfilter != YFilter.not_set)
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "vlan-range" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-                                        if (self.vlan_id_high.is_set or self.vlan_id_high.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id_high.get_name_leafdata())
-                                        if (self.vlan_id_low.is_set or self.vlan_id_low.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id_low.get_name_leafdata())
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "vlan-id-high" or name == "vlan-id-low"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "vlan-id-high"):
-                                            self.vlan_id_high = value
-                                            self.vlan_id_high.value_namespace = name_space
-                                            self.vlan_id_high.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "vlan-id-low"):
-                                            self.vlan_id_low = value
-                                            self.vlan_id_low.value_namespace = name_space
-                                            self.vlan_id_low.value_namespace_prefix = name_space_prefix
-
-                                def has_data(self):
-                                    for c in self.vlan_range:
-                                        if (c.has_data()):
-                                            return True
-                                    return (
-                                        self.ethertype.is_set or
-                                        self.priority.is_set)
-
-                                def has_operation(self):
-                                    for c in self.vlan_range:
-                                        if (c.has_operation()):
-                                            return True
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.ethertype.yfilter != YFilter.not_set or
-                                        self.priority.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "tags-to-match" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                    if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.priority.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "vlan-range"):
-                                        for c in self.vlan_range:
-                                            segment = c.get_segment_path()
-                                            if (segment_path == segment):
-                                                return c
-                                        c = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange()
-                                        c.parent = self
-                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                        self._local_refs[local_reference_key] = c
-                                        self.vlan_range.append(c)
-                                        return c
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "vlan-range" or name == "ethertype" or name == "priority"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "ethertype"):
-                                        self.ethertype = value
-                                        self.ethertype.value_namespace = name_space
-                                        self.ethertype.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "priority"):
-                                        self.priority = value
-                                        self.priority.value_namespace = name_space
-                                        self.priority.value_namespace_prefix = name_space_prefix
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_high', 'vlan_id_low'], name, value)
 
 
-                            class Pushe(Entity):
-                                """
-                                VLAN tags pushed on egress
-                                
-                                .. attribute:: ethertype
-                                
-                                	Ethertype of tag
-                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
-                                
-                                .. attribute:: vlan_id
-                                
-                                	VLAN Id
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'l2-eth-infra-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
-
-                                    self.yang_name = "pushe"
-                                    self.yang_parent_name = "service-instance-details"
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("ethertype",
-                                                    "vlan_id") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return (
-                                        self.ethertype.is_set or
-                                        self.vlan_id.is_set)
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.ethertype.yfilter != YFilter.not_set or
-                                        self.vlan_id.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "pushe" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                    if (self.vlan_id.is_set or self.vlan_id.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.vlan_id.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "ethertype" or name == "vlan-id"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "ethertype"):
-                                        self.ethertype = value
-                                        self.ethertype.value_namespace = name_space
-                                        self.ethertype.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "vlan-id"):
-                                        self.vlan_id = value
-                                        self.vlan_id.value_namespace = name_space
-                                        self.vlan_id.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.pushe:
-                                    if (c.has_data()):
-                                        return True
-                                for c in self.tags_to_match:
-                                    if (c.has_data()):
-                                        return True
-                                return (
-                                    self.destination_mac_match.is_set or
-                                    self.is_exact_match.is_set or
-                                    self.is_native_preserving.is_set or
-                                    self.is_native_vlan.is_set or
-                                    self.payload_ethertype.is_set or
-                                    self.source_mac_match.is_set or
-                                    self.tags_popped.is_set or
-                                    (self.local_traffic_stack is not None and self.local_traffic_stack.has_data()))
-
-                            def has_operation(self):
-                                for c in self.pushe:
-                                    if (c.has_operation()):
-                                        return True
-                                for c in self.tags_to_match:
-                                    if (c.has_operation()):
-                                        return True
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.destination_mac_match.yfilter != YFilter.not_set or
-                                    self.is_exact_match.yfilter != YFilter.not_set or
-                                    self.is_native_preserving.yfilter != YFilter.not_set or
-                                    self.is_native_vlan.yfilter != YFilter.not_set or
-                                    self.payload_ethertype.yfilter != YFilter.not_set or
-                                    self.source_mac_match.yfilter != YFilter.not_set or
-                                    self.tags_popped.yfilter != YFilter.not_set or
-                                    (self.local_traffic_stack is not None and self.local_traffic_stack.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "service-instance-details" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.destination_mac_match.is_set or self.destination_mac_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.destination_mac_match.get_name_leafdata())
-                                if (self.is_exact_match.is_set or self.is_exact_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_exact_match.get_name_leafdata())
-                                if (self.is_native_preserving.is_set or self.is_native_preserving.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_native_preserving.get_name_leafdata())
-                                if (self.is_native_vlan.is_set or self.is_native_vlan.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_native_vlan.get_name_leafdata())
-                                if (self.payload_ethertype.is_set or self.payload_ethertype.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.payload_ethertype.get_name_leafdata())
-                                if (self.source_mac_match.is_set or self.source_mac_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.source_mac_match.get_name_leafdata())
-                                if (self.tags_popped.is_set or self.tags_popped.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tags_popped.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "local-traffic-stack"):
-                                    if (self.local_traffic_stack is None):
-                                        self.local_traffic_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
-                                        self.local_traffic_stack.parent = self
-                                        self._children_name_map["local_traffic_stack"] = "local-traffic-stack"
-                                    return self.local_traffic_stack
-
-                                if (child_yang_name == "pushe"):
-                                    for c in self.pushe:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.pushe.append(c)
-                                    return c
-
-                                if (child_yang_name == "tags-to-match"):
-                                    for c in self.tags_to_match:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.tags_to_match.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "local-traffic-stack" or name == "pushe" or name == "tags-to-match" or name == "destination-mac-match" or name == "is-exact-match" or name == "is-native-preserving" or name == "is-native-vlan" or name == "payload-ethertype" or name == "source-mac-match" or name == "tags-popped"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "destination-mac-match"):
-                                    self.destination_mac_match = value
-                                    self.destination_mac_match.value_namespace = name_space
-                                    self.destination_mac_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-exact-match"):
-                                    self.is_exact_match = value
-                                    self.is_exact_match.value_namespace = name_space
-                                    self.is_exact_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-native-preserving"):
-                                    self.is_native_preserving = value
-                                    self.is_native_preserving.value_namespace = name_space
-                                    self.is_native_preserving.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-native-vlan"):
-                                    self.is_native_vlan = value
-                                    self.is_native_vlan.value_namespace = name_space
-                                    self.is_native_vlan.value_namespace_prefix = name_space_prefix
-                                if(value_path == "payload-ethertype"):
-                                    self.payload_ethertype = value
-                                    self.payload_ethertype.value_namespace = name_space
-                                    self.payload_ethertype.value_namespace_prefix = name_space_prefix
-                                if(value_path == "source-mac-match"):
-                                    self.source_mac_match = value
-                                    self.source_mac_match.value_namespace = name_space
-                                    self.source_mac_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "tags-popped"):
-                                    self.tags_popped = value
-                                    self.tags_popped.value_namespace = name_space
-                                    self.tags_popped.value_namespace_prefix = name_space_prefix
-
-
-                        class Dot1AdDot1QStack(Entity):
+                        class Stack(Entity):
                             """
-                            802.1ad 802.1Q stack value
+                            Stack value
                             
                             .. attribute:: outer_tag
                             
@@ -3697,377 +1742,22 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
+                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__init__()
 
-                                self.yang_name = "dot1ad-dot1q-stack"
+                                self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("outer_tag",
-                                                "second_tag") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.outer_tag.is_set or
-                                    self.second_tag.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.outer_tag.yfilter != YFilter.not_set or
-                                    self.second_tag.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "dot1ad-dot1q-stack" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                                if (self.second_tag.is_set or self.second_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.second_tag.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "outer-tag" or name == "second-tag"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "outer-tag"):
-                                    self.outer_tag = value
-                                    self.outer_tag.value_namespace = name_space
-                                    self.outer_tag.value_namespace_prefix = name_space_prefix
-                                if(value_path == "second-tag"):
-                                    self.second_tag = value
-                                    self.second_tag.value_namespace = name_space
-                                    self.second_tag.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.dot1ad_native_tag.is_set or
-                                self.dot1ad_outer_tag.is_set or
-                                self.dot1ad_tag.is_set or
-                                self.native_tag.is_set or
-                                self.outer_tag.is_set or
-                                self.tag.is_set or
-                                self.vlan_encapsulation.is_set or
-                                (self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.has_data()) or
-                                (self.service_instance_details is not None and self.service_instance_details.has_data()) or
-                                (self.stack is not None and self.stack.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.dot1ad_native_tag.yfilter != YFilter.not_set or
-                                self.dot1ad_outer_tag.yfilter != YFilter.not_set or
-                                self.dot1ad_tag.yfilter != YFilter.not_set or
-                                self.native_tag.yfilter != YFilter.not_set or
-                                self.outer_tag.yfilter != YFilter.not_set or
-                                self.tag.yfilter != YFilter.not_set or
-                                self.vlan_encapsulation.yfilter != YFilter.not_set or
-                                (self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.has_operation()) or
-                                (self.service_instance_details is not None and self.service_instance_details.has_operation()) or
-                                (self.stack is not None and self.stack.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "encapsulation-details" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.dot1ad_native_tag.is_set or self.dot1ad_native_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_native_tag.get_name_leafdata())
-                            if (self.dot1ad_outer_tag.is_set or self.dot1ad_outer_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_outer_tag.get_name_leafdata())
-                            if (self.dot1ad_tag.is_set or self.dot1ad_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_tag.get_name_leafdata())
-                            if (self.native_tag.is_set or self.native_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.native_tag.get_name_leafdata())
-                            if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                            if (self.tag.is_set or self.tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.tag.get_name_leafdata())
-                            if (self.vlan_encapsulation.is_set or self.vlan_encapsulation.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.vlan_encapsulation.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "dot1ad-dot1q-stack"):
-                                if (self.dot1ad_dot1q_stack is None):
-                                    self.dot1ad_dot1q_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack()
-                                    self.dot1ad_dot1q_stack.parent = self
-                                    self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
-                                return self.dot1ad_dot1q_stack
-
-                            if (child_yang_name == "service-instance-details"):
-                                if (self.service_instance_details is None):
-                                    self.service_instance_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails()
-                                    self.service_instance_details.parent = self
-                                    self._children_name_map["service_instance_details"] = "service-instance-details"
-                                return self.service_instance_details
-
-                            if (child_yang_name == "stack"):
-                                if (self.stack is None):
-                                    self.stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack()
-                                    self.stack.parent = self
-                                    self._children_name_map["stack"] = "stack"
-                                return self.stack
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "dot1ad-dot1q-stack" or name == "service-instance-details" or name == "stack" or name == "dot1ad-native-tag" or name == "dot1ad-outer-tag" or name == "dot1ad-tag" or name == "native-tag" or name == "outer-tag" or name == "tag" or name == "vlan-encapsulation"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "dot1ad-native-tag"):
-                                self.dot1ad_native_tag = value
-                                self.dot1ad_native_tag.value_namespace = name_space
-                                self.dot1ad_native_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dot1ad-outer-tag"):
-                                self.dot1ad_outer_tag = value
-                                self.dot1ad_outer_tag.value_namespace = name_space
-                                self.dot1ad_outer_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dot1ad-tag"):
-                                self.dot1ad_tag = value
-                                self.dot1ad_tag.value_namespace = name_space
-                                self.dot1ad_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "native-tag"):
-                                self.native_tag = value
-                                self.native_tag.value_namespace = name_space
-                                self.native_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "outer-tag"):
-                                self.outer_tag = value
-                                self.outer_tag.value_namespace = name_space
-                                self.outer_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "tag"):
-                                self.tag = value
-                                self.tag.value_namespace = name_space
-                                self.tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "vlan-encapsulation"):
-                                self.vlan_encapsulation = value
-                                self.vlan_encapsulation.value_namespace = name_space
-                                self.vlan_encapsulation.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.interface.is_set or
-                            self.interface_xr.is_set or
-                            self.mtu.is_set or
-                            self.parent_interface.is_set or
-                            self.service.is_set or
-                            self.state.is_set or
-                            self.switched_mtu.is_set or
-                            (self.encapsulation_details is not None and self.encapsulation_details.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface.yfilter != YFilter.not_set or
-                            self.interface_xr.yfilter != YFilter.not_set or
-                            self.mtu.yfilter != YFilter.not_set or
-                            self.parent_interface.yfilter != YFilter.not_set or
-                            self.service.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.switched_mtu.yfilter != YFilter.not_set or
-                            (self.encapsulation_details is not None and self.encapsulation_details.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interface" + "[interface='" + self.interface.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface.get_name_leafdata())
-                        if (self.interface_xr.is_set or self.interface_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_xr.get_name_leafdata())
-                        if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mtu.get_name_leafdata())
-                        if (self.parent_interface.is_set or self.parent_interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.parent_interface.get_name_leafdata())
-                        if (self.service.is_set or self.service.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.service.get_name_leafdata())
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.switched_mtu.is_set or self.switched_mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.switched_mtu.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "encapsulation-details"):
-                            if (self.encapsulation_details is None):
-                                self.encapsulation_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails()
-                                self.encapsulation_details.parent = self
-                                self._children_name_map["encapsulation_details"] = "encapsulation-details"
-                            return self.encapsulation_details
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "encapsulation-details" or name == "interface" or name == "interface-xr" or name == "mtu" or name == "parent-interface" or name == "service" or name == "state" or name == "switched-mtu"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface"):
-                            self.interface = value
-                            self.interface.value_namespace = name_space
-                            self.interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface-xr"):
-                            self.interface_xr = value
-                            self.interface_xr.value_namespace = name_space
-                            self.interface_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mtu"):
-                            self.mtu = value
-                            self.mtu.value_namespace = name_space
-                            self.mtu.value_namespace_prefix = name_space_prefix
-                        if(value_path == "parent-interface"):
-                            self.parent_interface = value
-                            self.parent_interface.value_namespace = name_space
-                            self.parent_interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "service"):
-                            self.service = value
-                            self.service.value_namespace = name_space
-                            self.service.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "switched-mtu"):
-                            self.switched_mtu = value
-                            self.switched_mtu.value_namespace = name_space
-                            self.switched_mtu.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.interface:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.interface:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "interfaces" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "interface"):
-                        for c in self.interface:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Vlan.Nodes.Node.Interfaces.Interface()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.interface.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
             class TagAllocations(Entity):
@@ -4092,32 +1782,16 @@ class Vlan(Entity):
 
                     self.yang_name = "tag-allocations"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"tag-allocation" : ("tag_allocation", Vlan.Nodes.Node.TagAllocations.TagAllocation)}
 
                     self.tag_allocation = YList(self)
+                    self._segment_path = lambda: "tag-allocations"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Vlan.Nodes.Node.TagAllocations, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Vlan.Nodes.Node.TagAllocations, self).__setattr__(name, value)
+                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations, [], name, value)
 
 
                 class TagAllocation(Entity):
@@ -4142,14 +1816,14 @@ class Vlan(Entity):
                     	The interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: interface_xr
                     
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mtu
                     
@@ -4163,7 +1837,7 @@ class Vlan(Entity):
                     	Parent interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: second_tag
                     
@@ -4209,6 +1883,10 @@ class Vlan(Entity):
 
                         self.yang_name = "tag-allocation"
                         self.yang_parent_name = "tag-allocations"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"encapsulation-details" : ("encapsulation_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails)}
+                        self._child_list_classes = {}
 
                         self.first_tag = YLeaf(YType.uint32, "first-tag")
 
@@ -4232,38 +1910,10 @@ class Vlan(Entity):
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
                         self._children_yang_names.add("encapsulation-details")
+                        self._segment_path = lambda: "tag-allocation"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("first_tag",
-                                        "interface",
-                                        "interface_xr",
-                                        "mtu",
-                                        "parent_interface",
-                                        "second_tag",
-                                        "service",
-                                        "state",
-                                        "switched_mtu") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation, self).__setattr__(name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['first_tag', 'interface', 'interface_xr', 'mtu', 'parent_interface', 'second_tag', 'service', 'state', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -4344,6 +1994,10 @@ class Vlan(Entity):
 
                             self.yang_name = "encapsulation-details"
                             self.yang_parent_name = "tag-allocation"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack), "service-instance-details" : ("service_instance_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails), "stack" : ("stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack)}
+                            self._child_list_classes = {}
 
                             self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
 
@@ -4373,41 +2027,15 @@ class Vlan(Entity):
                             self.stack.parent = self
                             self._children_name_map["stack"] = "stack"
                             self._children_yang_names.add("stack")
+                            self._segment_path = lambda: "encapsulation-details"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("dot1ad_native_tag",
-                                            "dot1ad_outer_tag",
-                                            "dot1ad_tag",
-                                            "native_tag",
-                                            "outer_tag",
-                                            "tag",
-                                            "vlan_encapsulation") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, self).__setattr__(name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, ['dot1ad_native_tag', 'dot1ad_outer_tag', 'dot1ad_tag', 'native_tag', 'outer_tag', 'tag', 'vlan_encapsulation'], name, value)
 
 
-                        class Stack(Entity):
+                        class Dot1AdDot1QStack(Entity):
                             """
-                            Stack value
+                            802.1ad 802.1Q stack value
                             
                             .. attribute:: outer_tag
                             
@@ -4431,94 +2059,22 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__init__()
+                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
 
-                                self.yang_name = "stack"
+                                self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("outer_tag",
-                                                "second_tag") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.outer_tag.is_set or
-                                    self.second_tag.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.outer_tag.yfilter != YFilter.not_set or
-                                    self.second_tag.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "stack" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                                if (self.second_tag.is_set or self.second_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.second_tag.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "outer-tag" or name == "second-tag"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "outer-tag"):
-                                    self.outer_tag = value
-                                    self.outer_tag.value_namespace = name_space
-                                    self.outer_tag.value_namespace_prefix = name_space_prefix
-                                if(value_path == "second-tag"):
-                                    self.second_tag = value
-                                    self.second_tag.value_namespace = name_space
-                                    self.second_tag.value_namespace_prefix = name_space_prefix
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
@@ -4593,6 +2149,10 @@ class Vlan(Entity):
 
                                 self.yang_name = "service-instance-details"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
+                                self._child_list_classes = {"pushe" : ("pushe", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe), "tags-to-match" : ("tags_to_match", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)}
 
                                 self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
 
@@ -4615,36 +2175,10 @@ class Vlan(Entity):
 
                                 self.pushe = YList(self)
                                 self.tags_to_match = YList(self)
+                                self._segment_path = lambda: "service-instance-details"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("destination_mac_match",
-                                                "is_exact_match",
-                                                "is_native_preserving",
-                                                "is_native_vlan",
-                                                "payload_ethertype",
-                                                "source_mac_match",
-                                                "tags_popped") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, self).__setattr__(name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, ['destination_mac_match', 'is_exact_match', 'is_native_preserving', 'is_native_vlan', 'payload_ethertype', 'source_mac_match', 'tags_popped'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -4668,32 +2202,16 @@ class Vlan(Entity):
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"local-traffic-tag" : ("local_traffic_tag", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag)}
 
                                     self.local_traffic_tag = YList(self)
+                                    self._segment_path = lambda: "local-traffic-stack"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in () and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__setattr__(name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
 
 
                                 class LocalTrafficTag(Entity):
@@ -4724,147 +2242,60 @@ class Vlan(Entity):
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
                                         self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
                                         self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                        self._segment_path = lambda: "local-traffic-tag"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("ethertype",
-                                                        "vlan_id") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__setattr__(name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
-                                    def has_data(self):
-                                        return (
-                                            self.ethertype.is_set or
-                                            self.vlan_id.is_set)
 
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.ethertype.yfilter != YFilter.not_set or
-                                            self.vlan_id.yfilter != YFilter.not_set)
+                            class Pushe(Entity):
+                                """
+                                VLAN tags pushed on egress
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag
+                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN Id
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
 
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "local-traffic-tag" + path_buffer
+                                """
 
-                                        return path_buffer
+                                _prefix = 'l2-eth-infra-oper'
+                                _revision = '2015-11-09'
 
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                                def __init__(self):
+                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
 
-                                        leaf_name_data = LeafDataList()
-                                        if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                        if (self.vlan_id.is_set or self.vlan_id.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id.get_name_leafdata())
+                                    self.yang_name = "pushe"
+                                    self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
+                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
+                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self._segment_path = lambda: "pushe"
 
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "ethertype" or name == "vlan-id"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "ethertype"):
-                                            self.ethertype = value
-                                            self.ethertype.value_namespace = name_space
-                                            self.ethertype.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "vlan-id"):
-                                            self.vlan_id = value
-                                            self.vlan_id.value_namespace = name_space
-                                            self.vlan_id.value_namespace_prefix = name_space_prefix
-
-                                def has_data(self):
-                                    for c in self.local_traffic_tag:
-                                        if (c.has_data()):
-                                            return True
-                                    return False
-
-                                def has_operation(self):
-                                    for c in self.local_traffic_tag:
-                                        if (c.has_operation()):
-                                            return True
-                                    return self.yfilter != YFilter.not_set
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "local-traffic-stack" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "local-traffic-tag"):
-                                        for c in self.local_traffic_tag:
-                                            segment = c.get_segment_path()
-                                            if (segment_path == segment):
-                                                return c
-                                        c = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag()
-                                        c.parent = self
-                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                        self._local_refs[local_reference_key] = c
-                                        self.local_traffic_tag.append(c)
-                                        return c
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "local-traffic-tag"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    pass
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                             class TagsToMatch(Entity):
@@ -4898,37 +2329,20 @@ class Vlan(Entity):
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"vlan-range" : ("vlan_range", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange)}
 
                                     self.ethertype = YLeaf(YType.enumeration, "ethertype")
 
                                     self.priority = YLeaf(YType.enumeration, "priority")
 
                                     self.vlan_range = YList(self)
+                                    self._segment_path = lambda: "tags-to-match"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("ethertype",
-                                                    "priority") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__setattr__(name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -4961,422 +2375,23 @@ class Vlan(Entity):
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
                                         self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
 
                                         self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
+                                        self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("vlan_id_high",
-                                                        "vlan_id_low") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__setattr__(name, value)
-
-                                    def has_data(self):
-                                        return (
-                                            self.vlan_id_high.is_set or
-                                            self.vlan_id_low.is_set)
-
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.vlan_id_high.yfilter != YFilter.not_set or
-                                            self.vlan_id_low.yfilter != YFilter.not_set)
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "vlan-range" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-                                        if (self.vlan_id_high.is_set or self.vlan_id_high.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id_high.get_name_leafdata())
-                                        if (self.vlan_id_low.is_set or self.vlan_id_low.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.vlan_id_low.get_name_leafdata())
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "vlan-id-high" or name == "vlan-id-low"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "vlan-id-high"):
-                                            self.vlan_id_high = value
-                                            self.vlan_id_high.value_namespace = name_space
-                                            self.vlan_id_high.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "vlan-id-low"):
-                                            self.vlan_id_low = value
-                                            self.vlan_id_low.value_namespace = name_space
-                                            self.vlan_id_low.value_namespace_prefix = name_space_prefix
-
-                                def has_data(self):
-                                    for c in self.vlan_range:
-                                        if (c.has_data()):
-                                            return True
-                                    return (
-                                        self.ethertype.is_set or
-                                        self.priority.is_set)
-
-                                def has_operation(self):
-                                    for c in self.vlan_range:
-                                        if (c.has_operation()):
-                                            return True
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.ethertype.yfilter != YFilter.not_set or
-                                        self.priority.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "tags-to-match" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                    if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.priority.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "vlan-range"):
-                                        for c in self.vlan_range:
-                                            segment = c.get_segment_path()
-                                            if (segment_path == segment):
-                                                return c
-                                        c = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange()
-                                        c.parent = self
-                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                        self._local_refs[local_reference_key] = c
-                                        self.vlan_range.append(c)
-                                        return c
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "vlan-range" or name == "ethertype" or name == "priority"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "ethertype"):
-                                        self.ethertype = value
-                                        self.ethertype.value_namespace = name_space
-                                        self.ethertype.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "priority"):
-                                        self.priority = value
-                                        self.priority.value_namespace = name_space
-                                        self.priority.value_namespace_prefix = name_space_prefix
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_high', 'vlan_id_low'], name, value)
 
 
-                            class Pushe(Entity):
-                                """
-                                VLAN tags pushed on egress
-                                
-                                .. attribute:: ethertype
-                                
-                                	Ethertype of tag
-                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
-                                
-                                .. attribute:: vlan_id
-                                
-                                	VLAN Id
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'l2-eth-infra-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
-
-                                    self.yang_name = "pushe"
-                                    self.yang_parent_name = "service-instance-details"
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("ethertype",
-                                                    "vlan_id") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return (
-                                        self.ethertype.is_set or
-                                        self.vlan_id.is_set)
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.ethertype.yfilter != YFilter.not_set or
-                                        self.vlan_id.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "pushe" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.ethertype.is_set or self.ethertype.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.ethertype.get_name_leafdata())
-                                    if (self.vlan_id.is_set or self.vlan_id.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.vlan_id.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "ethertype" or name == "vlan-id"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "ethertype"):
-                                        self.ethertype = value
-                                        self.ethertype.value_namespace = name_space
-                                        self.ethertype.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "vlan-id"):
-                                        self.vlan_id = value
-                                        self.vlan_id.value_namespace = name_space
-                                        self.vlan_id.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.pushe:
-                                    if (c.has_data()):
-                                        return True
-                                for c in self.tags_to_match:
-                                    if (c.has_data()):
-                                        return True
-                                return (
-                                    self.destination_mac_match.is_set or
-                                    self.is_exact_match.is_set or
-                                    self.is_native_preserving.is_set or
-                                    self.is_native_vlan.is_set or
-                                    self.payload_ethertype.is_set or
-                                    self.source_mac_match.is_set or
-                                    self.tags_popped.is_set or
-                                    (self.local_traffic_stack is not None and self.local_traffic_stack.has_data()))
-
-                            def has_operation(self):
-                                for c in self.pushe:
-                                    if (c.has_operation()):
-                                        return True
-                                for c in self.tags_to_match:
-                                    if (c.has_operation()):
-                                        return True
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.destination_mac_match.yfilter != YFilter.not_set or
-                                    self.is_exact_match.yfilter != YFilter.not_set or
-                                    self.is_native_preserving.yfilter != YFilter.not_set or
-                                    self.is_native_vlan.yfilter != YFilter.not_set or
-                                    self.payload_ethertype.yfilter != YFilter.not_set or
-                                    self.source_mac_match.yfilter != YFilter.not_set or
-                                    self.tags_popped.yfilter != YFilter.not_set or
-                                    (self.local_traffic_stack is not None and self.local_traffic_stack.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "service-instance-details" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.destination_mac_match.is_set or self.destination_mac_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.destination_mac_match.get_name_leafdata())
-                                if (self.is_exact_match.is_set or self.is_exact_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_exact_match.get_name_leafdata())
-                                if (self.is_native_preserving.is_set or self.is_native_preserving.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_native_preserving.get_name_leafdata())
-                                if (self.is_native_vlan.is_set or self.is_native_vlan.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_native_vlan.get_name_leafdata())
-                                if (self.payload_ethertype.is_set or self.payload_ethertype.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.payload_ethertype.get_name_leafdata())
-                                if (self.source_mac_match.is_set or self.source_mac_match.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.source_mac_match.get_name_leafdata())
-                                if (self.tags_popped.is_set or self.tags_popped.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tags_popped.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "local-traffic-stack"):
-                                    if (self.local_traffic_stack is None):
-                                        self.local_traffic_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
-                                        self.local_traffic_stack.parent = self
-                                        self._children_name_map["local_traffic_stack"] = "local-traffic-stack"
-                                    return self.local_traffic_stack
-
-                                if (child_yang_name == "pushe"):
-                                    for c in self.pushe:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.pushe.append(c)
-                                    return c
-
-                                if (child_yang_name == "tags-to-match"):
-                                    for c in self.tags_to_match:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.tags_to_match.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "local-traffic-stack" or name == "pushe" or name == "tags-to-match" or name == "destination-mac-match" or name == "is-exact-match" or name == "is-native-preserving" or name == "is-native-vlan" or name == "payload-ethertype" or name == "source-mac-match" or name == "tags-popped"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "destination-mac-match"):
-                                    self.destination_mac_match = value
-                                    self.destination_mac_match.value_namespace = name_space
-                                    self.destination_mac_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-exact-match"):
-                                    self.is_exact_match = value
-                                    self.is_exact_match.value_namespace = name_space
-                                    self.is_exact_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-native-preserving"):
-                                    self.is_native_preserving = value
-                                    self.is_native_preserving.value_namespace = name_space
-                                    self.is_native_preserving.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-native-vlan"):
-                                    self.is_native_vlan = value
-                                    self.is_native_vlan.value_namespace = name_space
-                                    self.is_native_vlan.value_namespace_prefix = name_space_prefix
-                                if(value_path == "payload-ethertype"):
-                                    self.payload_ethertype = value
-                                    self.payload_ethertype.value_namespace = name_space
-                                    self.payload_ethertype.value_namespace_prefix = name_space_prefix
-                                if(value_path == "source-mac-match"):
-                                    self.source_mac_match = value
-                                    self.source_mac_match.value_namespace = name_space
-                                    self.source_mac_match.value_namespace_prefix = name_space_prefix
-                                if(value_path == "tags-popped"):
-                                    self.tags_popped = value
-                                    self.tags_popped.value_namespace = name_space
-                                    self.tags_popped.value_namespace_prefix = name_space_prefix
-
-
-                        class Dot1AdDot1QStack(Entity):
+                        class Stack(Entity):
                             """
-                            802.1ad 802.1Q stack value
+                            Stack value
                             
                             .. attribute:: outer_tag
                             
@@ -5400,725 +2415,32 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
+                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__init__()
 
-                                self.yang_name = "dot1ad-dot1q-stack"
+                                self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("outer_tag",
-                                                "second_tag") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack, self).__setattr__(name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
-                            def has_data(self):
-                                return (
-                                    self.outer_tag.is_set or
-                                    self.second_tag.is_set)
 
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.outer_tag.yfilter != YFilter.not_set or
-                                    self.second_tag.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "dot1ad-dot1q-stack" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                                if (self.second_tag.is_set or self.second_tag.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.second_tag.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "outer-tag" or name == "second-tag"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "outer-tag"):
-                                    self.outer_tag = value
-                                    self.outer_tag.value_namespace = name_space
-                                    self.outer_tag.value_namespace_prefix = name_space_prefix
-                                if(value_path == "second-tag"):
-                                    self.second_tag = value
-                                    self.second_tag.value_namespace = name_space
-                                    self.second_tag.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.dot1ad_native_tag.is_set or
-                                self.dot1ad_outer_tag.is_set or
-                                self.dot1ad_tag.is_set or
-                                self.native_tag.is_set or
-                                self.outer_tag.is_set or
-                                self.tag.is_set or
-                                self.vlan_encapsulation.is_set or
-                                (self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.has_data()) or
-                                (self.service_instance_details is not None and self.service_instance_details.has_data()) or
-                                (self.stack is not None and self.stack.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.dot1ad_native_tag.yfilter != YFilter.not_set or
-                                self.dot1ad_outer_tag.yfilter != YFilter.not_set or
-                                self.dot1ad_tag.yfilter != YFilter.not_set or
-                                self.native_tag.yfilter != YFilter.not_set or
-                                self.outer_tag.yfilter != YFilter.not_set or
-                                self.tag.yfilter != YFilter.not_set or
-                                self.vlan_encapsulation.yfilter != YFilter.not_set or
-                                (self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.has_operation()) or
-                                (self.service_instance_details is not None and self.service_instance_details.has_operation()) or
-                                (self.stack is not None and self.stack.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "encapsulation-details" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.dot1ad_native_tag.is_set or self.dot1ad_native_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_native_tag.get_name_leafdata())
-                            if (self.dot1ad_outer_tag.is_set or self.dot1ad_outer_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_outer_tag.get_name_leafdata())
-                            if (self.dot1ad_tag.is_set or self.dot1ad_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dot1ad_tag.get_name_leafdata())
-                            if (self.native_tag.is_set or self.native_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.native_tag.get_name_leafdata())
-                            if (self.outer_tag.is_set or self.outer_tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.outer_tag.get_name_leafdata())
-                            if (self.tag.is_set or self.tag.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.tag.get_name_leafdata())
-                            if (self.vlan_encapsulation.is_set or self.vlan_encapsulation.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.vlan_encapsulation.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "dot1ad-dot1q-stack"):
-                                if (self.dot1ad_dot1q_stack is None):
-                                    self.dot1ad_dot1q_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack()
-                                    self.dot1ad_dot1q_stack.parent = self
-                                    self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
-                                return self.dot1ad_dot1q_stack
-
-                            if (child_yang_name == "service-instance-details"):
-                                if (self.service_instance_details is None):
-                                    self.service_instance_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails()
-                                    self.service_instance_details.parent = self
-                                    self._children_name_map["service_instance_details"] = "service-instance-details"
-                                return self.service_instance_details
-
-                            if (child_yang_name == "stack"):
-                                if (self.stack is None):
-                                    self.stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack()
-                                    self.stack.parent = self
-                                    self._children_name_map["stack"] = "stack"
-                                return self.stack
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "dot1ad-dot1q-stack" or name == "service-instance-details" or name == "stack" or name == "dot1ad-native-tag" or name == "dot1ad-outer-tag" or name == "dot1ad-tag" or name == "native-tag" or name == "outer-tag" or name == "tag" or name == "vlan-encapsulation"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "dot1ad-native-tag"):
-                                self.dot1ad_native_tag = value
-                                self.dot1ad_native_tag.value_namespace = name_space
-                                self.dot1ad_native_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dot1ad-outer-tag"):
-                                self.dot1ad_outer_tag = value
-                                self.dot1ad_outer_tag.value_namespace = name_space
-                                self.dot1ad_outer_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dot1ad-tag"):
-                                self.dot1ad_tag = value
-                                self.dot1ad_tag.value_namespace = name_space
-                                self.dot1ad_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "native-tag"):
-                                self.native_tag = value
-                                self.native_tag.value_namespace = name_space
-                                self.native_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "outer-tag"):
-                                self.outer_tag = value
-                                self.outer_tag.value_namespace = name_space
-                                self.outer_tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "tag"):
-                                self.tag = value
-                                self.tag.value_namespace = name_space
-                                self.tag.value_namespace_prefix = name_space_prefix
-                            if(value_path == "vlan-encapsulation"):
-                                self.vlan_encapsulation = value
-                                self.vlan_encapsulation.value_namespace = name_space
-                                self.vlan_encapsulation.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.first_tag.is_set or
-                            self.interface.is_set or
-                            self.interface_xr.is_set or
-                            self.mtu.is_set or
-                            self.parent_interface.is_set or
-                            self.second_tag.is_set or
-                            self.service.is_set or
-                            self.state.is_set or
-                            self.switched_mtu.is_set or
-                            (self.encapsulation_details is not None and self.encapsulation_details.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.first_tag.yfilter != YFilter.not_set or
-                            self.interface.yfilter != YFilter.not_set or
-                            self.interface_xr.yfilter != YFilter.not_set or
-                            self.mtu.yfilter != YFilter.not_set or
-                            self.parent_interface.yfilter != YFilter.not_set or
-                            self.second_tag.yfilter != YFilter.not_set or
-                            self.service.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.switched_mtu.yfilter != YFilter.not_set or
-                            (self.encapsulation_details is not None and self.encapsulation_details.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "tag-allocation" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.first_tag.is_set or self.first_tag.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.first_tag.get_name_leafdata())
-                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface.get_name_leafdata())
-                        if (self.interface_xr.is_set or self.interface_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_xr.get_name_leafdata())
-                        if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mtu.get_name_leafdata())
-                        if (self.parent_interface.is_set or self.parent_interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.parent_interface.get_name_leafdata())
-                        if (self.second_tag.is_set or self.second_tag.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.second_tag.get_name_leafdata())
-                        if (self.service.is_set or self.service.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.service.get_name_leafdata())
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.switched_mtu.is_set or self.switched_mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.switched_mtu.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "encapsulation-details"):
-                            if (self.encapsulation_details is None):
-                                self.encapsulation_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails()
-                                self.encapsulation_details.parent = self
-                                self._children_name_map["encapsulation_details"] = "encapsulation-details"
-                            return self.encapsulation_details
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "encapsulation-details" or name == "first-tag" or name == "interface" or name == "interface-xr" or name == "mtu" or name == "parent-interface" or name == "second-tag" or name == "service" or name == "state" or name == "switched-mtu"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "first-tag"):
-                            self.first_tag = value
-                            self.first_tag.value_namespace = name_space
-                            self.first_tag.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface"):
-                            self.interface = value
-                            self.interface.value_namespace = name_space
-                            self.interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface-xr"):
-                            self.interface_xr = value
-                            self.interface_xr.value_namespace = name_space
-                            self.interface_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mtu"):
-                            self.mtu = value
-                            self.mtu.value_namespace = name_space
-                            self.mtu.value_namespace_prefix = name_space_prefix
-                        if(value_path == "parent-interface"):
-                            self.parent_interface = value
-                            self.parent_interface.value_namespace = name_space
-                            self.parent_interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "second-tag"):
-                            self.second_tag = value
-                            self.second_tag.value_namespace = name_space
-                            self.second_tag.value_namespace_prefix = name_space_prefix
-                        if(value_path == "service"):
-                            self.service = value
-                            self.service.value_namespace = name_space
-                            self.service.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "switched-mtu"):
-                            self.switched_mtu = value
-                            self.switched_mtu.value_namespace = name_space
-                            self.switched_mtu.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.tag_allocation:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.tag_allocation:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "tag-allocations" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "tag-allocation"):
-                        for c in self.tag_allocation:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Vlan.Nodes.Node.TagAllocations.TagAllocation()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.tag_allocation.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "tag-allocation"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_id.is_set or
-                    (self.interfaces is not None and self.interfaces.has_data()) or
-                    (self.tag_allocations is not None and self.tag_allocations.has_data()) or
-                    (self.trunks is not None and self.trunks.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_id.yfilter != YFilter.not_set or
-                    (self.interfaces is not None and self.interfaces.has_operation()) or
-                    (self.tag_allocations is not None and self.tag_allocations.has_operation()) or
-                    (self.trunks is not None and self.trunks.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-id='" + self.node_id.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_id.is_set or self.node_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_id.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "interfaces"):
-                    if (self.interfaces is None):
-                        self.interfaces = Vlan.Nodes.Node.Interfaces()
-                        self.interfaces.parent = self
-                        self._children_name_map["interfaces"] = "interfaces"
-                    return self.interfaces
-
-                if (child_yang_name == "tag-allocations"):
-                    if (self.tag_allocations is None):
-                        self.tag_allocations = Vlan.Nodes.Node.TagAllocations()
-                        self.tag_allocations.parent = self
-                        self._children_name_map["tag_allocations"] = "tag-allocations"
-                    return self.tag_allocations
-
-                if (child_yang_name == "trunks"):
-                    if (self.trunks is None):
-                        self.trunks = Vlan.Nodes.Node.Trunks()
-                        self.trunks.parent = self
-                        self._children_name_map["trunks"] = "trunks"
-                    return self.trunks
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "interfaces" or name == "tag-allocations" or name == "trunks" or name == "node-id"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-id"):
-                    self.node_id = value
-                    self.node_id.value_namespace = name_space
-                    self.node_id.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Vlan.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:vlan" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Vlan.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = Vlan()
-        return self._top_entity
-
-class EthernetEncapsulation(Entity):
-    """
-    ethernet encapsulation
-    
-    .. attribute:: nodes
-    
-    	Per node Ethernet encapsulation operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes>`
-    
-    
-
-    """
-
-    _prefix = 'l2-eth-infra-oper'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(EthernetEncapsulation, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "ethernet-encapsulation"
-        self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
-
-        self.nodes = EthernetEncapsulation.Nodes()
-        self.nodes.parent = self
-        self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
-
-
-    class Nodes(Entity):
-        """
-        Per node Ethernet encapsulation operational data
-        
-        .. attribute:: node
-        
-        	The Ethernet encaps operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node>`
-        
-        
-
-        """
-
-        _prefix = 'l2-eth-infra-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(EthernetEncapsulation.Nodes, self).__init__()
-
-            self.yang_name = "nodes"
-            self.yang_parent_name = "ethernet-encapsulation"
-
-            self.node = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(EthernetEncapsulation.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(EthernetEncapsulation.Nodes, self).__setattr__(name, value)
-
-
-        class Node(Entity):
-            """
-            The Ethernet encaps operational data for a
-            particular node
-            
-            .. attribute:: node_name  <key>
-            
-            	The identifier for the node
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: unicast_mac_filters
-            
-            	Unicast MAC filter table (specific to this node)
-            	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters>`
-            
-            
-
-            """
-
-            _prefix = 'l2-eth-infra-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(EthernetEncapsulation.Nodes.Node, self).__init__()
-
-                self.yang_name = "node"
-                self.yang_parent_name = "nodes"
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.unicast_mac_filters = EthernetEncapsulation.Nodes.Node.UnicastMacFilters()
-                self.unicast_mac_filters.parent = self
-                self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
-                self._children_yang_names.add("unicast-mac-filters")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(EthernetEncapsulation.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(EthernetEncapsulation.Nodes.Node, self).__setattr__(name, value)
-
-
-            class UnicastMacFilters(Entity):
+            class Trunks(Entity):
                 """
-                Unicast MAC filter table (specific to this
-                node)
+                VLAN trunk table (specific to this node)
                 
-                .. attribute:: unicast_mac_filter
+                .. attribute:: trunk
                 
-                	Operational data for interface with MAC filters configured
-                	**type**\: list of    :py:class:`UnicastMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter>`
+                	Operational data for trunk interfaces configured with VLANs
+                	**type**\: list of    :py:class:`Trunk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk>`
                 
                 
 
@@ -6128,54 +2450,86 @@ class EthernetEncapsulation(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__init__()
+                    super(Vlan.Nodes.Node.Trunks, self).__init__()
 
-                    self.yang_name = "unicast-mac-filters"
+                    self.yang_name = "trunks"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"trunk" : ("trunk", Vlan.Nodes.Node.Trunks.Trunk)}
 
-                    self.unicast_mac_filter = YList(self)
+                    self.trunk = YList(self)
+                    self._segment_path = lambda: "trunks"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__setattr__(name, value)
+                    self._perform_setattr(Vlan.Nodes.Node.Trunks, [], name, value)
 
 
-                class UnicastMacFilter(Entity):
+                class Trunk(Entity):
                     """
-                    Operational data for interface with MAC
-                    filters configured
+                    Operational data for trunk interfaces
+                    configured with VLANs
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface  <key>
                     
                     	The interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
-                    .. attribute:: unicast_filter
+                    .. attribute:: dot1ad_count
                     
-                    	Unicast MAC filter information
-                    	**type**\: list of    :py:class:`UnicastFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter>`
+                    	Number of subinterfaces with 802.1ad outer tag
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_xr
+                    
+                    	Interface name
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: layer2_sub_interfaces
+                    
+                    	Layer 2 Transport Subinterfaces
+                    	**type**\:   :py:class:`Layer2SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces>`
+                    
+                    .. attribute:: layer3_sub_interfaces
+                    
+                    	Layer 3 Terminated Subinterfaces
+                    	**type**\:   :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
+                    
+                    .. attribute:: mac_filtering
+                    
+                    	IEEE 802.1Q/802.1ad multicast MAC address filtering
+                    	**type**\:   :py:class:`EthFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthFiltering>`
+                    
+                    .. attribute:: mtu
+                    
+                    	L2 MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: qinq_outer_ether_type
+                    
+                    	QinQ Outer Tag Ether Type
+                    	**type**\:   :py:class:`VlanQinqOuterEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtype>`
+                    
+                    .. attribute:: state
+                    
+                    	Interface state
+                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum>`
+                    
+                    .. attribute:: untagged_interface
+                    
+                    	Interface/Sub\-interface handling untagged frames
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -6185,55 +2539,89 @@ class EthernetEncapsulation(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__init__()
+                        super(Vlan.Nodes.Node.Trunks.Trunk, self).__init__()
 
-                        self.yang_name = "unicast-mac-filter"
-                        self.yang_parent_name = "unicast-mac-filters"
+                        self.yang_name = "trunk"
+                        self.yang_parent_name = "trunks"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"layer2-sub-interfaces" : ("layer2_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces), "layer3-sub-interfaces" : ("layer3_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces)}
+                        self._child_list_classes = {}
 
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.interface = YLeaf(YType.str, "interface")
 
-                        self.unicast_filter = YList(self)
+                        self.dot1ad_count = YLeaf(YType.uint32, "dot1ad-count")
+
+                        self.interface_xr = YLeaf(YType.str, "interface-xr")
+
+                        self.mac_filtering = YLeaf(YType.enumeration, "mac-filtering")
+
+                        self.mtu = YLeaf(YType.uint16, "mtu")
+
+                        self.qinq_outer_ether_type = YLeaf(YType.enumeration, "qinq-outer-ether-type")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.untagged_interface = YLeaf(YType.str, "untagged-interface")
+
+                        self.layer2_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces()
+                        self.layer2_sub_interfaces.parent = self
+                        self._children_name_map["layer2_sub_interfaces"] = "layer2-sub-interfaces"
+                        self._children_yang_names.add("layer2-sub-interfaces")
+
+                        self.layer3_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces()
+                        self.layer3_sub_interfaces.parent = self
+                        self._children_name_map["layer3_sub_interfaces"] = "layer3-sub-interfaces"
+                        self._children_yang_names.add("layer3-sub-interfaces")
+                        self._segment_path = lambda: "trunk" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__setattr__(name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'dot1ad_count', 'interface_xr', 'mac_filtering', 'mtu', 'qinq_outer_ether_type', 'state', 'untagged_interface'], name, value)
 
 
-                    class UnicastFilter(Entity):
+                    class Layer2SubInterfaces(Entity):
                         """
-                        Unicast MAC filter information
+                        Layer 2 Transport Subinterfaces
                         
-                        .. attribute:: mac_address
+                        .. attribute:: dot1q_count
                         
-                        	MAC address
-                        	**type**\:  str
+                        	Number of single tagged subinterfaces
+                        	**type**\:  int
                         
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        	**range:** 0..4294967295
                         
-                        .. attribute:: mode
+                        .. attribute:: qin_any_count
                         
-                        	Unicast MAC mode
-                        	**type**\:   :py:class:`EthCapsUcastMacMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacMode>`
+                        	Number of double tagged subinterfaces with wildcarded inner tag
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: qin_q_count
+                        
+                        	Number of double tagged subinterfaces with explicit inner tag
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: state_counters
+                        
+                        	Numbers of subinterfaces up, down or administratively shut down
+                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
+                        
+                        .. attribute:: total_count
+                        
+                        	Total number of Layer 2 subinterfaces configured
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: untagged_count
+                        
+                        	Number of subinterfaces without VLAN tag configuration
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -6243,377 +2631,224 @@ class EthernetEncapsulation(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__init__()
+                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__init__()
 
-                            self.yang_name = "unicast-filter"
-                            self.yang_parent_name = "unicast-mac-filter"
+                            self.yang_name = "layer2-sub-interfaces"
+                            self.yang_parent_name = "trunk"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"state-counters" : ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters)}
+                            self._child_list_classes = {}
 
-                            self.mac_address = YLeaf(YType.str, "mac-address")
+                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
 
-                            self.mode = YLeaf(YType.enumeration, "mode")
+                            self.qin_any_count = YLeaf(YType.uint32, "qin-any-count")
+
+                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
+
+                            self.total_count = YLeaf(YType.uint32, "total-count")
+
+                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
+
+                            self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters()
+                            self.state_counters.parent = self
+                            self._children_name_map["state_counters"] = "state-counters"
+                            self._children_yang_names.add("state-counters")
+                            self._segment_path = lambda: "layer2-sub-interfaces"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("mac_address",
-                                            "mode") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.mac_address.is_set or
-                                self.mode.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.mac_address.yfilter != YFilter.not_set or
-                                self.mode.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "unicast-filter" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.mac_address.get_name_leafdata())
-                            if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.mode.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "mac-address" or name == "mode"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "mac-address"):
-                                self.mac_address = value
-                                self.mac_address.value_namespace = name_space
-                                self.mac_address.value_namespace_prefix = name_space_prefix
-                            if(value_path == "mode"):
-                                self.mode = value
-                                self.mode.value_namespace = name_space
-                                self.mode.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.unicast_filter:
-                            if (c.has_data()):
-                                return True
-                        return self.interface_name.is_set
-
-                    def has_operation(self):
-                        for c in self.unicast_filter:
-                            if (c.has_operation()):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "unicast-mac-filter" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "unicast-filter"):
-                            for c in self.unicast_filter:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.unicast_filter.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "unicast-filter" or name == "interface-name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.unicast_mac_filter:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.unicast_mac_filter:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "unicast-mac-filters" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "unicast-mac-filter"):
-                        for c in self.unicast_mac_filter:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.unicast_mac_filter.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "unicast-mac-filter"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.unicast_mac_filters is not None and self.unicast_mac_filters.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.unicast_mac_filters is not None and self.unicast_mac_filters.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "unicast-mac-filters"):
-                    if (self.unicast_mac_filters is None):
-                        self.unicast_mac_filters = EthernetEncapsulation.Nodes.Node.UnicastMacFilters()
-                        self.unicast_mac_filters.parent = self
-                        self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
-                    return self.unicast_mac_filters
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "unicast-mac-filters" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = EthernetEncapsulation.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = EthernetEncapsulation.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, ['dot1q_count', 'qin_any_count', 'qin_q_count', 'total_count', 'untagged_count'], name, value)
+
+
+                        class StateCounters(Entity):
+                            """
+                            Numbers of subinterfaces up, down or
+                            administratively shut down
+                            
+                            .. attribute:: admin_down
+                            
+                            	Number of subinterfaces which are administrativelyshutdown
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: down
+                            
+                            	Number of subinterfaces which are down
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: up
+                            
+                            	Number of subinterfaces which are up
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2-eth-infra-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__init__()
+
+                                self.yang_name = "state-counters"
+                                self.yang_parent_name = "layer2-sub-interfaces"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_down = YLeaf(YType.uint32, "admin-down")
+
+                                self.down = YLeaf(YType.uint32, "down")
+
+                                self.up = YLeaf(YType.uint32, "up")
+                                self._segment_path = lambda: "state-counters"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, ['admin_down', 'down', 'up'], name, value)
+
+
+                    class Layer3SubInterfaces(Entity):
+                        """
+                        Layer 3 Terminated Subinterfaces
+                        
+                        .. attribute:: dot1q_count
+                        
+                        	Number of single tagged subinterfaces
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: native_vlan
+                        
+                        	Native VLAN ID configured on trunk
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: qin_q_count
+                        
+                        	Number of double tagged subinterfaces
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: state_counters
+                        
+                        	Numbers of subinterfaces up, down or administratively shut down
+                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters>`
+                        
+                        .. attribute:: total_count
+                        
+                        	Total number of Layer 3 subinterfaces configured
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: untagged_count
+                        
+                        	Number of subinterfaces without VLAN tag configuration
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2-eth-infra-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__init__()
+
+                            self.yang_name = "layer3-sub-interfaces"
+                            self.yang_parent_name = "trunk"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"state-counters" : ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters)}
+                            self._child_list_classes = {}
+
+                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
+
+                            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
+
+                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
+
+                            self.total_count = YLeaf(YType.uint32, "total-count")
+
+                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
+
+                            self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters()
+                            self.state_counters.parent = self
+                            self._children_name_map["state_counters"] = "state-counters"
+                            self._children_yang_names.add("state-counters")
+                            self._segment_path = lambda: "layer3-sub-interfaces"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, ['dot1q_count', 'native_vlan', 'qin_q_count', 'total_count', 'untagged_count'], name, value)
+
+
+                        class StateCounters(Entity):
+                            """
+                            Numbers of subinterfaces up, down or
+                            administratively shut down
+                            
+                            .. attribute:: admin_down
+                            
+                            	Number of subinterfaces which are administrativelyshutdown
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: down
+                            
+                            	Number of subinterfaces which are down
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: up
+                            
+                            	Number of subinterfaces which are up
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2-eth-infra-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__init__()
+
+                                self.yang_name = "state-counters"
+                                self.yang_parent_name = "layer3-sub-interfaces"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_down = YLeaf(YType.uint32, "admin-down")
+
+                                self.down = YLeaf(YType.uint32, "down")
+
+                                self.up = YLeaf(YType.uint32, "up")
+                                self._segment_path = lambda: "state-counters"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, ['admin_down', 'down', 'up'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EthernetEncapsulation()
+        self._top_entity = Vlan()
         return self._top_entity
 

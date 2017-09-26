@@ -34,7 +34,7 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
      for the following management objects:
        hardware-module: NCS1k HW module config
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -142,6 +142,18 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
 
         container psm {
           description "PSM Configs";
+          leaf mono-dir {
+            type boolean;
+            description "Psm Uni directional configuration";
+          }
+          leaf auto-threshold {
+            type boolean;
+            description "Psm Automatic Threshold Setting";
+          }
+          leaf path-protection {
+            type boolean;
+            description "Psm path protection configuration";
+          }
           leaf section-protection {
             type boolean;
             description "Psm section protection configuration";
@@ -156,7 +168,9 @@ module Cisco-IOS-XR-ncs1001-ots-cfg {
           }
         }
         leaf slot-id {
-          type xr:Cisco-ios-xr-string;
+          type uint32 {
+            range "1..3";
+          }
           description "Set Slot";
         }
       }

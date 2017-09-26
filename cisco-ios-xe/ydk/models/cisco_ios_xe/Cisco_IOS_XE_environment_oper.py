@@ -6,7 +6,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -73,32 +72,16 @@ class EnvironmentSensors(Entity):
 
         self.yang_name = "environment-sensors"
         self.yang_parent_name = "Cisco-IOS-XE-environment-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"environment-sensor" : ("environment_sensor", EnvironmentSensors.EnvironmentSensor)}
 
         self.environment_sensor = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(EnvironmentSensors, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(EnvironmentSensors, self).__setattr__(name, value)
+        self._perform_setattr(EnvironmentSensors, [], name, value)
 
 
     class EnvironmentSensor(Entity):
@@ -144,6 +127,10 @@ class EnvironmentSensors(Entity):
 
             self.yang_name = "environment-sensor"
             self.yang_parent_name = "environment-sensors"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.name = YLeaf(YType.str, "name")
 
@@ -154,169 +141,11 @@ class EnvironmentSensors(Entity):
             self.sensor_units = YLeaf(YType.enumeration, "sensor-units")
 
             self.state = YLeaf(YType.str, "state")
+            self._segment_path = lambda: "environment-sensor" + "[name='" + self.name.get() + "']" + "[location='" + self.location.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("name",
-                            "location",
-                            "current_reading",
-                            "sensor_units",
-                            "state") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(EnvironmentSensors.EnvironmentSensor, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(EnvironmentSensors.EnvironmentSensor, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.name.is_set or
-                self.location.is_set or
-                self.current_reading.is_set or
-                self.sensor_units.is_set or
-                self.state.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.name.yfilter != YFilter.not_set or
-                self.location.yfilter != YFilter.not_set or
-                self.current_reading.yfilter != YFilter.not_set or
-                self.sensor_units.yfilter != YFilter.not_set or
-                self.state.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "environment-sensor" + "[name='" + self.name.get() + "']" + "[location='" + self.location.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-environment-oper:environment-sensors/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.name.get_name_leafdata())
-            if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.location.get_name_leafdata())
-            if (self.current_reading.is_set or self.current_reading.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.current_reading.get_name_leafdata())
-            if (self.sensor_units.is_set or self.sensor_units.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.sensor_units.get_name_leafdata())
-            if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.state.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "name" or name == "location" or name == "current-reading" or name == "sensor-units" or name == "state"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "name"):
-                self.name = value
-                self.name.value_namespace = name_space
-                self.name.value_namespace_prefix = name_space_prefix
-            if(value_path == "location"):
-                self.location = value
-                self.location.value_namespace = name_space
-                self.location.value_namespace_prefix = name_space_prefix
-            if(value_path == "current-reading"):
-                self.current_reading = value
-                self.current_reading.value_namespace = name_space
-                self.current_reading.value_namespace_prefix = name_space_prefix
-            if(value_path == "sensor-units"):
-                self.sensor_units = value
-                self.sensor_units.value_namespace = name_space
-                self.sensor_units.value_namespace_prefix = name_space_prefix
-            if(value_path == "state"):
-                self.state = value
-                self.state.value_namespace = name_space
-                self.state.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.environment_sensor:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.environment_sensor:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-environment-oper:environment-sensors" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "environment-sensor"):
-            for c in self.environment_sensor:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = EnvironmentSensors.EnvironmentSensor()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.environment_sensor.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "environment-sensor"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'current_reading', 'sensor_units', 'state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EnvironmentSensors()

@@ -56,7 +56,7 @@ module Cisco-IOS-XR-tty-server-oper {
      for the following management objects:
        tty: TTY Line Configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {

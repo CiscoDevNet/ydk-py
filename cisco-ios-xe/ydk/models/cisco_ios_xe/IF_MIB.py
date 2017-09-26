@@ -6,7 +6,6 @@ MIB\-II's ifTable, and incorporates the extensions defined in
 RFC 1229.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,34 +13,34 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IfMib(Entity):
+class IFMIB(Entity):
     """
     
     
     .. attribute:: ifmibobjects
     
     	
-    	**type**\:   :py:class:`Ifmibobjects <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifmibobjects>`
+    	**type**\:   :py:class:`Ifmibobjects <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifmibobjects>`
     
     .. attribute:: ifrcvaddresstable
     
     	This table contains an entry for each address (broadcast, multicast, or uni\-cast) for which the system will receive packets/frames on a particular interface, except as follows\:  \- for an interface operating in promiscuous mode, entries are only required for those addresses for which the system would receive frames were it not operating in promiscuous mode.  \- for 802.5 functional addresses, only one entry is required, for the address which has the functional address bit ANDed with the bit mask of all functional addresses for which the interface will accept frames.  A system is normally able to use any unicast address which corresponds to an entry in this table as a source address
-    	**type**\:   :py:class:`Ifrcvaddresstable <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifrcvaddresstable>`
+    	**type**\:   :py:class:`Ifrcvaddresstable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable>`
     
     .. attribute:: ifstacktable
     
     	The table containing information on the relationships between the multiple sub\-layers of network interfaces.  In particular, it contains information on which sub\-layers run 'on top of' which other sub\-layers, where each sub\-layer corresponds to a conceptual row in the ifTable.  For example, when the sub\-layer with ifIndex value x runs over the sub\-layer with ifIndex value y, then this table contains\:    ifStackStatus.x.y=active  For each ifIndex value, I, which identifies an active interface, there are always at least two instantiated rows in this table associated with I.  For one of these rows, I is the value of ifStackHigherLayer; for the other, I is the value of ifStackLowerLayer.  (If I is not involved in multiplexing, then these are the only two rows associated with I.)  For example, two rows exist even for an interface which has no others stacked on top or below it\:    ifStackStatus.0.x=active   ifStackStatus.x.0=active 
-    	**type**\:   :py:class:`Ifstacktable <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifstacktable>`
+    	**type**\:   :py:class:`Ifstacktable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifstacktable>`
     
     .. attribute:: iftable
     
     	A list of interface entries.  The number of entries is given by the value of ifNumber
-    	**type**\:   :py:class:`Iftable <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable>`
+    	**type**\:   :py:class:`Iftable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable>`
     
     .. attribute:: interfaces
     
     	
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Interfaces>`
     
     
 
@@ -51,133 +50,41 @@ class IfMib(Entity):
     _revision = '2000-06-14'
 
     def __init__(self):
-        super(IfMib, self).__init__()
+        super(IFMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "IF-MIB"
         self.yang_parent_name = "IF-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"ifMIBObjects" : ("ifmibobjects", IFMIB.Ifmibobjects), "ifRcvAddressTable" : ("ifrcvaddresstable", IFMIB.Ifrcvaddresstable), "ifStackTable" : ("ifstacktable", IFMIB.Ifstacktable), "ifTable" : ("iftable", IFMIB.Iftable), "interfaces" : ("interfaces", IFMIB.Interfaces)}
+        self._child_list_classes = {}
 
-        self.ifmibobjects = IfMib.Ifmibobjects()
+        self.ifmibobjects = IFMIB.Ifmibobjects()
         self.ifmibobjects.parent = self
         self._children_name_map["ifmibobjects"] = "ifMIBObjects"
         self._children_yang_names.add("ifMIBObjects")
 
-        self.ifrcvaddresstable = IfMib.Ifrcvaddresstable()
+        self.ifrcvaddresstable = IFMIB.Ifrcvaddresstable()
         self.ifrcvaddresstable.parent = self
         self._children_name_map["ifrcvaddresstable"] = "ifRcvAddressTable"
         self._children_yang_names.add("ifRcvAddressTable")
 
-        self.ifstacktable = IfMib.Ifstacktable()
+        self.ifstacktable = IFMIB.Ifstacktable()
         self.ifstacktable.parent = self
         self._children_name_map["ifstacktable"] = "ifStackTable"
         self._children_yang_names.add("ifStackTable")
 
-        self.iftable = IfMib.Iftable()
+        self.iftable = IFMIB.Iftable()
         self.iftable.parent = self
         self._children_name_map["iftable"] = "ifTable"
         self._children_yang_names.add("ifTable")
 
-        self.interfaces = IfMib.Interfaces()
+        self.interfaces = IFMIB.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
-
-
-    class Interfaces(Entity):
-        """
-        
-        
-        .. attribute:: ifnumber
-        
-        	The number of network interfaces (regardless of their current state) present on this system
-        	**type**\:  int
-        
-        	**range:** \-2147483648..2147483647
-        
-        
-
-        """
-
-        _prefix = 'IF-MIB'
-        _revision = '2000-06-14'
-
-        def __init__(self):
-            super(IfMib.Interfaces, self).__init__()
-
-            self.yang_name = "interfaces"
-            self.yang_parent_name = "IF-MIB"
-
-            self.ifnumber = YLeaf(YType.int32, "ifNumber")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("ifnumber") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IfMib.Interfaces, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IfMib.Interfaces, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.ifnumber.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.ifnumber.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "interfaces" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "IF-MIB:IF-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.ifnumber.is_set or self.ifnumber.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ifnumber.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifNumber"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "ifNumber"):
-                self.ifnumber = value
-                self.ifnumber.value_namespace = name_space
-                self.ifnumber.value_namespace_prefix = name_space_prefix
+        self._segment_path = lambda: "IF-MIB:IF-MIB"
 
 
     class Ifmibobjects(Entity):
@@ -206,94 +113,282 @@ class IfMib(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IfMib.Ifmibobjects, self).__init__()
+            super(IFMIB.Ifmibobjects, self).__init__()
 
             self.yang_name = "ifMIBObjects"
             self.yang_parent_name = "IF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.ifstacklastchange = YLeaf(YType.uint32, "ifStackLastChange")
 
             self.iftablelastchange = YLeaf(YType.uint32, "ifTableLastChange")
+            self._segment_path = lambda: "ifMIBObjects"
+            self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("ifstacklastchange",
-                            "iftablelastchange") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IfMib.Ifmibobjects, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IfMib.Ifmibobjects, self).__setattr__(name, value)
+            self._perform_setattr(IFMIB.Ifmibobjects, ['ifstacklastchange', 'iftablelastchange'], name, value)
 
-        def has_data(self):
-            return (
-                self.ifstacklastchange.is_set or
-                self.iftablelastchange.is_set)
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.ifstacklastchange.yfilter != YFilter.not_set or
-                self.iftablelastchange.yfilter != YFilter.not_set)
+    class Ifrcvaddresstable(Entity):
+        """
+        This table contains an entry for each address (broadcast,
+        multicast, or uni\-cast) for which the system will receive
+        packets/frames on a particular interface, except as follows\:
+        
+        \- for an interface operating in promiscuous mode, entries
+        are only required for those addresses for which the system
+        would receive frames were it not operating in promiscuous
+        mode.
+        
+        \- for 802.5 functional addresses, only one entry is
+        required, for the address which has the functional address
+        bit ANDed with the bit mask of all functional addresses for
+        which the interface will accept frames.
+        
+        A system is normally able to use any unicast address which
+        corresponds to an entry in this table as a source address.
+        
+        .. attribute:: ifrcvaddressentry
+        
+        	A list of objects identifying an address for which the system will accept packets/frames on the particular interface identified by the index value ifIndex
+        	**type**\: list of    :py:class:`Ifrcvaddressentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable.Ifrcvaddressentry>`
+        
+        
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ifMIBObjects" + path_buffer
+        """
 
-            return path_buffer
+        _prefix = 'IF-MIB'
+        _revision = '2000-06-14'
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "IF-MIB:IF-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(IFMIB.Ifrcvaddresstable, self).__init__()
 
-            leaf_name_data = LeafDataList()
-            if (self.ifstacklastchange.is_set or self.ifstacklastchange.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ifstacklastchange.get_name_leafdata())
-            if (self.iftablelastchange.is_set or self.iftablelastchange.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.iftablelastchange.get_name_leafdata())
+            self.yang_name = "ifRcvAddressTable"
+            self.yang_parent_name = "IF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ifRcvAddressEntry" : ("ifrcvaddressentry", IFMIB.Ifrcvaddresstable.Ifrcvaddressentry)}
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+            self.ifrcvaddressentry = YList(self)
+            self._segment_path = lambda: "ifRcvAddressTable"
+            self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(IFMIB.Ifrcvaddresstable, [], name, value)
 
-            return None
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifStackLastChange" or name == "ifTableLastChange"):
-                return True
-            return False
+        class Ifrcvaddressentry(Entity):
+            """
+            A list of objects identifying an address for which the
+            system will accept packets/frames on the particular
+            interface identified by the index value ifIndex.
+            
+            .. attribute:: ifindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            
+            .. attribute:: ifrcvaddressaddress  <key>
+            
+            	An address for which the system will accept packets/frames on this entry's interface
+            	**type**\:  str
+            
+            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+            
+            .. attribute:: ifrcvaddressstatus
+            
+            	This object is used to create and delete rows in the ifRcvAddressTable
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: ifrcvaddresstype
+            
+            	This object has the value nonVolatile(3) for those entries in the table which are valid and will not be deleted by the next restart of the managed system.  Entries having the value volatile(2) are valid and exist, but have not been saved, so that will not exist after the next restart of the managed system.  Entries having the value other(1) are valid and exist but are not classified as to whether they will continue to exist after the next restart
+            	**type**\:   :py:class:`Ifrcvaddresstype <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifrcvaddresstable.Ifrcvaddressentry.Ifrcvaddresstype>`
+            
+            
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "ifStackLastChange"):
-                self.ifstacklastchange = value
-                self.ifstacklastchange.value_namespace = name_space
-                self.ifstacklastchange.value_namespace_prefix = name_space_prefix
-            if(value_path == "ifTableLastChange"):
-                self.iftablelastchange = value
-                self.iftablelastchange.value_namespace = name_space
-                self.iftablelastchange.value_namespace_prefix = name_space_prefix
+            """
+
+            _prefix = 'IF-MIB'
+            _revision = '2000-06-14'
+
+            def __init__(self):
+                super(IFMIB.Ifrcvaddresstable.Ifrcvaddressentry, self).__init__()
+
+                self.yang_name = "ifRcvAddressEntry"
+                self.yang_parent_name = "ifRcvAddressTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.ifrcvaddressaddress = YLeaf(YType.str, "ifRcvAddressAddress")
+
+                self.ifrcvaddressstatus = YLeaf(YType.enumeration, "ifRcvAddressStatus")
+
+                self.ifrcvaddresstype = YLeaf(YType.enumeration, "ifRcvAddressType")
+                self._segment_path = lambda: "ifRcvAddressEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[ifRcvAddressAddress='" + self.ifrcvaddressaddress.get() + "']"
+                self._absolute_path = lambda: "IF-MIB:IF-MIB/ifRcvAddressTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(IFMIB.Ifrcvaddresstable.Ifrcvaddressentry, ['ifindex', 'ifrcvaddressaddress', 'ifrcvaddressstatus', 'ifrcvaddresstype'], name, value)
+
+            class Ifrcvaddresstype(Enum):
+                """
+                Ifrcvaddresstype
+
+                This object has the value nonVolatile(3) for those entries
+
+                in the table which are valid and will not be deleted by the
+
+                next restart of the managed system.  Entries having the
+
+                value volatile(2) are valid and exist, but have not been
+
+                saved, so that will not exist after the next restart of the
+
+                managed system.  Entries having the value other(1) are valid
+
+                and exist but are not classified as to whether they will
+
+                continue to exist after the next restart.
+
+                .. data:: other = 1
+
+                .. data:: volatile = 2
+
+                .. data:: nonVolatile = 3
+
+                """
+
+                other = Enum.YLeaf(1, "other")
+
+                volatile = Enum.YLeaf(2, "volatile")
+
+                nonVolatile = Enum.YLeaf(3, "nonVolatile")
+
+
+
+    class Ifstacktable(Entity):
+        """
+        The table containing information on the relationships
+        between the multiple sub\-layers of network interfaces.  In
+        particular, it contains information on which sub\-layers run
+        'on top of' which other sub\-layers, where each sub\-layer
+        corresponds to a conceptual row in the ifTable.  For
+        example, when the sub\-layer with ifIndex value x runs over
+        the sub\-layer with ifIndex value y, then this table
+        contains\:
+        
+          ifStackStatus.x.y=active
+        
+        For each ifIndex value, I, which identifies an active
+        interface, there are always at least two instantiated rows
+        in this table associated with I.  For one of these rows, I
+        is the value of ifStackHigherLayer; for the other, I is the
+        value of ifStackLowerLayer.  (If I is not involved in
+        multiplexing, then these are the only two rows associated
+        with I.)
+        
+        For example, two rows exist even for an interface which has
+        no others stacked on top or below it\:
+        
+          ifStackStatus.0.x=active
+          ifStackStatus.x.0=active 
+        
+        .. attribute:: ifstackentry
+        
+        	Information on a particular relationship between two sub\- layers, specifying that one sub\-layer runs on 'top' of the other sub\-layer.  Each sub\-layer corresponds to a conceptual row in the ifTable
+        	**type**\: list of    :py:class:`Ifstackentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Ifstacktable.Ifstackentry>`
+        
+        
+
+        """
+
+        _prefix = 'IF-MIB'
+        _revision = '2000-06-14'
+
+        def __init__(self):
+            super(IFMIB.Ifstacktable, self).__init__()
+
+            self.yang_name = "ifStackTable"
+            self.yang_parent_name = "IF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ifStackEntry" : ("ifstackentry", IFMIB.Ifstacktable.Ifstackentry)}
+
+            self.ifstackentry = YList(self)
+            self._segment_path = lambda: "ifStackTable"
+            self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(IFMIB.Ifstacktable, [], name, value)
+
+
+        class Ifstackentry(Entity):
+            """
+            Information on a particular relationship between two sub\-
+            layers, specifying that one sub\-layer runs on 'top' of the
+            other sub\-layer.  Each sub\-layer corresponds to a conceptual
+            row in the ifTable.
+            
+            .. attribute:: ifstackhigherlayer  <key>
+            
+            	The value of ifIndex corresponding to the higher sub\-layer of the relationship, i.e., the sub\-layer which runs on 'top' of the sub\-layer identified by the corresponding instance of ifStackLowerLayer.  If there is no higher sub\-layer (below the internetwork layer), then this object has the value 0
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: ifstacklowerlayer  <key>
+            
+            	The value of ifIndex corresponding to the lower sub\-layer of the relationship, i.e., the sub\-layer which runs 'below' the sub\-layer identified by the corresponding instance of ifStackHigherLayer.  If there is no lower sub\-layer, then this object has the value 0
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: ifstackstatus
+            
+            	The status of the relationship between two sub\-layers.  Changing the value of this object from 'active' to 'notInService' or 'destroy' will likely have consequences up and down the interface stack.  Thus, write access to this object is likely to be inappropriate for some types of interfaces, and many implementations will choose not to support write\-access for any type of interface
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'IF-MIB'
+            _revision = '2000-06-14'
+
+            def __init__(self):
+                super(IFMIB.Ifstacktable.Ifstackentry, self).__init__()
+
+                self.yang_name = "ifStackEntry"
+                self.yang_parent_name = "ifStackTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ifstackhigherlayer = YLeaf(YType.int32, "ifStackHigherLayer")
+
+                self.ifstacklowerlayer = YLeaf(YType.int32, "ifStackLowerLayer")
+
+                self.ifstackstatus = YLeaf(YType.enumeration, "ifStackStatus")
+                self._segment_path = lambda: "ifStackEntry" + "[ifStackHigherLayer='" + self.ifstackhigherlayer.get() + "']" + "[ifStackLowerLayer='" + self.ifstacklowerlayer.get() + "']"
+                self._absolute_path = lambda: "IF-MIB:IF-MIB/ifStackTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(IFMIB.Ifstacktable.Ifstackentry, ['ifstackhigherlayer', 'ifstacklowerlayer', 'ifstackstatus'], name, value)
 
 
     class Iftable(Entity):
@@ -304,7 +399,7 @@ class IfMib(Entity):
         .. attribute:: ifentry
         
         	An entry containing management information applicable to a particular interface
-        	**type**\: list of    :py:class:`Ifentry <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry>`
+        	**type**\: list of    :py:class:`Ifentry <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
         
         
 
@@ -314,36 +409,21 @@ class IfMib(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IfMib.Iftable, self).__init__()
+            super(IFMIB.Iftable, self).__init__()
 
             self.yang_name = "ifTable"
             self.yang_parent_name = "IF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ifEntry" : ("ifentry", IFMIB.Iftable.Ifentry)}
 
             self.ifentry = YList(self)
+            self._segment_path = lambda: "ifTable"
+            self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IfMib.Iftable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IfMib.Iftable, self).__setattr__(name, value)
+            self._perform_setattr(IFMIB.Iftable, [], name, value)
 
 
         class Ifentry(Entity):
@@ -361,7 +441,7 @@ class IfMib(Entity):
             .. attribute:: ifadminstatus
             
             	The desired state of the interface.  The testing(3) state indicates that no operational packets can be passed.  When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state.  As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state)
-            	**type**\:   :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry.Ifadminstatus>`
+            	**type**\:   :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifadminstatus>`
             
             .. attribute:: ifalias
             
@@ -520,7 +600,7 @@ class IfMib(Entity):
             .. attribute:: iflinkupdowntrapenable
             
             	Indicates whether linkUp/linkDown traps should be generated for this interface.  By default, this object should have the value enabled(1) for interfaces which do not operate on 'top' of any other interface (as defined in the ifStackTable), and disabled(2) otherwise
-            	**type**\:   :py:class:`Iflinkupdowntrapenable <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry.Iflinkupdowntrapenable>`
+            	**type**\:   :py:class:`Iflinkupdowntrapenable <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Iflinkupdowntrapenable>`
             
             .. attribute:: ifmtu
             
@@ -537,7 +617,7 @@ class IfMib(Entity):
             .. attribute:: ifoperstatus
             
             	The current operational state of the interface.  The testing(3) state indicates that no operational packets can be passed.  If ifAdminStatus is down(2) then ifOperStatus should be down(2).  If ifAdminStatus is changed to up(1) then ifOperStatus should change to up(1) if the interface is ready to transmit and receive network traffic; it should change to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection); it should remain in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state; it should remain in the notPresent(6) state if the interface has missing (typically, hardware) components
-            	**type**\:   :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry.Ifoperstatus>`
+            	**type**\:   :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifoperstatus>`
             
             .. attribute:: ifoutbroadcastpkts
             
@@ -655,14 +735,14 @@ class IfMib(Entity):
             .. attribute:: iftestresult
             
             	This object contains the result of the most recently requested test, or the value none(1) if no tests have been requested since the last reset.  Note that this facility provides no provision for saving the results of one test when starting another, as could be required if used by multiple managers concurrently
-            	**type**\:   :py:class:`Iftestresult <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry.Iftestresult>`
+            	**type**\:   :py:class:`Iftestresult <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Iftestresult>`
             
             	**status**\: deprecated
             
             .. attribute:: ifteststatus
             
             	This object indicates whether or not some manager currently has the necessary 'ownership' required to invoke a test on this interface.  A write to this object is only successful when it changes its value from 'notInUse(1)' to 'inUse(2)'. After completion of a test, the agent resets the value back to 'notInUse(1)'
-            	**type**\:   :py:class:`Ifteststatus <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry.Ifteststatus>`
+            	**type**\:   :py:class:`Ifteststatus <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry.Ifteststatus>`
             
             	**status**\: deprecated
             
@@ -678,7 +758,7 @@ class IfMib(Entity):
             .. attribute:: iftype
             
             	The type of interface.  Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention
-            	**type**\:   :py:class:`Ianaiftype <ydk.models.cisco_ios_xe.IANAifType_MIB.Ianaiftype>`
+            	**type**\:   :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
             
             
 
@@ -688,10 +768,14 @@ class IfMib(Entity):
             _revision = '2000-06-14'
 
             def __init__(self):
-                super(IfMib.Iftable.Ifentry, self).__init__()
+                super(IFMIB.Iftable.Ifentry, self).__init__()
 
                 self.yang_name = "ifEntry"
                 self.yang_parent_name = "ifTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ifindex = YLeaf(YType.int32, "ifIndex")
 
@@ -786,76 +870,11 @@ class IfMib(Entity):
                 self.iftesttype = YLeaf(YType.str, "ifTestType")
 
                 self.iftype = YLeaf(YType.enumeration, "ifType")
+                self._segment_path = lambda: "ifEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self._absolute_path = lambda: "IF-MIB:IF-MIB/ifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifindex",
-                                "ifadminstatus",
-                                "ifalias",
-                                "ifconnectorpresent",
-                                "ifcounterdiscontinuitytime",
-                                "ifdescr",
-                                "ifhcinbroadcastpkts",
-                                "ifhcinmulticastpkts",
-                                "ifhcinoctets",
-                                "ifhcinucastpkts",
-                                "ifhcoutbroadcastpkts",
-                                "ifhcoutmulticastpkts",
-                                "ifhcoutoctets",
-                                "ifhcoutucastpkts",
-                                "ifhighspeed",
-                                "ifinbroadcastpkts",
-                                "ifindiscards",
-                                "ifinerrors",
-                                "ifinmulticastpkts",
-                                "ifinnucastpkts",
-                                "ifinoctets",
-                                "ifinucastpkts",
-                                "ifinunknownprotos",
-                                "iflastchange",
-                                "iflinkupdowntrapenable",
-                                "ifmtu",
-                                "ifname",
-                                "ifoperstatus",
-                                "ifoutbroadcastpkts",
-                                "ifoutdiscards",
-                                "ifouterrors",
-                                "ifoutmulticastpkts",
-                                "ifoutnucastpkts",
-                                "ifoutoctets",
-                                "ifoutqlen",
-                                "ifoutucastpkts",
-                                "ifphysaddress",
-                                "ifpromiscuousmode",
-                                "ifspecific",
-                                "ifspeed",
-                                "iftestcode",
-                                "iftestid",
-                                "iftestowner",
-                                "iftestresult",
-                                "ifteststatus",
-                                "iftesttype",
-                                "iftype") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(IfMib.Iftable.Ifentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(IfMib.Iftable.Ifentry, self).__setattr__(name, value)
+                self._perform_setattr(IFMIB.Iftable.Ifentry, ['ifindex', 'ifadminstatus', 'ifalias', 'ifconnectorpresent', 'ifcounterdiscontinuitytime', 'ifdescr', 'ifhcinbroadcastpkts', 'ifhcinmulticastpkts', 'ifhcinoctets', 'ifhcinucastpkts', 'ifhcoutbroadcastpkts', 'ifhcoutmulticastpkts', 'ifhcoutoctets', 'ifhcoutucastpkts', 'ifhighspeed', 'ifinbroadcastpkts', 'ifindiscards', 'ifinerrors', 'ifinmulticastpkts', 'ifinnucastpkts', 'ifinoctets', 'ifinucastpkts', 'ifinunknownprotos', 'iflastchange', 'iflinkupdowntrapenable', 'ifmtu', 'ifname', 'ifoperstatus', 'ifoutbroadcastpkts', 'ifoutdiscards', 'ifouterrors', 'ifoutmulticastpkts', 'ifoutnucastpkts', 'ifoutoctets', 'ifoutqlen', 'ifoutucastpkts', 'ifphysaddress', 'ifpromiscuousmode', 'ifspecific', 'ifspeed', 'iftestcode', 'iftestid', 'iftestowner', 'iftestresult', 'ifteststatus', 'iftesttype', 'iftype'], name, value)
 
             class Ifadminstatus(Enum):
                 """
@@ -1054,510 +1073,17 @@ class IfMib(Entity):
                 inUse = Enum.YLeaf(2, "inUse")
 
 
-            def has_data(self):
-                return (
-                    self.ifindex.is_set or
-                    self.ifadminstatus.is_set or
-                    self.ifalias.is_set or
-                    self.ifconnectorpresent.is_set or
-                    self.ifcounterdiscontinuitytime.is_set or
-                    self.ifdescr.is_set or
-                    self.ifhcinbroadcastpkts.is_set or
-                    self.ifhcinmulticastpkts.is_set or
-                    self.ifhcinoctets.is_set or
-                    self.ifhcinucastpkts.is_set or
-                    self.ifhcoutbroadcastpkts.is_set or
-                    self.ifhcoutmulticastpkts.is_set or
-                    self.ifhcoutoctets.is_set or
-                    self.ifhcoutucastpkts.is_set or
-                    self.ifhighspeed.is_set or
-                    self.ifinbroadcastpkts.is_set or
-                    self.ifindiscards.is_set or
-                    self.ifinerrors.is_set or
-                    self.ifinmulticastpkts.is_set or
-                    self.ifinnucastpkts.is_set or
-                    self.ifinoctets.is_set or
-                    self.ifinucastpkts.is_set or
-                    self.ifinunknownprotos.is_set or
-                    self.iflastchange.is_set or
-                    self.iflinkupdowntrapenable.is_set or
-                    self.ifmtu.is_set or
-                    self.ifname.is_set or
-                    self.ifoperstatus.is_set or
-                    self.ifoutbroadcastpkts.is_set or
-                    self.ifoutdiscards.is_set or
-                    self.ifouterrors.is_set or
-                    self.ifoutmulticastpkts.is_set or
-                    self.ifoutnucastpkts.is_set or
-                    self.ifoutoctets.is_set or
-                    self.ifoutqlen.is_set or
-                    self.ifoutucastpkts.is_set or
-                    self.ifphysaddress.is_set or
-                    self.ifpromiscuousmode.is_set or
-                    self.ifspecific.is_set or
-                    self.ifspeed.is_set or
-                    self.iftestcode.is_set or
-                    self.iftestid.is_set or
-                    self.iftestowner.is_set or
-                    self.iftestresult.is_set or
-                    self.ifteststatus.is_set or
-                    self.iftesttype.is_set or
-                    self.iftype.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifindex.yfilter != YFilter.not_set or
-                    self.ifadminstatus.yfilter != YFilter.not_set or
-                    self.ifalias.yfilter != YFilter.not_set or
-                    self.ifconnectorpresent.yfilter != YFilter.not_set or
-                    self.ifcounterdiscontinuitytime.yfilter != YFilter.not_set or
-                    self.ifdescr.yfilter != YFilter.not_set or
-                    self.ifhcinbroadcastpkts.yfilter != YFilter.not_set or
-                    self.ifhcinmulticastpkts.yfilter != YFilter.not_set or
-                    self.ifhcinoctets.yfilter != YFilter.not_set or
-                    self.ifhcinucastpkts.yfilter != YFilter.not_set or
-                    self.ifhcoutbroadcastpkts.yfilter != YFilter.not_set or
-                    self.ifhcoutmulticastpkts.yfilter != YFilter.not_set or
-                    self.ifhcoutoctets.yfilter != YFilter.not_set or
-                    self.ifhcoutucastpkts.yfilter != YFilter.not_set or
-                    self.ifhighspeed.yfilter != YFilter.not_set or
-                    self.ifinbroadcastpkts.yfilter != YFilter.not_set or
-                    self.ifindiscards.yfilter != YFilter.not_set or
-                    self.ifinerrors.yfilter != YFilter.not_set or
-                    self.ifinmulticastpkts.yfilter != YFilter.not_set or
-                    self.ifinnucastpkts.yfilter != YFilter.not_set or
-                    self.ifinoctets.yfilter != YFilter.not_set or
-                    self.ifinucastpkts.yfilter != YFilter.not_set or
-                    self.ifinunknownprotos.yfilter != YFilter.not_set or
-                    self.iflastchange.yfilter != YFilter.not_set or
-                    self.iflinkupdowntrapenable.yfilter != YFilter.not_set or
-                    self.ifmtu.yfilter != YFilter.not_set or
-                    self.ifname.yfilter != YFilter.not_set or
-                    self.ifoperstatus.yfilter != YFilter.not_set or
-                    self.ifoutbroadcastpkts.yfilter != YFilter.not_set or
-                    self.ifoutdiscards.yfilter != YFilter.not_set or
-                    self.ifouterrors.yfilter != YFilter.not_set or
-                    self.ifoutmulticastpkts.yfilter != YFilter.not_set or
-                    self.ifoutnucastpkts.yfilter != YFilter.not_set or
-                    self.ifoutoctets.yfilter != YFilter.not_set or
-                    self.ifoutqlen.yfilter != YFilter.not_set or
-                    self.ifoutucastpkts.yfilter != YFilter.not_set or
-                    self.ifphysaddress.yfilter != YFilter.not_set or
-                    self.ifpromiscuousmode.yfilter != YFilter.not_set or
-                    self.ifspecific.yfilter != YFilter.not_set or
-                    self.ifspeed.yfilter != YFilter.not_set or
-                    self.iftestcode.yfilter != YFilter.not_set or
-                    self.iftestid.yfilter != YFilter.not_set or
-                    self.iftestowner.yfilter != YFilter.not_set or
-                    self.iftestresult.yfilter != YFilter.not_set or
-                    self.ifteststatus.yfilter != YFilter.not_set or
-                    self.iftesttype.yfilter != YFilter.not_set or
-                    self.iftype.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ifEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "IF-MIB:IF-MIB/ifTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindex.get_name_leafdata())
-                if (self.ifadminstatus.is_set or self.ifadminstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifadminstatus.get_name_leafdata())
-                if (self.ifalias.is_set or self.ifalias.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifalias.get_name_leafdata())
-                if (self.ifconnectorpresent.is_set or self.ifconnectorpresent.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifconnectorpresent.get_name_leafdata())
-                if (self.ifcounterdiscontinuitytime.is_set or self.ifcounterdiscontinuitytime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifcounterdiscontinuitytime.get_name_leafdata())
-                if (self.ifdescr.is_set or self.ifdescr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifdescr.get_name_leafdata())
-                if (self.ifhcinbroadcastpkts.is_set or self.ifhcinbroadcastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcinbroadcastpkts.get_name_leafdata())
-                if (self.ifhcinmulticastpkts.is_set or self.ifhcinmulticastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcinmulticastpkts.get_name_leafdata())
-                if (self.ifhcinoctets.is_set or self.ifhcinoctets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcinoctets.get_name_leafdata())
-                if (self.ifhcinucastpkts.is_set or self.ifhcinucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcinucastpkts.get_name_leafdata())
-                if (self.ifhcoutbroadcastpkts.is_set or self.ifhcoutbroadcastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcoutbroadcastpkts.get_name_leafdata())
-                if (self.ifhcoutmulticastpkts.is_set or self.ifhcoutmulticastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcoutmulticastpkts.get_name_leafdata())
-                if (self.ifhcoutoctets.is_set or self.ifhcoutoctets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcoutoctets.get_name_leafdata())
-                if (self.ifhcoutucastpkts.is_set or self.ifhcoutucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhcoutucastpkts.get_name_leafdata())
-                if (self.ifhighspeed.is_set or self.ifhighspeed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifhighspeed.get_name_leafdata())
-                if (self.ifinbroadcastpkts.is_set or self.ifinbroadcastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinbroadcastpkts.get_name_leafdata())
-                if (self.ifindiscards.is_set or self.ifindiscards.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindiscards.get_name_leafdata())
-                if (self.ifinerrors.is_set or self.ifinerrors.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinerrors.get_name_leafdata())
-                if (self.ifinmulticastpkts.is_set or self.ifinmulticastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinmulticastpkts.get_name_leafdata())
-                if (self.ifinnucastpkts.is_set or self.ifinnucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinnucastpkts.get_name_leafdata())
-                if (self.ifinoctets.is_set or self.ifinoctets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinoctets.get_name_leafdata())
-                if (self.ifinucastpkts.is_set or self.ifinucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinucastpkts.get_name_leafdata())
-                if (self.ifinunknownprotos.is_set or self.ifinunknownprotos.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifinunknownprotos.get_name_leafdata())
-                if (self.iflastchange.is_set or self.iflastchange.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iflastchange.get_name_leafdata())
-                if (self.iflinkupdowntrapenable.is_set or self.iflinkupdowntrapenable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iflinkupdowntrapenable.get_name_leafdata())
-                if (self.ifmtu.is_set or self.ifmtu.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifmtu.get_name_leafdata())
-                if (self.ifname.is_set or self.ifname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifname.get_name_leafdata())
-                if (self.ifoperstatus.is_set or self.ifoperstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoperstatus.get_name_leafdata())
-                if (self.ifoutbroadcastpkts.is_set or self.ifoutbroadcastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutbroadcastpkts.get_name_leafdata())
-                if (self.ifoutdiscards.is_set or self.ifoutdiscards.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutdiscards.get_name_leafdata())
-                if (self.ifouterrors.is_set or self.ifouterrors.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifouterrors.get_name_leafdata())
-                if (self.ifoutmulticastpkts.is_set or self.ifoutmulticastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutmulticastpkts.get_name_leafdata())
-                if (self.ifoutnucastpkts.is_set or self.ifoutnucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutnucastpkts.get_name_leafdata())
-                if (self.ifoutoctets.is_set or self.ifoutoctets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutoctets.get_name_leafdata())
-                if (self.ifoutqlen.is_set or self.ifoutqlen.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutqlen.get_name_leafdata())
-                if (self.ifoutucastpkts.is_set or self.ifoutucastpkts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifoutucastpkts.get_name_leafdata())
-                if (self.ifphysaddress.is_set or self.ifphysaddress.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifphysaddress.get_name_leafdata())
-                if (self.ifpromiscuousmode.is_set or self.ifpromiscuousmode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifpromiscuousmode.get_name_leafdata())
-                if (self.ifspecific.is_set or self.ifspecific.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifspecific.get_name_leafdata())
-                if (self.ifspeed.is_set or self.ifspeed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifspeed.get_name_leafdata())
-                if (self.iftestcode.is_set or self.iftestcode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftestcode.get_name_leafdata())
-                if (self.iftestid.is_set or self.iftestid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftestid.get_name_leafdata())
-                if (self.iftestowner.is_set or self.iftestowner.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftestowner.get_name_leafdata())
-                if (self.iftestresult.is_set or self.iftestresult.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftestresult.get_name_leafdata())
-                if (self.ifteststatus.is_set or self.ifteststatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifteststatus.get_name_leafdata())
-                if (self.iftesttype.is_set or self.iftesttype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftesttype.get_name_leafdata())
-                if (self.iftype.is_set or self.iftype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.iftype.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifIndex" or name == "ifAdminStatus" or name == "ifAlias" or name == "ifConnectorPresent" or name == "ifCounterDiscontinuityTime" or name == "ifDescr" or name == "ifHCInBroadcastPkts" or name == "ifHCInMulticastPkts" or name == "ifHCInOctets" or name == "ifHCInUcastPkts" or name == "ifHCOutBroadcastPkts" or name == "ifHCOutMulticastPkts" or name == "ifHCOutOctets" or name == "ifHCOutUcastPkts" or name == "ifHighSpeed" or name == "ifInBroadcastPkts" or name == "ifInDiscards" or name == "ifInErrors" or name == "ifInMulticastPkts" or name == "ifInNUcastPkts" or name == "ifInOctets" or name == "ifInUcastPkts" or name == "ifInUnknownProtos" or name == "ifLastChange" or name == "ifLinkUpDownTrapEnable" or name == "ifMtu" or name == "ifName" or name == "ifOperStatus" or name == "ifOutBroadcastPkts" or name == "ifOutDiscards" or name == "ifOutErrors" or name == "ifOutMulticastPkts" or name == "ifOutNUcastPkts" or name == "ifOutOctets" or name == "ifOutQLen" or name == "ifOutUcastPkts" or name == "ifPhysAddress" or name == "ifPromiscuousMode" or name == "ifSpecific" or name == "ifSpeed" or name == "ifTestCode" or name == "ifTestId" or name == "ifTestOwner" or name == "ifTestResult" or name == "ifTestStatus" or name == "ifTestType" or name == "ifType"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifIndex"):
-                    self.ifindex = value
-                    self.ifindex.value_namespace = name_space
-                    self.ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifAdminStatus"):
-                    self.ifadminstatus = value
-                    self.ifadminstatus.value_namespace = name_space
-                    self.ifadminstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifAlias"):
-                    self.ifalias = value
-                    self.ifalias.value_namespace = name_space
-                    self.ifalias.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifConnectorPresent"):
-                    self.ifconnectorpresent = value
-                    self.ifconnectorpresent.value_namespace = name_space
-                    self.ifconnectorpresent.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifCounterDiscontinuityTime"):
-                    self.ifcounterdiscontinuitytime = value
-                    self.ifcounterdiscontinuitytime.value_namespace = name_space
-                    self.ifcounterdiscontinuitytime.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifDescr"):
-                    self.ifdescr = value
-                    self.ifdescr.value_namespace = name_space
-                    self.ifdescr.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCInBroadcastPkts"):
-                    self.ifhcinbroadcastpkts = value
-                    self.ifhcinbroadcastpkts.value_namespace = name_space
-                    self.ifhcinbroadcastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCInMulticastPkts"):
-                    self.ifhcinmulticastpkts = value
-                    self.ifhcinmulticastpkts.value_namespace = name_space
-                    self.ifhcinmulticastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCInOctets"):
-                    self.ifhcinoctets = value
-                    self.ifhcinoctets.value_namespace = name_space
-                    self.ifhcinoctets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCInUcastPkts"):
-                    self.ifhcinucastpkts = value
-                    self.ifhcinucastpkts.value_namespace = name_space
-                    self.ifhcinucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCOutBroadcastPkts"):
-                    self.ifhcoutbroadcastpkts = value
-                    self.ifhcoutbroadcastpkts.value_namespace = name_space
-                    self.ifhcoutbroadcastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCOutMulticastPkts"):
-                    self.ifhcoutmulticastpkts = value
-                    self.ifhcoutmulticastpkts.value_namespace = name_space
-                    self.ifhcoutmulticastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCOutOctets"):
-                    self.ifhcoutoctets = value
-                    self.ifhcoutoctets.value_namespace = name_space
-                    self.ifhcoutoctets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHCOutUcastPkts"):
-                    self.ifhcoutucastpkts = value
-                    self.ifhcoutucastpkts.value_namespace = name_space
-                    self.ifhcoutucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifHighSpeed"):
-                    self.ifhighspeed = value
-                    self.ifhighspeed.value_namespace = name_space
-                    self.ifhighspeed.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInBroadcastPkts"):
-                    self.ifinbroadcastpkts = value
-                    self.ifinbroadcastpkts.value_namespace = name_space
-                    self.ifinbroadcastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInDiscards"):
-                    self.ifindiscards = value
-                    self.ifindiscards.value_namespace = name_space
-                    self.ifindiscards.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInErrors"):
-                    self.ifinerrors = value
-                    self.ifinerrors.value_namespace = name_space
-                    self.ifinerrors.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInMulticastPkts"):
-                    self.ifinmulticastpkts = value
-                    self.ifinmulticastpkts.value_namespace = name_space
-                    self.ifinmulticastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInNUcastPkts"):
-                    self.ifinnucastpkts = value
-                    self.ifinnucastpkts.value_namespace = name_space
-                    self.ifinnucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInOctets"):
-                    self.ifinoctets = value
-                    self.ifinoctets.value_namespace = name_space
-                    self.ifinoctets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInUcastPkts"):
-                    self.ifinucastpkts = value
-                    self.ifinucastpkts.value_namespace = name_space
-                    self.ifinucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifInUnknownProtos"):
-                    self.ifinunknownprotos = value
-                    self.ifinunknownprotos.value_namespace = name_space
-                    self.ifinunknownprotos.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifLastChange"):
-                    self.iflastchange = value
-                    self.iflastchange.value_namespace = name_space
-                    self.iflastchange.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifLinkUpDownTrapEnable"):
-                    self.iflinkupdowntrapenable = value
-                    self.iflinkupdowntrapenable.value_namespace = name_space
-                    self.iflinkupdowntrapenable.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifMtu"):
-                    self.ifmtu = value
-                    self.ifmtu.value_namespace = name_space
-                    self.ifmtu.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifName"):
-                    self.ifname = value
-                    self.ifname.value_namespace = name_space
-                    self.ifname.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOperStatus"):
-                    self.ifoperstatus = value
-                    self.ifoperstatus.value_namespace = name_space
-                    self.ifoperstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutBroadcastPkts"):
-                    self.ifoutbroadcastpkts = value
-                    self.ifoutbroadcastpkts.value_namespace = name_space
-                    self.ifoutbroadcastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutDiscards"):
-                    self.ifoutdiscards = value
-                    self.ifoutdiscards.value_namespace = name_space
-                    self.ifoutdiscards.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutErrors"):
-                    self.ifouterrors = value
-                    self.ifouterrors.value_namespace = name_space
-                    self.ifouterrors.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutMulticastPkts"):
-                    self.ifoutmulticastpkts = value
-                    self.ifoutmulticastpkts.value_namespace = name_space
-                    self.ifoutmulticastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutNUcastPkts"):
-                    self.ifoutnucastpkts = value
-                    self.ifoutnucastpkts.value_namespace = name_space
-                    self.ifoutnucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutOctets"):
-                    self.ifoutoctets = value
-                    self.ifoutoctets.value_namespace = name_space
-                    self.ifoutoctets.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutQLen"):
-                    self.ifoutqlen = value
-                    self.ifoutqlen.value_namespace = name_space
-                    self.ifoutqlen.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifOutUcastPkts"):
-                    self.ifoutucastpkts = value
-                    self.ifoutucastpkts.value_namespace = name_space
-                    self.ifoutucastpkts.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifPhysAddress"):
-                    self.ifphysaddress = value
-                    self.ifphysaddress.value_namespace = name_space
-                    self.ifphysaddress.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifPromiscuousMode"):
-                    self.ifpromiscuousmode = value
-                    self.ifpromiscuousmode.value_namespace = name_space
-                    self.ifpromiscuousmode.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifSpecific"):
-                    self.ifspecific = value
-                    self.ifspecific.value_namespace = name_space
-                    self.ifspecific.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifSpeed"):
-                    self.ifspeed = value
-                    self.ifspeed.value_namespace = name_space
-                    self.ifspeed.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestCode"):
-                    self.iftestcode = value
-                    self.iftestcode.value_namespace = name_space
-                    self.iftestcode.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestId"):
-                    self.iftestid = value
-                    self.iftestid.value_namespace = name_space
-                    self.iftestid.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestOwner"):
-                    self.iftestowner = value
-                    self.iftestowner.value_namespace = name_space
-                    self.iftestowner.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestResult"):
-                    self.iftestresult = value
-                    self.iftestresult.value_namespace = name_space
-                    self.iftestresult.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestStatus"):
-                    self.ifteststatus = value
-                    self.ifteststatus.value_namespace = name_space
-                    self.ifteststatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifTestType"):
-                    self.iftesttype = value
-                    self.iftesttype.value_namespace = name_space
-                    self.iftesttype.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifType"):
-                    self.iftype = value
-                    self.iftype.value_namespace = name_space
-                    self.iftype.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ifentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ifentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ifTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "IF-MIB:IF-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ifEntry"):
-                for c in self.ifentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = IfMib.Iftable.Ifentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ifentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Ifstacktable(Entity):
+    class Interfaces(Entity):
         """
-        The table containing information on the relationships
-        between the multiple sub\-layers of network interfaces.  In
-        particular, it contains information on which sub\-layers run
-        'on top of' which other sub\-layers, where each sub\-layer
-        corresponds to a conceptual row in the ifTable.  For
-        example, when the sub\-layer with ifIndex value x runs over
-        the sub\-layer with ifIndex value y, then this table
-        contains\:
         
-          ifStackStatus.x.y=active
         
-        For each ifIndex value, I, which identifies an active
-        interface, there are always at least two instantiated rows
-        in this table associated with I.  For one of these rows, I
-        is the value of ifStackHigherLayer; for the other, I is the
-        value of ifStackLowerLayer.  (If I is not involved in
-        multiplexing, then these are the only two rows associated
-        with I.)
+        .. attribute:: ifnumber
         
-        For example, two rows exist even for an interface which has
-        no others stacked on top or below it\:
+        	The number of network interfaces (regardless of their current state) present on this system
+        	**type**\:  int
         
-          ifStackStatus.0.x=active
-          ifStackStatus.x.0=active 
-        
-        .. attribute:: ifstackentry
-        
-        	Information on a particular relationship between two sub\- layers, specifying that one sub\-layer runs on 'top' of the other sub\-layer.  Each sub\-layer corresponds to a conceptual row in the ifTable
-        	**type**\: list of    :py:class:`Ifstackentry <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifstacktable.Ifstackentry>`
+        	**range:** \-2147483648..2147483647
         
         
 
@@ -1567,622 +1093,23 @@ class IfMib(Entity):
         _revision = '2000-06-14'
 
         def __init__(self):
-            super(IfMib.Ifstacktable, self).__init__()
+            super(IFMIB.Interfaces, self).__init__()
 
-            self.yang_name = "ifStackTable"
+            self.yang_name = "interfaces"
             self.yang_parent_name = "IF-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-            self.ifstackentry = YList(self)
+            self.ifnumber = YLeaf(YType.int32, "ifNumber")
+            self._segment_path = lambda: "interfaces"
+            self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IfMib.Ifstacktable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IfMib.Ifstacktable, self).__setattr__(name, value)
-
-
-        class Ifstackentry(Entity):
-            """
-            Information on a particular relationship between two sub\-
-            layers, specifying that one sub\-layer runs on 'top' of the
-            other sub\-layer.  Each sub\-layer corresponds to a conceptual
-            row in the ifTable.
-            
-            .. attribute:: ifstackhigherlayer  <key>
-            
-            	The value of ifIndex corresponding to the higher sub\-layer of the relationship, i.e., the sub\-layer which runs on 'top' of the sub\-layer identified by the corresponding instance of ifStackLowerLayer.  If there is no higher sub\-layer (below the internetwork layer), then this object has the value 0
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: ifstacklowerlayer  <key>
-            
-            	The value of ifIndex corresponding to the lower sub\-layer of the relationship, i.e., the sub\-layer which runs 'below' the sub\-layer identified by the corresponding instance of ifStackHigherLayer.  If there is no lower sub\-layer, then this object has the value 0
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: ifstackstatus
-            
-            	The status of the relationship between two sub\-layers.  Changing the value of this object from 'active' to 'notInService' or 'destroy' will likely have consequences up and down the interface stack.  Thus, write access to this object is likely to be inappropriate for some types of interfaces, and many implementations will choose not to support write\-access for any type of interface
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
-            
-            
-
-            """
-
-            _prefix = 'IF-MIB'
-            _revision = '2000-06-14'
-
-            def __init__(self):
-                super(IfMib.Ifstacktable.Ifstackentry, self).__init__()
-
-                self.yang_name = "ifStackEntry"
-                self.yang_parent_name = "ifStackTable"
-
-                self.ifstackhigherlayer = YLeaf(YType.int32, "ifStackHigherLayer")
-
-                self.ifstacklowerlayer = YLeaf(YType.int32, "ifStackLowerLayer")
-
-                self.ifstackstatus = YLeaf(YType.enumeration, "ifStackStatus")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifstackhigherlayer",
-                                "ifstacklowerlayer",
-                                "ifstackstatus") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(IfMib.Ifstacktable.Ifstackentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(IfMib.Ifstacktable.Ifstackentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ifstackhigherlayer.is_set or
-                    self.ifstacklowerlayer.is_set or
-                    self.ifstackstatus.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifstackhigherlayer.yfilter != YFilter.not_set or
-                    self.ifstacklowerlayer.yfilter != YFilter.not_set or
-                    self.ifstackstatus.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ifStackEntry" + "[ifStackHigherLayer='" + self.ifstackhigherlayer.get() + "']" + "[ifStackLowerLayer='" + self.ifstacklowerlayer.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "IF-MIB:IF-MIB/ifStackTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ifstackhigherlayer.is_set or self.ifstackhigherlayer.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifstackhigherlayer.get_name_leafdata())
-                if (self.ifstacklowerlayer.is_set or self.ifstacklowerlayer.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifstacklowerlayer.get_name_leafdata())
-                if (self.ifstackstatus.is_set or self.ifstackstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifstackstatus.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifStackHigherLayer" or name == "ifStackLowerLayer" or name == "ifStackStatus"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifStackHigherLayer"):
-                    self.ifstackhigherlayer = value
-                    self.ifstackhigherlayer.value_namespace = name_space
-                    self.ifstackhigherlayer.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifStackLowerLayer"):
-                    self.ifstacklowerlayer = value
-                    self.ifstacklowerlayer.value_namespace = name_space
-                    self.ifstacklowerlayer.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifStackStatus"):
-                    self.ifstackstatus = value
-                    self.ifstackstatus.value_namespace = name_space
-                    self.ifstackstatus.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ifstackentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ifstackentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ifStackTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "IF-MIB:IF-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ifStackEntry"):
-                for c in self.ifstackentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = IfMib.Ifstacktable.Ifstackentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ifstackentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifStackEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Ifrcvaddresstable(Entity):
-        """
-        This table contains an entry for each address (broadcast,
-        multicast, or uni\-cast) for which the system will receive
-        packets/frames on a particular interface, except as follows\:
-        
-        \- for an interface operating in promiscuous mode, entries
-        are only required for those addresses for which the system
-        would receive frames were it not operating in promiscuous
-        mode.
-        
-        \- for 802.5 functional addresses, only one entry is
-        required, for the address which has the functional address
-        bit ANDed with the bit mask of all functional addresses for
-        which the interface will accept frames.
-        
-        A system is normally able to use any unicast address which
-        corresponds to an entry in this table as a source address.
-        
-        .. attribute:: ifrcvaddressentry
-        
-        	A list of objects identifying an address for which the system will accept packets/frames on the particular interface identified by the index value ifIndex
-        	**type**\: list of    :py:class:`Ifrcvaddressentry <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifrcvaddresstable.Ifrcvaddressentry>`
-        
-        
-
-        """
-
-        _prefix = 'IF-MIB'
-        _revision = '2000-06-14'
-
-        def __init__(self):
-            super(IfMib.Ifrcvaddresstable, self).__init__()
-
-            self.yang_name = "ifRcvAddressTable"
-            self.yang_parent_name = "IF-MIB"
-
-            self.ifrcvaddressentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IfMib.Ifrcvaddresstable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IfMib.Ifrcvaddresstable, self).__setattr__(name, value)
-
-
-        class Ifrcvaddressentry(Entity):
-            """
-            A list of objects identifying an address for which the
-            system will accept packets/frames on the particular
-            interface identified by the index value ifIndex.
-            
-            .. attribute:: ifindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry>`
-            
-            .. attribute:: ifrcvaddressaddress  <key>
-            
-            	An address for which the system will accept packets/frames on this entry's interface
-            	**type**\:  str
-            
-            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-            
-            .. attribute:: ifrcvaddressstatus
-            
-            	This object is used to create and delete rows in the ifRcvAddressTable
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
-            
-            .. attribute:: ifrcvaddresstype
-            
-            	This object has the value nonVolatile(3) for those entries in the table which are valid and will not be deleted by the next restart of the managed system.  Entries having the value volatile(2) are valid and exist, but have not been saved, so that will not exist after the next restart of the managed system.  Entries having the value other(1) are valid and exist but are not classified as to whether they will continue to exist after the next restart
-            	**type**\:   :py:class:`Ifrcvaddresstype <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Ifrcvaddresstable.Ifrcvaddressentry.Ifrcvaddresstype>`
-            
-            
-
-            """
-
-            _prefix = 'IF-MIB'
-            _revision = '2000-06-14'
-
-            def __init__(self):
-                super(IfMib.Ifrcvaddresstable.Ifrcvaddressentry, self).__init__()
-
-                self.yang_name = "ifRcvAddressEntry"
-                self.yang_parent_name = "ifRcvAddressTable"
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.ifrcvaddressaddress = YLeaf(YType.str, "ifRcvAddressAddress")
-
-                self.ifrcvaddressstatus = YLeaf(YType.enumeration, "ifRcvAddressStatus")
-
-                self.ifrcvaddresstype = YLeaf(YType.enumeration, "ifRcvAddressType")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifindex",
-                                "ifrcvaddressaddress",
-                                "ifrcvaddressstatus",
-                                "ifrcvaddresstype") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(IfMib.Ifrcvaddresstable.Ifrcvaddressentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(IfMib.Ifrcvaddresstable.Ifrcvaddressentry, self).__setattr__(name, value)
-
-            class Ifrcvaddresstype(Enum):
-                """
-                Ifrcvaddresstype
-
-                This object has the value nonVolatile(3) for those entries
-
-                in the table which are valid and will not be deleted by the
-
-                next restart of the managed system.  Entries having the
-
-                value volatile(2) are valid and exist, but have not been
-
-                saved, so that will not exist after the next restart of the
-
-                managed system.  Entries having the value other(1) are valid
-
-                and exist but are not classified as to whether they will
-
-                continue to exist after the next restart.
-
-                .. data:: other = 1
-
-                .. data:: volatile = 2
-
-                .. data:: nonVolatile = 3
-
-                """
-
-                other = Enum.YLeaf(1, "other")
-
-                volatile = Enum.YLeaf(2, "volatile")
-
-                nonVolatile = Enum.YLeaf(3, "nonVolatile")
-
-
-            def has_data(self):
-                return (
-                    self.ifindex.is_set or
-                    self.ifrcvaddressaddress.is_set or
-                    self.ifrcvaddressstatus.is_set or
-                    self.ifrcvaddresstype.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifindex.yfilter != YFilter.not_set or
-                    self.ifrcvaddressaddress.yfilter != YFilter.not_set or
-                    self.ifrcvaddressstatus.yfilter != YFilter.not_set or
-                    self.ifrcvaddresstype.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ifRcvAddressEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[ifRcvAddressAddress='" + self.ifrcvaddressaddress.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "IF-MIB:IF-MIB/ifRcvAddressTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindex.get_name_leafdata())
-                if (self.ifrcvaddressaddress.is_set or self.ifrcvaddressaddress.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifrcvaddressaddress.get_name_leafdata())
-                if (self.ifrcvaddressstatus.is_set or self.ifrcvaddressstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifrcvaddressstatus.get_name_leafdata())
-                if (self.ifrcvaddresstype.is_set or self.ifrcvaddresstype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifrcvaddresstype.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifIndex" or name == "ifRcvAddressAddress" or name == "ifRcvAddressStatus" or name == "ifRcvAddressType"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifIndex"):
-                    self.ifindex = value
-                    self.ifindex.value_namespace = name_space
-                    self.ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifRcvAddressAddress"):
-                    self.ifrcvaddressaddress = value
-                    self.ifrcvaddressaddress.value_namespace = name_space
-                    self.ifrcvaddressaddress.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifRcvAddressStatus"):
-                    self.ifrcvaddressstatus = value
-                    self.ifrcvaddressstatus.value_namespace = name_space
-                    self.ifrcvaddressstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "ifRcvAddressType"):
-                    self.ifrcvaddresstype = value
-                    self.ifrcvaddresstype.value_namespace = name_space
-                    self.ifrcvaddresstype.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ifrcvaddressentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ifrcvaddressentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ifRcvAddressTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "IF-MIB:IF-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ifRcvAddressEntry"):
-                for c in self.ifrcvaddressentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = IfMib.Ifrcvaddresstable.Ifrcvaddressentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ifrcvaddressentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifRcvAddressEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.ifmibobjects is not None and self.ifmibobjects.has_data()) or
-            (self.ifrcvaddresstable is not None and self.ifrcvaddresstable.has_data()) or
-            (self.ifstacktable is not None and self.ifstacktable.has_data()) or
-            (self.iftable is not None and self.iftable.has_data()) or
-            (self.interfaces is not None and self.interfaces.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.ifmibobjects is not None and self.ifmibobjects.has_operation()) or
-            (self.ifrcvaddresstable is not None and self.ifrcvaddresstable.has_operation()) or
-            (self.ifstacktable is not None and self.ifstacktable.has_operation()) or
-            (self.iftable is not None and self.iftable.has_operation()) or
-            (self.interfaces is not None and self.interfaces.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "IF-MIB:IF-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "ifMIBObjects"):
-            if (self.ifmibobjects is None):
-                self.ifmibobjects = IfMib.Ifmibobjects()
-                self.ifmibobjects.parent = self
-                self._children_name_map["ifmibobjects"] = "ifMIBObjects"
-            return self.ifmibobjects
-
-        if (child_yang_name == "ifRcvAddressTable"):
-            if (self.ifrcvaddresstable is None):
-                self.ifrcvaddresstable = IfMib.Ifrcvaddresstable()
-                self.ifrcvaddresstable.parent = self
-                self._children_name_map["ifrcvaddresstable"] = "ifRcvAddressTable"
-            return self.ifrcvaddresstable
-
-        if (child_yang_name == "ifStackTable"):
-            if (self.ifstacktable is None):
-                self.ifstacktable = IfMib.Ifstacktable()
-                self.ifstacktable.parent = self
-                self._children_name_map["ifstacktable"] = "ifStackTable"
-            return self.ifstacktable
-
-        if (child_yang_name == "ifTable"):
-            if (self.iftable is None):
-                self.iftable = IfMib.Iftable()
-                self.iftable.parent = self
-                self._children_name_map["iftable"] = "ifTable"
-            return self.iftable
-
-        if (child_yang_name == "interfaces"):
-            if (self.interfaces is None):
-                self.interfaces = IfMib.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-            return self.interfaces
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "ifMIBObjects" or name == "ifRcvAddressTable" or name == "ifStackTable" or name == "ifTable" or name == "interfaces"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(IFMIB.Interfaces, ['ifnumber'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = IfMib()
+        self._top_entity = IFMIB()
         return self._top_entity
 

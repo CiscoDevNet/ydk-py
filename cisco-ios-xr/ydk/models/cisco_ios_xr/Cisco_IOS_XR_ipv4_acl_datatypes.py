@@ -3,11 +3,10 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -147,6 +146,39 @@ class Ipv4AclDscpNumber(Enum):
     cs7 = Enum.YLeaf(56, "cs7")
 
     ef = Enum.YLeaf(46, "ef")
+
+
+class Ipv4AclFragFlags(Enum):
+    """
+    Ipv4AclFragFlags
+
+    Ipv4 acl frag flags
+
+    .. data:: dont_fragment = 1
+
+    	Match don't fragment flag
+
+    .. data:: is_fragment = 2
+
+    	Match is fragment flag
+
+    .. data:: first_fragment = 4
+
+    	Match first fragment flag
+
+    .. data:: last_fragment = 8
+
+    	Match last fragment flag
+
+    """
+
+    dont_fragment = Enum.YLeaf(1, "dont-fragment")
+
+    is_fragment = Enum.YLeaf(2, "is-fragment")
+
+    first_fragment = Enum.YLeaf(4, "first-fragment")
+
+    last_fragment = Enum.YLeaf(8, "last-fragment")
 
 
 class Ipv4AclGrantEnum(Enum):

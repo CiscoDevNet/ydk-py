@@ -12,11 +12,11 @@ module Cisco-IOS-XR-pfi-im-cmd-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-pfi-im-cmd-oper-sub2 {
-    revision-date 2016-12-18;
+    revision-date 2017-06-26;
   }
 
   include Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
-    revision-date 2016-12-18;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -42,8 +42,18 @@ module Cisco-IOS-XR-pfi-im-cmd-oper {
      for the following management objects:
        interfaces: Interface operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-18" {
     description

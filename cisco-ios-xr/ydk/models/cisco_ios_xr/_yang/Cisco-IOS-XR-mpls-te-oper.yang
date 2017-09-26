@@ -14,39 +14,39 @@ module Cisco-IOS-XR-mpls-te-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-mpls-te-oper-sub9 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub8 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub7 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub5 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub4 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub3 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-mpls-te-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -78,8 +78,13 @@ module Cisco-IOS-XR-mpls-te-oper {
        mpls-tp: mpls tp
        mpls-te-standby: mpls te standby
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -538,51 +543,6 @@ module Cisco-IOS-XR-mpls-te-oper {
         uses MPLS-TE-SYNC-COUNT-INFO;
       }
 
-      container heads-counters {
-        description "MPLS TE counters signalling heads table";
-
-        list heads-counter {
-          key "tunnel-id";
-          description "MPLS TE counters signalling head";
-          leaf tunnel-id {
-            type int32;
-            description "tunnel id of last obtained tunnel";
-          }
-          uses TE-STATS-BAG-VIF;
-        }
-      }
-
-      container mids-counters {
-        description "MPLS TE counters signalling heads table";
-
-        list mids-counter {
-          key "source-address destination-address tunnel-id"+
-            " extended-tunnel-id lsp-id";
-          description "MPLS TE counters signalling mid";
-          leaf source-address {
-            type inet:ipv4-address-no-zone;
-            description "Source Address";
-          }
-          leaf destination-address {
-            type inet:ipv4-address-no-zone;
-            description "Destination Address";
-          }
-          leaf tunnel-id {
-            type int32;
-            description "tunnel id of last obtained tunnel";
-          }
-          leaf extended-tunnel-id {
-            type inet:ipv4-address-no-zone;
-            description "Extended Tunnel ID";
-          }
-          leaf lsp-id {
-            type int32;
-            description "LSP ID";
-          }
-          uses TE-STATS-BAG-LSP;
-        }
-      }
-
       container head-signalling-counters {
         description "Sig Head Table TE counters";
 
@@ -644,37 +604,6 @@ module Cisco-IOS-XR-mpls-te-oper {
           leaf sub-group-id {
             type int32;
             description "Subgroup ID";
-          }
-          uses TE-STATS-BAG-LSP;
-        }
-      }
-
-      container tails-counters {
-        description "MPLS TE counters signalling heads table";
-
-        list tails-counter {
-          key "source-address destination-address tunnel-id"+
-            " extended-tunnel-id lsp-id";
-          description "MPLS TE counters signalling mid";
-          leaf source-address {
-            type inet:ipv4-address-no-zone;
-            description "Source Address";
-          }
-          leaf destination-address {
-            type inet:ipv4-address-no-zone;
-            description "Destination Address";
-          }
-          leaf tunnel-id {
-            type int32;
-            description "tunnel id of last obtained tunnel";
-          }
-          leaf extended-tunnel-id {
-            type inet:ipv4-address-no-zone;
-            description "Extended Tunnel ID";
-          }
-          leaf lsp-id {
-            type int32;
-            description "LSP ID";
           }
           uses TE-STATS-BAG-LSP;
         }
@@ -1710,6 +1639,28 @@ module Cisco-IOS-XR-mpls-te-oper {
     }
   }
 
+  grouping AUTOROUTE-DESTINATION-TUNNEL-TABLE {
+    description "Common node of mpls-te, mpls-te-standby";
+
+    container auto-route-destination-entries {
+      description
+        "MPLS TE autoroute destination table indexed by
+        tunnel";
+
+      list auto-route-destination-entry {
+        key "tunnel-id";
+        description
+          "MPLS TE autoroute destination info for one
+          tunnel";
+        leaf tunnel-id {
+          type int32;
+          description "Tunnel ID";
+        }
+        uses TE-TUNNEL-AUTOROUTE-DESTINATIONS;
+      }
+    }
+  }
+
   grouping TUNNELS {
     description "Common node of mpls-te, mpls-te-standby";
 
@@ -2251,24 +2202,6 @@ module Cisco-IOS-XR-mpls-te-oper {
       }
     }
 
-    container auto-route-destination-entries {
-      description
-        "MPLS TE autoroute destination table indexed by
-        tunnel";
-
-      list auto-route-destination-entry {
-        key "tunnel-id";
-        description
-          "MPLS TE autoroute destination info for one
-          tunnel";
-        leaf tunnel-id {
-          type int32;
-          description "Tunnel ID";
-        }
-        uses TE-TUNNEL-AUTOROUTE-DESTINATIONS;
-      }
-    }
-
     container te-mib {
       description "TE MIB information";
 
@@ -2291,6 +2224,7 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses SIGNALLING-COUNTERS;
     uses DIFF-SERV-TE-CLASSES;
     uses ISSU;
+    uses AUTOROUTE-DESTINATION-TUNNEL-TABLE;
     uses FAST-REROUTE;
     uses ATTRIBUTE-SET-TABLE;
     uses IGP-AREA-BRIEF-TABLE;
@@ -2511,6 +2445,7 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses SIGNALLING-COUNTERS;
     uses DIFF-SERV-TE-CLASSES;
     uses ISSU;
+    uses AUTOROUTE-DESTINATION-TUNNEL-TABLE;
     uses FAST-REROUTE;
     uses ATTRIBUTE-SET-TABLE;
     uses IGP-AREA-BRIEF-TABLE;

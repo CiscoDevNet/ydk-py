@@ -21,8 +21,13 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ES ACL entry configuration.
 
-     Copyright (c) 2015-2016 by Cisco Systems, Inc.
+     Copyright (c) 2015-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

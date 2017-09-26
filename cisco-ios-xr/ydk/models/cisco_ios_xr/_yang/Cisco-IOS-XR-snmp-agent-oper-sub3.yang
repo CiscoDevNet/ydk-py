@@ -6,10 +6,6 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub3 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,8 +25,13 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR snmp-agent package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-06-01" {
     description
@@ -68,9 +69,11 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub3 {
       type uint32;
       description "trap max";
     }
-    leaf trap-q {
-      type yang:hex-string;
-      description "trapQ";
+
+    list trap-q {
+      max-elements "300";
+      description "trap q";
+      uses SNMP-QUEUE;
     }
   }
 
@@ -615,6 +618,22 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub3 {
     }
   }
 
+  grouping SNMP-QUEUE {
+    description "SNMP QUEUE";
+    leaf min {
+      type uint32;
+      description "min";
+    }
+    leaf avg {
+      type uint32;
+      description "avg";
+    }
+    leaf max {
+      type uint32;
+      description "max";
+    }
+  }
+
   grouping SNMP-RXQUE {
     description "SNMP Incoming queue statistics";
     leaf qlen {
@@ -645,13 +664,17 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub3 {
       type uint32;
       description "pend max";
     }
-    leaf incoming-q {
-      type yang:hex-string;
-      description "incomingQ";
+
+    list incoming-q {
+      max-elements "300";
+      description "incoming q";
+      uses SNMP-QUEUE;
     }
-    leaf pending-q {
-      type yang:hex-string;
-      description "pendingQ";
+
+    list pending-q {
+      max-elements "300";
+      description "pending q";
+      uses SNMP-QUEUE;
     }
   }
 

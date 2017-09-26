@@ -10,8 +10,6 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-infra-alarm-logger-oper-sub1 {
     revision-date 2015-01-07;
   }
@@ -39,7 +37,7 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
      for the following management objects:
        alarm-logger: Alarm Logger operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-01-07" {

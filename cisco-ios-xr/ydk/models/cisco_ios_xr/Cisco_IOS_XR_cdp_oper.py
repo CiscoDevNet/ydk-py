@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   cdp\: CDP operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -89,11 +88,16 @@ class Cdp(Entity):
 
         self.yang_name = "cdp"
         self.yang_parent_name = "Cisco-IOS-XR-cdp-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Cdp.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = Cdp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp"
 
 
     class Nodes(Entity):
@@ -117,32 +121,17 @@ class Cdp(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "cdp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Cdp.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Cdp.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Cdp.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Cdp.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -183,6 +172,10 @@ class Cdp(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interfaces" : ("interfaces", Cdp.Nodes.Node.Interfaces), "neighbors" : ("neighbors", Cdp.Nodes.Node.Neighbors), "statistics" : ("statistics", Cdp.Nodes.Node.Statistics)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -200,30 +193,115 @@ class Cdp(Entity):
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Cdp.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Cdp.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(Cdp.Nodes.Node, ['node_name'], name, value)
+
+
+            class Interfaces(Entity):
+                """
+                The table of interfaces on which CDP is
+                running on this node
+                
+                .. attribute:: interface
+                
+                	Operational data for an interface on which CDP is running
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'cdp-oper'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(Cdp.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Cdp.Nodes.Node.Interfaces.Interface)}
+
+                    self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cdp.Nodes.Node.Interfaces, [], name, value)
+
+
+                class Interface(Entity):
+                    """
+                    Operational data for an interface on which
+                    CDP is running
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	The interface name
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: basecaps_state
+                    
+                    	Interface basecaps state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cdp_protocol_state
+                    
+                    	CDP protocol state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_encaps
+                    
+                    	Interface encapsulation
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_handle
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'cdp-oper'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.basecaps_state = YLeaf(YType.uint32, "basecaps-state")
+
+                        self.cdp_protocol_state = YLeaf(YType.uint32, "cdp-protocol-state")
+
+                        self.interface_encaps = YLeaf(YType.str, "interface-encaps")
+
+                        self.interface_handle = YLeaf(YType.str, "interface-handle")
+                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps', 'interface_handle'], name, value)
 
 
             class Neighbors(Entity):
@@ -257,6 +335,10 @@ class Cdp(Entity):
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"details" : ("details", Cdp.Nodes.Node.Neighbors.Details), "devices" : ("devices", Cdp.Nodes.Node.Neighbors.Devices), "summaries" : ("summaries", Cdp.Nodes.Node.Neighbors.Summaries)}
+                    self._child_list_classes = {}
 
                     self.details = Cdp.Nodes.Node.Neighbors.Details()
                     self.details.parent = self
@@ -272,6 +354,7 @@ class Cdp(Entity):
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
                     self._children_yang_names.add("summaries")
+                    self._segment_path = lambda: "neighbors"
 
 
                 class Details(Entity):
@@ -295,32 +378,16 @@ class Cdp(Entity):
 
                         self.yang_name = "details"
                         self.yang_parent_name = "neighbors"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Details.Detail)}
 
                         self.detail = YList(self)
+                        self._segment_path = lambda: "details"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Cdp.Nodes.Node.Neighbors.Details, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Cdp.Nodes.Node.Neighbors.Details, self).__setattr__(name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details, [], name, value)
 
 
                     class Detail(Entity):
@@ -343,7 +410,7 @@ class Cdp(Entity):
                         	The interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -357,37 +424,20 @@ class Cdp(Entity):
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "details"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"cdp-neighbor" : ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor)}
 
                             self.device_id = YLeaf(YType.str, "device-id")
 
                             self.interface_name = YLeaf(YType.str, "interface-name")
 
                             self.cdp_neighbor = YList(self)
+                            self._segment_path = lambda: "detail"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("device_id",
-                                            "interface_name") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail, self).__setattr__(name, value)
+                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail, ['device_id', 'interface_name'], name, value)
 
 
                         class CdpNeighbor(Entity):
@@ -438,7 +488,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -452,6 +502,10 @@ class Cdp(Entity):
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "detail"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail)}
+                                self._child_list_classes = {}
 
                                 self.capabilities = YLeaf(YType.str, "capabilities")
 
@@ -471,36 +525,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._children_yang_names.add("detail")
+                                self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("capabilities",
-                                                "device_id",
-                                                "header_version",
-                                                "hold_time",
-                                                "platform",
-                                                "port_id",
-                                                "receiving_interface_name") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, self).__setattr__(name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
 
 
                             class Detail(Entity):
@@ -556,6 +584,10 @@ class Cdp(Entity):
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList)}
+                                    self._child_list_classes = {}
 
                                     self.duplex = YLeaf(YType.enumeration, "duplex")
 
@@ -576,34 +608,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._children_yang_names.add("protocol-hello-list")
+                                    self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("duplex",
-                                                    "native_vlan",
-                                                    "system_name",
-                                                    "version",
-                                                    "vtp_domain") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail, self).__setattr__(name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -627,32 +635,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-addr-entry" : ("cdp_addr_entry", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry)}
 
                                         self.cdp_addr_entry = YList(self)
+                                        self._segment_path = lambda: "network-addresses"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
                                     class CdpAddrEntry(Entity):
@@ -676,11 +668,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"address" : ("address", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address)}
+                                            self._child_list_classes = {}
 
                                             self.address = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._children_yang_names.add("address")
+                                            self._segment_path = lambda: "cdp-addr-entry"
 
 
                                         class Address(Entity):
@@ -718,206 +715,20 @@ class Cdp(Entity):
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
                                                 self.address_type = YLeaf(YType.enumeration, "address-type")
 
                                                 self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
                                                 self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                self._segment_path = lambda: "address"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in ("address_type",
-                                                                "ipv4_address",
-                                                                "ipv6_address") and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-
-                                            def has_data(self):
-                                                return (
-                                                    self.address_type.is_set or
-                                                    self.ipv4_address.is_set or
-                                                    self.ipv6_address.is_set)
-
-                                            def has_operation(self):
-                                                return (
-                                                    self.yfilter != YFilter.not_set or
-                                                    self.address_type.yfilter != YFilter.not_set or
-                                                    self.ipv4_address.yfilter != YFilter.not_set or
-                                                    self.ipv6_address.yfilter != YFilter.not_set)
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "address" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-                                                if (self.address_type.is_set or self.address_type.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.address_type.get_name_leafdata())
-                                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
-                                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "address-type" or name == "ipv4-address" or name == "ipv6-address"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                if(value_path == "address-type"):
-                                                    self.address_type = value
-                                                    self.address_type.value_namespace = name_space
-                                                    self.address_type.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv4-address"):
-                                                    self.ipv4_address = value
-                                                    self.ipv4_address.value_namespace = name_space
-                                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv6-address"):
-                                                    self.ipv6_address = value
-                                                    self.ipv6_address.value_namespace = name_space
-                                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-                                        def has_data(self):
-                                            return (self.address is not None and self.address.has_data())
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                (self.address is not None and self.address.has_operation()))
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-addr-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "address"):
-                                                if (self.address is None):
-                                                    self.address = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
-                                                    self.address.parent = self
-                                                    self._children_name_map["address"] = "address"
-                                                return self.address
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "address"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            pass
-
-                                    def has_data(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "network-addresses" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-addr-entry"):
-                                            for c in self.cdp_addr_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_addr_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-addr-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -941,32 +752,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-prot-hello-entry" : ("cdp_prot_hello_entry", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry)}
 
                                         self.cdp_prot_hello_entry = YList(self)
+                                        self._segment_path = lambda: "protocol-hello-list"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
 
 
                                     class CdpProtHelloEntry(Entity):
@@ -992,466 +787,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
                                             self.hello_message = YLeaf(YType.str, "hello-message")
+                                            self._segment_path = lambda: "cdp-prot-hello-entry"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("hello_message") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-
-                                        def has_data(self):
-                                            return self.hello_message.is_set
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.hello_message.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-prot-hello-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.hello_message.is_set or self.hello_message.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.hello_message.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "hello-message"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "hello-message"):
-                                                self.hello_message = value
-                                                self.hello_message.value_namespace = name_space
-                                                self.hello_message.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "protocol-hello-list" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-prot-hello-entry"):
-                                            for c in self.cdp_prot_hello_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_prot_hello_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-prot-hello-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.duplex.is_set or
-                                        self.native_vlan.is_set or
-                                        self.system_name.is_set or
-                                        self.version.is_set or
-                                        self.vtp_domain.is_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_data()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.duplex.yfilter != YFilter.not_set or
-                                        self.native_vlan.yfilter != YFilter.not_set or
-                                        self.system_name.yfilter != YFilter.not_set or
-                                        self.version.yfilter != YFilter.not_set or
-                                        self.vtp_domain.yfilter != YFilter.not_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_operation()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "detail" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.duplex.is_set or self.duplex.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.duplex.get_name_leafdata())
-                                    if (self.native_vlan.is_set or self.native_vlan.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.native_vlan.get_name_leafdata())
-                                    if (self.system_name.is_set or self.system_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.system_name.get_name_leafdata())
-                                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.version.get_name_leafdata())
-                                    if (self.vtp_domain.is_set or self.vtp_domain.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.vtp_domain.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "network-addresses"):
-                                        if (self.network_addresses is None):
-                                            self.network_addresses = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses()
-                                            self.network_addresses.parent = self
-                                            self._children_name_map["network_addresses"] = "network-addresses"
-                                        return self.network_addresses
-
-                                    if (child_yang_name == "protocol-hello-list"):
-                                        if (self.protocol_hello_list is None):
-                                            self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList()
-                                            self.protocol_hello_list.parent = self
-                                            self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
-                                        return self.protocol_hello_list
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "network-addresses" or name == "protocol-hello-list" or name == "duplex" or name == "native-vlan" or name == "system-name" or name == "version" or name == "vtp-domain"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "duplex"):
-                                        self.duplex = value
-                                        self.duplex.value_namespace = name_space
-                                        self.duplex.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "native-vlan"):
-                                        self.native_vlan = value
-                                        self.native_vlan.value_namespace = name_space
-                                        self.native_vlan.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "system-name"):
-                                        self.system_name = value
-                                        self.system_name.value_namespace = name_space
-                                        self.system_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "version"):
-                                        self.version = value
-                                        self.version.value_namespace = name_space
-                                        self.version.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "vtp-domain"):
-                                        self.vtp_domain = value
-                                        self.vtp_domain.value_namespace = name_space
-                                        self.vtp_domain.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                return (
-                                    self.capabilities.is_set or
-                                    self.device_id.is_set or
-                                    self.header_version.is_set or
-                                    self.hold_time.is_set or
-                                    self.platform.is_set or
-                                    self.port_id.is_set or
-                                    self.receiving_interface_name.is_set or
-                                    (self.detail is not None and self.detail.has_data()))
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.capabilities.yfilter != YFilter.not_set or
-                                    self.device_id.yfilter != YFilter.not_set or
-                                    self.header_version.yfilter != YFilter.not_set or
-                                    self.hold_time.yfilter != YFilter.not_set or
-                                    self.platform.yfilter != YFilter.not_set or
-                                    self.port_id.yfilter != YFilter.not_set or
-                                    self.receiving_interface_name.yfilter != YFilter.not_set or
-                                    (self.detail is not None and self.detail.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "cdp-neighbor" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.capabilities.is_set or self.capabilities.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.capabilities.get_name_leafdata())
-                                if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.device_id.get_name_leafdata())
-                                if (self.header_version.is_set or self.header_version.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.header_version.get_name_leafdata())
-                                if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.hold_time.get_name_leafdata())
-                                if (self.platform.is_set or self.platform.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.platform.get_name_leafdata())
-                                if (self.port_id.is_set or self.port_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port_id.get_name_leafdata())
-                                if (self.receiving_interface_name.is_set or self.receiving_interface_name.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.receiving_interface_name.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "detail"):
-                                    if (self.detail is None):
-                                        self.detail = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail()
-                                        self.detail.parent = self
-                                        self._children_name_map["detail"] = "detail"
-                                    return self.detail
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "detail" or name == "capabilities" or name == "device-id" or name == "header-version" or name == "hold-time" or name == "platform" or name == "port-id" or name == "receiving-interface-name"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "capabilities"):
-                                    self.capabilities = value
-                                    self.capabilities.value_namespace = name_space
-                                    self.capabilities.value_namespace_prefix = name_space_prefix
-                                if(value_path == "device-id"):
-                                    self.device_id = value
-                                    self.device_id.value_namespace = name_space
-                                    self.device_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "header-version"):
-                                    self.header_version = value
-                                    self.header_version.value_namespace = name_space
-                                    self.header_version.value_namespace_prefix = name_space_prefix
-                                if(value_path == "hold-time"):
-                                    self.hold_time = value
-                                    self.hold_time.value_namespace = name_space
-                                    self.hold_time.value_namespace_prefix = name_space_prefix
-                                if(value_path == "platform"):
-                                    self.platform = value
-                                    self.platform.value_namespace = name_space
-                                    self.platform.value_namespace_prefix = name_space_prefix
-                                if(value_path == "port-id"):
-                                    self.port_id = value
-                                    self.port_id.value_namespace = name_space
-                                    self.port_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "receiving-interface-name"):
-                                    self.receiving_interface_name = value
-                                    self.receiving_interface_name.value_namespace = name_space
-                                    self.receiving_interface_name.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_data()):
-                                    return True
-                            return (
-                                self.device_id.is_set or
-                                self.interface_name.is_set)
-
-                        def has_operation(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_operation()):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.device_id.yfilter != YFilter.not_set or
-                                self.interface_name.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "detail" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.device_id.get_name_leafdata())
-                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "cdp-neighbor"):
-                                for c in self.cdp_neighbor:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.cdp_neighbor.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "cdp-neighbor" or name == "device-id" or name == "interface-name"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "device-id"):
-                                self.device_id = value
-                                self.device_id.value_namespace = name_space
-                                self.device_id.value_namespace_prefix = name_space_prefix
-                            if(value_path == "interface-name"):
-                                self.interface_name = value
-                                self.interface_name.value_namespace = name_space
-                                self.interface_name.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.detail:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.detail:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "details" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "detail"):
-                            for c in self.detail:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Cdp.Nodes.Node.Neighbors.Details.Detail()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.detail.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "detail"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
                 class Devices(Entity):
@@ -1475,32 +820,16 @@ class Cdp(Entity):
 
                         self.yang_name = "devices"
                         self.yang_parent_name = "neighbors"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"device" : ("device", Cdp.Nodes.Node.Neighbors.Devices.Device)}
 
                         self.device = YList(self)
+                        self._segment_path = lambda: "devices"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Cdp.Nodes.Node.Neighbors.Devices, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Cdp.Nodes.Node.Neighbors.Devices, self).__setattr__(name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices, [], name, value)
 
 
                     class Device(Entity):
@@ -1530,34 +859,18 @@ class Cdp(Entity):
 
                             self.yang_name = "device"
                             self.yang_parent_name = "devices"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"cdp-neighbor" : ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor)}
 
                             self.device_id = YLeaf(YType.str, "device-id")
 
                             self.cdp_neighbor = YList(self)
+                            self._segment_path = lambda: "device" + "[device-id='" + self.device_id.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("device_id") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device, self).__setattr__(name, value)
+                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device, ['device_id'], name, value)
 
 
                         class CdpNeighbor(Entity):
@@ -1608,7 +921,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -1622,6 +935,10 @@ class Cdp(Entity):
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "device"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail)}
+                                self._child_list_classes = {}
 
                                 self.capabilities = YLeaf(YType.str, "capabilities")
 
@@ -1641,36 +958,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._children_yang_names.add("detail")
+                                self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("capabilities",
-                                                "device_id",
-                                                "header_version",
-                                                "hold_time",
-                                                "platform",
-                                                "port_id",
-                                                "receiving_interface_name") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, self).__setattr__(name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
 
 
                             class Detail(Entity):
@@ -1726,6 +1017,10 @@ class Cdp(Entity):
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList)}
+                                    self._child_list_classes = {}
 
                                     self.duplex = YLeaf(YType.enumeration, "duplex")
 
@@ -1746,34 +1041,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._children_yang_names.add("protocol-hello-list")
+                                    self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("duplex",
-                                                    "native_vlan",
-                                                    "system_name",
-                                                    "version",
-                                                    "vtp_domain") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, self).__setattr__(name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1797,32 +1068,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-addr-entry" : ("cdp_addr_entry", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry)}
 
                                         self.cdp_addr_entry = YList(self)
+                                        self._segment_path = lambda: "network-addresses"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
                                     class CdpAddrEntry(Entity):
@@ -1846,11 +1101,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"address" : ("address", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address)}
+                                            self._child_list_classes = {}
 
                                             self.address = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._children_yang_names.add("address")
+                                            self._segment_path = lambda: "cdp-addr-entry"
 
 
                                         class Address(Entity):
@@ -1888,206 +1148,20 @@ class Cdp(Entity):
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
                                                 self.address_type = YLeaf(YType.enumeration, "address-type")
 
                                                 self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
                                                 self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                self._segment_path = lambda: "address"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in ("address_type",
-                                                                "ipv4_address",
-                                                                "ipv6_address") and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-
-                                            def has_data(self):
-                                                return (
-                                                    self.address_type.is_set or
-                                                    self.ipv4_address.is_set or
-                                                    self.ipv6_address.is_set)
-
-                                            def has_operation(self):
-                                                return (
-                                                    self.yfilter != YFilter.not_set or
-                                                    self.address_type.yfilter != YFilter.not_set or
-                                                    self.ipv4_address.yfilter != YFilter.not_set or
-                                                    self.ipv6_address.yfilter != YFilter.not_set)
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "address" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-                                                if (self.address_type.is_set or self.address_type.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.address_type.get_name_leafdata())
-                                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
-                                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "address-type" or name == "ipv4-address" or name == "ipv6-address"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                if(value_path == "address-type"):
-                                                    self.address_type = value
-                                                    self.address_type.value_namespace = name_space
-                                                    self.address_type.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv4-address"):
-                                                    self.ipv4_address = value
-                                                    self.ipv4_address.value_namespace = name_space
-                                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv6-address"):
-                                                    self.ipv6_address = value
-                                                    self.ipv6_address.value_namespace = name_space
-                                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-                                        def has_data(self):
-                                            return (self.address is not None and self.address.has_data())
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                (self.address is not None and self.address.has_operation()))
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-addr-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "address"):
-                                                if (self.address is None):
-                                                    self.address = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
-                                                    self.address.parent = self
-                                                    self._children_name_map["address"] = "address"
-                                                return self.address
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "address"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            pass
-
-                                    def has_data(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "network-addresses" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-addr-entry"):
-                                            for c in self.cdp_addr_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_addr_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-addr-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -2111,32 +1185,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-prot-hello-entry" : ("cdp_prot_hello_entry", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry)}
 
                                         self.cdp_prot_hello_entry = YList(self)
+                                        self._segment_path = lambda: "protocol-hello-list"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
 
 
                                     class CdpProtHelloEntry(Entity):
@@ -2162,457 +1220,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
                                             self.hello_message = YLeaf(YType.str, "hello-message")
+                                            self._segment_path = lambda: "cdp-prot-hello-entry"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("hello_message") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-
-                                        def has_data(self):
-                                            return self.hello_message.is_set
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.hello_message.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-prot-hello-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.hello_message.is_set or self.hello_message.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.hello_message.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "hello-message"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "hello-message"):
-                                                self.hello_message = value
-                                                self.hello_message.value_namespace = name_space
-                                                self.hello_message.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "protocol-hello-list" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-prot-hello-entry"):
-                                            for c in self.cdp_prot_hello_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_prot_hello_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-prot-hello-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.duplex.is_set or
-                                        self.native_vlan.is_set or
-                                        self.system_name.is_set or
-                                        self.version.is_set or
-                                        self.vtp_domain.is_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_data()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.duplex.yfilter != YFilter.not_set or
-                                        self.native_vlan.yfilter != YFilter.not_set or
-                                        self.system_name.yfilter != YFilter.not_set or
-                                        self.version.yfilter != YFilter.not_set or
-                                        self.vtp_domain.yfilter != YFilter.not_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_operation()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "detail" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.duplex.is_set or self.duplex.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.duplex.get_name_leafdata())
-                                    if (self.native_vlan.is_set or self.native_vlan.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.native_vlan.get_name_leafdata())
-                                    if (self.system_name.is_set or self.system_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.system_name.get_name_leafdata())
-                                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.version.get_name_leafdata())
-                                    if (self.vtp_domain.is_set or self.vtp_domain.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.vtp_domain.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "network-addresses"):
-                                        if (self.network_addresses is None):
-                                            self.network_addresses = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses()
-                                            self.network_addresses.parent = self
-                                            self._children_name_map["network_addresses"] = "network-addresses"
-                                        return self.network_addresses
-
-                                    if (child_yang_name == "protocol-hello-list"):
-                                        if (self.protocol_hello_list is None):
-                                            self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList()
-                                            self.protocol_hello_list.parent = self
-                                            self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
-                                        return self.protocol_hello_list
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "network-addresses" or name == "protocol-hello-list" or name == "duplex" or name == "native-vlan" or name == "system-name" or name == "version" or name == "vtp-domain"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "duplex"):
-                                        self.duplex = value
-                                        self.duplex.value_namespace = name_space
-                                        self.duplex.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "native-vlan"):
-                                        self.native_vlan = value
-                                        self.native_vlan.value_namespace = name_space
-                                        self.native_vlan.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "system-name"):
-                                        self.system_name = value
-                                        self.system_name.value_namespace = name_space
-                                        self.system_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "version"):
-                                        self.version = value
-                                        self.version.value_namespace = name_space
-                                        self.version.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "vtp-domain"):
-                                        self.vtp_domain = value
-                                        self.vtp_domain.value_namespace = name_space
-                                        self.vtp_domain.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                return (
-                                    self.capabilities.is_set or
-                                    self.device_id.is_set or
-                                    self.header_version.is_set or
-                                    self.hold_time.is_set or
-                                    self.platform.is_set or
-                                    self.port_id.is_set or
-                                    self.receiving_interface_name.is_set or
-                                    (self.detail is not None and self.detail.has_data()))
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.capabilities.yfilter != YFilter.not_set or
-                                    self.device_id.yfilter != YFilter.not_set or
-                                    self.header_version.yfilter != YFilter.not_set or
-                                    self.hold_time.yfilter != YFilter.not_set or
-                                    self.platform.yfilter != YFilter.not_set or
-                                    self.port_id.yfilter != YFilter.not_set or
-                                    self.receiving_interface_name.yfilter != YFilter.not_set or
-                                    (self.detail is not None and self.detail.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "cdp-neighbor" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.capabilities.is_set or self.capabilities.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.capabilities.get_name_leafdata())
-                                if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.device_id.get_name_leafdata())
-                                if (self.header_version.is_set or self.header_version.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.header_version.get_name_leafdata())
-                                if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.hold_time.get_name_leafdata())
-                                if (self.platform.is_set or self.platform.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.platform.get_name_leafdata())
-                                if (self.port_id.is_set or self.port_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port_id.get_name_leafdata())
-                                if (self.receiving_interface_name.is_set or self.receiving_interface_name.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.receiving_interface_name.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "detail"):
-                                    if (self.detail is None):
-                                        self.detail = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail()
-                                        self.detail.parent = self
-                                        self._children_name_map["detail"] = "detail"
-                                    return self.detail
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "detail" or name == "capabilities" or name == "device-id" or name == "header-version" or name == "hold-time" or name == "platform" or name == "port-id" or name == "receiving-interface-name"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "capabilities"):
-                                    self.capabilities = value
-                                    self.capabilities.value_namespace = name_space
-                                    self.capabilities.value_namespace_prefix = name_space_prefix
-                                if(value_path == "device-id"):
-                                    self.device_id = value
-                                    self.device_id.value_namespace = name_space
-                                    self.device_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "header-version"):
-                                    self.header_version = value
-                                    self.header_version.value_namespace = name_space
-                                    self.header_version.value_namespace_prefix = name_space_prefix
-                                if(value_path == "hold-time"):
-                                    self.hold_time = value
-                                    self.hold_time.value_namespace = name_space
-                                    self.hold_time.value_namespace_prefix = name_space_prefix
-                                if(value_path == "platform"):
-                                    self.platform = value
-                                    self.platform.value_namespace = name_space
-                                    self.platform.value_namespace_prefix = name_space_prefix
-                                if(value_path == "port-id"):
-                                    self.port_id = value
-                                    self.port_id.value_namespace = name_space
-                                    self.port_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "receiving-interface-name"):
-                                    self.receiving_interface_name = value
-                                    self.receiving_interface_name.value_namespace = name_space
-                                    self.receiving_interface_name.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_data()):
-                                    return True
-                            return self.device_id.is_set
-
-                        def has_operation(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_operation()):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.device_id.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "device" + "[device-id='" + self.device_id.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.device_id.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "cdp-neighbor"):
-                                for c in self.cdp_neighbor:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.cdp_neighbor.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "cdp-neighbor" or name == "device-id"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "device-id"):
-                                self.device_id = value
-                                self.device_id.value_namespace = name_space
-                                self.device_id.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.device:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.device:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "devices" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "device"):
-                            for c in self.device:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Cdp.Nodes.Node.Neighbors.Devices.Device()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.device.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "device"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
                 class Summaries(Entity):
@@ -2636,32 +1253,16 @@ class Cdp(Entity):
 
                         self.yang_name = "summaries"
                         self.yang_parent_name = "neighbors"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"summary" : ("summary", Cdp.Nodes.Node.Neighbors.Summaries.Summary)}
 
                         self.summary = YList(self)
+                        self._segment_path = lambda: "summaries"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Cdp.Nodes.Node.Neighbors.Summaries, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Cdp.Nodes.Node.Neighbors.Summaries, self).__setattr__(name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries, [], name, value)
 
 
                     class Summary(Entity):
@@ -2683,7 +1284,7 @@ class Cdp(Entity):
                         	The interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -2697,37 +1298,20 @@ class Cdp(Entity):
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "summaries"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"cdp-neighbor" : ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor)}
 
                             self.device_id = YLeaf(YType.str, "device-id")
 
                             self.interface_name = YLeaf(YType.str, "interface-name")
 
                             self.cdp_neighbor = YList(self)
+                            self._segment_path = lambda: "summary"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("device_id",
-                                            "interface_name") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary, self).__setattr__(name, value)
+                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary, ['device_id', 'interface_name'], name, value)
 
 
                         class CdpNeighbor(Entity):
@@ -2778,7 +1362,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -2792,6 +1376,10 @@ class Cdp(Entity):
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "summary"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"detail" : ("detail", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail)}
+                                self._child_list_classes = {}
 
                                 self.capabilities = YLeaf(YType.str, "capabilities")
 
@@ -2811,36 +1399,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._children_yang_names.add("detail")
+                                self._segment_path = lambda: "cdp-neighbor"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("capabilities",
-                                                "device_id",
-                                                "header_version",
-                                                "hold_time",
-                                                "platform",
-                                                "port_id",
-                                                "receiving_interface_name") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, self).__setattr__(name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['capabilities', 'device_id', 'header_version', 'hold_time', 'platform', 'port_id', 'receiving_interface_name'], name, value)
 
 
                             class Detail(Entity):
@@ -2896,6 +1458,10 @@ class Cdp(Entity):
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"network-addresses" : ("network_addresses", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses), "protocol-hello-list" : ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList)}
+                                    self._child_list_classes = {}
 
                                     self.duplex = YLeaf(YType.enumeration, "duplex")
 
@@ -2916,34 +1482,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._children_yang_names.add("protocol-hello-list")
+                                    self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("duplex",
-                                                    "native_vlan",
-                                                    "system_name",
-                                                    "version",
-                                                    "vtp_domain") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, self).__setattr__(name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['duplex', 'native_vlan', 'system_name', 'version', 'vtp_domain'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -2967,32 +1509,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-addr-entry" : ("cdp_addr_entry", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry)}
 
                                         self.cdp_addr_entry = YList(self)
+                                        self._segment_path = lambda: "network-addresses"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
                                     class CdpAddrEntry(Entity):
@@ -3016,11 +1542,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"address" : ("address", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address)}
+                                            self._child_list_classes = {}
 
                                             self.address = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._children_yang_names.add("address")
+                                            self._segment_path = lambda: "cdp-addr-entry"
 
 
                                         class Address(Entity):
@@ -3058,206 +1589,20 @@ class Cdp(Entity):
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
                                                 self.address_type = YLeaf(YType.enumeration, "address-type")
 
                                                 self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
                                                 self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                self._segment_path = lambda: "address"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in ("address_type",
-                                                                "ipv4_address",
-                                                                "ipv6_address") and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__setattr__(name, value)
-
-                                            def has_data(self):
-                                                return (
-                                                    self.address_type.is_set or
-                                                    self.ipv4_address.is_set or
-                                                    self.ipv6_address.is_set)
-
-                                            def has_operation(self):
-                                                return (
-                                                    self.yfilter != YFilter.not_set or
-                                                    self.address_type.yfilter != YFilter.not_set or
-                                                    self.ipv4_address.yfilter != YFilter.not_set or
-                                                    self.ipv6_address.yfilter != YFilter.not_set)
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "address" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-                                                if (self.address_type.is_set or self.address_type.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.address_type.get_name_leafdata())
-                                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
-                                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "address-type" or name == "ipv4-address" or name == "ipv6-address"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                if(value_path == "address-type"):
-                                                    self.address_type = value
-                                                    self.address_type.value_namespace = name_space
-                                                    self.address_type.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv4-address"):
-                                                    self.ipv4_address = value
-                                                    self.ipv4_address.value_namespace = name_space
-                                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "ipv6-address"):
-                                                    self.ipv6_address = value
-                                                    self.ipv6_address.value_namespace = name_space
-                                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-                                        def has_data(self):
-                                            return (self.address is not None and self.address.has_data())
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                (self.address is not None and self.address.has_operation()))
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-addr-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "address"):
-                                                if (self.address is None):
-                                                    self.address = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address()
-                                                    self.address.parent = self
-                                                    self._children_name_map["address"] = "address"
-                                                return self.address
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "address"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            pass
-
-                                    def has_data(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_addr_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "network-addresses" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-addr-entry"):
-                                            for c in self.cdp_addr_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_addr_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-addr-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -3281,32 +1626,16 @@ class Cdp(Entity):
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"cdp-prot-hello-entry" : ("cdp_prot_hello_entry", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry)}
 
                                         self.cdp_prot_hello_entry = YList(self)
+                                        self._segment_path = lambda: "protocol-hello-list"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, self).__setattr__(name, value)
+                                        self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
 
 
                                     class CdpProtHelloEntry(Entity):
@@ -3332,533 +1661,16 @@ class Cdp(Entity):
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
                                             self.hello_message = YLeaf(YType.str, "hello-message")
+                                            self._segment_path = lambda: "cdp-prot-hello-entry"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("hello_message") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__setattr__(name, value)
-
-                                        def has_data(self):
-                                            return self.hello_message.is_set
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.hello_message.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "cdp-prot-hello-entry" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.hello_message.is_set or self.hello_message.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.hello_message.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "hello-message"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "hello-message"):
-                                                self.hello_message = value
-                                                self.hello_message.value_namespace = name_space
-                                                self.hello_message.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.cdp_prot_hello_entry:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "protocol-hello-list" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "cdp-prot-hello-entry"):
-                                            for c in self.cdp_prot_hello_entry:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.cdp_prot_hello_entry.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "cdp-prot-hello-entry"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.duplex.is_set or
-                                        self.native_vlan.is_set or
-                                        self.system_name.is_set or
-                                        self.version.is_set or
-                                        self.vtp_domain.is_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_data()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.duplex.yfilter != YFilter.not_set or
-                                        self.native_vlan.yfilter != YFilter.not_set or
-                                        self.system_name.yfilter != YFilter.not_set or
-                                        self.version.yfilter != YFilter.not_set or
-                                        self.vtp_domain.yfilter != YFilter.not_set or
-                                        (self.network_addresses is not None and self.network_addresses.has_operation()) or
-                                        (self.protocol_hello_list is not None and self.protocol_hello_list.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "detail" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.duplex.is_set or self.duplex.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.duplex.get_name_leafdata())
-                                    if (self.native_vlan.is_set or self.native_vlan.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.native_vlan.get_name_leafdata())
-                                    if (self.system_name.is_set or self.system_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.system_name.get_name_leafdata())
-                                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.version.get_name_leafdata())
-                                    if (self.vtp_domain.is_set or self.vtp_domain.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.vtp_domain.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "network-addresses"):
-                                        if (self.network_addresses is None):
-                                            self.network_addresses = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses()
-                                            self.network_addresses.parent = self
-                                            self._children_name_map["network_addresses"] = "network-addresses"
-                                        return self.network_addresses
-
-                                    if (child_yang_name == "protocol-hello-list"):
-                                        if (self.protocol_hello_list is None):
-                                            self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList()
-                                            self.protocol_hello_list.parent = self
-                                            self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
-                                        return self.protocol_hello_list
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "network-addresses" or name == "protocol-hello-list" or name == "duplex" or name == "native-vlan" or name == "system-name" or name == "version" or name == "vtp-domain"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "duplex"):
-                                        self.duplex = value
-                                        self.duplex.value_namespace = name_space
-                                        self.duplex.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "native-vlan"):
-                                        self.native_vlan = value
-                                        self.native_vlan.value_namespace = name_space
-                                        self.native_vlan.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "system-name"):
-                                        self.system_name = value
-                                        self.system_name.value_namespace = name_space
-                                        self.system_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "version"):
-                                        self.version = value
-                                        self.version.value_namespace = name_space
-                                        self.version.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "vtp-domain"):
-                                        self.vtp_domain = value
-                                        self.vtp_domain.value_namespace = name_space
-                                        self.vtp_domain.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                return (
-                                    self.capabilities.is_set or
-                                    self.device_id.is_set or
-                                    self.header_version.is_set or
-                                    self.hold_time.is_set or
-                                    self.platform.is_set or
-                                    self.port_id.is_set or
-                                    self.receiving_interface_name.is_set or
-                                    (self.detail is not None and self.detail.has_data()))
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.capabilities.yfilter != YFilter.not_set or
-                                    self.device_id.yfilter != YFilter.not_set or
-                                    self.header_version.yfilter != YFilter.not_set or
-                                    self.hold_time.yfilter != YFilter.not_set or
-                                    self.platform.yfilter != YFilter.not_set or
-                                    self.port_id.yfilter != YFilter.not_set or
-                                    self.receiving_interface_name.yfilter != YFilter.not_set or
-                                    (self.detail is not None and self.detail.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "cdp-neighbor" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.capabilities.is_set or self.capabilities.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.capabilities.get_name_leafdata())
-                                if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.device_id.get_name_leafdata())
-                                if (self.header_version.is_set or self.header_version.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.header_version.get_name_leafdata())
-                                if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.hold_time.get_name_leafdata())
-                                if (self.platform.is_set or self.platform.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.platform.get_name_leafdata())
-                                if (self.port_id.is_set or self.port_id.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port_id.get_name_leafdata())
-                                if (self.receiving_interface_name.is_set or self.receiving_interface_name.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.receiving_interface_name.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "detail"):
-                                    if (self.detail is None):
-                                        self.detail = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail()
-                                        self.detail.parent = self
-                                        self._children_name_map["detail"] = "detail"
-                                    return self.detail
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "detail" or name == "capabilities" or name == "device-id" or name == "header-version" or name == "hold-time" or name == "platform" or name == "port-id" or name == "receiving-interface-name"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "capabilities"):
-                                    self.capabilities = value
-                                    self.capabilities.value_namespace = name_space
-                                    self.capabilities.value_namespace_prefix = name_space_prefix
-                                if(value_path == "device-id"):
-                                    self.device_id = value
-                                    self.device_id.value_namespace = name_space
-                                    self.device_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "header-version"):
-                                    self.header_version = value
-                                    self.header_version.value_namespace = name_space
-                                    self.header_version.value_namespace_prefix = name_space_prefix
-                                if(value_path == "hold-time"):
-                                    self.hold_time = value
-                                    self.hold_time.value_namespace = name_space
-                                    self.hold_time.value_namespace_prefix = name_space_prefix
-                                if(value_path == "platform"):
-                                    self.platform = value
-                                    self.platform.value_namespace = name_space
-                                    self.platform.value_namespace_prefix = name_space_prefix
-                                if(value_path == "port-id"):
-                                    self.port_id = value
-                                    self.port_id.value_namespace = name_space
-                                    self.port_id.value_namespace_prefix = name_space_prefix
-                                if(value_path == "receiving-interface-name"):
-                                    self.receiving_interface_name = value
-                                    self.receiving_interface_name.value_namespace = name_space
-                                    self.receiving_interface_name.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_data()):
-                                    return True
-                            return (
-                                self.device_id.is_set or
-                                self.interface_name.is_set)
-
-                        def has_operation(self):
-                            for c in self.cdp_neighbor:
-                                if (c.has_operation()):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.device_id.yfilter != YFilter.not_set or
-                                self.interface_name.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "summary" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.device_id.get_name_leafdata())
-                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "cdp-neighbor"):
-                                for c in self.cdp_neighbor:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.cdp_neighbor.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "cdp-neighbor" or name == "device-id" or name == "interface-name"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "device-id"):
-                                self.device_id = value
-                                self.device_id.value_namespace = name_space
-                                self.device_id.value_namespace_prefix = name_space_prefix
-                            if(value_path == "interface-name"):
-                                self.interface_name = value
-                                self.interface_name.value_namespace = name_space
-                                self.interface_name.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.summary:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.summary:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "summaries" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "summary"):
-                            for c in self.summary:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Cdp.Nodes.Node.Neighbors.Summaries.Summary()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.summary.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "summary"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        (self.details is not None and self.details.has_data()) or
-                        (self.devices is not None and self.devices.has_data()) or
-                        (self.summaries is not None and self.summaries.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.details is not None and self.details.has_operation()) or
-                        (self.devices is not None and self.devices.has_operation()) or
-                        (self.summaries is not None and self.summaries.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "neighbors" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "details"):
-                        if (self.details is None):
-                            self.details = Cdp.Nodes.Node.Neighbors.Details()
-                            self.details.parent = self
-                            self._children_name_map["details"] = "details"
-                        return self.details
-
-                    if (child_yang_name == "devices"):
-                        if (self.devices is None):
-                            self.devices = Cdp.Nodes.Node.Neighbors.Devices()
-                            self.devices.parent = self
-                            self._children_name_map["devices"] = "devices"
-                        return self.devices
-
-                    if (child_yang_name == "summaries"):
-                        if (self.summaries is None):
-                            self.summaries = Cdp.Nodes.Node.Neighbors.Summaries()
-                            self.summaries.parent = self
-                            self._children_name_map["summaries"] = "summaries"
-                        return self.summaries
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "details" or name == "devices" or name == "summaries"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
             class Statistics(Entity):
@@ -3975,6 +1787,10 @@ class Cdp(Entity):
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.bad_packet_errors = YLeaf(YType.uint32, "bad-packet-errors")
 
@@ -4003,648 +1819,10 @@ class Cdp(Entity):
                     self.transmitted_packets_v2 = YLeaf(YType.uint32, "transmitted-packets-v2")
 
                     self.truncated_packet_errors = YLeaf(YType.uint32, "truncated-packet-errors")
+                    self._segment_path = lambda: "statistics"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("bad_packet_errors",
-                                    "checksum_errors",
-                                    "encapsulation_errors",
-                                    "header_errors",
-                                    "header_version_errors",
-                                    "open_file_errors",
-                                    "out_of_memory_errors",
-                                    "received_packets",
-                                    "received_packets_v1",
-                                    "received_packets_v2",
-                                    "transmitted_packets",
-                                    "transmitted_packets_v1",
-                                    "transmitted_packets_v2",
-                                    "truncated_packet_errors") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Cdp.Nodes.Node.Statistics, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Cdp.Nodes.Node.Statistics, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.bad_packet_errors.is_set or
-                        self.checksum_errors.is_set or
-                        self.encapsulation_errors.is_set or
-                        self.header_errors.is_set or
-                        self.header_version_errors.is_set or
-                        self.open_file_errors.is_set or
-                        self.out_of_memory_errors.is_set or
-                        self.received_packets.is_set or
-                        self.received_packets_v1.is_set or
-                        self.received_packets_v2.is_set or
-                        self.transmitted_packets.is_set or
-                        self.transmitted_packets_v1.is_set or
-                        self.transmitted_packets_v2.is_set or
-                        self.truncated_packet_errors.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.bad_packet_errors.yfilter != YFilter.not_set or
-                        self.checksum_errors.yfilter != YFilter.not_set or
-                        self.encapsulation_errors.yfilter != YFilter.not_set or
-                        self.header_errors.yfilter != YFilter.not_set or
-                        self.header_version_errors.yfilter != YFilter.not_set or
-                        self.open_file_errors.yfilter != YFilter.not_set or
-                        self.out_of_memory_errors.yfilter != YFilter.not_set or
-                        self.received_packets.yfilter != YFilter.not_set or
-                        self.received_packets_v1.yfilter != YFilter.not_set or
-                        self.received_packets_v2.yfilter != YFilter.not_set or
-                        self.transmitted_packets.yfilter != YFilter.not_set or
-                        self.transmitted_packets_v1.yfilter != YFilter.not_set or
-                        self.transmitted_packets_v2.yfilter != YFilter.not_set or
-                        self.truncated_packet_errors.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "statistics" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.bad_packet_errors.is_set or self.bad_packet_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.bad_packet_errors.get_name_leafdata())
-                    if (self.checksum_errors.is_set or self.checksum_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.checksum_errors.get_name_leafdata())
-                    if (self.encapsulation_errors.is_set or self.encapsulation_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.encapsulation_errors.get_name_leafdata())
-                    if (self.header_errors.is_set or self.header_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.header_errors.get_name_leafdata())
-                    if (self.header_version_errors.is_set or self.header_version_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.header_version_errors.get_name_leafdata())
-                    if (self.open_file_errors.is_set or self.open_file_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.open_file_errors.get_name_leafdata())
-                    if (self.out_of_memory_errors.is_set or self.out_of_memory_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.out_of_memory_errors.get_name_leafdata())
-                    if (self.received_packets.is_set or self.received_packets.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.received_packets.get_name_leafdata())
-                    if (self.received_packets_v1.is_set or self.received_packets_v1.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.received_packets_v1.get_name_leafdata())
-                    if (self.received_packets_v2.is_set or self.received_packets_v2.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.received_packets_v2.get_name_leafdata())
-                    if (self.transmitted_packets.is_set or self.transmitted_packets.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.transmitted_packets.get_name_leafdata())
-                    if (self.transmitted_packets_v1.is_set or self.transmitted_packets_v1.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.transmitted_packets_v1.get_name_leafdata())
-                    if (self.transmitted_packets_v2.is_set or self.transmitted_packets_v2.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.transmitted_packets_v2.get_name_leafdata())
-                    if (self.truncated_packet_errors.is_set or self.truncated_packet_errors.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.truncated_packet_errors.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "bad-packet-errors" or name == "checksum-errors" or name == "encapsulation-errors" or name == "header-errors" or name == "header-version-errors" or name == "open-file-errors" or name == "out-of-memory-errors" or name == "received-packets" or name == "received-packets-v1" or name == "received-packets-v2" or name == "transmitted-packets" or name == "transmitted-packets-v1" or name == "transmitted-packets-v2" or name == "truncated-packet-errors"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "bad-packet-errors"):
-                        self.bad_packet_errors = value
-                        self.bad_packet_errors.value_namespace = name_space
-                        self.bad_packet_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "checksum-errors"):
-                        self.checksum_errors = value
-                        self.checksum_errors.value_namespace = name_space
-                        self.checksum_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "encapsulation-errors"):
-                        self.encapsulation_errors = value
-                        self.encapsulation_errors.value_namespace = name_space
-                        self.encapsulation_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "header-errors"):
-                        self.header_errors = value
-                        self.header_errors.value_namespace = name_space
-                        self.header_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "header-version-errors"):
-                        self.header_version_errors = value
-                        self.header_version_errors.value_namespace = name_space
-                        self.header_version_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "open-file-errors"):
-                        self.open_file_errors = value
-                        self.open_file_errors.value_namespace = name_space
-                        self.open_file_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "out-of-memory-errors"):
-                        self.out_of_memory_errors = value
-                        self.out_of_memory_errors.value_namespace = name_space
-                        self.out_of_memory_errors.value_namespace_prefix = name_space_prefix
-                    if(value_path == "received-packets"):
-                        self.received_packets = value
-                        self.received_packets.value_namespace = name_space
-                        self.received_packets.value_namespace_prefix = name_space_prefix
-                    if(value_path == "received-packets-v1"):
-                        self.received_packets_v1 = value
-                        self.received_packets_v1.value_namespace = name_space
-                        self.received_packets_v1.value_namespace_prefix = name_space_prefix
-                    if(value_path == "received-packets-v2"):
-                        self.received_packets_v2 = value
-                        self.received_packets_v2.value_namespace = name_space
-                        self.received_packets_v2.value_namespace_prefix = name_space_prefix
-                    if(value_path == "transmitted-packets"):
-                        self.transmitted_packets = value
-                        self.transmitted_packets.value_namespace = name_space
-                        self.transmitted_packets.value_namespace_prefix = name_space_prefix
-                    if(value_path == "transmitted-packets-v1"):
-                        self.transmitted_packets_v1 = value
-                        self.transmitted_packets_v1.value_namespace = name_space
-                        self.transmitted_packets_v1.value_namespace_prefix = name_space_prefix
-                    if(value_path == "transmitted-packets-v2"):
-                        self.transmitted_packets_v2 = value
-                        self.transmitted_packets_v2.value_namespace = name_space
-                        self.transmitted_packets_v2.value_namespace_prefix = name_space_prefix
-                    if(value_path == "truncated-packet-errors"):
-                        self.truncated_packet_errors = value
-                        self.truncated_packet_errors.value_namespace = name_space
-                        self.truncated_packet_errors.value_namespace_prefix = name_space_prefix
-
-
-            class Interfaces(Entity):
-                """
-                The table of interfaces on which CDP is
-                running on this node
-                
-                .. attribute:: interface
-                
-                	Operational data for an interface on which CDP is running
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'cdp-oper'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    super(Cdp.Nodes.Node.Interfaces, self).__init__()
-
-                    self.yang_name = "interfaces"
-                    self.yang_parent_name = "node"
-
-                    self.interface = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Cdp.Nodes.Node.Interfaces, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Cdp.Nodes.Node.Interfaces, self).__setattr__(name, value)
-
-
-                class Interface(Entity):
-                    """
-                    Operational data for an interface on which
-                    CDP is running
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	The interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: basecaps_state
-                    
-                    	Interface basecaps state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: cdp_protocol_state
-                    
-                    	CDP protocol state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: interface_encaps
-                    
-                    	Interface encapsulation
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_handle
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    
-
-                    """
-
-                    _prefix = 'cdp-oper'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
-
-                        self.yang_name = "interface"
-                        self.yang_parent_name = "interfaces"
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.basecaps_state = YLeaf(YType.uint32, "basecaps-state")
-
-                        self.cdp_protocol_state = YLeaf(YType.uint32, "cdp-protocol-state")
-
-                        self.interface_encaps = YLeaf(YType.str, "interface-encaps")
-
-                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name",
-                                        "basecaps_state",
-                                        "cdp_protocol_state",
-                                        "interface_encaps",
-                                        "interface_handle") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Cdp.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Cdp.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.interface_name.is_set or
-                            self.basecaps_state.is_set or
-                            self.cdp_protocol_state.is_set or
-                            self.interface_encaps.is_set or
-                            self.interface_handle.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set or
-                            self.basecaps_state.yfilter != YFilter.not_set or
-                            self.cdp_protocol_state.yfilter != YFilter.not_set or
-                            self.interface_encaps.yfilter != YFilter.not_set or
-                            self.interface_handle.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-                        if (self.basecaps_state.is_set or self.basecaps_state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.basecaps_state.get_name_leafdata())
-                        if (self.cdp_protocol_state.is_set or self.cdp_protocol_state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.cdp_protocol_state.get_name_leafdata())
-                        if (self.interface_encaps.is_set or self.interface_encaps.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_encaps.get_name_leafdata())
-                        if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_handle.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface-name" or name == "basecaps-state" or name == "cdp-protocol-state" or name == "interface-encaps" or name == "interface-handle"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "basecaps-state"):
-                            self.basecaps_state = value
-                            self.basecaps_state.value_namespace = name_space
-                            self.basecaps_state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "cdp-protocol-state"):
-                            self.cdp_protocol_state = value
-                            self.cdp_protocol_state.value_namespace = name_space
-                            self.cdp_protocol_state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface-encaps"):
-                            self.interface_encaps = value
-                            self.interface_encaps.value_namespace = name_space
-                            self.interface_encaps.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface-handle"):
-                            self.interface_handle = value
-                            self.interface_handle.value_namespace = name_space
-                            self.interface_handle.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.interface:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.interface:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "interfaces" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "interface"):
-                        for c in self.interface:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Cdp.Nodes.Node.Interfaces.Interface()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.interface.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.interfaces is not None and self.interfaces.has_data()) or
-                    (self.neighbors is not None and self.neighbors.has_data()) or
-                    (self.statistics is not None and self.statistics.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.interfaces is not None and self.interfaces.has_operation()) or
-                    (self.neighbors is not None and self.neighbors.has_operation()) or
-                    (self.statistics is not None and self.statistics.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-cdp-oper:cdp/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "interfaces"):
-                    if (self.interfaces is None):
-                        self.interfaces = Cdp.Nodes.Node.Interfaces()
-                        self.interfaces.parent = self
-                        self._children_name_map["interfaces"] = "interfaces"
-                    return self.interfaces
-
-                if (child_yang_name == "neighbors"):
-                    if (self.neighbors is None):
-                        self.neighbors = Cdp.Nodes.Node.Neighbors()
-                        self.neighbors.parent = self
-                        self._children_name_map["neighbors"] = "neighbors"
-                    return self.neighbors
-
-                if (child_yang_name == "statistics"):
-                    if (self.statistics is None):
-                        self.statistics = Cdp.Nodes.Node.Statistics()
-                        self.statistics.parent = self
-                        self._children_name_map["statistics"] = "statistics"
-                    return self.statistics
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "interfaces" or name == "neighbors" or name == "statistics" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-cdp-oper:cdp/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Cdp.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-cdp-oper:cdp" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Cdp.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['bad_packet_errors', 'checksum_errors', 'encapsulation_errors', 'header_errors', 'header_version_errors', 'open_file_errors', 'out_of_memory_errors', 'received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'truncated_packet_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cdp()

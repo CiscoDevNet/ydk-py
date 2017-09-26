@@ -18,16 +18,15 @@ Acronyms\:
   CFM\: Connection Fault Management
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Rttmoncodectype(Enum):
+class RttMonCodecType(Enum):
     """
-    Rttmoncodectype
+    RttMonCodecType
 
     Specifies the codec type to be used with the jitter probe.
 
@@ -60,9 +59,9 @@ class Rttmoncodectype(Enum):
     g729a = Enum.YLeaf(3, "g729a")
 
 
-class Rttmonlsppingreplymode(Enum):
+class RttMonLSPPingReplyMode(Enum):
     """
-    Rttmonlsppingreplymode
+    RttMonLSPPingReplyMode
 
     Specifies the Reply mode for the MPLS LSP Echo request
 
@@ -89,9 +88,9 @@ class Rttmonlsppingreplymode(Enum):
     replyIpv4UdpRA = Enum.YLeaf(2, "replyIpv4UdpRA")
 
 
-class Rttmonoperation(Enum):
+class RttMonOperation(Enum):
     """
-    Rttmonoperation
+    RttMonOperation
 
     The following are specific RTT operations for a
 
@@ -154,9 +153,9 @@ class Rttmonoperation(Enum):
     voipDTConnectOK = Enum.YLeaf(7, "voipDTConnectOK")
 
 
-class Rttmonprotocol(Enum):
+class RttMonProtocol(Enum):
     """
-    Rttmonprotocol
+    RttMonProtocol
 
     Specifies the protocol to be used to perform the timed
 
@@ -497,9 +496,9 @@ class Rttmonprotocol(Enum):
     y1731dmmv1 = Enum.YLeaf(43, "y1731dmmv1")
 
 
-class Rttmonreactvar(Enum):
+class RttMonReactVar(Enum):
     """
-    Rttmonreactvar
+    RttMonReactVar
 
     The following are specific Reaction variables for a
 
@@ -724,9 +723,9 @@ class Rttmonreactvar(Enum):
     rFactorSD = Enum.YLeaf(32, "rFactorSD")
 
 
-class Rttmonrtttype(Enum):
+class RttMonRttType(Enum):
     """
-    Rttmonrtttype
+    RttMonRttType
 
     Specifies the type of RTT operation to be performed.
 
@@ -969,9 +968,9 @@ class Rttmonrtttype(Enum):
     mcastJitter = Enum.YLeaf(25, "mcastJitter")
 
 
-class Rttmplsvpnmonlpdfailuresense(Enum):
+class RttMplsVpnMonLpdFailureSense(Enum):
     """
-    Rttmplsvpnmonlpdfailuresense
+    RttMplsVpnMonLpdFailureSense
 
     These are the defined values for the causes of failure in
 
@@ -1066,9 +1065,9 @@ class Rttmplsvpnmonlpdfailuresense(Enum):
     error = Enum.YLeaf(7, "error")
 
 
-class Rttmplsvpnmonlpdgrpstatus(Enum):
+class RttMplsVpnMonLpdGrpStatus(Enum):
     """
-    Rttmplsvpnmonlpdgrpstatus
+    RttMplsVpnMonLpdGrpStatus
 
     These are the defined values for the status of the LPD Group.
 
@@ -1117,9 +1116,9 @@ class Rttmplsvpnmonlpdgrpstatus(Enum):
     down = Enum.YLeaf(4, "down")
 
 
-class Rttmplsvpnmonrtttype(Enum):
+class RttMplsVpnMonRttType(Enum):
     """
-    Rttmplsvpnmonrtttype
+    RttMplsVpnMonRttType
 
     Specifies the type of RTT operation to be performed for
 
@@ -1152,9 +1151,9 @@ class Rttmplsvpnmonrtttype(Enum):
     pathEcho = Enum.YLeaf(3, "pathEcho")
 
 
-class Rttreset(Enum):
+class RttReset(Enum):
     """
-    Rttreset
+    RttReset
 
     When the value set to 'reset', the entire RTT application
 
@@ -1175,9 +1174,9 @@ class Rttreset(Enum):
     reset = Enum.YLeaf(2, "reset")
 
 
-class Rttresponsesense(Enum):
+class RttResponseSense(Enum):
     """
-    Rttresponsesense
+    RttResponseSense
 
     These are the defined values for a completion status
 

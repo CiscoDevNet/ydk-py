@@ -9,8 +9,6 @@ module Cisco-IOS-XR-aaa-tacacs-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-aaa-locald-oper { prefix "a1"; }
 
   include Cisco-IOS-XR-aaa-tacacs-oper-sub1 {
@@ -40,7 +38,7 @@ module Cisco-IOS-XR-aaa-tacacs-oper {
        Cisco-IOS-XR-aaa-locald-oper
      module with state data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

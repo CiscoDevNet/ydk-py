@@ -43,7 +43,7 @@ module Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper {
      for the following management objects:
        dpa: Stats Data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -75,16 +75,20 @@ module Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper {
         value 3;
         description "ext tcam ipv4";
       }
-      enum ext-tcam-ipv6 {
+      enum ext-tcam-ipv6-short {
         value 4;
-        description "ext tcam ipv6";
+        description "ext tcam ipv6 short";
+      }
+      enum ext-tcam-ipv6-long {
+        value 5;
+        description "ext tcam ipv6 long";
       }
       enum fec {
-        value 5;
+        value 6;
         description "fec";
       }
       enum ecmpfec {
-        value 6;
+        value 7;
         description "ecmp fec";
       }
     }

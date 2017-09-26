@@ -37,8 +37,13 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
      for the following management objects:
        dhcpv6: None
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-10-10" {
     description
@@ -328,6 +333,14 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
             }
           }
 
+          container authentication {
+            description "Authentication username format";
+            leaf username {
+              type empty;
+              description "Set username as DUID";
+            }
+          }
+
           container classes {
             description "Table of Class";
 
@@ -401,6 +414,12 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                 }
               }
             }
+          }
+          leaf linkaddress-from-ra-enable {
+            type empty;
+            description
+              "Fill linkaddress in Relay fwd msg with Prefix
+              from Router Advertisement for PPPoE sessions";
           }
           leaf route-add-disable {
             type empty;

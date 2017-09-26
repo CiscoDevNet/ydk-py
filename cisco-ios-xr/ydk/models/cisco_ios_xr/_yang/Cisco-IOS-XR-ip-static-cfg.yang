@@ -37,8 +37,13 @@ module Cisco-IOS-XR-ip-static-cfg {
        router-static: This class represents router static
          configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-09-10" {
     description

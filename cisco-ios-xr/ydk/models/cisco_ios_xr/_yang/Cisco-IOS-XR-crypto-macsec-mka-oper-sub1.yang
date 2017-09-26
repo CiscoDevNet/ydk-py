@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,7 +25,7 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR crypto-macsec-mka package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -62,6 +60,11 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
 
   grouping CA-DATA {
     description "CA DATA";
+
+    container peers-status {
+      description "Peers Status";
+      uses PEERS-STATUS-DATA;
+    }
     leaf is-key-server {
       type boolean;
       description "Is Key Server";
@@ -130,6 +133,87 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
     list dormant-peer {
       description "Dormant Peer List";
       uses PEER-DATA;
+    }
+  }
+
+  grouping PEER-STATUS-DATA-INTERNAL {
+    description "PEER STATUS DATA INTERNAL";
+    leaf mi {
+      type string {
+        length "0..25";
+      }
+      description "Member ID";
+    }
+    leaf icv-status {
+      type string {
+        length "0..10";
+      }
+      description "ICV Status";
+    }
+    leaf icv-check-timestamp {
+      type string {
+        length "0..128";
+      }
+      description "ICV Check Timestamp";
+    }
+  }
+
+  grouping PEER-STATUS-DATA {
+    description "PEER STATUS DATA";
+
+    container peer-data {
+      description "Peer Status Data";
+      uses PEER-STATUS-DATA-INTERNAL;
+    }
+    leaf sci {
+      type string {
+        length "0..17";
+      }
+      description "Rx SCI";
+    }
+  }
+
+  grouping PEERS-STATUS-DATA {
+    description "PEERS STATUS DATA";
+    leaf tx-mkpdu-timestamp {
+      type string {
+        length "0..128";
+      }
+      description "Tx MKPDU Timestamp";
+    }
+    leaf peer-count {
+      type uint32;
+      description "Peer Count";
+    }
+
+    list peer {
+      description "Peer List";
+      uses PEER-STATUS-DATA;
+    }
+  }
+
+  grouping FALLBACK-KEEPALIVE-DATA {
+    description "FALLBACK KEEPALIVE DATA";
+
+    container peers-status {
+      description "Peers Status";
+      uses PEERS-STATUS-DATA;
+    }
+    leaf ckn {
+      type string {
+        length "0..65";
+      }
+      description "CKN";
+    }
+    leaf mi {
+      type string {
+        length "0..25";
+      }
+      description "Member Identifier";
+    }
+    leaf mn {
+      type uint32;
+      description "Message Number";
     }
   }
 
@@ -202,6 +286,11 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
     leaf time-to-sak-rekey {
       type string;
       description "Next SAK Rekey time in Sec";
+    }
+
+    list fallback-keepalive {
+      description "Fallback Keepalive";
+      uses FALLBACK-KEEPALIVE-DATA;
     }
   }
 

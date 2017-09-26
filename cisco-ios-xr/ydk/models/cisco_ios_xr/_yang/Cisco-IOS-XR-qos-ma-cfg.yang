@@ -43,9 +43,14 @@ module Cisco-IOS-XR-qos-ma-cfg {
        Cisco-IOS-XR-l2vpn-cfg,
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+  
   revision "2016-12-23" {
     description
       "IOS XR 6.2.1 revision.";

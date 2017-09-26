@@ -7,16 +7,15 @@ of this MIB module is part of RFC 4268;  see the RFC
 itself for full legal notices.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Entityadminstate(Enum):
+class EntityAdminState(Enum):
     """
-    Entityadminstate
+    EntityAdminState
 
      Represents the various possible administrative states.
 
@@ -53,9 +52,9 @@ class Entityadminstate(Enum):
     unlocked = Enum.YLeaf(4, "unlocked")
 
 
-class Entityoperstate(Enum):
+class EntityOperState(Enum):
     """
-    Entityoperstate
+    EntityOperState
 
      Represents the possible values of operational states.
 
@@ -92,9 +91,9 @@ class Entityoperstate(Enum):
     testing = Enum.YLeaf(4, "testing")
 
 
-class Entitystandbystatus(Enum):
+class EntityStandbyStatus(Enum):
     """
-    Entitystandbystatus
+    EntityStandbyStatus
 
      Represents the possible values of standby status.
 
@@ -143,9 +142,9 @@ class Entitystandbystatus(Enum):
     providingService = Enum.YLeaf(4, "providingService")
 
 
-class Entityusagestate(Enum):
+class EntityUsageState(Enum):
     """
-    Entityusagestate
+    EntityUsageState
 
      Represents the possible values of usage states.
 
@@ -183,42 +182,5 @@ class Entityusagestate(Enum):
 
     busy = Enum.YLeaf(4, "busy")
 
-
-class Entityalarmstatus(Bits):
-    """
-    Entityalarmstatus
-
-     Represents the possible values of alarm status.
-    An Alarm [RFC3877] is a persistent indication
-    of an error or warning condition.
-    
-    When no bits of this attribute are set, then no active
-    alarms are known against this entity and it is not under
-    repair.
-    
-    When the 'value of underRepair' is set, the resource is
-    currently being repaired, which, depending on the
-    implementation, may make the other values in this bit
-    string not meaningful.
-    
-    When the value of 'critical' is set, one or more critical
-    alarms are active against the resource.  When the value
-    of 'major' is set, one or more major alarms are active
-    against the resource.  When the value of 'minor' is set,
-    one or more minor alarms are active against the resource.
-    When the value of 'warning' is set, one or more warning
-    alarms are active against the resource.  When the value
-    of 'indeterminate' is set, one or more alarms of whose
-    perceived severity cannot be determined are active
-    against this resource.
-    
-    A value of 'unknown' means that this resource is
-    unable to report alarm state.
-    Keys are:- critical , underRepair , minor , indeterminate , major , unknown , warning
-
-    """
-
-    def __init__(self):
-        super(Entityalarmstatus, self).__init__()
 
 

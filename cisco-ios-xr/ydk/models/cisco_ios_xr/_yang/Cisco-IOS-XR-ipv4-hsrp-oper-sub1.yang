@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ipv4-hsrp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-hsrp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -162,8 +162,12 @@ submodule Cisco-IOS-XR-ipv4-hsrp-oper-sub1 {
         value 24;
         description "Resync following ISSU primary event";
       }
-      enum state-change-max {
+      enum state-change-reset-to-learn {
         value 25;
+        description "Reset to learn parameters";
+      }
+      enum state-change-max {
+        value 26;
         description "Maximum reason in enumeration";
       }
     }

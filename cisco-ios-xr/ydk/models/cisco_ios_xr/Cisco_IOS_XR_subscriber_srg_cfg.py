@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   subscriber\-redundancy\: Subscriber Redundancy configuration
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -130,7 +129,7 @@ class SubscriberRedundancy(Entity):
     	Source Interface for Redundancy Peer Communication
     	**type**\:  str
     
-    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: virtual_mac_prefix
     
@@ -152,6 +151,10 @@ class SubscriberRedundancy(Entity):
 
         self.yang_name = "subscriber-redundancy"
         self.yang_parent_name = "Cisco-IOS-XR-subscriber-srg-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"groups" : ("groups", SubscriberRedundancy.Groups), "revertive-timer" : ("revertive_timer", SubscriberRedundancy.RevertiveTimer)}
+        self._child_list_classes = {}
 
         self.enable = YLeaf(YType.empty, "enable")
 
@@ -176,36 +179,10 @@ class SubscriberRedundancy(Entity):
         self.revertive_timer.parent = self
         self._children_name_map["revertive_timer"] = "revertive-timer"
         self._children_yang_names.add("revertive-timer")
+        self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in ("enable",
-                        "hold_timer",
-                        "preferred_role",
-                        "redundancy_disable",
-                        "slave_mode",
-                        "source_interface",
-                        "virtual_mac_prefix") and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(SubscriberRedundancy, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(SubscriberRedundancy, self).__setattr__(name, value)
+        self._perform_setattr(SubscriberRedundancy, ['enable', 'hold_timer', 'preferred_role', 'redundancy_disable', 'slave_mode', 'source_interface', 'virtual_mac_prefix'], name, value)
 
 
     class Groups(Entity):
@@ -229,32 +206,17 @@ class SubscriberRedundancy(Entity):
 
             self.yang_name = "groups"
             self.yang_parent_name = "subscriber-redundancy"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"group" : ("group", SubscriberRedundancy.Groups.Group)}
 
             self.group = YList(self)
+            self._segment_path = lambda: "groups"
+            self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(SubscriberRedundancy.Groups, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(SubscriberRedundancy.Groups, self).__setattr__(name, value)
+            self._perform_setattr(SubscriberRedundancy.Groups, [], name, value)
 
 
         class Group(Entity):
@@ -366,6 +328,10 @@ class SubscriberRedundancy(Entity):
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interface-list" : ("interface_list", SubscriberRedundancy.Groups.Group.InterfaceList), "peer" : ("peer", SubscriberRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SubscriberRedundancy.Groups.Group.RevertiveTimer), "state-control-route" : ("state_control_route", SubscriberRedundancy.Groups.Group.StateControlRoute), "virtual-mac" : ("virtual_mac", SubscriberRedundancy.Groups.Group.VirtualMac)}
+                self._child_list_classes = {}
 
                 self.group_id = YLeaf(YType.uint32, "group-id")
 
@@ -415,41 +381,11 @@ class SubscriberRedundancy(Entity):
                 self.virtual_mac.parent = self
                 self._children_name_map["virtual_mac"] = "virtual-mac"
                 self._children_yang_names.add("virtual-mac")
+                self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("group_id",
-                                "access_tracking_object",
-                                "core_tracking_object",
-                                "description",
-                                "disable_tracking_object",
-                                "enable",
-                                "enable_fast_switchover",
-                                "hold_timer",
-                                "l2tp_source_ip_address",
-                                "preferred_role",
-                                "redundancy_disable",
-                                "slave_mode") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(SubscriberRedundancy.Groups.Group, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(SubscriberRedundancy.Groups.Group, self).__setattr__(name, value)
+                self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'access_tracking_object', 'core_tracking_object', 'description', 'disable_tracking_object', 'enable', 'enable_fast_switchover', 'hold_timer', 'l2tp_source_ip_address', 'preferred_role', 'redundancy_disable', 'slave_mode'], name, value)
 
 
             class InterfaceList(Entity):
@@ -483,6 +419,10 @@ class SubscriberRedundancy(Entity):
 
                     self.yang_name = "interface-list"
                     self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"interface-ranges" : ("interface_ranges", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges), "interfaces" : ("interfaces", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces)}
+                    self._child_list_classes = {}
 
                     self.enable = YLeaf(YType.empty, "enable")
 
@@ -495,254 +435,10 @@ class SubscriberRedundancy(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._children_yang_names.add("interfaces")
+                    self._segment_path = lambda: "interface-list"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("enable") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(SubscriberRedundancy.Groups.Group.InterfaceList, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(SubscriberRedundancy.Groups.Group.InterfaceList, self).__setattr__(name, value)
-
-
-                class Interfaces(Entity):
-                    """
-                    Table of Interface
-                    
-                    .. attribute:: interface
-                    
-                    	Interface for this Group
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-srg-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
-
-                        self.yang_name = "interfaces"
-                        self.yang_parent_name = "interface-list"
-
-                        self.interface = YList(self)
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__setattr__(name, value)
-
-
-                    class Interface(Entity):
-                        """
-                        Interface for this Group
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	Interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: interface_id
-                        
-                        	Interface Id for the interface
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'subscriber-srg-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
-
-                            self.yang_name = "interface"
-                            self.yang_parent_name = "interfaces"
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_id = YLeaf(YType.uint32, "interface-id")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("interface_name",
-                                            "interface_id") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.interface_name.is_set or
-                                self.interface_id.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.interface_name.yfilter != YFilter.not_set or
-                                self.interface_id.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_name.get_name_leafdata())
-                            if (self.interface_id.is_set or self.interface_id.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_id.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "interface-name" or name == "interface-id"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "interface-name"):
-                                self.interface_name = value
-                                self.interface_name.value_namespace = name_space
-                                self.interface_name.value_namespace_prefix = name_space_prefix
-                            if(value_path == "interface-id"):
-                                self.interface_id = value
-                                self.interface_id.value_namespace = name_space
-                                self.interface_id.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.interface:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.interface:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interfaces" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "interface"):
-                            for c in self.interface:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.interface.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList, ['enable'], name, value)
 
 
                 class InterfaceRanges(Entity):
@@ -766,32 +462,16 @@ class SubscriberRedundancy(Entity):
 
                         self.yang_name = "interface-ranges"
                         self.yang_parent_name = "interface-list"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface-range" : ("interface_range", SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange)}
 
                         self.interface_range = YList(self)
+                        self._segment_path = lambda: "interface-ranges"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__setattr__(name, value)
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, [], name, value)
 
 
                     class InterfaceRange(Entity):
@@ -803,7 +483,7 @@ class SubscriberRedundancy(Entity):
                         	Interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: sub_interface_range_start  <key>
                         
@@ -845,6 +525,10 @@ class SubscriberRedundancy(Entity):
 
                             self.yang_name = "interface-range"
                             self.yang_parent_name = "interface-ranges"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -855,235 +539,89 @@ class SubscriberRedundancy(Entity):
                             self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
 
                             self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
+                            self._segment_path = lambda: "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("interface_name",
-                                            "sub_interface_range_start",
-                                            "sub_interface_range_end",
-                                            "interface_id_range_end",
-                                            "interface_id_range_start") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__setattr__(name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_end', 'interface_id_range_start'], name, value)
 
-                        def has_data(self):
-                            return (
-                                self.interface_name.is_set or
-                                self.sub_interface_range_start.is_set or
-                                self.sub_interface_range_end.is_set or
-                                self.interface_id_range_end.is_set or
-                                self.interface_id_range_start.is_set)
 
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.interface_name.yfilter != YFilter.not_set or
-                                self.sub_interface_range_start.yfilter != YFilter.not_set or
-                                self.sub_interface_range_end.yfilter != YFilter.not_set or
-                                self.interface_id_range_end.yfilter != YFilter.not_set or
-                                self.interface_id_range_start.yfilter != YFilter.not_set)
+                class Interfaces(Entity):
+                    """
+                    Table of Interface
+                    
+                    .. attribute:: interface
+                    
+                    	Interface for this Group
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
+                    
+                    
 
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']" + path_buffer
+                    """
 
-                            return path_buffer
+                    _prefix = 'subscriber-srg-cfg'
+                    _revision = '2015-11-09'
 
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                    def __init__(self):
+                        super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
 
-                            leaf_name_data = LeafDataList()
-                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_name.get_name_leafdata())
-                            if (self.sub_interface_range_start.is_set or self.sub_interface_range_start.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.sub_interface_range_start.get_name_leafdata())
-                            if (self.sub_interface_range_end.is_set or self.sub_interface_range_end.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.sub_interface_range_end.get_name_leafdata())
-                            if (self.interface_id_range_end.is_set or self.interface_id_range_end.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_id_range_end.get_name_leafdata())
-                            if (self.interface_id_range_start.is_set or self.interface_id_range_start.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_id_range_start.get_name_leafdata())
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "interface-list"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface)}
 
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
+                        self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
 
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, [], name, value)
 
-                            return None
 
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "interface-name" or name == "sub-interface-range-start" or name == "sub-interface-range-end" or name == "interface-id-range-end" or name == "interface-id-range-start"):
-                                return True
-                            return False
+                    class Interface(Entity):
+                        """
+                        Interface for this Group
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface name
+                        	**type**\:  str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        .. attribute:: interface_id
+                        
+                        	Interface Id for the interface
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        	**mandatory**\: True
+                        
+                        
 
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "interface-name"):
-                                self.interface_name = value
-                                self.interface_name.value_namespace = name_space
-                                self.interface_name.value_namespace_prefix = name_space_prefix
-                            if(value_path == "sub-interface-range-start"):
-                                self.sub_interface_range_start = value
-                                self.sub_interface_range_start.value_namespace = name_space
-                                self.sub_interface_range_start.value_namespace_prefix = name_space_prefix
-                            if(value_path == "sub-interface-range-end"):
-                                self.sub_interface_range_end = value
-                                self.sub_interface_range_end.value_namespace = name_space
-                                self.sub_interface_range_end.value_namespace_prefix = name_space_prefix
-                            if(value_path == "interface-id-range-end"):
-                                self.interface_id_range_end = value
-                                self.interface_id_range_end.value_namespace = name_space
-                                self.interface_id_range_end.value_namespace_prefix = name_space_prefix
-                            if(value_path == "interface-id-range-start"):
-                                self.interface_id_range_start = value
-                                self.interface_id_range_start.value_namespace = name_space
-                                self.interface_id_range_start.value_namespace_prefix = name_space_prefix
+                        """
 
-                    def has_data(self):
-                        for c in self.interface_range:
-                            if (c.has_data()):
-                                return True
-                        return False
+                        _prefix = 'subscriber-srg-cfg'
+                        _revision = '2015-11-09'
 
-                    def has_operation(self):
-                        for c in self.interface_range:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
+                        def __init__(self):
+                            super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
 
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interface-ranges" + path_buffer
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
-                        return path_buffer
+                            self.interface_name = YLeaf(YType.str, "interface-name")
 
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                            self.interface_id = YLeaf(YType.uint32, "interface-id")
+                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "interface-range"):
-                            for c in self.interface_range:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.interface_range.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface-range"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.enable.is_set or
-                        (self.interface_ranges is not None and self.interface_ranges.has_data()) or
-                        (self.interfaces is not None and self.interfaces.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.enable.yfilter != YFilter.not_set or
-                        (self.interface_ranges is not None and self.interface_ranges.has_operation()) or
-                        (self.interfaces is not None and self.interfaces.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "interface-list" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.enable.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "interface-ranges"):
-                        if (self.interface_ranges is None):
-                            self.interface_ranges = SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
-                            self.interface_ranges.parent = self
-                            self._children_name_map["interface_ranges"] = "interface-ranges"
-                        return self.interface_ranges
-
-                    if (child_yang_name == "interfaces"):
-                        if (self.interfaces is None):
-                            self.interfaces = SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces()
-                            self.interfaces.parent = self
-                            self._children_name_map["interfaces"] = "interfaces"
-                        return self.interfaces
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interface-ranges" or name == "interfaces" or name == "enable"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "enable"):
-                        self.enable = value
-                        self.enable.value_namespace = name_space
-                        self.enable.value_namespace_prefix = name_space_prefix
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
 
             class Peer(Entity):
@@ -1112,6 +650,10 @@ class SubscriberRedundancy(Entity):
 
                     self.yang_name = "peer"
                     self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"ipaddress" : ("ipaddress", SubscriberRedundancy.Groups.Group.Peer.Ipaddress)}
+                    self._child_list_classes = {}
 
                     self.route_add_disable = YLeaf(YType.empty, "route-add-disable")
 
@@ -1119,30 +661,10 @@ class SubscriberRedundancy(Entity):
                     self.ipaddress.parent = self
                     self._children_name_map["ipaddress"] = "ipaddress"
                     self._children_yang_names.add("ipaddress")
+                    self._segment_path = lambda: "peer"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("route_add_disable") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(SubscriberRedundancy.Groups.Group.Peer, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(SubscriberRedundancy.Groups.Group.Peer, self).__setattr__(name, value)
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.Peer, ['route_add_disable'], name, value)
 
 
                 class Ipaddress(Entity):
@@ -1183,146 +705,18 @@ class SubscriberRedundancy(Entity):
 
                         self.yang_name = "ipaddress"
                         self.yang_parent_name = "peer"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.address_family = YLeaf(YType.enumeration, "address-family")
 
                         self.prefix_string = YLeaf(YType.str, "prefix-string")
+                        self._segment_path = lambda: "ipaddress"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("address_family",
-                                        "prefix_string") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.address_family.is_set or
-                            self.prefix_string.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.address_family.yfilter != YFilter.not_set or
-                            self.prefix_string.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipaddress" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.address_family.is_set or self.address_family.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.address_family.get_name_leafdata())
-                        if (self.prefix_string.is_set or self.prefix_string.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.prefix_string.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "address-family" or name == "prefix-string"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "address-family"):
-                            self.address_family = value
-                            self.address_family.value_namespace = name_space
-                            self.address_family.value_namespace_prefix = name_space_prefix
-                        if(value_path == "prefix-string"):
-                            self.prefix_string = value
-                            self.prefix_string.value_namespace = name_space
-                            self.prefix_string.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.route_add_disable.is_set or
-                        (self.ipaddress is not None and self.ipaddress.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.route_add_disable.yfilter != YFilter.not_set or
-                        (self.ipaddress is not None and self.ipaddress.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "peer" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.route_add_disable.is_set or self.route_add_disable.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.route_add_disable.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "ipaddress"):
-                        if (self.ipaddress is None):
-                            self.ipaddress = SubscriberRedundancy.Groups.Group.Peer.Ipaddress()
-                            self.ipaddress.parent = self
-                            self._children_name_map["ipaddress"] = "ipaddress"
-                        return self.ipaddress
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "ipaddress" or name == "route-add-disable"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "route-add-disable"):
-                        self.route_add_disable = value
-                        self.route_add_disable.value_namespace = name_space
-                        self.route_add_disable.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
 
 
             class RevertiveTimer(Entity):
@@ -1357,204 +751,18 @@ class SubscriberRedundancy(Entity):
 
                     self.yang_name = "revertive-timer"
                     self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.max_value = YLeaf(YType.uint32, "max-value")
 
                     self.value = YLeaf(YType.uint32, "value")
+                    self._segment_path = lambda: "revertive-timer"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("max_value",
-                                    "value") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(SubscriberRedundancy.Groups.Group.RevertiveTimer, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(SubscriberRedundancy.Groups.Group.RevertiveTimer, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.max_value.is_set or
-                        self.value.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.max_value.yfilter != YFilter.not_set or
-                        self.value.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "revertive-timer" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.max_value.is_set or self.max_value.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.max_value.get_name_leafdata())
-                    if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.value.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "max-value" or name == "value"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "max-value"):
-                        self.max_value = value
-                        self.max_value.value_namespace = name_space
-                        self.max_value.value_namespace_prefix = name_space_prefix
-                    if(value_path == "value"):
-                        self.value = value
-                        self.value.value_namespace = name_space
-                        self.value.value_namespace_prefix = name_space_prefix
-
-
-            class VirtualMac(Entity):
-                """
-                Virtual MAC Address for this Group
-                
-                .. attribute:: address
-                
-                	Virtual MAC Address for this Group
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: disable
-                
-                	Disable Virtual MAC Address for this Group
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'subscriber-srg-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
-
-                    self.yang_name = "virtual-mac"
-                    self.yang_parent_name = "group"
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.disable = YLeaf(YType.empty, "disable")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("address",
-                                    "disable") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.address.is_set or
-                        self.disable.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.address.yfilter != YFilter.not_set or
-                        self.disable.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "virtual-mac" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.address.get_name_leafdata())
-                    if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.disable.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "address" or name == "disable"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "address"):
-                        self.address = value
-                        self.address.value_namespace = name_space
-                        self.address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "disable"):
-                        self.disable = value
-                        self.disable.value_namespace = name_space
-                        self.disable.value_namespace_prefix = name_space_prefix
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
 
             class StateControlRoute(Entity):
@@ -1583,6 +791,10 @@ class SubscriberRedundancy(Entity):
 
                     self.yang_name = "state-control-route"
                     self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"ipv4-routes" : ("ipv4_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes), "ipv6-route" : ("ipv6_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route)}
+                    self._child_list_classes = {}
 
                     self.ipv4_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes()
                     self.ipv4_routes.parent = self
@@ -1593,6 +805,7 @@ class SubscriberRedundancy(Entity):
                     self.ipv6_route.parent = self
                     self._children_name_map["ipv6_route"] = "ipv6-route"
                     self._children_yang_names.add("ipv6-route")
+                    self._segment_path = lambda: "state-control-route"
 
 
                 class Ipv4Routes(Entity):
@@ -1616,32 +829,16 @@ class SubscriberRedundancy(Entity):
 
                         self.yang_name = "ipv4-routes"
                         self.yang_parent_name = "state-control-route"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"ipv4-route" : ("ipv4_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route)}
 
                         self.ipv4_route = YList(self)
+                        self._segment_path = lambda: "ipv4-routes"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, self).__setattr__(name, value)
+                        self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, [], name, value)
 
 
                     class Ipv4Route(Entity):
@@ -1694,6 +891,10 @@ class SubscriberRedundancy(Entity):
 
                             self.yang_name = "ipv4-route"
                             self.yang_parent_name = "ipv4-routes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"ipv4-route-data" : ("ipv4_route_data", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData)}
+                            self._child_list_classes = {"vrfname" : ("vrfname", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname)}
 
                             self.prefix_string = YLeaf(YType.str, "prefix-string")
 
@@ -1705,31 +906,10 @@ class SubscriberRedundancy(Entity):
                             self._children_yang_names.add("ipv4-route-data")
 
                             self.vrfname = YList(self)
+                            self._segment_path = lambda: "ipv4-route" + "[prefix-string='" + self.prefix_string.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("prefix_string",
-                                            "prefix_length") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, self).__setattr__(name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, ['prefix_string', 'prefix_length'], name, value)
 
 
                         class Ipv4RouteData(Entity):
@@ -1741,7 +921,7 @@ class SubscriberRedundancy(Entity):
                             	Tag value
                             	**type**\:  int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 1..4294967295
                             
                             	**mandatory**\: True
                             
@@ -1757,78 +937,16 @@ class SubscriberRedundancy(Entity):
 
                                 self.yang_name = "ipv4-route-data"
                                 self.yang_parent_name = "ipv4-route"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                                self.tagvalue = YLeaf(YType.int32, "tagvalue")
+                                self.tagvalue = YLeaf(YType.uint32, "tagvalue")
+                                self._segment_path = lambda: "ipv4-route-data"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("tagvalue") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.tagvalue.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.tagvalue.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv4-route-data" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.tagvalue.is_set or self.tagvalue.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tagvalue.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "tagvalue"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "tagvalue"):
-                                    self.tagvalue = value
-                                    self.tagvalue.value_namespace = name_space
-                                    self.tagvalue.value_namespace_prefix = name_space_prefix
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData, ['tagvalue'], name, value)
 
 
                         class Vrfname(Entity):
@@ -1847,7 +965,7 @@ class SubscriberRedundancy(Entity):
                             	Tag value
                             	**type**\:  int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 1..4294967295
                             
                             	**mandatory**\: True
                             
@@ -1863,229 +981,18 @@ class SubscriberRedundancy(Entity):
 
                                 self.yang_name = "vrfname"
                                 self.yang_parent_name = "ipv4-route"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.vrfname = YLeaf(YType.str, "vrfname")
 
-                                self.tagvalue = YLeaf(YType.int32, "tagvalue")
+                                self.tagvalue = YLeaf(YType.uint32, "tagvalue")
+                                self._segment_path = lambda: "vrfname" + "[vrfname='" + self.vrfname.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("vrfname",
-                                                "tagvalue") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.vrfname.is_set or
-                                    self.tagvalue.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.vrfname.yfilter != YFilter.not_set or
-                                    self.tagvalue.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "vrfname" + "[vrfname='" + self.vrfname.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.vrfname.is_set or self.vrfname.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.vrfname.get_name_leafdata())
-                                if (self.tagvalue.is_set or self.tagvalue.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tagvalue.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "vrfname" or name == "tagvalue"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "vrfname"):
-                                    self.vrfname = value
-                                    self.vrfname.value_namespace = name_space
-                                    self.vrfname.value_namespace_prefix = name_space_prefix
-                                if(value_path == "tagvalue"):
-                                    self.tagvalue = value
-                                    self.tagvalue.value_namespace = name_space
-                                    self.tagvalue.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.vrfname:
-                                if (c.has_data()):
-                                    return True
-                            return (
-                                self.prefix_string.is_set or
-                                self.prefix_length.is_set or
-                                (self.ipv4_route_data is not None and self.ipv4_route_data.has_data()))
-
-                        def has_operation(self):
-                            for c in self.vrfname:
-                                if (c.has_operation()):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.prefix_string.yfilter != YFilter.not_set or
-                                self.prefix_length.yfilter != YFilter.not_set or
-                                (self.ipv4_route_data is not None and self.ipv4_route_data.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "ipv4-route" + "[prefix-string='" + self.prefix_string.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.prefix_string.is_set or self.prefix_string.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.prefix_string.get_name_leafdata())
-                            if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.prefix_length.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "ipv4-route-data"):
-                                if (self.ipv4_route_data is None):
-                                    self.ipv4_route_data = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData()
-                                    self.ipv4_route_data.parent = self
-                                    self._children_name_map["ipv4_route_data"] = "ipv4-route-data"
-                                return self.ipv4_route_data
-
-                            if (child_yang_name == "vrfname"):
-                                for c in self.vrfname:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.vrfname.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv4-route-data" or name == "vrfname" or name == "prefix-string" or name == "prefix-length"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "prefix-string"):
-                                self.prefix_string = value
-                                self.prefix_string.value_namespace = name_space
-                                self.prefix_string.value_namespace_prefix = name_space_prefix
-                            if(value_path == "prefix-length"):
-                                self.prefix_length = value
-                                self.prefix_length.value_namespace = name_space
-                                self.prefix_length.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.ipv4_route:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.ipv4_route:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv4-routes" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "ipv4-route"):
-                            for c in self.ipv4_route:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.ipv4_route.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "ipv4-route"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname, ['vrfname', 'tagvalue'], name, value)
 
 
                 class Ipv6Route(Entity):
@@ -2114,6 +1021,10 @@ class SubscriberRedundancy(Entity):
 
                         self.yang_name = "ipv6-route"
                         self.yang_parent_name = "state-control-route"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"ipv6na-routes" : ("ipv6na_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes), "ipv6pd-routes" : ("ipv6pd_routes", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes)}
+                        self._child_list_classes = {}
 
                         self.ipv6na_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes()
                         self.ipv6na_routes.parent = self
@@ -2124,6 +1035,7 @@ class SubscriberRedundancy(Entity):
                         self.ipv6pd_routes.parent = self
                         self._children_name_map["ipv6pd_routes"] = "ipv6pd-routes"
                         self._children_yang_names.add("ipv6pd-routes")
+                        self._segment_path = lambda: "ipv6-route"
 
 
                     class Ipv6NaRoutes(Entity):
@@ -2147,32 +1059,16 @@ class SubscriberRedundancy(Entity):
 
                             self.yang_name = "ipv6na-routes"
                             self.yang_parent_name = "ipv6-route"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"ipv6na-route" : ("ipv6na_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute)}
 
                             self.ipv6na_route = YList(self)
+                            self._segment_path = lambda: "ipv6na-routes"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes, self).__setattr__(name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes, [], name, value)
 
 
                         class Ipv6NaRoute(Entity):
@@ -2215,7 +1111,7 @@ class SubscriberRedundancy(Entity):
                             	Tag value
                             	**type**\:  int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 1..4294967295
                             
                             	**mandatory**\: True
                             
@@ -2231,6 +1127,10 @@ class SubscriberRedundancy(Entity):
 
                                 self.yang_name = "ipv6na-route"
                                 self.yang_parent_name = "ipv6na-routes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.vrfname = YLeaf(YType.str, "vrfname")
 
@@ -2238,162 +1138,11 @@ class SubscriberRedundancy(Entity):
 
                                 self.prefix_string = YLeaf(YType.str, "prefix-string")
 
-                                self.tagvalue = YLeaf(YType.int32, "tagvalue")
+                                self.tagvalue = YLeaf(YType.uint32, "tagvalue")
+                                self._segment_path = lambda: "ipv6na-route" + "[vrfname='" + self.vrfname.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']" + "[prefix-string='" + self.prefix_string.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("vrfname",
-                                                "prefix_length",
-                                                "prefix_string",
-                                                "tagvalue") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.vrfname.is_set or
-                                    self.prefix_length.is_set or
-                                    self.prefix_string.is_set or
-                                    self.tagvalue.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.vrfname.yfilter != YFilter.not_set or
-                                    self.prefix_length.yfilter != YFilter.not_set or
-                                    self.prefix_string.yfilter != YFilter.not_set or
-                                    self.tagvalue.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv6na-route" + "[vrfname='" + self.vrfname.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']" + "[prefix-string='" + self.prefix_string.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.vrfname.is_set or self.vrfname.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.vrfname.get_name_leafdata())
-                                if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.prefix_length.get_name_leafdata())
-                                if (self.prefix_string.is_set or self.prefix_string.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.prefix_string.get_name_leafdata())
-                                if (self.tagvalue.is_set or self.tagvalue.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tagvalue.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "vrfname" or name == "prefix-length" or name == "prefix-string" or name == "tagvalue"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "vrfname"):
-                                    self.vrfname = value
-                                    self.vrfname.value_namespace = name_space
-                                    self.vrfname.value_namespace_prefix = name_space_prefix
-                                if(value_path == "prefix-length"):
-                                    self.prefix_length = value
-                                    self.prefix_length.value_namespace = name_space
-                                    self.prefix_length.value_namespace_prefix = name_space_prefix
-                                if(value_path == "prefix-string"):
-                                    self.prefix_string = value
-                                    self.prefix_string.value_namespace = name_space
-                                    self.prefix_string.value_namespace_prefix = name_space_prefix
-                                if(value_path == "tagvalue"):
-                                    self.tagvalue = value
-                                    self.tagvalue.value_namespace = name_space
-                                    self.tagvalue.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.ipv6na_route:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.ipv6na_route:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "ipv6na-routes" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "ipv6na-route"):
-                                for c in self.ipv6na_route:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.ipv6na_route.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6na-route"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
                     class Ipv6PdRoutes(Entity):
@@ -2417,32 +1166,16 @@ class SubscriberRedundancy(Entity):
 
                             self.yang_name = "ipv6pd-routes"
                             self.yang_parent_name = "ipv6-route"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"ipv6pd-route" : ("ipv6pd_route", SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute)}
 
                             self.ipv6pd_route = YList(self)
+                            self._segment_path = lambda: "ipv6pd-routes"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes, self).__setattr__(name, value)
+                            self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes, [], name, value)
 
 
                         class Ipv6PdRoute(Entity):
@@ -2485,7 +1218,7 @@ class SubscriberRedundancy(Entity):
                             	Tag value
                             	**type**\:  int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 1..4294967295
                             
                             	**mandatory**\: True
                             
@@ -2501,6 +1234,10 @@ class SubscriberRedundancy(Entity):
 
                                 self.yang_name = "ipv6pd-route"
                                 self.yang_parent_name = "ipv6pd-routes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.vrfname = YLeaf(YType.str, "vrfname")
 
@@ -2508,515 +1245,53 @@ class SubscriberRedundancy(Entity):
 
                                 self.prefix_string = YLeaf(YType.str, "prefix-string")
 
-                                self.tagvalue = YLeaf(YType.int32, "tagvalue")
+                                self.tagvalue = YLeaf(YType.uint32, "tagvalue")
+                                self._segment_path = lambda: "ipv6pd-route" + "[vrfname='" + self.vrfname.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']" + "[prefix-string='" + self.prefix_string.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("vrfname",
-                                                "prefix_length",
-                                                "prefix_string",
-                                                "tagvalue") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.vrfname.is_set or
-                                    self.prefix_length.is_set or
-                                    self.prefix_string.is_set or
-                                    self.tagvalue.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.vrfname.yfilter != YFilter.not_set or
-                                    self.prefix_length.yfilter != YFilter.not_set or
-                                    self.prefix_string.yfilter != YFilter.not_set or
-                                    self.tagvalue.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv6pd-route" + "[vrfname='" + self.vrfname.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']" + "[prefix-string='" + self.prefix_string.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.vrfname.is_set or self.vrfname.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.vrfname.get_name_leafdata())
-                                if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.prefix_length.get_name_leafdata())
-                                if (self.prefix_string.is_set or self.prefix_string.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.prefix_string.get_name_leafdata())
-                                if (self.tagvalue.is_set or self.tagvalue.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.tagvalue.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "vrfname" or name == "prefix-length" or name == "prefix-string" or name == "tagvalue"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "vrfname"):
-                                    self.vrfname = value
-                                    self.vrfname.value_namespace = name_space
-                                    self.vrfname.value_namespace_prefix = name_space_prefix
-                                if(value_path == "prefix-length"):
-                                    self.prefix_length = value
-                                    self.prefix_length.value_namespace = name_space
-                                    self.prefix_length.value_namespace_prefix = name_space_prefix
-                                if(value_path == "prefix-string"):
-                                    self.prefix_string = value
-                                    self.prefix_string.value_namespace = name_space
-                                    self.prefix_string.value_namespace_prefix = name_space_prefix
-                                if(value_path == "tagvalue"):
-                                    self.tagvalue = value
-                                    self.tagvalue.value_namespace = name_space
-                                    self.tagvalue.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.ipv6pd_route:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.ipv6pd_route:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "ipv6pd-routes" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "ipv6pd-route"):
-                                for c in self.ipv6pd_route:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.ipv6pd_route.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6pd-route"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            (self.ipv6na_routes is not None and self.ipv6na_routes.has_data()) or
-                            (self.ipv6pd_routes is not None and self.ipv6pd_routes.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            (self.ipv6na_routes is not None and self.ipv6na_routes.has_operation()) or
-                            (self.ipv6pd_routes is not None and self.ipv6pd_routes.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv6-route" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "ipv6na-routes"):
-                            if (self.ipv6na_routes is None):
-                                self.ipv6na_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes()
-                                self.ipv6na_routes.parent = self
-                                self._children_name_map["ipv6na_routes"] = "ipv6na-routes"
-                            return self.ipv6na_routes
-
-                        if (child_yang_name == "ipv6pd-routes"):
-                            if (self.ipv6pd_routes is None):
-                                self.ipv6pd_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes()
-                                self.ipv6pd_routes.parent = self
-                                self._children_name_map["ipv6pd_routes"] = "ipv6pd-routes"
-                            return self.ipv6pd_routes
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "ipv6na-routes" or name == "ipv6pd-routes"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        (self.ipv4_routes is not None and self.ipv4_routes.has_data()) or
-                        (self.ipv6_route is not None and self.ipv6_route.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.ipv4_routes is not None and self.ipv4_routes.has_operation()) or
-                        (self.ipv6_route is not None and self.ipv6_route.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "state-control-route" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "ipv4-routes"):
-                        if (self.ipv4_routes is None):
-                            self.ipv4_routes = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes()
-                            self.ipv4_routes.parent = self
-                            self._children_name_map["ipv4_routes"] = "ipv4-routes"
-                        return self.ipv4_routes
-
-                    if (child_yang_name == "ipv6-route"):
-                        if (self.ipv6_route is None):
-                            self.ipv6_route = SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route()
-                            self.ipv6_route.parent = self
-                            self._children_name_map["ipv6_route"] = "ipv6-route"
-                        return self.ipv6_route
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "ipv4-routes" or name == "ipv6-route"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.group_id.is_set or
-                    self.access_tracking_object.is_set or
-                    self.core_tracking_object.is_set or
-                    self.description.is_set or
-                    self.disable_tracking_object.is_set or
-                    self.enable.is_set or
-                    self.enable_fast_switchover.is_set or
-                    self.hold_timer.is_set or
-                    self.l2tp_source_ip_address.is_set or
-                    self.preferred_role.is_set or
-                    self.redundancy_disable.is_set or
-                    self.slave_mode.is_set or
-                    (self.interface_list is not None and self.interface_list.has_data()) or
-                    (self.peer is not None and self.peer.has_data()) or
-                    (self.revertive_timer is not None and self.revertive_timer.has_data()) or
-                    (self.state_control_route is not None and self.state_control_route.has_data()) or
-                    (self.virtual_mac is not None and self.virtual_mac.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.group_id.yfilter != YFilter.not_set or
-                    self.access_tracking_object.yfilter != YFilter.not_set or
-                    self.core_tracking_object.yfilter != YFilter.not_set or
-                    self.description.yfilter != YFilter.not_set or
-                    self.disable_tracking_object.yfilter != YFilter.not_set or
-                    self.enable.yfilter != YFilter.not_set or
-                    self.enable_fast_switchover.yfilter != YFilter.not_set or
-                    self.hold_timer.yfilter != YFilter.not_set or
-                    self.l2tp_source_ip_address.yfilter != YFilter.not_set or
-                    self.preferred_role.yfilter != YFilter.not_set or
-                    self.redundancy_disable.yfilter != YFilter.not_set or
-                    self.slave_mode.yfilter != YFilter.not_set or
-                    (self.interface_list is not None and self.interface_list.has_operation()) or
-                    (self.peer is not None and self.peer.has_operation()) or
-                    (self.revertive_timer is not None and self.revertive_timer.has_operation()) or
-                    (self.state_control_route is not None and self.state_control_route.has_operation()) or
-                    (self.virtual_mac is not None and self.virtual_mac.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "group" + "[group-id='" + self.group_id.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.group_id.get_name_leafdata())
-                if (self.access_tracking_object.is_set or self.access_tracking_object.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.access_tracking_object.get_name_leafdata())
-                if (self.core_tracking_object.is_set or self.core_tracking_object.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.core_tracking_object.get_name_leafdata())
-                if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.description.get_name_leafdata())
-                if (self.disable_tracking_object.is_set or self.disable_tracking_object.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.disable_tracking_object.get_name_leafdata())
-                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.enable.get_name_leafdata())
-                if (self.enable_fast_switchover.is_set or self.enable_fast_switchover.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.enable_fast_switchover.get_name_leafdata())
-                if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.hold_timer.get_name_leafdata())
-                if (self.l2tp_source_ip_address.is_set or self.l2tp_source_ip_address.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.l2tp_source_ip_address.get_name_leafdata())
-                if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.preferred_role.get_name_leafdata())
-                if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
-                if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.slave_mode.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "interface-list"):
-                    if (self.interface_list is None):
-                        self.interface_list = SubscriberRedundancy.Groups.Group.InterfaceList()
-                        self.interface_list.parent = self
-                        self._children_name_map["interface_list"] = "interface-list"
-                    return self.interface_list
-
-                if (child_yang_name == "peer"):
-                    if (self.peer is None):
-                        self.peer = SubscriberRedundancy.Groups.Group.Peer()
-                        self.peer.parent = self
-                        self._children_name_map["peer"] = "peer"
-                    return self.peer
-
-                if (child_yang_name == "revertive-timer"):
-                    if (self.revertive_timer is None):
-                        self.revertive_timer = SubscriberRedundancy.Groups.Group.RevertiveTimer()
-                        self.revertive_timer.parent = self
-                        self._children_name_map["revertive_timer"] = "revertive-timer"
-                    return self.revertive_timer
-
-                if (child_yang_name == "state-control-route"):
-                    if (self.state_control_route is None):
-                        self.state_control_route = SubscriberRedundancy.Groups.Group.StateControlRoute()
-                        self.state_control_route.parent = self
-                        self._children_name_map["state_control_route"] = "state-control-route"
-                    return self.state_control_route
-
-                if (child_yang_name == "virtual-mac"):
-                    if (self.virtual_mac is None):
-                        self.virtual_mac = SubscriberRedundancy.Groups.Group.VirtualMac()
-                        self.virtual_mac.parent = self
-                        self._children_name_map["virtual_mac"] = "virtual-mac"
-                    return self.virtual_mac
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "interface-list" or name == "peer" or name == "revertive-timer" or name == "state-control-route" or name == "virtual-mac" or name == "group-id" or name == "access-tracking-object" or name == "core-tracking-object" or name == "description" or name == "disable-tracking-object" or name == "enable" or name == "enable-fast-switchover" or name == "hold-timer" or name == "l2tp-source-ip-address" or name == "preferred-role" or name == "redundancy-disable" or name == "slave-mode"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "group-id"):
-                    self.group_id = value
-                    self.group_id.value_namespace = name_space
-                    self.group_id.value_namespace_prefix = name_space_prefix
-                if(value_path == "access-tracking-object"):
-                    self.access_tracking_object = value
-                    self.access_tracking_object.value_namespace = name_space
-                    self.access_tracking_object.value_namespace_prefix = name_space_prefix
-                if(value_path == "core-tracking-object"):
-                    self.core_tracking_object = value
-                    self.core_tracking_object.value_namespace = name_space
-                    self.core_tracking_object.value_namespace_prefix = name_space_prefix
-                if(value_path == "description"):
-                    self.description = value
-                    self.description.value_namespace = name_space
-                    self.description.value_namespace_prefix = name_space_prefix
-                if(value_path == "disable-tracking-object"):
-                    self.disable_tracking_object = value
-                    self.disable_tracking_object.value_namespace = name_space
-                    self.disable_tracking_object.value_namespace_prefix = name_space_prefix
-                if(value_path == "enable"):
-                    self.enable = value
-                    self.enable.value_namespace = name_space
-                    self.enable.value_namespace_prefix = name_space_prefix
-                if(value_path == "enable-fast-switchover"):
-                    self.enable_fast_switchover = value
-                    self.enable_fast_switchover.value_namespace = name_space
-                    self.enable_fast_switchover.value_namespace_prefix = name_space_prefix
-                if(value_path == "hold-timer"):
-                    self.hold_timer = value
-                    self.hold_timer.value_namespace = name_space
-                    self.hold_timer.value_namespace_prefix = name_space_prefix
-                if(value_path == "l2tp-source-ip-address"):
-                    self.l2tp_source_ip_address = value
-                    self.l2tp_source_ip_address.value_namespace = name_space
-                    self.l2tp_source_ip_address.value_namespace_prefix = name_space_prefix
-                if(value_path == "preferred-role"):
-                    self.preferred_role = value
-                    self.preferred_role.value_namespace = name_space
-                    self.preferred_role.value_namespace_prefix = name_space_prefix
-                if(value_path == "redundancy-disable"):
-                    self.redundancy_disable = value
-                    self.redundancy_disable.value_namespace = name_space
-                    self.redundancy_disable.value_namespace_prefix = name_space_prefix
-                if(value_path == "slave-mode"):
-                    self.slave_mode = value
-                    self.slave_mode.value_namespace = name_space
-                    self.slave_mode.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.group:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.group:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "groups" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "group"):
-                for c in self.group:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = SubscriberRedundancy.Groups.Group()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.group.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "group"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                                self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
+
+
+            class VirtualMac(Entity):
+                """
+                Virtual MAC Address for this Group
+                
+                .. attribute:: address
+                
+                	Virtual MAC Address for this Group
+                	**type**\:  str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: disable
+                
+                	Disable Virtual MAC Address for this Group
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-srg-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
+
+                    self.yang_name = "virtual-mac"
+                    self.yang_parent_name = "group"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.address = YLeaf(YType.str, "address")
+
+                    self.disable = YLeaf(YType.empty, "disable")
+                    self._segment_path = lambda: "virtual-mac"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberRedundancy.Groups.Group.VirtualMac, ['address', 'disable'], name, value)
 
 
     class RevertiveTimer(Entity):
@@ -3051,202 +1326,19 @@ class SubscriberRedundancy(Entity):
 
             self.yang_name = "revertive-timer"
             self.yang_parent_name = "subscriber-redundancy"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.max_value = YLeaf(YType.uint32, "max-value")
 
             self.value = YLeaf(YType.uint32, "value")
+            self._segment_path = lambda: "revertive-timer"
+            self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("max_value",
-                            "value") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(SubscriberRedundancy.RevertiveTimer, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(SubscriberRedundancy.RevertiveTimer, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.max_value.is_set or
-                self.value.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.max_value.yfilter != YFilter.not_set or
-                self.value.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "revertive-timer" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.max_value.is_set or self.max_value.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.max_value.get_name_leafdata())
-            if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.value.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "max-value" or name == "value"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "max-value"):
-                self.max_value = value
-                self.max_value.value_namespace = name_space
-                self.max_value.value_namespace_prefix = name_space_prefix
-            if(value_path == "value"):
-                self.value = value
-                self.value.value_namespace = name_space
-                self.value.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            self.enable.is_set or
-            self.hold_timer.is_set or
-            self.preferred_role.is_set or
-            self.redundancy_disable.is_set or
-            self.slave_mode.is_set or
-            self.source_interface.is_set or
-            self.virtual_mac_prefix.is_set or
-            (self.groups is not None and self.groups.has_data()) or
-            (self.revertive_timer is not None and self.revertive_timer.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            self.enable.yfilter != YFilter.not_set or
-            self.hold_timer.yfilter != YFilter.not_set or
-            self.preferred_role.yfilter != YFilter.not_set or
-            self.redundancy_disable.yfilter != YFilter.not_set or
-            self.slave_mode.yfilter != YFilter.not_set or
-            self.source_interface.yfilter != YFilter.not_set or
-            self.virtual_mac_prefix.yfilter != YFilter.not_set or
-            (self.groups is not None and self.groups.has_operation()) or
-            (self.revertive_timer is not None and self.revertive_timer.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.enable.get_name_leafdata())
-        if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.hold_timer.get_name_leafdata())
-        if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.preferred_role.get_name_leafdata())
-        if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
-        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.slave_mode.get_name_leafdata())
-        if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.source_interface.get_name_leafdata())
-        if (self.virtual_mac_prefix.is_set or self.virtual_mac_prefix.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.virtual_mac_prefix.get_name_leafdata())
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "groups"):
-            if (self.groups is None):
-                self.groups = SubscriberRedundancy.Groups()
-                self.groups.parent = self
-                self._children_name_map["groups"] = "groups"
-            return self.groups
-
-        if (child_yang_name == "revertive-timer"):
-            if (self.revertive_timer is None):
-                self.revertive_timer = SubscriberRedundancy.RevertiveTimer()
-                self.revertive_timer.parent = self
-                self._children_name_map["revertive_timer"] = "revertive-timer"
-            return self.revertive_timer
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "groups" or name == "revertive-timer" or name == "enable" or name == "hold-timer" or name == "preferred-role" or name == "redundancy-disable" or name == "slave-mode" or name == "source-interface" or name == "virtual-mac-prefix"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        if(value_path == "enable"):
-            self.enable = value
-            self.enable.value_namespace = name_space
-            self.enable.value_namespace_prefix = name_space_prefix
-        if(value_path == "hold-timer"):
-            self.hold_timer = value
-            self.hold_timer.value_namespace = name_space
-            self.hold_timer.value_namespace_prefix = name_space_prefix
-        if(value_path == "preferred-role"):
-            self.preferred_role = value
-            self.preferred_role.value_namespace = name_space
-            self.preferred_role.value_namespace_prefix = name_space_prefix
-        if(value_path == "redundancy-disable"):
-            self.redundancy_disable = value
-            self.redundancy_disable.value_namespace = name_space
-            self.redundancy_disable.value_namespace_prefix = name_space_prefix
-        if(value_path == "slave-mode"):
-            self.slave_mode = value
-            self.slave_mode.value_namespace = name_space
-            self.slave_mode.value_namespace_prefix = name_space_prefix
-        if(value_path == "source-interface"):
-            self.source_interface = value
-            self.source_interface.value_namespace = name_space
-            self.source_interface.value_namespace_prefix = name_space_prefix
-        if(value_path == "virtual-mac-prefix"):
-            self.virtual_mac_prefix = value
-            self.virtual_mac_prefix.value_namespace = name_space
-            self.virtual_mac_prefix.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(SubscriberRedundancy.RevertiveTimer, ['max_value', 'value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancy()

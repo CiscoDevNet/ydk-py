@@ -45,8 +45,13 @@ module Cisco-IOS-XR-mpls-te-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -1961,14 +1966,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
     }
   }
 
-  grouping ADMIN-WEIGHT {
-    description "Common node of value, name";
-    leaf admin-weight {
-      type int32;
-      description "Administrative weight for the SRLG value";
-    }
-  }
-
   grouping ENABLE {
     description
       "Common node of path-selection,
@@ -2062,7 +2059,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
         }
       }
 
-      container destination-xr {
+      container destinations {
         description "Tunnel Autoroute Destination(s)";
 
         list destination {
@@ -2073,10 +2070,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
             description "IP address of destination";
           }
         }
-      }
-      leaf destination {
-        type empty;
-        description "Deprecated: do NOT use";
       }
     }
   }
@@ -2774,51 +2767,17 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 }
               }
             }
+            leaf admin-weight {
+              type int32;
+              description
+                "Administrative weight for the SRLG value";
+            }
             leaf srlg-name {
               type xr:Cisco-ios-xr-string {
                 length "1..64";
               }
               description "SRLG membership name";
             }
-            uses ADMIN-WEIGHT;
-          }
-        }
-
-        container values {
-          description
-            "Configure SRLG values and MPLS-TE properties";
-
-          list value {
-            key "srlg-number";
-            description "SRLG value and its MPLS-TE properties";
-
-            container ipv4-address-maps {
-              description
-                "Configure outgoing and remote link addresses
-                for a given SRLG value";
-
-              list ipv4-address-map {
-                key "outgoing-ipv4-address remote-ipv4-address";
-                description
-                  "A mapping of the remote and local addresses
-                  of a link to an SRLG value";
-                leaf outgoing-ipv4-address {
-                  type inet:ipv4-address-no-zone;
-                  description "Outgoing v4 address";
-                }
-                leaf remote-ipv4-address {
-                  type inet:ipv4-address-no-zone;
-                  description "Remote v4 address";
-                }
-              }
-            }
-            leaf srlg-number {
-              type uint32 {
-                range "0..4294967295";
-              }
-              description "SRLG membership number";
-            }
-            uses ADMIN-WEIGHT;
           }
         }
         leaf default-admin-weight {
@@ -5824,17 +5783,20 @@ module Cisco-IOS-XR-mpls-te-cfg {
       }
 
       container priority {
+        presence "Indicates a priority node is configured.";
         description "P2MP tunnel setup and hold priorities";
         leaf setup-priority {
           type uint32 {
             range "0..7";
           }
+          mandatory true;
           description "Setup Priority";
         }
         leaf hold-priority {
           type uint32 {
             range "0..7";
           }
+          mandatory true;
           description "Hold Priority";
         }
       }

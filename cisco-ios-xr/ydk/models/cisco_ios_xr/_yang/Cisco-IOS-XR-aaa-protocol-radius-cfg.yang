@@ -42,8 +42,13 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
        Cisco-IOS-XR-aaa-lib-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -517,8 +522,8 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
               description "Batch size for selection of the server";
             }
             leaf ignore-preferred-server {
-              type int32;
-              default "1";
+              type boolean;
+              default "true";
               description
                 "Disable preferred server for this Server
                 Group";
@@ -650,6 +655,56 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
         list attribute {
           key "attribute-list-name";
           description "Attribute list name";
+
+          container vendor-ids {
+            description "Vendor Specific Attribute";
+
+            list vendor-id {
+              key "vendor-id";
+              description "Vendor ID of vsa";
+              leaf vendor-id {
+                type int32;
+                description "Vendor Id of vsa";
+              }
+
+              list vendor-type {
+                key "vendor-type";
+                description "Vendor Type of vsa";
+                leaf vendor-type {
+                  type int32;
+                  description "Vendor Type of vsa";
+                }
+
+                list attribute-name {
+                  key "attribute-name";
+                  description "Attribute Name of vsa";
+                  leaf attribute-name {
+                    type xr:Cisco-ios-xr-string;
+                    description "Attribute Name of vsa";
+                  }
+
+                  list attribute-name-absent {
+                    key "attribute-name-absent";
+                    description "AttributeName of vsa is absent";
+                    leaf attribute-name-absent {
+                      type int32;
+                      description "AttributeName of vsa is absent";
+                    }
+
+                    list attribute-name-present {
+                      key "attribute-name-present";
+                      description "AttributeName of vsa is present";
+                      leaf attribute-name-present {
+                        type int32;
+                        description
+                          "AttributeName of vsa is present";
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           leaf attribute {
             type string;
             description "Specify RADIUS attribute";
@@ -868,8 +923,8 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
                   "Batch size for selection of the server";
               }
               leaf ignore-preferred-server {
-                type int32;
-                default "1";
+                type boolean;
+                default "true";
                 description
                   "Disable preferred server for this Server
                   Group";

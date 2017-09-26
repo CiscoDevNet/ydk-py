@@ -43,7 +43,7 @@ module Cisco-IOS-XR-ifmgr-oper {
        interface-dampening: Interface dampening data
        interface-properties: interface properties
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {

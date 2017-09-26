@@ -11,12 +11,12 @@ module Cisco-IOS-XR-ipv6-acl-oper {
 
   import Cisco-IOS-XR-types { prefix "xr"; }
 
-  import Cisco-IOS-XR-ipv6-acl-datatypes { prefix "dt1"; }
+  import Cisco-IOS-XR-common-acl-datatypes { prefix "dt1"; }
 
-  import Cisco-IOS-XR-common-acl-datatypes { prefix "dt2"; }
+  import Cisco-IOS-XR-ipv6-acl-datatypes { prefix "dt2"; }
 
   include Cisco-IOS-XR-ipv6-acl-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -42,8 +42,13 @@ module Cisco-IOS-XR-ipv6-acl-oper {
      for the following management objects:
        ipv6-acl-and-prefix-list: Root class of IPv6 Oper schema tree
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -76,7 +81,7 @@ module Cisco-IOS-XR-ipv6-acl-oper {
               key "sequence-number";
               description "Sequence Number of a prefix list entry";
               leaf sequence-number {
-                type dt2:Acl-sequence-number-range;
+                type dt1:Acl-sequence-number-range;
                 description
                   "Sequence Number of the prefix list entry";
               }
@@ -84,7 +89,7 @@ module Cisco-IOS-XR-ipv6-acl-oper {
             }
           }
           leaf prefix-list-name {
-            type dt1:Ipv6-acl-prefix-list-name;
+            type dt2:Ipv6-acl-prefix-list-name;
             description "Name of the prefix list";
           }
         }
@@ -102,11 +107,11 @@ module Cisco-IOS-XR-ipv6-acl-oper {
             description "Node where ACL is applied";
           }
           leaf application-id {
-            type dt2:Acl-usage-app-id-enum;
+            type dt1:Acl-usage-app-id-enum;
             description "Application ID";
           }
           leaf access-list-name {
-            type dt1:Ipv6-acl-prefix-list-name;
+            type dt2:Ipv6-acl-prefix-list-name;
             description "Name of the ACL";
           }
           leaf usage-details {
@@ -131,14 +136,14 @@ module Cisco-IOS-XR-ipv6-acl-oper {
               key "sequence-number";
               description "Sequence number of an ACL entry";
               leaf sequence-number {
-                type dt2:Acl-sequence-number-range;
+                type dt1:Acl-sequence-number-range;
                 description "ACL entry sequence number";
               }
               uses IPV6-ACL-EDM-ACE;
             }
           }
           leaf access-list-name {
-            type dt1:Ipv6-acl-prefix-list-name;
+            type dt2:Ipv6-acl-prefix-list-name;
             description "Name of the Access List";
           }
         }
@@ -177,7 +182,7 @@ module Cisco-IOS-XR-ipv6-acl-oper {
             "Resource occupation details for a particular
             ACL";
           leaf access-list-name {
-            type dt1:Ipv6-acl-prefix-list-name;
+            type dt2:Ipv6-acl-prefix-list-name;
             description "Name of the Access List";
           }
           uses IPV6-ACL-EDM-OOR-DETAIL;
@@ -193,7 +198,7 @@ module Cisco-IOS-XR-ipv6-acl-oper {
             "Resource occupation details for a particular
             prefix list";
           leaf prefix-list-name {
-            type dt1:Ipv6-acl-prefix-list-name;
+            type dt2:Ipv6-acl-prefix-list-name;
             description "Name of a prefix list";
           }
           uses IPV6-ACL-EDM-OOR-DETAIL;

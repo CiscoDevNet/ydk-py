@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   ipv6\-node\-discovery\: IPv6 node discovery operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -281,11 +280,16 @@ class Ipv6NodeDiscovery(Entity):
 
         self.yang_name = "ipv6-node-discovery"
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-nd-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Ipv6NodeDiscovery.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = Ipv6NodeDiscovery.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery"
 
 
     class Nodes(Entity):
@@ -309,32 +313,17 @@ class Ipv6NodeDiscovery(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv6-node-discovery"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Ipv6NodeDiscovery.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ipv6NodeDiscovery.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ipv6NodeDiscovery.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Ipv6NodeDiscovery.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -379,6 +368,11 @@ class Ipv6NodeDiscovery(Entity):
             	IPv6 Neighbor summary
             	**type**\:   :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
             
+            .. attribute:: slaac_interfaces
+            
+            	IPv6 ND list of SLAAC MGMT interfaces for a specific node
+            	**type**\:   :py:class:`SlaacInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces>`
+            
             
 
             """
@@ -391,6 +385,10 @@ class Ipv6NodeDiscovery(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"bundle-interfaces" : ("bundle_interfaces", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces), "bundle-nodes" : ("bundle_nodes", Ipv6NodeDiscovery.Nodes.Node.BundleNodes), "interfaces" : ("interfaces", Ipv6NodeDiscovery.Nodes.Node.Interfaces), "nd-virtual-routers" : ("nd_virtual_routers", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters), "neighbor-interfaces" : ("neighbor_interfaces", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces), "neighbor-summary" : ("neighbor_summary", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary), "slaac-interfaces" : ("slaac_interfaces", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -424,1963 +422,15 @@ class Ipv6NodeDiscovery(Entity):
                 self._children_name_map["neighbor_summary"] = "neighbor-summary"
                 self._children_yang_names.add("neighbor-summary")
 
+                self.slaac_interfaces = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces()
+                self.slaac_interfaces.parent = self
+                self._children_name_map["slaac_interfaces"] = "slaac-interfaces"
+                self._children_yang_names.add("slaac-interfaces")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/%s" % self._segment_path()
+
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Ipv6NodeDiscovery.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Ipv6NodeDiscovery.Nodes.Node, self).__setattr__(name, value)
-
-
-            class NeighborInterfaces(Entity):
-                """
-                IPv6 node discovery list of neighbor
-                interfaces
-                
-                .. attribute:: neighbor_interface
-                
-                	IPv6 node discovery neighbor interface
-                	**type**\: list of    :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__init__()
-
-                    self.yang_name = "neighbor-interfaces"
-                    self.yang_parent_name = "node"
-
-                    self.neighbor_interface = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__setattr__(name, value)
-
-
-                class NeighborInterface(Entity):
-                    """
-                    IPv6 node discovery neighbor interface
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface Name
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: host_addresses
-                    
-                    	IPv6 node discovery list of neighbor host addresses
-                    	**type**\:   :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__init__()
-
-                        self.yang_name = "neighbor-interface"
-                        self.yang_parent_name = "neighbor-interfaces"
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.host_addresses = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses()
-                        self.host_addresses.parent = self
-                        self._children_name_map["host_addresses"] = "host-addresses"
-                        self._children_yang_names.add("host-addresses")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__setattr__(name, value)
-
-
-                    class HostAddresses(Entity):
-                        """
-                        IPv6 node discovery list of neighbor host
-                        addresses
-                        
-                        .. attribute:: host_address
-                        
-                        	IPv6 Neighbor detailed information
-                        	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__init__()
-
-                            self.yang_name = "host-addresses"
-                            self.yang_parent_name = "neighbor-interface"
-
-                            self.host_address = YList(self)
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__setattr__(name, value)
-
-
-                        class HostAddress(Entity):
-                            """
-                            IPv6 Neighbor detailed information
-                            
-                            .. attribute:: host_address  <key>
-                            
-                            	Host Address
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: encapsulation
-                            
-                            	Preferred media encap type
-                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
-                            
-                            .. attribute:: interface_name
-                            
-                            	Interface name
-                            	**type**\:  str
-                            
-                            .. attribute:: is_router
-                            
-                            	IsRouter
-                            	**type**\:  bool
-                            
-                            .. attribute:: last_reached_time
-                            
-                            	Last time of reachability
-                            	**type**\:   :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
-                            
-                            .. attribute:: link_layer_address
-                            
-                            	Link\-Layer Address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: location
-                            
-                            	Location where the neighbor entry exists
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: origin_encapsulation
-                            
-                            	Neighbor origin
-                            	**type**\:   :py:class:`Ipv6NdNeighborOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOrigin>`
-                            
-                            .. attribute:: reachability_state
-                            
-                            	Current state
-                            	**type**\:   :py:class:`Ipv6NdShState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState>`
-                            
-                            .. attribute:: selected_encapsulation
-                            
-                            	Selected media encap
-                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
-                            
-                            .. attribute:: serg_flags
-                            
-                            	ND serg flags for this entry
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-nd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__init__()
-
-                                self.yang_name = "host-address"
-                                self.yang_parent_name = "host-addresses"
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-
-                                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.is_router = YLeaf(YType.boolean, "is-router")
-
-                                self.link_layer_address = YLeaf(YType.str, "link-layer-address")
-
-                                self.location = YLeaf(YType.str, "location")
-
-                                self.origin_encapsulation = YLeaf(YType.enumeration, "origin-encapsulation")
-
-                                self.reachability_state = YLeaf(YType.enumeration, "reachability-state")
-
-                                self.selected_encapsulation = YLeaf(YType.enumeration, "selected-encapsulation")
-
-                                self.serg_flags = YLeaf(YType.uint32, "serg-flags")
-
-                                self.last_reached_time = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime()
-                                self.last_reached_time.parent = self
-                                self._children_name_map["last_reached_time"] = "last-reached-time"
-                                self._children_yang_names.add("last-reached-time")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("host_address",
-                                                "encapsulation",
-                                                "interface_name",
-                                                "is_router",
-                                                "link_layer_address",
-                                                "location",
-                                                "origin_encapsulation",
-                                                "reachability_state",
-                                                "selected_encapsulation",
-                                                "serg_flags") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__setattr__(name, value)
-
-
-                            class LastReachedTime(Entity):
-                                """
-                                Last time of reachability
-                                
-                                .. attribute:: seconds
-                                
-                                	Number of seconds
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv6-nd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__init__()
-
-                                    self.yang_name = "last-reached-time"
-                                    self.yang_parent_name = "host-address"
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("seconds") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return self.seconds.is_set
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.seconds.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "last-reached-time" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.seconds.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "seconds"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "seconds"):
-                                        self.seconds = value
-                                        self.seconds.value_namespace = name_space
-                                        self.seconds.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                return (
-                                    self.host_address.is_set or
-                                    self.encapsulation.is_set or
-                                    self.interface_name.is_set or
-                                    self.is_router.is_set or
-                                    self.link_layer_address.is_set or
-                                    self.location.is_set or
-                                    self.origin_encapsulation.is_set or
-                                    self.reachability_state.is_set or
-                                    self.selected_encapsulation.is_set or
-                                    self.serg_flags.is_set or
-                                    (self.last_reached_time is not None and self.last_reached_time.has_data()))
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.host_address.yfilter != YFilter.not_set or
-                                    self.encapsulation.yfilter != YFilter.not_set or
-                                    self.interface_name.yfilter != YFilter.not_set or
-                                    self.is_router.yfilter != YFilter.not_set or
-                                    self.link_layer_address.yfilter != YFilter.not_set or
-                                    self.location.yfilter != YFilter.not_set or
-                                    self.origin_encapsulation.yfilter != YFilter.not_set or
-                                    self.reachability_state.yfilter != YFilter.not_set or
-                                    self.selected_encapsulation.yfilter != YFilter.not_set or
-                                    self.serg_flags.yfilter != YFilter.not_set or
-                                    (self.last_reached_time is not None and self.last_reached_time.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "host-address" + "[host-address='" + self.host_address.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.host_address.is_set or self.host_address.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.host_address.get_name_leafdata())
-                                if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.encapsulation.get_name_leafdata())
-                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
-                                if (self.is_router.is_set or self.is_router.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.is_router.get_name_leafdata())
-                                if (self.link_layer_address.is_set or self.link_layer_address.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.link_layer_address.get_name_leafdata())
-                                if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.location.get_name_leafdata())
-                                if (self.origin_encapsulation.is_set or self.origin_encapsulation.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.origin_encapsulation.get_name_leafdata())
-                                if (self.reachability_state.is_set or self.reachability_state.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.reachability_state.get_name_leafdata())
-                                if (self.selected_encapsulation.is_set or self.selected_encapsulation.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.selected_encapsulation.get_name_leafdata())
-                                if (self.serg_flags.is_set or self.serg_flags.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.serg_flags.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "last-reached-time"):
-                                    if (self.last_reached_time is None):
-                                        self.last_reached_time = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime()
-                                        self.last_reached_time.parent = self
-                                        self._children_name_map["last_reached_time"] = "last-reached-time"
-                                    return self.last_reached_time
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "last-reached-time" or name == "host-address" or name == "encapsulation" or name == "interface-name" or name == "is-router" or name == "link-layer-address" or name == "location" or name == "origin-encapsulation" or name == "reachability-state" or name == "selected-encapsulation" or name == "serg-flags"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "host-address"):
-                                    self.host_address = value
-                                    self.host_address.value_namespace = name_space
-                                    self.host_address.value_namespace_prefix = name_space_prefix
-                                if(value_path == "encapsulation"):
-                                    self.encapsulation = value
-                                    self.encapsulation.value_namespace = name_space
-                                    self.encapsulation.value_namespace_prefix = name_space_prefix
-                                if(value_path == "interface-name"):
-                                    self.interface_name = value
-                                    self.interface_name.value_namespace = name_space
-                                    self.interface_name.value_namespace_prefix = name_space_prefix
-                                if(value_path == "is-router"):
-                                    self.is_router = value
-                                    self.is_router.value_namespace = name_space
-                                    self.is_router.value_namespace_prefix = name_space_prefix
-                                if(value_path == "link-layer-address"):
-                                    self.link_layer_address = value
-                                    self.link_layer_address.value_namespace = name_space
-                                    self.link_layer_address.value_namespace_prefix = name_space_prefix
-                                if(value_path == "location"):
-                                    self.location = value
-                                    self.location.value_namespace = name_space
-                                    self.location.value_namespace_prefix = name_space_prefix
-                                if(value_path == "origin-encapsulation"):
-                                    self.origin_encapsulation = value
-                                    self.origin_encapsulation.value_namespace = name_space
-                                    self.origin_encapsulation.value_namespace_prefix = name_space_prefix
-                                if(value_path == "reachability-state"):
-                                    self.reachability_state = value
-                                    self.reachability_state.value_namespace = name_space
-                                    self.reachability_state.value_namespace_prefix = name_space_prefix
-                                if(value_path == "selected-encapsulation"):
-                                    self.selected_encapsulation = value
-                                    self.selected_encapsulation.value_namespace = name_space
-                                    self.selected_encapsulation.value_namespace_prefix = name_space_prefix
-                                if(value_path == "serg-flags"):
-                                    self.serg_flags = value
-                                    self.serg_flags.value_namespace = name_space
-                                    self.serg_flags.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.host_address:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.host_address:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "host-addresses" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "host-address"):
-                                for c in self.host_address:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.host_address.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "host-address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            self.interface_name.is_set or
-                            (self.host_addresses is not None and self.host_addresses.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set or
-                            (self.host_addresses is not None and self.host_addresses.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "neighbor-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "host-addresses"):
-                            if (self.host_addresses is None):
-                                self.host_addresses = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses()
-                                self.host_addresses.parent = self
-                                self._children_name_map["host_addresses"] = "host-addresses"
-                            return self.host_addresses
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "host-addresses" or name == "interface-name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.neighbor_interface:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.neighbor_interface:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "neighbor-interfaces" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "neighbor-interface"):
-                        for c in self.neighbor_interface:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.neighbor_interface.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "neighbor-interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-
-            class NeighborSummary(Entity):
-                """
-                IPv6 Neighbor summary
-                
-                .. attribute:: dynamic
-                
-                	Dynamic neighbor summary
-                	**type**\:   :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
-                
-                .. attribute:: multicast
-                
-                	Multicast neighbor summary
-                	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
-                
-                .. attribute:: static
-                
-                	Static neighbor summary
-                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
-                
-                .. attribute:: total_neighbor_entries
-                
-                	Total number of entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__init__()
-
-                    self.yang_name = "neighbor-summary"
-                    self.yang_parent_name = "node"
-
-                    self.total_neighbor_entries = YLeaf(YType.uint32, "total-neighbor-entries")
-
-                    self.dynamic = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic()
-                    self.dynamic.parent = self
-                    self._children_name_map["dynamic"] = "dynamic"
-                    self._children_yang_names.add("dynamic")
-
-                    self.multicast = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast()
-                    self.multicast.parent = self
-                    self._children_name_map["multicast"] = "multicast"
-                    self._children_yang_names.add("multicast")
-
-                    self.static = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static()
-                    self.static.parent = self
-                    self._children_name_map["static"] = "static"
-                    self._children_yang_names.add("static")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("total_neighbor_entries") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__setattr__(name, value)
-
-
-                class Multicast(Entity):
-                    """
-                    Multicast neighbor summary
-                    
-                    .. attribute:: delayed_entries
-                    
-                    	Total delayed entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: deleted_entries
-                    
-                    	Total deleted entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: incomplete_entries
-                    
-                    	Total incomplete entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: probe_entries
-                    
-                    	Total probe entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: reachable_entries
-                    
-                    	Total reachable entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: stale_entries
-                    
-                    	Total stale entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: subtotal_neighbor_entries
-                    
-                    	Total number of entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__init__()
-
-                        self.yang_name = "multicast"
-                        self.yang_parent_name = "neighbor-summary"
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("delayed_entries",
-                                        "deleted_entries",
-                                        "incomplete_entries",
-                                        "probe_entries",
-                                        "reachable_entries",
-                                        "stale_entries",
-                                        "subtotal_neighbor_entries") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.delayed_entries.is_set or
-                            self.deleted_entries.is_set or
-                            self.incomplete_entries.is_set or
-                            self.probe_entries.is_set or
-                            self.reachable_entries.is_set or
-                            self.stale_entries.is_set or
-                            self.subtotal_neighbor_entries.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.delayed_entries.yfilter != YFilter.not_set or
-                            self.deleted_entries.yfilter != YFilter.not_set or
-                            self.incomplete_entries.yfilter != YFilter.not_set or
-                            self.probe_entries.yfilter != YFilter.not_set or
-                            self.reachable_entries.yfilter != YFilter.not_set or
-                            self.stale_entries.yfilter != YFilter.not_set or
-                            self.subtotal_neighbor_entries.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "multicast" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.delayed_entries.is_set or self.delayed_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.delayed_entries.get_name_leafdata())
-                        if (self.deleted_entries.is_set or self.deleted_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.deleted_entries.get_name_leafdata())
-                        if (self.incomplete_entries.is_set or self.incomplete_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.incomplete_entries.get_name_leafdata())
-                        if (self.probe_entries.is_set or self.probe_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.probe_entries.get_name_leafdata())
-                        if (self.reachable_entries.is_set or self.reachable_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.reachable_entries.get_name_leafdata())
-                        if (self.stale_entries.is_set or self.stale_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.stale_entries.get_name_leafdata())
-                        if (self.subtotal_neighbor_entries.is_set or self.subtotal_neighbor_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.subtotal_neighbor_entries.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "delayed-entries" or name == "deleted-entries" or name == "incomplete-entries" or name == "probe-entries" or name == "reachable-entries" or name == "stale-entries" or name == "subtotal-neighbor-entries"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "delayed-entries"):
-                            self.delayed_entries = value
-                            self.delayed_entries.value_namespace = name_space
-                            self.delayed_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "deleted-entries"):
-                            self.deleted_entries = value
-                            self.deleted_entries.value_namespace = name_space
-                            self.deleted_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "incomplete-entries"):
-                            self.incomplete_entries = value
-                            self.incomplete_entries.value_namespace = name_space
-                            self.incomplete_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "probe-entries"):
-                            self.probe_entries = value
-                            self.probe_entries.value_namespace = name_space
-                            self.probe_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "reachable-entries"):
-                            self.reachable_entries = value
-                            self.reachable_entries.value_namespace = name_space
-                            self.reachable_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "stale-entries"):
-                            self.stale_entries = value
-                            self.stale_entries.value_namespace = name_space
-                            self.stale_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "subtotal-neighbor-entries"):
-                            self.subtotal_neighbor_entries = value
-                            self.subtotal_neighbor_entries.value_namespace = name_space
-                            self.subtotal_neighbor_entries.value_namespace_prefix = name_space_prefix
-
-
-                class Static(Entity):
-                    """
-                    Static neighbor summary
-                    
-                    .. attribute:: delayed_entries
-                    
-                    	Total delayed entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: deleted_entries
-                    
-                    	Total deleted entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: incomplete_entries
-                    
-                    	Total incomplete entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: probe_entries
-                    
-                    	Total probe entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: reachable_entries
-                    
-                    	Total reachable entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: stale_entries
-                    
-                    	Total stale entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: subtotal_neighbor_entries
-                    
-                    	Total number of entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__init__()
-
-                        self.yang_name = "static"
-                        self.yang_parent_name = "neighbor-summary"
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("delayed_entries",
-                                        "deleted_entries",
-                                        "incomplete_entries",
-                                        "probe_entries",
-                                        "reachable_entries",
-                                        "stale_entries",
-                                        "subtotal_neighbor_entries") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.delayed_entries.is_set or
-                            self.deleted_entries.is_set or
-                            self.incomplete_entries.is_set or
-                            self.probe_entries.is_set or
-                            self.reachable_entries.is_set or
-                            self.stale_entries.is_set or
-                            self.subtotal_neighbor_entries.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.delayed_entries.yfilter != YFilter.not_set or
-                            self.deleted_entries.yfilter != YFilter.not_set or
-                            self.incomplete_entries.yfilter != YFilter.not_set or
-                            self.probe_entries.yfilter != YFilter.not_set or
-                            self.reachable_entries.yfilter != YFilter.not_set or
-                            self.stale_entries.yfilter != YFilter.not_set or
-                            self.subtotal_neighbor_entries.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "static" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.delayed_entries.is_set or self.delayed_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.delayed_entries.get_name_leafdata())
-                        if (self.deleted_entries.is_set or self.deleted_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.deleted_entries.get_name_leafdata())
-                        if (self.incomplete_entries.is_set or self.incomplete_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.incomplete_entries.get_name_leafdata())
-                        if (self.probe_entries.is_set or self.probe_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.probe_entries.get_name_leafdata())
-                        if (self.reachable_entries.is_set or self.reachable_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.reachable_entries.get_name_leafdata())
-                        if (self.stale_entries.is_set or self.stale_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.stale_entries.get_name_leafdata())
-                        if (self.subtotal_neighbor_entries.is_set or self.subtotal_neighbor_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.subtotal_neighbor_entries.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "delayed-entries" or name == "deleted-entries" or name == "incomplete-entries" or name == "probe-entries" or name == "reachable-entries" or name == "stale-entries" or name == "subtotal-neighbor-entries"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "delayed-entries"):
-                            self.delayed_entries = value
-                            self.delayed_entries.value_namespace = name_space
-                            self.delayed_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "deleted-entries"):
-                            self.deleted_entries = value
-                            self.deleted_entries.value_namespace = name_space
-                            self.deleted_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "incomplete-entries"):
-                            self.incomplete_entries = value
-                            self.incomplete_entries.value_namespace = name_space
-                            self.incomplete_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "probe-entries"):
-                            self.probe_entries = value
-                            self.probe_entries.value_namespace = name_space
-                            self.probe_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "reachable-entries"):
-                            self.reachable_entries = value
-                            self.reachable_entries.value_namespace = name_space
-                            self.reachable_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "stale-entries"):
-                            self.stale_entries = value
-                            self.stale_entries.value_namespace = name_space
-                            self.stale_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "subtotal-neighbor-entries"):
-                            self.subtotal_neighbor_entries = value
-                            self.subtotal_neighbor_entries.value_namespace = name_space
-                            self.subtotal_neighbor_entries.value_namespace_prefix = name_space_prefix
-
-
-                class Dynamic(Entity):
-                    """
-                    Dynamic neighbor summary
-                    
-                    .. attribute:: delayed_entries
-                    
-                    	Total delayed entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: deleted_entries
-                    
-                    	Total deleted entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: incomplete_entries
-                    
-                    	Total incomplete entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: probe_entries
-                    
-                    	Total probe entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: reachable_entries
-                    
-                    	Total reachable entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: stale_entries
-                    
-                    	Total stale entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: subtotal_neighbor_entries
-                    
-                    	Total number of entries
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__init__()
-
-                        self.yang_name = "dynamic"
-                        self.yang_parent_name = "neighbor-summary"
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("delayed_entries",
-                                        "deleted_entries",
-                                        "incomplete_entries",
-                                        "probe_entries",
-                                        "reachable_entries",
-                                        "stale_entries",
-                                        "subtotal_neighbor_entries") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.delayed_entries.is_set or
-                            self.deleted_entries.is_set or
-                            self.incomplete_entries.is_set or
-                            self.probe_entries.is_set or
-                            self.reachable_entries.is_set or
-                            self.stale_entries.is_set or
-                            self.subtotal_neighbor_entries.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.delayed_entries.yfilter != YFilter.not_set or
-                            self.deleted_entries.yfilter != YFilter.not_set or
-                            self.incomplete_entries.yfilter != YFilter.not_set or
-                            self.probe_entries.yfilter != YFilter.not_set or
-                            self.reachable_entries.yfilter != YFilter.not_set or
-                            self.stale_entries.yfilter != YFilter.not_set or
-                            self.subtotal_neighbor_entries.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "dynamic" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.delayed_entries.is_set or self.delayed_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.delayed_entries.get_name_leafdata())
-                        if (self.deleted_entries.is_set or self.deleted_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.deleted_entries.get_name_leafdata())
-                        if (self.incomplete_entries.is_set or self.incomplete_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.incomplete_entries.get_name_leafdata())
-                        if (self.probe_entries.is_set or self.probe_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.probe_entries.get_name_leafdata())
-                        if (self.reachable_entries.is_set or self.reachable_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.reachable_entries.get_name_leafdata())
-                        if (self.stale_entries.is_set or self.stale_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.stale_entries.get_name_leafdata())
-                        if (self.subtotal_neighbor_entries.is_set or self.subtotal_neighbor_entries.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.subtotal_neighbor_entries.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "delayed-entries" or name == "deleted-entries" or name == "incomplete-entries" or name == "probe-entries" or name == "reachable-entries" or name == "stale-entries" or name == "subtotal-neighbor-entries"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "delayed-entries"):
-                            self.delayed_entries = value
-                            self.delayed_entries.value_namespace = name_space
-                            self.delayed_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "deleted-entries"):
-                            self.deleted_entries = value
-                            self.deleted_entries.value_namespace = name_space
-                            self.deleted_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "incomplete-entries"):
-                            self.incomplete_entries = value
-                            self.incomplete_entries.value_namespace = name_space
-                            self.incomplete_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "probe-entries"):
-                            self.probe_entries = value
-                            self.probe_entries.value_namespace = name_space
-                            self.probe_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "reachable-entries"):
-                            self.reachable_entries = value
-                            self.reachable_entries.value_namespace = name_space
-                            self.reachable_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "stale-entries"):
-                            self.stale_entries = value
-                            self.stale_entries.value_namespace = name_space
-                            self.stale_entries.value_namespace_prefix = name_space_prefix
-                        if(value_path == "subtotal-neighbor-entries"):
-                            self.subtotal_neighbor_entries = value
-                            self.subtotal_neighbor_entries.value_namespace = name_space
-                            self.subtotal_neighbor_entries.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.total_neighbor_entries.is_set or
-                        (self.dynamic is not None and self.dynamic.has_data()) or
-                        (self.multicast is not None and self.multicast.has_data()) or
-                        (self.static is not None and self.static.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.total_neighbor_entries.yfilter != YFilter.not_set or
-                        (self.dynamic is not None and self.dynamic.has_operation()) or
-                        (self.multicast is not None and self.multicast.has_operation()) or
-                        (self.static is not None and self.static.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "neighbor-summary" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.total_neighbor_entries.is_set or self.total_neighbor_entries.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.total_neighbor_entries.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "dynamic"):
-                        if (self.dynamic is None):
-                            self.dynamic = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic()
-                            self.dynamic.parent = self
-                            self._children_name_map["dynamic"] = "dynamic"
-                        return self.dynamic
-
-                    if (child_yang_name == "multicast"):
-                        if (self.multicast is None):
-                            self.multicast = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast()
-                            self.multicast.parent = self
-                            self._children_name_map["multicast"] = "multicast"
-                        return self.multicast
-
-                    if (child_yang_name == "static"):
-                        if (self.static is None):
-                            self.static = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static()
-                            self.static.parent = self
-                            self._children_name_map["static"] = "static"
-                        return self.static
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "dynamic" or name == "multicast" or name == "static" or name == "total-neighbor-entries"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "total-neighbor-entries"):
-                        self.total_neighbor_entries = value
-                        self.total_neighbor_entries.value_namespace = name_space
-                        self.total_neighbor_entries.value_namespace_prefix = name_space_prefix
-
-
-            class BundleNodes(Entity):
-                """
-                IPv6 ND list of bundle nodes for a specific
-                node
-                
-                .. attribute:: bundle_node
-                
-                	IPv6 ND operational data for a specific bundle node
-                	**type**\: list of    :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-nd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__init__()
-
-                    self.yang_name = "bundle-nodes"
-                    self.yang_parent_name = "node"
-
-                    self.bundle_node = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__setattr__(name, value)
-
-
-                class BundleNode(Entity):
-                    """
-                    IPv6 ND operational data for a specific
-                    bundle node
-                    
-                    .. attribute:: node_name  <key>
-                    
-                    	The bundle node name
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: age
-                    
-                    	Uptime of node (secs)
-                    	**type**\:   :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
-                    
-                    .. attribute:: group_id
-                    
-                    	Group ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: process_name
-                    
-                    	Process Name
-                    	**type**\:  str
-                    
-                    .. attribute:: received_packets
-                    
-                    	Total packet receives
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_sequence_number
-                    
-                    	Received sequence num
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_packets
-                    
-                    	Total packet sends
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_sequence_number
-                    
-                    	Sent sequence num
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: state
-                    
-                    	State
-                    	**type**\:   :py:class:`Ipv6NdBndlState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState>`
-                    
-                    .. attribute:: state_changes
-                    
-                    	State changes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-nd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__init__()
-
-                        self.yang_name = "bundle-node"
-                        self.yang_parent_name = "bundle-nodes"
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.group_id = YLeaf(YType.uint32, "group-id")
-
-                        self.process_name = YLeaf(YType.str, "process-name")
-
-                        self.received_packets = YLeaf(YType.uint32, "received-packets")
-
-                        self.received_sequence_number = YLeaf(YType.uint32, "received-sequence-number")
-
-                        self.sent_packets = YLeaf(YType.uint32, "sent-packets")
-
-                        self.sent_sequence_number = YLeaf(YType.uint32, "sent-sequence-number")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.state_changes = YLeaf(YType.uint32, "state-changes")
-
-                        self.age = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age()
-                        self.age.parent = self
-                        self._children_name_map["age"] = "age"
-                        self._children_yang_names.add("age")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("node_name",
-                                        "group_id",
-                                        "process_name",
-                                        "received_packets",
-                                        "received_sequence_number",
-                                        "sent_packets",
-                                        "sent_sequence_number",
-                                        "state",
-                                        "state_changes") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__setattr__(name, value)
-
-
-                    class Age(Entity):
-                        """
-                        Uptime of node (secs)
-                        
-                        .. attribute:: seconds
-                        
-                        	Number of seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__init__()
-
-                            self.yang_name = "age"
-                            self.yang_parent_name = "bundle-node"
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("seconds") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.seconds.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.seconds.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "age" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.seconds.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "seconds"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "seconds"):
-                                self.seconds = value
-                                self.seconds.value_namespace = name_space
-                                self.seconds.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.node_name.is_set or
-                            self.group_id.is_set or
-                            self.process_name.is_set or
-                            self.received_packets.is_set or
-                            self.received_sequence_number.is_set or
-                            self.sent_packets.is_set or
-                            self.sent_sequence_number.is_set or
-                            self.state.is_set or
-                            self.state_changes.is_set or
-                            (self.age is not None and self.age.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.node_name.yfilter != YFilter.not_set or
-                            self.group_id.yfilter != YFilter.not_set or
-                            self.process_name.yfilter != YFilter.not_set or
-                            self.received_packets.yfilter != YFilter.not_set or
-                            self.received_sequence_number.yfilter != YFilter.not_set or
-                            self.sent_packets.yfilter != YFilter.not_set or
-                            self.sent_sequence_number.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.state_changes.yfilter != YFilter.not_set or
-                            (self.age is not None and self.age.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "bundle-node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.node_name.get_name_leafdata())
-                        if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_id.get_name_leafdata())
-                        if (self.process_name.is_set or self.process_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.process_name.get_name_leafdata())
-                        if (self.received_packets.is_set or self.received_packets.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.received_packets.get_name_leafdata())
-                        if (self.received_sequence_number.is_set or self.received_sequence_number.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.received_sequence_number.get_name_leafdata())
-                        if (self.sent_packets.is_set or self.sent_packets.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sent_packets.get_name_leafdata())
-                        if (self.sent_sequence_number.is_set or self.sent_sequence_number.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sent_sequence_number.get_name_leafdata())
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.state_changes.is_set or self.state_changes.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state_changes.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "age"):
-                            if (self.age is None):
-                                self.age = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age()
-                                self.age.parent = self
-                                self._children_name_map["age"] = "age"
-                            return self.age
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "age" or name == "node-name" or name == "group-id" or name == "process-name" or name == "received-packets" or name == "received-sequence-number" or name == "sent-packets" or name == "sent-sequence-number" or name == "state" or name == "state-changes"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "node-name"):
-                            self.node_name = value
-                            self.node_name.value_namespace = name_space
-                            self.node_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-id"):
-                            self.group_id = value
-                            self.group_id.value_namespace = name_space
-                            self.group_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "process-name"):
-                            self.process_name = value
-                            self.process_name.value_namespace = name_space
-                            self.process_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "received-packets"):
-                            self.received_packets = value
-                            self.received_packets.value_namespace = name_space
-                            self.received_packets.value_namespace_prefix = name_space_prefix
-                        if(value_path == "received-sequence-number"):
-                            self.received_sequence_number = value
-                            self.received_sequence_number.value_namespace = name_space
-                            self.received_sequence_number.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sent-packets"):
-                            self.sent_packets = value
-                            self.sent_packets.value_namespace = name_space
-                            self.sent_packets.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sent-sequence-number"):
-                            self.sent_sequence_number = value
-                            self.sent_sequence_number.value_namespace = name_space
-                            self.sent_sequence_number.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state-changes"):
-                            self.state_changes = value
-                            self.state_changes.value_namespace = name_space
-                            self.state_changes.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.bundle_node:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.bundle_node:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "bundle-nodes" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "bundle-node"):
-                        for c in self.bundle_node:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.bundle_node.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "bundle-node"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node, ['node_name'], name, value)
 
 
             class BundleInterfaces(Entity):
@@ -2405,32 +455,16 @@ class Ipv6NodeDiscovery(Entity):
 
                     self.yang_name = "bundle-interfaces"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bundle-interface" : ("bundle_interface", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface)}
 
                     self.bundle_interface = YList(self)
+                    self._segment_path = lambda: "bundle-interfaces"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, self).__setattr__(name, value)
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, [], name, value)
 
 
                 class BundleInterface(Entity):
@@ -2443,7 +477,7 @@ class Ipv6NodeDiscovery(Entity):
                     	Interface Name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: etype
                     
@@ -2527,7 +561,7 @@ class Ipv6NodeDiscovery(Entity):
                     	Parent interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vlan_tag
                     
@@ -2548,6 +582,10 @@ class Ipv6NodeDiscovery(Entity):
 
                         self.yang_name = "bundle-interface"
                         self.yang_parent_name = "bundle-interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"local-address" : ("local_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress), "nd-parameters" : ("nd_parameters", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters)}
+                        self._child_list_classes = {"global-address" : ("global_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress), "member-node" : ("member_node", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode)}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -2585,41 +623,124 @@ class Ipv6NodeDiscovery(Entity):
 
                         self.global_address = YList(self)
                         self.member_node = YList(self)
+                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name",
-                                        "etype",
-                                        "iftype",
-                                        "is_interface_enabled",
-                                        "is_ipv6_enabled",
-                                        "is_mpls_enabled",
-                                        "mac_addr",
-                                        "mac_addr_size",
-                                        "member_link",
-                                        "mtu",
-                                        "parent_interface_name",
-                                        "vlan_tag") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, self).__setattr__(name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'etype', 'iftype', 'is_interface_enabled', 'is_ipv6_enabled', 'is_mpls_enabled', 'mac_addr', 'mac_addr_size', 'member_link', 'mtu', 'parent_interface_name', 'vlan_tag'], name, value)
+
+
+                    class GlobalAddress(Entity):
+                        """
+                        List of ND global addresses
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-nd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__init__()
+
+                            self.yang_name = "global-address"
+                            self.yang_parent_name = "bundle-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "global-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address'], name, value)
+
+
+                    class LocalAddress(Entity):
+                        """
+                        Link local address
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-nd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__init__()
+
+                            self.yang_name = "local-address"
+                            self.yang_parent_name = "bundle-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "local-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address'], name, value)
+
+
+                    class MemberNode(Entity):
+                        """
+                        List of member nodes
+                        
+                        .. attribute:: node_name
+                        
+                        	Node Name
+                        	**type**\:  str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        .. attribute:: total_links
+                        
+                        	Number of links on the node
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-nd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__init__()
+
+                            self.yang_name = "member-node"
+                            self.yang_parent_name = "bundle-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.node_name = YLeaf(YType.str, "node-name")
+
+                            self.total_links = YLeaf(YType.uint32, "total-links")
+                            self._segment_path = lambda: "member-node"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, ['node_name', 'total_links'], name, value)
 
 
                     class NdParameters(Entity):
@@ -2759,6 +880,10 @@ class Ipv6NodeDiscovery(Entity):
 
                             self.yang_name = "nd-parameters"
                             self.yang_parent_name = "bundle-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.complete_glean_count = YLeaf(YType.uint32, "complete-glean-count")
 
@@ -2797,453 +922,173 @@ class Ipv6NodeDiscovery(Entity):
                             self.nd_retransmit_interval = YLeaf(YType.uint32, "nd-retransmit-interval")
 
                             self.send_unicast_ra = YLeaf(YType.boolean, "send-unicast-ra")
+                            self._segment_path = lambda: "nd-parameters"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("complete_glean_count",
-                                            "complete_protocol_count",
-                                            "dad_attempts",
-                                            "dropped_glean_req_count",
-                                            "dropped_protocol_req_count",
-                                            "incomplete_glean_count",
-                                            "incomplete_protocol_count",
-                                            "is_dad_enabled",
-                                            "is_dhcp_managed",
-                                            "is_icm_pv6_redirect",
-                                            "is_route_address_managed",
-                                            "is_suppressed",
-                                            "nd_advertisement_lifetime",
-                                            "nd_cache_limit",
-                                            "nd_max_transmit_interval",
-                                            "nd_min_transmit_interval",
-                                            "nd_reachable_time",
-                                            "nd_retransmit_interval",
-                                            "send_unicast_ra") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.complete_glean_count.is_set or
-                                self.complete_protocol_count.is_set or
-                                self.dad_attempts.is_set or
-                                self.dropped_glean_req_count.is_set or
-                                self.dropped_protocol_req_count.is_set or
-                                self.incomplete_glean_count.is_set or
-                                self.incomplete_protocol_count.is_set or
-                                self.is_dad_enabled.is_set or
-                                self.is_dhcp_managed.is_set or
-                                self.is_icm_pv6_redirect.is_set or
-                                self.is_route_address_managed.is_set or
-                                self.is_suppressed.is_set or
-                                self.nd_advertisement_lifetime.is_set or
-                                self.nd_cache_limit.is_set or
-                                self.nd_max_transmit_interval.is_set or
-                                self.nd_min_transmit_interval.is_set or
-                                self.nd_reachable_time.is_set or
-                                self.nd_retransmit_interval.is_set or
-                                self.send_unicast_ra.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.complete_glean_count.yfilter != YFilter.not_set or
-                                self.complete_protocol_count.yfilter != YFilter.not_set or
-                                self.dad_attempts.yfilter != YFilter.not_set or
-                                self.dropped_glean_req_count.yfilter != YFilter.not_set or
-                                self.dropped_protocol_req_count.yfilter != YFilter.not_set or
-                                self.incomplete_glean_count.yfilter != YFilter.not_set or
-                                self.incomplete_protocol_count.yfilter != YFilter.not_set or
-                                self.is_dad_enabled.yfilter != YFilter.not_set or
-                                self.is_dhcp_managed.yfilter != YFilter.not_set or
-                                self.is_icm_pv6_redirect.yfilter != YFilter.not_set or
-                                self.is_route_address_managed.yfilter != YFilter.not_set or
-                                self.is_suppressed.yfilter != YFilter.not_set or
-                                self.nd_advertisement_lifetime.yfilter != YFilter.not_set or
-                                self.nd_cache_limit.yfilter != YFilter.not_set or
-                                self.nd_max_transmit_interval.yfilter != YFilter.not_set or
-                                self.nd_min_transmit_interval.yfilter != YFilter.not_set or
-                                self.nd_reachable_time.yfilter != YFilter.not_set or
-                                self.nd_retransmit_interval.yfilter != YFilter.not_set or
-                                self.send_unicast_ra.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "nd-parameters" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.complete_glean_count.is_set or self.complete_glean_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.complete_glean_count.get_name_leafdata())
-                            if (self.complete_protocol_count.is_set or self.complete_protocol_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.complete_protocol_count.get_name_leafdata())
-                            if (self.dad_attempts.is_set or self.dad_attempts.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dad_attempts.get_name_leafdata())
-                            if (self.dropped_glean_req_count.is_set or self.dropped_glean_req_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dropped_glean_req_count.get_name_leafdata())
-                            if (self.dropped_protocol_req_count.is_set or self.dropped_protocol_req_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.dropped_protocol_req_count.get_name_leafdata())
-                            if (self.incomplete_glean_count.is_set or self.incomplete_glean_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.incomplete_glean_count.get_name_leafdata())
-                            if (self.incomplete_protocol_count.is_set or self.incomplete_protocol_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.incomplete_protocol_count.get_name_leafdata())
-                            if (self.is_dad_enabled.is_set or self.is_dad_enabled.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_dad_enabled.get_name_leafdata())
-                            if (self.is_dhcp_managed.is_set or self.is_dhcp_managed.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_dhcp_managed.get_name_leafdata())
-                            if (self.is_icm_pv6_redirect.is_set or self.is_icm_pv6_redirect.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_icm_pv6_redirect.get_name_leafdata())
-                            if (self.is_route_address_managed.is_set or self.is_route_address_managed.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_route_address_managed.get_name_leafdata())
-                            if (self.is_suppressed.is_set or self.is_suppressed.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_suppressed.get_name_leafdata())
-                            if (self.nd_advertisement_lifetime.is_set or self.nd_advertisement_lifetime.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_advertisement_lifetime.get_name_leafdata())
-                            if (self.nd_cache_limit.is_set or self.nd_cache_limit.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_cache_limit.get_name_leafdata())
-                            if (self.nd_max_transmit_interval.is_set or self.nd_max_transmit_interval.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_max_transmit_interval.get_name_leafdata())
-                            if (self.nd_min_transmit_interval.is_set or self.nd_min_transmit_interval.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_min_transmit_interval.get_name_leafdata())
-                            if (self.nd_reachable_time.is_set or self.nd_reachable_time.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_reachable_time.get_name_leafdata())
-                            if (self.nd_retransmit_interval.is_set or self.nd_retransmit_interval.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.nd_retransmit_interval.get_name_leafdata())
-                            if (self.send_unicast_ra.is_set or self.send_unicast_ra.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.send_unicast_ra.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "complete-glean-count" or name == "complete-protocol-count" or name == "dad-attempts" or name == "dropped-glean-req-count" or name == "dropped-protocol-req-count" or name == "incomplete-glean-count" or name == "incomplete-protocol-count" or name == "is-dad-enabled" or name == "is-dhcp-managed" or name == "is-icm-pv6-redirect" or name == "is-route-address-managed" or name == "is-suppressed" or name == "nd-advertisement-lifetime" or name == "nd-cache-limit" or name == "nd-max-transmit-interval" or name == "nd-min-transmit-interval" or name == "nd-reachable-time" or name == "nd-retransmit-interval" or name == "send-unicast-ra"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "complete-glean-count"):
-                                self.complete_glean_count = value
-                                self.complete_glean_count.value_namespace = name_space
-                                self.complete_glean_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "complete-protocol-count"):
-                                self.complete_protocol_count = value
-                                self.complete_protocol_count.value_namespace = name_space
-                                self.complete_protocol_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dad-attempts"):
-                                self.dad_attempts = value
-                                self.dad_attempts.value_namespace = name_space
-                                self.dad_attempts.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dropped-glean-req-count"):
-                                self.dropped_glean_req_count = value
-                                self.dropped_glean_req_count.value_namespace = name_space
-                                self.dropped_glean_req_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "dropped-protocol-req-count"):
-                                self.dropped_protocol_req_count = value
-                                self.dropped_protocol_req_count.value_namespace = name_space
-                                self.dropped_protocol_req_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "incomplete-glean-count"):
-                                self.incomplete_glean_count = value
-                                self.incomplete_glean_count.value_namespace = name_space
-                                self.incomplete_glean_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "incomplete-protocol-count"):
-                                self.incomplete_protocol_count = value
-                                self.incomplete_protocol_count.value_namespace = name_space
-                                self.incomplete_protocol_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-dad-enabled"):
-                                self.is_dad_enabled = value
-                                self.is_dad_enabled.value_namespace = name_space
-                                self.is_dad_enabled.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-dhcp-managed"):
-                                self.is_dhcp_managed = value
-                                self.is_dhcp_managed.value_namespace = name_space
-                                self.is_dhcp_managed.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-icm-pv6-redirect"):
-                                self.is_icm_pv6_redirect = value
-                                self.is_icm_pv6_redirect.value_namespace = name_space
-                                self.is_icm_pv6_redirect.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-route-address-managed"):
-                                self.is_route_address_managed = value
-                                self.is_route_address_managed.value_namespace = name_space
-                                self.is_route_address_managed.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-suppressed"):
-                                self.is_suppressed = value
-                                self.is_suppressed.value_namespace = name_space
-                                self.is_suppressed.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-advertisement-lifetime"):
-                                self.nd_advertisement_lifetime = value
-                                self.nd_advertisement_lifetime.value_namespace = name_space
-                                self.nd_advertisement_lifetime.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-cache-limit"):
-                                self.nd_cache_limit = value
-                                self.nd_cache_limit.value_namespace = name_space
-                                self.nd_cache_limit.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-max-transmit-interval"):
-                                self.nd_max_transmit_interval = value
-                                self.nd_max_transmit_interval.value_namespace = name_space
-                                self.nd_max_transmit_interval.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-min-transmit-interval"):
-                                self.nd_min_transmit_interval = value
-                                self.nd_min_transmit_interval.value_namespace = name_space
-                                self.nd_min_transmit_interval.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-reachable-time"):
-                                self.nd_reachable_time = value
-                                self.nd_reachable_time.value_namespace = name_space
-                                self.nd_reachable_time.value_namespace_prefix = name_space_prefix
-                            if(value_path == "nd-retransmit-interval"):
-                                self.nd_retransmit_interval = value
-                                self.nd_retransmit_interval.value_namespace = name_space
-                                self.nd_retransmit_interval.value_namespace_prefix = name_space_prefix
-                            if(value_path == "send-unicast-ra"):
-                                self.send_unicast_ra = value
-                                self.send_unicast_ra.value_namespace = name_space
-                                self.send_unicast_ra.value_namespace_prefix = name_space_prefix
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, ['complete_glean_count', 'complete_protocol_count', 'dad_attempts', 'dropped_glean_req_count', 'dropped_protocol_req_count', 'incomplete_glean_count', 'incomplete_protocol_count', 'is_dad_enabled', 'is_dhcp_managed', 'is_icm_pv6_redirect', 'is_route_address_managed', 'is_suppressed', 'nd_advertisement_lifetime', 'nd_cache_limit', 'nd_max_transmit_interval', 'nd_min_transmit_interval', 'nd_reachable_time', 'nd_retransmit_interval', 'send_unicast_ra'], name, value)
 
 
-                    class LocalAddress(Entity):
+            class BundleNodes(Entity):
+                """
+                IPv6 ND list of bundle nodes for a specific
+                node
+                
+                .. attribute:: bundle_node
+                
+                	IPv6 ND operational data for a specific bundle node
+                	**type**\: list of    :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-nd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__init__()
+
+                    self.yang_name = "bundle-nodes"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bundle-node" : ("bundle_node", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode)}
+
+                    self.bundle_node = YList(self)
+                    self._segment_path = lambda: "bundle-nodes"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, [], name, value)
+
+
+                class BundleNode(Entity):
+                    """
+                    IPv6 ND operational data for a specific
+                    bundle node
+                    
+                    .. attribute:: node_name  <key>
+                    
+                    	The bundle node name
+                    	**type**\:  str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    .. attribute:: age
+                    
+                    	Uptime of node (secs)
+                    	**type**\:   :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
+                    
+                    .. attribute:: group_id
+                    
+                    	Group ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: process_name
+                    
+                    	Process Name
+                    	**type**\:  str
+                    
+                    .. attribute:: received_packets
+                    
+                    	Total packet receives
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_sequence_number
+                    
+                    	Received sequence num
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_packets
+                    
+                    	Total packet sends
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_sequence_number
+                    
+                    	Sent sequence num
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: state
+                    
+                    	State
+                    	**type**\:   :py:class:`Ipv6NdBndlState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState>`
+                    
+                    .. attribute:: state_changes
+                    
+                    	State changes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__init__()
+
+                        self.yang_name = "bundle-node"
+                        self.yang_parent_name = "bundle-nodes"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"age" : ("age", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age)}
+                        self._child_list_classes = {}
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.group_id = YLeaf(YType.uint32, "group-id")
+
+                        self.process_name = YLeaf(YType.str, "process-name")
+
+                        self.received_packets = YLeaf(YType.uint32, "received-packets")
+
+                        self.received_sequence_number = YLeaf(YType.uint32, "received-sequence-number")
+
+                        self.sent_packets = YLeaf(YType.uint32, "sent-packets")
+
+                        self.sent_sequence_number = YLeaf(YType.uint32, "sent-sequence-number")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.state_changes = YLeaf(YType.uint32, "state-changes")
+
+                        self.age = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age()
+                        self.age.parent = self
+                        self._children_name_map["age"] = "age"
+                        self._children_yang_names.add("age")
+                        self._segment_path = lambda: "bundle-node" + "[node-name='" + self.node_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', 'group_id', 'process_name', 'received_packets', 'received_sequence_number', 'sent_packets', 'sent_sequence_number', 'state', 'state_changes'], name, value)
+
+
+                    class Age(Entity):
                         """
-                        Link local address
+                        Uptime of node (secs)
                         
-                        .. attribute:: ipv6_address
+                        .. attribute:: seconds
                         
-                        	IPv6 address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__init__()
-
-                            self.yang_name = "local-address"
-                            self.yang_parent_name = "bundle-interface"
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("ipv6_address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.ipv6_address.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.ipv6_address.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "local-address" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6-address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "ipv6-address"):
-                                self.ipv6_address = value
-                                self.ipv6_address.value_namespace = name_space
-                                self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-
-                    class GlobalAddress(Entity):
-                        """
-                        List of ND global addresses
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-nd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__init__()
-
-                            self.yang_name = "global-address"
-                            self.yang_parent_name = "bundle-interface"
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("ipv6_address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.ipv6_address.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.ipv6_address.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "global-address" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6-address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "ipv6-address"):
-                                self.ipv6_address = value
-                                self.ipv6_address.value_namespace = name_space
-                                self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-
-                    class MemberNode(Entity):
-                        """
-                        List of member nodes
-                        
-                        .. attribute:: node_name
-                        
-                        	Node Name
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: total_links
-                        
-                        	Number of links on the node
+                        	Number of seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         
 
                         """
@@ -3252,343 +1097,20 @@ class Ipv6NodeDiscovery(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__init__()
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__init__()
 
-                            self.yang_name = "member-node"
-                            self.yang_parent_name = "bundle-interface"
+                            self.yang_name = "age"
+                            self.yang_parent_name = "bundle-node"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
-                            self.node_name = YLeaf(YType.str, "node-name")
-
-                            self.total_links = YLeaf(YType.uint32, "total-links")
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+                            self._segment_path = lambda: "age"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("node_name",
-                                            "total_links") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.node_name.is_set or
-                                self.total_links.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.node_name.yfilter != YFilter.not_set or
-                                self.total_links.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "member-node" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.node_name.get_name_leafdata())
-                            if (self.total_links.is_set or self.total_links.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total_links.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "node-name" or name == "total-links"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "node-name"):
-                                self.node_name = value
-                                self.node_name.value_namespace = name_space
-                                self.node_name.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total-links"):
-                                self.total_links = value
-                                self.total_links.value_namespace = name_space
-                                self.total_links.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.global_address:
-                            if (c.has_data()):
-                                return True
-                        for c in self.member_node:
-                            if (c.has_data()):
-                                return True
-                        for leaf in self.member_link.getYLeafs():
-                            if (leaf.yfilter != YFilter.not_set):
-                                return True
-                        return (
-                            self.interface_name.is_set or
-                            self.etype.is_set or
-                            self.iftype.is_set or
-                            self.is_interface_enabled.is_set or
-                            self.is_ipv6_enabled.is_set or
-                            self.is_mpls_enabled.is_set or
-                            self.mac_addr.is_set or
-                            self.mac_addr_size.is_set or
-                            self.mtu.is_set or
-                            self.parent_interface_name.is_set or
-                            self.vlan_tag.is_set or
-                            (self.local_address is not None and self.local_address.has_data()) or
-                            (self.nd_parameters is not None and self.nd_parameters.has_data()))
-
-                    def has_operation(self):
-                        for c in self.global_address:
-                            if (c.has_operation()):
-                                return True
-                        for c in self.member_node:
-                            if (c.has_operation()):
-                                return True
-                        for leaf in self.member_link.getYLeafs():
-                            if (leaf.is_set):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set or
-                            self.etype.yfilter != YFilter.not_set or
-                            self.iftype.yfilter != YFilter.not_set or
-                            self.is_interface_enabled.yfilter != YFilter.not_set or
-                            self.is_ipv6_enabled.yfilter != YFilter.not_set or
-                            self.is_mpls_enabled.yfilter != YFilter.not_set or
-                            self.mac_addr.yfilter != YFilter.not_set or
-                            self.mac_addr_size.yfilter != YFilter.not_set or
-                            self.member_link.yfilter != YFilter.not_set or
-                            self.mtu.yfilter != YFilter.not_set or
-                            self.parent_interface_name.yfilter != YFilter.not_set or
-                            self.vlan_tag.yfilter != YFilter.not_set or
-                            (self.local_address is not None and self.local_address.has_operation()) or
-                            (self.nd_parameters is not None and self.nd_parameters.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "bundle-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-                        if (self.etype.is_set or self.etype.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.etype.get_name_leafdata())
-                        if (self.iftype.is_set or self.iftype.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.iftype.get_name_leafdata())
-                        if (self.is_interface_enabled.is_set or self.is_interface_enabled.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_interface_enabled.get_name_leafdata())
-                        if (self.is_ipv6_enabled.is_set or self.is_ipv6_enabled.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_ipv6_enabled.get_name_leafdata())
-                        if (self.is_mpls_enabled.is_set or self.is_mpls_enabled.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_mpls_enabled.get_name_leafdata())
-                        if (self.mac_addr.is_set or self.mac_addr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mac_addr.get_name_leafdata())
-                        if (self.mac_addr_size.is_set or self.mac_addr_size.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mac_addr_size.get_name_leafdata())
-                        if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mtu.get_name_leafdata())
-                        if (self.parent_interface_name.is_set or self.parent_interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.parent_interface_name.get_name_leafdata())
-                        if (self.vlan_tag.is_set or self.vlan_tag.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.vlan_tag.get_name_leafdata())
-
-                        leaf_name_data.extend(self.member_link.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "global-address"):
-                            for c in self.global_address:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.global_address.append(c)
-                            return c
-
-                        if (child_yang_name == "local-address"):
-                            if (self.local_address is None):
-                                self.local_address = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress()
-                                self.local_address.parent = self
-                                self._children_name_map["local_address"] = "local-address"
-                            return self.local_address
-
-                        if (child_yang_name == "member-node"):
-                            for c in self.member_node:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.member_node.append(c)
-                            return c
-
-                        if (child_yang_name == "nd-parameters"):
-                            if (self.nd_parameters is None):
-                                self.nd_parameters = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters()
-                                self.nd_parameters.parent = self
-                                self._children_name_map["nd_parameters"] = "nd-parameters"
-                            return self.nd_parameters
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "global-address" or name == "local-address" or name == "member-node" or name == "nd-parameters" or name == "interface-name" or name == "etype" or name == "iftype" or name == "is-interface-enabled" or name == "is-ipv6-enabled" or name == "is-mpls-enabled" or name == "mac-addr" or name == "mac-addr-size" or name == "member-link" or name == "mtu" or name == "parent-interface-name" or name == "vlan-tag"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "etype"):
-                            self.etype = value
-                            self.etype.value_namespace = name_space
-                            self.etype.value_namespace_prefix = name_space_prefix
-                        if(value_path == "iftype"):
-                            self.iftype = value
-                            self.iftype.value_namespace = name_space
-                            self.iftype.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-interface-enabled"):
-                            self.is_interface_enabled = value
-                            self.is_interface_enabled.value_namespace = name_space
-                            self.is_interface_enabled.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-ipv6-enabled"):
-                            self.is_ipv6_enabled = value
-                            self.is_ipv6_enabled.value_namespace = name_space
-                            self.is_ipv6_enabled.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-mpls-enabled"):
-                            self.is_mpls_enabled = value
-                            self.is_mpls_enabled.value_namespace = name_space
-                            self.is_mpls_enabled.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mac-addr"):
-                            self.mac_addr = value
-                            self.mac_addr.value_namespace = name_space
-                            self.mac_addr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "mac-addr-size"):
-                            self.mac_addr_size = value
-                            self.mac_addr_size.value_namespace = name_space
-                            self.mac_addr_size.value_namespace_prefix = name_space_prefix
-                        if(value_path == "member-link"):
-                            self.member_link.append(value)
-                        if(value_path == "mtu"):
-                            self.mtu = value
-                            self.mtu.value_namespace = name_space
-                            self.mtu.value_namespace_prefix = name_space_prefix
-                        if(value_path == "parent-interface-name"):
-                            self.parent_interface_name = value
-                            self.parent_interface_name.value_namespace = name_space
-                            self.parent_interface_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "vlan-tag"):
-                            self.vlan_tag = value
-                            self.vlan_tag.value_namespace = name_space
-                            self.vlan_tag.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.bundle_interface:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.bundle_interface:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "bundle-interfaces" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "bundle-interface"):
-                        for c in self.bundle_interface:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.bundle_interface.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "bundle-interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, ['seconds'], name, value)
 
 
             class Interfaces(Entity):
@@ -3613,32 +1135,16 @@ class Ipv6NodeDiscovery(Entity):
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface)}
 
                     self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.Interfaces, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces, [], name, value)
 
 
                 class Interface(Entity):
@@ -3651,7 +1157,7 @@ class Ipv6NodeDiscovery(Entity):
                     	Interface Name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: complete_glean_count
                     
@@ -3786,6 +1292,10 @@ class Ipv6NodeDiscovery(Entity):
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -3826,305 +1336,10 @@ class Ipv6NodeDiscovery(Entity):
                         self.nd_retransmit_interval = YLeaf(YType.uint32, "nd-retransmit-interval")
 
                         self.send_unicast_ra = YLeaf(YType.boolean, "send-unicast-ra")
+                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name",
-                                        "complete_glean_count",
-                                        "complete_protocol_count",
-                                        "dad_attempts",
-                                        "dropped_glean_req_count",
-                                        "dropped_protocol_req_count",
-                                        "incomplete_glean_count",
-                                        "incomplete_protocol_count",
-                                        "is_dad_enabled",
-                                        "is_dhcp_managed",
-                                        "is_icm_pv6_redirect",
-                                        "is_route_address_managed",
-                                        "is_suppressed",
-                                        "nd_advertisement_lifetime",
-                                        "nd_cache_limit",
-                                        "nd_max_transmit_interval",
-                                        "nd_min_transmit_interval",
-                                        "nd_reachable_time",
-                                        "nd_retransmit_interval",
-                                        "send_unicast_ra") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.interface_name.is_set or
-                            self.complete_glean_count.is_set or
-                            self.complete_protocol_count.is_set or
-                            self.dad_attempts.is_set or
-                            self.dropped_glean_req_count.is_set or
-                            self.dropped_protocol_req_count.is_set or
-                            self.incomplete_glean_count.is_set or
-                            self.incomplete_protocol_count.is_set or
-                            self.is_dad_enabled.is_set or
-                            self.is_dhcp_managed.is_set or
-                            self.is_icm_pv6_redirect.is_set or
-                            self.is_route_address_managed.is_set or
-                            self.is_suppressed.is_set or
-                            self.nd_advertisement_lifetime.is_set or
-                            self.nd_cache_limit.is_set or
-                            self.nd_max_transmit_interval.is_set or
-                            self.nd_min_transmit_interval.is_set or
-                            self.nd_reachable_time.is_set or
-                            self.nd_retransmit_interval.is_set or
-                            self.send_unicast_ra.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set or
-                            self.complete_glean_count.yfilter != YFilter.not_set or
-                            self.complete_protocol_count.yfilter != YFilter.not_set or
-                            self.dad_attempts.yfilter != YFilter.not_set or
-                            self.dropped_glean_req_count.yfilter != YFilter.not_set or
-                            self.dropped_protocol_req_count.yfilter != YFilter.not_set or
-                            self.incomplete_glean_count.yfilter != YFilter.not_set or
-                            self.incomplete_protocol_count.yfilter != YFilter.not_set or
-                            self.is_dad_enabled.yfilter != YFilter.not_set or
-                            self.is_dhcp_managed.yfilter != YFilter.not_set or
-                            self.is_icm_pv6_redirect.yfilter != YFilter.not_set or
-                            self.is_route_address_managed.yfilter != YFilter.not_set or
-                            self.is_suppressed.yfilter != YFilter.not_set or
-                            self.nd_advertisement_lifetime.yfilter != YFilter.not_set or
-                            self.nd_cache_limit.yfilter != YFilter.not_set or
-                            self.nd_max_transmit_interval.yfilter != YFilter.not_set or
-                            self.nd_min_transmit_interval.yfilter != YFilter.not_set or
-                            self.nd_reachable_time.yfilter != YFilter.not_set or
-                            self.nd_retransmit_interval.yfilter != YFilter.not_set or
-                            self.send_unicast_ra.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-                        if (self.complete_glean_count.is_set or self.complete_glean_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.complete_glean_count.get_name_leafdata())
-                        if (self.complete_protocol_count.is_set or self.complete_protocol_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.complete_protocol_count.get_name_leafdata())
-                        if (self.dad_attempts.is_set or self.dad_attempts.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.dad_attempts.get_name_leafdata())
-                        if (self.dropped_glean_req_count.is_set or self.dropped_glean_req_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.dropped_glean_req_count.get_name_leafdata())
-                        if (self.dropped_protocol_req_count.is_set or self.dropped_protocol_req_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.dropped_protocol_req_count.get_name_leafdata())
-                        if (self.incomplete_glean_count.is_set or self.incomplete_glean_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.incomplete_glean_count.get_name_leafdata())
-                        if (self.incomplete_protocol_count.is_set or self.incomplete_protocol_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.incomplete_protocol_count.get_name_leafdata())
-                        if (self.is_dad_enabled.is_set or self.is_dad_enabled.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_dad_enabled.get_name_leafdata())
-                        if (self.is_dhcp_managed.is_set or self.is_dhcp_managed.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_dhcp_managed.get_name_leafdata())
-                        if (self.is_icm_pv6_redirect.is_set or self.is_icm_pv6_redirect.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_icm_pv6_redirect.get_name_leafdata())
-                        if (self.is_route_address_managed.is_set or self.is_route_address_managed.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_route_address_managed.get_name_leafdata())
-                        if (self.is_suppressed.is_set or self.is_suppressed.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.is_suppressed.get_name_leafdata())
-                        if (self.nd_advertisement_lifetime.is_set or self.nd_advertisement_lifetime.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_advertisement_lifetime.get_name_leafdata())
-                        if (self.nd_cache_limit.is_set or self.nd_cache_limit.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_cache_limit.get_name_leafdata())
-                        if (self.nd_max_transmit_interval.is_set or self.nd_max_transmit_interval.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_max_transmit_interval.get_name_leafdata())
-                        if (self.nd_min_transmit_interval.is_set or self.nd_min_transmit_interval.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_min_transmit_interval.get_name_leafdata())
-                        if (self.nd_reachable_time.is_set or self.nd_reachable_time.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_reachable_time.get_name_leafdata())
-                        if (self.nd_retransmit_interval.is_set or self.nd_retransmit_interval.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nd_retransmit_interval.get_name_leafdata())
-                        if (self.send_unicast_ra.is_set or self.send_unicast_ra.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.send_unicast_ra.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface-name" or name == "complete-glean-count" or name == "complete-protocol-count" or name == "dad-attempts" or name == "dropped-glean-req-count" or name == "dropped-protocol-req-count" or name == "incomplete-glean-count" or name == "incomplete-protocol-count" or name == "is-dad-enabled" or name == "is-dhcp-managed" or name == "is-icm-pv6-redirect" or name == "is-route-address-managed" or name == "is-suppressed" or name == "nd-advertisement-lifetime" or name == "nd-cache-limit" or name == "nd-max-transmit-interval" or name == "nd-min-transmit-interval" or name == "nd-reachable-time" or name == "nd-retransmit-interval" or name == "send-unicast-ra"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "complete-glean-count"):
-                            self.complete_glean_count = value
-                            self.complete_glean_count.value_namespace = name_space
-                            self.complete_glean_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "complete-protocol-count"):
-                            self.complete_protocol_count = value
-                            self.complete_protocol_count.value_namespace = name_space
-                            self.complete_protocol_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "dad-attempts"):
-                            self.dad_attempts = value
-                            self.dad_attempts.value_namespace = name_space
-                            self.dad_attempts.value_namespace_prefix = name_space_prefix
-                        if(value_path == "dropped-glean-req-count"):
-                            self.dropped_glean_req_count = value
-                            self.dropped_glean_req_count.value_namespace = name_space
-                            self.dropped_glean_req_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "dropped-protocol-req-count"):
-                            self.dropped_protocol_req_count = value
-                            self.dropped_protocol_req_count.value_namespace = name_space
-                            self.dropped_protocol_req_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "incomplete-glean-count"):
-                            self.incomplete_glean_count = value
-                            self.incomplete_glean_count.value_namespace = name_space
-                            self.incomplete_glean_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "incomplete-protocol-count"):
-                            self.incomplete_protocol_count = value
-                            self.incomplete_protocol_count.value_namespace = name_space
-                            self.incomplete_protocol_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-dad-enabled"):
-                            self.is_dad_enabled = value
-                            self.is_dad_enabled.value_namespace = name_space
-                            self.is_dad_enabled.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-dhcp-managed"):
-                            self.is_dhcp_managed = value
-                            self.is_dhcp_managed.value_namespace = name_space
-                            self.is_dhcp_managed.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-icm-pv6-redirect"):
-                            self.is_icm_pv6_redirect = value
-                            self.is_icm_pv6_redirect.value_namespace = name_space
-                            self.is_icm_pv6_redirect.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-route-address-managed"):
-                            self.is_route_address_managed = value
-                            self.is_route_address_managed.value_namespace = name_space
-                            self.is_route_address_managed.value_namespace_prefix = name_space_prefix
-                        if(value_path == "is-suppressed"):
-                            self.is_suppressed = value
-                            self.is_suppressed.value_namespace = name_space
-                            self.is_suppressed.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-advertisement-lifetime"):
-                            self.nd_advertisement_lifetime = value
-                            self.nd_advertisement_lifetime.value_namespace = name_space
-                            self.nd_advertisement_lifetime.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-cache-limit"):
-                            self.nd_cache_limit = value
-                            self.nd_cache_limit.value_namespace = name_space
-                            self.nd_cache_limit.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-max-transmit-interval"):
-                            self.nd_max_transmit_interval = value
-                            self.nd_max_transmit_interval.value_namespace = name_space
-                            self.nd_max_transmit_interval.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-min-transmit-interval"):
-                            self.nd_min_transmit_interval = value
-                            self.nd_min_transmit_interval.value_namespace = name_space
-                            self.nd_min_transmit_interval.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-reachable-time"):
-                            self.nd_reachable_time = value
-                            self.nd_reachable_time.value_namespace = name_space
-                            self.nd_reachable_time.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nd-retransmit-interval"):
-                            self.nd_retransmit_interval = value
-                            self.nd_retransmit_interval.value_namespace = name_space
-                            self.nd_retransmit_interval.value_namespace_prefix = name_space_prefix
-                        if(value_path == "send-unicast-ra"):
-                            self.send_unicast_ra = value
-                            self.send_unicast_ra.value_namespace = name_space
-                            self.send_unicast_ra.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.interface:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.interface:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "interfaces" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "interface"):
-                        for c in self.interface:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.interface.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', 'complete_glean_count', 'complete_protocol_count', 'dad_attempts', 'dropped_glean_req_count', 'dropped_protocol_req_count', 'incomplete_glean_count', 'incomplete_protocol_count', 'is_dad_enabled', 'is_dhcp_managed', 'is_icm_pv6_redirect', 'is_route_address_managed', 'is_suppressed', 'nd_advertisement_lifetime', 'nd_cache_limit', 'nd_max_transmit_interval', 'nd_min_transmit_interval', 'nd_reachable_time', 'nd_retransmit_interval', 'send_unicast_ra'], name, value)
 
 
             class NdVirtualRouters(Entity):
@@ -4149,32 +1364,16 @@ class Ipv6NodeDiscovery(Entity):
 
                     self.yang_name = "nd-virtual-routers"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"nd-virtual-router" : ("nd_virtual_router", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter)}
 
                     self.nd_virtual_router = YList(self)
+                    self._segment_path = lambda: "nd-virtual-routers"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, self).__setattr__(name, value)
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, [], name, value)
 
 
                 class NdVirtualRouter(Entity):
@@ -4187,7 +1386,7 @@ class Ipv6NodeDiscovery(Entity):
                     	Interface Name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: context
                     
@@ -4242,6 +1441,10 @@ class Ipv6NodeDiscovery(Entity):
 
                         self.yang_name = "nd-virtual-router"
                         self.yang_parent_name = "nd-virtual-routers"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"local-address" : ("local_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress)}
+                        self._child_list_classes = {"vr-global-address" : ("vr_global_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress)}
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -4261,35 +1464,10 @@ class Ipv6NodeDiscovery(Entity):
                         self._children_yang_names.add("local-address")
 
                         self.vr_global_address = YList(self)
+                        self._segment_path = lambda: "nd-virtual-router" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("interface_name",
-                                        "context",
-                                        "flags",
-                                        "link_layer_address",
-                                        "state",
-                                        "vr_gl_addr_ct") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, self).__setattr__(name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', 'context', 'flags', 'link_layer_address', 'state', 'vr_gl_addr_ct'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -4315,78 +1493,16 @@ class Ipv6NodeDiscovery(Entity):
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "nd-virtual-router"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("ipv6_address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.ipv6_address.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.ipv6_address.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "local-address" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6-address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "ipv6-address"):
-                                self.ipv6_address = value
-                                self.ipv6_address.value_namespace = name_space
-                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address'], name, value)
 
 
                     class VrGlobalAddress(Entity):
@@ -4412,454 +1528,1093 @@ class Ipv6NodeDiscovery(Entity):
 
                             self.yang_name = "vr-global-address"
                             self.yang_parent_name = "nd-virtual-router"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self._segment_path = lambda: "vr-global-address"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("ipv6_address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.ipv6_address.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.ipv6_address.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "vr-global-address" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6-address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "ipv6-address"):
-                                self.ipv6_address = value
-                                self.ipv6_address.value_namespace = name_space
-                                self.ipv6_address.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.vr_global_address:
-                            if (c.has_data()):
-                                return True
-                        return (
-                            self.interface_name.is_set or
-                            self.context.is_set or
-                            self.flags.is_set or
-                            self.link_layer_address.is_set or
-                            self.state.is_set or
-                            self.vr_gl_addr_ct.is_set or
-                            (self.local_address is not None and self.local_address.has_data()))
-
-                    def has_operation(self):
-                        for c in self.vr_global_address:
-                            if (c.has_operation()):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.interface_name.yfilter != YFilter.not_set or
-                            self.context.yfilter != YFilter.not_set or
-                            self.flags.yfilter != YFilter.not_set or
-                            self.link_layer_address.yfilter != YFilter.not_set or
-                            self.state.yfilter != YFilter.not_set or
-                            self.vr_gl_addr_ct.yfilter != YFilter.not_set or
-                            (self.local_address is not None and self.local_address.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "nd-virtual-router" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface_name.get_name_leafdata())
-                        if (self.context.is_set or self.context.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.context.get_name_leafdata())
-                        if (self.flags.is_set or self.flags.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.flags.get_name_leafdata())
-                        if (self.link_layer_address.is_set or self.link_layer_address.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.link_layer_address.get_name_leafdata())
-                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.state.get_name_leafdata())
-                        if (self.vr_gl_addr_ct.is_set or self.vr_gl_addr_ct.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.vr_gl_addr_ct.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "local-address"):
-                            if (self.local_address is None):
-                                self.local_address = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress()
-                                self.local_address.parent = self
-                                self._children_name_map["local_address"] = "local-address"
-                            return self.local_address
-
-                        if (child_yang_name == "vr-global-address"):
-                            for c in self.vr_global_address:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.vr_global_address.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "local-address" or name == "vr-global-address" or name == "interface-name" or name == "context" or name == "flags" or name == "link-layer-address" or name == "state" or name == "vr-gl-addr-ct"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "interface-name"):
-                            self.interface_name = value
-                            self.interface_name.value_namespace = name_space
-                            self.interface_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "context"):
-                            self.context = value
-                            self.context.value_namespace = name_space
-                            self.context.value_namespace_prefix = name_space_prefix
-                        if(value_path == "flags"):
-                            self.flags = value
-                            self.flags.value_namespace = name_space
-                            self.flags.value_namespace_prefix = name_space_prefix
-                        if(value_path == "link-layer-address"):
-                            self.link_layer_address = value
-                            self.link_layer_address.value_namespace = name_space
-                            self.link_layer_address.value_namespace_prefix = name_space_prefix
-                        if(value_path == "state"):
-                            self.state = value
-                            self.state.value_namespace = name_space
-                            self.state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "vr-gl-addr-ct"):
-                            self.vr_gl_addr_ct = value
-                            self.vr_gl_addr_ct.value_namespace = name_space
-                            self.vr_gl_addr_ct.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.nd_virtual_router:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.nd_virtual_router:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "nd-virtual-routers" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "nd-virtual-router"):
-                        for c in self.nd_virtual_router:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.nd_virtual_router.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "nd-virtual-router"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.bundle_interfaces is not None and self.bundle_interfaces.has_data()) or
-                    (self.bundle_nodes is not None and self.bundle_nodes.has_data()) or
-                    (self.interfaces is not None and self.interfaces.has_data()) or
-                    (self.nd_virtual_routers is not None and self.nd_virtual_routers.has_data()) or
-                    (self.neighbor_interfaces is not None and self.neighbor_interfaces.has_data()) or
-                    (self.neighbor_summary is not None and self.neighbor_summary.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.bundle_interfaces is not None and self.bundle_interfaces.has_operation()) or
-                    (self.bundle_nodes is not None and self.bundle_nodes.has_operation()) or
-                    (self.interfaces is not None and self.interfaces.has_operation()) or
-                    (self.nd_virtual_routers is not None and self.nd_virtual_routers.has_operation()) or
-                    (self.neighbor_interfaces is not None and self.neighbor_interfaces.has_operation()) or
-                    (self.neighbor_summary is not None and self.neighbor_summary.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "bundle-interfaces"):
-                    if (self.bundle_interfaces is None):
-                        self.bundle_interfaces = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces()
-                        self.bundle_interfaces.parent = self
-                        self._children_name_map["bundle_interfaces"] = "bundle-interfaces"
-                    return self.bundle_interfaces
-
-                if (child_yang_name == "bundle-nodes"):
-                    if (self.bundle_nodes is None):
-                        self.bundle_nodes = Ipv6NodeDiscovery.Nodes.Node.BundleNodes()
-                        self.bundle_nodes.parent = self
-                        self._children_name_map["bundle_nodes"] = "bundle-nodes"
-                    return self.bundle_nodes
-
-                if (child_yang_name == "interfaces"):
-                    if (self.interfaces is None):
-                        self.interfaces = Ipv6NodeDiscovery.Nodes.Node.Interfaces()
-                        self.interfaces.parent = self
-                        self._children_name_map["interfaces"] = "interfaces"
-                    return self.interfaces
-
-                if (child_yang_name == "nd-virtual-routers"):
-                    if (self.nd_virtual_routers is None):
-                        self.nd_virtual_routers = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters()
-                        self.nd_virtual_routers.parent = self
-                        self._children_name_map["nd_virtual_routers"] = "nd-virtual-routers"
-                    return self.nd_virtual_routers
-
-                if (child_yang_name == "neighbor-interfaces"):
-                    if (self.neighbor_interfaces is None):
-                        self.neighbor_interfaces = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces()
-                        self.neighbor_interfaces.parent = self
-                        self._children_name_map["neighbor_interfaces"] = "neighbor-interfaces"
-                    return self.neighbor_interfaces
-
-                if (child_yang_name == "neighbor-summary"):
-                    if (self.neighbor_summary is None):
-                        self.neighbor_summary = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary()
-                        self.neighbor_summary.parent = self
-                        self._children_name_map["neighbor_summary"] = "neighbor-summary"
-                    return self.neighbor_summary
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "bundle-interfaces" or name == "bundle-nodes" or name == "interfaces" or name == "nd-virtual-routers" or name == "neighbor-interfaces" or name == "neighbor-summary" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Ipv6NodeDiscovery.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Ipv6NodeDiscovery.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address'], name, value)
+
+
+            class NeighborInterfaces(Entity):
+                """
+                IPv6 node discovery list of neighbor
+                interfaces
+                
+                .. attribute:: neighbor_interface
+                
+                	IPv6 node discovery neighbor interface
+                	**type**\: list of    :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-nd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__init__()
+
+                    self.yang_name = "neighbor-interfaces"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"neighbor-interface" : ("neighbor_interface", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface)}
+
+                    self.neighbor_interface = YList(self)
+                    self._segment_path = lambda: "neighbor-interfaces"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, [], name, value)
+
+
+                class NeighborInterface(Entity):
+                    """
+                    IPv6 node discovery neighbor interface
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface Name
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: host_addresses
+                    
+                    	IPv6 node discovery list of neighbor host addresses
+                    	**type**\:   :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__init__()
+
+                        self.yang_name = "neighbor-interface"
+                        self.yang_parent_name = "neighbor-interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"host-addresses" : ("host_addresses", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.host_addresses = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses()
+                        self.host_addresses.parent = self
+                        self._children_name_map["host_addresses"] = "host-addresses"
+                        self._children_yang_names.add("host-addresses")
+                        self._segment_path = lambda: "neighbor-interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, ['interface_name'], name, value)
+
+
+                    class HostAddresses(Entity):
+                        """
+                        IPv6 node discovery list of neighbor host
+                        addresses
+                        
+                        .. attribute:: host_address
+                        
+                        	IPv6 Neighbor detailed information
+                        	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-nd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__init__()
+
+                            self.yang_name = "host-addresses"
+                            self.yang_parent_name = "neighbor-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"host-address" : ("host_address", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress)}
+
+                            self.host_address = YList(self)
+                            self._segment_path = lambda: "host-addresses"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, [], name, value)
+
+
+                        class HostAddress(Entity):
+                            """
+                            IPv6 Neighbor detailed information
+                            
+                            .. attribute:: host_address  <key>
+                            
+                            	Host Address
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: encapsulation
+                            
+                            	Preferred media encap type
+                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface name
+                            	**type**\:  str
+                            
+                            .. attribute:: is_router
+                            
+                            	IsRouter
+                            	**type**\:  bool
+                            
+                            .. attribute:: last_reached_time
+                            
+                            	Last time of reachability
+                            	**type**\:   :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
+                            
+                            .. attribute:: link_layer_address
+                            
+                            	Link\-Layer Address
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: location
+                            
+                            	Location where the neighbor entry exists
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            .. attribute:: origin_encapsulation
+                            
+                            	Neighbor origin
+                            	**type**\:   :py:class:`Ipv6NdNeighborOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOrigin>`
+                            
+                            .. attribute:: reachability_state
+                            
+                            	Current state
+                            	**type**\:   :py:class:`Ipv6NdShState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState>`
+                            
+                            .. attribute:: selected_encapsulation
+                            
+                            	Selected media encap
+                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
+                            
+                            .. attribute:: serg_flags
+                            
+                            	ND serg flags for this entry
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-nd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__init__()
+
+                                self.yang_name = "host-address"
+                                self.yang_parent_name = "host-addresses"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"last-reached-time" : ("last_reached_time", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime)}
+                                self._child_list_classes = {}
+
+                                self.host_address = YLeaf(YType.str, "host-address")
+
+                                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.is_router = YLeaf(YType.boolean, "is-router")
+
+                                self.link_layer_address = YLeaf(YType.str, "link-layer-address")
+
+                                self.location = YLeaf(YType.str, "location")
+
+                                self.origin_encapsulation = YLeaf(YType.enumeration, "origin-encapsulation")
+
+                                self.reachability_state = YLeaf(YType.enumeration, "reachability-state")
+
+                                self.selected_encapsulation = YLeaf(YType.enumeration, "selected-encapsulation")
+
+                                self.serg_flags = YLeaf(YType.uint32, "serg-flags")
+
+                                self.last_reached_time = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime()
+                                self.last_reached_time.parent = self
+                                self._children_name_map["last_reached_time"] = "last-reached-time"
+                                self._children_yang_names.add("last-reached-time")
+                                self._segment_path = lambda: "host-address" + "[host-address='" + self.host_address.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'encapsulation', 'interface_name', 'is_router', 'link_layer_address', 'location', 'origin_encapsulation', 'reachability_state', 'selected_encapsulation', 'serg_flags'], name, value)
+
+
+                            class LastReachedTime(Entity):
+                                """
+                                Last time of reachability
+                                
+                                .. attribute:: seconds
+                                
+                                	Number of seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-nd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__init__()
+
+                                    self.yang_name = "last-reached-time"
+                                    self.yang_parent_name = "host-address"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self._segment_path = lambda: "last-reached-time"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, ['seconds'], name, value)
+
+
+            class NeighborSummary(Entity):
+                """
+                IPv6 Neighbor summary
+                
+                .. attribute:: dynamic
+                
+                	Dynamic neighbor summary
+                	**type**\:   :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
+                
+                .. attribute:: multicast
+                
+                	Multicast neighbor summary
+                	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
+                
+                .. attribute:: static
+                
+                	Static neighbor summary
+                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
+                
+                .. attribute:: total_neighbor_entries
+                
+                	Total number of entries
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-nd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__init__()
+
+                    self.yang_name = "neighbor-summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"dynamic" : ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic), "multicast" : ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast), "static" : ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)}
+                    self._child_list_classes = {}
+
+                    self.total_neighbor_entries = YLeaf(YType.uint32, "total-neighbor-entries")
+
+                    self.dynamic = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic()
+                    self.dynamic.parent = self
+                    self._children_name_map["dynamic"] = "dynamic"
+                    self._children_yang_names.add("dynamic")
+
+                    self.multicast = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast()
+                    self.multicast.parent = self
+                    self._children_name_map["multicast"] = "multicast"
+                    self._children_yang_names.add("multicast")
+
+                    self.static = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static()
+                    self.static.parent = self
+                    self._children_name_map["static"] = "static"
+                    self._children_yang_names.add("static")
+                    self._segment_path = lambda: "neighbor-summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, ['total_neighbor_entries'], name, value)
+
+
+                class Dynamic(Entity):
+                    """
+                    Dynamic neighbor summary
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total delayed entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total deleted entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total incomplete entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total probe entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total reachable entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total stale entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__init__()
+
+                        self.yang_name = "dynamic"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
+
+                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
+
+                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
+
+                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
+
+                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
+
+                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
+
+                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self._segment_path = lambda: "dynamic"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, ['delayed_entries', 'deleted_entries', 'incomplete_entries', 'probe_entries', 'reachable_entries', 'stale_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+                class Multicast(Entity):
+                    """
+                    Multicast neighbor summary
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total delayed entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total deleted entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total incomplete entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total probe entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total reachable entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total stale entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__init__()
+
+                        self.yang_name = "multicast"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
+
+                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
+
+                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
+
+                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
+
+                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
+
+                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
+
+                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self._segment_path = lambda: "multicast"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, ['delayed_entries', 'deleted_entries', 'incomplete_entries', 'probe_entries', 'reachable_entries', 'stale_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+                class Static(Entity):
+                    """
+                    Static neighbor summary
+                    
+                    .. attribute:: delayed_entries
+                    
+                    	Total delayed entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: deleted_entries
+                    
+                    	Total deleted entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incomplete_entries
+                    
+                    	Total incomplete entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: probe_entries
+                    
+                    	Total probe entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: reachable_entries
+                    
+                    	Total reachable entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: stale_entries
+                    
+                    	Total stale entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: subtotal_neighbor_entries
+                    
+                    	Total number of entries
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__init__()
+
+                        self.yang_name = "static"
+                        self.yang_parent_name = "neighbor-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
+
+                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
+
+                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
+
+                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
+
+                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
+
+                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
+
+                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self._segment_path = lambda: "static"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, ['delayed_entries', 'deleted_entries', 'incomplete_entries', 'probe_entries', 'reachable_entries', 'stale_entries', 'subtotal_neighbor_entries'], name, value)
+
+
+            class SlaacInterfaces(Entity):
+                """
+                IPv6 ND list of SLAAC MGMT interfaces for a
+                specific node
+                
+                .. attribute:: slaac_interface
+                
+                	IPv6 ND operational data for a specific slaac interface
+                	**type**\: list of    :py:class:`SlaacInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-nd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, self).__init__()
+
+                    self.yang_name = "slaac-interfaces"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"slaac-interface" : ("slaac_interface", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface)}
+
+                    self.slaac_interface = YList(self)
+                    self._segment_path = lambda: "slaac-interfaces"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, [], name, value)
+
+
+                class SlaacInterface(Entity):
+                    """
+                    IPv6 ND operational data for a specific slaac
+                    interface
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface Name
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: router_advert_detail
+                    
+                    	IPv6 ND operational data for a specific slaac interface
+                    	**type**\:   :py:class:`RouterAdvertDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-nd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, self).__init__()
+
+                        self.yang_name = "slaac-interface"
+                        self.yang_parent_name = "slaac-interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"router-advert-detail" : ("router_advert_detail", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.router_advert_detail = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail()
+                        self.router_advert_detail.parent = self
+                        self._children_name_map["router_advert_detail"] = "router-advert-detail"
+                        self._children_yang_names.add("router-advert-detail")
+                        self._segment_path = lambda: "slaac-interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, ['interface_name'], name, value)
+
+
+                    class RouterAdvertDetail(Entity):
+                        """
+                        IPv6 ND operational data for a specific
+                        slaac interface
+                        
+                        .. attribute:: idb
+                        
+                        	idb
+                        	**type**\:  str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        .. attribute:: ra
+                        
+                        	slaac db
+                        	**type**\: list of    :py:class:`Ra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-nd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, self).__init__()
+
+                            self.yang_name = "router-advert-detail"
+                            self.yang_parent_name = "slaac-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"ra" : ("ra", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra)}
+
+                            self.idb = YLeaf(YType.str, "idb")
+
+                            self.ra = YList(self)
+                            self._segment_path = lambda: "router-advert-detail"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, ['idb'], name, value)
+
+
+                        class Ra(Entity):
+                            """
+                            slaac db
+                            
+                            .. attribute:: address
+                            
+                            	address
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: default_router
+                            
+                            	router
+                            	**type**\:  bool
+                            
+                            .. attribute:: elapsed_ra_time
+                            
+                            	elapsedRATime
+                            	**type**\:   :py:class:`ElapsedRaTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime>`
+                            
+                            .. attribute:: err_msg
+                            
+                            	errmsg
+                            	**type**\:  bool
+                            
+                            .. attribute:: flags
+                            
+                            	flags
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hops
+                            
+                            	hops
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: life_time
+                            
+                            	lifetime
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mtu
+                            
+                            	mtu
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: prefix_q
+                            
+                            	Prefix Queue
+                            	**type**\: list of    :py:class:`PrefixQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ>`
+                            
+                            .. attribute:: reachability
+                            
+                            	reach
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: reachable_time
+                            
+                            	reachabletime
+                            	**type**\:   :py:class:`ReachableTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime>`
+                            
+                            .. attribute:: retrans_time
+                            
+                            	retranstime
+                            	**type**\:   :py:class:`RetransTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime>`
+                            
+                            .. attribute:: rib_protoid
+                            
+                            	proto id
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: u6_tbl_id
+                            
+                            	tbl id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: vrf_id
+                            
+                            	vrf id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-nd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, self).__init__()
+
+                                self.yang_name = "ra"
+                                self.yang_parent_name = "router-advert-detail"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"elapsed-ra-time" : ("elapsed_ra_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime), "reachable-time" : ("reachable_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime), "retrans-time" : ("retrans_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime)}
+                                self._child_list_classes = {"prefix-q" : ("prefix_q", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ)}
+
+                                self.address = YLeaf(YType.str, "address")
+
+                                self.default_router = YLeaf(YType.boolean, "default-router")
+
+                                self.err_msg = YLeaf(YType.boolean, "err-msg")
+
+                                self.flags = YLeaf(YType.uint32, "flags")
+
+                                self.hops = YLeaf(YType.uint32, "hops")
+
+                                self.life_time = YLeaf(YType.uint32, "life-time")
+
+                                self.mtu = YLeaf(YType.uint32, "mtu")
+
+                                self.reachability = YLeaf(YType.uint32, "reachability")
+
+                                self.rib_protoid = YLeaf(YType.uint16, "rib-protoid")
+
+                                self.u6_tbl_id = YLeaf(YType.uint32, "u6-tbl-id")
+
+                                self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                                self.elapsed_ra_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime()
+                                self.elapsed_ra_time.parent = self
+                                self._children_name_map["elapsed_ra_time"] = "elapsed-ra-time"
+                                self._children_yang_names.add("elapsed-ra-time")
+
+                                self.reachable_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime()
+                                self.reachable_time.parent = self
+                                self._children_name_map["reachable_time"] = "reachable-time"
+                                self._children_yang_names.add("reachable-time")
+
+                                self.retrans_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime()
+                                self.retrans_time.parent = self
+                                self._children_name_map["retrans_time"] = "retrans-time"
+                                self._children_yang_names.add("retrans-time")
+
+                                self.prefix_q = YList(self)
+                                self._segment_path = lambda: "ra"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, ['address', 'default_router', 'err_msg', 'flags', 'hops', 'life_time', 'mtu', 'reachability', 'rib_protoid', 'u6_tbl_id', 'vrf_id'], name, value)
+
+
+                            class ElapsedRaTime(Entity):
+                                """
+                                elapsedRATime
+                                
+                                .. attribute:: seconds
+                                
+                                	Number of seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-nd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, self).__init__()
+
+                                    self.yang_name = "elapsed-ra-time"
+                                    self.yang_parent_name = "ra"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self._segment_path = lambda: "elapsed-ra-time"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, ['seconds'], name, value)
+
+
+                            class PrefixQ(Entity):
+                                """
+                                Prefix Queue
+                                
+                                .. attribute:: eui64
+                                
+                                	IPv6 Auto generated address
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: flags
+                                
+                                	IPv6 Address Specific Flags
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: pfx_flags
+                                
+                                	Prefix Address Specific Flags
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: preferred_life_time
+                                
+                                	Preferred Life Time
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: prefix_address
+                                
+                                	Prefix address
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: prefix_len
+                                
+                                	Prefix Length
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: valid_life_time
+                                
+                                	Valid Life Time
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-nd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, self).__init__()
+
+                                    self.yang_name = "prefix-q"
+                                    self.yang_parent_name = "ra"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.eui64 = YLeaf(YType.str, "eui64")
+
+                                    self.flags = YLeaf(YType.uint32, "flags")
+
+                                    self.pfx_flags = YLeaf(YType.uint32, "pfx-flags")
+
+                                    self.preferred_life_time = YLeaf(YType.uint32, "preferred-life-time")
+
+                                    self.prefix_address = YLeaf(YType.str, "prefix-address")
+
+                                    self.prefix_len = YLeaf(YType.uint32, "prefix-len")
+
+                                    self.valid_life_time = YLeaf(YType.uint32, "valid-life-time")
+                                    self._segment_path = lambda: "prefix-q"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, ['eui64', 'flags', 'pfx_flags', 'preferred_life_time', 'prefix_address', 'prefix_len', 'valid_life_time'], name, value)
+
+
+                            class ReachableTime(Entity):
+                                """
+                                reachabletime
+                                
+                                .. attribute:: seconds
+                                
+                                	Number of seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-nd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, self).__init__()
+
+                                    self.yang_name = "reachable-time"
+                                    self.yang_parent_name = "ra"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self._segment_path = lambda: "reachable-time"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, ['seconds'], name, value)
+
+
+                            class RetransTime(Entity):
+                                """
+                                retranstime
+                                
+                                .. attribute:: seconds
+                                
+                                	Number of seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-nd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, self).__init__()
+
+                                    self.yang_name = "retrans-time"
+                                    self.yang_parent_name = "ra"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self._segment_path = lambda: "retrans-time"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, ['seconds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6NodeDiscovery()

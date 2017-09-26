@@ -13,7 +13,7 @@ module Cisco-IOS-XR-ncs1k-mxp-headless-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
-    revision-date 2016-09-13;
+    revision-date 2017-03-30;
   }
 
   /*** META INFORMATION ***/
@@ -40,12 +40,12 @@ module Cisco-IOS-XR-ncs1k-mxp-headless-oper {
        headless-func-data: Information related to headless
          functionality
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2016-09-13" {
+  revision "2017-03-30" {
     description
-      "Rx vlan stats added";
+      "PRBS stats added";
   }
 
   revision "2015-11-09" {

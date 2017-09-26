@@ -38,12 +38,12 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
      for the following management objects:
        pim: PIM configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2016-06-01" {
+  revision "2017-05-22" {
     description
-      "Migrated multipath and ssm commands to PIM";
+      "Updated node naming to be consistent with the CLI";
   }
 
   revision "2015-11-09" {
@@ -183,33 +183,86 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
     }
   }
 
-  grouping MULTICAST-ONLY-FRR {
+  grouping MOFRR {
     description "Common node of ipv4, ipv4";
 
-    container multicast-only-frr {
-      description "Multicast Only FRR";
-      leaf non-revertive-multicast-only-frr {
-        type empty;
-        description "Non-revertive Multicast Only FRR";
-      }
-      leaf flow-multicast-only-frr {
-        type xr:Cisco-ios-xr-string {
-          length "1..64";
+    container mofrr {
+      description "Multicast Only Fast Re-Route";
+
+      container clone-joins {
+        description "Clone multicast joins";
+
+        list clone-join {
+          key "source primary backup prefix-length";
+          description
+            "Clone S,G joins as S1,G joins and S2,G joins";
+          leaf source {
+            type inet:ipv4-address-no-zone;
+            description "Original source address (S)";
+          }
+          leaf primary {
+            type inet:ipv4-address-no-zone;
+            description "Primary cloned address (S1)";
+          }
+          leaf backup {
+            type inet:ipv4-address-no-zone;
+            description "Backup cloned address (S2)";
+          }
+          leaf prefix-length {
+            type xr:Ipv4-prefix-length;
+            description "Mask length";
+          }
         }
-        description
-          "Access-list specifying SG that should do FLOW
-          MOFRR";
       }
-      leaf enable {
-        type empty;
-        description "Enable Multicast Only FRR";
+
+      container clone-sources {
+        description "Clone multicast traffic";
+
+        list clone-source {
+          key "source primary backup prefix-length";
+          description
+            "Clone S,G traffic as S1,G traffic and S2,G
+            traffic";
+          leaf source {
+            type inet:ipv4-address-no-zone;
+            description "Original source address (S)";
+          }
+          leaf primary {
+            type inet:ipv4-address-no-zone;
+            description "Primary cloned address (S1)";
+          }
+          leaf backup {
+            type inet:ipv4-address-no-zone;
+            description "Backup cloned address (S2)";
+          }
+          leaf prefix-length {
+            type xr:Ipv4-prefix-length;
+            description "Mask length";
+          }
+        }
       }
-      leaf rib-multicast-only-frr {
+      leaf rib {
         type xr:Cisco-ios-xr-string {
           length "1..64";
         }
         description
           "Access-list specifying SG that should do RIB
+          MOFRR";
+      }
+      leaf non-revertive {
+        type empty;
+        description "Non-revertive Multicast Only Fast Re-Route";
+      }
+      leaf enable {
+        type empty;
+        description "Enable Multicast Only FRR";
+      }
+      leaf flow {
+        type xr:Cisco-ios-xr-string {
+          length "1..64";
+        }
+        description
+          "Access-list specifying SG that should do FLOW
           MOFRR";
       }
     }
@@ -355,7 +408,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
 
     container inheritable-defaults {
       description "Inheritable defaults";
-      leaf convergency {
+      leaf convergence-timeout {
         type uint32 {
           range "1800..2400";
         }
@@ -400,37 +453,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         }
         default "100000";
         description "Set threshold to print warning";
-      }
-    }
-  }
-
-  grouping CLONE-JOIN-MULTICAST-ONLY-FRR {
-    description
-      "Common node of maximum, maximumCommon node of
-      ipv4, ipv4";
-
-    container cj-multicast-only-frrs {
-      description "Clone Join Multicast Only FRR";
-
-      list cj-multicast-only-frr {
-        key "source primary backup prefix-length";
-        description "Clone Join Multicast Only FRR";
-        leaf source {
-          type inet:ipv4-address-no-zone;
-          description "Original address";
-        }
-        leaf primary {
-          type inet:ipv4-address-no-zone;
-          description "Primary address";
-        }
-        leaf backup {
-          type inet:ipv4-address-no-zone;
-          description "Backup address";
-        }
-        leaf prefix-length {
-          type xr:Ipv4-prefix-length;
-          description "Masklen";
-        }
       }
     }
   }
@@ -987,35 +1009,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
     }
   }
 
-  grouping CLONE-SOURCE-MULTICAST-ONLY-FRR {
-    description "Common node of ipv4, ipv4";
-
-    container cs-multicast-only-frrs {
-      description "Clone Source Multicast Only FRR";
-
-      list cs-multicast-only-frr {
-        key "source primary backup prefix-length";
-        description "Clone Source Multicast Only FRR";
-        leaf source {
-          type inet:ipv4-address-no-zone;
-          description "Original address";
-        }
-        leaf primary {
-          type inet:ipv4-address-no-zone;
-          description "Primary address";
-        }
-        leaf backup {
-          type inet:ipv4-address-no-zone;
-          description "Backup address";
-        }
-        leaf prefix-length {
-          type xr:Ipv4-prefix-length;
-          description "Masklen";
-        }
-      }
-    }
-  }
-
   grouping BSR-CANDIDATE-RP-CACHE {
     description "Common node of maximum, maximum";
 
@@ -1321,8 +1314,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           uses OLD-REGISTER-CHECKSUM;
           uses SPARSE-MODE-RP-ADDRESS-TABLE;
           uses NEIGHBOR-FILTER;
-          uses MULTICAST-ONLY-FRR;
-          uses CLONE-SOURCE-MULTICAST-ONLY-FRR;
           uses INHERITABLE-DEFAULTS;
           uses SPT-THRESHOLD-INFINITY;
           uses LOG-NEIGHBOR-CHANGES;
@@ -1338,6 +1329,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           uses BIDIR-RP-ADDRESS-TABLE;
           uses SSM-ALLOW-OVERRIDE;
           uses BSR;
+          uses MOFRR;
           uses MULTIPATH;
           uses RP-STATIC-DENY;
           uses RPF-VECTOR-INJECT;
@@ -1347,7 +1339,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           uses CONVERGENCE;
           uses INTERFACE-TABLE;
           uses AUTO-RP-DISABLE;
-          uses CLONE-JOIN-MULTICAST-ONLY-FRR;
         }
 
         container ipv6 {
@@ -1609,8 +1600,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         uses OLD-REGISTER-CHECKSUM;
         uses SPARSE-MODE-RP-ADDRESS-TABLE;
         uses NEIGHBOR-FILTER;
-        uses MULTICAST-ONLY-FRR;
-        uses CLONE-SOURCE-MULTICAST-ONLY-FRR;
         uses INHERITABLE-DEFAULTS;
         uses SPT-THRESHOLD-INFINITY;
         uses LOG-NEIGHBOR-CHANGES;
@@ -1627,6 +1616,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         uses BIDIR-RP-ADDRESS-TABLE;
         uses SSM-ALLOW-OVERRIDE;
         uses BSR;
+        uses MOFRR;
         uses MULTIPATH;
         uses RP-STATIC-DENY;
         uses RPF-VECTOR-INJECT;
@@ -1635,7 +1625,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         uses NEIGHBOR-CHECK-ON-SEND;
         uses CONVERGENCE;
         uses AUTO-RP-DISABLE;
-        uses CLONE-JOIN-MULTICAST-ONLY-FRR;
       }
     }
   }

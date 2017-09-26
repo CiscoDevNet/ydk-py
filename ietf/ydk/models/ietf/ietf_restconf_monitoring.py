@@ -17,7 +17,6 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -52,6 +51,10 @@ class RestconfState(Entity):
 
         self.yang_name = "restconf-state"
         self.yang_parent_name = "ietf-restconf-monitoring"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"capabilities" : ("capabilities", RestconfState.Capabilities), "streams" : ("streams", RestconfState.Streams)}
+        self._child_list_classes = {}
 
         self.capabilities = RestconfState.Capabilities()
         self.capabilities.parent = self
@@ -62,6 +65,7 @@ class RestconfState(Entity):
         self.streams.parent = self
         self._children_name_map["streams"] = "streams"
         self._children_yang_names.add("streams")
+        self._segment_path = lambda: "ietf-restconf-monitoring:restconf-state"
 
 
     class Capabilities(Entity):
@@ -85,82 +89,17 @@ class RestconfState(Entity):
 
             self.yang_name = "capabilities"
             self.yang_parent_name = "restconf-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.capability = YLeafList(YType.str, "capability")
+            self._segment_path = lambda: "capabilities"
+            self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("capability") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(RestconfState.Capabilities, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(RestconfState.Capabilities, self).__setattr__(name, value)
-
-        def has_data(self):
-            for leaf in self.capability.getYLeafs():
-                if (leaf.yfilter != YFilter.not_set):
-                    return True
-            return False
-
-        def has_operation(self):
-            for leaf in self.capability.getYLeafs():
-                if (leaf.is_set):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                self.capability.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "capabilities" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-restconf-monitoring:restconf-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            leaf_name_data.extend(self.capability.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "capability"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "capability"):
-                self.capability.append(value)
+            self._perform_setattr(RestconfState.Capabilities, ['capability'], name, value)
 
 
     class Streams(Entity):
@@ -185,32 +124,17 @@ class RestconfState(Entity):
 
             self.yang_name = "streams"
             self.yang_parent_name = "restconf-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"stream" : ("stream", RestconfState.Streams.Stream)}
 
             self.stream = YList(self)
+            self._segment_path = lambda: "streams"
+            self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(RestconfState.Streams, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(RestconfState.Streams, self).__setattr__(name, value)
+            self._perform_setattr(RestconfState.Streams, [], name, value)
 
 
         class Stream(Entity):
@@ -259,6 +183,10 @@ class RestconfState(Entity):
 
                 self.yang_name = "stream"
                 self.yang_parent_name = "streams"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"access" : ("access", RestconfState.Streams.Stream.Access)}
 
                 self.name = YLeaf(YType.str, "name")
 
@@ -269,33 +197,11 @@ class RestconfState(Entity):
                 self.replay_support = YLeaf(YType.boolean, "replay-support")
 
                 self.access = YList(self)
+                self._segment_path = lambda: "stream" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/streams/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("name",
-                                "description",
-                                "replay_log_creation_time",
-                                "replay_support") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(RestconfState.Streams.Stream, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(RestconfState.Streams.Stream, self).__setattr__(name, value)
+                self._perform_setattr(RestconfState.Streams.Stream, ['name', 'description', 'replay_log_creation_time', 'replay_support'], name, value)
 
 
             class Access(Entity):
@@ -330,293 +236,18 @@ class RestconfState(Entity):
 
                     self.yang_name = "access"
                     self.yang_parent_name = "stream"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.encoding = YLeaf(YType.str, "encoding")
 
                     self.location = YLeaf(YType.str, "location")
+                    self._segment_path = lambda: "access" + "[encoding='" + self.encoding.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("encoding",
-                                    "location") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(RestconfState.Streams.Stream.Access, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(RestconfState.Streams.Stream.Access, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.encoding.is_set or
-                        self.location.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.encoding.yfilter != YFilter.not_set or
-                        self.location.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "access" + "[encoding='" + self.encoding.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.encoding.is_set or self.encoding.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.encoding.get_name_leafdata())
-                    if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.location.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "encoding" or name == "location"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "encoding"):
-                        self.encoding = value
-                        self.encoding.value_namespace = name_space
-                        self.encoding.value_namespace_prefix = name_space_prefix
-                    if(value_path == "location"):
-                        self.location = value
-                        self.location.value_namespace = name_space
-                        self.location.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.access:
-                    if (c.has_data()):
-                        return True
-                return (
-                    self.name.is_set or
-                    self.description.is_set or
-                    self.replay_log_creation_time.is_set or
-                    self.replay_support.is_set)
-
-            def has_operation(self):
-                for c in self.access:
-                    if (c.has_operation()):
-                        return True
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.name.yfilter != YFilter.not_set or
-                    self.description.yfilter != YFilter.not_set or
-                    self.replay_log_creation_time.yfilter != YFilter.not_set or
-                    self.replay_support.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "stream" + "[name='" + self.name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-restconf-monitoring:restconf-state/streams/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.name.get_name_leafdata())
-                if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.description.get_name_leafdata())
-                if (self.replay_log_creation_time.is_set or self.replay_log_creation_time.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.replay_log_creation_time.get_name_leafdata())
-                if (self.replay_support.is_set or self.replay_support.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.replay_support.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "access"):
-                    for c in self.access:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = RestconfState.Streams.Stream.Access()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.access.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "access" or name == "name" or name == "description" or name == "replay-log-creation-time" or name == "replay-support"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "name"):
-                    self.name = value
-                    self.name.value_namespace = name_space
-                    self.name.value_namespace_prefix = name_space_prefix
-                if(value_path == "description"):
-                    self.description = value
-                    self.description.value_namespace = name_space
-                    self.description.value_namespace_prefix = name_space_prefix
-                if(value_path == "replay-log-creation-time"):
-                    self.replay_log_creation_time = value
-                    self.replay_log_creation_time.value_namespace = name_space
-                    self.replay_log_creation_time.value_namespace_prefix = name_space_prefix
-                if(value_path == "replay-support"):
-                    self.replay_support = value
-                    self.replay_support.value_namespace = name_space
-                    self.replay_support.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.stream:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.stream:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "streams" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-restconf-monitoring:restconf-state/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "stream"):
-                for c in self.stream:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = RestconfState.Streams.Stream()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.stream.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "stream"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.capabilities is not None and self.capabilities.has_data()) or
-            (self.streams is not None and self.streams.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.capabilities is not None and self.capabilities.has_operation()) or
-            (self.streams is not None and self.streams.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-restconf-monitoring:restconf-state" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "capabilities"):
-            if (self.capabilities is None):
-                self.capabilities = RestconfState.Capabilities()
-                self.capabilities.parent = self
-                self._children_name_map["capabilities"] = "capabilities"
-            return self.capabilities
-
-        if (child_yang_name == "streams"):
-            if (self.streams is None):
-                self.streams = RestconfState.Streams()
-                self.streams.parent = self
-                self._children_name_map["streams"] = "streams"
-            return self.streams
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "capabilities" or name == "streams"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(RestconfState.Streams.Stream.Access, ['encoding', 'location'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RestconfState()

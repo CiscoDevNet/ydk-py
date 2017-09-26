@@ -5,16 +5,15 @@ CISCO\-DYNAMIC\-TEMPLATE\-MIB and MIB modules that use and expand
 on dynamic templates.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Dynamictemplatetargettype(Enum):
+class DynamicTemplateTargetType(Enum):
     """
-    Dynamictemplatetargettype
+    DynamicTemplateTargetType
 
     An enumerated integer\-value describing the type of target
 
@@ -57,9 +56,9 @@ class Dynamictemplatetargettype(Enum):
     interface = Enum.YLeaf(2, "interface")
 
 
-class Dynamictemplatetype(Enum):
+class DynamicTemplateType(Enum):
     """
-    Dynamictemplatetype
+    DynamicTemplateType
 
     An enumerated integer\-value describing the type of dynamic
 

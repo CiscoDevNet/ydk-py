@@ -5,53 +5,53 @@ class ImportTest(unittest.TestCase):
 
 
     def test_ATM_FORUM_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB import Truthvalue
-        from ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB import Atmservicecategory
+        from ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB import TruthValue
+        from ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB import AtmServiceCategory
 
 
     def test_ATM_MIB(self):
-        from ydk.models.cisco_ios_xe.ATM_MIB import AtmMib
+        from ydk.models.cisco_ios_xe.ATM_MIB import ATMMIB
 
 
     def test_ATM_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpscrcdvt
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptaggingnoscr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingnoscr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingscrcdvt
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnotrafficdescriptor
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclptaggingnoscr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingmcr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptaggingscrcdvt
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptransparentnoscr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpnoscrcdvt
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptransparentscr
         from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptaggingscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptransparentscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingmcr
         from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclptaggingnoscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingnoscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnotrafficdescriptor
         from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpnoscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpnoscrcdvt
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptransparentnoscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmnoclpscrcdvt
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingscrcdvt
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptaggingscrcdvt
         from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclpnotaggingscr
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmvorxoperstatus
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmvorxadminstatus
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atminterfacetype
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmconncasttype
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmconnkind
-        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmservicecategory
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import Atmclptaggingnoscr
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmVorXOperStatus
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmInterfaceType
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmServiceCategory
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmConnCastType
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmVorXAdminStatus
+        from ydk.models.cisco_ios_xe.ATM_TC_MIB import AtmConnKind
 
 
     def test_BGP4_MIB(self):
-        from ydk.models.cisco_ios_xe.BGP4_MIB import Bgp4Mib
+        from ydk.models.cisco_ios_xe.BGP4_MIB import BGP4MIB
 
 
     def test_BRIDGE_MIB(self):
-        from ydk.models.cisco_ios_xe.BRIDGE_MIB import BridgeMib
+        from ydk.models.cisco_ios_xe.BRIDGE_MIB import BRIDGEMIB
 
 
     def test_CISCO_AAA_SERVER_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB import Ciscoaaaprotocol
-        from ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB import CiscoAaaServerMib
+        from ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB import CiscoAAAProtocol
+        from ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB import CISCOAAASERVERMIB
 
 
     def test_CISCO_AAA_SESSION_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB import CiscoAaaSessionMib
+        from ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB import CISCOAAASESSIONMIB
 
 
     def test_CISCO_AAL5_MIB(self):
@@ -59,158 +59,158 @@ class ImportTest(unittest.TestCase):
 
 
     def test_CISCO_ATM_EXT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB import Oamccstatus
-        from ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB import Oamccvcstate
+        from ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB import OamCCVcState
+        from ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB import OamCCStatus
 
 
     def test_CISCO_ATM_PVCTRAP_EXTN_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import Catmoamfailuretype
-        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import Catmoamrecoverytype
-        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import CiscoAtmPvctrapExtnMib
+        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import CatmOAMRecoveryType
+        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import CatmOAMFailureType
+        from ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB import CISCOATMPVCTRAPEXTNMIB
 
 
     def test_CISCO_ATM_QOS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import Vpstate
-        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import Vcparamconfiglocation
-        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import CiscoAtmQosMib
+        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import VcParamConfigLocation
+        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import VpState
+        from ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB import CISCOATMQOSMIB
 
 
     def test_CISCO_BGP4_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_BGP4_MIB import Cbgpsafi
-        from ydk.models.cisco_ios_xe.CISCO_BGP4_MIB import CiscoBgp4Mib
+        from ydk.models.cisco_ios_xe.CISCO_BGP4_MIB import CbgpSafi
+        from ydk.models.cisco_ios_xe.CISCO_BGP4_MIB import CISCOBGP4MIB
 
 
     def test_CISCO_BGP_POLICY_ACCOUNTING_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB import CiscoBgpPolicyAccountingMib
+        from ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB import CISCOBGPPOLICYACCOUNTINGMIB
 
 
     def test_CISCO_BULK_FILE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB import CiscoBulkFileMib
+        from ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB import CISCOBULKFILEMIB
 
 
     def test_CISCO_CBP_TARGET_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB import CiscoCbpTargetMib
+        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_MIB import CISCOCBPTARGETMIB
 
 
     def test_CISCO_CBP_TARGET_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import Ccbptpolicysourcetype
-        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import Ccbpttargetdirection
-        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import Ccbpttargettype
+        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import CcbptTargetType
+        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import CcbptPolicySourceType
+        from ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB import CcbptTargetDirection
 
 
     def test_CISCO_CBP_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CBP_TC_MIB import Cbpexecutionstrategy
+        from ydk.models.cisco_ios_xe.CISCO_CBP_TC_MIB import CbpExecutionStrategy
 
 
     def test_CISCO_CDP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CDP_MIB import CiscoCdpMib
+        from ydk.models.cisco_ios_xe.CISCO_CDP_MIB import CISCOCDPMIB
 
 
     def test_CISCO_CEF_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CEF_MIB import CiscoCefMib
+        from ydk.models.cisco_ios_xe.CISCO_CEF_MIB import CISCOCEFMIB
 
 
     def test_CISCO_CEF_TC(self):
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefccaction
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Ceffailurereason
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefforwardingelementspecialtype
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefpathtype
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefadminstatus
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefccstatus
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefadjlinktype
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefprefixsearchstate
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefipversion
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefcctype
-        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import Cefoperstatus
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefOperStatus
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefPrefixSearchState
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefIpVersion
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefAdjLinkType
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefAdminStatus
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefCCStatus
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefPathType
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefCCType
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefCCAction
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefForwardingElementSpecialType
+        from ydk.models.cisco_ios_xe.CISCO_CEF_TC import CefFailureReason
 
 
     def test_CISCO_CONFIG_COPY_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import Configfiletype
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import Configcopyfailcause
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import Configcopystate
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import Configcopyprotocol
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import CiscoConfigCopyMib
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import ConfigFileType
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import ConfigCopyState
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import ConfigCopyFailCause
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import ConfigCopyProtocol
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB import CISCOCONFIGCOPYMIB
 
 
     def test_CISCO_CONFIG_MAN_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB import Historyeventmedium
-        from ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB import CiscoConfigManMib
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB import HistoryEventMedium
+        from ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB import CISCOCONFIGMANMIB
 
 
     def test_CISCO_CONTEXT_MAPPING_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB import CiscoContextMappingMib
+        from ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB import CISCOCONTEXTMAPPINGMIB
 
 
     def test_CISCO_DATA_COLLECTION_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import Cdcfileformat
-        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import Cdcfilexferstatus
-        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import CiscoDataCollectionMib
+        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import CdcFileFormat
+        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import CdcFileXferStatus
+        from ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB import CISCODATACOLLECTIONMIB
 
 
     def test_CISCO_DIAL_CONTROL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB import CiscoDialControlMib
+        from ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB import CISCODIALCONTROLMIB
 
 
     def test_CISCO_DOT3_OAM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB import CiscoDot3OamMib
+        from ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB import CISCODOT3OAMMIB
 
 
     def test_CISCO_DYNAMIC_TEMPLATE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB import CiscoDynamicTemplateMib
+        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB import CISCODYNAMICTEMPLATEMIB
 
 
     def test_CISCO_DYNAMIC_TEMPLATE_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB import Dynamictemplatetype
-        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB import Dynamictemplatetargettype
+        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB import DynamicTemplateType
+        from ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB import DynamicTemplateTargetType
 
 
     def test_CISCO_EIGRP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB import CiscoEigrpMib
+        from ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB import CISCOEIGRPMIB
 
 
     def test_CISCO_EMBEDDED_EVENT_MGR_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB import Notifysource
-        from ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB import CiscoEmbeddedEventMgrMib
+        from ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB import NotifySource
+        from ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB import CISCOEMBEDDEDEVENTMGRMIB
 
 
     def test_CISCO_ENHANCED_MEMPOOL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB import Cempmempooltypes
-        from ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB import CiscoEnhancedMempoolMib
+        from ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB import CempMemPoolTypes
+        from ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB import CISCOENHANCEDMEMPOOLMIB
 
 
     def test_CISCO_ENTITY_ALARM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB import Alarmseverity
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB import CiscoEntityAlarmMib
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB import AlarmSeverity
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB import CISCOENTITYALARMMIB
 
 
     def test_CISCO_ENTITY_EXT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB import CiscoEntityExtMib
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB import CISCOENTITYEXTMIB
 
 
     def test_CISCO_ENTITY_FRU_CONTROL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Poweradmintype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Frucoolingunit
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Poweropertype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Moduleresetreasontype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Moduleopertype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Powerredundancytype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import Moduleadmintype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import CiscoEntityFruControlMib
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import FRUCoolingUnit
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import PowerAdminType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import ModuleResetReasonType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import PowerOperType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import ModuleAdminType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import ModuleOperType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import PowerRedundancyType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB import CISCOENTITYFRUCONTROLMIB
 
 
     def test_CISCO_ENTITY_QFP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import Ciscoqfptimeinterval
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import Ciscoqfpmemoryresource
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import CiscoEntityQfpMib
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import CiscoQfpMemoryResource
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import CiscoQfpTimeInterval
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB import CISCOENTITYQFPMIB
 
 
     def test_CISCO_ENTITY_SENSOR_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import Sensordatascale
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import Sensordatatype
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import Sensorthresholdseverity
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import Sensorthresholdrelation
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import Sensorstatus
-        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import CiscoEntitySensorMib
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import SensorThresholdSeverity
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import SensorStatus
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import SensorDataScale
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import SensorDataType
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import SensorThresholdRelation
+        from ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB import CISCOENTITYSENSORMIB
 
 
     def test_CISCO_ENTITY_VENDORTYPE_OID_MIB(self):
@@ -218,205 +218,205 @@ class ImportTest(unittest.TestCase):
 
 
     def test_CISCO_ENVMON_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import Ciscoenvmonstate
-        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import CiscoEnvmonMib
+        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import CiscoEnvMonState
+        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import CISCOENVMONMIB
 
 
     def test_CISCO_ETHERLIKE_EXT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB import CiscoEtherlikeExtMib
+        from ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB import CISCOETHERLIKEEXTMIB
 
 
     def test_CISCO_ETHER_CFM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB import CiscoEtherCfmMib
+        from ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB import CISCOETHERCFMMIB
 
 
     def test_CISCO_FIREWALL_TC(self):
-        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import Cfwurlfvendorid
-        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import Cfwnetworkprotocol
-        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import Cfwpolicytargettype
-        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import Cfwurlserverstatus
-        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import Cfwapplicationprotocol
+        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import CFWPolicyTargetType
+        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import CFWApplicationProtocol
+        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import CFWUrlServerStatus
+        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import CFWNetworkProtocol
+        from ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC import CFWUrlfVendorId
 
 
     def test_CISCO_FLASH_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_FLASH_MIB import Flashfiletype
-        from ydk.models.cisco_ios_xe.CISCO_FLASH_MIB import CiscoFlashMib
+        from ydk.models.cisco_ios_xe.CISCO_FLASH_MIB import FlashFileType
+        from ydk.models.cisco_ios_xe.CISCO_FLASH_MIB import CISCOFLASHMIB
 
 
     def test_CISCO_FTP_CLIENT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB import CiscoFtpClientMib
+        from ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB import CISCOFTPCLIENTMIB
 
 
     def test_CISCO_HSRP_EXT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB import CiscoHsrpExtMib
+        from ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB import CISCOHSRPEXTMIB
 
 
     def test_CISCO_HSRP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_HSRP_MIB import Hsrpstate
-        from ydk.models.cisco_ios_xe.CISCO_HSRP_MIB import CiscoHsrpMib
+        from ydk.models.cisco_ios_xe.CISCO_HSRP_MIB import HsrpState
+        from ydk.models.cisco_ios_xe.CISCO_HSRP_MIB import CISCOHSRPMIB
 
 
     def test_CISCO_IETF_ATM2_PVCTRAP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB import CiscoIetfAtm2PvctrapMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB import CISCOIETFATM2PVCTRAPMIB
 
 
     def test_CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN import CiscoIetfAtm2PvctrapMibExtn
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN import CISCOIETFATM2PVCTRAPMIBEXTN
 
 
     def test_CISCO_IETF_BFD_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB import Ciscobfddiag
-        from ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB import CiscoIetfBfdMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB import CiscoBfdDiag
+        from ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB import CISCOIETFBFDMIB
 
 
     def test_CISCO_IETF_FRR_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB import CiscoIetfFrrMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB import CISCOIETFFRRMIB
 
 
     def test_CISCO_IETF_ISIS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciisupportedprotocol
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciiadminstate
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciiislevel
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciilevelstate
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciimetrictype
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import Ciimetricstyle
-        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiscoIetfIsisMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiLevelState
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiAdminState
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiMetricType
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiMetricStyle
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiISLevel
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CiiSupportedProtocol
+        from ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB import CISCOIETFISISMIB
 
 
     def test_CISCO_IETF_MPLS_ID_STD_03_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB import CiscoIetfMplsIdStd03Mib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB import CISCOIETFMPLSIDSTD03MIB
 
 
     def test_CISCO_IETF_MPLS_TE_EXT_STD_03_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB import CiscoIetfMplsTeExtStd03Mib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB import CISCOIETFMPLSTEEXTSTD03MIB
 
 
     def test_CISCO_IETF_PW_ATM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB import CiscoIetfPwAtmMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB import CISCOIETFPWATMMIB
 
 
     def test_CISCO_IETF_PW_ENET_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB import CiscoIetfPwEnetMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB import CISCOIETFPWENETMIB
 
 
     def test_CISCO_IETF_PW_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB import CiscoIetfPwMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB import CISCOIETFPWMIB
 
 
     def test_CISCO_IETF_PW_MPLS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB import CiscoIetfPwMplsMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB import CISCOIETFPWMPLSMIB
 
 
     def test_CISCO_IETF_PW_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB import Cpwvctype
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB import Cpwoperstatus
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB import CpwOperStatus
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB import CpwVcType
 
 
     def test_CISCO_IETF_PW_TDM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB import CiscoIetfPwTdmMib
+        from ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB import CISCOIETFPWTDMMIB
 
 
     def test_CISCO_IF_EXTENSION_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB import Ifindexpersistencestate
-        from ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB import CiscoIfExtensionMib
+        from ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB import IfIndexPersistenceState
+        from ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB import CISCOIFEXTENSIONMIB
 
 
     def test_CISCO_IGMP_FILTER_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB import CiscoIgmpFilterMib
+        from ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB import CISCOIGMPFILTERMIB
 
 
     def test_CISCO_IMAGE_LICENSE_MGMT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB import CiscoImageLicenseMgmtMib
+        from ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB import CISCOIMAGELICENSEMGMTMIB
 
 
     def test_CISCO_IMAGE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB import CiscoImageMib
+        from ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB import CISCOIMAGEMIB
 
 
     def test_CISCO_IPMROUTE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB import CiscoIpmrouteMib
+        from ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB import CISCOIPMROUTEMIB
 
 
     def test_CISCO_IPSEC_FLOW_MONITOR_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Authalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Ikehashalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Ikeauthmethod
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Ikenegomode
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Keytype
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Endpttype
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Compalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Encapmode
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Ikepeertype
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Diffhellmangrp
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Tunnelstatus
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Trapstatus
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import Encryptalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import CiscoIpsecFlowMonitorMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import TunnelStatus
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import IkeAuthMethod
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import IkeNegoMode
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import TrapStatus
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import IkePeerType
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import DiffHellmanGrp
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import EncryptAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import CompAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import IkeHashAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import EndPtType
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import EncapMode
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import AuthAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import KeyType
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB import CISCOIPSECFLOWMONITORMIB
 
 
     def test_CISCO_IPSEC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Ikeidentitytype
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Ikehashalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Cryptomaptype
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Ikeauthmethod
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Diffhellmangrp
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Cryptomapsetbindstatus
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Trapstatus
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import Encryptalgo
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import CiscoIpsecMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import TrapStatus
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import DiffHellmanGrp
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import EncryptAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import IkeHashAlgo
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import CryptomapType
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import IkeIdentityType
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import IkeAuthMethod
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import CryptomapSetBindStatus
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB import CISCOIPSECMIB
 
 
     def test_CISCO_IPSEC_POLICY_MAP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB import CiscoIpsecPolicyMapMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB import CISCOIPSECPOLICYMAPMIB
 
 
     def test_CISCO_IPSLA_AUTOMEASURE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB import CiscoIpslaAutomeasureMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB import CISCOIPSLAAUTOMEASUREMIB
 
 
     def test_CISCO_IPSLA_ECHO_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB import CiscoIpslaEchoMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB import CISCOIPSLAECHOMIB
 
 
     def test_CISCO_IPSLA_JITTER_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB import CiscoIpslaJitterMib
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB import CISCOIPSLAJITTERMIB
 
 
     def test_CISCO_IPSLA_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import Ipslacodectype
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import Ipslareactvar
-        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import Ipslaopertype
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import IpSlaOperType
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import IpSlaCodecType
+        from ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB import IpSlaReactVar
 
 
     def test_CISCO_IP_LOCAL_POOL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB import CiscoIpLocalPoolMib
+        from ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB import CISCOIPLOCALPOOLMIB
 
 
     def test_CISCO_IP_TAP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB import CiscoIpTapMib
+        from ydk.models.cisco_ios_xe.CISCO_IP_TAP_MIB import CISCOIPTAPMIB
 
 
     def test_CISCO_IP_URPF_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB import Unicastrpftype
-        from ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB import CiscoIpUrpfMib
+        from ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB import UnicastRpfType
+        from ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB import CISCOIPURPFMIB
 
 
     def test_CISCO_LICENSE_MGMT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import Clmgmtlicenseactionstate
-        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import Clmgmtlicensetransferprotocol
-        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import Clmgmtlicenseactionfailcause
-        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import CiscoLicenseMgmtMib
+        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import ClmgmtLicenseTransferProtocol
+        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import ClmgmtLicenseActionState
+        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import ClmgmtLicenseActionFailCause
+        from ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB import CISCOLICENSEMGMTMIB
 
 
     def test_CISCO_MEDIA_GATEWAY_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import Cgwservicestate
-        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import Cgwadminstate
-        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import Ccallcontroljitterdelaymode
-        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import CiscoMediaGatewayMib
+        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import CCallControlJitterDelayMode
+        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import CGwAdminState
+        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import CGwServiceState
+        from ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB import CISCOMEDIAGATEWAYMIB
 
 
     def test_CISCO_MPLS_LSR_EXT_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB import CiscoMplsLsrExtStdMib
+        from ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB import CISCOMPLSLSREXTSTDMIB
 
 
     def test_CISCO_MPLS_TC_EXT_STD_MIB(self):
@@ -424,45 +424,45 @@ class ImportTest(unittest.TestCase):
 
 
     def test_CISCO_NBAR_PROTOCOL_DISCOVERY_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB import Ciscopddatatype
-        from ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB import CiscoNbarProtocolDiscoveryMib
+        from ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB import CiscoPdDataType
+        from ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB import CISCONBARPROTOCOLDISCOVERYMIB
 
 
     def test_CISCO_NETSYNC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsynceecoption
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncclockmode
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncqualitylevel
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncesmccap
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsynciftype
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncqlmode
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncssmcap
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import Cisconetsyncnetworkoption
-        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncMib
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncEECOption
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncQualityLevel
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncSSMCap
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncESMCCap
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncQLMode
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncClockMode
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncIfType
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CiscoNetsyncNetworkOption
+        from ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB import CISCONETSYNCMIB
 
 
     def test_CISCO_NTP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_NTP_MIB import Ntpleapindicator
-        from ydk.models.cisco_ios_xe.CISCO_NTP_MIB import CiscoNtpMib
+        from ydk.models.cisco_ios_xe.CISCO_NTP_MIB import NTPLeapIndicator
+        from ydk.models.cisco_ios_xe.CISCO_NTP_MIB import CISCONTPMIB
 
 
     def test_CISCO_OSPF_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_OSPF_MIB import CiscoOspfMib
+        from ydk.models.cisco_ios_xe.CISCO_OSPF_MIB import CISCOOSPFMIB
 
 
     def test_CISCO_OSPF_TRAP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB import CiscoOspfTrapMib
+        from ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB import CISCOOSPFTRAPMIB
 
 
     def test_CISCO_PIM_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_PIM_MIB import CiscoPimMib
+        from ydk.models.cisco_ios_xe.CISCO_PIM_MIB import CISCOPIMMIB
 
 
     def test_CISCO_PING_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_PING_MIB import CiscoPingMib
+        from ydk.models.cisco_ios_xe.CISCO_PING_MIB import CISCOPINGMIB
 
 
     def test_CISCO_PROCESS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB import CiscoProcessMib
+        from ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB import CISCOPROCESSMIB
 
 
     def test_CISCO_PRODUCTS_MIB(self):
@@ -470,232 +470,232 @@ class ImportTest(unittest.TestCase):
 
 
     def test_CISCO_PTP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clocktxmodetype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockqualityaccuracytype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockportstate
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockmechanismtype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockstatetype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clocktype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockroletype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clocktimesourcetype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import Clockprofiletype
-        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import CiscoPtpMib
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockPortState
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockTimeSourceType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockRoleType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockMechanismType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockStateType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockQualityAccuracyType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockProfileType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import ClockTxModeType
+        from ydk.models.cisco_ios_xe.CISCO_PTP_MIB import CISCOPTPMIB
 
 
     def test_CISCO_QOS_PIB_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import Qosinterfacequeuetype
-        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import Queuerange
-        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import Thresholdsetrange
-        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import CiscoQosPibMib
+        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import QueueRange
+        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import QosInterfaceQueueType
+        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import ThresholdSetRange
+        from ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB import CISCOQOSPIBMIB
 
 
     def test_CISCO_RADIUS_EXT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB import CiscoRadiusExtMib
+        from ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB import CISCORADIUSEXTMIB
 
 
     def test_CISCO_RF_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfissustate
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfaction
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfstate
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfclientstatus
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfswactreasontype
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfissustaterev1
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import Rfmode
-        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import CiscoRfMib
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFIssuStateRev1
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFState
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFSwactReasonType
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFClientStatus
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFMode
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFIssuState
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import RFAction
+        from ydk.models.cisco_ios_xe.CISCO_RF_MIB import CISCORFMIB
 
 
     def test_CISCO_RTTMON_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB import CiscoRttmonMib
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB import CISCORTTMONMIB
 
 
     def test_CISCO_RTTMON_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmplsvpnmonlpdgrpstatus
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttresponsesense
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmonoperation
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttreset
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmoncodectype
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmonreactvar
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmplsvpnmonlpdfailuresense
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmonprotocol
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmonrtttype
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmonlsppingreplymode
-        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import Rttmplsvpnmonrtttype
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttReset
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonRttType
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonProtocol
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonCodecType
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMplsVpnMonLpdGrpStatus
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonLSPPingReplyMode
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMplsVpnMonLpdFailureSense
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonReactVar
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMplsVpnMonRttType
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttMonOperation
+        from ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB import RttResponseSense
 
 
     def test_CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB import Ciscosbcperiodicstatsinterval
-        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB import CiscoSessBorderCtrlrCallStatsMib
+        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB import CiscoSbcPeriodicStatsInterval
+        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB import CISCOSESSBORDERCTRLRCALLSTATSMIB
 
 
     def test_CISCO_SESS_BORDER_CTRLR_STATS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import Ciscosbcsipmethod
-        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import Ciscosbcradiusclienttype
-        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import CiscoSessBorderCtrlrStatsMib
+        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import CiscoSbcSIPMethod
+        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import CiscoSbcRadiusClientType
+        from ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB import CISCOSESSBORDERCTRLRSTATSMIB
 
 
     def test_CISCO_SIP_UA_MIB(self):
         from ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB import Ciscosipuamibnotifications
         from ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB import Ciscosipuamibnotificationprefix
-        from ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB import CiscoSipUaMib
+        from ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB import CISCOSIPUAMIB
 
 
     def test_CISCO_SMI(self):
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscounknownrptrgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainudpipv4
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainsctpipv6
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainipx
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint2
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Newport
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainlocal
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainsctpipv4
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Otherenterprises
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoexperiment
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint1
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2507Rptrgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscowsx5020Rptrgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint4
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopibtomib
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Lightstream
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainudpipv6
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Newport
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaintcpipv6
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopartnerproducts
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainclns
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoproxy
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint3
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoworks
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoproxy
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainclns
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainudpipv6
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscowsx5020Rptrgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Otherenterprises
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainsctpipv4
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscocibmmigroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopolicy
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Pakmon
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoagentcapability
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopki
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2505Rptrgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoproducts
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoadmin
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainddp
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaintcpipv6
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscosmb
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscodomains
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint1
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoconfig
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaincons
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscocibprovgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscocib
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopib
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Workgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoexperiment
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoagentcapability
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscocibmmigroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainudpipv4
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint2
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsets
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Local
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscomgmt
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Temporary
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2507Rptrgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2516Rptrgroup
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaintcpipv4
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscochipsetsaint4
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscorptrgroupobjectid
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Lightstream
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainsctpipv6
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscosb
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscomodules
-        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopartnerproducts
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaintcpipv4
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoconfig
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Local
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscounknownrptrgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomaincons
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Workgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2516Rptrgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscocib
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscorptrgroupobjectid
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscomgmt
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Cisco2505Rptrgroup
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainipx
         from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopolicyauto
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopolicy
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscomodules
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoproducts
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscosmb
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscotdomainddp
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscopki
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Pakmon
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscoadmin
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Ciscodomains
+        from ydk.models.cisco_ios_xe.CISCO_SMI import Temporary
 
 
     def test_CISCO_SONET_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import Csapslineswitchreason
-        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import Csapslinefailurecode
-        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import CiscoSonetMib
+        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import CsApsLineSwitchReason
+        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import CsApsLineFailureCode
+        from ydk.models.cisco_ios_xe.CISCO_SONET_MIB import CISCOSONETMIB
 
 
     def test_CISCO_STP_EXTENSIONS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB import CiscoStpExtensionsMib
+        from ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB import CISCOSTPEXTENSIONSMIB
 
 
     def test_CISCO_ST_TC(self):
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcaddresstype
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcifspeed
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcportmoduletypes
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Interfaceopermode
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcporttypes
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcporttxtypes
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcifservicestatetype
-        from ydk.models.cisco_ios_xe.CISCO_ST_TC import Fcifsfpdiagleveltype
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import InterfaceOperMode
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcPortTxTypes
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcPortModuleTypes
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcIfSpeed
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcIfSfpDiagLevelType
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcAddressType
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcPortTypes
+        from ydk.models.cisco_ios_xe.CISCO_ST_TC import FcIfServiceStateType
 
 
     def test_CISCO_SUBSCRIBER_IDENTITY_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import Subscribermediatype
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import Subscriberprotocoltype
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import Subsessionidentity
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import SubSessionIdentity
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import SubscriberMediaType
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB import SubscriberProtocolType
 
 
     def test_CISCO_SUBSCRIBER_SESSION_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB import CiscoSubscriberSessionMib
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB import CISCOSUBSCRIBERSESSIONMIB
 
 
     def test_CISCO_SUBSCRIBER_SESSION_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import Subsessionstate
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import Subsessiontype
-        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import Subsessionredundancymode
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import SubSessionType
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import SubSessionState
+        from ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB import SubSessionRedundancyMode
 
 
     def test_CISCO_SYSLOG_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB import Syslogseverity
-        from ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB import CiscoSyslogMib
+        from ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB import SyslogSeverity
+        from ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB import CISCOSYSLOGMIB
 
 
     def test_CISCO_TAP2_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_TAP2_MIB import CiscoTap2Mib
+        from ydk.models.cisco_ios_xe.CISCO_TAP2_MIB import CISCOTAP2MIB
 
 
     def test_CISCO_TC(self):
-        from ydk.models.cisco_ios_xe.CISCO_TC import Cisconetworkprotocol
-        from ydk.models.cisco_ios_xe.CISCO_TC import Ciscorowoperstatus
-        from ydk.models.cisco_ios_xe.CISCO_TC import Ifoperstatusreason
-        from ydk.models.cisco_ios_xe.CISCO_TC import Ciscoportlistrange
-        from ydk.models.cisco_ios_xe.CISCO_TC import Ciscoalarmseverity
-        from ydk.models.cisco_ios_xe.CISCO_TC import Ciscolocationclass
+        from ydk.models.cisco_ios_xe.CISCO_TC import CiscoPortListRange
+        from ydk.models.cisco_ios_xe.CISCO_TC import CiscoAlarmSeverity
+        from ydk.models.cisco_ios_xe.CISCO_TC import CiscoLocationClass
+        from ydk.models.cisco_ios_xe.CISCO_TC import CiscoNetworkProtocol
+        from ydk.models.cisco_ios_xe.CISCO_TC import CiscoRowOperStatus
+        from ydk.models.cisco_ios_xe.CISCO_TC import IfOperStatusReason
 
 
     def test_CISCO_UBE_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_UBE_MIB import CiscoUbeMib
+        from ydk.models.cisco_ios_xe.CISCO_UBE_MIB import CISCOUBEMIB
 
 
     def test_CISCO_UNIFIED_FIREWALL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB import CiscoUnifiedFirewallMib
+        from ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB import CISCOUNIFIEDFIREWALLMIB
 
 
     def test_CISCO_VLAN_IFTABLE_RELATIONSHIP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VLAN_IFTABLE_RELATIONSHIP_MIB import CiscoVlanIftableRelationshipMib
+        from ydk.models.cisco_ios_xe.CISCO_VLAN_IFTABLE_RELATIONSHIP_MIB import CISCOVLANIFTABLERELATIONSHIPMIB
 
 
     def test_CISCO_VLAN_MEMBERSHIP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB import CiscoVlanMembershipMib
+        from ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB import CISCOVLANMEMBERSHIPMIB
 
 
     def test_CISCO_VOICE_COMMON_DIAL_CONTROL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvch320Calltype
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvcfaxtransmitrate
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvcinbandsignaling
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvcvideocoderrate
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvcspeechcoderrate
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import Cvccodertyperate
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CiscoVoiceCommonDialControlMib
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcFaxTransmitRate
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcH320CallType
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcSpeechCoderRate
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcCoderTypeRate
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcInBandSignaling
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CvcVideoCoderRate
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB import CISCOVOICECOMMONDIALCONTROLMIB
 
 
     def test_CISCO_VOICE_DIAL_CONTROL_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvsessionprotocol
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvilbcframemode
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvcallvolumestatsintvltype
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvcallconnectiontype
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvamrnbrtpencap
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import Cvcallvolumewmintvltype
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CiscoVoiceDialControlMib
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvCallVolumeStatsIntvlType
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvIlbcFrameMode
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvCallConnectionType
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvSessionProtocol
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvAmrNbRtpEncap
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CvCallVolumeWMIntvlType
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB import CISCOVOICEDIALCONTROLMIB
 
 
     def test_CISCO_VOICE_DNIS_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB import CiscoVoiceDnisMib
+        from ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB import CISCOVOICEDNISMIB
 
 
     def test_CISCO_VPDN_MGMT_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import Endpointclass
-        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import Tunneltype
-        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import CiscoVpdnMgmtMib
+        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import TunnelType
+        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import EndpointClass
+        from ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB import CISCOVPDNMGMTMIB
 
 
     def test_CISCO_VTP_MIB(self):
-        from ydk.models.cisco_ios_xe.CISCO_VTP_MIB import Vlantype
-        from ydk.models.cisco_ios_xe.CISCO_VTP_MIB import CiscoVtpMib
+        from ydk.models.cisco_ios_xe.CISCO_VTP_MIB import VlanType
+        from ydk.models.cisco_ios_xe.CISCO_VTP_MIB import CISCOVTPMIB
 
 
     def test_Cisco_IOS_XE_aaa(self):
@@ -732,9 +732,9 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_bfd_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdRemoteStateType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdStateType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdLspType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdOperSessionType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdLspType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdStateType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper import BfdState
 
 
@@ -749,15 +749,15 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_bgp_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper import BgpMode
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper import BgpLink
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper import BgpFsmState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper import BgpLink
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper import BgpStateData
 
 
     def test_Cisco_IOS_XE_bgp_route_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper import BgpOriginCode
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper import BgpRouteFilters
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper import BgpRpkiStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper import BgpRouteFilters
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper import BgpOriginCode
 
 
     def test_Cisco_IOS_XE_bridge_domain(self):
@@ -777,10 +777,10 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_cdp_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpAdvVersion
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpEnableDisable
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpUnidirectionalMode
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpYesNo
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpUnidirectionalMode
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpAdvVersion
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpDuplex
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper import CdpNeighbourDetails
 
@@ -832,8 +832,8 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_diffserv_target_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper import Outbound
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper import Inbound
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper import Direction
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper import Inbound
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper import DiffservInterfacesState
 
 
@@ -904,10 +904,10 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_ip_sla_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import SlaReturnCode
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import TtlType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import RttType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import AccuracyType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import SlaOperType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import RttType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import TtlType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper import IpSlaStats
 
 
@@ -916,9 +916,9 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_isis(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_isis import AuthenticationLevelType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_isis import IsisLevelType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_isis import IsisRoutesLevelType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_isis import AuthenticationLevelType
 
 
     def test_Cisco_IOS_XE_l2vpn(self):
@@ -963,10 +963,10 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_mdt_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtSubType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtSubState
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtConState
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtReceiverState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtSubState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtSubType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper import MdtOperData
 
 
@@ -987,8 +987,8 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_mpls(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls import MplsTeTiebreakerType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls import LdpDiscoveryAddressType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls import MplsTeTiebreakerType
 
 
     def test_Cisco_IOS_XE_mpls_fwd_oper(self):
@@ -996,87 +996,87 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_mpls_ldp(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnPpExists
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerStatic
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpPeer
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrTpCreate
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnMissingElem
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStNone
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNoCtx
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrPpCreate
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonNbrHold
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusNotReady
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrNone
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStOper
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IcpmTypeIccp
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNa
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrTcpPeer
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnPEndSockNotSynced
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpBackupRemote
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStWait
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErr
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNoPeerSess
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusDisabled
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpSyncNack
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeUnknown
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IcpmType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrDhcAdd
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNoHelloAdj
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerNone
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAddrBind
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeUnLabeled
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNoPEndSock
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrSyncPrep
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAppNotFound
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpProtected
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAppInvalid
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpNoFlag
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonInternal
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxBadPie
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNone
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStReady
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrTcpGbl
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpTypeMlacp
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxNotif
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonPeerUpdateNotReceived
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrUnexpPeerDown
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatus
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsn
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnTblIdMismatch
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnEnomem
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerLdp
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeMpls
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStPrep
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReason
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReason
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusReady
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAdjAdd
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxUnexpOpen
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonNa
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStAppWait
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrAppFail
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonDiscHello
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpBgpBackup
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerBgp
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonPeerUpdateNotDone
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwner
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpGbl
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxUnexpOpen
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsn
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonPeerUpdateNotReceived
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerLdp
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusDisabled
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAppInvalid
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStWait
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxBadPie
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrUnexpPeerDown
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeUnknown
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStNone
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerStatic
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpBackupRemote
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonInternal
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerNone
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrPpCreate
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeMpls
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IcpmType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpBackup
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AdvLabelType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AfId
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import Af
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LocalLabelState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AdjState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import SessionState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LoopDetectionType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DhcState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NbrBgpAdvtState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNoPeerSess
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpGbl
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReason
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnTblIdMismatch
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusReady
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrDhcAdd
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwnerBgp
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrRxNotif
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStPrep
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErr
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrTcpPeer
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonPeerUpdateNotDone
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNone
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNoHelloAdj
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpProtected
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReasonNa
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStAppWait
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNoCtx
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpPeer
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrSyncPrep
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathLblOwner
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrAppFail
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAddrBind
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonNbrHold
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnNoPEndSock
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpTypeMlacp
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStOper
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrStatusNotReady
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LdpNsrPeerSyncStReady
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnEnomem
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncDownReason
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnPpExists
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnMissingElem
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrTcpGbl
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LabelTypeUnLabeled
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonDiscHello
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IcpmTypeIccp
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnPEndSockNotSynced
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrLdpSyncNack
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrPeerSyncErrNone
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAdjAdd
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrAppNotFound
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DownNbrReasonNa
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NsrSyncNackRsnErrTpCreate
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RoutePathIpNoFlag
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IgpSyncState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AdjState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import Af
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import DhcState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LoopDetectionType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import SessionState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import LocalLabelState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import IccpState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import NbrBgpAdvtState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AfId
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import AdvLabelType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import MplsLdp
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import ClearMsgCounters
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp import RestartNeighbor
@@ -1145,8 +1145,8 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_platform_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper import PlatformCompType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper import PlatformPropValueType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper import PlatformCompType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper import Components
 
 
@@ -1156,11 +1156,11 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_policy(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PolicyActionType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PolicePacketsBytesType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PolicePpsBpsType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import ClassNameType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PrecedenceType2
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import ClassNameType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PolicyActionType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_policy import PolicePpsBpsType
 
 
     def test_Cisco_IOS_XE_power(self):
@@ -1251,9 +1251,9 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_trustsec_oper(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import SxpConState
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import CtsOdmBindingSource
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import SxpConMode
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import CtsOdmBindingSource
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import SxpConState
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper import TrustsecState
 
 
@@ -1262,25 +1262,25 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_types(self):
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import LimitDcNonDcType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Prec_ValueType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import CommunityWellKnownType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Qos_ValueType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import InterfaceType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import MobilityType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import CommunityWellKnownAddType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import AclTcpPortType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import AclUdpPortType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import PrecedenceType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Cos_ValueType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Bgp_Ipv4_Af_Type
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import MonthType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import DscpType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Exp_ValueType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import WeekdayType
-        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import Bgp_Ipv6_Af_Type
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import RedistOspfExternalType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import MobilityType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import QosValueType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import WeekdayType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import BgpIpv4AfType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import MonthType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import AccessListInOutType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import CommunityWellKnownType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import PrecedenceType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import CosValueType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import LimitDcNonDcType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import AclUdpPortType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import AclTcpPortType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import CommunityWellKnownAddType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import DscpType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import InterfaceType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import PrecValueType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import BgpIpv6AfType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import ExpValueType
 
 
     def test_Cisco_IOS_XE_udld(self):
@@ -1332,7 +1332,7 @@ class ImportTest(unittest.TestCase):
 
 
     def test_DIAL_CONTROL_MIB(self):
-        from ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB import DialControlMib
+        from ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB import DIALCONTROLMIB
 
 
     def test_DIFFSERV_DSCP_TC(self):
@@ -1340,82 +1340,82 @@ class ImportTest(unittest.TestCase):
 
 
     def test_DIFFSERV_MIB(self):
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamtswtcm
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamsrtcmblind
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservschedulerpriority
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamavgrate
         from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservschedulerwfq
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamsrtcmblind
         from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamtrtcmaware
         from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservschedulerwrr
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamtrtcmblind
         from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamsimpletokenbucket
         from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamsrtcmaware
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Ifdirection
-        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import DiffservMib
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamtswtcm
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamavgrate
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservschedulerpriority
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import Diffservtbparamtrtcmblind
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import IfDirection
+        from ydk.models.cisco_ios_xe.DIFFSERV_MIB import DIFFSERVMIB
 
 
     def test_DISMAN_EVENT_MIB(self):
-        from ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB import Failurereason
-        from ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB import DismanEventMib
+        from ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB import FailureReason
+        from ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB import DISMANEVENTMIB
 
 
     def test_DISMAN_EXPRESSION_MIB(self):
-        from ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB import DismanExpressionMib
+        from ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB import DISMANEXPRESSIONMIB
 
 
     def test_DRAFT_MSDP_MIB(self):
-        from ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB import DraftMsdpMib
+        from ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB import DRAFTMSDPMIB
 
 
     def test_DS1_MIB(self):
-        from ydk.models.cisco_ios_xe.DS1_MIB import Ds1Mib
+        from ydk.models.cisco_ios_xe.DS1_MIB import DS1MIB
 
 
     def test_DS3_MIB(self):
-        from ydk.models.cisco_ios_xe.DS3_MIB import Ds3Mib
+        from ydk.models.cisco_ios_xe.DS3_MIB import DS3MIB
 
 
     def test_ENTITY_MIB(self):
-        from ydk.models.cisco_ios_xe.ENTITY_MIB import Physicalclass
-        from ydk.models.cisco_ios_xe.ENTITY_MIB import EntityMib
+        from ydk.models.cisco_ios_xe.ENTITY_MIB import PhysicalClass
+        from ydk.models.cisco_ios_xe.ENTITY_MIB import ENTITYMIB
 
 
     def test_ENTITY_SENSOR_MIB(self):
-        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import Entitysensorstatus
-        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import Entitysensordatascale
-        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import Entitysensordatatype
-        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import EntitySensorMib
+        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import EntitySensorStatus
+        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import EntitySensorDataType
+        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import EntitySensorDataScale
+        from ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB import ENTITYSENSORMIB
 
 
     def test_ENTITY_STATE_MIB(self):
-        from ydk.models.cisco_ios_xe.ENTITY_STATE_MIB import EntityStateMib
+        from ydk.models.cisco_ios_xe.ENTITY_STATE_MIB import ENTITYSTATEMIB
 
 
     def test_ENTITY_STATE_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import Entitystandbystatus
-        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import Entityoperstate
-        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import Entityadminstate
-        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import Entityusagestate
+        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import EntityStandbyStatus
+        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import EntityOperState
+        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import EntityUsageState
+        from ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB import EntityAdminState
 
 
     def test_ETHER_WIS(self):
-        from ydk.models.cisco_ios_xe.ETHER_WIS import EtherWis
+        from ydk.models.cisco_ios_xe.ETHER_WIS import ETHERWIS
 
 
     def test_EXPRESSION_MIB(self):
-        from ydk.models.cisco_ios_xe.EXPRESSION_MIB import ExpressionMib
+        from ydk.models.cisco_ios_xe.EXPRESSION_MIB import EXPRESSIONMIB
 
 
     def test_EtherLike_MIB(self):
-        from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Errorloopbackerror
-        from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Erroriniterror
         from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Testloopback
         from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Testtdr
-        from ydk.models.cisco_ios_xe.EtherLike_MIB import EtherlikeMib
+        from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Erroriniterror
+        from ydk.models.cisco_ios_xe.EtherLike_MIB import Dot3Errorloopbackerror
+        from ydk.models.cisco_ios_xe.EtherLike_MIB import EtherLikeMIB
 
 
     def test_FRAME_RELAY_DTE_MIB(self):
-        from ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB import FrameRelayDteMib
+        from ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB import FRAMERELAYDTEMIB
 
 
     def test_HCNUM_TC(self):
@@ -1423,52 +1423,52 @@ class ImportTest(unittest.TestCase):
 
 
     def test_IANA_ADDRESS_FAMILY_NUMBERS_MIB(self):
-        from ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB import Addressfamilynumbers
+        from ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB import AddressFamilyNumbers
 
 
     def test_IANA_RTPROTO_MIB(self):
-        from ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB import Ianaiprouteprotocol
-        from ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB import Ianaipmrouteprotocol
+        from ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB import IANAipMRouteProtocol
+        from ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB import IANAipRouteProtocol
 
 
     def test_IANAifType_MIB(self):
-        from ydk.models.cisco_ios_xe.IANAifType_MIB import Ianaiftype
-        from ydk.models.cisco_ios_xe.IANAifType_MIB import Ianatunneltype
+        from ydk.models.cisco_ios_xe.IANAifType_MIB import IANAifType
+        from ydk.models.cisco_ios_xe.IANAifType_MIB import IANAtunnelType
 
 
     def test_IEEE8021_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import Ieee8021Serviceselectortype
-        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import Ieee8021Portacceptableframetypes
-        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import Ieee8021Prioritycodepoint
-        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import Ieee8021Bridgeporttype
+        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import IEEE8021PriorityCodePoint
+        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import IEEE8021ServiceSelectorType
+        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import IEEE8021PortAcceptableFrameTypes
+        from ydk.models.cisco_ios_xe.IEEE8021_TC_MIB import IEEE8021BridgePortType
 
 
     def test_IF_MIB(self):
-        from ydk.models.cisco_ios_xe.IF_MIB import IfMib
+        from ydk.models.cisco_ios_xe.IF_MIB import IFMIB
 
 
     def test_IGMP_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.IGMP_STD_MIB import IgmpStdMib
+        from ydk.models.cisco_ios_xe.IGMP_STD_MIB import IGMPSTDMIB
 
 
     def test_INET_ADDRESS_MIB(self):
-        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import Inetaddresstype
-        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import Inetscopetype
-        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import Inetversion
+        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import InetScopeType
+        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import InetAddressType
+        from ydk.models.cisco_ios_xe.INET_ADDRESS_MIB import InetVersion
 
 
     def test_INTEGRATED_SERVICES_MIB(self):
-        from ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB import Qosservice
-        from ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB import IntegratedServicesMib
+        from ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB import QosService
+        from ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB import INTEGRATEDSERVICESMIB
 
 
     def test_INT_SERV_MIB(self):
-        from ydk.models.cisco_ios_xe.INT_SERV_MIB import Qosservice
-        from ydk.models.cisco_ios_xe.INT_SERV_MIB import IntServMib
+        from ydk.models.cisco_ios_xe.INT_SERV_MIB import QosService
+        from ydk.models.cisco_ios_xe.INT_SERV_MIB import INTSERVMIB
 
 
     def test_IPMROUTE_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB import IpmrouteStdMib
+        from ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB import IPMROUTESTDMIB
 
 
     def test_IPV6_FLOW_LABEL_MIB(self):
@@ -1476,87 +1476,87 @@ class ImportTest(unittest.TestCase):
 
 
     def test_IP_FORWARD_MIB(self):
-        from ydk.models.cisco_ios_xe.IP_FORWARD_MIB import IpForwardMib
+        from ydk.models.cisco_ios_xe.IP_FORWARD_MIB import IPFORWARDMIB
 
 
     def test_IP_MIB(self):
-        from ydk.models.cisco_ios_xe.IP_MIB import Ipaddressorigintc
-        from ydk.models.cisco_ios_xe.IP_MIB import Ipaddressprefixorigintc
-        from ydk.models.cisco_ios_xe.IP_MIB import Ipaddressstatustc
-        from ydk.models.cisco_ios_xe.IP_MIB import IpMib
+        from ydk.models.cisco_ios_xe.IP_MIB import IpAddressStatusTC
+        from ydk.models.cisco_ios_xe.IP_MIB import IpAddressPrefixOriginTC
+        from ydk.models.cisco_ios_xe.IP_MIB import IpAddressOriginTC
+        from ydk.models.cisco_ios_xe.IP_MIB import IPMIB
 
 
     def test_LLDP_MIB(self):
-        from ydk.models.cisco_ios_xe.LLDP_MIB import Lldpmanaddrifsubtype
-        from ydk.models.cisco_ios_xe.LLDP_MIB import Lldpportidsubtype
-        from ydk.models.cisco_ios_xe.LLDP_MIB import Lldpchassisidsubtype
-        from ydk.models.cisco_ios_xe.LLDP_MIB import LldpMib
+        from ydk.models.cisco_ios_xe.LLDP_MIB import LldpManAddrIfSubtype
+        from ydk.models.cisco_ios_xe.LLDP_MIB import LldpPortIdSubtype
+        from ydk.models.cisco_ios_xe.LLDP_MIB import LldpChassisIdSubtype
+        from ydk.models.cisco_ios_xe.LLDP_MIB import LLDPMIB
 
 
     def test_MPLS_L3VPN_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB import Mplsl3Vpnrttype
-        from ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB import MplsL3VpnStdMib
+        from ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB import MplsL3VpnRtType
+        from ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB import MPLSL3VPNSTDMIB
 
 
     def test_MPLS_LDP_GENERIC_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB import MplsLdpGenericStdMib
+        from ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB import MPLSLDPGENERICSTDMIB
 
 
     def test_MPLS_LDP_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB import MplsLdpStdMib
+        from ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB import MPLSLDPSTDMIB
 
 
     def test_MPLS_LSR_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB import MplsLsrStdMib
+        from ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB import MPLSLSRSTDMIB
 
 
     def test_MPLS_TC_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_TC_MIB import Mplsldplabeltypes
-        from ydk.models.cisco_ios_xe.MPLS_TC_MIB import Mplsinitialcreationsource
+        from ydk.models.cisco_ios_xe.MPLS_TC_MIB import MplsLdpLabelTypes
+        from ydk.models.cisco_ios_xe.MPLS_TC_MIB import MplsInitialCreationSource
 
 
     def test_MPLS_TC_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Mplsretentionmode
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Mplslsptype
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Tehopaddresstype
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Mplsldplabeltype
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Mplslabeldistributionmethod
-        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import Mplsowner
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import MplsOwner
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import MplsLspType
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import MplsRetentionMode
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import MplsLabelDistributionMethod
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import TeHopAddressType
+        from ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB import MplsLdpLabelType
 
 
     def test_MPLS_TE_STD_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB import MplsTeStdMib
+        from ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB import MPLSTESTDMIB
 
 
     def test_MPLS_VPN_MIB(self):
-        from ydk.models.cisco_ios_xe.MPLS_VPN_MIB import MplsVpnMib
+        from ydk.models.cisco_ios_xe.MPLS_VPN_MIB import MPLSVPNMIB
 
 
     def test_NHRP_MIB(self):
-        from ydk.models.cisco_ios_xe.NHRP_MIB import NhrpMib
+        from ydk.models.cisco_ios_xe.NHRP_MIB import NHRPMIB
 
 
     def test_NOTIFICATION_LOG_MIB(self):
-        from ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB import NotificationLogMib
+        from ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB import NOTIFICATIONLOGMIB
 
 
     def test_OSPF_MIB(self):
-        from ydk.models.cisco_ios_xe.OSPF_MIB import Ospfauthenticationtype
         from ydk.models.cisco_ios_xe.OSPF_MIB import Status
-        from ydk.models.cisco_ios_xe.OSPF_MIB import OspfMib
+        from ydk.models.cisco_ios_xe.OSPF_MIB import OspfAuthenticationType
+        from ydk.models.cisco_ios_xe.OSPF_MIB import OSPFMIB
 
 
     def test_OSPF_TRAP_MIB(self):
-        from ydk.models.cisco_ios_xe.OSPF_TRAP_MIB import OspfTrapMib
+        from ydk.models.cisco_ios_xe.OSPF_TRAP_MIB import OSPFTRAPMIB
 
 
     def test_PIM_MIB(self):
-        from ydk.models.cisco_ios_xe.PIM_MIB import PimMib
+        from ydk.models.cisco_ios_xe.PIM_MIB import PIMMIB
 
 
     def test_P_BRIDGE_MIB(self):
-        from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import Enabledstatus
-        from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import PBridgeMib
+        from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import EnabledStatus
+        from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import PBRIDGEMIB
 
 
     def test_PerfHist_TC_MIB(self):
@@ -1564,7 +1564,7 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Q_BRIDGE_MIB(self):
-        from ydk.models.cisco_ios_xe.Q_BRIDGE_MIB import QBridgeMib
+        from ydk.models.cisco_ios_xe.Q_BRIDGE_MIB import QBRIDGEMIB
 
 
     def test_RFC1155_SMI(self):
@@ -1572,11 +1572,11 @@ class ImportTest(unittest.TestCase):
 
 
     def test_RFC1213_MIB(self):
-        from ydk.models.cisco_ios_xe.RFC1213_MIB import Rfc1213Mib
+        from ydk.models.cisco_ios_xe.RFC1213_MIB import RFC1213MIB
 
 
     def test_RFC1315_MIB(self):
-        from ydk.models.cisco_ios_xe.RFC1315_MIB import Rfc1315Mib
+        from ydk.models.cisco_ios_xe.RFC1315_MIB import RFC1315MIB
 
 
     def test_RFC_1212(self):
@@ -1588,73 +1588,73 @@ class ImportTest(unittest.TestCase):
 
 
     def test_RMON2_MIB(self):
-        from ydk.models.cisco_ios_xe.RMON2_MIB import Rmon2Mib
+        from ydk.models.cisco_ios_xe.RMON2_MIB import RMON2MIB
 
 
     def test_RMON_MIB(self):
         from ydk.models.cisco_ios_xe.RMON_MIB import Rmoneventsv2
-        from ydk.models.cisco_ios_xe.RMON_MIB import Entrystatus
-        from ydk.models.cisco_ios_xe.RMON_MIB import RmonMib
+        from ydk.models.cisco_ios_xe.RMON_MIB import EntryStatus
+        from ydk.models.cisco_ios_xe.RMON_MIB import RMONMIB
 
 
     def test_RSVP_MIB(self):
-        from ydk.models.cisco_ios_xe.RSVP_MIB import Rsvpencapsulation
-        from ydk.models.cisco_ios_xe.RSVP_MIB import RsvpMib
+        from ydk.models.cisco_ios_xe.RSVP_MIB import RsvpEncapsulation
+        from ydk.models.cisco_ios_xe.RSVP_MIB import RSVPMIB
 
 
     def test_SNMP_FRAMEWORK_MIB(self):
         from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import Snmpprivprotocols
         from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import Snmpauthprotocols
-        from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import Snmpsecuritylevel
-        from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import SnmpFrameworkMib
+        from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import SnmpSecurityLevel
+        from ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB import SNMPFRAMEWORKMIB
 
 
     def test_SNMP_PROXY_MIB(self):
-        from ydk.models.cisco_ios_xe.SNMP_PROXY_MIB import SnmpProxyMib
+        from ydk.models.cisco_ios_xe.SNMP_PROXY_MIB import SNMPPROXYMIB
 
 
     def test_SNMP_TARGET_MIB(self):
-        from ydk.models.cisco_ios_xe.SNMP_TARGET_MIB import SnmpTargetMib
+        from ydk.models.cisco_ios_xe.SNMP_TARGET_MIB import SNMPTARGETMIB
 
 
     def test_SNMPv2_MIB(self):
-        from ydk.models.cisco_ios_xe.SNMPv2_MIB import Snmpv2Mib
+        from ydk.models.cisco_ios_xe.SNMPv2_MIB import SNMPv2MIB
 
 
     def test_SNMPv2_TC(self):
-        from ydk.models.cisco_ios_xe.SNMPv2_TC import Rowstatus
-        from ydk.models.cisco_ios_xe.SNMPv2_TC import Storagetype
-        from ydk.models.cisco_ios_xe.SNMPv2_TC import Truthvalue
+        from ydk.models.cisco_ios_xe.SNMPv2_TC import StorageType
+        from ydk.models.cisco_ios_xe.SNMPv2_TC import TruthValue
+        from ydk.models.cisco_ios_xe.SNMPv2_TC import RowStatus
 
 
     def test_SONET_MIB(self):
-        from ydk.models.cisco_ios_xe.SONET_MIB import SonetMib
+        from ydk.models.cisco_ios_xe.SONET_MIB import SONETMIB
 
 
     def test_TCP_MIB(self):
-        from ydk.models.cisco_ios_xe.TCP_MIB import TcpMib
+        from ydk.models.cisco_ios_xe.TCP_MIB import TCPMIB
 
 
     def test_TOKENRING_MIB(self):
-        from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Testfullduplexloopback
-        from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Chipsettitms380
         from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Chipsettitms380C16
         from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Testinsertfunc
+        from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Chipsettitms380
         from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Chipsetibm16
-        from ydk.models.cisco_ios_xe.TOKENRING_MIB import TokenringMib
+        from ydk.models.cisco_ios_xe.TOKENRING_MIB import Dot5Testfullduplexloopback
+        from ydk.models.cisco_ios_xe.TOKENRING_MIB import TOKENRINGMIB
 
 
     def test_TOKEN_RING_RMON_MIB(self):
-        from ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB import Entrystatus
-        from ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB import TokenRingRmonMib
+        from ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB import EntryStatus
+        from ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB import TOKENRINGRMONMIB
 
 
     def test_TUNNEL_MIB(self):
-        from ydk.models.cisco_ios_xe.TUNNEL_MIB import TunnelMib
+        from ydk.models.cisco_ios_xe.TUNNEL_MIB import TUNNELMIB
 
 
     def test_UDP_MIB(self):
-        from ydk.models.cisco_ios_xe.UDP_MIB import UdpMib
+        from ydk.models.cisco_ios_xe.UDP_MIB import UDPMIB
 
 
     def test_VPN_TC_STD_MIB(self):
@@ -1662,15 +1662,15 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_bridge_common(self):
-        from ydk.models.cisco_ios_xe.cisco_bridge_common import NotifSyslog
-        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacLimitNotificationType
         from ydk.models.cisco_ios_xe.cisco_bridge_common import NotifNone
         from ydk.models.cisco_ios_xe.cisco_bridge_common import NotifSnmpTrap
         from ydk.models.cisco_ios_xe.cisco_bridge_common import NotifSyslogAndSnmpTrap
-        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacLimitAction
-        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacAgingType
+        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacLimitNotificationType
+        from ydk.models.cisco_ios_xe.cisco_bridge_common import NotifSyslog
         from ydk.models.cisco_ios_xe.cisco_bridge_common import EthTrafficClass
+        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacAgingType
         from ydk.models.cisco_ios_xe.cisco_bridge_common import MacSecureAction
+        from ydk.models.cisco_ios_xe.cisco_bridge_common import MacLimitAction
 
 
     def test_cisco_bridge_domain(self):
@@ -1683,20 +1683,20 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_ethernet(self):
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed100gb
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed10mb
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed40gb
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed10gb
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed100mb
+        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed1gb
         from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed100Mb
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed10Mb
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed100Gb
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed40Gb
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed10Gb
-        from ydk.models.cisco_ios_xe.cisco_ethernet import EthIfSpeed1Gb
 
 
     def test_cisco_ia(self):
-        from ydk.models.cisco_ios_xe.cisco_ia import OnepLogLevel
-        from ydk.models.cisco_ios_xe.cisco_ia import CiaLogLevel
         from ydk.models.cisco_ios_xe.cisco_ia import CiaSyncType
+        from ydk.models.cisco_ios_xe.cisco_ia import CiaLogLevel
         from ydk.models.cisco_ios_xe.cisco_ia import SyslogSeverity
+        from ydk.models.cisco_ios_xe.cisco_ia import OnepLogLevel
         from ydk.models.cisco_ios_xe.cisco_ia import SyncFrom
         from ydk.models.cisco_ios_xe.cisco_ia import SaveConfig
         from ydk.models.cisco_ios_xe.cisco_ia import IsSyncing
@@ -1706,27 +1706,27 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_odm(self):
-        from ydk.models.cisco_ios_xe.cisco_odm import Bridgedomain
-        from ydk.models.cisco_ios_xe.cisco_odm import Mplsstaticbinding
+        from ydk.models.cisco_ios_xe.cisco_odm import MPLSStaticBinding
+        from ydk.models.cisco_ios_xe.cisco_odm import MPLSForwardingTable
+        from ydk.models.cisco_ios_xe.cisco_odm import OSPF
+        from ydk.models.cisco_ios_xe.cisco_odm import BFDNeighbors
+        from ydk.models.cisco_ios_xe.cisco_odm import BGP
         from ydk.models.cisco_ios_xe.cisco_odm import Diffserv
-        from ydk.models.cisco_ios_xe.cisco_odm import Ospf
-        from ydk.models.cisco_ios_xe.cisco_odm import Ethernetcfmstats
-        from ydk.models.cisco_ios_xe.cisco_odm import Mplsldpneighbors
-        from ydk.models.cisco_ios_xe.cisco_odm import Flowmonitor
-        from ydk.models.cisco_ios_xe.cisco_odm import Bfdneighbors
-        from ydk.models.cisco_ios_xe.cisco_odm import Virtualservice
-        from ydk.models.cisco_ios_xe.cisco_odm import Mplsforwardingtable
-        from ydk.models.cisco_ios_xe.cisco_odm import Iproute
-        from ydk.models.cisco_ios_xe.cisco_odm import Platformsoftware
+        from ydk.models.cisco_ios_xe.cisco_odm import PlatformSoftware
+        from ydk.models.cisco_ios_xe.cisco_odm import EthernetCFMStats
+        from ydk.models.cisco_ios_xe.cisco_odm import BridgeDomain
         from ydk.models.cisco_ios_xe.cisco_odm import Parsername
-        from ydk.models.cisco_ios_xe.cisco_odm import Bgp
+        from ydk.models.cisco_ios_xe.cisco_odm import IPRoute
+        from ydk.models.cisco_ios_xe.cisco_odm import MPLSLDPNeighbors
+        from ydk.models.cisco_ios_xe.cisco_odm import FlowMonitor
+        from ydk.models.cisco_ios_xe.cisco_odm import VirtualService
 
 
     def test_cisco_ospf(self):
-        from ydk.models.cisco_ios_xe.cisco_ospf import PrefixApplicability
         from ydk.models.cisco_ios_xe.cisco_ospf import OspfExternalType
-        from ydk.models.cisco_ios_xe.cisco_ospf import AccessListInOutType
         from ydk.models.cisco_ios_xe.cisco_ospf import OspfLogAdj
+        from ydk.models.cisco_ios_xe.cisco_ospf import AccessListInOutType
+        from ydk.models.cisco_ios_xe.cisco_ospf import PrefixApplicability
 
 
     def test_cisco_policy(self):
@@ -1742,29 +1742,29 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_pw(self):
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLoadBalanceType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthernetType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwVcTypeVlanPassthrough
         from ydk.models.cisco_ios_xe.cisco_pw import PwVcTypeVlan
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpSrcDstIp
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingBoth
-        from ydk.models.cisco_ios_xe.cisco_pw import PwEncapMpls
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthSrcDstMac
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolNone
-        from ydk.models.cisco_ios_xe.cisco_pw import PwVcTypeEther
-        from ydk.models.cisco_ios_xe.cisco_pw import PwVcType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingReceive
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolBgp
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingTransmit
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthSrcMac
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpDstIp
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpSrcIp
-        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingType
-        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthDstMac
         from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolLdp
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthSrcDstMac
+        from ydk.models.cisco_ios_xe.cisco_pw import PwEncapMpls
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpDstIp
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthSrcMac
+        from ydk.models.cisco_ios_xe.cisco_pw import PwVcType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLoadBalanceType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwVcTypeEther
         from ydk.models.cisco_ios_xe.cisco_pw import PwEncapsulationType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingTransmit
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolNone
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSignalingProtocolBgp
+        from ydk.models.cisco_ios_xe.cisco_pw import PwVcTypeVlanPassthrough
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthDstMac
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingBoth
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingType
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpSrcIp
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbIpSrcDstIp
+        from ydk.models.cisco_ios_xe.cisco_pw import PwSequencingReceive
+        from ydk.models.cisco_ios_xe.cisco_pw import PwLbEthernetType
         from ydk.models.cisco_ios_xe.cisco_pw import PwOperStateType
         from ydk.models.cisco_ios_xe.cisco_pw import PseudowireConfig
         from ydk.models.cisco_ios_xe.cisco_pw import PseudowireState
@@ -1775,11 +1775,11 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_routing_ext(self):
-        from ydk.models.cisco_ios_xe.cisco_routing_ext import IsIs
-        from ydk.models.cisco_ios_xe.cisco_routing_ext import Bgp
         from ydk.models.cisco_ios_xe.cisco_routing_ext import Rip
-        from ydk.models.cisco_ios_xe.cisco_routing_ext import Eigrp
+        from ydk.models.cisco_ios_xe.cisco_routing_ext import Bgp
+        from ydk.models.cisco_ios_xe.cisco_routing_ext import IsIs
         from ydk.models.cisco_ios_xe.cisco_routing_ext import Mobile
+        from ydk.models.cisco_ios_xe.cisco_routing_ext import Eigrp
 
 
     def test_cisco_self_mgmt(self):
@@ -1787,35 +1787,31 @@ class ImportTest(unittest.TestCase):
 
 
     def test_cisco_storm_control(self):
-        from ydk.models.cisco_ios_xe.cisco_storm_control import ActionDrop
         from ydk.models.cisco_ios_xe.cisco_storm_control import ActionShutdown
+        from ydk.models.cisco_ios_xe.cisco_storm_control import ActionDrop
         from ydk.models.cisco_ios_xe.cisco_storm_control import ActionSnmpTrap
         from ydk.models.cisco_ios_xe.cisco_storm_control import StormControlAction
 
 
     def test_cisco_xe_openconfig_if_ethernet_ext(self):
-        from ydk.models.cisco_ios_xe.cisco_xe_openconfig_if_ethernet_ext import Auto
+        from ydk.models.cisco_ios_xe.cisco_xe_openconfig_if_ethernet_ext import AUTO
 
 
     def test_cisco_xe_openconfig_interfaces_ext(self):
         pass
 
 
-    def test_cisco_xr_openconfig_interfaces_types(self):
-        pass
-
-
     def test_common_mpls_static(self):
-        from ydk.models.cisco_ios_xe.common_mpls_static import LspIpv4
-        from ydk.models.cisco_ios_xe.common_mpls_static import LspVrf
-        from ydk.models.cisco_ios_xe.common_mpls_static import LspType
-        from ydk.models.cisco_ios_xe.common_mpls_static import StaticNexthop
-        from ydk.models.cisco_ios_xe.common_mpls_static import LspIpv6
-        from ydk.models.cisco_ios_xe.common_mpls_static import Lsp
-        from ydk.models.cisco_ios_xe.common_mpls_static import OspfRouteNexthop
         from ydk.models.cisco_ios_xe.common_mpls_static import NexthopResolutionType
-        from ydk.models.cisco_ios_xe.common_mpls_static import BgpRouteNexthop
+        from ydk.models.cisco_ios_xe.common_mpls_static import LspIPv6
+        from ydk.models.cisco_ios_xe.common_mpls_static import Lsp
+        from ydk.models.cisco_ios_xe.common_mpls_static import LspVrf
+        from ydk.models.cisco_ios_xe.common_mpls_static import StaticNexthop
+        from ydk.models.cisco_ios_xe.common_mpls_static import LspIPv4
         from ydk.models.cisco_ios_xe.common_mpls_static import IsisRouteNexthop
+        from ydk.models.cisco_ios_xe.common_mpls_static import BgpRouteNexthop
+        from ydk.models.cisco_ios_xe.common_mpls_static import LspType
+        from ydk.models.cisco_ios_xe.common_mpls_static import OspfRouteNexthop
         from ydk.models.cisco_ios_xe.common_mpls_static import Hoptype
         from ydk.models.cisco_ios_xe.common_mpls_static import MplsStatic
 
@@ -1824,589 +1820,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.common_mpls_types import IetfMplsLabel
 
 
-    def test_confd_dyncfg(self):
-        from ydk.models.confd_dyncfg import Defaulthandlingmodetype
-        from ydk.models.confd_dyncfg import Cliactionmaptype
-        from ydk.models.confd_dyncfg import Falsetype
-        from ydk.models.confd_dyncfg import XFrameOptionstype
-        from ydk.models.confd_dyncfg import Pipehelpmodetype
-        from ydk.models.confd_dyncfg import Auditusernametype
-        from ydk.models.confd_dyncfg import Expirationwarningtype
-        from ydk.models.confd_dyncfg import Fixedidtype
-        from ydk.models.confd_dyncfg import Operationalreplicationtype
-        from ydk.models.confd_dyncfg import Operationalpersistenttype
-        from ydk.models.confd_dyncfg import Unboundedtype
-        from ydk.models.confd_dyncfg import Developerlogleveltype
-        from ydk.models.confd_dyncfg import Candidateimplementationtype
-        from ydk.models.confd_dyncfg import Clitimezonetype
-        from ydk.models.confd_dyncfg import Pendingchangesactiontype
-        from ydk.models.confd_dyncfg import Modeinfoinaaatype
-        from ydk.models.confd_dyncfg import Completionmetainfotype
-        from ydk.models.confd_dyncfg import Infinitytype
-        from ydk.models.confd_dyncfg import Rollbacktype
-        from ydk.models.confd_dyncfg import Multipatternoperationtype
-        from ydk.models.confd_dyncfg import Runtimereconfigurationtype
-        from ydk.models.confd_dyncfg import Bsdfacilitytype
-        from ydk.models.confd_dyncfg import Editwrapmodetype
-        from ydk.models.confd_dyncfg import Clistyle
-        from ydk.models.confd_dyncfg import Quotestyletype
-        from ydk.models.confd_dyncfg import Operationalreplicationmodetype
-        from ydk.models.confd_dyncfg import Snmplogleveltype
-        from ydk.models.confd_dyncfg import Whohistorydatetimeformattype
-        from ydk.models.confd_dyncfg import Climodenamestyletype
-        from ydk.models.confd_dyncfg import Rpcerrortype
-        from ydk.models.confd_dyncfg import Enabledisplayleveltype
-        from ydk.models.confd_dyncfg import Cliauditlogtype
-        from ydk.models.confd_dyncfg import Unboundedtype
-        from ydk.models.confd_dyncfg import Tablebehaviortype
-        from ydk.models.confd_dyncfg import Falsetype
-        from ydk.models.confd_dyncfg import Netconftraceformattype
-        from ydk.models.confd_dyncfg import Rollnumbering
-        from ydk.models.confd_dyncfg import Crypthashalgorithmtype
-        from ydk.models.confd_dyncfg import Configurationreplicationtype
-        from ydk.models.confd_dyncfg import Bsdfacilitytype
-        from ydk.models.confd_dyncfg import Dbaccesstype
-        from ydk.models.confd_dyncfg import Modeinfoinaudittype
-        from ydk.models.confd_dyncfg import Syslogversiontype
-        from ydk.models.confd_dyncfg import Snmpversiontype
-        from ydk.models.confd_dyncfg import Pubkeyauthenticationtype
-        from ydk.models.confd_dyncfg import Candidatestoragetype
-        from ydk.models.confd_dyncfg import Confirmuncommitedonexittype
-        from ydk.models.confd_dyncfg import Fixedidtype
-        from ydk.models.confd_dyncfg import Infinitytype
-        from ydk.models.confd_dyncfg import Journalcompactiontype
-        from ydk.models.confd_dyncfg import Confdconfig
-
-
-    def test_iana_crypt_hash(self):
-        pass
-
-
-    def test_iana_if_type(self):
-        from ydk.models.ietf.iana_if_type import Cabledownstreamrfport
-        from ydk.models.ietf.iana_if_type import Bsc
-        from ydk.models.ietf.iana_if_type import Ds1Fdl
-        from ydk.models.ietf.iana_if_type import Msdsl
-        from ydk.models.ietf.iana_if_type import Propatm
-        from ydk.models.ietf.iana_if_type import Framerelay
-        from ydk.models.ietf.iana_if_type import Framerelayinterconnect
-        from ydk.models.ietf.iana_if_type import Localtalk
-        from ydk.models.ietf.iana_if_type import Reachdsl
-        from ydk.models.ietf.iana_if_type import Docscabledownstream
-        from ydk.models.ietf.iana_if_type import Pon155
-        from ydk.models.ietf.iana_if_type import Adsl
-        from ydk.models.ietf.iana_if_type import Rfc877X25
-        from ydk.models.ietf.iana_if_type import Termpad
-        from ydk.models.ietf.iana_if_type import Softwareloopback
-        from ydk.models.ietf.iana_if_type import Ip
-        from ydk.models.ietf.iana_if_type import Macsecuncontrolledif
-        from ydk.models.ietf.iana_if_type import Econet
-        from ydk.models.ietf.iana_if_type import Ipoverclaw
-        from ydk.models.ietf.iana_if_type import Fast
-        from ydk.models.ietf.iana_if_type import Proteon80Mbit
-        from ydk.models.ietf.iana_if_type import Channel
-        from ydk.models.ietf.iana_if_type import Mfsiglink
-        from ydk.models.ietf.iana_if_type import Adsl2
-        from ydk.models.ietf.iana_if_type import Atmvirtual
-        from ydk.models.ietf.iana_if_type import Slip
-        from ydk.models.ietf.iana_if_type import Arap
-        from ydk.models.ietf.iana_if_type import Alueponlogicallink
-        from ydk.models.ietf.iana_if_type import Basicisdn
-        from ydk.models.ietf.iana_if_type import Q2931
-        from ydk.models.ietf.iana_if_type import Vmwarenicteam
-        from ydk.models.ietf.iana_if_type import Transphdlc
-        from ydk.models.ietf.iana_if_type import Macseccontrolledif
-        from ydk.models.ietf.iana_if_type import Sonetvt
-        from ydk.models.ietf.iana_if_type import Capwapdot11Profile
-        from ydk.models.ietf.iana_if_type import Alueponphysicaluni
-        from ydk.models.ietf.iana_if_type import Ds0
-        from ydk.models.ietf.iana_if_type import Otnotu
-        from ydk.models.ietf.iana_if_type import Framerelaympi
-        from ydk.models.ietf.iana_if_type import G9983
-        from ydk.models.ietf.iana_if_type import Lapd
-        from ydk.models.ietf.iana_if_type import Sdsl
-        from ydk.models.ietf.iana_if_type import Ieee1394
-        from ydk.models.ietf.iana_if_type import Ds3
-        from ydk.models.ietf.iana_if_type import Hdlc
-        from ydk.models.ietf.iana_if_type import Virtualipaddress
-        from ydk.models.ietf.iana_if_type import H323Proxy
-        from ydk.models.ietf.iana_if_type import X213
-        from ydk.models.ietf.iana_if_type import Voiceoverip
-        from ydk.models.ietf.iana_if_type import Hdsl2
-        from ydk.models.ietf.iana_if_type import Frforward
-        from ydk.models.ietf.iana_if_type import IanaInterfaceType
-        from ydk.models.ietf.iana_if_type import Proteon10Mbit
-        from ydk.models.ietf.iana_if_type import Mvl
-        from ydk.models.ietf.iana_if_type import Voiceoverframerelay
-        from ydk.models.ietf.iana_if_type import Iso88022Llc
-        from ydk.models.ietf.iana_if_type import Voiceemfgd
-        from ydk.models.ietf.iana_if_type import Homepna
-        from ydk.models.ietf.iana_if_type import Mediamailoverip
-        from ydk.models.ietf.iana_if_type import Sdlc
-        from ydk.models.ietf.iana_if_type import Sonetoverheadchannel
-        from ydk.models.ietf.iana_if_type import Tunnel
-        from ydk.models.ietf.iana_if_type import Aal5
-        from ydk.models.ietf.iana_if_type import Dvbrccmaclayer
-        from ydk.models.ietf.iana_if_type import G9982
-        from ydk.models.ietf.iana_if_type import Propdocswirelessdownstream
-        from ydk.models.ietf.iana_if_type import Voicefxs
-        from ydk.models.ietf.iana_if_type import Vdsl
-        from ydk.models.ietf.iana_if_type import Frf16Mfrbundle
-        from ydk.models.ietf.iana_if_type import Iso88023Csmacd
-        from ydk.models.ietf.iana_if_type import Ces
-        from ydk.models.ietf.iana_if_type import Cblvectastar
-        from ydk.models.ietf.iana_if_type import Ipoveratm
-        from ydk.models.ietf.iana_if_type import Docscablemcmtsdownstream
-        from ydk.models.ietf.iana_if_type import Voiceebs
-        from ydk.models.ietf.iana_if_type import L2Vlan
-        from ydk.models.ietf.iana_if_type import V35
-        from ydk.models.ietf.iana_if_type import G9981
-        from ydk.models.ietf.iana_if_type import Ds1
-        from ydk.models.ietf.iana_if_type import Plc
-        from ydk.models.ietf.iana_if_type import Ifvfitype
-        from ydk.models.ietf.iana_if_type import Primaryisdn
-        from ydk.models.ietf.iana_if_type import Ifpwtype
-        from ydk.models.ietf.iana_if_type import Fciplink
-        from ydk.models.ietf.iana_if_type import Fastether
-        from ydk.models.ietf.iana_if_type import Arcnetplus
-        from ydk.models.ietf.iana_if_type import Aal2
-        from ydk.models.ietf.iana_if_type import Dvbrcsmaclayer
-        from ydk.models.ietf.iana_if_type import Propcnls
-        from ydk.models.ietf.iana_if_type import Siptg
-        from ydk.models.ietf.iana_if_type import Qam
-        from ydk.models.ietf.iana_if_type import Opticalchannel
-        from ydk.models.ietf.iana_if_type import Ppp
-        from ydk.models.ietf.iana_if_type import Propvirtual
-        from ydk.models.ietf.iana_if_type import Infiniband
-        from ydk.models.ietf.iana_if_type import Eon
-        from ydk.models.ietf.iana_if_type import Ieee802154
-        from ydk.models.ietf.iana_if_type import Voicefgdeana
-        from ydk.models.ietf.iana_if_type import Atmradio
-        from ydk.models.ietf.iana_if_type import Ipovercdlc
-        from ydk.models.ietf.iana_if_type import Nsip
-        from ydk.models.ietf.iana_if_type import Ciscoislvlan
-        from ydk.models.ietf.iana_if_type import Iso88026Man
-        from ydk.models.ietf.iana_if_type import Tdlc
-        from ydk.models.ietf.iana_if_type import Iso88025Dtr
-        from ydk.models.ietf.iana_if_type import Atmbond
-        from ydk.models.ietf.iana_if_type import Frdlciendpt
-        from ydk.models.ietf.iana_if_type import Ieee80211
-        from ydk.models.ietf.iana_if_type import Lmp
-        from ydk.models.ietf.iana_if_type import Opticaltransport
-        from ydk.models.ietf.iana_if_type import Actelismetaloop
-        from ydk.models.ietf.iana_if_type import X25Mlp
-        from ydk.models.ietf.iana_if_type import Atm
-        from ydk.models.ietf.iana_if_type import Aluepon
-        from ydk.models.ietf.iana_if_type import X25Ple
-        from ydk.models.ietf.iana_if_type import Wwanpp
-        from ydk.models.ietf.iana_if_type import X25Huntgroup
-        from ydk.models.ietf.iana_if_type import Iso88025Crfpint
-        from ydk.models.ietf.iana_if_type import Hdh1822
-        from ydk.models.ietf.iana_if_type import Interleave
-        from ydk.models.ietf.iana_if_type import Aluelp
-        from ydk.models.ietf.iana_if_type import Mplstunnel
-        from ydk.models.ietf.iana_if_type import Async
-        from ydk.models.ietf.iana_if_type import Gr303Idt
-        from ydk.models.ietf.iana_if_type import Radsl
-        from ydk.models.ietf.iana_if_type import Isup
-        from ydk.models.ietf.iana_if_type import Gigabitethernet
-        from ydk.models.ietf.iana_if_type import Hippiinterface
-        from ydk.models.ietf.iana_if_type import Dvbrccdownstream
-        from ydk.models.ietf.iana_if_type import Ipswitch
-        from ydk.models.ietf.iana_if_type import Stacktostack
-        from ydk.models.ietf.iana_if_type import Hostpad
-        from ydk.models.ietf.iana_if_type import Ipforward
-        from ydk.models.ietf.iana_if_type import Escon
-        from ydk.models.ietf.iana_if_type import Lapf
-        from ydk.models.ietf.iana_if_type import Iso88024Tokenbus
-        from ydk.models.ietf.iana_if_type import Mocaversion1
-        from ydk.models.ietf.iana_if_type import Docscablemaclayer
-        from ydk.models.ietf.iana_if_type import Telink
-        from ydk.models.ietf.iana_if_type import Fibrechannel
-        from ydk.models.ietf.iana_if_type import Sonetpath
-        from ydk.models.ietf.iana_if_type import Rs232
-        from ydk.models.ietf.iana_if_type import Sonet
-        from ydk.models.ietf.iana_if_type import Pon622
-        from ydk.models.ietf.iana_if_type import Radiomac
-        from ydk.models.ietf.iana_if_type import Cctemul
-        from ydk.models.ietf.iana_if_type import Aflane8025
-        from ydk.models.ietf.iana_if_type import Hiperlan2
-        from ydk.models.ietf.iana_if_type import Smdsdxi
-        from ydk.models.ietf.iana_if_type import Dvbasiin
-        from ydk.models.ietf.iana_if_type import Lapb
-        from ydk.models.ietf.iana_if_type import Voicefxo
-        from ydk.models.ietf.iana_if_type import Rsrb
-        from ydk.models.ietf.iana_if_type import Fddi
-        from ydk.models.ietf.iana_if_type import Fastetherfx
-        from ydk.models.ietf.iana_if_type import Other
-        from ydk.models.ietf.iana_if_type import Alugponphysicaluni
-        from ydk.models.ietf.iana_if_type import Docscableupstreamrfport
-        from ydk.models.ietf.iana_if_type import Ilan
-        from ydk.models.ietf.iana_if_type import Gr303Rdt
-        from ydk.models.ietf.iana_if_type import Capwapdot11Bss
-        from ydk.models.ietf.iana_if_type import Modem
-        from ydk.models.ietf.iana_if_type import Rfc1483
-        from ydk.models.ietf.iana_if_type import Voicedid
-        from ydk.models.ietf.iana_if_type import Ieee8023Adlag
-        from ydk.models.ietf.iana_if_type import Dvbtdm
-        from ydk.models.ietf.iana_if_type import Para
-        from ydk.models.ietf.iana_if_type import Propdocswirelessmaclayer
-        from ydk.models.ietf.iana_if_type import Isdnu
-        from ydk.models.ietf.iana_if_type import Digitalwrapperoverheadchannel
-        from ydk.models.ietf.iana_if_type import Propmultiplexor
-        from ydk.models.ietf.iana_if_type import Hyperchannel
-        from ydk.models.ietf.iana_if_type import A12Mppswitch
-        from ydk.models.ietf.iana_if_type import Opticalchannelgroup
-        from ydk.models.ietf.iana_if_type import Voiceovercable
-        from ydk.models.ietf.iana_if_type import Aviciopticalether
-        from ydk.models.ietf.iana_if_type import Bridge
-        from ydk.models.ietf.iana_if_type import Dtm
-        from ydk.models.ietf.iana_if_type import Smdsicip
-        from ydk.models.ietf.iana_if_type import Docscableupstream
-        from ydk.models.ietf.iana_if_type import Gfp
-        from ydk.models.ietf.iana_if_type import Voiceoveratm
-        from ydk.models.ietf.iana_if_type import H323Gatekeeper
-        from ydk.models.ietf.iana_if_type import Pos
-        from ydk.models.ietf.iana_if_type import Dvbrccupstream
-        from ydk.models.ietf.iana_if_type import Regular1822
-        from ydk.models.ietf.iana_if_type import Bits
-        from ydk.models.ietf.iana_if_type import Virtualtg
-        from ydk.models.ietf.iana_if_type import Coffee
-        from ydk.models.ietf.iana_if_type import Arcnet
-        from ydk.models.ietf.iana_if_type import Isdns
-        from ydk.models.ietf.iana_if_type import L3Ipxvlan
-        from ydk.models.ietf.iana_if_type import Bgppolicyaccounting
-        from ydk.models.ietf.iana_if_type import Sixtofour
-        from ydk.models.ietf.iana_if_type import Proppointtopointserial
-        from ydk.models.ietf.iana_if_type import Voiceencap
-        from ydk.models.ietf.iana_if_type import Atmsubinterface
-        from ydk.models.ietf.iana_if_type import Atmima
-        from ydk.models.ietf.iana_if_type import Srp
-        from ydk.models.ietf.iana_if_type import Ss7Siglink
-        from ydk.models.ietf.iana_if_type import Linegroup
-        from ydk.models.ietf.iana_if_type import Dlsw
-        from ydk.models.ietf.iana_if_type import Vdsl2
-        from ydk.models.ietf.iana_if_type import Iso88025Fiber
-        from ydk.models.ietf.iana_if_type import Aflane8023
-        from ydk.models.ietf.iana_if_type import X86Laps
-        from ydk.models.ietf.iana_if_type import Starlan
-        from ydk.models.ietf.iana_if_type import V11
-        from ydk.models.ietf.iana_if_type import Digitalpowerline
-        from ydk.models.ietf.iana_if_type import Pdnetherloop1
-        from ydk.models.ietf.iana_if_type import Vmwarevirtualnic
-        from ydk.models.ietf.iana_if_type import Sipsig
-        from ydk.models.ietf.iana_if_type import Ieee80212
-        from ydk.models.ietf.iana_if_type import Voicefgdos
-        from ydk.models.ietf.iana_if_type import Gtp
-        from ydk.models.ietf.iana_if_type import Iso88025Tokenring
-        from ydk.models.ietf.iana_if_type import Propwirelessp2P
-        from ydk.models.ietf.iana_if_type import Ethernet3Mbit
-        from ydk.models.ietf.iana_if_type import Atmlogical
-        from ydk.models.ietf.iana_if_type import V37
-        from ydk.models.ietf.iana_if_type import G703At2Mb
-        from ydk.models.ietf.iana_if_type import Eplrs
-        from ydk.models.ietf.iana_if_type import Pppmultilinkbundle
-        from ydk.models.ietf.iana_if_type import Aluepononu
-        from ydk.models.ietf.iana_if_type import Propbwap2Mp
-        from ydk.models.ietf.iana_if_type import Hssi
-        from ydk.models.ietf.iana_if_type import Mpegtransport
-        from ydk.models.ietf.iana_if_type import L3Ipvlan
-        from ydk.models.ietf.iana_if_type import Otnodu
-        from ydk.models.ietf.iana_if_type import Docscableupstreamchannel
-        from ydk.models.ietf.iana_if_type import Ultra
-        from ydk.models.ietf.iana_if_type import Qllc
-        from ydk.models.ietf.iana_if_type import Usb
-        from ydk.models.ietf.iana_if_type import Mpls
-        from ydk.models.ietf.iana_if_type import Mpc
-        from ydk.models.ietf.iana_if_type import Dvbrcstdma
-        from ydk.models.ietf.iana_if_type import E1
-        from ydk.models.ietf.iana_if_type import Rpr
-        from ydk.models.ietf.iana_if_type import Dvbasiout
-        from ydk.models.ietf.iana_if_type import Ethernetcsmacd
-        from ydk.models.ietf.iana_if_type import Shdsl
-        from ydk.models.ietf.iana_if_type import Imt
-        from ydk.models.ietf.iana_if_type import Pip
-        from ydk.models.ietf.iana_if_type import Atmdxi
-        from ydk.models.ietf.iana_if_type import Ddnx25
-        from ydk.models.ietf.iana_if_type import Ieee80216Wman
-        from ydk.models.ietf.iana_if_type import Dcn
-        from ydk.models.ietf.iana_if_type import Alugpononu
-        from ydk.models.ietf.iana_if_type import Miox25
-        from ydk.models.ietf.iana_if_type import Gpon
-        from ydk.models.ietf.iana_if_type import V36
-        from ydk.models.ietf.iana_if_type import Voiceem
-        from ydk.models.ietf.iana_if_type import Ds0Bundle
-        from ydk.models.ietf.iana_if_type import G703At64K
-        from ydk.models.ietf.iana_if_type import Atmvciendpt
-        from ydk.models.ietf.iana_if_type import Wwanpp2
-        from ydk.models.ietf.iana_if_type import Framerelayservice
-        from ydk.models.ietf.iana_if_type import Adsl2Plus
-        from ydk.models.ietf.iana_if_type import Atmfuni
-        from ydk.models.ietf.iana_if_type import Isdn
-        from ydk.models.ietf.iana_if_type import Tr008
-        from ydk.models.ietf.iana_if_type import Nfas
-        from ydk.models.ietf.iana_if_type import Capwapwtpvirtualradio
-        from ydk.models.ietf.iana_if_type import Idsl
-        from ydk.models.ietf.iana_if_type import Propdocswirelessupstream
-        from ydk.models.ietf.iana_if_type import Compositelink
-        from ydk.models.ietf.iana_if_type import Myrinet
-        from ydk.models.ietf.iana_if_type import Sip
-        from ydk.models.ietf.iana_if_type import Ibm370Parchan
-        from ydk.models.ietf.iana_if_type import Hippi
-        from ydk.models.ietf.iana_if_type import IfGsn
-        from ydk.models.ietf.iana_if_type import Pdnetherloop2
-        from ydk.models.ietf.iana_if_type import Cnr
-
-
-    def test_ietf_diffserv_action(self):
-        from ydk.models.ietf.ietf_diffserv_action import MeterActionSet
-        from ydk.models.ietf.ietf_diffserv_action import MeterActionType
-        from ydk.models.ietf.ietf_diffserv_action import TailDrop
-        from ydk.models.ietf.ietf_diffserv_action import AlwaysDrop
-        from ydk.models.ietf.ietf_diffserv_action import AlgorithmicDrop
-        from ydk.models.ietf.ietf_diffserv_action import MaxRate
-        from ydk.models.ietf.ietf_diffserv_action import MeterActionDrop
-        from ydk.models.ietf.ietf_diffserv_action import Marking
-        from ydk.models.ietf.ietf_diffserv_action import MinRate
-        from ydk.models.ietf.ietf_diffserv_action import Priority
-        from ydk.models.ietf.ietf_diffserv_action import RandomDetect
-        from ydk.models.ietf.ietf_diffserv_action import DropType
-        from ydk.models.ietf.ietf_diffserv_action import Meter
-
-
-    def test_ietf_diffserv_classifier(self):
-        from ydk.models.ietf.ietf_diffserv_classifier import MatchAllFilter
-        from ydk.models.ietf.ietf_diffserv_classifier import SourceIpAddress
-        from ydk.models.ietf.ietf_diffserv_classifier import FilterType
-        from ydk.models.ietf.ietf_diffserv_classifier import ClassifierEntryFilterOperationType
-        from ydk.models.ietf.ietf_diffserv_classifier import Protocol
-        from ydk.models.ietf.ietf_diffserv_classifier import DestinationPort
-        from ydk.models.ietf.ietf_diffserv_classifier import SourcePort
-        from ydk.models.ietf.ietf_diffserv_classifier import MatchAnyFilter
-        from ydk.models.ietf.ietf_diffserv_classifier import Dscp
-        from ydk.models.ietf.ietf_diffserv_classifier import DestinationIpAddress
-        from ydk.models.ietf.ietf_diffserv_classifier import Classifiers
-
-
-    def test_ietf_diffserv_policy(self):
-        from ydk.models.ietf.ietf_diffserv_policy import ActionType
-        from ydk.models.ietf.ietf_diffserv_policy import Policies
-
-
-    def test_ietf_diffserv_target(self):
-        from ydk.models.ietf.ietf_diffserv_target import Outbound
-        from ydk.models.ietf.ietf_diffserv_target import Inbound
-        from ydk.models.ietf.ietf_diffserv_target import Direction
-
-
-    def test_ietf_event_notifications(self):
-        from ydk.models.ietf.ietf_event_notifications import ErrorConfiguredSubscription
-        from ydk.models.ietf.ietf_event_notifications import ErrorNoSuchOption
-        from ydk.models.ietf.ietf_event_notifications import Ok
-        from ydk.models.ietf.ietf_event_notifications import SubscriptionErrors
-        from ydk.models.ietf.ietf_event_notifications import ErrorNoSuchSubscription
-        from ydk.models.ietf.ietf_event_notifications import NoResources
-        from ydk.models.ietf.ietf_event_notifications import InternalError
-        from ydk.models.ietf.ietf_event_notifications import Inactive
-        from ydk.models.ietf.ietf_event_notifications import ErrorOther
-        from ydk.models.ietf.ietf_event_notifications import Suspended
-        from ydk.models.ietf.ietf_event_notifications import InError
-        from ydk.models.ietf.ietf_event_notifications import SubscriptionStreamStatus
-        from ydk.models.ietf.ietf_event_notifications import EncodeJson
-        from ydk.models.ietf.ietf_event_notifications import Active
-        from ydk.models.ietf.ietf_event_notifications import EncodeXml
-        from ydk.models.ietf.ietf_event_notifications import Error
-        from ydk.models.ietf.ietf_event_notifications import SubscriptionResult
-        from ydk.models.ietf.ietf_event_notifications import Encodings
-        from ydk.models.ietf.ietf_event_notifications import Transport
-        from ydk.models.ietf.ietf_event_notifications import Other
-        from ydk.models.ietf.ietf_event_notifications import SubscriptionDeleted
-        from ydk.models.ietf.ietf_event_notifications import Stream
-        from ydk.models.ietf.ietf_event_notifications import ErrorInsufficientResources
-        from ydk.models.ietf.ietf_event_notifications import Netconf
-        from ydk.models.ietf.ietf_event_notifications import Netconf
-        from ydk.models.ietf.ietf_event_notifications import PushSource
-        from ydk.models.ietf.ietf_event_notifications import EstablishSubscription
-        from ydk.models.ietf.ietf_event_notifications import CreateSubscription
-        from ydk.models.ietf.ietf_event_notifications import ModifySubscription
-        from ydk.models.ietf.ietf_event_notifications import DeleteSubscription
-        from ydk.models.ietf.ietf_event_notifications import Streams
-        from ydk.models.ietf.ietf_event_notifications import Filters
-        from ydk.models.ietf.ietf_event_notifications import SubscriptionConfig
-        from ydk.models.ietf.ietf_event_notifications import Subscriptions
-
-
-    def test_ietf_inet_types(self):
-        from ydk.models.ietf.ietf_inet_types import IpVersion
-
-
-    def test_ietf_interfaces(self):
-        from ydk.models.ietf.ietf_interfaces import InterfaceType
-        from ydk.models.ietf.ietf_interfaces import Interfaces
-        from ydk.models.ietf.ietf_interfaces import InterfacesState
-
-
-    def test_ietf_interfaces_ext(self):
-        pass
-
-
-    def test_ietf_ip(self):
-        from ydk.models.ietf.ietf_ip import NeighborOrigin
-        from ydk.models.ietf.ietf_ip import IpAddressOrigin
-
-
-    def test_ietf_ipv4_unicast_routing(self):
-        from ydk.models.ietf.ietf_ipv4_unicast_routing import Ipv4Unicast
-
-
-    def test_ietf_ipv6_unicast_routing(self):
-        from ydk.models.ietf.ietf_ipv6_unicast_routing import Ipv6Unicast
-
-
-    def test_ietf_key_chain(self):
-        from ydk.models.ietf.ietf_key_chain import KeyChains
-
-
-    def test_ietf_netconf(self):
-        from ydk.models.ietf.ietf_netconf import ErrorSeverityType
-        from ydk.models.ietf.ietf_netconf import ErrorTagType
-        from ydk.models.ietf.ietf_netconf import EditOperationType
-        from ydk.models.ietf.ietf_netconf import GetConfig
-        from ydk.models.ietf.ietf_netconf import EditConfig
-        from ydk.models.ietf.ietf_netconf import CopyConfig
-        from ydk.models.ietf.ietf_netconf import DeleteConfig
-        from ydk.models.ietf.ietf_netconf import Lock
-        from ydk.models.ietf.ietf_netconf import Unlock
-        from ydk.models.ietf.ietf_netconf import Get
-        from ydk.models.ietf.ietf_netconf import CloseSession
-        from ydk.models.ietf.ietf_netconf import KillSession
-        from ydk.models.ietf.ietf_netconf import Commit
-        from ydk.models.ietf.ietf_netconf import DiscardChanges
-        from ydk.models.ietf.ietf_netconf import CancelCommit
-        from ydk.models.ietf.ietf_netconf import Validate
-
-
-    def test_ietf_netconf_monitoring(self):
-        from ydk.models.ietf.ietf_netconf_monitoring import Xsd
-        from ydk.models.ietf.ietf_netconf_monitoring import Yin
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfSsh
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfBeep
-        from ydk.models.ietf.ietf_netconf_monitoring import SchemaFormat
-        from ydk.models.ietf.ietf_netconf_monitoring import Rnc
-        from ydk.models.ietf.ietf_netconf_monitoring import Yang
-        from ydk.models.ietf.ietf_netconf_monitoring import Transport
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfSoapOverHttps
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfTls
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfSoapOverBeep
-        from ydk.models.ietf.ietf_netconf_monitoring import Rng
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfDatastoreType
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfState
-        from ydk.models.ietf.ietf_netconf_monitoring import GetSchema
-
-
-    def test_ietf_netconf_notifications(self):
-        pass
-
-
-    def test_ietf_netconf_with_defaults(self):
-        from ydk.models.ietf.ietf_netconf_with_defaults import WithDefaultsMode
-
-
-    def test_ietf_ospf(self):
-        from ydk.models.ietf.ietf_ospf import AreaType
-        from ydk.models.ietf.ietf_ospf import Normal
-        from ydk.models.ietf.ietf_ospf import IfLinkType
-        from ydk.models.ietf.ietf_ospf import IfLinkTypeVirtualLink
-        from ydk.models.ietf.ietf_ospf import IfLinkTypeNormal
-        from ydk.models.ietf.ietf_ospf import Ospfv3
-        from ydk.models.ietf.ietf_ospf import Ospf
-        from ydk.models.ietf.ietf_ospf import Ospfv2
-        from ydk.models.ietf.ietf_ospf import IfLinkTypeShamLink
-        from ydk.models.ietf.ietf_ospf import OperationMode
-        from ydk.models.ietf.ietf_ospf import ShipsInTheNight
-        from ydk.models.ietf.ietf_ospf import Nssa
-        from ydk.models.ietf.ietf_ospf import Stub
-        from ydk.models.ietf.ietf_ospf import RestartHelperStatusType
-        from ydk.models.ietf.ietf_ospf import RestartExitReasonType
-        from ydk.models.ietf.ietf_ospf import IfStateType
-        from ydk.models.ietf.ietf_ospf import RestartStatusType
-        from ydk.models.ietf.ietf_ospf import PacketType
-        from ydk.models.ietf.ietf_ospf import NbrStateType
-        from ydk.models.ietf.ietf_ospf import NssaTranslatorStateType
-
-
-    def test_ietf_restconf_monitoring(self):
-        from ydk.models.ietf.ietf_restconf_monitoring import RestconfState
-
-
-    def test_ietf_routing(self):
-        from ydk.models.ietf.ietf_routing import Static
-        from ydk.models.ietf.ietf_routing import Ipv6
-        from ydk.models.ietf.ietf_routing import AddressFamily
-        from ydk.models.ietf.ietf_routing import Direct
-        from ydk.models.ietf.ietf_routing import RoutingInstance
-        from ydk.models.ietf.ietf_routing import VrfRoutingInstance
-        from ydk.models.ietf.ietf_routing import DefaultRoutingInstance
-        from ydk.models.ietf.ietf_routing import RoutingProtocol
-        from ydk.models.ietf.ietf_routing import Ipv4
-        from ydk.models.ietf.ietf_routing import RoutingState
-        from ydk.models.ietf.ietf_routing import Routing
-        from ydk.models.ietf.ietf_routing import FibRoute
-
-
-    def test_ietf_syslog_types(self):
-        from ydk.models.ietf.ietf_syslog_types import News
-        from ydk.models.ietf.ietf_syslog_types import Kern
-        from ydk.models.ietf.ietf_syslog_types import Local1
-        from ydk.models.ietf.ietf_syslog_types import Syslog
-        from ydk.models.ietf.ietf_syslog_types import Cron2
-        from ydk.models.ietf.ietf_syslog_types import Cron
-        from ydk.models.ietf.ietf_syslog_types import Auth
-        from ydk.models.ietf.ietf_syslog_types import Uucp
-        from ydk.models.ietf.ietf_syslog_types import Ftp
-        from ydk.models.ietf.ietf_syslog_types import Authpriv
-        from ydk.models.ietf.ietf_syslog_types import Local7
-        from ydk.models.ietf.ietf_syslog_types import Audit
-        from ydk.models.ietf.ietf_syslog_types import Console
-        from ydk.models.ietf.ietf_syslog_types import SyslogFacility
-        from ydk.models.ietf.ietf_syslog_types import User
-        from ydk.models.ietf.ietf_syslog_types import Ntp
-        from ydk.models.ietf.ietf_syslog_types import Local5
-        from ydk.models.ietf.ietf_syslog_types import Local6
-        from ydk.models.ietf.ietf_syslog_types import Mail
-        from ydk.models.ietf.ietf_syslog_types import Local3
-        from ydk.models.ietf.ietf_syslog_types import Local4
-        from ydk.models.ietf.ietf_syslog_types import Daemon
-        from ydk.models.ietf.ietf_syslog_types import Local0
-        from ydk.models.ietf.ietf_syslog_types import Local2
-        from ydk.models.ietf.ietf_syslog_types import Lpr
-        from ydk.models.ietf.ietf_syslog_types import Severity
-
-
-    def test_ietf_yang_library(self):
-        from ydk.models.ietf.ietf_yang_library import ModulesState
-
-
-    def test_ietf_yang_push(self):
-        from ydk.models.ietf.ietf_yang_push import CustomStream
-        from ydk.models.ietf.ietf_yang_push import YangPush
-        from ydk.models.ietf.ietf_yang_push import Http2
-        from ydk.models.ietf.ietf_yang_push import ErrorDataNotAuthorized
-        from ydk.models.ietf.ietf_yang_push import ChangeType
-
-
-    def test_ietf_yang_smiv2(self):
-        from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
-
-
-    def test_ietf_yang_types(self):
-        pass
-
-
     def test_nvo(self):
-        from ydk.models.cisco_ios_xe.nvo import NvgreType
-        from ydk.models.cisco_ios_xe.nvo import OverlayEncapType
         from ydk.models.cisco_ios_xe.nvo import VxlanType
+        from ydk.models.cisco_ios_xe.nvo import OverlayEncapType
+        from ydk.models.cisco_ios_xe.nvo import NvgreType
         from ydk.models.cisco_ios_xe.nvo import NvoInstances
 
 
@@ -2414,381 +1831,18 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.oc_mapping_acl import AclMapping
 
 
-    def test_openconfig_bgp(self):
-        from ydk.models.openconfig.openconfig_bgp import Bgp
-
-
-    def test_openconfig_bgp_common(self):
-        pass
-
-
-    def test_openconfig_bgp_common_multiprotocol(self):
-        pass
-
-
-    def test_openconfig_bgp_common_structure(self):
-        pass
-
-
-    def test_openconfig_bgp_global(self):
-        pass
-
-
-    def test_openconfig_bgp_neighbor(self):
-        pass
-
-
-    def test_openconfig_bgp_peer_group(self):
-        pass
-
-
-    def test_openconfig_bgp_policy(self):
-        from ydk.models.openconfig.openconfig_bgp_policy import BgpSetMedType
-        from ydk.models.openconfig.openconfig_bgp_policy import BgpSetCommunityOptionType
-        from ydk.models.openconfig.openconfig_bgp_policy import BgpNextHopType
-
-
-    def test_openconfig_bgp_types(self):
-        from ydk.models.openconfig.openconfig_bgp_types import No_Export_Subconfed
-        from ydk.models.openconfig.openconfig_bgp_types import L3Vpn_Ipv4_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Private_As_Remove_All
-        from ydk.models.openconfig.openconfig_bgp_types import Bgp_Well_Known_Std_Community
-        from ydk.models.openconfig.openconfig_bgp_types import Private_As_Replace_All
-        from ydk.models.openconfig.openconfig_bgp_types import Mpbgp
-        from ydk.models.openconfig.openconfig_bgp_types import Ipv6_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Ipv6_Labeled_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Graceful_Restart
-        from ydk.models.openconfig.openconfig_bgp_types import No_Export
-        from ydk.models.openconfig.openconfig_bgp_types import Ipv4_Labeled_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Ipv4_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Asn32
-        from ydk.models.openconfig.openconfig_bgp_types import L3Vpn_Ipv4_Multicast
-        from ydk.models.openconfig.openconfig_bgp_types import Bgp_Capability
-        from ydk.models.openconfig.openconfig_bgp_types import Remove_Private_As_Option
-        from ydk.models.openconfig.openconfig_bgp_types import L3Vpn_Ipv6_Multicast
-        from ydk.models.openconfig.openconfig_bgp_types import Afi_Safi_Type
-        from ydk.models.openconfig.openconfig_bgp_types import L3Vpn_Ipv6_Unicast
-        from ydk.models.openconfig.openconfig_bgp_types import Route_Refresh
-        from ydk.models.openconfig.openconfig_bgp_types import No_Advertise
-        from ydk.models.openconfig.openconfig_bgp_types import Nopeer
-        from ydk.models.openconfig.openconfig_bgp_types import L2Vpn_Vpls
-        from ydk.models.openconfig.openconfig_bgp_types import Add_Paths
-        from ydk.models.openconfig.openconfig_bgp_types import L2Vpn_Evpn
-        from ydk.models.openconfig.openconfig_bgp_types import PeerType
-        from ydk.models.openconfig.openconfig_bgp_types import BgpOriginAttrType
-        from ydk.models.openconfig.openconfig_bgp_types import BgpSessionDirection
-        from ydk.models.openconfig.openconfig_bgp_types import CommunityType
-
-
-    def test_openconfig_extensions(self):
-        pass
-
-
-    def test_openconfig_if_aggregate(self):
-        from ydk.models.openconfig.openconfig_if_aggregate import AggregationType
-
-
-    def test_openconfig_if_ethernet(self):
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_100Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_1Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_40Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_25Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Ethernet_Speed
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_100Mb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_50Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_Unknown
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_10Gb
-        from ydk.models.openconfig.openconfig_if_ethernet import Speed_10Mb
-
-
-    def test_openconfig_if_ip(self):
-        from ydk.models.openconfig.openconfig_if_ip import NeighborOrigin
-        from ydk.models.openconfig.openconfig_if_ip import IpAddressOrigin
-
-
-    def test_openconfig_interfaces(self):
-        from ydk.models.openconfig.openconfig_interfaces import Interfaces
-
-
-    def test_openconfig_lacp(self):
-        from ydk.models.openconfig.openconfig_lacp import LacpActivityType
-        from ydk.models.openconfig.openconfig_lacp import LacpPeriodType
-        from ydk.models.openconfig.openconfig_lacp import LacpSynchronizationType
-        from ydk.models.openconfig.openconfig_lacp import LacpTimeoutType
-        from ydk.models.openconfig.openconfig_lacp import Lacp
-
-
-    def test_openconfig_local_routing(self):
-        from ydk.models.openconfig.openconfig_local_routing import Drop
-        from ydk.models.openconfig.openconfig_local_routing import Local_Link
-        from ydk.models.openconfig.openconfig_local_routing import Local_Defined_Next_Hop
-        from ydk.models.openconfig.openconfig_local_routing import LocalRoutes
-
-
-    def test_openconfig_mpls(self):
-        from ydk.models.openconfig.openconfig_mpls import PathComputationMethod
-        from ydk.models.openconfig.openconfig_mpls import ExternallyQueried
-        from ydk.models.openconfig.openconfig_mpls import ExplicitlyDefined
-        from ydk.models.openconfig.openconfig_mpls import LocallyComputed
-        from ydk.models.openconfig.openconfig_mpls import TeMetricType
-        from ydk.models.openconfig.openconfig_mpls import MplsHopType
-        from ydk.models.openconfig.openconfig_mpls import CspfTieBreaking
-        from ydk.models.openconfig.openconfig_mpls import TeBandwidthType
-        from ydk.models.openconfig.openconfig_mpls import MplsSrlgFloodingType
-        from ydk.models.openconfig.openconfig_mpls import Mpls
-
-
-    def test_openconfig_mpls_igp(self):
-        pass
-
-
-    def test_openconfig_mpls_ldp(self):
-        pass
-
-
-    def test_openconfig_mpls_rsvp(self):
-        pass
-
-
-    def test_openconfig_mpls_sr(self):
-        pass
-
-
-    def test_openconfig_mpls_static(self):
-        pass
-
-
-    def test_openconfig_mpls_te(self):
-        pass
-
-
-    def test_openconfig_mpls_types(self):
-        from ydk.models.openconfig.openconfig_mpls_types import PathSetupSr
-        from ydk.models.openconfig.openconfig_mpls_types import PathSetupLdp
-        from ydk.models.openconfig.openconfig_mpls_types import Down
-        from ydk.models.openconfig.openconfig_mpls_types import P2P
-        from ydk.models.openconfig.openconfig_mpls_types import PathSetupProtocol
-        from ydk.models.openconfig.openconfig_mpls_types import LspRole
-        from ydk.models.openconfig.openconfig_mpls_types import TunnelType
-        from ydk.models.openconfig.openconfig_mpls_types import Unprotected
-        from ydk.models.openconfig.openconfig_mpls_types import Admin_Up
-        from ydk.models.openconfig.openconfig_mpls_types import Explicit
-        from ydk.models.openconfig.openconfig_mpls_types import TunnelAdminStatus
-        from ydk.models.openconfig.openconfig_mpls_types import ProtectionType
-        from ydk.models.openconfig.openconfig_mpls_types import NullLabelType
-        from ydk.models.openconfig.openconfig_mpls_types import Implicit
-        from ydk.models.openconfig.openconfig_mpls_types import Up
-        from ydk.models.openconfig.openconfig_mpls_types import Transit
-        from ydk.models.openconfig.openconfig_mpls_types import Admin_Down
-        from ydk.models.openconfig.openconfig_mpls_types import PathSetupRsvp
-        from ydk.models.openconfig.openconfig_mpls_types import LspOperStatus
-        from ydk.models.openconfig.openconfig_mpls_types import LinkProtectionRequested
-        from ydk.models.openconfig.openconfig_mpls_types import P2Mp
-        from ydk.models.openconfig.openconfig_mpls_types import LinkNodeProtectionRequested
-        from ydk.models.openconfig.openconfig_mpls_types import Ingress
-        from ydk.models.openconfig.openconfig_mpls_types import Egress
-        from ydk.models.openconfig.openconfig_mpls_types import TunnelType
-        from ydk.models.openconfig.openconfig_mpls_types import MplsLabel
-
-
-    def test_openconfig_platform(self):
-        from ydk.models.openconfig.openconfig_platform import Components
-
-
-    def test_openconfig_platform_transceiver(self):
-        pass
-
-
-    def test_openconfig_platform_types(self):
-        from ydk.models.openconfig.openconfig_platform_types import Linecard
-        from ydk.models.openconfig.openconfig_platform_types import Port
-        from ydk.models.openconfig.openconfig_platform_types import Backplane
-        from ydk.models.openconfig.openconfig_platform_types import Openconfig_Software_Component
-        from ydk.models.openconfig.openconfig_platform_types import Chassis
-        from ydk.models.openconfig.openconfig_platform_types import Operating_System
-        from ydk.models.openconfig.openconfig_platform_types import Transceiver
-        from ydk.models.openconfig.openconfig_platform_types import Module
-        from ydk.models.openconfig.openconfig_platform_types import Fan
-        from ydk.models.openconfig.openconfig_platform_types import Power_Supply
-        from ydk.models.openconfig.openconfig_platform_types import Openconfig_Hardware_Component
-        from ydk.models.openconfig.openconfig_platform_types import Sensor
-        from ydk.models.openconfig.openconfig_platform_types import Cpu
-
-
-    def test_openconfig_policy_types(self):
-        from ydk.models.openconfig.openconfig_policy_types import Attribute_Le
-        from ydk.models.openconfig.openconfig_policy_types import Local_Aggregate
-        from ydk.models.openconfig.openconfig_policy_types import Attribute_Comparison
-        from ydk.models.openconfig.openconfig_policy_types import Attribute_Eq
-        from ydk.models.openconfig.openconfig_policy_types import Install_Protocol_Type
-        from ydk.models.openconfig.openconfig_policy_types import Directly_Connected
-        from ydk.models.openconfig.openconfig_policy_types import Ospf
-        from ydk.models.openconfig.openconfig_policy_types import Attribute_Ge
-        from ydk.models.openconfig.openconfig_policy_types import Isis
-        from ydk.models.openconfig.openconfig_policy_types import Ospf3
-        from ydk.models.openconfig.openconfig_policy_types import Static
-        from ydk.models.openconfig.openconfig_policy_types import Bgp
-        from ydk.models.openconfig.openconfig_policy_types import MatchSetOptionsType
-        from ydk.models.openconfig.openconfig_policy_types import MatchSetOptionsRestrictedType
-
-
-    def test_openconfig_rib_bgp(self):
-        from ydk.models.openconfig.openconfig_rib_bgp import BgpRib
-
-
-    def test_openconfig_rib_bgp_types(self):
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Rejected_Import_Policy
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Invalid_Cluster_Loop
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Invalid_Confed
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Higher_Peer_Address
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Local_Pref_Lower
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Bgp_Not_Selected_Bestpath
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Higher_Router_Id
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Origin_Type_Higher
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Invalid_As_Loop
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Invalid_Route_Reason
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Invalid_Originator
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Bgp_Not_Selected_Policy
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Med_Higher
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Prefer_External
-        from ydk.models.openconfig.openconfig_rib_bgp_types import As_Path_Longer
-        from ydk.models.openconfig.openconfig_rib_bgp_types import Nexthop_Cost_Higher
-
-
-    def test_openconfig_routing_policy(self):
-        from ydk.models.openconfig.openconfig_routing_policy import DefaultPolicyType
-        from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy
-
-
-    def test_openconfig_telemetry(self):
-        from ydk.models.openconfig.openconfig_telemetry import TelemetryStreamProtocol
-        from ydk.models.openconfig.openconfig_telemetry import TelemetrySystem
-
-
-    def test_openconfig_terminal_device(self):
-        from ydk.models.openconfig.openconfig_terminal_device import TerminalDevice
-
-
-    def test_openconfig_transport_types(self):
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otu1E
-        from ydk.models.openconfig.openconfig_transport_types import Trib_Rate_40G
-        from ydk.models.openconfig.openconfig_transport_types import Other
-        from ydk.models.openconfig.openconfig_transport_types import Eth_10Gbase_Lr
-        from ydk.models.openconfig.openconfig_transport_types import Sfp
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Odu4
-        from ydk.models.openconfig.openconfig_transport_types import Trib_Rate_1G
-        from ydk.models.openconfig.openconfig_transport_types import Xfp
-        from ydk.models.openconfig.openconfig_transport_types import Vsr2000_3R2
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otu3
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Odu2E
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100G_Aoc
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Cwdm4
-        from ydk.models.openconfig.openconfig_transport_types import Prot_100G_Mlg
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Oc768
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Ethernet
-        from ydk.models.openconfig.openconfig_transport_types import Transceiver_Form_Factor_Type
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Lr4
-        from ydk.models.openconfig.openconfig_transport_types import Tributary_Protocol_Type
-        from ydk.models.openconfig.openconfig_transport_types import Eth_10Gbase_Er
-        from ydk.models.openconfig.openconfig_transport_types import Prot_10Ge_Wan
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Odu2
-        from ydk.models.openconfig.openconfig_transport_types import Trib_Rate_10G
-        from ydk.models.openconfig.openconfig_transport_types import Sonet_Undefined
-        from ydk.models.openconfig.openconfig_transport_types import Fiber_Connector_Type
-        from ydk.models.openconfig.openconfig_transport_types import P1L1_2D1
-        from ydk.models.openconfig.openconfig_transport_types import Sc_Connector
-        from ydk.models.openconfig.openconfig_transport_types import Lc_Connector
-        from ydk.models.openconfig.openconfig_transport_types import Vsr2000_3R5
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Cr4
-        from ydk.models.openconfig.openconfig_transport_types import Eth_40Gbase_Lr4
-        from ydk.models.openconfig.openconfig_transport_types import Eth_40Gbase_Cr4
-        from ydk.models.openconfig.openconfig_transport_types import Prot_40Ge
-        from ydk.models.openconfig.openconfig_transport_types import Prot_10Ge_Lan
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otu4
-        from ydk.models.openconfig.openconfig_transport_types import Otn_Application_Code
-        from ydk.models.openconfig.openconfig_transport_types import Eth_Undefined
-        from ydk.models.openconfig.openconfig_transport_types import Ethernet_Pmd_Type
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Psm4
-        from ydk.models.openconfig.openconfig_transport_types import Trib_Rate_100G
-        from ydk.models.openconfig.openconfig_transport_types import Mpo_Connector
-        from ydk.models.openconfig.openconfig_transport_types import Logical_Element_Protocol_Type
-        from ydk.models.openconfig.openconfig_transport_types import Cfp2_Aco
-        from ydk.models.openconfig.openconfig_transport_types import Eth_40Gbase_Er4
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Oc192
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Sr10
-        from ydk.models.openconfig.openconfig_transport_types import Vsr2000_3R3
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Stm64
-        from ydk.models.openconfig.openconfig_transport_types import Cfp
-        from ydk.models.openconfig.openconfig_transport_types import Cfp2
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otn
-        from ydk.models.openconfig.openconfig_transport_types import Eth_40Gbase_Sr4
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Odu3
-        from ydk.models.openconfig.openconfig_transport_types import Eth_10Gbase_Sr
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otu2E
-        from ydk.models.openconfig.openconfig_transport_types import Cfp4
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Clr4
-        from ydk.models.openconfig.openconfig_transport_types import P1L1_2D2
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Er4
-        from ydk.models.openconfig.openconfig_transport_types import Non_Pluggable
-        from ydk.models.openconfig.openconfig_transport_types import Qsfp28
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otu2
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Stm16
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Oc48
-        from ydk.models.openconfig.openconfig_transport_types import Eth_4X10Gbase_Lr
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100Gbase_Sr4
-        from ydk.models.openconfig.openconfig_transport_types import Otn_Undefined
-        from ydk.models.openconfig.openconfig_transport_types import Eth_10Gbase_Zr
-        from ydk.models.openconfig.openconfig_transport_types import P1S1_2D2
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Otucn
-        from ydk.models.openconfig.openconfig_transport_types import Optical_Channel
-        from ydk.models.openconfig.openconfig_transport_types import Qsfp
-        from ydk.models.openconfig.openconfig_transport_types import Eth_100G_Acc
-        from ydk.models.openconfig.openconfig_transport_types import Tributary_Rate_Class_Type
-        from ydk.models.openconfig.openconfig_transport_types import X2
-        from ydk.models.openconfig.openconfig_transport_types import Sonet_Application_Code
-        from ydk.models.openconfig.openconfig_transport_types import Trib_Rate_2__Dot__5G
-        from ydk.models.openconfig.openconfig_transport_types import Prot_Stm256
-        from ydk.models.openconfig.openconfig_transport_types import Eth_10Gbase_Lrm
-        from ydk.models.openconfig.openconfig_transport_types import Prot_1Ge
-        from ydk.models.openconfig.openconfig_transport_types import Eth_4X10Gbase_Sr
-        from ydk.models.openconfig.openconfig_transport_types import Eth_40Gbase_Psm4
-        from ydk.models.openconfig.openconfig_transport_types import Prot_100Ge
-        from ydk.models.openconfig.openconfig_transport_types import Sfp_Plus
-        from ydk.models.openconfig.openconfig_transport_types import AdminStateType
-        from ydk.models.openconfig.openconfig_transport_types import LoopbackModeType
-
-
-    def test_openconfig_types(self):
-        from ydk.models.openconfig.openconfig_types import Ipv4
-        from ydk.models.openconfig.openconfig_types import Address_Family
-        from ydk.models.openconfig.openconfig_types import Ipv6
-
-
-    def test_openconfig_vlan(self):
-        from ydk.models.openconfig.openconfig_vlan import Vlans
-
-
-    def test_openconfig_vlan_types(self):
-        from ydk.models.openconfig.openconfig_vlan_types import Tpid_Types
-        from ydk.models.openconfig.openconfig_vlan_types import Tpid_0X8A88
-        from ydk.models.openconfig.openconfig_vlan_types import Tpid_0X9100
-        from ydk.models.openconfig.openconfig_vlan_types import Tpid_0X8100
-        from ydk.models.openconfig.openconfig_vlan_types import Tpid_0X9200
-        from ydk.models.openconfig.openconfig_vlan_types import VlanModeType
-
-
     def test_pim(self):
+        from ydk.models.cisco_ios_xe.pim import SsmMappingMode
+        from ydk.models.cisco_ios_xe.pim import DmMappingMode
+        from ydk.models.cisco_ios_xe.pim import OtherMappingMode
         from ydk.models.cisco_ios_xe.pim import SmMappingMode
         from ydk.models.cisco_ios_xe.pim import GroupToRpMappingMode
-        from ydk.models.cisco_ios_xe.pim import DmMappingMode
-        from ydk.models.cisco_ios_xe.pim import SsmMappingMode
         from ydk.models.cisco_ios_xe.pim import PimBidirMappingMode
-        from ydk.models.cisco_ios_xe.pim import OtherMappingMode
         from ydk.models.cisco_ios_xe.pim import AsmMappingMode
-        from ydk.models.cisco_ios_xe.pim import RouteProtocolType
-        from ydk.models.cisco_ios_xe.pim import PimMode
         from ydk.models.cisco_ios_xe.pim import MrouteProtocolType
         from ydk.models.cisco_ios_xe.pim import Origin
+        from ydk.models.cisco_ios_xe.pim import PimMode
+        from ydk.models.cisco_ios_xe.pim import RouteProtocolType
 
 
     def test_policy_attr(self):
@@ -2796,112 +1850,112 @@ class ImportTest(unittest.TestCase):
 
 
     def test_policy_types(self):
-        from ydk.models.cisco_ios_xe.policy_types import PolicyType
-        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
-        from ydk.models.cisco_ios_xe.policy_types import Vlan
-        from ydk.models.cisco_ios_xe.policy_types import IpRtp
-        from ydk.models.cisco_ios_xe.policy_types import Vpls
-        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
-        from ydk.models.cisco_ios_xe.policy_types import Control
-        from ydk.models.cisco_ios_xe.policy_types import PerfMon
-        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
-        from ydk.models.cisco_ios_xe.policy_types import VlanInner
-        from ydk.models.cisco_ios_xe.policy_types import Appnav
         from ydk.models.cisco_ios_xe.policy_types import WlanUserPriority
-        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
-        from ydk.models.cisco_ios_xe.policy_types import Pbr
-        from ydk.models.cisco_ios_xe.policy_types import Cos
-        from ydk.models.cisco_ios_xe.policy_types import Metadata
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
-        from ydk.models.cisco_ios_xe.policy_types import AtmClp
+        from ydk.models.cisco_ios_xe.policy_types import VlanInner
+        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
         from ydk.models.cisco_ios_xe.policy_types import DstMac
-        from ydk.models.cisco_ios_xe.policy_types import ControlClass
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
         from ydk.models.cisco_ios_xe.policy_types import ClassMap
-        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
-        from ydk.models.cisco_ios_xe.policy_types import Prec
-        from ydk.models.cisco_ios_xe.policy_types import AtmVci
         from ydk.models.cisco_ios_xe.policy_types import AccessControl
-        from ydk.models.cisco_ios_xe.policy_types import CosInner
-        from ydk.models.cisco_ios_xe.policy_types import Dei
-        from ydk.models.cisco_ios_xe.policy_types import InputInterface
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
-        from ydk.models.cisco_ios_xe.policy_types import DeiInner
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
-        from ydk.models.cisco_ios_xe.policy_types import Service
-        from ydk.models.cisco_ios_xe.policy_types import Inspect
-        from ydk.models.cisco_ios_xe.policy_types import QosGroup
-        from ydk.models.cisco_ios_xe.policy_types import Qos
-        from ydk.models.cisco_ios_xe.policy_types import FlowIp
-        from ydk.models.cisco_ios_xe.policy_types import PacketLength
-        from ydk.models.cisco_ios_xe.policy_types import SrcMac
         from ydk.models.cisco_ios_xe.policy_types import SecurityGroupTag
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
         from ydk.models.cisco_ios_xe.policy_types import ClassType
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
+        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
+        from ydk.models.cisco_ios_xe.policy_types import DeiInner
+        from ydk.models.cisco_ios_xe.policy_types import FlowIp
+        from ydk.models.cisco_ios_xe.policy_types import Vlan
+        from ydk.models.cisco_ios_xe.policy_types import InputInterface
         from ydk.models.cisco_ios_xe.policy_types import InspectClass
-        from ydk.models.cisco_ios_xe.policy_types import FlowDe
-        from ydk.models.cisco_ios_xe.policy_types import Application
+        from ydk.models.cisco_ios_xe.policy_types import Cos
+        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
+        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
+        from ydk.models.cisco_ios_xe.policy_types import QosGroup
+        from ydk.models.cisco_ios_xe.policy_types import AtmClp
+        from ydk.models.cisco_ios_xe.policy_types import Inspect
+        from ydk.models.cisco_ios_xe.policy_types import Vpls
+        from ydk.models.cisco_ios_xe.policy_types import ControlClass
+        from ydk.models.cisco_ios_xe.policy_types import Pbr
+        from ydk.models.cisco_ios_xe.policy_types import Service
+        from ydk.models.cisco_ios_xe.policy_types import Appnav
+        from ydk.models.cisco_ios_xe.policy_types import SrcMac
+        from ydk.models.cisco_ios_xe.policy_types import IpRtp
         from ydk.models.cisco_ios_xe.policy_types import QosClass
+        from ydk.models.cisco_ios_xe.policy_types import Qos
+        from ydk.models.cisco_ios_xe.policy_types import Application
+        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
+        from ydk.models.cisco_ios_xe.policy_types import Control
+        from ydk.models.cisco_ios_xe.policy_types import Metadata
+        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
+        from ydk.models.cisco_ios_xe.policy_types import Prec
+        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
+        from ydk.models.cisco_ios_xe.policy_types import PolicyType
+        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
+        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
+        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
+        from ydk.models.cisco_ios_xe.policy_types import CosInner
         from ydk.models.cisco_ios_xe.policy_types import SecurityGroupName
+        from ydk.models.cisco_ios_xe.policy_types import Dei
         from ydk.models.cisco_ios_xe.policy_types import PacketService
-        from ydk.models.cisco_ios_xe.policy_types import Direction
+        from ydk.models.cisco_ios_xe.policy_types import PerfMon
+        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
+        from ydk.models.cisco_ios_xe.policy_types import PacketLength
+        from ydk.models.cisco_ios_xe.policy_types import AtmVci
+        from ydk.models.cisco_ios_xe.policy_types import FlowDe
         from ydk.models.cisco_ios_xe.policy_types import Metric
+        from ydk.models.cisco_ios_xe.policy_types import Direction
         from ydk.models.cisco_ios_xe.policy_types import RateUnit
 
 
     def test_policy_types(self):
-        from ydk.models.cisco_ios_xe.policy_types import PolicyType
-        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
-        from ydk.models.cisco_ios_xe.policy_types import Vlan
-        from ydk.models.cisco_ios_xe.policy_types import IpRtp
-        from ydk.models.cisco_ios_xe.policy_types import Vpls
-        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
-        from ydk.models.cisco_ios_xe.policy_types import Control
-        from ydk.models.cisco_ios_xe.policy_types import PerfMon
-        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
-        from ydk.models.cisco_ios_xe.policy_types import VlanInner
-        from ydk.models.cisco_ios_xe.policy_types import Appnav
         from ydk.models.cisco_ios_xe.policy_types import WlanUserPriority
-        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
-        from ydk.models.cisco_ios_xe.policy_types import Pbr
-        from ydk.models.cisco_ios_xe.policy_types import Cos
-        from ydk.models.cisco_ios_xe.policy_types import Metadata
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
-        from ydk.models.cisco_ios_xe.policy_types import AtmClp
+        from ydk.models.cisco_ios_xe.policy_types import VlanInner
+        from ydk.models.cisco_ios_xe.policy_types import FlowDlci
         from ydk.models.cisco_ios_xe.policy_types import DstMac
-        from ydk.models.cisco_ios_xe.policy_types import ControlClass
-        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
         from ydk.models.cisco_ios_xe.policy_types import ClassMap
-        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
-        from ydk.models.cisco_ios_xe.policy_types import Prec
-        from ydk.models.cisco_ios_xe.policy_types import AtmVci
         from ydk.models.cisco_ios_xe.policy_types import AccessControl
-        from ydk.models.cisco_ios_xe.policy_types import CosInner
-        from ydk.models.cisco_ios_xe.policy_types import Dei
-        from ydk.models.cisco_ios_xe.policy_types import InputInterface
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
-        from ydk.models.cisco_ios_xe.policy_types import DeiInner
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
-        from ydk.models.cisco_ios_xe.policy_types import Service
-        from ydk.models.cisco_ios_xe.policy_types import Inspect
-        from ydk.models.cisco_ios_xe.policy_types import QosGroup
-        from ydk.models.cisco_ios_xe.policy_types import Qos
-        from ydk.models.cisco_ios_xe.policy_types import FlowIp
-        from ydk.models.cisco_ios_xe.policy_types import PacketLength
-        from ydk.models.cisco_ios_xe.policy_types import SrcMac
         from ydk.models.cisco_ios_xe.policy_types import SecurityGroupTag
-        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
         from ydk.models.cisco_ios_xe.policy_types import ClassType
-        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
+        from ydk.models.cisco_ios_xe.policy_types import FlowRecord
+        from ydk.models.cisco_ios_xe.policy_types import DeiInner
+        from ydk.models.cisco_ios_xe.policy_types import FlowIp
+        from ydk.models.cisco_ios_xe.policy_types import Vlan
+        from ydk.models.cisco_ios_xe.policy_types import InputInterface
         from ydk.models.cisco_ios_xe.policy_types import InspectClass
-        from ydk.models.cisco_ios_xe.policy_types import FlowDe
-        from ydk.models.cisco_ios_xe.policy_types import Application
+        from ydk.models.cisco_ios_xe.policy_types import Cos
+        from ydk.models.cisco_ios_xe.policy_types import MplsExpTop
+        from ydk.models.cisco_ios_xe.policy_types import Ipv6AclName
+        from ydk.models.cisco_ios_xe.policy_types import QosGroup
+        from ydk.models.cisco_ios_xe.policy_types import AtmClp
+        from ydk.models.cisco_ios_xe.policy_types import Inspect
+        from ydk.models.cisco_ios_xe.policy_types import Vpls
+        from ydk.models.cisco_ios_xe.policy_types import ControlClass
+        from ydk.models.cisco_ios_xe.policy_types import Pbr
+        from ydk.models.cisco_ios_xe.policy_types import Service
+        from ydk.models.cisco_ios_xe.policy_types import Appnav
+        from ydk.models.cisco_ios_xe.policy_types import SrcMac
+        from ydk.models.cisco_ios_xe.policy_types import IpRtp
         from ydk.models.cisco_ios_xe.policy_types import QosClass
+        from ydk.models.cisco_ios_xe.policy_types import Qos
+        from ydk.models.cisco_ios_xe.policy_types import Application
+        from ydk.models.cisco_ios_xe.policy_types import AppnavClass
+        from ydk.models.cisco_ios_xe.policy_types import Control
+        from ydk.models.cisco_ios_xe.policy_types import Metadata
+        from ydk.models.cisco_ios_xe.policy_types import DiscardClass
+        from ydk.models.cisco_ios_xe.policy_types import Prec
+        from ydk.models.cisco_ios_xe.policy_types import MplsExpImp
+        from ydk.models.cisco_ios_xe.policy_types import PolicyType
+        from ydk.models.cisco_ios_xe.policy_types import Ipv4AclName
+        from ydk.models.cisco_ios_xe.policy_types import Ipv6Acl
+        from ydk.models.cisco_ios_xe.policy_types import Ipv4Acl
+        from ydk.models.cisco_ios_xe.policy_types import CosInner
         from ydk.models.cisco_ios_xe.policy_types import SecurityGroupName
+        from ydk.models.cisco_ios_xe.policy_types import Dei
         from ydk.models.cisco_ios_xe.policy_types import PacketService
-        from ydk.models.cisco_ios_xe.policy_types import Direction
+        from ydk.models.cisco_ios_xe.policy_types import PerfMon
+        from ydk.models.cisco_ios_xe.policy_types import AccessControlClass
+        from ydk.models.cisco_ios_xe.policy_types import PacketLength
+        from ydk.models.cisco_ios_xe.policy_types import AtmVci
+        from ydk.models.cisco_ios_xe.policy_types import FlowDe
         from ydk.models.cisco_ios_xe.policy_types import Metric
+        from ydk.models.cisco_ios_xe.policy_types import Direction
         from ydk.models.cisco_ios_xe.policy_types import RateUnit
 
 
@@ -2934,15 +1988,15 @@ class ImportTest(unittest.TestCase):
 
 
     def test_tailf_netconf_monitoring(self):
+        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import RestHttps
+        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import SnmpUdp
+        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import WebuiHttp
+        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import RestHttp
         from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import CliTcp
         from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import CliConsole
         from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import CliSsh
-        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import SnmpUdp
-        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import RestHttp
-        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import NetconfTcp
-        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import WebuiHttp
-        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import RestHttps
         from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import WebuiHttps
+        from ydk.models.cisco_ios_xe.tailf_netconf_monitoring import NetconfTcp
 
 
     def test_tailf_netconf_query(self):

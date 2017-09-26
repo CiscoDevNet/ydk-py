@@ -29,8 +29,13 @@ submodule Cisco-IOS-XR-fib-common-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2017-01-20" {
     description

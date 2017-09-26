@@ -12,7 +12,7 @@ module Cisco-IOS-XR-pmengine-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-pmengine-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -39,8 +39,18 @@ module Cisco-IOS-XR-pmengine-oper {
        performance-management: performace data
        performance-management-history: performance management history
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-03-30" {
+    description
+      "OTU PRBS Stats Added";
+  }
 
   revision "2015-11-09" {
     description
@@ -51,6 +61,217 @@ module Cisco-IOS-XR-pmengine-oper {
   container performance-management {
     config false;
     description "performace data";
+
+    container macsec {
+      description "MACSEC controller performance data";
+
+      container macsec-ports {
+        description "Port performance data";
+
+        list macsec-port {
+          key "name";
+          description "Port performance data";
+
+          container macsec-current {
+            description "port current performance data";
+
+            container macsec-minute15 {
+              description "port current performance data";
+
+              container macsec-minute15secyifs {
+                description "port current performance data";
+
+                list macsec-minute15secyif {
+                  key "number";
+                  description
+                    "port 15-minute secy-if performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-IF-PARAS;
+                }
+              }
+
+              container macsec-minute15secyrxes {
+                description "port current performance data";
+
+                list macsec-minute15secyrx {
+                  key "number";
+                  description
+                    "port 15-minute secy-rx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-RX-PARAS;
+                }
+              }
+
+              container macsec-minute15secytxes {
+                description "port current performance data";
+
+                list macsec-minute15secytx {
+                  key "number";
+                  description
+                    "port 15-minute secy-tx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-TX-PARAS;
+                }
+              }
+
+              container macsec-minute15-ether-s {
+                description "port current performance data";
+
+                list macsec-minute15-ether {
+                  key "number";
+                  description
+                    "port 15-minute ether performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-ETHERNET-PARAS;
+                }
+              }
+            }
+
+            container macsec-second30 {
+              description "port current performance data";
+
+              container macsec-second30secyifs {
+                description "port current performance data";
+
+                list macsec-second30secyif {
+                  key "number";
+                  description
+                    "port 30-sec secy-if performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-IF-PARAS;
+                }
+              }
+
+              container macsec-second30secyrxes {
+                description "port current performance data";
+
+                list macsec-second30secyrx {
+                  key "number";
+                  description
+                    "port 30-sec secy-rx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-RX-PARAS;
+                }
+              }
+
+              container macsec-second30-ether-s {
+                description "port current performance data";
+
+                list macsec-second30-ether {
+                  key "number";
+                  description "port 30-sec ether performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-ETHERNET-PARAS;
+                }
+              }
+
+              container macsec-second30secytxes {
+                description "port current performance data";
+
+                list macsec-second30secytx {
+                  key "number";
+                  description
+                    "port 30-sec secy-tx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-TX-PARAS;
+                }
+              }
+            }
+
+            container macsec-hour24 {
+              description "port current performance data";
+
+              container macsec-hour24-ether-s {
+                description "port current performance data";
+
+                list macsec-hour24-ether {
+                  key "number";
+                  description "port 24 hour ether performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-ETHERNET-PARAS;
+                }
+              }
+
+              container macsec-hour24secyifs {
+                description "port current performance data";
+
+                list macsec-hour24secyif {
+                  key "number";
+                  description
+                    "port 24 hour secy-if performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-IF-PARAS;
+                }
+              }
+
+              container macsec-hour24secyrxes {
+                description "port current performance data";
+
+                list macsec-hour24secyrx {
+                  key "number";
+                  description
+                    "port 24 hour secy-rx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-RX-PARAS;
+                }
+              }
+
+              container macsec-hour24secytxes {
+                description "port current performance data";
+
+                list macsec-hour24secytx {
+                  key "number";
+                  description
+                    "port 24 hour secy-tx performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-SECY-TX-PARAS;
+                }
+              }
+            }
+          }
+          leaf name {
+            type xr:Interface-name;
+            description "Port name";
+          }
+        }
+      }
+    }
 
     container ho-vc {
       description "HO_VC controller performance data";
@@ -267,6 +488,21 @@ module Cisco-IOS-XR-pmengine-oper {
                   uses PM-OTN-PARAS;
                 }
               }
+
+              container otu-minute15prbses {
+                description "port current performance data";
+
+                list otu-minute15prbs {
+                  key "number";
+                  description
+                    "port 15-minute prbs performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-PRBS-PARAS;
+                }
+              }
             }
 
             container otu-second30 {
@@ -315,6 +551,20 @@ module Cisco-IOS-XR-pmengine-oper {
                     description "channel number";
                   }
                   uses PM-FEC-PARAS;
+                }
+              }
+
+              container otu-hour24prbses {
+                description "port 24 hour performance data";
+
+                list otu-hour24prbs {
+                  key "number";
+                  description "port 24 hour otn performance data";
+                  leaf number {
+                    type int32;
+                    description "channel number";
+                  }
+                  uses PM-PRBS-PARAS;
                 }
               }
 
@@ -1559,6 +1809,407 @@ module Cisco-IOS-XR-pmengine-oper {
           }
         }
 
+        container macsec-history {
+          description "MACSEC controller History performance data";
+
+          container macsec-port-histories {
+            description "Port performance data";
+
+            list macsec-port-history {
+              key "name";
+              description "Port performance data";
+
+              container macsec-minute15-history {
+                description "port current performance data";
+
+                container macsec-minute15secyrx-histories {
+                  description "port current performance data";
+
+                  list macsec-minute15secyrx-history {
+                    key "number";
+                    description
+                      "port 15-minute secy_rx performance data";
+
+                    container "macsec-minute15secyrx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-minute15secyrx-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 15-minute secy_rx performance data
+                          by index";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-RX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-minute15-ether-histories {
+                  description "port current performance data";
+
+                  list macsec-minute15-ether-history {
+                    key "number";
+                    description
+                      "port 15-minute ether performance data";
+
+                    container "macsec-minute15-ether-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-minute15-ether-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 15-minute ether performance data
+                          by index";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-ETHERNET-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-minute15secytx-histories {
+                  description "port current performance data";
+
+                  list macsec-minute15secytx-history {
+                    key "number";
+                    description
+                      "port 15-minute secy_tx performance data";
+
+                    container "macsec-minute15secytx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-minute15secytx-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 15-minute secy_tx performance data
+                          by index";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-TX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-minute15secyif-histories {
+                  description "port current performance data";
+
+                  list macsec-minute15secyif-history {
+                    key "number";
+                    description
+                      "port 15-minute secy_if performance data";
+
+                    container "macsec-minute15secyif-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-minute15secyif-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 15-minute secy_if performance data
+                          by index";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-IF-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+              }
+
+              container macsec-hour24-history {
+                description "port current performance data";
+
+                container macsec-hour24-ether-histories {
+                  description "port current performance data";
+
+                  list macsec-hour24-ether-history {
+                    key "number";
+                    description
+                      "port 24 hour ether performance data";
+
+                    container "macsec-hour24-ether-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list macsec-hour24-ether-time-line-instance {
+                        key "number";
+                        description
+                          "port 24 hour ether performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-ETHERNET-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-hour24secytx-histories {
+                  description "port current performance data";
+
+                  list macsec-hour24secytx-history {
+                    key "number";
+                    description
+                      "port 24 hour secy_tx performance data";
+
+                    container "macsec-hour24secytx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list macsec-hour24secytx-time-line-instance {
+                        key "number";
+                        description
+                          "port 24 hour secy_tx performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-TX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-hour24secyif-histories {
+                  description "port current performance data";
+
+                  list macsec-hour24secyif-history {
+                    key "number";
+                    description
+                      "port 24 hour secy_if performance data";
+
+                    container "macsec-hour24secyif-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list macsec-hour24secyif-time-line-instance {
+                        key "number";
+                        description
+                          "port 24 hour secy_if performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-IF-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-hour24secyrx-histories {
+                  description "port current performance data";
+
+                  list macsec-hour24secyrx-history {
+                    key "number";
+                    description
+                      "port 24 hour secy_rx performance data";
+
+                    container "macsec-hour24secyrx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list macsec-hour24secyrx-time-line-instance {
+                        key "number";
+                        description
+                          "port 24 hour secy_rx performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-RX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+              }
+
+              container macsec-second30-history {
+                description "port current performance data";
+
+                container macsec-second30secyrx-histories {
+                  description "port current performance data";
+
+                  list macsec-second30secyrx-history {
+                    key "number";
+                    description
+                      "port 30-second secy_rx performance data";
+
+                    container "macsec-second30secyrx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-second30secyrx-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 30-second secy_rx performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-RX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-second30-ether-histories {
+                  description "port current performance data";
+
+                  list macsec-second30-ether-history {
+                    key "number";
+                    description
+                      "port 30-second ether performance data";
+
+                    container "macsec-second30-ether-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-second30-ether-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 30-second ether performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-ETHERNET-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-second30secytx-histories {
+                  description "port current performance data";
+
+                  list macsec-second30secytx-history {
+                    key "number";
+                    description
+                      "port 30-second secy_tx performance data";
+
+                    container "macsec-second30secytx-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-second30secytx-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 30-second secy_tx performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-TX-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
+                container macsec-second30secyif-histories {
+                  description "port current performance data";
+
+                  list macsec-second30secyif-history {
+                    key "number";
+                    description
+                      "port 30-second secy_if performance data";
+
+                    container "macsec-second30secyif-time-line"+
+                      "-instances" {
+                      description "port current performance data";
+
+                      list "macsec-second30secyif-time-line"+
+                        "-instance" {
+                        key "number";
+                        description
+                          "port 30-second secy_if performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-SECY-IF-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+              }
+              leaf name {
+                type xr:Interface-name;
+                description "Port name";
+              }
+            }
+          }
+        }
+
         container odu-history {
           description "ODU controller History performance data";
 
@@ -1860,6 +2511,35 @@ module Cisco-IOS-XR-pmengine-oper {
                   }
                 }
 
+                container otu-minute15prbs-histories {
+                  description "port current performance data";
+
+                  list otu-minute15prbs-history {
+                    key "number";
+                    description
+                      "port 15-minute prbs performance data";
+
+                    container otu-minute15prbs-time-line-instances {
+                      description "port current performance data";
+
+                      list otu-minute15prbs-time-line-instance {
+                        key "number";
+                        description
+                          "port 15-minute prbs performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-PRBS-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
+
                 container otu-minute15otn-histories {
                   description "port current performance data";
 
@@ -1892,6 +2572,35 @@ module Cisco-IOS-XR-pmengine-oper {
 
               container otu-hour24-history {
                 description "port current performance data";
+
+                container otu-hour24prbs-histories {
+                  description "port 24 hour performance data";
+
+                  list otu-hour24prbs-history {
+                    key "number";
+                    description
+                      "port 24 hour prbs performance data";
+
+                    container otu-hour24prbs-time-line-instances {
+                      description "port current performance data";
+
+                      list otu-hour24prbs-time-line-instance {
+                        key "number";
+                        description
+                          "port 15-minute prbs performance data";
+                        leaf number {
+                          type int32;
+                          description "History Index number";
+                        }
+                        uses PM-PRBS-PARAS;
+                      }
+                    }
+                    leaf number {
+                      type int32;
+                      description "channel number";
+                    }
+                  }
+                }
 
                 container otu-hour24otn-histories {
                   description "port 24 hour performance data";

@@ -9,8 +9,6 @@ module Cisco-IOS-XR-ipv4-ma-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -35,7 +33,7 @@ module Cisco-IOS-XR-ipv4-ma-cfg {
        ipv4-network-global: IPv4 network global configuration data
        subscriber-pta: subscriber pta
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {

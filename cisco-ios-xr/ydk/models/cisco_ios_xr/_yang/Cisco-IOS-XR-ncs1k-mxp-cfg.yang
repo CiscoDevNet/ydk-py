@@ -34,7 +34,7 @@ module Cisco-IOS-XR-ncs1k-mxp-cfg {
      for the following management objects:
        hardware-module: NCS1k HW module config
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -72,6 +72,10 @@ module Cisco-IOS-XR-ncs1k-mxp-cfg {
       enum hundred-gig {
         value 3;
         description "HundredGig";
+      }
+      enum ten-and-hundred-gig {
+        value 4;
+        description "TenAndHundredGig";
       }
     }
     description "Client data rate";

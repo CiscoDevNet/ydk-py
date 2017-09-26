@@ -15,7 +15,7 @@ module Cisco-IOS-XR-pbr-vservice-ea-oper {
   import Cisco-IOS-XR-pbr-datatypes { prefix "dt1"; }
 
   include Cisco-IOS-XR-pbr-vservice-ea-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -42,8 +42,13 @@ module Cisco-IOS-XR-pbr-vservice-ea-oper {
        service-function-chaining: NSH Service Function Chaining
          operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

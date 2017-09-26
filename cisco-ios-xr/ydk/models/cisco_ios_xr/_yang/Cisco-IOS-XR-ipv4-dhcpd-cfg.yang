@@ -38,8 +38,13 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
      for the following management objects:
        ipv4-dhcpd: DHCP IPV4 configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -146,17 +151,9 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
   }
   typedef Ipv4dhcpd-giaddr-policy {
     type enumeration {
-      enum keep {
-        value 0;
-        description "Keep";
-      }
-      enum replace {
+      enum giaddr-policy-keep {
         value 1;
-        description "Replace";
-      }
-      enum drop {
-        value 2;
-        description "Drop";
+        description "Giaddr Policy Keep";
       }
     }
     description "Ipv4dhcpd giaddr policy";
@@ -177,6 +174,19 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
       }
     }
     description "Lease limit value";
+  }
+  typedef Dhcpv4-auth-username {
+    type enumeration {
+      enum auth-username-mac {
+        value 1;
+        description "Authentication Username formating mac";
+      }
+      enum auth-username-giaddr {
+        value 2;
+        description "Authentication Username formating giaddr";
+      }
+    }
+    description "Dhcpv4 auth username";
   }
   typedef Proxy-action {
     type enumeration {
@@ -382,6 +392,19 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
       }
     }
     description "Ipv4dhcpd fmt specifier";
+  }
+  typedef Mac-mismatch-action {
+    type enumeration {
+      enum forward {
+        value 0;
+        description "Forward";
+      }
+      enum drop {
+        value 1;
+        description "Drop";
+      }
+    }
+    description "Mac mismatch action";
   }
 
   grouping OPTION-CODE-TABLE {
@@ -665,6 +688,19 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                   type empty;
                   description
                     "specify requested-ip-address-check disable";
+                }
+              }
+
+              container aaa-server {
+                description "Enable aaa dhcp option force-insert";
+
+                container dhcp-option {
+                  description "Enable aaa dhcp option force-insert";
+                  leaf force-insert {
+                    type empty;
+                    description
+                      "Enable aaa dhcp option force-insert";
+                  }
                 }
               }
 
@@ -1023,19 +1059,6 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                 }
               }
 
-              container aaa {
-                description "Enable aaa dhcp option force-insert";
-
-                container dhcp-option {
-                  description "Enable aaa dhcp option force-insert";
-                  leaf force-insert {
-                    type empty;
-                    description
-                      "Enable aaa dhcp option force-insert";
-                  }
-                }
-              }
-
               container dns-servers {
                 description "DNS servers";
                 leaf-list dns-server {
@@ -1176,10 +1199,24 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                   description "Broadcast flag policy";
                 }
               }
+              leaf mac-mismatch-action {
+                type Mac-mismatch-action;
+                description
+                  "Action to take if L2 header source Mac and
+                  dhcp header mac address don't match";
+              }
             }
 
             container proxy {
               description "DHCP proxy profile";
+
+              container giaddr {
+                description "Specify gateway address policy";
+                leaf policy {
+                  type Ipv4dhcpd-giaddr-policy;
+                  description "Gateway address policy";
+                }
+              }
 
               container classes {
                 description "DHCP class table";
@@ -1250,6 +1287,22 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                     type xr:Cisco-ios-xr-string;
                     description "Class name";
                   }
+                }
+              }
+
+              container auth-username {
+                presence "Indicates a auth-username node is"+
+                  " configured.";
+                description "Authentication Username formating";
+                leaf arg1 {
+                  type Dhcpv4-auth-username;
+                  mandatory true;
+                  description "Username Formatting first argument ";
+                }
+                leaf arg2 {
+                  type Dhcpv4-auth-username;
+                  description
+                    "Username Formatting second argument ";
                 }
               }
 
@@ -1474,6 +1527,11 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                 type empty;
                 description
                   "DHCP IPV4 profile proxy secure-arp enable";
+              }
+              leaf delayed-authen-proxy {
+                type empty;
+                description
+                  "For BNG session, delay the authentication";
               }
               leaf enable {
                 type empty;
@@ -1981,6 +2039,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
       leaf exclude-vlan {
         type empty;
         description "Exclude vlan";
+      }
+      leaf include-giaddr {
+        type empty;
+        description "Include giaddr";
       }
     }
 

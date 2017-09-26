@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ip-mobileip-cfg {
      for the following management objects:
        mobile-ip: MobileIP configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -806,7 +806,9 @@ module Cisco-IOS-XR-ip-mobileip-cfg {
                     description "GRE key type";
                   }
                   leaf gre-key-value {
-                    type int32;
+                    type uint32 {
+                      range "1..4294967295";
+                    }
                     description "GRE key value";
                   }
                 }
@@ -871,7 +873,9 @@ module Cisco-IOS-XR-ip-mobileip-cfg {
                   description "Specify the Admin Distance value";
                 }
                 leaf bandwidth-aggregate {
-                  type int32;
+                  type uint32 {
+                    range "1..4294967295";
+                  }
                   units "kbit/s";
                   description
                     "Aggregate bandwidth across all logical MNs";

@@ -36,7 +36,7 @@ module Cisco-IOS-XR-terminal-device-cfg {
        logical-channels: Logical channel in mxp
        optical-channels: optical channels
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

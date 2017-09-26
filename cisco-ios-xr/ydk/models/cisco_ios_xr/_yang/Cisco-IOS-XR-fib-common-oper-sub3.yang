@@ -29,8 +29,13 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2017-01-20" {
     description
@@ -248,6 +253,17 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       }
     }
     description "Loadsharing type";
+  }
+  typedef Fib-nhinfo-ext-bag {
+    type enumeration {
+      enum replicated-nh-info {
+        description "Replicated NHINFO";
+      }
+      enum shared-nh-info {
+        description "Shared NHINFO";
+      }
+    }
+    description "FIB NHINFO extension type";
   }
   typedef Fib-frr-protocol-show {
     type enumeration {
@@ -1589,7 +1605,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       description "NHAddress";
     }
     list lstack {
-      max-elements "14";
+      max-elements "23";
 
       description "lstack";
         leaf entry {
@@ -1608,14 +1624,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       type boolean;
       description "RecursiveFwdChain";
     }
-    leaf recursive-out-label-valid {
-      type boolean;
-      description "RecursiveOutLabelValid";
-    }
-    leaf recursive-out-lable {
-      type uint32;
-      description "RecursiveOutLable";
-    }
     leaf number-of-igp-paths {
       type uint32;
       description "NumberOfIGPPaths";
@@ -1623,6 +1631,12 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
     leaf remote-backup {
       type boolean;
       description "RemoteBackupPath";
+    }
+    list recursive-lbl-stack {
+      description "Recursive Label(s)";
+        leaf entry {
+                  type uint32;
+        }
     }
 
     list igp-label-stack-array {
@@ -2326,6 +2340,22 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
       type uint32;
       description "The flags of ext assocaited with LDI ";
     }
+    leaf pointer-external-ldi {
+      type uint32;
+      description "The pointer to the ext assocaited with LDI";
+    }
+    leaf exact-path-interface-handle {
+      type uint32;
+      description "exact-path interface handle";
+    }
+    leaf exact-path-gre-interface-handle {
+      type uint32;
+      description "exact-path GRE physical interface handle";
+    }
+    leaf exact-route-gre-phys-ifh-avail {
+      type boolean;
+      description "exact-route GRE phy ifh available";
+    }
     leaf exact-route-result {
       type boolean;
       description "exact-route result";
@@ -2439,6 +2469,334 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
     }
   }
 
+  grouping FIB-SH-NHINFO-EXT-REP-DET {
+    description "NHINFO entry extension object information";
+    leaf nh-info-replicated-type {
+      type uint8;
+      description "Replicated NHINFO type";
+    }
+    leaf nh-info-replicated-nh-id {
+      type uint32;
+      description "NHID of the replicated NHINFO";
+    }
+    leaf nh-info-replicated-interface {
+      type xr:Interface-name;
+      description "Interface of the replicated NHINFO";
+    }
+  }
+
+  grouping FIB-SH-NHINFO-EXT-CMN-DET {
+    description "FIB SH NHINFO EXT CMN DET";
+
+    container snecd-nhr {
+      when "../type = 'replicated-nh-info'" {
+        description "../type = 'ReplicatedNHINFO'";
+      }
+      description "snecd nhr";
+      uses FIB-SH-NHINFO-EXT-REP-DET;
+    }
+    leaf type {
+      type Fib-nhinfo-ext-bag;
+      description "type";
+    }
+  }
+
+  grouping FIB-SH-FIB-OBJ-BASE {
+    description "FIB object base information";
+    leaf object-reference-count {
+      type uint32;
+      description "FIB Object Reference Count";
+    }
+    leaf object-flags {
+      type uint32;
+      description "FIB Object flags";
+    }
+    leaf object-type {
+      type uint8;
+      description "FIB Object type";
+    }
+    leaf object-time-stamp {
+      type uint64;
+      description "FIB Object TimeStamp in msec";
+    }
+    leaf object-pointer {
+      type uint64;
+      description "FIB Object pointer";
+    }
+  }
+
+  grouping FIB-SH-EXT-BASE {
+    description "FIB object extension base information";
+
+    container object-base {
+      description "FIB Object Base information";
+      uses FIB-SH-FIB-OBJ-BASE;
+    }
+    leaf parent-object-pointer {
+      type uint64;
+      description "FIB Extension Object's parent pointer";
+    }
+    leaf back-object-pointer {
+      type uint64;
+      description "FIB Extension Object's back pointer";
+    }
+  }
+
+  grouping FIB-SH-NHINFO-EXT-DET {
+    description "NHINFO entry extension internal information";
+
+    container nh-info-extension-base {
+      description "NHINFO Extension object base information";
+      uses FIB-SH-EXT-BASE;
+    }
+
+    container nh-info-extension-detail {
+      description "NHINFO Extension Detail Information";
+      uses FIB-SH-NHINFO-EXT-CMN-DET;
+    }
+  }
+
+  grouping FIB-SH-NHINFO-EXT {
+    description "FIB per nhinfo info";
+
+    list nh-info-extension-detail {
+      description "NHINFO Extension Detail";
+      uses FIB-SH-NHINFO-EXT-DET;
+    }
+  }
+
+  grouping FIB-SH-NHINFO-PWHE-EXT {
+    description "FIB PW-HE specific info";
+    leaf pwhe-adjacency-client-data {
+      type uint32;
+      description "PW-HE specific client data in adjacency";
+    }
+    leaf vctype {
+      type uint32;
+      description "VC type";
+    }
+    leaf vc-internal-label {
+      type uint32;
+      description "VC Internal Label";
+    }
+    leaf cw-enabled {
+      type boolean;
+      description "Is CW enabled?";
+    }
+    leaf l2-overhead-bytes {
+      type uint16;
+      units "byte";
+      description
+        "L2 overhead bytes for interface stats accounting";
+    }
+    leaf dot1q-vlan-tag {
+      type uint32;
+      description "VLAN tag";
+    }
+  }
+
+  grouping FIB-SH-NHINFO {
+    description "FIB per nhinfo information";
+
+    container si-pwhe {
+      description "PW-HE interface extension";
+      uses FIB-SH-NHINFO-PWHE-EXT;
+    }
+
+    container nh-info-extension {
+      description "NHinfo Extensions";
+      uses FIB-SH-NHINFO-EXT;
+    }
+    leaf si-link-proto {
+      type uint32;
+      description "FIB Protocol Type for NHINFO linktype";
+    }
+    leaf si-nhinfo {
+      type uint32;
+      description "NHinfo object";
+    }
+    leaf si-nhtype {
+      type uint32;
+      description "NHinfo Type";
+    }
+    leaf si-ifh {
+      type uint32;
+      description "Ifhndl assoc w nhinfo";
+    }
+    leaf si-pfi-interface-type {
+      type uint32;
+      description "Pamna Interface Type";
+    }
+    leaf si-adj-ptr {
+      type uint32;
+      description "Adj Ptr";
+    }
+    leaf si-adj-present {
+      type boolean;
+      description "nhinfo point to adj";
+    }
+    leaf si-special-type {
+      type uint32;
+      description "nature of special nhinfo";
+    }
+    leaf si-refcount {
+      type uint32;
+      description "refcount";
+    }
+    leaf si-flags {
+      type uint32;
+      description "nhinfo flags";
+    }
+    leaf si-adj-if {
+      type uint32;
+      description "ADJ Interface";
+    }
+    leaf si-ext-pfx {
+      type yang:hex-string;
+      description "Extension Prefix";
+    }
+    leaf si-ext-pfx-len {
+      type uint32;
+      description "Extension Prefix Len";
+    }
+    leaf si-ext-pfx-proto {
+      type uint32;
+      description "Extension Prefix Protocol";
+    }
+    leaf si-adj-address {
+      type yang:hex-string;
+      description "AIB L3 Address";
+    }
+    leaf si-adj-addrlen {
+      type uint32;
+      description "ADJ L3 address length";
+    }
+    leaf si-adj-addr-proto {
+      type uint32;
+      description "ADJ L3 address Protocol";
+    }
+    leaf si-adj-rw-len {
+      type uint32;
+      description "Length of Macstring";
+    }
+    leaf si-adj-rw {
+      type yang:hex-string;
+      description "Macstring for Adjacency";
+    }
+    leaf si-dep-nhinfo-type {
+      type uint32;
+      description "Depenedent nhinfo type";
+    }
+    leaf si-dep-nhinfo {
+      type uint32;
+      description "Dependent nhinfo";
+    }
+    leaf si-dep-nhinfo-ifh {
+      type uint32;
+      description "Dependent nhinfo ifhndl";
+    }
+    leaf si-bkup-frr {
+      type uint32;
+      description "pointer to Backup FRR obj";
+    }
+    leaf si-protect-frr {
+      type uint32;
+      description "pointer to protect FRR object";
+    }
+    leaf si-bkup-nhinfo {
+      type uint32;
+      description "Bacckup NHINFO obj";
+    }
+    leaf si-bkup-ifh {
+      type uint32;
+      description "Bacckup IFH";
+    }
+    leaf si-bkup-addr {
+      type yang:hex-string;
+      description "Bkup L3 Address";
+    }
+    leaf si-bkup-addrlen {
+      type uint32;
+      description "BKup L3 address length";
+    }
+    leaf si-bkup-addr-proto {
+      type uint32;
+      description "BKup L3 address Protocol";
+    }
+    leaf si-frr-active {
+      type boolean;
+      description "is FRR currently active";
+    }
+    leaf si-attr-is-ext-mgd {
+      type boolean;
+      description "NH is externally managed";
+    }
+    leaf si-attr-is-incomp {
+      type boolean;
+      description "NH is incomplete";
+    }
+    leaf si-attr-is-tunnel {
+      type boolean;
+      description "NH is assoc w a TE tunnel";
+    }
+    leaf si-attr-is-tunnel-srte {
+      type boolean;
+      description "NH is assoc w a SRTE tunnel";
+    }
+    leaf si-attr-is-gre-tunnel {
+      type boolean;
+      description "NH is assoc w a GRE tunnel";
+    }
+    leaf si-gre-ti {
+      type uint32;
+      description "GRE tunnel info";
+    }
+    leaf si-gre-ti-flags {
+      type uint32;
+      description "Flags on GRE tunnel info";
+    }
+    leaf si-gre-ti-refcnt {
+      type uint32;
+      description "Refcount on GRE tunnel info";
+    }
+    leaf si-gre-tos-propagate {
+      type boolean;
+      description "Is GRE TOS propagate set";
+    }
+    leaf si-hardware {
+      type yang:hex-string;
+      description "Platform Hardware info";
+    }
+    leaf si-nhinfo-ptr {
+      type uint32;
+      description "nhinfo pointer";
+    }
+    leaf si-fnb-idb-ptr {
+      type uint32;
+      description "pointer to idb";
+    }
+    leaf si-anc-ifh {
+      type uint32;
+      description "Ancestor IFH";
+    }
+    leaf si-gre-ti-resolving-leafp {
+      type uint32;
+      description "GRE resolving ip-leaf";
+    }
+    leaf si-gre-dest-addr {
+      type yang:hex-string;
+      description "GRE dest address";
+    }
+    leaf si-nhid {
+      type uint32;
+      description "NHID value in the TX NH";
+    }
+    leaf si-upd-ts {
+      type uint64;
+      description "NH update timestamp";
+    }
+  }
+
   grouping FIB-SH-TIMESPEC {
     description "FIB SH TIMESPEC";
     leaf seconds {
@@ -2517,6 +2875,37 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
     }
   }
 
+  grouping FIB-SH-PFX-MASKLEN-CNT {
+    description "FIB Prefix Masklength counts";
+    leaf mask-length {
+      type uint8;
+      description "Mask length";
+    }
+    leaf number-of-prefixes {
+      type uint32;
+      description "Number of prefixes with given mask length";
+    }
+  }
+
+  grouping FIB-SH-PFX-MASKLEN-DISTRIB {
+    description "FIB Prefix Masklengths distribution";
+
+    list unicast-prefixe {
+      description "Masklength counts for unicast prefixes";
+      uses FIB-SH-PFX-MASKLEN-CNT;
+    }
+
+    list broadcast-prefixe {
+      description "Masklength counts for broadcast prefixes";
+      uses FIB-SH-PFX-MASKLEN-CNT;
+    }
+
+    list multicast-prefix {
+      description "Masklength counts for multicast prefixes";
+      uses FIB-SH-PFX-MASKLEN-CNT;
+    }
+  }
+
   grouping FIB-PL-LDI-COUNT {
     description "FIB Pathlist and Loadinfo summary";
     leaf total-load-sharing-element-bytes {
@@ -2587,6 +2976,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub3 {
     container label-shared-load-sharing-element {
       description "Label-shared load sharing element";
       uses FIB-PL-LDI-COUNT;
+    }
+
+    container prefix-masklen-distribution {
+      description "Distribution of prefix mask lengths";
+      uses FIB-SH-PFX-MASKLEN-DISTRIB;
     }
     leaf prefix {
       type yang:hex-string;
