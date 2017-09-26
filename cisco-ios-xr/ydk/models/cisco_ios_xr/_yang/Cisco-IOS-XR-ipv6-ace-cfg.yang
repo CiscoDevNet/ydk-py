@@ -33,8 +33,13 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR IPv6 ACL entry configuration.
 
-     Copyright (c) 2013, 2015-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013, 2015-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-11" {
+    description
+      "6.3.1 revision";
+  }
 
   revision "2016-11-07" {
     description
@@ -363,6 +368,11 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
         description "Set qos-group number";
     }
 
+    leaf set-ttl {
+      type ipv6-acl-dt:Ipv6-acl-ttl-range;
+      description "Set TTL Value. Ranges from 0-255";
+    }
+
     container header-flags {
       description "Match if header-flag is present.";
       leaf routing {
@@ -426,6 +436,6 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
       }
       description "Sequence String for the ace.";
     }
- 
+
   } 
 }

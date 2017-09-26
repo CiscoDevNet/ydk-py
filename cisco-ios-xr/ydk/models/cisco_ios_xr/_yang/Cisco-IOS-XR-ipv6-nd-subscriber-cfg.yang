@@ -37,7 +37,7 @@ module Cisco-IOS-XR-ipv6-nd-subscriber-cfg {
        Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-12-19" {
@@ -219,7 +219,7 @@ module Cisco-IOS-XR-ipv6-nd-subscriber-cfg {
       }
       leaf ns-interval {
         type uint32 {
-          range "1000..3600000";
+          range "1000..4294967295";
         }
         units "millisecond";
         description

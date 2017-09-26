@@ -3,7 +3,6 @@
 Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -26,7 +25,37 @@ class Parsername(Identity):
         super(Parsername, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:parsername")
 
 
-class Bridgedomain(Identity):
+class BFDNeighbors(Identity):
+    """
+    show bfd neighbors
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(BFDNeighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BFDNeighbors")
+
+
+class BGP(Identity):
+    """
+    show bgp
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(BGP, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BGP")
+
+
+class BridgeDomain(Identity):
     """
     show bridge domain
     
@@ -38,22 +67,7 @@ class Bridgedomain(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Bridgedomain, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BridgeDomain")
-
-
-class Mplsstaticbinding(Identity):
-    """
-    show mpls static binding
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Mplsstaticbinding, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSStaticBinding")
+        super(BridgeDomain, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BridgeDomain")
 
 
 class Diffserv(Identity):
@@ -71,22 +85,7 @@ class Diffserv(Identity):
         super(Diffserv, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:Diffserv")
 
 
-class Ospf(Identity):
-    """
-    show ospf
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Ospf, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:OSPF")
-
-
-class Ethernetcfmstats(Identity):
+class EthernetCFMStats(Identity):
     """
     show ethernet cfm statistics
     
@@ -98,25 +97,10 @@ class Ethernetcfmstats(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Ethernetcfmstats, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:EthernetCFMStats")
+        super(EthernetCFMStats, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:EthernetCFMStats")
 
 
-class Mplsldpneighbors(Identity):
-    """
-    show mpls ldp neighbor detail
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Mplsldpneighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSLDPNeighbors")
-
-
-class Flowmonitor(Identity):
+class FlowMonitor(Identity):
     """
     show flow monitor
     
@@ -128,55 +112,10 @@ class Flowmonitor(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Flowmonitor, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:FlowMonitor")
+        super(FlowMonitor, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:FlowMonitor")
 
 
-class Bfdneighbors(Identity):
-    """
-    show bfd neighbors
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Bfdneighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BFDNeighbors")
-
-
-class Virtualservice(Identity):
-    """
-    show virtual\-service
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Virtualservice, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:VirtualService")
-
-
-class Mplsforwardingtable(Identity):
-    """
-    show mpls forwarding\-table
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-04-25'
-
-    def __init__(self):
-        super(Mplsforwardingtable, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSForwardingTable")
-
-
-class Iproute(Identity):
+class IPRoute(Identity):
     """
     show ip route
     
@@ -188,10 +127,70 @@ class Iproute(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Iproute, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:IPRoute")
+        super(IPRoute, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:IPRoute")
 
 
-class Platformsoftware(Identity):
+class MPLSForwardingTable(Identity):
+    """
+    show mpls forwarding\-table
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(MPLSForwardingTable, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSForwardingTable")
+
+
+class MPLSLDPNeighbors(Identity):
+    """
+    show mpls ldp neighbor detail
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(MPLSLDPNeighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSLDPNeighbors")
+
+
+class MPLSStaticBinding(Identity):
+    """
+    show mpls static binding
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(MPLSStaticBinding, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSStaticBinding")
+
+
+class OSPF(Identity):
+    """
+    show ospf
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(OSPF, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:OSPF")
+
+
+class PlatformSoftware(Identity):
     """
     show platform software
     
@@ -203,12 +202,12 @@ class Platformsoftware(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Platformsoftware, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:PlatformSoftware")
+        super(PlatformSoftware, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:PlatformSoftware")
 
 
-class Bgp(Identity):
+class VirtualService(Identity):
     """
-    show bgp
+    show virtual\-service
     
     
 
@@ -218,6 +217,6 @@ class Bgp(Identity):
     _revision = '2017-04-25'
 
     def __init__(self):
-        super(Bgp, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BGP")
+        super(VirtualService, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:VirtualService")
 
 

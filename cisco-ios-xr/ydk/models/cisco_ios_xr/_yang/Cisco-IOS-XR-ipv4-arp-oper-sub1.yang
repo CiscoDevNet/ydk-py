@@ -31,8 +31,13 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-arp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-19" {
     description
@@ -291,6 +296,12 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
         value 21;
         description "Resolved via a Peer Router sync";
       }
+      enum status-dropped-unsolicited-pak {
+        value 22;
+        description
+          "Learning unsolicited ARP packets is disabled on
+          this Interface";
+      }
     }
     description "Arp resolution history status";
   }
@@ -443,6 +454,10 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
       description
         "Total arp packets on interface due to out of
         subnet";
+    }
+    leaf arp-packet-unsolicited-packet {
+      type uint32;
+      description "Total unsolicited arp packets dropped";
     }
     leaf idb-structures {
       type uint32;

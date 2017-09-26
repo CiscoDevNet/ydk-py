@@ -8,11 +8,10 @@ for the following management objects\:
   logical\-channels\: Logical channel in mxp
   optical\-channels\: optical channels
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -341,32 +340,16 @@ class LogicalChannels(Entity):
 
         self.yang_name = "logical-channels"
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"channel" : ("channel", LogicalChannels.Channel)}
 
         self.channel = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:logical-channels"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(LogicalChannels, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(LogicalChannels, self).__setattr__(name, value)
+        self._perform_setattr(LogicalChannels, [], name, value)
 
 
     class Channel(Entity):
@@ -397,7 +380,7 @@ class LogicalChannels(Entity):
         	Configure ingress client port for this logical channel
         	**type**\:  str
         
-        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: ingress_physical_channel
         
@@ -448,6 +431,10 @@ class LogicalChannels(Entity):
 
             self.yang_name = "channel"
             self.yang_parent_name = "logical-channels"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"logical-channel-assignments" : ("logical_channel_assignments", LogicalChannels.Channel.LogicalChannelAssignments), "otn" : ("otn", LogicalChannels.Channel.Otn)}
+            self._child_list_classes = {}
 
             self.channel_index = YLeaf(YType.int32, "channel-index")
 
@@ -476,38 +463,11 @@ class LogicalChannels(Entity):
             self.otn.parent = self
             self._children_name_map["otn"] = "otn"
             self._children_yang_names.add("otn")
+            self._segment_path = lambda: "channel" + "[channel-index='" + self.channel_index.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:logical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("channel_index",
-                            "admin_state",
-                            "description",
-                            "ingress_client_port",
-                            "ingress_physical_channel",
-                            "logical_channel_type",
-                            "loopback_mode",
-                            "rate_class",
-                            "trib_protocol") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(LogicalChannels.Channel, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(LogicalChannels.Channel, self).__setattr__(name, value)
+            self._perform_setattr(LogicalChannels.Channel, ['channel_index', 'admin_state', 'description', 'ingress_client_port', 'ingress_physical_channel', 'logical_channel_type', 'loopback_mode', 'rate_class', 'trib_protocol'], name, value)
 
 
         class LogicalChannelAssignments(Entity):
@@ -531,32 +491,16 @@ class LogicalChannels(Entity):
 
                 self.yang_name = "logical-channel-assignments"
                 self.yang_parent_name = "channel"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {"logical-channel-assignment" : ("logical_channel_assignment", LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment)}
 
                 self.logical_channel_assignment = YList(self)
+                self._segment_path = lambda: "logical-channel-assignments"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(LogicalChannels.Channel.LogicalChannelAssignments, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(LogicalChannels.Channel.LogicalChannelAssignments, self).__setattr__(name, value)
+                self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments, [], name, value)
 
 
             class LogicalChannelAssignment(Entity):
@@ -613,6 +557,10 @@ class LogicalChannels(Entity):
 
                     self.yang_name = "logical-channel-assignment"
                     self.yang_parent_name = "logical-channel-assignments"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.assignment_index = YLeaf(YType.int32, "assignment-index")
 
@@ -625,179 +573,10 @@ class LogicalChannels(Entity):
                     self.logical_channel_id = YLeaf(YType.int32, "logical-channel-id")
 
                     self.optical_channel_id = YLeaf(YType.str, "optical-channel-id")
+                    self._segment_path = lambda: "logical-channel-assignment" + "[assignment-index='" + self.assignment_index.get() + "']"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("assignment_index",
-                                    "allocation",
-                                    "assignment_type",
-                                    "description",
-                                    "logical_channel_id",
-                                    "optical_channel_id") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.assignment_index.is_set or
-                        self.allocation.is_set or
-                        self.assignment_type.is_set or
-                        self.description.is_set or
-                        self.logical_channel_id.is_set or
-                        self.optical_channel_id.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.assignment_index.yfilter != YFilter.not_set or
-                        self.allocation.yfilter != YFilter.not_set or
-                        self.assignment_type.yfilter != YFilter.not_set or
-                        self.description.yfilter != YFilter.not_set or
-                        self.logical_channel_id.yfilter != YFilter.not_set or
-                        self.optical_channel_id.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "logical-channel-assignment" + "[assignment-index='" + self.assignment_index.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.assignment_index.is_set or self.assignment_index.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.assignment_index.get_name_leafdata())
-                    if (self.allocation.is_set or self.allocation.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.allocation.get_name_leafdata())
-                    if (self.assignment_type.is_set or self.assignment_type.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.assignment_type.get_name_leafdata())
-                    if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.description.get_name_leafdata())
-                    if (self.logical_channel_id.is_set or self.logical_channel_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.logical_channel_id.get_name_leafdata())
-                    if (self.optical_channel_id.is_set or self.optical_channel_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.optical_channel_id.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "assignment-index" or name == "allocation" or name == "assignment-type" or name == "description" or name == "logical-channel-id" or name == "optical-channel-id"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "assignment-index"):
-                        self.assignment_index = value
-                        self.assignment_index.value_namespace = name_space
-                        self.assignment_index.value_namespace_prefix = name_space_prefix
-                    if(value_path == "allocation"):
-                        self.allocation = value
-                        self.allocation.value_namespace = name_space
-                        self.allocation.value_namespace_prefix = name_space_prefix
-                    if(value_path == "assignment-type"):
-                        self.assignment_type = value
-                        self.assignment_type.value_namespace = name_space
-                        self.assignment_type.value_namespace_prefix = name_space_prefix
-                    if(value_path == "description"):
-                        self.description = value
-                        self.description.value_namespace = name_space
-                        self.description.value_namespace_prefix = name_space_prefix
-                    if(value_path == "logical-channel-id"):
-                        self.logical_channel_id = value
-                        self.logical_channel_id.value_namespace = name_space
-                        self.logical_channel_id.value_namespace_prefix = name_space_prefix
-                    if(value_path == "optical-channel-id"):
-                        self.optical_channel_id = value
-                        self.optical_channel_id.value_namespace = name_space
-                        self.optical_channel_id.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.logical_channel_assignment:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.logical_channel_assignment:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "logical-channel-assignments" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "logical-channel-assignment"):
-                    for c in self.logical_channel_assignment:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.logical_channel_assignment.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "logical-channel-assignment"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
+                    self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, ['assignment_index', 'allocation', 'assignment_type', 'description', 'logical_channel_id', 'optical_channel_id'], name, value)
 
 
         class Otn(Entity):
@@ -835,286 +614,20 @@ class LogicalChannels(Entity):
 
                 self.yang_name = "otn"
                 self.yang_parent_name = "channel"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.tti_msg_auto = YLeaf(YType.enumeration, "tti-msg-auto")
 
                 self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
 
                 self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
+                self._segment_path = lambda: "otn"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("tti_msg_auto",
-                                "tti_msg_expected",
-                                "tti_msg_transmit") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(LogicalChannels.Channel.Otn, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(LogicalChannels.Channel.Otn, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.tti_msg_auto.is_set or
-                    self.tti_msg_expected.is_set or
-                    self.tti_msg_transmit.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.tti_msg_auto.yfilter != YFilter.not_set or
-                    self.tti_msg_expected.yfilter != YFilter.not_set or
-                    self.tti_msg_transmit.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "otn" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.tti_msg_auto.is_set or self.tti_msg_auto.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.tti_msg_auto.get_name_leafdata())
-                if (self.tti_msg_expected.is_set or self.tti_msg_expected.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.tti_msg_expected.get_name_leafdata())
-                if (self.tti_msg_transmit.is_set or self.tti_msg_transmit.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.tti_msg_transmit.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "tti-msg-auto" or name == "tti-msg-expected" or name == "tti-msg-transmit"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "tti-msg-auto"):
-                    self.tti_msg_auto = value
-                    self.tti_msg_auto.value_namespace = name_space
-                    self.tti_msg_auto.value_namespace_prefix = name_space_prefix
-                if(value_path == "tti-msg-expected"):
-                    self.tti_msg_expected = value
-                    self.tti_msg_expected.value_namespace = name_space
-                    self.tti_msg_expected.value_namespace_prefix = name_space_prefix
-                if(value_path == "tti-msg-transmit"):
-                    self.tti_msg_transmit = value
-                    self.tti_msg_transmit.value_namespace = name_space
-                    self.tti_msg_transmit.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.channel_index.is_set or
-                self.admin_state.is_set or
-                self.description.is_set or
-                self.ingress_client_port.is_set or
-                self.ingress_physical_channel.is_set or
-                self.logical_channel_type.is_set or
-                self.loopback_mode.is_set or
-                self.rate_class.is_set or
-                self.trib_protocol.is_set or
-                (self.logical_channel_assignments is not None and self.logical_channel_assignments.has_data()) or
-                (self.otn is not None and self.otn.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.channel_index.yfilter != YFilter.not_set or
-                self.admin_state.yfilter != YFilter.not_set or
-                self.description.yfilter != YFilter.not_set or
-                self.ingress_client_port.yfilter != YFilter.not_set or
-                self.ingress_physical_channel.yfilter != YFilter.not_set or
-                self.logical_channel_type.yfilter != YFilter.not_set or
-                self.loopback_mode.yfilter != YFilter.not_set or
-                self.rate_class.yfilter != YFilter.not_set or
-                self.trib_protocol.yfilter != YFilter.not_set or
-                (self.logical_channel_assignments is not None and self.logical_channel_assignments.has_operation()) or
-                (self.otn is not None and self.otn.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "channel" + "[channel-index='" + self.channel_index.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-terminal-device-cfg:logical-channels/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.channel_index.is_set or self.channel_index.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.channel_index.get_name_leafdata())
-            if (self.admin_state.is_set or self.admin_state.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.admin_state.get_name_leafdata())
-            if (self.description.is_set or self.description.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.description.get_name_leafdata())
-            if (self.ingress_client_port.is_set or self.ingress_client_port.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ingress_client_port.get_name_leafdata())
-            if (self.ingress_physical_channel.is_set or self.ingress_physical_channel.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ingress_physical_channel.get_name_leafdata())
-            if (self.logical_channel_type.is_set or self.logical_channel_type.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logical_channel_type.get_name_leafdata())
-            if (self.loopback_mode.is_set or self.loopback_mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.loopback_mode.get_name_leafdata())
-            if (self.rate_class.is_set or self.rate_class.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.rate_class.get_name_leafdata())
-            if (self.trib_protocol.is_set or self.trib_protocol.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.trib_protocol.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "logical-channel-assignments"):
-                if (self.logical_channel_assignments is None):
-                    self.logical_channel_assignments = LogicalChannels.Channel.LogicalChannelAssignments()
-                    self.logical_channel_assignments.parent = self
-                    self._children_name_map["logical_channel_assignments"] = "logical-channel-assignments"
-                return self.logical_channel_assignments
-
-            if (child_yang_name == "otn"):
-                if (self.otn is None):
-                    self.otn = LogicalChannels.Channel.Otn()
-                    self.otn.parent = self
-                    self._children_name_map["otn"] = "otn"
-                return self.otn
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "logical-channel-assignments" or name == "otn" or name == "channel-index" or name == "admin-state" or name == "description" or name == "ingress-client-port" or name == "ingress-physical-channel" or name == "logical-channel-type" or name == "loopback-mode" or name == "rate-class" or name == "trib-protocol"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "channel-index"):
-                self.channel_index = value
-                self.channel_index.value_namespace = name_space
-                self.channel_index.value_namespace_prefix = name_space_prefix
-            if(value_path == "admin-state"):
-                self.admin_state = value
-                self.admin_state.value_namespace = name_space
-                self.admin_state.value_namespace_prefix = name_space_prefix
-            if(value_path == "description"):
-                self.description = value
-                self.description.value_namespace = name_space
-                self.description.value_namespace_prefix = name_space_prefix
-            if(value_path == "ingress-client-port"):
-                self.ingress_client_port = value
-                self.ingress_client_port.value_namespace = name_space
-                self.ingress_client_port.value_namespace_prefix = name_space_prefix
-            if(value_path == "ingress-physical-channel"):
-                self.ingress_physical_channel = value
-                self.ingress_physical_channel.value_namespace = name_space
-                self.ingress_physical_channel.value_namespace_prefix = name_space_prefix
-            if(value_path == "logical-channel-type"):
-                self.logical_channel_type = value
-                self.logical_channel_type.value_namespace = name_space
-                self.logical_channel_type.value_namespace_prefix = name_space_prefix
-            if(value_path == "loopback-mode"):
-                self.loopback_mode = value
-                self.loopback_mode.value_namespace = name_space
-                self.loopback_mode.value_namespace_prefix = name_space_prefix
-            if(value_path == "rate-class"):
-                self.rate_class = value
-                self.rate_class.value_namespace = name_space
-                self.rate_class.value_namespace_prefix = name_space_prefix
-            if(value_path == "trib-protocol"):
-                self.trib_protocol = value
-                self.trib_protocol.value_namespace = name_space
-                self.trib_protocol.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.channel:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.channel:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-terminal-device-cfg:logical-channels" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "channel"):
-            for c in self.channel:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = LogicalChannels.Channel()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.channel.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "channel"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(LogicalChannels.Channel.Otn, ['tti_msg_auto', 'tti_msg_expected', 'tti_msg_transmit'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LogicalChannels()
@@ -1142,32 +655,16 @@ class OpticalChannels(Entity):
 
         self.yang_name = "optical-channels"
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"optical-channel" : ("optical_channel", OpticalChannels.OpticalChannel)}
 
         self.optical_channel = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:optical-channels"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(OpticalChannels, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(OpticalChannels, self).__setattr__(name, value)
+        self._perform_setattr(OpticalChannels, [], name, value)
 
 
     class OpticalChannel(Entity):
@@ -1186,7 +683,7 @@ class OpticalChannels(Entity):
         	Specify R/S/I/P
         	**type**\:  str
         
-        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: operational_mode
         
@@ -1207,157 +704,21 @@ class OpticalChannels(Entity):
 
             self.yang_name = "optical-channel"
             self.yang_parent_name = "optical-channels"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.ifname = YLeaf(YType.str, "ifname")
 
             self.line_port = YLeaf(YType.str, "line-port")
 
             self.operational_mode = YLeaf(YType.uint32, "operational-mode")
+            self._segment_path = lambda: "optical-channel" + "[ifname='" + self.ifname.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:optical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("ifname",
-                            "line_port",
-                            "operational_mode") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(OpticalChannels.OpticalChannel, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(OpticalChannels.OpticalChannel, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.ifname.is_set or
-                self.line_port.is_set or
-                self.operational_mode.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.ifname.yfilter != YFilter.not_set or
-                self.line_port.yfilter != YFilter.not_set or
-                self.operational_mode.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "optical-channel" + "[ifname='" + self.ifname.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-terminal-device-cfg:optical-channels/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.ifname.is_set or self.ifname.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ifname.get_name_leafdata())
-            if (self.line_port.is_set or self.line_port.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.line_port.get_name_leafdata())
-            if (self.operational_mode.is_set or self.operational_mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.operational_mode.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ifname" or name == "line-port" or name == "operational-mode"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "ifname"):
-                self.ifname = value
-                self.ifname.value_namespace = name_space
-                self.ifname.value_namespace_prefix = name_space_prefix
-            if(value_path == "line-port"):
-                self.line_port = value
-                self.line_port.value_namespace = name_space
-                self.line_port.value_namespace_prefix = name_space_prefix
-            if(value_path == "operational-mode"):
-                self.operational_mode = value
-                self.operational_mode.value_namespace = name_space
-                self.operational_mode.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.optical_channel:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.optical_channel:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-terminal-device-cfg:optical-channels" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "optical-channel"):
-            for c in self.optical_channel:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = OpticalChannels.OpticalChannel()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.optical_channel.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "optical-channel"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(OpticalChannels.OpticalChannel, ['ifname', 'line_port', 'operational_mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OpticalChannels()

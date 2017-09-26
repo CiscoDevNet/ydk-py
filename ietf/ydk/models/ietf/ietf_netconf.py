@@ -16,7 +16,6 @@ This version of this YANG module is part of RFC 6241; see
 the RFC itself for full legal notices.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -317,19 +316,17 @@ class ErrorTagType(Enum):
 
 
 
-class GetConfig(Entity):
+class CancelCommit(Entity):
     """
-    Retrieve all or part of a specified configuration.
+    This operation is used to cancel an ongoing confirmed commit.
+    If the confirmed commit is persistent, the parameter
+    'persist\-id' must be given, and it must match the value of the
+    'persist' parameter.
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
     
     
 
@@ -339,36 +336,234 @@ class GetConfig(Entity):
     _revision = '2011-06-01'
 
     def __init__(self):
-        super(GetConfig, self).__init__()
+        super(CancelCommit, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "get-config"
+        self.yang_name = "cancel-commit"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
-        self.input = GetConfig.Input()
+        self.input = CancelCommit.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-
-        self.output = GetConfig.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf:cancel-commit"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: filter
+        .. attribute:: persist_id
         
-        	Subtree or XPath filter to use
-        	**type**\:  anyxml
+        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(CancelCommit.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "cancel-commit"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.persist_id = YLeaf(YType.str, "persist-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:cancel-commit/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CancelCommit.Input, ['persist_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = CancelCommit()
+        return self._top_entity
+
+class CloseSession(Entity):
+    """
+    Request graceful termination of a NETCONF session.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(CloseSession, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "close-session"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "ietf-netconf:close-session"
+
+    def clone_ptr(self):
+        self._top_entity = CloseSession()
+        return self._top_entity
+
+class Commit(Entity):
+    """
+    Commit the candidate configuration as the device's new
+    current configuration.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(Commit, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "commit"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = Commit.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:commit"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: confirm_timeout
+        
+        	The timeout interval for a confirmed commit
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
+        
+        	**units**\: seconds
+        
+        	**default value**\: 600
+        
+        .. attribute:: confirmed
+        
+        	Requests a confirmed commit
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: persist
+        
+        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
+        	**type**\:  str
+        
+        .. attribute:: persist_id
+        
+        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(Commit.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "commit"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.confirm_timeout = YLeaf(YType.uint32, "confirm-timeout")
+
+            self.confirmed = YLeaf(YType.empty, "confirmed")
+
+            self.persist = YLeaf(YType.str, "persist")
+
+            self.persist_id = YLeaf(YType.str, "persist-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:commit/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Commit.Input, ['confirm_timeout', 'confirmed', 'persist', 'persist_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Commit()
+        return self._top_entity
+
+class CopyConfig(Entity):
+    """
+    Create or replace an entire configuration datastore with the
+    contents of another complete configuration datastore.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(CopyConfig, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "copy-config"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = CopyConfig.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:copy-config"
+
+
+    class Input(Entity):
+        """
+        
         
         .. attribute:: source
         
-        	Particular configuration to retrieve
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
+        	Particular configuration to copy from
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
+        
+        .. attribute:: target
+        
+        	Particular configuration to copy to
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
         
         .. attribute:: with_defaults
         
@@ -383,54 +578,46 @@ class GetConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(GetConfig.Input, self).__init__()
+            super(CopyConfig.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "get-config"
-
-            self.filter = YLeaf(YType.str, "filter")
+            self.yang_parent_name = "copy-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"source" : ("source", CopyConfig.Input.Source), "target" : ("target", CopyConfig.Input.Target)}
+            self._child_list_classes = {}
 
             self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
 
-            self.source = GetConfig.Input.Source()
+            self.source = CopyConfig.Input.Source()
             self.source.parent = self
             self._children_name_map["source"] = "source"
             self._children_yang_names.add("source")
 
+            self.target = CopyConfig.Input.Target()
+            self.target.parent = self
+            self._children_name_map["target"] = "target"
+            self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:copy-config/%s" % self._segment_path()
+
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("filter",
-                            "with_defaults") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(GetConfig.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(GetConfig.Input, self).__setattr__(name, value)
+            self._perform_setattr(CopyConfig.Input, ['with_defaults'], name, value)
 
 
         class Source(Entity):
             """
-            Particular configuration to retrieve.
+            Particular configuration to copy from.
             
             .. attribute:: candidate
             
             	The candidate configuration is the config source
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\:  anyxml
             
             .. attribute:: running
             
@@ -439,8 +626,13 @@ class GetConfig(Entity):
             
             .. attribute:: startup
             
-            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
+            	The startup configuration is the config source
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config source
+            	**type**\:  str
             
             
 
@@ -450,10 +642,71 @@ class GetConfig(Entity):
             _revision = '2011-06-01'
 
             def __init__(self):
-                super(GetConfig.Input.Source, self).__init__()
+                super(CopyConfig.Input.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.candidate = YLeaf(YType.empty, "candidate")
+
+                self.config = YLeaf(YType.str, "config")
+
+                self.running = YLeaf(YType.empty, "running")
+
+                self.startup = YLeaf(YType.empty, "startup")
+
+                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "source"
+                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CopyConfig.Input.Source, ['candidate', 'config', 'running', 'startup', 'url'], name, value)
+
+
+        class Target(Entity):
+            """
+            Particular configuration to copy to.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config target. This is optional\-to\-implement on the server
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config target
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                super(CopyConfig.Input.Target, self).__init__()
+
+                self.yang_name = "target"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
@@ -461,168 +714,59 @@ class GetConfig(Entity):
 
                 self.startup = YLeaf(YType.empty, "startup")
 
+                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "running",
-                                "startup") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(GetConfig.Input.Source, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(GetConfig.Input.Source, self).__setattr__(name, value)
+                self._perform_setattr(CopyConfig.Input.Target, ['candidate', 'running', 'startup', 'url'], name, value)
 
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.running.is_set or
-                    self.startup.is_set)
+    def clone_ptr(self):
+        self._top_entity = CopyConfig()
+        return self._top_entity
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set)
+class DeleteConfig(Entity):
+    """
+    Delete a configuration datastore.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
+    
+    
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "source" + path_buffer
+    """
 
-                return path_buffer
+    _prefix = 'nc'
+    _revision = '2011-06-01'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:get-config/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+    def __init__(self):
+        super(DeleteConfig, self).__init__()
+        self._top_entity = None
 
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
+        self.yang_name = "delete-config"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "running" or name == "startup"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.filter.is_set or
-                self.with_defaults.is_set or
-                (self.source is not None and self.source.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.filter.yfilter != YFilter.not_set or
-                self.with_defaults.yfilter != YFilter.not_set or
-                (self.source is not None and self.source.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:get-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.filter.is_set or self.filter.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.filter.get_name_leafdata())
-            if (self.with_defaults.is_set or self.with_defaults.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.with_defaults.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "source"):
-                if (self.source is None):
-                    self.source = GetConfig.Input.Source()
-                    self.source.parent = self
-                    self._children_name_map["source"] = "source"
-                return self.source
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "source" or name == "filter" or name == "with-defaults"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "filter"):
-                self.filter = value
-                self.filter.value_namespace = name_space
-                self.filter.value_namespace_prefix = name_space_prefix
-            if(value_path == "with-defaults"):
-                self.with_defaults = value
-                self.with_defaults.value_namespace = name_space
-                self.with_defaults.value_namespace_prefix = name_space_prefix
+        self.input = DeleteConfig.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:delete-config"
 
 
-    class Output(Entity):
+    class Input(Entity):
         """
         
         
-        .. attribute:: data
+        .. attribute:: target
         
-        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
+        	Particular configuration to delete
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
         
         
 
@@ -632,142 +776,93 @@ class GetConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(GetConfig.Output, self).__init__()
+            super(DeleteConfig.Input, self).__init__()
 
-            self.yang_name = "output"
-            self.yang_parent_name = "get-config"
+            self.yang_name = "input"
+            self.yang_parent_name = "delete-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"target" : ("target", DeleteConfig.Input.Target)}
+            self._child_list_classes = {}
 
-            self.data = YLeaf(YType.str, "data")
+            self.target = DeleteConfig.Input.Target()
+            self.target.parent = self
+            self._children_name_map["target"] = "target"
+            self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:delete-config/%s" % self._segment_path()
 
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("data") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(GetConfig.Output, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(GetConfig.Output, self).__setattr__(name, value)
 
-        def has_data(self):
-            return self.data.is_set
+        class Target(Entity):
+            """
+            Particular configuration to delete.
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config target
+            	**type**\:  str
+            
+            
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.data.yfilter != YFilter.not_set)
+            """
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "output" + path_buffer
+            _prefix = 'nc'
+            _revision = '2011-06-01'
 
-            return path_buffer
+            def __init__(self):
+                super(DeleteConfig.Input.Target, self).__init__()
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:get-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                self.yang_name = "target"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            leaf_name_data = LeafDataList()
-            if (self.data.is_set or self.data.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.data.get_name_leafdata())
+                self.startup = YLeaf(YType.empty, "startup")
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:delete-config/input/%s" % self._segment_path()
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "data"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "data"):
-                self.data = value
-                self.data.value_namespace = name_space
-                self.data.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            (self.input is not None and self.input.has_data()) or
-            (self.output is not None and self.output.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()) or
-            (self.output is not None and self.output.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:get-config" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = GetConfig.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        if (child_yang_name == "output"):
-            if (self.output is None):
-                self.output = GetConfig.Output()
-                self.output.parent = self
-                self._children_name_map["output"] = "output"
-            return self.output
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input" or name == "output"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            def __setattr__(self, name, value):
+                self._perform_setattr(DeleteConfig.Input.Target, ['startup', 'url'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = GetConfig()
+        self._top_entity = DeleteConfig()
+        return self._top_entity
+
+class DiscardChanges(Entity):
+    """
+    Revert the candidate configuration to the current
+    running configuration.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(DiscardChanges, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "discard-changes"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "ietf-netconf:discard-changes"
+
+    def clone_ptr(self):
+        self._top_entity = DiscardChanges()
         return self._top_entity
 
 class EditConfig(Entity):
@@ -793,11 +888,16 @@ class EditConfig(Entity):
 
         self.yang_name = "edit-config"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.input = EditConfig.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:edit-config"
 
 
     class Input(Entity):
@@ -852,6 +952,10 @@ class EditConfig(Entity):
 
             self.yang_name = "input"
             self.yang_parent_name = "edit-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"target" : ("target", EditConfig.Input.Target)}
+            self._child_list_classes = {}
 
             self.config = YLeaf(YType.str, "config")
 
@@ -867,34 +971,11 @@ class EditConfig(Entity):
             self.target.parent = self
             self._children_name_map["target"] = "target"
             self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:edit-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("config",
-                            "default_operation",
-                            "error_option",
-                            "test_option",
-                            "url") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(EditConfig.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(EditConfig.Input, self).__setattr__(name, value)
+            self._perform_setattr(EditConfig.Input, ['config', 'default_operation', 'error_option', 'test_option', 'url'], name, value)
 
         class DefaultOperation(Enum):
             """
@@ -1010,239 +1091,37 @@ class EditConfig(Entity):
 
                 self.yang_name = "target"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
                 self.running = YLeaf(YType.empty, "running")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:edit-config/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "running") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(EditConfig.Input.Target, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(EditConfig.Input.Target, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.running.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "target" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:edit-config/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "running"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.config.is_set or
-                self.default_operation.is_set or
-                self.error_option.is_set or
-                self.test_option.is_set or
-                self.url.is_set or
-                (self.target is not None and self.target.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.config.yfilter != YFilter.not_set or
-                self.default_operation.yfilter != YFilter.not_set or
-                self.error_option.yfilter != YFilter.not_set or
-                self.test_option.yfilter != YFilter.not_set or
-                self.url.yfilter != YFilter.not_set or
-                (self.target is not None and self.target.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:edit-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.config.is_set or self.config.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.config.get_name_leafdata())
-            if (self.default_operation.is_set or self.default_operation.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.default_operation.get_name_leafdata())
-            if (self.error_option.is_set or self.error_option.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.error_option.get_name_leafdata())
-            if (self.test_option.is_set or self.test_option.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.test_option.get_name_leafdata())
-            if (self.url.is_set or self.url.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.url.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "target"):
-                if (self.target is None):
-                    self.target = EditConfig.Input.Target()
-                    self.target.parent = self
-                    self._children_name_map["target"] = "target"
-                return self.target
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "target" or name == "config" or name == "default-operation" or name == "error-option" or name == "test-option" or name == "url"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "config"):
-                self.config = value
-                self.config.value_namespace = name_space
-                self.config.value_namespace_prefix = name_space_prefix
-            if(value_path == "default-operation"):
-                self.default_operation = value
-                self.default_operation.value_namespace = name_space
-                self.default_operation.value_namespace_prefix = name_space_prefix
-            if(value_path == "error-option"):
-                self.error_option = value
-                self.error_option.value_namespace = name_space
-                self.error_option.value_namespace_prefix = name_space_prefix
-            if(value_path == "test-option"):
-                self.test_option = value
-                self.test_option.value_namespace = name_space
-                self.test_option.value_namespace_prefix = name_space_prefix
-            if(value_path == "url"):
-                self.url = value
-                self.url.value_namespace = name_space
-                self.url.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:edit-config" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = EditConfig.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(EditConfig.Input.Target, ['candidate', 'running'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EditConfig()
         return self._top_entity
 
-class CopyConfig(Entity):
+class Get(Entity):
     """
-    Create or replace an entire configuration datastore with the
-    contents of another complete configuration datastore.
+    Retrieve running configuration and device state information.
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
     
     
 
@@ -1252,31 +1131,36 @@ class CopyConfig(Entity):
     _revision = '2011-06-01'
 
     def __init__(self):
-        super(CopyConfig, self).__init__()
+        super(Get, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "copy-config"
+        self.yang_name = "get"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
-        self.input = CopyConfig.Input()
+        self.input = Get.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
+
+        self.output = Get.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf:get"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: source
+        .. attribute:: filter
         
-        	Particular configuration to copy from
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
-        
-        .. attribute:: target
-        
-        	Particular configuration to copy to
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
+        	This parameter specifies the portion of the system configuration and state data to retrieve
+        	**type**\:  anyxml
         
         .. attribute:: with_defaults
         
@@ -1291,504 +1175,33 @@ class CopyConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(CopyConfig.Input, self).__init__()
+            super(Get.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "copy-config"
+            self.yang_parent_name = "get"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.filter = YLeaf(YType.str, "filter")
 
             self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
-
-            self.source = CopyConfig.Input.Source()
-            self.source.parent = self
-            self._children_name_map["source"] = "source"
-            self._children_yang_names.add("source")
-
-            self.target = CopyConfig.Input.Target()
-            self.target.parent = self
-            self._children_name_map["target"] = "target"
-            self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("with_defaults") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CopyConfig.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CopyConfig.Input, self).__setattr__(name, value)
+            self._perform_setattr(Get.Input, ['filter', 'with_defaults'], name, value)
 
 
-        class Target(Entity):
-            """
-            Particular configuration to copy to.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: running
-            
-            	The running configuration is the config target. This is optional\-to\-implement on the server
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config target
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                super(CopyConfig.Input.Target, self).__init__()
-
-                self.yang_name = "target"
-                self.yang_parent_name = "input"
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "running",
-                                "startup",
-                                "url") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CopyConfig.Input.Target, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CopyConfig.Input.Target, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.running.is_set or
-                    self.startup.is_set or
-                    self.url.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set or
-                    self.url.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "target" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:copy-config/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-                if (self.url.is_set or self.url.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.url.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "running" or name == "startup" or name == "url"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-                if(value_path == "url"):
-                    self.url = value
-                    self.url.value_namespace = name_space
-                    self.url.value_namespace_prefix = name_space_prefix
-
-
-        class Source(Entity):
-            """
-            Particular configuration to copy from.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\:  anyxml
-            
-            .. attribute:: running
-            
-            	The running configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config source
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                super(CopyConfig.Input.Source, self).__init__()
-
-                self.yang_name = "source"
-                self.yang_parent_name = "input"
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.config = YLeaf(YType.str, "config")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "config",
-                                "running",
-                                "startup",
-                                "url") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CopyConfig.Input.Source, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CopyConfig.Input.Source, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.config.is_set or
-                    self.running.is_set or
-                    self.startup.is_set or
-                    self.url.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.config.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set or
-                    self.url.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "source" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:copy-config/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.config.is_set or self.config.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.config.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-                if (self.url.is_set or self.url.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.url.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "config" or name == "running" or name == "startup" or name == "url"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "config"):
-                    self.config = value
-                    self.config.value_namespace = name_space
-                    self.config.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-                if(value_path == "url"):
-                    self.url = value
-                    self.url.value_namespace = name_space
-                    self.url.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.with_defaults.is_set or
-                (self.source is not None and self.source.has_data()) or
-                (self.target is not None and self.target.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.with_defaults.yfilter != YFilter.not_set or
-                (self.source is not None and self.source.has_operation()) or
-                (self.target is not None and self.target.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:copy-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.with_defaults.is_set or self.with_defaults.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.with_defaults.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "source"):
-                if (self.source is None):
-                    self.source = CopyConfig.Input.Source()
-                    self.source.parent = self
-                    self._children_name_map["source"] = "source"
-                return self.source
-
-            if (child_yang_name == "target"):
-                if (self.target is None):
-                    self.target = CopyConfig.Input.Target()
-                    self.target.parent = self
-                    self._children_name_map["target"] = "target"
-                return self.target
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "source" or name == "target" or name == "with-defaults"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "with-defaults"):
-                self.with_defaults = value
-                self.with_defaults.value_namespace = name_space
-                self.with_defaults.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:copy-config" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = CopyConfig.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = CopyConfig()
-        return self._top_entity
-
-class DeleteConfig(Entity):
-    """
-    Delete a configuration datastore.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(DeleteConfig, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "delete-config"
-        self.yang_parent_name = "ietf-netconf"
-
-        self.input = DeleteConfig.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-
-    class Input(Entity):
+    class Output(Entity):
         """
         
         
-        .. attribute:: target
+        .. attribute:: data
         
-        	Particular configuration to delete
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
+        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
+        	**type**\:  anyxml
         
         
 
@@ -1798,30 +1211,139 @@ class DeleteConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(DeleteConfig.Input, self).__init__()
+            super(Get.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "get"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.data = YLeaf(YType.str, "data")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Get.Output, ['data'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Get()
+        return self._top_entity
+
+class GetConfig(Entity):
+    """
+    Retrieve all or part of a specified configuration.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(GetConfig, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "get-config"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = GetConfig.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = GetConfig.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf:get-config"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: filter
+        
+        	Subtree or XPath filter to use
+        	**type**\:  anyxml
+        
+        .. attribute:: source
+        
+        	Particular configuration to retrieve
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
+        
+        .. attribute:: with_defaults
+        
+        	The explicit defaults processing mode requested
+        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(GetConfig.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "delete-config"
+            self.yang_parent_name = "get-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"source" : ("source", GetConfig.Input.Source)}
+            self._child_list_classes = {}
 
-            self.target = DeleteConfig.Input.Target()
-            self.target.parent = self
-            self._children_name_map["target"] = "target"
-            self._children_yang_names.add("target")
+            self.filter = YLeaf(YType.str, "filter")
+
+            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
+
+            self.source = GetConfig.Input.Source()
+            self.source.parent = self
+            self._children_name_map["source"] = "source"
+            self._children_yang_names.add("source")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetConfig.Input, ['filter', 'with_defaults'], name, value)
 
 
-        class Target(Entity):
+        class Source(Entity):
             """
-            Particular configuration to delete.
+            Particular configuration to retrieve.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config source
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config source
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
-            	The startup configuration is the config target
+            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config target
-            	**type**\:  str
             
             
 
@@ -1831,192 +1353,137 @@ class DeleteConfig(Entity):
             _revision = '2011-06-01'
 
             def __init__(self):
-                super(DeleteConfig.Input.Target, self).__init__()
+                super(GetConfig.Input.Source, self).__init__()
 
-                self.yang_name = "target"
+                self.yang_name = "source"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.candidate = YLeaf(YType.empty, "candidate")
+
+                self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "source"
+                self._absolute_path = lambda: "ietf-netconf:get-config/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("startup",
-                                "url") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(DeleteConfig.Input.Target, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(DeleteConfig.Input.Target, self).__setattr__(name, value)
+                self._perform_setattr(GetConfig.Input.Source, ['candidate', 'running', 'startup'], name, value)
 
-            def has_data(self):
-                return (
-                    self.startup.is_set or
-                    self.url.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set or
-                    self.url.yfilter != YFilter.not_set)
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
+        	**type**\:  anyxml
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "target" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'nc'
+        _revision = '2011-06-01'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:delete-config/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(GetConfig.Output, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-                if (self.url.is_set or self.url.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.url.get_name_leafdata())
+            self.yang_name = "output"
+            self.yang_parent_name = "get-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.data = YLeaf(YType.str, "data")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "startup" or name == "url"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-                if(value_path == "url"):
-                    self.url = value
-                    self.url.value_namespace = name_space
-                    self.url.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (self.target is not None and self.target.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.target is not None and self.target.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:delete-config/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "target"):
-                if (self.target is None):
-                    self.target = DeleteConfig.Input.Target()
-                    self.target.parent = self
-                    self._children_name_map["target"] = "target"
-                return self.target
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "target"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:delete-config" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = DeleteConfig.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetConfig.Output, ['data'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = DeleteConfig()
+        self._top_entity = GetConfig()
+        return self._top_entity
+
+class KillSession(Entity):
+    """
+    Force the termination of a NETCONF session.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(KillSession, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "kill-session"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = KillSession.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:kill-session"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: session_id
+        
+        	Particular session to kill
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(KillSession.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "kill-session"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.session_id = YLeaf(YType.uint32, "session-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:kill-session/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KillSession.Input, ['session_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = KillSession()
         return self._top_entity
 
 class Lock(Entity):
@@ -2042,11 +1509,16 @@ class Lock(Entity):
 
         self.yang_name = "lock"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.input = Lock.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:lock"
 
 
     class Input(Entity):
@@ -2070,11 +1542,17 @@ class Lock(Entity):
 
             self.yang_name = "input"
             self.yang_parent_name = "lock"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"target" : ("target", Lock.Input.Target)}
+            self._child_list_classes = {}
 
             self.target = Lock.Input.Target()
             self.target.parent = self
             self._children_name_map["target"] = "target"
             self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:lock/%s" % self._segment_path()
 
 
         class Target(Entity):
@@ -2108,196 +1586,21 @@ class Lock(Entity):
 
                 self.yang_name = "target"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
                 self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:lock/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "running",
-                                "startup") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Lock.Input.Target, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Lock.Input.Target, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.running.is_set or
-                    self.startup.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "target" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:lock/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "running" or name == "startup"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (self.target is not None and self.target.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.target is not None and self.target.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:lock/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "target"):
-                if (self.target is None):
-                    self.target = Lock.Input.Target()
-                    self.target.parent = self
-                    self._children_name_map["target"] = "target"
-                return self.target
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "target"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:lock" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Lock.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(Lock.Input.Target, ['candidate', 'running', 'startup'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Lock()
@@ -2326,11 +1629,16 @@ class Unlock(Entity):
 
         self.yang_name = "unlock"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.input = Unlock.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:unlock"
 
 
     class Input(Entity):
@@ -2354,11 +1662,17 @@ class Unlock(Entity):
 
             self.yang_name = "input"
             self.yang_parent_name = "unlock"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"target" : ("target", Unlock.Input.Target)}
+            self._child_list_classes = {}
 
             self.target = Unlock.Input.Target()
             self.target.parent = self
             self._children_name_map["target"] = "target"
             self._children_yang_names.add("target")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:unlock/%s" % self._segment_path()
 
 
         class Target(Entity):
@@ -2392,1207 +1706,24 @@ class Unlock(Entity):
 
                 self.yang_name = "target"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
                 self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:unlock/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "running",
-                                "startup") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Unlock.Input.Target, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Unlock.Input.Target, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.running.is_set or
-                    self.startup.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "target" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:unlock/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "running" or name == "startup"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (self.target is not None and self.target.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.target is not None and self.target.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:unlock/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "target"):
-                if (self.target is None):
-                    self.target = Unlock.Input.Target()
-                    self.target.parent = self
-                    self._children_name_map["target"] = "target"
-                return self.target
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "target"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:unlock" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Unlock.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(Unlock.Input.Target, ['candidate', 'running', 'startup'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Unlock()
-        return self._top_entity
-
-class Get(Entity):
-    """
-    Retrieve running configuration and device state information.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(Get, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "get"
-        self.yang_parent_name = "ietf-netconf"
-
-        self.input = Get.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = Get.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: filter
-        
-        	This parameter specifies the portion of the system configuration and state data to retrieve
-        	**type**\:  anyxml
-        
-        .. attribute:: with_defaults
-        
-        	The explicit defaults processing mode requested
-        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Get.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "get"
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("filter",
-                            "with_defaults") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Get.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Get.Input, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.filter.is_set or
-                self.with_defaults.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.filter.yfilter != YFilter.not_set or
-                self.with_defaults.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:get/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.filter.is_set or self.filter.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.filter.get_name_leafdata())
-            if (self.with_defaults.is_set or self.with_defaults.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.with_defaults.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "filter" or name == "with-defaults"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "filter"):
-                self.filter = value
-                self.filter.value_namespace = name_space
-                self.filter.value_namespace_prefix = name_space_prefix
-            if(value_path == "with-defaults"):
-                self.with_defaults = value
-                self.with_defaults.value_namespace = name_space
-                self.with_defaults.value_namespace_prefix = name_space_prefix
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Get.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "get"
-
-            self.data = YLeaf(YType.str, "data")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("data") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Get.Output, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Get.Output, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.data.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.data.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "output" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:get/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.data.is_set or self.data.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.data.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "data"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "data"):
-                self.data = value
-                self.data.value_namespace = name_space
-                self.data.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            (self.input is not None and self.input.has_data()) or
-            (self.output is not None and self.output.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()) or
-            (self.output is not None and self.output.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:get" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Get.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        if (child_yang_name == "output"):
-            if (self.output is None):
-                self.output = Get.Output()
-                self.output.parent = self
-                self._children_name_map["output"] = "output"
-            return self.output
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input" or name == "output"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = Get()
-        return self._top_entity
-
-class CloseSession(Entity):
-    """
-    Request graceful termination of a NETCONF session.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(CloseSession, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "close-session"
-        self.yang_parent_name = "ietf-netconf"
-
-    def has_data(self):
-        return False
-
-    def has_operation(self):
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:close-session" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = CloseSession()
-        return self._top_entity
-
-class KillSession(Entity):
-    """
-    Force the termination of a NETCONF session.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(KillSession, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "kill-session"
-        self.yang_parent_name = "ietf-netconf"
-
-        self.input = KillSession.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: session_id
-        
-        	Particular session to kill
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
-        
-        	**mandatory**\: True
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(KillSession.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "kill-session"
-
-            self.session_id = YLeaf(YType.uint32, "session-id")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("session_id") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(KillSession.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(KillSession.Input, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.session_id.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.session_id.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:kill-session/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.session_id.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "session-id"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "session-id"):
-                self.session_id = value
-                self.session_id.value_namespace = name_space
-                self.session_id.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:kill-session" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = KillSession.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = KillSession()
-        return self._top_entity
-
-class Commit(Entity):
-    """
-    Commit the candidate configuration as the device's new
-    current configuration.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(Commit, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "commit"
-        self.yang_parent_name = "ietf-netconf"
-
-        self.input = Commit.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: confirm_timeout
-        
-        	The timeout interval for a confirmed commit
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
-        
-        	**units**\: seconds
-        
-        	**default value**\: 600
-        
-        .. attribute:: confirmed
-        
-        	Requests a confirmed commit
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: persist
-        
-        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
-        	**type**\:  str
-        
-        .. attribute:: persist_id
-        
-        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Commit.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "commit"
-
-            self.confirm_timeout = YLeaf(YType.uint32, "confirm-timeout")
-
-            self.confirmed = YLeaf(YType.empty, "confirmed")
-
-            self.persist = YLeaf(YType.str, "persist")
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("confirm_timeout",
-                            "confirmed",
-                            "persist",
-                            "persist_id") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Commit.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Commit.Input, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.confirm_timeout.is_set or
-                self.confirmed.is_set or
-                self.persist.is_set or
-                self.persist_id.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.confirm_timeout.yfilter != YFilter.not_set or
-                self.confirmed.yfilter != YFilter.not_set or
-                self.persist.yfilter != YFilter.not_set or
-                self.persist_id.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:commit/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.confirm_timeout.is_set or self.confirm_timeout.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.confirm_timeout.get_name_leafdata())
-            if (self.confirmed.is_set or self.confirmed.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.confirmed.get_name_leafdata())
-            if (self.persist.is_set or self.persist.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.persist.get_name_leafdata())
-            if (self.persist_id.is_set or self.persist_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.persist_id.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "confirm-timeout" or name == "confirmed" or name == "persist" or name == "persist-id"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "confirm-timeout"):
-                self.confirm_timeout = value
-                self.confirm_timeout.value_namespace = name_space
-                self.confirm_timeout.value_namespace_prefix = name_space_prefix
-            if(value_path == "confirmed"):
-                self.confirmed = value
-                self.confirmed.value_namespace = name_space
-                self.confirmed.value_namespace_prefix = name_space_prefix
-            if(value_path == "persist"):
-                self.persist = value
-                self.persist.value_namespace = name_space
-                self.persist.value_namespace_prefix = name_space_prefix
-            if(value_path == "persist-id"):
-                self.persist_id = value
-                self.persist_id.value_namespace = name_space
-                self.persist_id.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:commit" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Commit.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = Commit()
-        return self._top_entity
-
-class DiscardChanges(Entity):
-    """
-    Revert the candidate configuration to the current
-    running configuration.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(DiscardChanges, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "discard-changes"
-        self.yang_parent_name = "ietf-netconf"
-
-    def has_data(self):
-        return False
-
-    def has_operation(self):
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:discard-changes" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = DiscardChanges()
-        return self._top_entity
-
-class CancelCommit(Entity):
-    """
-    This operation is used to cancel an ongoing confirmed commit.
-    If the confirmed commit is persistent, the parameter
-    'persist\-id' must be given, and it must match the value of the
-    'persist' parameter.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(CancelCommit, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "cancel-commit"
-        self.yang_parent_name = "ietf-netconf"
-
-        self.input = CancelCommit.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: persist_id
-        
-        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(CancelCommit.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "cancel-commit"
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("persist_id") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CancelCommit.Input, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CancelCommit.Input, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.persist_id.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.persist_id.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:cancel-commit/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.persist_id.is_set or self.persist_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.persist_id.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "persist-id"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "persist-id"):
-                self.persist_id = value
-                self.persist_id.value_namespace = name_space
-                self.persist_id.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:cancel-commit" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = CancelCommit.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = CancelCommit()
         return self._top_entity
 
 class Validate(Entity):
@@ -3617,11 +1748,16 @@ class Validate(Entity):
 
         self.yang_name = "validate"
         self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.input = Validate.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:validate"
 
 
     class Input(Entity):
@@ -3645,11 +1781,17 @@ class Validate(Entity):
 
             self.yang_name = "input"
             self.yang_parent_name = "validate"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"source" : ("source", Validate.Input.Source)}
+            self._child_list_classes = {}
 
             self.source = Validate.Input.Source()
             self.source.parent = self
             self._children_name_map["source"] = "source"
             self._children_yang_names.add("source")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:validate/%s" % self._segment_path()
 
 
         class Source(Entity):
@@ -3693,6 +1835,10 @@ class Validate(Entity):
 
                 self.yang_name = "source"
                 self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
@@ -3703,208 +1849,11 @@ class Validate(Entity):
                 self.startup = YLeaf(YType.empty, "startup")
 
                 self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "source"
+                self._absolute_path = lambda: "ietf-netconf:validate/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("candidate",
-                                "config",
-                                "running",
-                                "startup",
-                                "url") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Validate.Input.Source, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Validate.Input.Source, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.candidate.is_set or
-                    self.config.is_set or
-                    self.running.is_set or
-                    self.startup.is_set or
-                    self.url.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.candidate.yfilter != YFilter.not_set or
-                    self.config.yfilter != YFilter.not_set or
-                    self.running.yfilter != YFilter.not_set or
-                    self.startup.yfilter != YFilter.not_set or
-                    self.url.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "source" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "ietf-netconf:validate/input/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.candidate.is_set or self.candidate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.candidate.get_name_leafdata())
-                if (self.config.is_set or self.config.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.config.get_name_leafdata())
-                if (self.running.is_set or self.running.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.running.get_name_leafdata())
-                if (self.startup.is_set or self.startup.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.startup.get_name_leafdata())
-                if (self.url.is_set or self.url.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.url.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "candidate" or name == "config" or name == "running" or name == "startup" or name == "url"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "candidate"):
-                    self.candidate = value
-                    self.candidate.value_namespace = name_space
-                    self.candidate.value_namespace_prefix = name_space_prefix
-                if(value_path == "config"):
-                    self.config = value
-                    self.config.value_namespace = name_space
-                    self.config.value_namespace_prefix = name_space_prefix
-                if(value_path == "running"):
-                    self.running = value
-                    self.running.value_namespace = name_space
-                    self.running.value_namespace_prefix = name_space_prefix
-                if(value_path == "startup"):
-                    self.startup = value
-                    self.startup.value_namespace = name_space
-                    self.startup.value_namespace_prefix = name_space_prefix
-                if(value_path == "url"):
-                    self.url = value
-                    self.url.value_namespace = name_space
-                    self.url.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (self.source is not None and self.source.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.source is not None and self.source.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "input" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "ietf-netconf:validate/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "source"):
-                if (self.source is None):
-                    self.source = Validate.Input.Source()
-                    self.source.parent = self
-                    self._children_name_map["source"] = "source"
-                return self.source
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "source"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.input is not None and self.input.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.input is not None and self.input.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "ietf-netconf:validate" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "input"):
-            if (self.input is None):
-                self.input = Validate.Input()
-                self.input.parent = self
-                self._children_name_map["input"] = "input"
-            return self.input
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "input"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(Validate.Input.Source, ['candidate', 'config', 'running', 'startup', 'url'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Validate()

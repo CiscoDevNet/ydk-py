@@ -39,7 +39,6 @@ In implementation and usage, this MIB cannot
 exist independent of the IPSEC\-MONITOR\-MIB. 
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,19 +46,19 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CiscoIpsecPolicyMapMib(Entity):
+class CISCOIPSECPOLICYMAPMIB(Entity):
     """
     
     
     .. attribute:: ikepolmaptable
     
     	The IPSec Phase\-1 Internet Key Exchange Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-1 Tunnel
-    	**type**\:   :py:class:`Ikepolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CiscoIpsecPolicyMapMib.Ikepolmaptable>`
+    	**type**\:   :py:class:`Ikepolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable>`
     
     .. attribute:: ipsecpolmaptable
     
     	The IPSec Phase\-2 Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-2 Tunnel
-    	**type**\:   :py:class:`Ipsecpolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CiscoIpsecPolicyMapMib.Ipsecpolmaptable>`
+    	**type**\:   :py:class:`Ipsecpolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable>`
     
     
 
@@ -69,21 +68,26 @@ class CiscoIpsecPolicyMapMib(Entity):
     _revision = '2000-08-17'
 
     def __init__(self):
-        super(CiscoIpsecPolicyMapMib, self).__init__()
+        super(CISCOIPSECPOLICYMAPMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-IPSEC-POLICY-MAP-MIB"
         self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"ikePolMapTable" : ("ikepolmaptable", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable), "ipSecPolMapTable" : ("ipsecpolmaptable", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable)}
+        self._child_list_classes = {}
 
-        self.ikepolmaptable = CiscoIpsecPolicyMapMib.Ikepolmaptable()
+        self.ikepolmaptable = CISCOIPSECPOLICYMAPMIB.Ikepolmaptable()
         self.ikepolmaptable.parent = self
         self._children_name_map["ikepolmaptable"] = "ikePolMapTable"
         self._children_yang_names.add("ikePolMapTable")
 
-        self.ipsecpolmaptable = CiscoIpsecPolicyMapMib.Ipsecpolmaptable()
+        self.ipsecpolmaptable = CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable()
         self.ipsecpolmaptable.parent = self
         self._children_name_map["ipsecpolmaptable"] = "ipSecPolMapTable"
         self._children_yang_names.add("ipSecPolMapTable")
+        self._segment_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
 
 
     class Ikepolmaptable(Entity):
@@ -96,7 +100,7 @@ class CiscoIpsecPolicyMapMib(Entity):
         .. attribute:: ikepolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-1 IKE Tunnel to it's configured Policy definition
-        	**type**\: list of    :py:class:`Ikepolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CiscoIpsecPolicyMapMib.Ikepolmaptable.Ikepolmapentry>`
+        	**type**\: list of    :py:class:`Ikepolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry>`
         
         
 
@@ -106,36 +110,21 @@ class CiscoIpsecPolicyMapMib(Entity):
         _revision = '2000-08-17'
 
         def __init__(self):
-            super(CiscoIpsecPolicyMapMib.Ikepolmaptable, self).__init__()
+            super(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable, self).__init__()
 
             self.yang_name = "ikePolMapTable"
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ikePolMapEntry" : ("ikepolmapentry", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry)}
 
             self.ikepolmapentry = YList(self)
+            self._segment_path = lambda: "ikePolMapTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoIpsecPolicyMapMib.Ikepolmaptable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoIpsecPolicyMapMib.Ikepolmaptable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable, [], name, value)
 
 
         class Ikepolmapentry(Entity):
@@ -166,151 +155,23 @@ class CiscoIpsecPolicyMapMib(Entity):
             _revision = '2000-08-17'
 
             def __init__(self):
-                super(CiscoIpsecPolicyMapMib.Ikepolmaptable.Ikepolmapentry, self).__init__()
+                super(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry, self).__init__()
 
                 self.yang_name = "ikePolMapEntry"
                 self.yang_parent_name = "ikePolMapTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ikepolmaptunindex = YLeaf(YType.int32, "ikePolMapTunIndex")
 
                 self.ikepolmappolicynum = YLeaf(YType.int32, "ikePolMapPolicyNum")
+                self._segment_path = lambda: "ikePolMapEntry" + "[ikePolMapTunIndex='" + self.ikepolmaptunindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ikepolmaptunindex",
-                                "ikepolmappolicynum") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoIpsecPolicyMapMib.Ikepolmaptable.Ikepolmapentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoIpsecPolicyMapMib.Ikepolmaptable.Ikepolmapentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ikepolmaptunindex.is_set or
-                    self.ikepolmappolicynum.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ikepolmaptunindex.yfilter != YFilter.not_set or
-                    self.ikepolmappolicynum.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ikePolMapEntry" + "[ikePolMapTunIndex='" + self.ikepolmaptunindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ikepolmaptunindex.is_set or self.ikepolmaptunindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ikepolmaptunindex.get_name_leafdata())
-                if (self.ikepolmappolicynum.is_set or self.ikepolmappolicynum.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ikepolmappolicynum.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ikePolMapTunIndex" or name == "ikePolMapPolicyNum"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ikePolMapTunIndex"):
-                    self.ikepolmaptunindex = value
-                    self.ikepolmaptunindex.value_namespace = name_space
-                    self.ikepolmaptunindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "ikePolMapPolicyNum"):
-                    self.ikepolmappolicynum = value
-                    self.ikepolmappolicynum.value_namespace = name_space
-                    self.ikepolmappolicynum.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ikepolmapentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ikepolmapentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ikePolMapTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ikePolMapEntry"):
-                for c in self.ikepolmapentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoIpsecPolicyMapMib.Ikepolmaptable.Ikepolmapentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ikepolmapentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ikePolMapEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry, ['ikepolmaptunindex', 'ikepolmappolicynum'], name, value)
 
 
     class Ipsecpolmaptable(Entity):
@@ -322,7 +183,7 @@ class CiscoIpsecPolicyMapMib(Entity):
         .. attribute:: ipsecpolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-2 Tunnel to its configured Policy definition
-        	**type**\: list of    :py:class:`Ipsecpolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CiscoIpsecPolicyMapMib.Ipsecpolmaptable.Ipsecpolmapentry>`
+        	**type**\: list of    :py:class:`Ipsecpolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry>`
         
         
 
@@ -332,36 +193,21 @@ class CiscoIpsecPolicyMapMib(Entity):
         _revision = '2000-08-17'
 
         def __init__(self):
-            super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable, self).__init__()
+            super(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable, self).__init__()
 
             self.yang_name = "ipSecPolMapTable"
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ipSecPolMapEntry" : ("ipsecpolmapentry", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry)}
 
             self.ipsecpolmapentry = YList(self)
+            self._segment_path = lambda: "ipSecPolMapTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable, [], name, value)
 
 
         class Ipsecpolmapentry(Entity):
@@ -407,10 +253,14 @@ class CiscoIpsecPolicyMapMib(Entity):
             _revision = '2000-08-17'
 
             def __init__(self):
-                super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable.Ipsecpolmapentry, self).__init__()
+                super(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, self).__init__()
 
                 self.yang_name = "ipSecPolMapEntry"
                 self.yang_parent_name = "ipSecPolMapTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ipsecpolmaptunindex = YLeaf(YType.int32, "ipSecPolMapTunIndex")
 
@@ -421,229 +271,13 @@ class CiscoIpsecPolicyMapMib(Entity):
                 self.ipsecpolmapcryptomapname = YLeaf(YType.str, "ipSecPolMapCryptoMapName")
 
                 self.ipsecpolmapcryptomapnum = YLeaf(YType.int32, "ipSecPolMapCryptoMapNum")
+                self._segment_path = lambda: "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + self.ipsecpolmaptunindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ipsecpolmaptunindex",
-                                "ipsecpolmapacestring",
-                                "ipsecpolmapaclstring",
-                                "ipsecpolmapcryptomapname",
-                                "ipsecpolmapcryptomapnum") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable.Ipsecpolmapentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoIpsecPolicyMapMib.Ipsecpolmaptable.Ipsecpolmapentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ipsecpolmaptunindex.is_set or
-                    self.ipsecpolmapacestring.is_set or
-                    self.ipsecpolmapaclstring.is_set or
-                    self.ipsecpolmapcryptomapname.is_set or
-                    self.ipsecpolmapcryptomapnum.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ipsecpolmaptunindex.yfilter != YFilter.not_set or
-                    self.ipsecpolmapacestring.yfilter != YFilter.not_set or
-                    self.ipsecpolmapaclstring.yfilter != YFilter.not_set or
-                    self.ipsecpolmapcryptomapname.yfilter != YFilter.not_set or
-                    self.ipsecpolmapcryptomapnum.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + self.ipsecpolmaptunindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ipsecpolmaptunindex.is_set or self.ipsecpolmaptunindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ipsecpolmaptunindex.get_name_leafdata())
-                if (self.ipsecpolmapacestring.is_set or self.ipsecpolmapacestring.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ipsecpolmapacestring.get_name_leafdata())
-                if (self.ipsecpolmapaclstring.is_set or self.ipsecpolmapaclstring.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ipsecpolmapaclstring.get_name_leafdata())
-                if (self.ipsecpolmapcryptomapname.is_set or self.ipsecpolmapcryptomapname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ipsecpolmapcryptomapname.get_name_leafdata())
-                if (self.ipsecpolmapcryptomapnum.is_set or self.ipsecpolmapcryptomapnum.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ipsecpolmapcryptomapnum.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ipSecPolMapTunIndex" or name == "ipSecPolMapAceString" or name == "ipSecPolMapAclString" or name == "ipSecPolMapCryptoMapName" or name == "ipSecPolMapCryptoMapNum"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ipSecPolMapTunIndex"):
-                    self.ipsecpolmaptunindex = value
-                    self.ipsecpolmaptunindex.value_namespace = name_space
-                    self.ipsecpolmaptunindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "ipSecPolMapAceString"):
-                    self.ipsecpolmapacestring = value
-                    self.ipsecpolmapacestring.value_namespace = name_space
-                    self.ipsecpolmapacestring.value_namespace_prefix = name_space_prefix
-                if(value_path == "ipSecPolMapAclString"):
-                    self.ipsecpolmapaclstring = value
-                    self.ipsecpolmapaclstring.value_namespace = name_space
-                    self.ipsecpolmapaclstring.value_namespace_prefix = name_space_prefix
-                if(value_path == "ipSecPolMapCryptoMapName"):
-                    self.ipsecpolmapcryptomapname = value
-                    self.ipsecpolmapcryptomapname.value_namespace = name_space
-                    self.ipsecpolmapcryptomapname.value_namespace_prefix = name_space_prefix
-                if(value_path == "ipSecPolMapCryptoMapNum"):
-                    self.ipsecpolmapcryptomapnum = value
-                    self.ipsecpolmapcryptomapnum.value_namespace = name_space
-                    self.ipsecpolmapcryptomapnum.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.ipsecpolmapentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.ipsecpolmapentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ipSecPolMapTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "ipSecPolMapEntry"):
-                for c in self.ipsecpolmapentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoIpsecPolicyMapMib.Ipsecpolmaptable.Ipsecpolmapentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.ipsecpolmapentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "ipSecPolMapEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.ikepolmaptable is not None and self.ikepolmaptable.has_data()) or
-            (self.ipsecpolmaptable is not None and self.ipsecpolmaptable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.ikepolmaptable is not None and self.ikepolmaptable.has_operation()) or
-            (self.ipsecpolmaptable is not None and self.ipsecpolmaptable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "ikePolMapTable"):
-            if (self.ikepolmaptable is None):
-                self.ikepolmaptable = CiscoIpsecPolicyMapMib.Ikepolmaptable()
-                self.ikepolmaptable.parent = self
-                self._children_name_map["ikepolmaptable"] = "ikePolMapTable"
-            return self.ikepolmaptable
-
-        if (child_yang_name == "ipSecPolMapTable"):
-            if (self.ipsecpolmaptable is None):
-                self.ipsecpolmaptable = CiscoIpsecPolicyMapMib.Ipsecpolmaptable()
-                self.ipsecpolmaptable.parent = self
-                self._children_name_map["ipsecpolmaptable"] = "ipSecPolMapTable"
-            return self.ipsecpolmaptable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "ikePolMapTable" or name == "ipSecPolMapTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, ['ipsecpolmaptunindex', 'ipsecpolmapacestring', 'ipsecpolmapaclstring', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoIpsecPolicyMapMib()
+        self._top_entity = CISCOIPSECPOLICYMAPMIB()
         return self._top_entity
 

@@ -4,16 +4,15 @@ The MIB module to describe the Integrated Services
 Protocol
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Qosservice(Enum):
+class QosService(Enum):
     """
-    Qosservice
+    QosService
 
     The class of service in use by a flow.
 
@@ -33,24 +32,24 @@ class Qosservice(Enum):
 
 
 
-class IntServMib(Entity):
+class INTSERVMIB(Entity):
     """
     
     
     .. attribute:: intsrvflowtable
     
     	Information describing the reserved flows  us\- ing the system's interfaces
-    	**type**\:   :py:class:`Intsrvflowtable <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvflowtable>`
+    	**type**\:   :py:class:`Intsrvflowtable <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvflowtable>`
     
     .. attribute:: intsrvgenobjects
     
     	
-    	**type**\:   :py:class:`Intsrvgenobjects <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvgenobjects>`
+    	**type**\:   :py:class:`Intsrvgenobjects <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvgenobjects>`
     
     .. attribute:: intsrvifattribtable
     
     	The reservable attributes of the system's  in\- terfaces
-    	**type**\:   :py:class:`Intsrvifattribtable <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvifattribtable>`
+    	**type**\:   :py:class:`Intsrvifattribtable <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvifattribtable>`
     
     
 
@@ -60,445 +59,31 @@ class IntServMib(Entity):
     _revision = '1997-10-03'
 
     def __init__(self):
-        super(IntServMib, self).__init__()
+        super(INTSERVMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "INT-SERV-MIB"
         self.yang_parent_name = "INT-SERV-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"intSrvFlowTable" : ("intsrvflowtable", INTSERVMIB.Intsrvflowtable), "intSrvGenObjects" : ("intsrvgenobjects", INTSERVMIB.Intsrvgenobjects), "intSrvIfAttribTable" : ("intsrvifattribtable", INTSERVMIB.Intsrvifattribtable)}
+        self._child_list_classes = {}
 
-        self.intsrvflowtable = IntServMib.Intsrvflowtable()
+        self.intsrvflowtable = INTSERVMIB.Intsrvflowtable()
         self.intsrvflowtable.parent = self
         self._children_name_map["intsrvflowtable"] = "intSrvFlowTable"
         self._children_yang_names.add("intSrvFlowTable")
 
-        self.intsrvgenobjects = IntServMib.Intsrvgenobjects()
+        self.intsrvgenobjects = INTSERVMIB.Intsrvgenobjects()
         self.intsrvgenobjects.parent = self
         self._children_name_map["intsrvgenobjects"] = "intSrvGenObjects"
         self._children_yang_names.add("intSrvGenObjects")
 
-        self.intsrvifattribtable = IntServMib.Intsrvifattribtable()
+        self.intsrvifattribtable = INTSERVMIB.Intsrvifattribtable()
         self.intsrvifattribtable.parent = self
         self._children_name_map["intsrvifattribtable"] = "intSrvIfAttribTable"
         self._children_yang_names.add("intSrvIfAttribTable")
-
-
-    class Intsrvgenobjects(Entity):
-        """
-        
-        
-        .. attribute:: intsrvflownewindex
-        
-        	This  object  is  used  to  assign  values  to intSrvFlowNumber  as described in 'Textual Con\- ventions  for  SNMPv2'.   The  network  manager reads  the  object,  and  then writes the value back in the SET that creates a new instance  of intSrvFlowEntry.   If  the  SET  fails with the code 'inconsistentValue', then the process must be  repeated; If the SET succeeds, then the ob\- ject is incremented, and the  new  instance  is created according to the manager's directions
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        
-
-        """
-
-        _prefix = 'INT-SERV-MIB'
-        _revision = '1997-10-03'
-
-        def __init__(self):
-            super(IntServMib.Intsrvgenobjects, self).__init__()
-
-            self.yang_name = "intSrvGenObjects"
-            self.yang_parent_name = "INT-SERV-MIB"
-
-            self.intsrvflownewindex = YLeaf(YType.int32, "intSrvFlowNewIndex")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("intsrvflownewindex") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IntServMib.Intsrvgenobjects, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IntServMib.Intsrvgenobjects, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.intsrvflownewindex.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.intsrvflownewindex.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "intSrvGenObjects" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "INT-SERV-MIB:INT-SERV-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.intsrvflownewindex.is_set or self.intsrvflownewindex.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.intsrvflownewindex.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "intSrvFlowNewIndex"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "intSrvFlowNewIndex"):
-                self.intsrvflownewindex = value
-                self.intsrvflownewindex.value_namespace = name_space
-                self.intsrvflownewindex.value_namespace_prefix = name_space_prefix
-
-
-    class Intsrvifattribtable(Entity):
-        """
-        The reservable attributes of the system's  in\-
-        terfaces.
-        
-        .. attribute:: intsrvifattribentry
-        
-        	The reservable attributes of  a  given  inter\- face
-        	**type**\: list of    :py:class:`Intsrvifattribentry <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvifattribtable.Intsrvifattribentry>`
-        
-        
-
-        """
-
-        _prefix = 'INT-SERV-MIB'
-        _revision = '1997-10-03'
-
-        def __init__(self):
-            super(IntServMib.Intsrvifattribtable, self).__init__()
-
-            self.yang_name = "intSrvIfAttribTable"
-            self.yang_parent_name = "INT-SERV-MIB"
-
-            self.intsrvifattribentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IntServMib.Intsrvifattribtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IntServMib.Intsrvifattribtable, self).__setattr__(name, value)
-
-
-        class Intsrvifattribentry(Entity):
-            """
-            The reservable attributes of  a  given  inter\-
-            face.
-            
-            .. attribute:: ifindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry>`
-            
-            .. attribute:: intsrvifattriballocatedbits
-            
-            	The number of bits/second currently  allocated to reserved sessions on the interface
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            	**units**\: Bits per second
-            
-            .. attribute:: intsrvifattriballocatedbuffer
-            
-            	The amount of buffer space  required  to  hold the simultaneous burst of all reserved flows on the interface
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            	**units**\: Bytes
-            
-            .. attribute:: intsrvifattribflows
-            
-            	The number of reserved flows currently  active on  this  interface.  A flow can be created ei\- ther from a reservation protocol (such as  RSVP or ST\-II) or via configuration information
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: intsrvifattribmaxallocatedbits
-            
-            	The maximum number of bits/second that may  be allocated  to  reserved  sessions on the inter\- face
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            	**units**\: Bits per second
-            
-            .. attribute:: intsrvifattribpropagationdelay
-            
-            	The amount of propagation delay that this  in\- terface  introduces  in addition to that intro\- diced by bit propagation delays
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: microseconds
-            
-            .. attribute:: intsrvifattribstatus
-            
-            	'active' on interfaces that are configured for RSVP
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
-            
-            
-
-            """
-
-            _prefix = 'INT-SERV-MIB'
-            _revision = '1997-10-03'
-
-            def __init__(self):
-                super(IntServMib.Intsrvifattribtable.Intsrvifattribentry, self).__init__()
-
-                self.yang_name = "intSrvIfAttribEntry"
-                self.yang_parent_name = "intSrvIfAttribTable"
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.intsrvifattriballocatedbits = YLeaf(YType.int32, "intSrvIfAttribAllocatedBits")
-
-                self.intsrvifattriballocatedbuffer = YLeaf(YType.int32, "intSrvIfAttribAllocatedBuffer")
-
-                self.intsrvifattribflows = YLeaf(YType.uint32, "intSrvIfAttribFlows")
-
-                self.intsrvifattribmaxallocatedbits = YLeaf(YType.int32, "intSrvIfAttribMaxAllocatedBits")
-
-                self.intsrvifattribpropagationdelay = YLeaf(YType.int32, "intSrvIfAttribPropagationDelay")
-
-                self.intsrvifattribstatus = YLeaf(YType.enumeration, "intSrvIfAttribStatus")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifindex",
-                                "intsrvifattriballocatedbits",
-                                "intsrvifattriballocatedbuffer",
-                                "intsrvifattribflows",
-                                "intsrvifattribmaxallocatedbits",
-                                "intsrvifattribpropagationdelay",
-                                "intsrvifattribstatus") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(IntServMib.Intsrvifattribtable.Intsrvifattribentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(IntServMib.Intsrvifattribtable.Intsrvifattribentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ifindex.is_set or
-                    self.intsrvifattriballocatedbits.is_set or
-                    self.intsrvifattriballocatedbuffer.is_set or
-                    self.intsrvifattribflows.is_set or
-                    self.intsrvifattribmaxallocatedbits.is_set or
-                    self.intsrvifattribpropagationdelay.is_set or
-                    self.intsrvifattribstatus.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifindex.yfilter != YFilter.not_set or
-                    self.intsrvifattriballocatedbits.yfilter != YFilter.not_set or
-                    self.intsrvifattriballocatedbuffer.yfilter != YFilter.not_set or
-                    self.intsrvifattribflows.yfilter != YFilter.not_set or
-                    self.intsrvifattribmaxallocatedbits.yfilter != YFilter.not_set or
-                    self.intsrvifattribpropagationdelay.yfilter != YFilter.not_set or
-                    self.intsrvifattribstatus.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "intSrvIfAttribEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "INT-SERV-MIB:INT-SERV-MIB/intSrvIfAttribTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindex.get_name_leafdata())
-                if (self.intsrvifattriballocatedbits.is_set or self.intsrvifattriballocatedbits.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattriballocatedbits.get_name_leafdata())
-                if (self.intsrvifattriballocatedbuffer.is_set or self.intsrvifattriballocatedbuffer.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattriballocatedbuffer.get_name_leafdata())
-                if (self.intsrvifattribflows.is_set or self.intsrvifattribflows.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattribflows.get_name_leafdata())
-                if (self.intsrvifattribmaxallocatedbits.is_set or self.intsrvifattribmaxallocatedbits.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattribmaxallocatedbits.get_name_leafdata())
-                if (self.intsrvifattribpropagationdelay.is_set or self.intsrvifattribpropagationdelay.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattribpropagationdelay.get_name_leafdata())
-                if (self.intsrvifattribstatus.is_set or self.intsrvifattribstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvifattribstatus.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifIndex" or name == "intSrvIfAttribAllocatedBits" or name == "intSrvIfAttribAllocatedBuffer" or name == "intSrvIfAttribFlows" or name == "intSrvIfAttribMaxAllocatedBits" or name == "intSrvIfAttribPropagationDelay" or name == "intSrvIfAttribStatus"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifIndex"):
-                    self.ifindex = value
-                    self.ifindex.value_namespace = name_space
-                    self.ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribAllocatedBits"):
-                    self.intsrvifattriballocatedbits = value
-                    self.intsrvifattriballocatedbits.value_namespace = name_space
-                    self.intsrvifattriballocatedbits.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribAllocatedBuffer"):
-                    self.intsrvifattriballocatedbuffer = value
-                    self.intsrvifattriballocatedbuffer.value_namespace = name_space
-                    self.intsrvifattriballocatedbuffer.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribFlows"):
-                    self.intsrvifattribflows = value
-                    self.intsrvifattribflows.value_namespace = name_space
-                    self.intsrvifattribflows.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribMaxAllocatedBits"):
-                    self.intsrvifattribmaxallocatedbits = value
-                    self.intsrvifattribmaxallocatedbits.value_namespace = name_space
-                    self.intsrvifattribmaxallocatedbits.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribPropagationDelay"):
-                    self.intsrvifattribpropagationdelay = value
-                    self.intsrvifattribpropagationdelay.value_namespace = name_space
-                    self.intsrvifattribpropagationdelay.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvIfAttribStatus"):
-                    self.intsrvifattribstatus = value
-                    self.intsrvifattribstatus.value_namespace = name_space
-                    self.intsrvifattribstatus.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.intsrvifattribentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.intsrvifattribentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "intSrvIfAttribTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "INT-SERV-MIB:INT-SERV-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "intSrvIfAttribEntry"):
-                for c in self.intsrvifattribentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = IntServMib.Intsrvifattribtable.Intsrvifattribentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.intsrvifattribentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "intSrvIfAttribEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+        self._segment_path = lambda: "INT-SERV-MIB:INT-SERV-MIB"
 
 
     class Intsrvflowtable(Entity):
@@ -509,7 +94,7 @@ class IntServMib(Entity):
         .. attribute:: intsrvflowentry
         
         	Information describing the use of a given  in\- terface   by   a   given   flow.   The  counter intSrvFlowPoliced starts counting  at  the  in\- stallation of the flow
-        	**type**\: list of    :py:class:`Intsrvflowentry <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvflowtable.Intsrvflowentry>`
+        	**type**\: list of    :py:class:`Intsrvflowentry <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvflowtable.Intsrvflowentry>`
         
         
 
@@ -519,36 +104,21 @@ class IntServMib(Entity):
         _revision = '1997-10-03'
 
         def __init__(self):
-            super(IntServMib.Intsrvflowtable, self).__init__()
+            super(INTSERVMIB.Intsrvflowtable, self).__init__()
 
             self.yang_name = "intSrvFlowTable"
             self.yang_parent_name = "INT-SERV-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"intSrvFlowEntry" : ("intsrvflowentry", INTSERVMIB.Intsrvflowtable.Intsrvflowentry)}
 
             self.intsrvflowentry = YList(self)
+            self._segment_path = lambda: "intSrvFlowTable"
+            self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(IntServMib.Intsrvflowtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(IntServMib.Intsrvflowtable, self).__setattr__(name, value)
+            self._perform_setattr(INTSERVMIB.Intsrvflowtable, [], name, value)
 
 
         class Intsrvflowentry(Entity):
@@ -652,7 +222,7 @@ class IntServMib(Entity):
             .. attribute:: intsrvflowowner
             
             	The process that installed this  flow  in  the queue policy database
-            	**type**\:   :py:class:`Intsrvflowowner <ydk.models.cisco_ios_xe.INT_SERV_MIB.IntServMib.Intsrvflowtable.Intsrvflowentry.Intsrvflowowner>`
+            	**type**\:   :py:class:`Intsrvflowowner <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvflowtable.Intsrvflowentry.Intsrvflowowner>`
             
             .. attribute:: intsrvflowpoliced
             
@@ -708,12 +278,12 @@ class IntServMib(Entity):
             .. attribute:: intsrvflowservice
             
             	The QoS service being applied to this flow
-            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
+            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: intsrvflowstatus
             
             	'active' for all active  flows.   This  object may be used to install static classifier infor\- mation, delete classifier information,  or  au\- thorize such
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: intsrvflowtype
             
@@ -737,10 +307,14 @@ class IntServMib(Entity):
             _revision = '1997-10-03'
 
             def __init__(self):
-                super(IntServMib.Intsrvflowtable.Intsrvflowentry, self).__init__()
+                super(INTSERVMIB.Intsrvflowtable.Intsrvflowentry, self).__init__()
 
                 self.yang_name = "intSrvFlowEntry"
                 self.yang_parent_name = "intSrvFlowTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.intsrvflownumber = YLeaf(YType.int32, "intSrvFlowNumber")
 
@@ -791,54 +365,11 @@ class IntServMib(Entity):
                 self.intsrvflowtype = YLeaf(YType.int32, "intSrvFlowType")
 
                 self.intsrvflowweight = YLeaf(YType.int32, "intSrvFlowWeight")
+                self._segment_path = lambda: "intSrvFlowEntry" + "[intSrvFlowNumber='" + self.intsrvflownumber.get() + "']"
+                self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/intSrvFlowTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("intsrvflownumber",
-                                "intsrvflowbesteffort",
-                                "intsrvflowburst",
-                                "intsrvflowdestaddr",
-                                "intsrvflowdestaddrlength",
-                                "intsrvflowdestport",
-                                "intsrvflowdiscard",
-                                "intsrvflowflowid",
-                                "intsrvflowifaddr",
-                                "intsrvflowinterface",
-                                "intsrvflowmaxtu",
-                                "intsrvflowmintu",
-                                "intsrvfloworder",
-                                "intsrvflowowner",
-                                "intsrvflowpoliced",
-                                "intsrvflowport",
-                                "intsrvflowprotocol",
-                                "intsrvflowqueue",
-                                "intsrvflowrate",
-                                "intsrvflowsenderaddr",
-                                "intsrvflowsenderaddrlength",
-                                "intsrvflowservice",
-                                "intsrvflowstatus",
-                                "intsrvflowtype",
-                                "intsrvflowweight") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(IntServMib.Intsrvflowtable.Intsrvflowentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(IntServMib.Intsrvflowtable.Intsrvflowentry, self).__setattr__(name, value)
+                self._perform_setattr(INTSERVMIB.Intsrvflowtable.Intsrvflowentry, ['intsrvflownumber', 'intsrvflowbesteffort', 'intsrvflowburst', 'intsrvflowdestaddr', 'intsrvflowdestaddrlength', 'intsrvflowdestport', 'intsrvflowdiscard', 'intsrvflowflowid', 'intsrvflowifaddr', 'intsrvflowinterface', 'intsrvflowmaxtu', 'intsrvflowmintu', 'intsrvfloworder', 'intsrvflowowner', 'intsrvflowpoliced', 'intsrvflowport', 'intsrvflowprotocol', 'intsrvflowqueue', 'intsrvflowrate', 'intsrvflowsenderaddr', 'intsrvflowsenderaddrlength', 'intsrvflowservice', 'intsrvflowstatus', 'intsrvflowtype', 'intsrvflowweight'], name, value)
 
             class Intsrvflowowner(Enum):
                 """
@@ -863,369 +394,177 @@ class IntServMib(Entity):
                 management = Enum.YLeaf(3, "management")
 
 
-            def has_data(self):
-                return (
-                    self.intsrvflownumber.is_set or
-                    self.intsrvflowbesteffort.is_set or
-                    self.intsrvflowburst.is_set or
-                    self.intsrvflowdestaddr.is_set or
-                    self.intsrvflowdestaddrlength.is_set or
-                    self.intsrvflowdestport.is_set or
-                    self.intsrvflowdiscard.is_set or
-                    self.intsrvflowflowid.is_set or
-                    self.intsrvflowifaddr.is_set or
-                    self.intsrvflowinterface.is_set or
-                    self.intsrvflowmaxtu.is_set or
-                    self.intsrvflowmintu.is_set or
-                    self.intsrvfloworder.is_set or
-                    self.intsrvflowowner.is_set or
-                    self.intsrvflowpoliced.is_set or
-                    self.intsrvflowport.is_set or
-                    self.intsrvflowprotocol.is_set or
-                    self.intsrvflowqueue.is_set or
-                    self.intsrvflowrate.is_set or
-                    self.intsrvflowsenderaddr.is_set or
-                    self.intsrvflowsenderaddrlength.is_set or
-                    self.intsrvflowservice.is_set or
-                    self.intsrvflowstatus.is_set or
-                    self.intsrvflowtype.is_set or
-                    self.intsrvflowweight.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.intsrvflownumber.yfilter != YFilter.not_set or
-                    self.intsrvflowbesteffort.yfilter != YFilter.not_set or
-                    self.intsrvflowburst.yfilter != YFilter.not_set or
-                    self.intsrvflowdestaddr.yfilter != YFilter.not_set or
-                    self.intsrvflowdestaddrlength.yfilter != YFilter.not_set or
-                    self.intsrvflowdestport.yfilter != YFilter.not_set or
-                    self.intsrvflowdiscard.yfilter != YFilter.not_set or
-                    self.intsrvflowflowid.yfilter != YFilter.not_set or
-                    self.intsrvflowifaddr.yfilter != YFilter.not_set or
-                    self.intsrvflowinterface.yfilter != YFilter.not_set or
-                    self.intsrvflowmaxtu.yfilter != YFilter.not_set or
-                    self.intsrvflowmintu.yfilter != YFilter.not_set or
-                    self.intsrvfloworder.yfilter != YFilter.not_set or
-                    self.intsrvflowowner.yfilter != YFilter.not_set or
-                    self.intsrvflowpoliced.yfilter != YFilter.not_set or
-                    self.intsrvflowport.yfilter != YFilter.not_set or
-                    self.intsrvflowprotocol.yfilter != YFilter.not_set or
-                    self.intsrvflowqueue.yfilter != YFilter.not_set or
-                    self.intsrvflowrate.yfilter != YFilter.not_set or
-                    self.intsrvflowsenderaddr.yfilter != YFilter.not_set or
-                    self.intsrvflowsenderaddrlength.yfilter != YFilter.not_set or
-                    self.intsrvflowservice.yfilter != YFilter.not_set or
-                    self.intsrvflowstatus.yfilter != YFilter.not_set or
-                    self.intsrvflowtype.yfilter != YFilter.not_set or
-                    self.intsrvflowweight.yfilter != YFilter.not_set)
+    class Intsrvgenobjects(Entity):
+        """
+        
+        
+        .. attribute:: intsrvflownewindex
+        
+        	This  object  is  used  to  assign  values  to intSrvFlowNumber  as described in 'Textual Con\- ventions  for  SNMPv2'.   The  network  manager reads  the  object,  and  then writes the value back in the SET that creates a new instance  of intSrvFlowEntry.   If  the  SET  fails with the code 'inconsistentValue', then the process must be  repeated; If the SET succeeds, then the ob\- ject is incremented, and the  new  instance  is created according to the manager's directions
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "intSrvFlowEntry" + "[intSrvFlowNumber='" + self.intsrvflownumber.get() + "']" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'INT-SERV-MIB'
+        _revision = '1997-10-03'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "INT-SERV-MIB:INT-SERV-MIB/intSrvFlowTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(INTSERVMIB.Intsrvgenobjects, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.intsrvflownumber.is_set or self.intsrvflownumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflownumber.get_name_leafdata())
-                if (self.intsrvflowbesteffort.is_set or self.intsrvflowbesteffort.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowbesteffort.get_name_leafdata())
-                if (self.intsrvflowburst.is_set or self.intsrvflowburst.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowburst.get_name_leafdata())
-                if (self.intsrvflowdestaddr.is_set or self.intsrvflowdestaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowdestaddr.get_name_leafdata())
-                if (self.intsrvflowdestaddrlength.is_set or self.intsrvflowdestaddrlength.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowdestaddrlength.get_name_leafdata())
-                if (self.intsrvflowdestport.is_set or self.intsrvflowdestport.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowdestport.get_name_leafdata())
-                if (self.intsrvflowdiscard.is_set or self.intsrvflowdiscard.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowdiscard.get_name_leafdata())
-                if (self.intsrvflowflowid.is_set or self.intsrvflowflowid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowflowid.get_name_leafdata())
-                if (self.intsrvflowifaddr.is_set or self.intsrvflowifaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowifaddr.get_name_leafdata())
-                if (self.intsrvflowinterface.is_set or self.intsrvflowinterface.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowinterface.get_name_leafdata())
-                if (self.intsrvflowmaxtu.is_set or self.intsrvflowmaxtu.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowmaxtu.get_name_leafdata())
-                if (self.intsrvflowmintu.is_set or self.intsrvflowmintu.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowmintu.get_name_leafdata())
-                if (self.intsrvfloworder.is_set or self.intsrvfloworder.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvfloworder.get_name_leafdata())
-                if (self.intsrvflowowner.is_set or self.intsrvflowowner.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowowner.get_name_leafdata())
-                if (self.intsrvflowpoliced.is_set or self.intsrvflowpoliced.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowpoliced.get_name_leafdata())
-                if (self.intsrvflowport.is_set or self.intsrvflowport.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowport.get_name_leafdata())
-                if (self.intsrvflowprotocol.is_set or self.intsrvflowprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowprotocol.get_name_leafdata())
-                if (self.intsrvflowqueue.is_set or self.intsrvflowqueue.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowqueue.get_name_leafdata())
-                if (self.intsrvflowrate.is_set or self.intsrvflowrate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowrate.get_name_leafdata())
-                if (self.intsrvflowsenderaddr.is_set or self.intsrvflowsenderaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowsenderaddr.get_name_leafdata())
-                if (self.intsrvflowsenderaddrlength.is_set or self.intsrvflowsenderaddrlength.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowsenderaddrlength.get_name_leafdata())
-                if (self.intsrvflowservice.is_set or self.intsrvflowservice.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowservice.get_name_leafdata())
-                if (self.intsrvflowstatus.is_set or self.intsrvflowstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowstatus.get_name_leafdata())
-                if (self.intsrvflowtype.is_set or self.intsrvflowtype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowtype.get_name_leafdata())
-                if (self.intsrvflowweight.is_set or self.intsrvflowweight.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.intsrvflowweight.get_name_leafdata())
+            self.yang_name = "intSrvGenObjects"
+            self.yang_parent_name = "INT-SERV-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.intsrvflownewindex = YLeaf(YType.int32, "intSrvFlowNewIndex")
+            self._segment_path = lambda: "intSrvGenObjects"
+            self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(INTSERVMIB.Intsrvgenobjects, ['intsrvflownewindex'], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "intSrvFlowNumber" or name == "intSrvFlowBestEffort" or name == "intSrvFlowBurst" or name == "intSrvFlowDestAddr" or name == "intSrvFlowDestAddrLength" or name == "intSrvFlowDestPort" or name == "intSrvFlowDiscard" or name == "intSrvFlowFlowId" or name == "intSrvFlowIfAddr" or name == "intSrvFlowInterface" or name == "intSrvFlowMaxTU" or name == "intSrvFlowMinTU" or name == "intSrvFlowOrder" or name == "intSrvFlowOwner" or name == "intSrvFlowPoliced" or name == "intSrvFlowPort" or name == "intSrvFlowProtocol" or name == "intSrvFlowQueue" or name == "intSrvFlowRate" or name == "intSrvFlowSenderAddr" or name == "intSrvFlowSenderAddrLength" or name == "intSrvFlowService" or name == "intSrvFlowStatus" or name == "intSrvFlowType" or name == "intSrvFlowWeight"):
-                    return True
-                return False
+    class Intsrvifattribtable(Entity):
+        """
+        The reservable attributes of the system's  in\-
+        terfaces.
+        
+        .. attribute:: intsrvifattribentry
+        
+        	The reservable attributes of  a  given  inter\- face
+        	**type**\: list of    :py:class:`Intsrvifattribentry <ydk.models.cisco_ios_xe.INT_SERV_MIB.INTSERVMIB.Intsrvifattribtable.Intsrvifattribentry>`
+        
+        
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "intSrvFlowNumber"):
-                    self.intsrvflownumber = value
-                    self.intsrvflownumber.value_namespace = name_space
-                    self.intsrvflownumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowBestEffort"):
-                    self.intsrvflowbesteffort = value
-                    self.intsrvflowbesteffort.value_namespace = name_space
-                    self.intsrvflowbesteffort.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowBurst"):
-                    self.intsrvflowburst = value
-                    self.intsrvflowburst.value_namespace = name_space
-                    self.intsrvflowburst.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowDestAddr"):
-                    self.intsrvflowdestaddr = value
-                    self.intsrvflowdestaddr.value_namespace = name_space
-                    self.intsrvflowdestaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowDestAddrLength"):
-                    self.intsrvflowdestaddrlength = value
-                    self.intsrvflowdestaddrlength.value_namespace = name_space
-                    self.intsrvflowdestaddrlength.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowDestPort"):
-                    self.intsrvflowdestport = value
-                    self.intsrvflowdestport.value_namespace = name_space
-                    self.intsrvflowdestport.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowDiscard"):
-                    self.intsrvflowdiscard = value
-                    self.intsrvflowdiscard.value_namespace = name_space
-                    self.intsrvflowdiscard.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowFlowId"):
-                    self.intsrvflowflowid = value
-                    self.intsrvflowflowid.value_namespace = name_space
-                    self.intsrvflowflowid.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowIfAddr"):
-                    self.intsrvflowifaddr = value
-                    self.intsrvflowifaddr.value_namespace = name_space
-                    self.intsrvflowifaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowInterface"):
-                    self.intsrvflowinterface = value
-                    self.intsrvflowinterface.value_namespace = name_space
-                    self.intsrvflowinterface.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowMaxTU"):
-                    self.intsrvflowmaxtu = value
-                    self.intsrvflowmaxtu.value_namespace = name_space
-                    self.intsrvflowmaxtu.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowMinTU"):
-                    self.intsrvflowmintu = value
-                    self.intsrvflowmintu.value_namespace = name_space
-                    self.intsrvflowmintu.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowOrder"):
-                    self.intsrvfloworder = value
-                    self.intsrvfloworder.value_namespace = name_space
-                    self.intsrvfloworder.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowOwner"):
-                    self.intsrvflowowner = value
-                    self.intsrvflowowner.value_namespace = name_space
-                    self.intsrvflowowner.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowPoliced"):
-                    self.intsrvflowpoliced = value
-                    self.intsrvflowpoliced.value_namespace = name_space
-                    self.intsrvflowpoliced.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowPort"):
-                    self.intsrvflowport = value
-                    self.intsrvflowport.value_namespace = name_space
-                    self.intsrvflowport.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowProtocol"):
-                    self.intsrvflowprotocol = value
-                    self.intsrvflowprotocol.value_namespace = name_space
-                    self.intsrvflowprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowQueue"):
-                    self.intsrvflowqueue = value
-                    self.intsrvflowqueue.value_namespace = name_space
-                    self.intsrvflowqueue.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowRate"):
-                    self.intsrvflowrate = value
-                    self.intsrvflowrate.value_namespace = name_space
-                    self.intsrvflowrate.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowSenderAddr"):
-                    self.intsrvflowsenderaddr = value
-                    self.intsrvflowsenderaddr.value_namespace = name_space
-                    self.intsrvflowsenderaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowSenderAddrLength"):
-                    self.intsrvflowsenderaddrlength = value
-                    self.intsrvflowsenderaddrlength.value_namespace = name_space
-                    self.intsrvflowsenderaddrlength.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowService"):
-                    self.intsrvflowservice = value
-                    self.intsrvflowservice.value_namespace = name_space
-                    self.intsrvflowservice.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowStatus"):
-                    self.intsrvflowstatus = value
-                    self.intsrvflowstatus.value_namespace = name_space
-                    self.intsrvflowstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowType"):
-                    self.intsrvflowtype = value
-                    self.intsrvflowtype.value_namespace = name_space
-                    self.intsrvflowtype.value_namespace_prefix = name_space_prefix
-                if(value_path == "intSrvFlowWeight"):
-                    self.intsrvflowweight = value
-                    self.intsrvflowweight.value_namespace = name_space
-                    self.intsrvflowweight.value_namespace_prefix = name_space_prefix
+        """
 
-        def has_data(self):
-            for c in self.intsrvflowentry:
-                if (c.has_data()):
-                    return True
-            return False
+        _prefix = 'INT-SERV-MIB'
+        _revision = '1997-10-03'
 
-        def has_operation(self):
-            for c in self.intsrvflowentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
+        def __init__(self):
+            super(INTSERVMIB.Intsrvifattribtable, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "intSrvFlowTable" + path_buffer
+            self.yang_name = "intSrvIfAttribTable"
+            self.yang_parent_name = "INT-SERV-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"intSrvIfAttribEntry" : ("intsrvifattribentry", INTSERVMIB.Intsrvifattribtable.Intsrvifattribentry)}
 
-            return path_buffer
+            self.intsrvifattribentry = YList(self)
+            self._segment_path = lambda: "intSrvIfAttribTable"
+            self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "INT-SERV-MIB:INT-SERV-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __setattr__(self, name, value):
+            self._perform_setattr(INTSERVMIB.Intsrvifattribtable, [], name, value)
 
-            leaf_name_data = LeafDataList()
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+        class Intsrvifattribentry(Entity):
+            """
+            The reservable attributes of  a  given  inter\-
+            face.
+            
+            .. attribute:: ifindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            
+            .. attribute:: intsrvifattriballocatedbits
+            
+            	The number of bits/second currently  allocated to reserved sessions on the interface
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            	**units**\: Bits per second
+            
+            .. attribute:: intsrvifattriballocatedbuffer
+            
+            	The amount of buffer space  required  to  hold the simultaneous burst of all reserved flows on the interface
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            	**units**\: Bytes
+            
+            .. attribute:: intsrvifattribflows
+            
+            	The number of reserved flows currently  active on  this  interface.  A flow can be created ei\- ther from a reservation protocol (such as  RSVP or ST\-II) or via configuration information
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: intsrvifattribmaxallocatedbits
+            
+            	The maximum number of bits/second that may  be allocated  to  reserved  sessions on the inter\- face
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            	**units**\: Bits per second
+            
+            .. attribute:: intsrvifattribpropagationdelay
+            
+            	The amount of propagation delay that this  in\- terface  introduces  in addition to that intro\- diced by bit propagation delays
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: microseconds
+            
+            .. attribute:: intsrvifattribstatus
+            
+            	'active' on interfaces that are configured for RSVP
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+            """
 
-            if (child_yang_name == "intSrvFlowEntry"):
-                for c in self.intsrvflowentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = IntServMib.Intsrvflowtable.Intsrvflowentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.intsrvflowentry.append(c)
-                return c
+            _prefix = 'INT-SERV-MIB'
+            _revision = '1997-10-03'
 
-            return None
+            def __init__(self):
+                super(INTSERVMIB.Intsrvifattribtable.Intsrvifattribentry, self).__init__()
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "intSrvFlowEntry"):
-                return True
-            return False
+                self.yang_name = "intSrvIfAttribEntry"
+                self.yang_parent_name = "intSrvIfAttribTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-    def has_data(self):
-        return (
-            (self.intsrvflowtable is not None and self.intsrvflowtable.has_data()) or
-            (self.intsrvgenobjects is not None and self.intsrvgenobjects.has_data()) or
-            (self.intsrvifattribtable is not None and self.intsrvifattribtable.has_data()))
+                self.intsrvifattriballocatedbits = YLeaf(YType.int32, "intSrvIfAttribAllocatedBits")
 
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.intsrvflowtable is not None and self.intsrvflowtable.has_operation()) or
-            (self.intsrvgenobjects is not None and self.intsrvgenobjects.has_operation()) or
-            (self.intsrvifattribtable is not None and self.intsrvifattribtable.has_operation()))
+                self.intsrvifattriballocatedbuffer = YLeaf(YType.int32, "intSrvIfAttribAllocatedBuffer")
 
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "INT-SERV-MIB:INT-SERV-MIB" + path_buffer
+                self.intsrvifattribflows = YLeaf(YType.uint32, "intSrvIfAttribFlows")
 
-        return path_buffer
+                self.intsrvifattribmaxallocatedbits = YLeaf(YType.int32, "intSrvIfAttribMaxAllocatedBits")
 
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
+                self.intsrvifattribpropagationdelay = YLeaf(YType.int32, "intSrvIfAttribPropagationDelay")
 
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
+                self.intsrvifattribstatus = YLeaf(YType.enumeration, "intSrvIfAttribStatus")
+                self._segment_path = lambda: "intSrvIfAttribEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/intSrvIfAttribTable/%s" % self._segment_path()
 
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "intSrvFlowTable"):
-            if (self.intsrvflowtable is None):
-                self.intsrvflowtable = IntServMib.Intsrvflowtable()
-                self.intsrvflowtable.parent = self
-                self._children_name_map["intsrvflowtable"] = "intSrvFlowTable"
-            return self.intsrvflowtable
-
-        if (child_yang_name == "intSrvGenObjects"):
-            if (self.intsrvgenobjects is None):
-                self.intsrvgenobjects = IntServMib.Intsrvgenobjects()
-                self.intsrvgenobjects.parent = self
-                self._children_name_map["intsrvgenobjects"] = "intSrvGenObjects"
-            return self.intsrvgenobjects
-
-        if (child_yang_name == "intSrvIfAttribTable"):
-            if (self.intsrvifattribtable is None):
-                self.intsrvifattribtable = IntServMib.Intsrvifattribtable()
-                self.intsrvifattribtable.parent = self
-                self._children_name_map["intsrvifattribtable"] = "intSrvIfAttribTable"
-            return self.intsrvifattribtable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "intSrvFlowTable" or name == "intSrvGenObjects" or name == "intSrvIfAttribTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            def __setattr__(self, name, value):
+                self._perform_setattr(INTSERVMIB.Intsrvifattribtable.Intsrvifattribentry, ['ifindex', 'intsrvifattriballocatedbits', 'intsrvifattriballocatedbuffer', 'intsrvifattribflows', 'intsrvifattribmaxallocatedbits', 'intsrvifattribpropagationdelay', 'intsrvifattribstatus'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = IntServMib()
+        self._top_entity = INTSERVMIB()
         return self._top_entity
 

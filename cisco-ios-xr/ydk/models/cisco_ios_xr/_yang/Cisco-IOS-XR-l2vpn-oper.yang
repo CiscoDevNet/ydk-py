@@ -15,20 +15,16 @@ module Cisco-IOS-XR-l2vpn-oper {
 
   import Cisco-IOS-XR-types { prefix "xr"; }
 
-  include Cisco-IOS-XR-l2vpn-oper-sub4 {
-    revision-date 2015-11-09;
-  }
-
   include Cisco-IOS-XR-l2vpn-oper-sub3 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   include Cisco-IOS-XR-l2vpn-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -54,11 +50,20 @@ module Cisco-IOS-XR-l2vpn-oper {
      for the following management objects:
        l2vpn-forwarding: Show L2VPN forwarding
        l2vpnv2: l2vpnv2
-       l2vpn: l2vpn
        generic-interface-list-v2: generic interface list v2
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -77,6 +82,35 @@ module Cisco-IOS-XR-l2vpn-oper {
       }
     }
     description "L2vpn service";
+  }
+  typedef Preferred-path-option {
+    type enumeration {
+      enum te-tunnel {
+        value 2;
+        description "TE Tunnel";
+      }
+      enum ip-tunnel {
+        value 3;
+        description "IP Tunnel";
+      }
+      enum tp-tunnel {
+        value 4;
+        description "TP Tunnel";
+      }
+      enum sr-te-policy {
+        value 5;
+        description "SR TE Policy";
+      }
+      enum mldp-tunnel {
+        value 6;
+        description "mLDP Tunnel";
+      }
+      enum mte-tunnel {
+        value 7;
+        description "mTE Tunnel";
+      }
+    }
+    description "Preferred path option";
   }
   typedef Evpn-main-interface {
     type enumeration {
@@ -137,7 +171,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping FLEXIBLE-XCONNECT-SERVICE-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container flexible-xconnect-services {
       description "Flexible XConnect Service Table";
@@ -178,7 +212,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-MP2MP-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnect-mp2mps {
       description "XConnect MP2MP Table";
@@ -203,7 +237,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping FLEXIBLE-XCONNECT-SERVICE-SUMMARY {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container flexible-xconnect-service-summary {
       description "Flexible XConnect Service summary information";
@@ -212,7 +246,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping DISCOVERY-SUMMARY {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container discovery-summary {
       description "Discovery summary information";
@@ -221,7 +255,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-GROUP-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnect-groups {
       description "XConnect group Table";
@@ -241,7 +275,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping MSTP-PORT-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container mstp-ports {
       description "L2VPN MSTP Port Table";
@@ -259,7 +293,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping PWR {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container pwr {
       description "Pseudowire Routing Table";
@@ -272,7 +306,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping GENERIC-INTERFACE-LIST-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container generic-interfaces {
       description "L2VPN generic interface list Table";
@@ -292,7 +326,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping MAIN-INTERFACE-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container main-interfaces {
       description "Main Interface";
@@ -346,8 +380,29 @@ module Cisco-IOS-XR-l2vpn-oper {
     }
   }
 
+  grouping PREFERRED-PATH-TABLE {
+    description "Common node of active, standby, node";
+
+    container preferred-paths {
+      description "Preferred path Table";
+
+      list preferred-path {
+        description "Preferred path information";
+        leaf preferred-type {
+          type Preferred-path-option;
+          description "Preferred type";
+        }
+        leaf interface-name {
+          type xr:Interface-name;
+          description "Main interface";
+        }
+        uses L2VPN-PREFERRED-PATH;
+      }
+    }
+  }
+
   grouping DISCOVERY-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container discoveries {
       description "Discovery Table";
@@ -376,7 +431,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-BRIEF {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnect-brief {
       description "XConnect brief information";
@@ -408,7 +463,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping G8032 {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container g8032 {
       description "G8032 information";
@@ -470,7 +525,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-SUMMARY {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnect-summary {
       description "XConnect summary information";
@@ -479,7 +534,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping L2VPN-COLLABORATORS {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container l2vpn-collaborators {
       description "L2VPN collaborator information";
@@ -488,7 +543,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping PROC-FSM {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container proc-fsm {
       description "L2VPN Process FSM information";
@@ -540,7 +595,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping GLOBAL-SETTINGS {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container global-settings {
       description "L2VPN global settings";
@@ -549,7 +604,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping BRIDGE-SUMMARY {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container bridge-summary {
       description "Bridge Domain summary information";
@@ -558,7 +613,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-MP2MP-CE2CE-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnect-mp2mp-ce2ces {
       description "XConnect MP2MP CE2CE Table";
@@ -595,7 +650,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping L2VPN-OPER-L2VPN-RESOURCE-STATE-MP {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container l2vpn-resource-state {
       description "L2VPN resource state information";
@@ -604,7 +659,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping MSTP-VLAN-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container mstp-vlans {
       description "L2VPN MSTP VLAN Table";
@@ -624,7 +679,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping GENERIC-INTERFACE-LIST-DETAIL-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container generic-interface-list-details {
       description "L2VPN generic interface list Detail Table";
@@ -664,7 +719,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping XCONNECT-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container xconnects {
       description "XConnect Table";
@@ -689,7 +744,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping L2VPN-PBB-BSA {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container l2vpn-pbb-bsa {
       description "L2VPN PBB Backbone Source MAC information";
@@ -698,7 +753,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping BRIDGE-DOMAIN-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container bridge-domains {
       description "VPLS Bridge Domain Information";
@@ -770,7 +825,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping ICCP-SM {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container iccp-sm {
       description
@@ -834,7 +889,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping INDEX-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container indexes {
       description "ID Manager Index Table";
@@ -852,7 +907,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping NSR {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container nsr {
       description "L2VPN NSR information";
@@ -861,7 +916,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping PSEUDOWIRE-CLASS-TABLE {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container pseudowire-classes {
       description "List of pseudowire classes";
@@ -881,7 +936,7 @@ module Cisco-IOS-XR-l2vpn-oper {
   }
 
   grouping MVRP {
-    description "Common node of l2vpn, active, standby, node";
+    description "Common node of active, standby, node";
 
     container mvrp {
       description "MVRP";
@@ -1490,11 +1545,11 @@ module Cisco-IOS-XR-l2vpn-oper {
 
                   list "l2fib-main-interface-instance-bridge-port"+
                     "-detail" {
-                    key "bridge-port";
+                    key "xcid";
                     description
                       "Main Interface Bridge Port detail info";
-                    leaf bridge-port {
-                      type xr:Interface-name;
+                    leaf xcid {
+                      type xr:Hex-integer;
                       description "Bridge Port";
                     }
                     uses "L2FIB-MAIN-INTERFACE"+
@@ -1537,10 +1592,10 @@ module Cisco-IOS-XR-l2vpn-oper {
                     "Main Interface Instance Bridge Port table";
 
                   list l2fib-main-interface-instance-bridge-port {
-                    key "bridge-port";
+                    key "xcid";
                     description "Main Interface Bridge Port info";
-                    leaf bridge-port {
-                      type xr:Interface-name;
+                    leaf xcid {
+                      type xr:Hex-integer;
                       description "Bridge Port";
                     }
                     uses "L2FIB-MAIN-INTERFACE"+
@@ -1941,6 +1996,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       uses ICCP-SM;
       uses BRIDGE-SUMMARY;
       uses NSR;
+      uses PREFERRED-PATH-TABLE;
       uses GLOBAL-SETTINGS;
       uses PWR;
       uses XCONNECT-MP2MP-CE2CE-TABLE;
@@ -1974,6 +2030,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       uses ICCP-SM;
       uses BRIDGE-SUMMARY;
       uses NSR;
+      uses PREFERRED-PATH-TABLE;
       uses GLOBAL-SETTINGS;
       uses PWR;
       uses XCONNECT-MP2MP-CE2CE-TABLE;
@@ -2017,6 +2074,7 @@ module Cisco-IOS-XR-l2vpn-oper {
         uses ICCP-SM;
         uses BRIDGE-SUMMARY;
         uses NSR;
+        uses PREFERRED-PATH-TABLE;
         uses GLOBAL-SETTINGS;
         uses PWR;
         uses XCONNECT-MP2MP-CE2CE-TABLE;
@@ -2042,63 +2100,6 @@ module Cisco-IOS-XR-l2vpn-oper {
         uses XCONNECT-BRIEF;
       }
     }
-  }
-
-  container l2vpn {
-    config false;
-    description "l2vpn";
-
-    container pseudowire-headend {
-      description "Pseudowire Headend related operational data";
-
-      container detail-interfaces {
-        description "PW-HE Interfaces";
-
-        list detail-interface {
-          key "interface-name";
-          description "PW-HE Interface detail";
-          leaf interface-name {
-            type xr:Interface-name;
-            description "PWHE Interface name";
-          }
-          uses L2VPN-PWHE-DETAIL;
-        }
-      }
-
-      container summary {
-        description "PW-HE interface summary";
-        uses L2VPN-PWHE-SUMMARY;
-      }
-    }
-    uses DISCOVERY-TABLE;
-    uses FLEXIBLE-XCONNECT-SERVICE-SUMMARY;
-    uses MAIN-INTERFACE-TABLE;
-    uses ICCP-SM;
-    uses BRIDGE-SUMMARY;
-    uses NSR;
-    uses GLOBAL-SETTINGS;
-    uses PWR;
-    uses XCONNECT-MP2MP-CE2CE-TABLE;
-    uses XCONNECT-TABLE;
-    uses XCONNECT-GROUP-TABLE;
-    uses XCONNECT-MP2MP-TABLE;
-    uses INDEX-TABLE;
-    uses XCONNECT-SUMMARY;
-    uses PROC-FSM;
-    uses MSTP-PORT-TABLE;
-    uses GENERIC-INTERFACE-LIST-DETAIL-TABLE;
-    uses L2VPN-OPER-L2VPN-RESOURCE-STATE-MP;
-    uses BRIDGE-DOMAIN-TABLE;
-    uses DISCOVERY-SUMMARY;
-    uses G8032;
-    uses PSEUDOWIRE-CLASS-TABLE;
-    uses L2VPN-COLLABORATORS;
-    uses MVRP;
-    uses GENERIC-INTERFACE-LIST-TABLE;
-    uses MSTP-VLAN-TABLE;
-    uses L2VPN-PBB-BSA;
-    uses FLEXIBLE-XCONNECT-SERVICE-TABLE;
-    uses XCONNECT-BRIEF;
   }
 
   container generic-interface-list-v2 {

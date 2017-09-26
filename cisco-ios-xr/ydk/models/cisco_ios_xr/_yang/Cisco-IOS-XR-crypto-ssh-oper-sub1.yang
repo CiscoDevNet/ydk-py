@@ -27,8 +27,13 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR crypto-ssh package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-06-02" {
     description
@@ -190,6 +195,12 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
           "Hash-based Message Authentication Code(HMAC)
           SHA2-512 algorithm";
       }
+      enum aes-gcm {
+        value 4;
+        description
+          "AES GCM based Authentication Tag as MAC
+          algorithm";
+      }
     }
     description
       "Different Message Authentication Code(MAC)
@@ -238,6 +249,18 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
         description
           "Advanced Encryption Standard(AES) 256 bits
           counter mode (CTR)";
+      }
+      enum aes128-gcm {
+        value 7;
+        description
+          "Advanced Encryption Standard(AES) 128 bits GCM
+          mode (GCM)";
+      }
+      enum aes256-gcm {
+        value 8;
+        description
+          "Advanced Encryption Standard(AES) 256 bits GCM
+          mode (GCM)";
       }
     }
     description "SSH session in and out cipher standards";

@@ -10,8 +10,6 @@ module Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -35,7 +33,7 @@ module Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg {
      for the following management objects:
        password: Configure masterkey
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

@@ -6,7 +6,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -145,32 +144,16 @@ class CdpNeighbourDetails(Entity):
 
         self.yang_name = "cdp-neighbour-details"
         self.yang_parent_name = "Cisco-IOS-XE-cdp-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"cdp-neighbour-detail" : ("cdp_neighbour_detail", CdpNeighbourDetails.CdpNeighbourDetail)}
 
         self.cdp_neighbour_detail = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(CdpNeighbourDetails, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(CdpNeighbourDetails, self).__setattr__(name, value)
+        self._perform_setattr(CdpNeighbourDetails, [], name, value)
 
 
     class CdpNeighbourDetail(Entity):
@@ -372,6 +355,10 @@ class CdpNeighbourDetails(Entity):
 
             self.yang_name = "cdp-neighbour-detail"
             self.yang_parent_name = "cdp-neighbour-details"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"hello-message" : ("hello_message", CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage), "power-available" : ("power_available", CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable), "power-request" : ("power_request", CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest), "spare-pair" : ("spare_pair", CdpNeighbourDetails.CdpNeighbourDetail.SparePair)}
+            self._child_list_classes = {}
 
             self.device_id = YLeaf(YType.uint32, "device-id")
 
@@ -438,52 +425,11 @@ class CdpNeighbourDetails(Entity):
             self.spare_pair.parent = self
             self._children_name_map["spare_pair"] = "spare-pair"
             self._children_yang_names.add("spare-pair")
+            self._segment_path = lambda: "cdp-neighbour-detail" + "[device-id='" + self.device_id.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("device_id",
-                            "adv_version",
-                            "capability",
-                            "clns_address",
-                            "decnet_addr",
-                            "device_name",
-                            "duplex",
-                            "ip_address",
-                            "ipv6_address",
-                            "local_intf_name",
-                            "mgmt_address",
-                            "native_vlan",
-                            "novell_addr",
-                            "platform_name",
-                            "port_id",
-                            "power",
-                            "second_port_status",
-                            "table_id",
-                            "unidirectional_mode",
-                            "version",
-                            "vty_mgmt_domain",
-                            "vvid",
-                            "vvid_tag") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CdpNeighbourDetails.CdpNeighbourDetail, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CdpNeighbourDetails.CdpNeighbourDetail, self).__setattr__(name, value)
+            self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail, ['device_id', 'adv_version', 'capability', 'clns_address', 'decnet_addr', 'device_name', 'duplex', 'ip_address', 'ipv6_address', 'local_intf_name', 'mgmt_address', 'native_vlan', 'novell_addr', 'platform_name', 'port_id', 'power', 'second_port_status', 'table_id', 'unidirectional_mode', 'version', 'vty_mgmt_domain', 'vvid', 'vvid_tag'], name, value)
 
 
         class HelloMessage(Entity):
@@ -524,6 +470,10 @@ class CdpNeighbourDetails(Entity):
 
                 self.yang_name = "hello-message"
                 self.yang_parent_name = "cdp-neighbour-detail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.oui = YLeaf(YType.str, "oui")
 
@@ -532,236 +482,10 @@ class CdpNeighbourDetails(Entity):
                 self.payload_value = YLeaf(YType.str, "payload-value")
 
                 self.protocol_id = YLeaf(YType.str, "protocol-id")
+                self._segment_path = lambda: "hello-message"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("oui",
-                                "payload_len",
-                                "payload_value",
-                                "protocol_id") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.oui.is_set or
-                    self.payload_len.is_set or
-                    self.payload_value.is_set or
-                    self.protocol_id.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.oui.yfilter != YFilter.not_set or
-                    self.payload_len.yfilter != YFilter.not_set or
-                    self.payload_value.yfilter != YFilter.not_set or
-                    self.protocol_id.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "hello-message" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.oui.is_set or self.oui.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.oui.get_name_leafdata())
-                if (self.payload_len.is_set or self.payload_len.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.payload_len.get_name_leafdata())
-                if (self.payload_value.is_set or self.payload_value.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.payload_value.get_name_leafdata())
-                if (self.protocol_id.is_set or self.protocol_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.protocol_id.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "oui" or name == "payload-len" or name == "payload-value" or name == "protocol-id"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "oui"):
-                    self.oui = value
-                    self.oui.value_namespace = name_space
-                    self.oui.value_namespace_prefix = name_space_prefix
-                if(value_path == "payload-len"):
-                    self.payload_len = value
-                    self.payload_len.value_namespace = name_space
-                    self.payload_len.value_namespace_prefix = name_space_prefix
-                if(value_path == "payload-value"):
-                    self.payload_value = value
-                    self.payload_value.value_namespace = name_space
-                    self.payload_value.value_namespace_prefix = name_space_prefix
-                if(value_path == "protocol-id"):
-                    self.protocol_id = value
-                    self.protocol_id.value_namespace = name_space
-                    self.protocol_id.value_namespace_prefix = name_space_prefix
-
-
-        class PowerRequest(Entity):
-            """
-            This field used to keep inline power
-            
-            .. attribute:: power_man_id
-            
-            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: power_request_id
-            
-            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: power_request_level
-            
-            	Power to be transmitted by a powerable device in order to negotiate a suitable power level with the supplier of the network power
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'cdp-ios-xe-oper'
-            _revision = '2017-02-07'
-
-            def __init__(self):
-                super(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, self).__init__()
-
-                self.yang_name = "power-request"
-                self.yang_parent_name = "cdp-neighbour-detail"
-
-                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
-
-                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
-
-                self.power_request_level = YLeaf(YType.str, "power-request-level")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("power_man_id",
-                                "power_request_id",
-                                "power_request_level") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.power_man_id.is_set or
-                    self.power_request_id.is_set or
-                    self.power_request_level.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.power_man_id.yfilter != YFilter.not_set or
-                    self.power_request_id.yfilter != YFilter.not_set or
-                    self.power_request_level.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "power-request" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.power_man_id.is_set or self.power_man_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_man_id.get_name_leafdata())
-                if (self.power_request_id.is_set or self.power_request_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_request_id.get_name_leafdata())
-                if (self.power_request_level.is_set or self.power_request_level.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_request_level.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "power-man-id" or name == "power-request-id" or name == "power-request-level"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "power-man-id"):
-                    self.power_man_id = value
-                    self.power_man_id.value_namespace = name_space
-                    self.power_man_id.value_namespace_prefix = name_space_prefix
-                if(value_path == "power-request-id"):
-                    self.power_request_id = value
-                    self.power_request_id.value_namespace = name_space
-                    self.power_request_id.value_namespace_prefix = name_space_prefix
-                if(value_path == "power-request-level"):
-                    self.power_request_level = value
-                    self.power_request_level.value_namespace = name_space
-                    self.power_request_level.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage, ['oui', 'payload_len', 'payload_value', 'protocol_id'], name, value)
 
 
         class PowerAvailable(Entity):
@@ -808,6 +532,10 @@ class CdpNeighbourDetails(Entity):
 
                 self.yang_name = "power-available"
                 self.yang_parent_name = "cdp-neighbour-detail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.power_available = YLeaf(YType.uint32, "power-available")
 
@@ -816,104 +544,61 @@ class CdpNeighbourDetails(Entity):
                 self.power_man_level = YLeaf(YType.uint32, "power-man-level")
 
                 self.power_request_id = YLeaf(YType.uint16, "power-request-id")
+                self._segment_path = lambda: "power-available"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("power_available",
-                                "power_man_id",
-                                "power_man_level",
-                                "power_request_id") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, self).__setattr__(name, value)
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable, ['power_available', 'power_man_id', 'power_man_level', 'power_request_id'], name, value)
 
-            def has_data(self):
-                return (
-                    self.power_available.is_set or
-                    self.power_man_id.is_set or
-                    self.power_man_level.is_set or
-                    self.power_request_id.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.power_available.yfilter != YFilter.not_set or
-                    self.power_man_id.yfilter != YFilter.not_set or
-                    self.power_man_level.yfilter != YFilter.not_set or
-                    self.power_request_id.yfilter != YFilter.not_set)
+        class PowerRequest(Entity):
+            """
+            This field used to keep inline power
+            
+            .. attribute:: power_man_id
+            
+            	This field increments by 1 each time the Available\-Power or Management Power fields change, a power requested TLV is received with a  Request\-ID field which is different from the last received set or when  the port goes down
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: power_request_id
+            
+            	The last power request ID received echoes the Request\-ID field last received in a power requested TLV. It is 0 if no power requested TLV was received since the port last became active
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: power_request_level
+            
+            	Power to be transmitted by a powerable device in order to negotiate a suitable power level with the supplier of the network power
+            	**type**\:  str
+            
+            
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "power-available" + path_buffer
+            """
 
-                return path_buffer
+            _prefix = 'cdp-ios-xe-oper'
+            _revision = '2017-02-07'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __init__(self):
+                super(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.power_available.is_set or self.power_available.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_available.get_name_leafdata())
-                if (self.power_man_id.is_set or self.power_man_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_man_id.get_name_leafdata())
-                if (self.power_man_level.is_set or self.power_man_level.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_man_level.get_name_leafdata())
-                if (self.power_request_id.is_set or self.power_request_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.power_request_id.get_name_leafdata())
+                self.yang_name = "power-request"
+                self.yang_parent_name = "cdp-neighbour-detail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
 
-                return None
+                self.power_request_level = YLeaf(YType.str, "power-request-level")
+                self._segment_path = lambda: "power-request"
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "power-available" or name == "power-man-id" or name == "power-man-level" or name == "power-request-id"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "power-available"):
-                    self.power_available = value
-                    self.power_available.value_namespace = name_space
-                    self.power_available.value_namespace_prefix = name_space_prefix
-                if(value_path == "power-man-id"):
-                    self.power_man_id = value
-                    self.power_man_id.value_namespace = name_space
-                    self.power_man_id.value_namespace_prefix = name_space_prefix
-                if(value_path == "power-man-level"):
-                    self.power_man_level = value
-                    self.power_man_level.value_namespace = name_space
-                    self.power_man_level.value_namespace_prefix = name_space_prefix
-                if(value_path == "power-request-id"):
-                    self.power_request_id = value
-                    self.power_request_id.value_namespace = name_space
-                    self.power_request_id.value_namespace_prefix = name_space_prefix
+            def __setattr__(self, name, value):
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest, ['power_man_id', 'power_request_id', 'power_request_level'], name, value)
 
 
         class SparePair(Entity):
@@ -960,6 +645,10 @@ class CdpNeighbourDetails(Entity):
 
                 self.yang_name = "spare-pair"
                 self.yang_parent_name = "cdp-neighbour-detail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.spare_pair_detection_required = YLeaf(YType.enumeration, "spare-pair-detection-required")
 
@@ -968,419 +657,10 @@ class CdpNeighbourDetails(Entity):
                 self.spare_pair_poe = YLeaf(YType.enumeration, "spare-pair-poe")
 
                 self.spare_pair_pse_operational = YLeaf(YType.enumeration, "spare-pair-pse-operational")
+                self._segment_path = lambda: "spare-pair"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("spare_pair_detection_required",
-                                "spare_pair_pd_config",
-                                "spare_pair_poe",
-                                "spare_pair_pse_operational") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CdpNeighbourDetails.CdpNeighbourDetail.SparePair, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CdpNeighbourDetails.CdpNeighbourDetail.SparePair, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.spare_pair_detection_required.is_set or
-                    self.spare_pair_pd_config.is_set or
-                    self.spare_pair_poe.is_set or
-                    self.spare_pair_pse_operational.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.spare_pair_detection_required.yfilter != YFilter.not_set or
-                    self.spare_pair_pd_config.yfilter != YFilter.not_set or
-                    self.spare_pair_poe.yfilter != YFilter.not_set or
-                    self.spare_pair_pse_operational.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "spare-pair" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.spare_pair_detection_required.is_set or self.spare_pair_detection_required.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.spare_pair_detection_required.get_name_leafdata())
-                if (self.spare_pair_pd_config.is_set or self.spare_pair_pd_config.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.spare_pair_pd_config.get_name_leafdata())
-                if (self.spare_pair_poe.is_set or self.spare_pair_poe.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.spare_pair_poe.get_name_leafdata())
-                if (self.spare_pair_pse_operational.is_set or self.spare_pair_pse_operational.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.spare_pair_pse_operational.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "spare-pair-detection-required" or name == "spare-pair-pd-config" or name == "spare-pair-poe" or name == "spare-pair-pse-operational"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "spare-pair-detection-required"):
-                    self.spare_pair_detection_required = value
-                    self.spare_pair_detection_required.value_namespace = name_space
-                    self.spare_pair_detection_required.value_namespace_prefix = name_space_prefix
-                if(value_path == "spare-pair-pd-config"):
-                    self.spare_pair_pd_config = value
-                    self.spare_pair_pd_config.value_namespace = name_space
-                    self.spare_pair_pd_config.value_namespace_prefix = name_space_prefix
-                if(value_path == "spare-pair-poe"):
-                    self.spare_pair_poe = value
-                    self.spare_pair_poe.value_namespace = name_space
-                    self.spare_pair_poe.value_namespace_prefix = name_space_prefix
-                if(value_path == "spare-pair-pse-operational"):
-                    self.spare_pair_pse_operational = value
-                    self.spare_pair_pse_operational.value_namespace = name_space
-                    self.spare_pair_pse_operational.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.device_id.is_set or
-                self.adv_version.is_set or
-                self.capability.is_set or
-                self.clns_address.is_set or
-                self.decnet_addr.is_set or
-                self.device_name.is_set or
-                self.duplex.is_set or
-                self.ip_address.is_set or
-                self.ipv6_address.is_set or
-                self.local_intf_name.is_set or
-                self.mgmt_address.is_set or
-                self.native_vlan.is_set or
-                self.novell_addr.is_set or
-                self.platform_name.is_set or
-                self.port_id.is_set or
-                self.power.is_set or
-                self.second_port_status.is_set or
-                self.table_id.is_set or
-                self.unidirectional_mode.is_set or
-                self.version.is_set or
-                self.vty_mgmt_domain.is_set or
-                self.vvid.is_set or
-                self.vvid_tag.is_set or
-                (self.hello_message is not None and self.hello_message.has_data()) or
-                (self.power_available is not None and self.power_available.has_data()) or
-                (self.power_request is not None and self.power_request.has_data()) or
-                (self.spare_pair is not None and self.spare_pair.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.device_id.yfilter != YFilter.not_set or
-                self.adv_version.yfilter != YFilter.not_set or
-                self.capability.yfilter != YFilter.not_set or
-                self.clns_address.yfilter != YFilter.not_set or
-                self.decnet_addr.yfilter != YFilter.not_set or
-                self.device_name.yfilter != YFilter.not_set or
-                self.duplex.yfilter != YFilter.not_set or
-                self.ip_address.yfilter != YFilter.not_set or
-                self.ipv6_address.yfilter != YFilter.not_set or
-                self.local_intf_name.yfilter != YFilter.not_set or
-                self.mgmt_address.yfilter != YFilter.not_set or
-                self.native_vlan.yfilter != YFilter.not_set or
-                self.novell_addr.yfilter != YFilter.not_set or
-                self.platform_name.yfilter != YFilter.not_set or
-                self.port_id.yfilter != YFilter.not_set or
-                self.power.yfilter != YFilter.not_set or
-                self.second_port_status.yfilter != YFilter.not_set or
-                self.table_id.yfilter != YFilter.not_set or
-                self.unidirectional_mode.yfilter != YFilter.not_set or
-                self.version.yfilter != YFilter.not_set or
-                self.vty_mgmt_domain.yfilter != YFilter.not_set or
-                self.vvid.yfilter != YFilter.not_set or
-                self.vvid_tag.yfilter != YFilter.not_set or
-                (self.hello_message is not None and self.hello_message.has_operation()) or
-                (self.power_available is not None and self.power_available.has_operation()) or
-                (self.power_request is not None and self.power_request.has_operation()) or
-                (self.spare_pair is not None and self.spare_pair.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cdp-neighbour-detail" + "[device-id='" + self.device_id.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.device_id.get_name_leafdata())
-            if (self.adv_version.is_set or self.adv_version.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.adv_version.get_name_leafdata())
-            if (self.capability.is_set or self.capability.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.capability.get_name_leafdata())
-            if (self.clns_address.is_set or self.clns_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.clns_address.get_name_leafdata())
-            if (self.decnet_addr.is_set or self.decnet_addr.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.decnet_addr.get_name_leafdata())
-            if (self.device_name.is_set or self.device_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.device_name.get_name_leafdata())
-            if (self.duplex.is_set or self.duplex.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.duplex.get_name_leafdata())
-            if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ip_address.get_name_leafdata())
-            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
-            if (self.local_intf_name.is_set or self.local_intf_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.local_intf_name.get_name_leafdata())
-            if (self.mgmt_address.is_set or self.mgmt_address.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.mgmt_address.get_name_leafdata())
-            if (self.native_vlan.is_set or self.native_vlan.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.native_vlan.get_name_leafdata())
-            if (self.novell_addr.is_set or self.novell_addr.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.novell_addr.get_name_leafdata())
-            if (self.platform_name.is_set or self.platform_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.platform_name.get_name_leafdata())
-            if (self.port_id.is_set or self.port_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.port_id.get_name_leafdata())
-            if (self.power.is_set or self.power.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.power.get_name_leafdata())
-            if (self.second_port_status.is_set or self.second_port_status.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.second_port_status.get_name_leafdata())
-            if (self.table_id.is_set or self.table_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.table_id.get_name_leafdata())
-            if (self.unidirectional_mode.is_set or self.unidirectional_mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.unidirectional_mode.get_name_leafdata())
-            if (self.version.is_set or self.version.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.version.get_name_leafdata())
-            if (self.vty_mgmt_domain.is_set or self.vty_mgmt_domain.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vty_mgmt_domain.get_name_leafdata())
-            if (self.vvid.is_set or self.vvid.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vvid.get_name_leafdata())
-            if (self.vvid_tag.is_set or self.vvid_tag.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.vvid_tag.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "hello-message"):
-                if (self.hello_message is None):
-                    self.hello_message = CdpNeighbourDetails.CdpNeighbourDetail.HelloMessage()
-                    self.hello_message.parent = self
-                    self._children_name_map["hello_message"] = "hello-message"
-                return self.hello_message
-
-            if (child_yang_name == "power-available"):
-                if (self.power_available is None):
-                    self.power_available = CdpNeighbourDetails.CdpNeighbourDetail.PowerAvailable()
-                    self.power_available.parent = self
-                    self._children_name_map["power_available"] = "power-available"
-                return self.power_available
-
-            if (child_yang_name == "power-request"):
-                if (self.power_request is None):
-                    self.power_request = CdpNeighbourDetails.CdpNeighbourDetail.PowerRequest()
-                    self.power_request.parent = self
-                    self._children_name_map["power_request"] = "power-request"
-                return self.power_request
-
-            if (child_yang_name == "spare-pair"):
-                if (self.spare_pair is None):
-                    self.spare_pair = CdpNeighbourDetails.CdpNeighbourDetail.SparePair()
-                    self.spare_pair.parent = self
-                    self._children_name_map["spare_pair"] = "spare-pair"
-                return self.spare_pair
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "hello-message" or name == "power-available" or name == "power-request" or name == "spare-pair" or name == "device-id" or name == "adv-version" or name == "capability" or name == "clns-address" or name == "decnet-addr" or name == "device-name" or name == "duplex" or name == "ip-address" or name == "ipv6-address" or name == "local-intf-name" or name == "mgmt-address" or name == "native-vlan" or name == "novell-addr" or name == "platform-name" or name == "port-id" or name == "power" or name == "second-port-status" or name == "table-id" or name == "unidirectional-mode" or name == "version" or name == "vty-mgmt-domain" or name == "vvid" or name == "vvid-tag"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "device-id"):
-                self.device_id = value
-                self.device_id.value_namespace = name_space
-                self.device_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "adv-version"):
-                self.adv_version = value
-                self.adv_version.value_namespace = name_space
-                self.adv_version.value_namespace_prefix = name_space_prefix
-            if(value_path == "capability"):
-                self.capability = value
-                self.capability.value_namespace = name_space
-                self.capability.value_namespace_prefix = name_space_prefix
-            if(value_path == "clns-address"):
-                self.clns_address = value
-                self.clns_address.value_namespace = name_space
-                self.clns_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "decnet-addr"):
-                self.decnet_addr = value
-                self.decnet_addr.value_namespace = name_space
-                self.decnet_addr.value_namespace_prefix = name_space_prefix
-            if(value_path == "device-name"):
-                self.device_name = value
-                self.device_name.value_namespace = name_space
-                self.device_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "duplex"):
-                self.duplex = value
-                self.duplex.value_namespace = name_space
-                self.duplex.value_namespace_prefix = name_space_prefix
-            if(value_path == "ip-address"):
-                self.ip_address = value
-                self.ip_address.value_namespace = name_space
-                self.ip_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-address"):
-                self.ipv6_address = value
-                self.ipv6_address.value_namespace = name_space
-                self.ipv6_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "local-intf-name"):
-                self.local_intf_name = value
-                self.local_intf_name.value_namespace = name_space
-                self.local_intf_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "mgmt-address"):
-                self.mgmt_address = value
-                self.mgmt_address.value_namespace = name_space
-                self.mgmt_address.value_namespace_prefix = name_space_prefix
-            if(value_path == "native-vlan"):
-                self.native_vlan = value
-                self.native_vlan.value_namespace = name_space
-                self.native_vlan.value_namespace_prefix = name_space_prefix
-            if(value_path == "novell-addr"):
-                self.novell_addr = value
-                self.novell_addr.value_namespace = name_space
-                self.novell_addr.value_namespace_prefix = name_space_prefix
-            if(value_path == "platform-name"):
-                self.platform_name = value
-                self.platform_name.value_namespace = name_space
-                self.platform_name.value_namespace_prefix = name_space_prefix
-            if(value_path == "port-id"):
-                self.port_id = value
-                self.port_id.value_namespace = name_space
-                self.port_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "power"):
-                self.power = value
-                self.power.value_namespace = name_space
-                self.power.value_namespace_prefix = name_space_prefix
-            if(value_path == "second-port-status"):
-                self.second_port_status = value
-                self.second_port_status.value_namespace = name_space
-                self.second_port_status.value_namespace_prefix = name_space_prefix
-            if(value_path == "table-id"):
-                self.table_id = value
-                self.table_id.value_namespace = name_space
-                self.table_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "unidirectional-mode"):
-                self.unidirectional_mode = value
-                self.unidirectional_mode.value_namespace = name_space
-                self.unidirectional_mode.value_namespace_prefix = name_space_prefix
-            if(value_path == "version"):
-                self.version = value
-                self.version.value_namespace = name_space
-                self.version.value_namespace_prefix = name_space_prefix
-            if(value_path == "vty-mgmt-domain"):
-                self.vty_mgmt_domain = value
-                self.vty_mgmt_domain.value_namespace = name_space
-                self.vty_mgmt_domain.value_namespace_prefix = name_space_prefix
-            if(value_path == "vvid"):
-                self.vvid = value
-                self.vvid.value_namespace = name_space
-                self.vvid.value_namespace_prefix = name_space_prefix
-            if(value_path == "vvid-tag"):
-                self.vvid_tag = value
-                self.vvid_tag.value_namespace = name_space
-                self.vvid_tag.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.cdp_neighbour_detail:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.cdp_neighbour_detail:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cdp-neighbour-detail"):
-            for c in self.cdp_neighbour_detail:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = CdpNeighbourDetails.CdpNeighbourDetail()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.cdp_neighbour_detail.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cdp-neighbour-detail"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CdpNeighbourDetails.CdpNeighbourDetail.SparePair, ['spare_pair_detection_required', 'spare_pair_pd_config', 'spare_pair_poe', 'spare_pair_pse_operational'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CdpNeighbourDetails()

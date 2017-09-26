@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   redundancy\: Redundancy show information
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -46,6 +45,10 @@ class Redundancy(Entity):
 
         self.yang_name = "redundancy"
         self.yang_parent_name = "Cisco-IOS-XR-infra-rmf-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Redundancy.Nodes), "summary" : ("summary", Redundancy.Summary)}
+        self._child_list_classes = {}
 
         self.nodes = Redundancy.Nodes()
         self.nodes.parent = self
@@ -56,6 +59,7 @@ class Redundancy(Entity):
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
         self._children_yang_names.add("summary")
+        self._segment_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy"
 
 
     class Nodes(Entity):
@@ -79,32 +83,17 @@ class Redundancy(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "redundancy"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Redundancy.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Redundancy.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Redundancy.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Redundancy.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -155,6 +144,10 @@ class Redundancy(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"redundancy" : ("redundancy", Redundancy.Nodes.Node.Redundancy)}
+                self._child_list_classes = {}
 
                 self.node_id = YLeaf(YType.str, "node-id")
 
@@ -170,34 +163,11 @@ class Redundancy(Entity):
                 self.redundancy.parent = self
                 self._children_name_map["redundancy"] = "redundancy"
                 self._children_yang_names.add("redundancy")
+                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_id",
-                                "active_reboot_reason",
-                                "err_log",
-                                "log",
-                                "standby_reboot_reason") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Redundancy.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Redundancy.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'active_reboot_reason', 'err_log', 'log', 'standby_reboot_reason'], name, value)
 
 
             class Redundancy(Entity):
@@ -241,6 +211,10 @@ class Redundancy(Entity):
 
                     self.yang_name = "redundancy"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"groupinfo" : ("groupinfo", Redundancy.Nodes.Node.Redundancy.Groupinfo)}
 
                     self.active = YLeaf(YType.str, "active")
 
@@ -251,33 +225,10 @@ class Redundancy(Entity):
                     self.standby = YLeaf(YType.str, "standby")
 
                     self.groupinfo = YList(self)
+                    self._segment_path = lambda: "redundancy"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("active",
-                                    "ha_state",
-                                    "nsr_state",
-                                    "standby") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Redundancy.Nodes.Node.Redundancy, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Redundancy.Nodes.Node.Redundancy, self).__setattr__(name, value)
+                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
 
 
                 class Groupinfo(Entity):
@@ -316,6 +267,10 @@ class Redundancy(Entity):
 
                         self.yang_name = "groupinfo"
                         self.yang_parent_name = "redundancy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.active = YLeaf(YType.str, "active")
 
@@ -324,338 +279,10 @@ class Redundancy(Entity):
                         self.nsr_state = YLeaf(YType.str, "nsr-state")
 
                         self.standby = YLeaf(YType.str, "standby")
+                        self._segment_path = lambda: "groupinfo"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("active",
-                                        "ha_state",
-                                        "nsr_state",
-                                        "standby") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Redundancy.Nodes.Node.Redundancy.Groupinfo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Redundancy.Nodes.Node.Redundancy.Groupinfo, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.active.is_set or
-                            self.ha_state.is_set or
-                            self.nsr_state.is_set or
-                            self.standby.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.active.yfilter != YFilter.not_set or
-                            self.ha_state.yfilter != YFilter.not_set or
-                            self.nsr_state.yfilter != YFilter.not_set or
-                            self.standby.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "groupinfo" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.active.get_name_leafdata())
-                        if (self.ha_state.is_set or self.ha_state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.ha_state.get_name_leafdata())
-                        if (self.nsr_state.is_set or self.nsr_state.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.nsr_state.get_name_leafdata())
-                        if (self.standby.is_set or self.standby.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.standby.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "active" or name == "ha-state" or name == "nsr-state" or name == "standby"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "active"):
-                            self.active = value
-                            self.active.value_namespace = name_space
-                            self.active.value_namespace_prefix = name_space_prefix
-                        if(value_path == "ha-state"):
-                            self.ha_state = value
-                            self.ha_state.value_namespace = name_space
-                            self.ha_state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "nsr-state"):
-                            self.nsr_state = value
-                            self.nsr_state.value_namespace = name_space
-                            self.nsr_state.value_namespace_prefix = name_space_prefix
-                        if(value_path == "standby"):
-                            self.standby = value
-                            self.standby.value_namespace = name_space
-                            self.standby.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.groupinfo:
-                        if (c.has_data()):
-                            return True
-                    return (
-                        self.active.is_set or
-                        self.ha_state.is_set or
-                        self.nsr_state.is_set or
-                        self.standby.is_set)
-
-                def has_operation(self):
-                    for c in self.groupinfo:
-                        if (c.has_operation()):
-                            return True
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.active.yfilter != YFilter.not_set or
-                        self.ha_state.yfilter != YFilter.not_set or
-                        self.nsr_state.yfilter != YFilter.not_set or
-                        self.standby.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "redundancy" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.active.get_name_leafdata())
-                    if (self.ha_state.is_set or self.ha_state.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ha_state.get_name_leafdata())
-                    if (self.nsr_state.is_set or self.nsr_state.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nsr_state.get_name_leafdata())
-                    if (self.standby.is_set or self.standby.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.standby.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "groupinfo"):
-                        for c in self.groupinfo:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Redundancy.Nodes.Node.Redundancy.Groupinfo()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.groupinfo.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "groupinfo" or name == "active" or name == "ha-state" or name == "nsr-state" or name == "standby"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "active"):
-                        self.active = value
-                        self.active.value_namespace = name_space
-                        self.active.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ha-state"):
-                        self.ha_state = value
-                        self.ha_state.value_namespace = name_space
-                        self.ha_state.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nsr-state"):
-                        self.nsr_state = value
-                        self.nsr_state.value_namespace = name_space
-                        self.nsr_state.value_namespace_prefix = name_space_prefix
-                    if(value_path == "standby"):
-                        self.standby = value
-                        self.standby.value_namespace = name_space
-                        self.standby.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.node_id.is_set or
-                    self.active_reboot_reason.is_set or
-                    self.err_log.is_set or
-                    self.log.is_set or
-                    self.standby_reboot_reason.is_set or
-                    (self.redundancy is not None and self.redundancy.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_id.yfilter != YFilter.not_set or
-                    self.active_reboot_reason.yfilter != YFilter.not_set or
-                    self.err_log.yfilter != YFilter.not_set or
-                    self.log.yfilter != YFilter.not_set or
-                    self.standby_reboot_reason.yfilter != YFilter.not_set or
-                    (self.redundancy is not None and self.redundancy.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-id='" + self.node_id.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_id.is_set or self.node_id.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_id.get_name_leafdata())
-                if (self.active_reboot_reason.is_set or self.active_reboot_reason.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.active_reboot_reason.get_name_leafdata())
-                if (self.err_log.is_set or self.err_log.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.err_log.get_name_leafdata())
-                if (self.log.is_set or self.log.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.log.get_name_leafdata())
-                if (self.standby_reboot_reason.is_set or self.standby_reboot_reason.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.standby_reboot_reason.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "redundancy"):
-                    if (self.redundancy is None):
-                        self.redundancy = Redundancy.Nodes.Node.Redundancy()
-                        self.redundancy.parent = self
-                        self._children_name_map["redundancy"] = "redundancy"
-                    return self.redundancy
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "redundancy" or name == "node-id" or name == "active-reboot-reason" or name == "err-log" or name == "log" or name == "standby-reboot-reason"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-id"):
-                    self.node_id = value
-                    self.node_id.value_namespace = name_space
-                    self.node_id.value_namespace_prefix = name_space_prefix
-                if(value_path == "active-reboot-reason"):
-                    self.active_reboot_reason = value
-                    self.active_reboot_reason.value_namespace = name_space
-                    self.active_reboot_reason.value_namespace_prefix = name_space_prefix
-                if(value_path == "err-log"):
-                    self.err_log = value
-                    self.err_log.value_namespace = name_space
-                    self.err_log.value_namespace_prefix = name_space_prefix
-                if(value_path == "log"):
-                    self.log = value
-                    self.log.value_namespace = name_space
-                    self.log.value_namespace_prefix = name_space_prefix
-                if(value_path == "standby-reboot-reason"):
-                    self.standby_reboot_reason = value
-                    self.standby_reboot_reason.value_namespace = name_space
-                    self.standby_reboot_reason.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Redundancy.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy.Groupinfo, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
 
 
     class Summary(Entity):
@@ -684,34 +311,19 @@ class Redundancy(Entity):
 
             self.yang_name = "summary"
             self.yang_parent_name = "redundancy"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"red-pair" : ("red_pair", Redundancy.Summary.RedPair)}
 
             self.err_log = YLeaf(YType.str, "err-log")
 
             self.red_pair = YList(self)
+            self._segment_path = lambda: "summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("err_log") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Redundancy.Summary, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Redundancy.Summary, self).__setattr__(name, value)
+            self._perform_setattr(Redundancy.Summary, ['err_log'], name, value)
 
 
         class RedPair(Entity):
@@ -755,6 +367,10 @@ class Redundancy(Entity):
 
                 self.yang_name = "red-pair"
                 self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"groupinfo" : ("groupinfo", Redundancy.Summary.RedPair.Groupinfo)}
 
                 self.active = YLeaf(YType.str, "active")
 
@@ -765,33 +381,11 @@ class Redundancy(Entity):
                 self.standby = YLeaf(YType.str, "standby")
 
                 self.groupinfo = YList(self)
+                self._segment_path = lambda: "red-pair"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("active",
-                                "ha_state",
-                                "nsr_state",
-                                "standby") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Redundancy.Summary.RedPair, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Redundancy.Summary.RedPair, self).__setattr__(name, value)
+                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
 
 
             class Groupinfo(Entity):
@@ -830,6 +424,10 @@ class Redundancy(Entity):
 
                     self.yang_name = "groupinfo"
                     self.yang_parent_name = "red-pair"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.active = YLeaf(YType.str, "active")
 
@@ -838,314 +436,11 @@ class Redundancy(Entity):
                     self.nsr_state = YLeaf(YType.str, "nsr-state")
 
                     self.standby = YLeaf(YType.str, "standby")
+                    self._segment_path = lambda: "groupinfo"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/red-pair/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("active",
-                                    "ha_state",
-                                    "nsr_state",
-                                    "standby") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Redundancy.Summary.RedPair.Groupinfo, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Redundancy.Summary.RedPair.Groupinfo, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.active.is_set or
-                        self.ha_state.is_set or
-                        self.nsr_state.is_set or
-                        self.standby.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.active.yfilter != YFilter.not_set or
-                        self.ha_state.yfilter != YFilter.not_set or
-                        self.nsr_state.yfilter != YFilter.not_set or
-                        self.standby.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "groupinfo" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/red-pair/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.active.get_name_leafdata())
-                    if (self.ha_state.is_set or self.ha_state.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ha_state.get_name_leafdata())
-                    if (self.nsr_state.is_set or self.nsr_state.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nsr_state.get_name_leafdata())
-                    if (self.standby.is_set or self.standby.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.standby.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "active" or name == "ha-state" or name == "nsr-state" or name == "standby"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "active"):
-                        self.active = value
-                        self.active.value_namespace = name_space
-                        self.active.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ha-state"):
-                        self.ha_state = value
-                        self.ha_state.value_namespace = name_space
-                        self.ha_state.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nsr-state"):
-                        self.nsr_state = value
-                        self.nsr_state.value_namespace = name_space
-                        self.nsr_state.value_namespace_prefix = name_space_prefix
-                    if(value_path == "standby"):
-                        self.standby = value
-                        self.standby.value_namespace = name_space
-                        self.standby.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.groupinfo:
-                    if (c.has_data()):
-                        return True
-                return (
-                    self.active.is_set or
-                    self.ha_state.is_set or
-                    self.nsr_state.is_set or
-                    self.standby.is_set)
-
-            def has_operation(self):
-                for c in self.groupinfo:
-                    if (c.has_operation()):
-                        return True
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.active.yfilter != YFilter.not_set or
-                    self.ha_state.yfilter != YFilter.not_set or
-                    self.nsr_state.yfilter != YFilter.not_set or
-                    self.standby.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "red-pair" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.active.is_set or self.active.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.active.get_name_leafdata())
-                if (self.ha_state.is_set or self.ha_state.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ha_state.get_name_leafdata())
-                if (self.nsr_state.is_set or self.nsr_state.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nsr_state.get_name_leafdata())
-                if (self.standby.is_set or self.standby.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.standby.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "groupinfo"):
-                    for c in self.groupinfo:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Redundancy.Summary.RedPair.Groupinfo()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.groupinfo.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "groupinfo" or name == "active" or name == "ha-state" or name == "nsr-state" or name == "standby"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "active"):
-                    self.active = value
-                    self.active.value_namespace = name_space
-                    self.active.value_namespace_prefix = name_space_prefix
-                if(value_path == "ha-state"):
-                    self.ha_state = value
-                    self.ha_state.value_namespace = name_space
-                    self.ha_state.value_namespace_prefix = name_space_prefix
-                if(value_path == "nsr-state"):
-                    self.nsr_state = value
-                    self.nsr_state.value_namespace = name_space
-                    self.nsr_state.value_namespace_prefix = name_space_prefix
-                if(value_path == "standby"):
-                    self.standby = value
-                    self.standby.value_namespace = name_space
-                    self.standby.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.red_pair:
-                if (c.has_data()):
-                    return True
-            return self.err_log.is_set
-
-        def has_operation(self):
-            for c in self.red_pair:
-                if (c.has_operation()):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                self.err_log.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "summary" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.err_log.is_set or self.err_log.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.err_log.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "red-pair"):
-                for c in self.red_pair:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Redundancy.Summary.RedPair()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.red_pair.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "red-pair" or name == "err-log"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "err-log"):
-                self.err_log = value
-                self.err_log.value_namespace = name_space
-                self.err_log.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            (self.nodes is not None and self.nodes.has_data()) or
-            (self.summary is not None and self.summary.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()) or
-            (self.summary is not None and self.summary.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-infra-rmf-oper:redundancy" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Redundancy.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        if (child_yang_name == "summary"):
-            if (self.summary is None):
-                self.summary = Redundancy.Summary()
-                self.summary.parent = self
-                self._children_name_map["summary"] = "summary"
-            return self.summary
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes" or name == "summary"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'ha_state', 'nsr_state', 'standby'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Redundancy()

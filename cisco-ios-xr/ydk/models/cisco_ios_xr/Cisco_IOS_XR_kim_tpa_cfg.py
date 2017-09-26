@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   tpa\: tpa configuration commands
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -22,6 +21,11 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 class Tpa(Entity):
     """
     tpa configuration commands
+    
+    .. attribute:: logging
+    
+    	Third party app logging
+    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging>`
     
     .. attribute:: statistics
     
@@ -46,6 +50,15 @@ class Tpa(Entity):
 
         self.yang_name = "tpa"
         self.yang_parent_name = "Cisco-IOS-XR-kim-tpa-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"logging" : ("logging", Tpa.Logging), "statistics" : ("statistics", Tpa.Statistics), "vrf-names" : ("vrf_names", Tpa.VrfNames)}
+        self._child_list_classes = {}
+
+        self.logging = Tpa.Logging()
+        self.logging.parent = self
+        self._children_name_map["logging"] = "logging"
+        self._children_yang_names.add("logging")
 
         self.statistics = Tpa.Statistics()
         self.statistics.parent = self
@@ -56,6 +69,144 @@ class Tpa(Entity):
         self.vrf_names.parent = self
         self._children_name_map["vrf_names"] = "vrf-names"
         self._children_yang_names.add("vrf-names")
+        self._segment_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa"
+
+
+    class Logging(Entity):
+        """
+        Third party app logging
+        
+        .. attribute:: kim
+        
+        	KIM logging
+        	**type**\:   :py:class:`Kim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging.Kim>`
+        
+        
+
+        """
+
+        _prefix = 'kim-tpa-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Tpa.Logging, self).__init__()
+
+            self.yang_name = "logging"
+            self.yang_parent_name = "tpa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"kim" : ("kim", Tpa.Logging.Kim)}
+            self._child_list_classes = {}
+
+            self.kim = Tpa.Logging.Kim()
+            self.kim.parent = self
+            self._children_name_map["kim"] = "kim"
+            self._children_yang_names.add("kim")
+            self._segment_path = lambda: "logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+
+
+        class Kim(Entity):
+            """
+            KIM logging
+            
+            .. attribute:: file_size_max_kb
+            
+            	Size in Kilobytes of the log file
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: kilobyte
+            
+            .. attribute:: rotation_max
+            
+            	How many log rotation files to keep
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            
+
+            """
+
+            _prefix = 'kim-tpa-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Tpa.Logging.Kim, self).__init__()
+
+                self.yang_name = "kim"
+                self.yang_parent_name = "logging"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.file_size_max_kb = YLeaf(YType.int32, "file-size-max-kb")
+
+                self.rotation_max = YLeaf(YType.int32, "rotation-max")
+                self._segment_path = lambda: "kim"
+                self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/logging/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Tpa.Logging.Kim, ['file_size_max_kb', 'rotation_max'], name, value)
+
+
+    class Statistics(Entity):
+        """
+        Statistics
+        
+        .. attribute:: max_intf_events
+        
+        	How many interface events to record
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: max_lpts_events
+        
+        	How many LPTS events to record
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: statistics_update_frequency
+        
+        	Statistics update frequency into Linux
+        	**type**\:  int
+        
+        	**range:** \-2147483648..2147483647
+        
+        	**units**\: second
+        
+        
+
+        """
+
+        _prefix = 'kim-tpa-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Tpa.Statistics, self).__init__()
+
+            self.yang_name = "statistics"
+            self.yang_parent_name = "tpa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.max_intf_events = YLeaf(YType.int32, "max-intf-events")
+
+            self.max_lpts_events = YLeaf(YType.int32, "max-lpts-events")
+
+            self.statistics_update_frequency = YLeaf(YType.int32, "statistics-update-frequency")
+            self._segment_path = lambda: "statistics"
+            self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Tpa.Statistics, ['max_intf_events', 'max_lpts_events', 'statistics_update_frequency'], name, value)
 
 
     class VrfNames(Entity):
@@ -79,32 +230,17 @@ class Tpa(Entity):
 
             self.yang_name = "vrf-names"
             self.yang_parent_name = "tpa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"vrf-name" : ("vrf_name", Tpa.VrfNames.VrfName)}
 
             self.vrf_name = YList(self)
+            self._segment_path = lambda: "vrf-names"
+            self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Tpa.VrfNames, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Tpa.VrfNames, self).__setattr__(name, value)
+            self._perform_setattr(Tpa.VrfNames, [], name, value)
 
 
         class VrfName(Entity):
@@ -140,6 +276,10 @@ class Tpa(Entity):
 
                 self.yang_name = "vrf-name"
                 self.yang_parent_name = "vrf-names"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"address-family" : ("address_family", Tpa.VrfNames.VrfName.AddressFamily), "east-west-names" : ("east_west_names", Tpa.VrfNames.VrfName.EastWestNames)}
+                self._child_list_classes = {}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
@@ -152,30 +292,484 @@ class Tpa(Entity):
                 self.east_west_names.parent = self
                 self._children_name_map["east_west_names"] = "east-west-names"
                 self._children_yang_names.add("east-west-names")
+                self._segment_path = lambda: "vrf-name" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("vrf_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Tpa.VrfNames.VrfName, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Tpa.VrfNames.VrfName, self).__setattr__(name, value)
+                self._perform_setattr(Tpa.VrfNames.VrfName, ['vrf_name'], name, value)
+
+
+            class AddressFamily(Entity):
+                """
+                Address family
+                
+                .. attribute:: ipv4
+                
+                	IPv4 configuration
+                	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4>`
+                
+                .. attribute:: ipv6
+                
+                	IPv6 configuration
+                	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6>`
+                
+                
+
+                """
+
+                _prefix = 'kim-tpa-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
+
+                    self.yang_name = "address-family"
+                    self.yang_parent_name = "vrf-name"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"ipv4" : ("ipv4", Tpa.VrfNames.VrfName.AddressFamily.Ipv4), "ipv6" : ("ipv6", Tpa.VrfNames.VrfName.AddressFamily.Ipv6)}
+                    self._child_list_classes = {}
+
+                    self.ipv4 = Tpa.VrfNames.VrfName.AddressFamily.Ipv4()
+                    self.ipv4.parent = self
+                    self._children_name_map["ipv4"] = "ipv4"
+                    self._children_yang_names.add("ipv4")
+
+                    self.ipv6 = Tpa.VrfNames.VrfName.AddressFamily.Ipv6()
+                    self.ipv6.parent = self
+                    self._children_name_map["ipv6"] = "ipv6"
+                    self._children_yang_names.add("ipv6")
+                    self._segment_path = lambda: "address-family"
+
+
+                class Ipv4(Entity):
+                    """
+                    IPv4 configuration
+                    
+                    .. attribute:: default_route
+                    
+                    	Default interface used for routing
+                    	**type**\:  str
+                    
+                    .. attribute:: lpts_allow_entries
+                    
+                    	TPA Cli to configure LPTS entries
+                    	**type**\:   :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries>`
+                    
+                    .. attribute:: update_source
+                    
+                    	Interface name for source address
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'kim-tpa-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
+
+                        self.yang_name = "ipv4"
+                        self.yang_parent_name = "address-family"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"lpts-allow-entries" : ("lpts_allow_entries", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries)}
+                        self._child_list_classes = {}
+
+                        self.default_route = YLeaf(YType.str, "default-route")
+
+                        self.update_source = YLeaf(YType.str, "update-source")
+
+                        self.lpts_allow_entries = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries()
+                        self.lpts_allow_entries.parent = self
+                        self._children_name_map["lpts_allow_entries"] = "lpts-allow-entries"
+                        self._children_yang_names.add("lpts-allow-entries")
+                        self._segment_path = lambda: "ipv4"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, ['default_route', 'update_source'], name, value)
+
+
+                    class LptsAllowEntries(Entity):
+                        """
+                        TPA Cli to configure LPTS entries
+                        
+                        .. attribute:: lpts_allow_entry
+                        
+                        	TPA Cli to configure LPTS entry
+                        	**type**\: list of    :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries, self).__init__()
+
+                            self.yang_name = "lpts-allow-entries"
+                            self.yang_parent_name = "ipv4"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"lpts-allow-entry" : ("lpts_allow_entry", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry)}
+
+                            self.lpts_allow_entry = YList(self)
+                            self._segment_path = lambda: "lpts-allow-entries"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries, [], name, value)
+
+
+                        class LptsAllowEntry(Entity):
+                            """
+                            TPA Cli to configure LPTS entry
+                            
+                            .. attribute:: interface_name  <key>
+                            
+                            	Interface name
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: remote_addr  <key>
+                            
+                            	remote address
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: local_addr  <key>
+                            
+                            	local address
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: remote_port  <key>
+                            
+                            	remote port
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: local_port  <key>
+                            
+                            	local port
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: protocol  <key>
+                            
+                            	L4 protocol
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: interface_name_xr
+                            
+                            	Interface name for allow command
+                            	**type**\:  str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            
+                            .. attribute:: local_addr_xr
+                            
+                            	IPv4/6 local\-address prefix to match
+                            	**type**\:  str
+                            
+                            .. attribute:: local_port_xr
+                            
+                            	local port value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: protocol_xr
+                            
+                            	L4 protocol value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: remote_addr_xr
+                            
+                            	IPv4/6 remote\-address prefix to match
+                            	**type**\:  str
+                            
+                            .. attribute:: remote_port_xr
+                            
+                            	remote port value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry, self).__init__()
+
+                                self.yang_name = "lpts-allow-entry"
+                                self.yang_parent_name = "lpts-allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.remote_addr = YLeaf(YType.str, "remote-addr")
+
+                                self.local_addr = YLeaf(YType.str, "local-addr")
+
+                                self.remote_port = YLeaf(YType.int32, "remote-port")
+
+                                self.local_port = YLeaf(YType.int32, "local-port")
+
+                                self.protocol = YLeaf(YType.int32, "protocol")
+
+                                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                                self.local_addr_xr = YLeaf(YType.str, "local-addr-xr")
+
+                                self.local_port_xr = YLeaf(YType.int32, "local-port-xr")
+
+                                self.protocol_xr = YLeaf(YType.int32, "protocol-xr")
+
+                                self.remote_addr_xr = YLeaf(YType.str, "remote-addr-xr")
+
+                                self.remote_port_xr = YLeaf(YType.int32, "remote-port-xr")
+                                self._segment_path = lambda: "lpts-allow-entry" + "[interface-name='" + self.interface_name.get() + "']" + "[remote-addr='" + self.remote_addr.get() + "']" + "[local-addr='" + self.local_addr.get() + "']" + "[remote-port='" + self.remote_port.get() + "']" + "[local-port='" + self.local_port.get() + "']" + "[protocol='" + self.protocol.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry, ['interface_name', 'remote_addr', 'local_addr', 'remote_port', 'local_port', 'protocol', 'interface_name_xr', 'local_addr_xr', 'local_port_xr', 'protocol_xr', 'remote_addr_xr', 'remote_port_xr'], name, value)
+
+
+                class Ipv6(Entity):
+                    """
+                    IPv6 configuration
+                    
+                    .. attribute:: default_route
+                    
+                    	Default interface used for routing
+                    	**type**\:  str
+                    
+                    .. attribute:: lpts_allow_entries
+                    
+                    	TPA Cli to configure LPTS entries
+                    	**type**\:   :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries>`
+                    
+                    .. attribute:: update_source
+                    
+                    	Interface name for source address
+                    	**type**\:  str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'kim-tpa-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
+
+                        self.yang_name = "ipv6"
+                        self.yang_parent_name = "address-family"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"lpts-allow-entries" : ("lpts_allow_entries", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries)}
+                        self._child_list_classes = {}
+
+                        self.default_route = YLeaf(YType.str, "default-route")
+
+                        self.update_source = YLeaf(YType.str, "update-source")
+
+                        self.lpts_allow_entries = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries()
+                        self.lpts_allow_entries.parent = self
+                        self._children_name_map["lpts_allow_entries"] = "lpts-allow-entries"
+                        self._children_yang_names.add("lpts-allow-entries")
+                        self._segment_path = lambda: "ipv6"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, ['default_route', 'update_source'], name, value)
+
+
+                    class LptsAllowEntries(Entity):
+                        """
+                        TPA Cli to configure LPTS entries
+                        
+                        .. attribute:: lpts_allow_entry
+                        
+                        	TPA Cli to configure LPTS entry
+                        	**type**\: list of    :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries, self).__init__()
+
+                            self.yang_name = "lpts-allow-entries"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"lpts-allow-entry" : ("lpts_allow_entry", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry)}
+
+                            self.lpts_allow_entry = YList(self)
+                            self._segment_path = lambda: "lpts-allow-entries"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries, [], name, value)
+
+
+                        class LptsAllowEntry(Entity):
+                            """
+                            TPA Cli to configure LPTS entry
+                            
+                            .. attribute:: interface_name  <key>
+                            
+                            	Interface name
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: remote_addr  <key>
+                            
+                            	remote address
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: local_addr  <key>
+                            
+                            	local address
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: remote_port  <key>
+                            
+                            	remote port
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: local_port  <key>
+                            
+                            	local port
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: protocol  <key>
+                            
+                            	L4 protocol
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: interface_name_xr
+                            
+                            	Interface name for allow command
+                            	**type**\:  str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            
+                            .. attribute:: local_addr_xr
+                            
+                            	IPv4/6 local\-address prefix to match
+                            	**type**\:  str
+                            
+                            .. attribute:: local_port_xr
+                            
+                            	local port value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: protocol_xr
+                            
+                            	L4 protocol value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: remote_addr_xr
+                            
+                            	IPv4/6 remote\-address prefix to match
+                            	**type**\:  str
+                            
+                            .. attribute:: remote_port_xr
+                            
+                            	remote port value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry, self).__init__()
+
+                                self.yang_name = "lpts-allow-entry"
+                                self.yang_parent_name = "lpts-allow-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.remote_addr = YLeaf(YType.str, "remote-addr")
+
+                                self.local_addr = YLeaf(YType.str, "local-addr")
+
+                                self.remote_port = YLeaf(YType.int32, "remote-port")
+
+                                self.local_port = YLeaf(YType.int32, "local-port")
+
+                                self.protocol = YLeaf(YType.int32, "protocol")
+
+                                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                                self.local_addr_xr = YLeaf(YType.str, "local-addr-xr")
+
+                                self.local_port_xr = YLeaf(YType.int32, "local-port-xr")
+
+                                self.protocol_xr = YLeaf(YType.int32, "protocol-xr")
+
+                                self.remote_addr_xr = YLeaf(YType.str, "remote-addr-xr")
+
+                                self.remote_port_xr = YLeaf(YType.int32, "remote-port-xr")
+                                self._segment_path = lambda: "lpts-allow-entry" + "[interface-name='" + self.interface_name.get() + "']" + "[remote-addr='" + self.remote_addr.get() + "']" + "[local-addr='" + self.local_addr.get() + "']" + "[remote-port='" + self.remote_port.get() + "']" + "[local-port='" + self.local_port.get() + "']" + "[protocol='" + self.protocol.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry, ['interface_name', 'remote_addr', 'local_addr', 'remote_port', 'local_port', 'protocol', 'interface_name_xr', 'local_addr_xr', 'local_port_xr', 'protocol_xr', 'remote_addr_xr', 'remote_port_xr'], name, value)
 
 
             class EastWestNames(Entity):
@@ -199,32 +793,16 @@ class Tpa(Entity):
 
                     self.yang_name = "east-west-names"
                     self.yang_parent_name = "vrf-name"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"east-west-name" : ("east_west_name", Tpa.VrfNames.VrfName.EastWestNames.EastWestName)}
 
                     self.east_west_name = YList(self)
+                    self._segment_path = lambda: "east-west-names"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Tpa.VrfNames.VrfName.EastWestNames, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Tpa.VrfNames.VrfName.EastWestNames, self).__setattr__(name, value)
+                    self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames, [], name, value)
 
 
                 class EastWestName(Entity):
@@ -260,760 +838,20 @@ class Tpa(Entity):
 
                         self.yang_name = "east-west-name"
                         self.yang_parent_name = "east-west-names"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.east_west_name = YLeaf(YType.str, "east-west-name")
 
                         self.interface = YLeaf(YType.str, "interface")
 
                         self.vrf = YLeaf(YType.str, "vrf")
+                        self._segment_path = lambda: "east-west-name" + "[east-west-name='" + self.east_west_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("east_west_name",
-                                        "interface",
-                                        "vrf") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.east_west_name.is_set or
-                            self.interface.is_set or
-                            self.vrf.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.east_west_name.yfilter != YFilter.not_set or
-                            self.interface.yfilter != YFilter.not_set or
-                            self.vrf.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "east-west-name" + "[east-west-name='" + self.east_west_name.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.east_west_name.is_set or self.east_west_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.east_west_name.get_name_leafdata())
-                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.interface.get_name_leafdata())
-                        if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.vrf.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "east-west-name" or name == "interface" or name == "vrf"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "east-west-name"):
-                            self.east_west_name = value
-                            self.east_west_name.value_namespace = name_space
-                            self.east_west_name.value_namespace_prefix = name_space_prefix
-                        if(value_path == "interface"):
-                            self.interface = value
-                            self.interface.value_namespace = name_space
-                            self.interface.value_namespace_prefix = name_space_prefix
-                        if(value_path == "vrf"):
-                            self.vrf = value
-                            self.vrf.value_namespace = name_space
-                            self.vrf.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.east_west_name:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.east_west_name:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "east-west-names" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "east-west-name"):
-                        for c in self.east_west_name:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Tpa.VrfNames.VrfName.EastWestNames.EastWestName()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.east_west_name.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "east-west-name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-
-            class AddressFamily(Entity):
-                """
-                Address family
-                
-                .. attribute:: ipv4
-                
-                	IPv4 configuration
-                	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4>`
-                
-                .. attribute:: ipv6
-                
-                	IPv6 configuration
-                	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6>`
-                
-                
-
-                """
-
-                _prefix = 'kim-tpa-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
-
-                    self.yang_name = "address-family"
-                    self.yang_parent_name = "vrf-name"
-
-                    self.ipv4 = Tpa.VrfNames.VrfName.AddressFamily.Ipv4()
-                    self.ipv4.parent = self
-                    self._children_name_map["ipv4"] = "ipv4"
-                    self._children_yang_names.add("ipv4")
-
-                    self.ipv6 = Tpa.VrfNames.VrfName.AddressFamily.Ipv6()
-                    self.ipv6.parent = self
-                    self._children_name_map["ipv6"] = "ipv6"
-                    self._children_yang_names.add("ipv6")
-
-
-                class Ipv6(Entity):
-                    """
-                    IPv6 configuration
-                    
-                    .. attribute:: default_route
-                    
-                    	Default interface used for routing
-                    	**type**\:  str
-                    
-                    .. attribute:: update_source
-                    
-                    	Interface name for source address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    
-
-                    """
-
-                    _prefix = 'kim-tpa-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
-
-                        self.yang_name = "ipv6"
-                        self.yang_parent_name = "address-family"
-
-                        self.default_route = YLeaf(YType.str, "default-route")
-
-                        self.update_source = YLeaf(YType.str, "update-source")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("default_route",
-                                        "update_source") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.default_route.is_set or
-                            self.update_source.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.default_route.yfilter != YFilter.not_set or
-                            self.update_source.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv6" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.default_route.is_set or self.default_route.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.default_route.get_name_leafdata())
-                        if (self.update_source.is_set or self.update_source.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.update_source.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "default-route" or name == "update-source"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "default-route"):
-                            self.default_route = value
-                            self.default_route.value_namespace = name_space
-                            self.default_route.value_namespace_prefix = name_space_prefix
-                        if(value_path == "update-source"):
-                            self.update_source = value
-                            self.update_source.value_namespace = name_space
-                            self.update_source.value_namespace_prefix = name_space_prefix
-
-
-                class Ipv4(Entity):
-                    """
-                    IPv4 configuration
-                    
-                    .. attribute:: default_route
-                    
-                    	Default interface used for routing
-                    	**type**\:  str
-                    
-                    .. attribute:: update_source
-                    
-                    	Interface name for source address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    
-
-                    """
-
-                    _prefix = 'kim-tpa-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
-
-                        self.yang_name = "ipv4"
-                        self.yang_parent_name = "address-family"
-
-                        self.default_route = YLeaf(YType.str, "default-route")
-
-                        self.update_source = YLeaf(YType.str, "update-source")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("default_route",
-                                        "update_source") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.default_route.is_set or
-                            self.update_source.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.default_route.yfilter != YFilter.not_set or
-                            self.update_source.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv4" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.default_route.is_set or self.default_route.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.default_route.get_name_leafdata())
-                        if (self.update_source.is_set or self.update_source.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.update_source.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "default-route" or name == "update-source"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "default-route"):
-                            self.default_route = value
-                            self.default_route.value_namespace = name_space
-                            self.default_route.value_namespace_prefix = name_space_prefix
-                        if(value_path == "update-source"):
-                            self.update_source = value
-                            self.update_source.value_namespace = name_space
-                            self.update_source.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        (self.ipv4 is not None and self.ipv4.has_data()) or
-                        (self.ipv6 is not None and self.ipv6.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.ipv4 is not None and self.ipv4.has_operation()) or
-                        (self.ipv6 is not None and self.ipv6.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "address-family" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "ipv4"):
-                        if (self.ipv4 is None):
-                            self.ipv4 = Tpa.VrfNames.VrfName.AddressFamily.Ipv4()
-                            self.ipv4.parent = self
-                            self._children_name_map["ipv4"] = "ipv4"
-                        return self.ipv4
-
-                    if (child_yang_name == "ipv6"):
-                        if (self.ipv6 is None):
-                            self.ipv6 = Tpa.VrfNames.VrfName.AddressFamily.Ipv6()
-                            self.ipv6.parent = self
-                            self._children_name_map["ipv6"] = "ipv6"
-                        return self.ipv6
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "ipv4" or name == "ipv6"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.vrf_name.is_set or
-                    (self.address_family is not None and self.address_family.has_data()) or
-                    (self.east_west_names is not None and self.east_west_names.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.vrf_name.yfilter != YFilter.not_set or
-                    (self.address_family is not None and self.address_family.has_operation()) or
-                    (self.east_west_names is not None and self.east_west_names.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "vrf-name" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "address-family"):
-                    if (self.address_family is None):
-                        self.address_family = Tpa.VrfNames.VrfName.AddressFamily()
-                        self.address_family.parent = self
-                        self._children_name_map["address_family"] = "address-family"
-                    return self.address_family
-
-                if (child_yang_name == "east-west-names"):
-                    if (self.east_west_names is None):
-                        self.east_west_names = Tpa.VrfNames.VrfName.EastWestNames()
-                        self.east_west_names.parent = self
-                        self._children_name_map["east_west_names"] = "east-west-names"
-                    return self.east_west_names
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "address-family" or name == "east-west-names" or name == "vrf-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "vrf-name"):
-                    self.vrf_name = value
-                    self.vrf_name.value_namespace = name_space
-                    self.vrf_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.vrf_name:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.vrf_name:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "vrf-names" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "vrf-name"):
-                for c in self.vrf_name:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Tpa.VrfNames.VrfName()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.vrf_name.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "vrf-name"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Statistics(Entity):
-        """
-        Statistics
-        
-        .. attribute:: statistics_update_frequency
-        
-        	Statistics update frequency into Linux
-        	**type**\:  int
-        
-        	**range:** \-2147483648..2147483647
-        
-        	**units**\: second
-        
-        
-
-        """
-
-        _prefix = 'kim-tpa-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Tpa.Statistics, self).__init__()
-
-            self.yang_name = "statistics"
-            self.yang_parent_name = "tpa"
-
-            self.statistics_update_frequency = YLeaf(YType.int32, "statistics-update-frequency")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("statistics_update_frequency") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Tpa.Statistics, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Tpa.Statistics, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.statistics_update_frequency.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.statistics_update_frequency.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "statistics" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.statistics_update_frequency.is_set or self.statistics_update_frequency.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.statistics_update_frequency.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "statistics-update-frequency"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "statistics-update-frequency"):
-                self.statistics_update_frequency = value
-                self.statistics_update_frequency.value_namespace = name_space
-                self.statistics_update_frequency.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            (self.statistics is not None and self.statistics.has_data()) or
-            (self.vrf_names is not None and self.vrf_names.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.statistics is not None and self.statistics.has_operation()) or
-            (self.vrf_names is not None and self.vrf_names.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-kim-tpa-cfg:tpa" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "statistics"):
-            if (self.statistics is None):
-                self.statistics = Tpa.Statistics()
-                self.statistics.parent = self
-                self._children_name_map["statistics"] = "statistics"
-            return self.statistics
-
-        if (child_yang_name == "vrf-names"):
-            if (self.vrf_names is None):
-                self.vrf_names = Tpa.VrfNames()
-                self.vrf_names.parent = self
-                self._children_name_map["vrf_names"] = "vrf-names"
-            return self.vrf_names
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "statistics" or name == "vrf-names"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                        self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, ['east_west_name', 'interface', 'vrf'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Tpa()

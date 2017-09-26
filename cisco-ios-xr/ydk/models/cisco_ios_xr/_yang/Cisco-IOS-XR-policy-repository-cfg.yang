@@ -35,8 +35,13 @@ module Cisco-IOS-XR-policy-repository-cfg {
      for the following management objects:
        routing-policy: Routing policy configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-08-27" {
     description
@@ -104,6 +109,42 @@ module Cisco-IOS-XR-policy-repository-cfg {
         }
       }
 
+      container large-community-sets {
+        description "Information about Large Community sets";
+
+        list large-community-set {
+          key "set-name";
+          description "Information about an individual set";
+          leaf set-name {
+            type xr:Cisco-ios-xr-string;
+            description "Set name";
+          }
+          leaf large-community-set-as-text {
+            type xr:Rpl-set;
+            mandatory true;
+            description "Large Community Set";
+          }
+        }
+      }
+
+      container prepend-large-community-sets {
+        description "Information about Large Community sets";
+
+        list prepend-large-community-set {
+          key "set-name";
+          description "Prepend the entries to the existing set";
+          leaf set-name {
+            type xr:Cisco-ios-xr-string;
+            description "Set name";
+          }
+          leaf large-community-set-as-text {
+            type xr:Rpl-set;
+            mandatory true;
+            description "Large Community Set";
+          }
+        }
+      }
+
       container append-etag-sets {
         description "Information about Etag sets";
 
@@ -136,6 +177,24 @@ module Cisco-IOS-XR-policy-repository-cfg {
             type xr:Rpl-set;
             mandatory true;
             description "Etag Set";
+          }
+        }
+      }
+
+      container remove-large-community-sets {
+        description "Information about Large Community sets";
+
+        list remove-large-community-set {
+          key "set-name";
+          description "Remove the entries from the existing set";
+          leaf set-name {
+            type xr:Cisco-ios-xr-string;
+            description "Set name";
+          }
+          leaf large-community-set-as-text {
+            type xr:Rpl-set;
+            mandatory true;
+            description "Large Community Set";
           }
         }
       }
@@ -416,6 +475,24 @@ module Cisco-IOS-XR-policy-repository-cfg {
         }
       }
 
+      container append-large-community-sets {
+        description "Information about Large Community sets";
+
+        list append-large-community-set {
+          key "set-name";
+          description "Append the entries to the existing set";
+          leaf set-name {
+            type xr:Cisco-ios-xr-string;
+            description "Set name";
+          }
+          leaf large-community-set-as-text {
+            type xr:Rpl-set;
+            mandatory true;
+            description "Large Community Set";
+          }
+        }
+      }
+
       container extended-community-bandwidth-sets {
         description "Information about Bandwidth sets";
 
@@ -541,6 +618,10 @@ module Cisco-IOS-XR-policy-repository-cfg {
           "Maximum number of policies that may be
           configured";
       }
+    }
+    leaf set-exit-as-abort {
+      type empty;
+      description "Set exit under RPL config to abort";
     }
     leaf editor {
       type string;

@@ -10,8 +10,6 @@ module Cisco-IOS-XR-optics-driver-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   import Cisco-IOS-XR-controller-optics-cfg { prefix "a2"; }
@@ -40,7 +38,7 @@ module Cisco-IOS-XR-optics-driver-cfg {
        Cisco-IOS-XR-controller-optics-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-03-21" {

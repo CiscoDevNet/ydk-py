@@ -44,8 +44,18 @@ module Cisco-IOS-XR-clns-isis-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-02" {
+    description
+      "IOS XR 6.3.2 Removed must statements from key leafs.";
+  }
+
+  revision "2017-05-22" {
+    description
+      "IOS XR 6.3.2 revision with schema changes for opencfg support and some string boundary checking.";
+  }
 
   revision "2015-11-09" {
     description
@@ -87,6 +97,10 @@ module Cisco-IOS-XR-clns-isis-cfg {
       enum passive {
         value 2;
         description "Passive";
+      }
+      enum enabled-active {
+        value 3;
+        description "EnabledActive";
       }
     }
     description "Isis interface state";
@@ -167,7 +181,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description "Isis metric style transition";
   }
-  typedef Isissid {
+  typedef Isissid1 {
     type enumeration {
       enum index {
         value 1;
@@ -178,7 +192,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
         description "SID as an absolute label";
       }
     }
-    description "Isissid";
+    description "Isissid1";
   }
   typedef Isis-metric {
     type enumeration {
@@ -226,6 +240,12 @@ module Cisco-IOS-XR-clns-isis-cfg {
       }
     }
     description "Isis configurable levels";
+  }
+  typedef Isissid {
+    type uint32 {
+      range "0..1048575";
+    }
+    description "Isissid";
   }
   typedef Isis-hello-padding {
     type enumeration {
@@ -383,6 +403,19 @@ module Cisco-IOS-XR-clns-isis-cfg {
       }
     }
     description "Isisispf state";
+  }
+  typedef Isissid-protected {
+    type enumeration {
+      enum disable {
+        value 0;
+        description "Not protected";
+      }
+      enum enable {
+        value 1;
+        description "Protected";
+      }
+    }
+    description "Isissid protected";
   }
   typedef Isis-adv-type-external {
     type enumeration {
@@ -866,6 +899,36 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
   }
 
+  grouping MANUAL-ADJ-SID-TABLE {
+    description "Common node of interface-af, af";
+
+    container manual-adj-sids {
+      description "Manual Adjacecy SID configuration";
+
+      list manual-adj-sid {
+        key "level sid-type sid";
+        description "Assign adjancency SID to an interface";
+        leaf level {
+          type dt1:Isis-internal-level;
+          description "Level to which configuration applies";
+        }
+        leaf sid-type {
+          type Isissid1;
+          description "Sid type aboslute or index";
+        }
+        leaf sid {
+          type Isissid;
+          description "Sid value";
+        }
+        leaf protected {
+          type Isissid-protected;
+          mandatory true;
+          description "Enable/Disable SID protection";
+        }
+      }
+    }
+  }
+
   container isis {
     description "IS-IS configuration for all instances";
 
@@ -1077,6 +1140,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       they will not be used.";
                   }
                 }
+                leaf bundle-member-adj-sid {
+                  type empty;
+                  description
+                    "Enable per bundle member adjacency SID";
+                }
                 leaf mpls {
                   type Isis-label-preference;
                   description
@@ -1180,7 +1248,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                         "Level to which configuration applies";
                     }
                     leaf prefix-list-name {
-                      type string;
+                      type xr:Cisco-ios-xr-string {
+                        length "1..32";
+                      }
                       mandatory true;
                       description "Name of the prefix list";
                     }
@@ -1243,7 +1313,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   "Stable IP address for system. Will only be
                   applied for the unicast sub-address-family.";
                 leaf address {
-                  type string;
+                  type inet:ip-address-no-zone;
                   must "not(../interface-name)";
                   description
                     "IPv4/IPv6 address to be used as a router
@@ -1270,13 +1340,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description "Determine SPF priority for prefixes";
                   leaf level {
                     type dt1:Isis-internal-level;
-                    must "not(../admin-tag or ../access-list-name)";
                     description
                       "SPF Level for prefix prioritization";
                   }
                   leaf prefix-priority-type {
                     type Isis-prefix-priority;
-                    must "not(../admin-tag or ../access-list-name)";
                     description
                       "SPF Priority to assign matching prefixes";
                   }
@@ -1290,7 +1358,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       priority";
                   }
                   leaf access-list-name {
-                    type string;
+                    type xr:Cisco-ios-xr-string {
+                      length "1..64";
+                    }
                     must "not(../admin-tag)";
                     description
                       "Access List to determine prefixes for
@@ -1359,7 +1429,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     description "Value of variance";
                   }
                   leaf prefix-list-name {
-                    type string;
+                    type xr:Cisco-ios-xr-string {
+                      length "1..32";
+                    }
                     description "Name of the Prefix List";
                   }
                 }
@@ -1437,7 +1509,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       differ from SourceLevel";
                   }
                   leaf route-policy-name {
-                    type string;
+                    type xr:Cisco-ios-xr-string {
+                      length "1..64";
+                    }
                     mandatory true;
                     description
                       "Route policy limiting routes to be
@@ -1478,7 +1552,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                         "Levels to redistribute routes into";
                     }
                     leaf route-policy-name {
-                      type string;
+                      type xr:Cisco-ios-xr-string {
+                        length "1..64";
+                      }
                       description
                         "Route policy to control redistribution.";
                     }
@@ -1539,7 +1615,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     description
                       "ospf or ospfv3 or isis or application";
                     leaf instance-name {
-                      type xr:Cisco-ios-xr-string;
+                      type xr:Cisco-ios-xr-string {
+                        length "1..64";
+                      }
                       description
                         "Protocol Instance Identifier.  Mandatory
                         for ISIS, OSPF and application, must not
@@ -1673,7 +1751,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     "Enable the Tracking of IP-Frr Convergence";
                 }
                 leaf prefix-list {
-                  type string;
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
                   description
                     "Enable the monitoring of individual
                     prefixes (prefix list name)";
@@ -1696,7 +1776,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   when "../use-policy != 'false'" {
                     description "../UsePolicy != 0";
                   }
-                  type string;
+                  type xr:Cisco-ios-xr-string {
+                    length "1..64";
+                  }
                   description "Policy name";
                 }
                 leaf external {
@@ -1732,7 +1814,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     description "Administrative distance";
                   }
                   leaf prefix-list {
-                    type string;
+                    type string {
+                      length "1..32";
+                    }
                     description
                       "List of prefixes to which this distance
                       applies";
@@ -1805,16 +1889,24 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       specified.";
                   }
                 }
+
+                container level {
+                  description
+                    "Enable MPLS for an IS-IS at the given
+                    levels";
+                  leaf level1 {
+                    type boolean;
+                    description "Level 1 enabled";
+                  }
+                  leaf level2 {
+                    type boolean;
+                    description "Level 2 enabled";
+                  }
+                }
                 leaf igp-intact {
                   type empty;
                   description
                     "Install TE and non-TE nexthops in the RIB";
-                }
-                leaf level {
-                  type Isis-configurable-levels;
-                  description
-                    "Enable MPLS for an IS-IS at the given
-                    levels";
                 }
                 leaf multicast-intact {
                   type empty;
@@ -1901,6 +1993,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   IP address of the first-hop node as the
                   source instead of the originating node";
               }
+              uses MANUAL-ADJ-SID-TABLE;
               uses METRIC-TABLE;
               uses WEIGHT-TABLE;
             }
@@ -2551,7 +2644,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       disable, ISISEXPLICITNULLFlag will
                       override the value of ISISPHPFlag";
                     leaf type {
-                      type Isissid;
+                      type Isissid1;
                       mandatory true;
                       description "SID type for the interface";
                     }
@@ -2786,7 +2879,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       disable, ISISEXPLICITNULLFlag will
                       override the value of ISISPHPFlag";
                     leaf type {
-                      type Isissid;
+                      type Isissid1;
                       mandatory true;
                       description "SID type for the interface";
                     }
@@ -2905,6 +2998,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       InterfaceAddressFamily container, and the
                       last one deleted";
                   }
+                  uses MANUAL-ADJ-SID-TABLE;
                   uses METRIC-TABLE;
                   uses WEIGHT-TABLE;
                 }

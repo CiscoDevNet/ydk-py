@@ -9,8 +9,6 @@ module Cisco-IOS-XR-man-ems-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -34,7 +32,7 @@ module Cisco-IOS-XR-man-ems-cfg {
      for the following management objects:
        grpc: GRPC configruation
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -70,6 +68,10 @@ module Cisco-IOS-XR-man-ems-cfg {
         range "10000..57999";
       }
       description "Server listening port";
+    }
+    leaf vrf {
+      type string;
+      description "Server vrf name";
     }
     leaf enable {
       type empty;

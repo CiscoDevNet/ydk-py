@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,8 +25,13 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR controller-optics package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -237,6 +240,10 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
   }
   typedef Optics-amplifier-safety-control-mode {
     type enumeration {
+      enum optics-amplifier-safety-mode-invalid {
+        value 0;
+        description "Invalid";
+      }
       enum optics-amplifier-safety-mode-auto {
         value 1;
         description "auto";
@@ -250,6 +257,10 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
   }
   typedef Optics-amplifier-gain-range {
     type enumeration {
+      enum optics-amplifier-gain-range-invalid {
+        value 0;
+        description "Invalid";
+      }
       enum optics-amplifier-gain-range-normal {
         value 1;
         description "Normal";
@@ -567,6 +578,14 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         value 54;
         description "ExtentedReach4Lane";
       }
+      enum ten-gig-bx {
+        value 55;
+        description "10G BX optics";
+      }
+      enum one-geige {
+        value 56;
+        description "1G BX optics";
+      }
     }
     description "Optics phy type";
   }
@@ -794,6 +813,73 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Optics controller state: Up, Down or
         Administratively Down";
+    }
+  }
+
+  grouping OTS-EDM-SPECTRUM-POWER-INFO {
+    description "OTS EDM SPECTRUM POWER INFO";
+    leaf slice-num {
+      type uint32;
+      description "spectrum slice number";
+    }
+    leaf lower-frequency {
+      type uint64;
+      description "Lower frequency of the specified PSD";
+    }
+    leaf upper-frequency {
+      type uint64;
+      description "Upper frequency of the specified PSD";
+    }
+    leaf rx-power {
+      type string {
+        length "0..32";
+      }
+      description "Received Power in dBm";
+    }
+    leaf tx-power {
+      type string {
+        length "0..32";
+      }
+      description "Transmit Power in dBm";
+    }
+    leaf rx-psd {
+      type string {
+        length "0..32";
+      }
+      description
+        "Received Power spectral density in microwatts
+        per megahertz, uW/MHz";
+    }
+    leaf tx-psd {
+      type string {
+        length "0..32";
+      }
+      description
+        "Transmit Power spectral density in microwatts
+        per megahertz, uW/MHz";
+    }
+  }
+
+  grouping OTS-EDM-SPECTRUM-INFO {
+    description "power information of slices in optical spectrum";
+    leaf total-spectrum-slice-count {
+      type uint32;
+      description "Total number of slices in Spectrum";
+    }
+    leaf spectrum-slice-spacing {
+      type uint32;
+      description "Spacing between spectrum slices";
+    }
+    leaf first-slice-wavelength {
+      type string {
+        length "0..32";
+      }
+      description "Wavelength of first slice";
+    }
+
+    list spectrum-slice-power-info {
+      description "Power information of spectrum slice info";
+      uses OTS-EDM-SPECTRUM-POWER-INFO;
     }
   }
 
@@ -1274,6 +1360,26 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type string;
       description "Transceiver vendors part number";
     }
+    leaf optics-type {
+      type string;
+      description "Transceiver optics type";
+    }
+    leaf vendor-name {
+      type string;
+      description "Transceiver optics vendor name";
+    }
+    leaf oui-no {
+      type string;
+      description "Transceiver optics type";
+    }
+    leaf optics-pid {
+      type string;
+      description "Transceiver optics pid";
+    }
+    leaf optics-vid {
+      type string;
+      description "Transceiver optics vid";
+    }
     leaf connector-type {
       type Fiber-connector;
       description "Connector type";
@@ -1351,6 +1457,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
 
     container switch-to-protect {
       description "Switch To Protect";
+      uses OPTICS-ALARM-DETAIL;
+    }
+
+    container auto-ampli-ctrl-running {
+      description "Auto Ampli Ctrl Running";
       uses OPTICS-ALARM-DETAIL;
     }
   }
@@ -1690,8 +1801,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf output-frequency {
       type int32;
       description
-        "Output frequency read from hw in the unit 0
-        .01THz";
+        "Output frequency read from hw in the unit 100MHz";
+    }
+    leaf frequency-offset {
+      type int32;
+      description "Frequency Offset read from hw in unit of MHz";
     }
   }
 
@@ -1748,6 +1862,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description "Extended optics parameters threshold values";
       uses OPTICS-EXT-THRESHOLD-PARAM;
     }
+
+    container spectrum-info {
+      description "OTS Spectrum information";
+      uses OTS-EDM-SPECTRUM-INFO;
+    }
     leaf transport-admin-state {
       type Optics-tas;
       description "Transport Admin State";
@@ -1758,7 +1877,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     }
     leaf optics-type {
       type Optics;
-      description "Optics type name";
+      description "Old Optics type name, Use Derived Optics type";
+    }
+    leaf derived-optics-type {
+      type string;
+      description "Derived Optics type name";
     }
     leaf optics-module {
       type string;
@@ -1776,7 +1899,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type string;
       description
         "DWDM Carrier frequency read from hw in the unit
-        0.01THz";
+        1THz";
     }
     leaf dwdm-carrier-wavelength {
       type string;
@@ -2106,6 +2229,30 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf volt-high-warning-threshold {
       type int32;
       description "Volt High warning threshold value";
+    }
+    leaf ampli-gain-range {
+      type Optics-amplifier-gain-range;
+      description "Ampli gain range";
+    }
+    leaf safety-control-mode {
+      type Optics-amplifier-safety-control-mode;
+      description "Safety control mode";
+    }
+    leaf osri {
+      type boolean;
+      description "OSRI";
+    }
+    leaf description {
+      type string;
+      description "Controller description string";
+    }
+    leaf is-optics-type-string-valid {
+      type boolean;
+      description "Is the Optics type string valid ?";
+    }
+    leaf optics-type-str {
+      type string;
+      description "optics type String";
     }
 
     list lane-data {

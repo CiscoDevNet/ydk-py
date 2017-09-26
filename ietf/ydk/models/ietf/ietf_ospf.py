@@ -21,7 +21,6 @@ MTU (mtu) Maximum Transmission Unit
 
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -294,9 +293,9 @@ class RestartStatusType(Enum):
 
 
 
-class Ospfv3(Identity):
+class AreaType(Identity):
     """
-    OSPFv3
+    Base identity for OSPF area type.
     
     
 
@@ -306,7 +305,7 @@ class Ospfv3(Identity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        super(Ospfv3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospfv3")
+        super(AreaType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:area-type")
 
 
 class IfLinkType(Identity):
@@ -324,36 +323,6 @@ class IfLinkType(Identity):
         super(IfLinkType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type")
 
 
-class Ospf(Identity):
-    """
-    OSPF Protocol
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(Ospf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospf")
-
-
-class AreaType(Identity):
-    """
-    Base identity for OSPF area type.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(AreaType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:area-type")
-
-
 class OperationMode(Identity):
     """
     OSPF operation mode.
@@ -367,6 +336,21 @@ class OperationMode(Identity):
 
     def __init__(self):
         super(OperationMode, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:operation-mode")
+
+
+class Ospf(Identity):
+    """
+    OSPF Protocol
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Ospf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospf")
 
 
 class Ospfv2(Identity):
@@ -384,6 +368,66 @@ class Ospfv2(Identity):
         super(Ospfv2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospfv2")
 
 
+class Ospfv3(Identity):
+    """
+    OSPFv3
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Ospfv3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospfv3")
+
+
+class IfLinkTypeNormal(Identity):
+    """
+    OSPF interface link type normal.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(IfLinkTypeNormal, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-normal")
+
+
+class IfLinkTypeShamLink(Identity):
+    """
+    OSPF interface link type sham link.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(IfLinkTypeShamLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-sham-link")
+
+
+class IfLinkTypeVirtualLink(Identity):
+    """
+    OSPF interface link type virtual link.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(IfLinkTypeVirtualLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-virtual-link")
+
+
 class Normal(Identity):
     """
     OSPF normal area.
@@ -397,6 +441,21 @@ class Normal(Identity):
 
     def __init__(self):
         super(Normal, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:normal")
+
+
+class Nssa(Identity):
+    """
+    OSPF NSSA area.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Nssa, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:nssa")
 
 
 class ShipsInTheNight(Identity):
@@ -415,51 +474,6 @@ class ShipsInTheNight(Identity):
         super(ShipsInTheNight, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ships-in-the-night")
 
 
-class Nssa(Identity):
-    """
-    OSPF NSSA area.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(Nssa, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:nssa")
-
-
-class IfLinkTypeVirtualLink(Identity):
-    """
-    OSPF interface link type virtual link.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(IfLinkTypeVirtualLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-virtual-link")
-
-
-class IfLinkTypeShamLink(Identity):
-    """
-    OSPF interface link type sham link.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(IfLinkTypeShamLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-sham-link")
-
-
 class Stub(Identity):
     """
     OSPF stub area.
@@ -473,20 +487,5 @@ class Stub(Identity):
 
     def __init__(self):
         super(Stub, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:stub")
-
-
-class IfLinkTypeNormal(Identity):
-    """
-    OSPF interface link type normal.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        super(IfLinkTypeNormal, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-normal")
 
 

@@ -22,17 +22,21 @@ from ydk.ext.path import Repository
 from ydk.ext.path import RootSchemaNode
 from ydk.ext.path import Rpc
 from ydk.ext.path import SchemaNode
-from ydk.ext.path import ServiceProvider
 from ydk.ext.path import Statement
+
+from .sessions import NetconfSession
+from .sessions import RestconfSession
+
 
 
 __all__ = [ "Annotation",
             "Capability",
             "Codec",
             "DataNode",
+            "NetconfSession",
             "Repository",
+            "RestconfSession",
             "RootSchemaNode",
             "Rpc",
             "SchemaNode",
-            "ServiceProvider",
             "Statement" ]

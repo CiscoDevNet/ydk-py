@@ -12,11 +12,11 @@ module Cisco-IOS-XR-bundlemgr-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-bundlemgr-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-bundlemgr-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -47,8 +47,18 @@ module Cisco-IOS-XR-bundlemgr-oper {
        lacp-bundle-members: lacp bundle members
        bundles-adjacency: bundles adjacency
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2016-02-22" {
+    description
+      "Description updated.";
+  }
 
   revision "2015-11-09" {
     description

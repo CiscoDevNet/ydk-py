@@ -24,6 +24,13 @@ module Cisco-IOS-XR-types {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision "2017-03-07" {
+    description
+     "This revision adds the following new data types:
+      - Type8-password
+      - Type9-password";
+  }
+
   revision "2015-06-29" {
     description
      "This revision adds the following new data types:
@@ -74,6 +81,11 @@ module Cisco-IOS-XR-types {
   extension xr-task {
     argument "task";
     description "XR task-id required for operating the yang node";
+  }
+
+  extension event-telemetry {
+    argument "description";
+    description "Node eligible for telemetry event subscription";
   }
 
   typedef Route-dist {
@@ -159,13 +171,7 @@ module Cisco-IOS-XR-types {
 
   typedef Interface-name {
     type string {
-      pattern '(([a-zA-Z0-9_]*\d+/){3,4}\d+)|'+
-              '(([a-zA-Z0-9_]*\d+/){3,4}\d+\.\d+)|'+
-              '(([a-zA-Z0-9_]*\d+/){2}([a-zA-Z0-9_]*\d+))|'+
-              '(([a-zA-Z0-9_]*\d+/){2}([a-zA-Z0-9_]+))|'+
-              '([a-zA-Z0-9_-]*\d+)|'+
-              '([a-zA-Z0-9_-]*\d+\.\d+)|'+
-              '(mpls)|(dwdm)';
+      pattern '[a-zA-Z0-9./-]+';
     }
     description "An interface name specifying an interface type and 
                  instance.
@@ -408,6 +414,64 @@ module Cisco-IOS-XR-types {
        it as is in the data store.";
   }
   
+  typedef Type8-password {
+    type string {
+      pattern '(!.+)|([^!].+)';
+    }
+    description 
+      "The Type8-password type is used to store password using the
+       SHA-256 encryption.
+       When a clear text value is set to a leaf of this type, the
+       server calculates a password hash and stores the result
+       in the datastore. The password is never stored in clear text.
+
+       When a leaf of this type is read, the stored password hash is
+       returned.
+
+       A value of this type matches one of the forms:
+
+         !<clear text password>
+         <password hash>
+         
+       The '!' prefix signals that the value is clear text. When
+       such a value is received by the server, a hash value is
+       calculated. This value is stored in the configuration data 
+       store.
+
+       If a value starting without '!' is received, the server knows 
+       that the value already represents a hashed value, and stores 
+       it as is in the data store.";
+  }
+
+  typedef Type9-password {
+    type string {
+      pattern '(!.+)|([^!].+)';
+    }
+    description 
+      "The Type9-password type is used to store password using the
+       Script algorithmic encryption.
+       When a clear text value is set to a leaf of this type, the
+       server calculates a password hash and stores the result
+       in the datastore. The password is never stored in clear text.
+
+       When a leaf of this type is read, the stored password hash is
+       returned.
+
+       A value of this type matches one of the forms:
+
+         !<clear text password>
+         <password hash>
+         
+       The '!' prefix signals that the value is clear text. When
+       such a value is received by the server, a hash value is
+       calculated. This value is stored in the configuration data 
+       store.
+
+       If a value starting without '!' is received, the server knows 
+       that the value already represents a hashed value, and stores 
+       it as is in the data store.";
+  }
+
   typedef Proprietary-password {
     type string {
       pattern '(!.+)|([^!].+)';
@@ -488,5 +552,16 @@ module Cisco-IOS-XR-types {
   typedef Rpl-set{
     type string;
     description "RPL Set info";
+  }
+
+  typedef Physical-allowed-node-id {
+    type uint32;
+    description "A physical location encoded as a 32-bit value.";
+  }
+ 
+  typedef Physical-allowed-node-id-string {
+    type string;
+    description "A physical location which is represented internally" +
+        "using string format (eg: 0_6_CPU0).";
   }
 }

@@ -39,7 +39,7 @@ module Cisco-IOS-XR-fretta-bcm-dpa-npu-stats-oper {
      for the following management objects:
        dpa: Stats Data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

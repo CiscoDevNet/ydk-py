@@ -43,7 +43,7 @@ module Cisco-IOS-XR-iedge4710-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -60,9 +60,14 @@ module Cisco-IOS-XR-iedge4710-cfg {
 
       container send-stop {
         description "Accounting send stop feature";
-        leaf setup-failure {
-          type string;
-          description "Set up failure feature";
+
+        container setup-failure {
+          description "Setup failure feature";
+          leaf method-list-name {
+            type string;
+            description
+              "AAA List name either default or preconfigured";
+          }
         }
       }
 

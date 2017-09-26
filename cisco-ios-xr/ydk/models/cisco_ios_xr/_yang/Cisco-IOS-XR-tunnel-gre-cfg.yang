@@ -38,8 +38,13 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-05-25" {
     description
@@ -51,6 +56,19 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Tunnel-mode-direction {
+    type enumeration {
+      enum decap {
+        value 1;
+        description "Decap-only tunnel";
+      }
+      enum encap {
+        value 2;
+        description "Encap-only tunnel";
+      }
+    }
+    description "Tunnel mode direction";
+  }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
 
@@ -65,9 +83,9 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
             "GRE IPV4 - 1, GRE IPV6 - 2, MGRE IPV4 - 3,
             MGRE IPV6 -4. IPV4 - 5, IPV6 - 6";
         }
-        leaf decap {
-          type empty;
-          description "Always set to true";
+        leaf mode-direction {
+          type Tunnel-mode-direction;
+          description "Tunnel Mode Direction";
         }
       }
 

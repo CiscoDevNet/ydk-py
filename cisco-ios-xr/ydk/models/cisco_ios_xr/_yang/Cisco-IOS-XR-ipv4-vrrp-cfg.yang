@@ -42,8 +42,18 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-19" {
+    description
+      "Marked delay leafs min-delay and reload-delay as mandatory.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-16" {
     description
@@ -316,12 +326,14 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
         }
 
         container delay {
+          presence "Indicates a delay node is configured.";
           description "Minimum and Reload Delay";
           leaf min-delay {
             type uint32 {
               range "0..10000";
             }
             units "second";
+            mandatory true;
             description "Minimum delay in seconds";
           }
           leaf reload-delay {
@@ -329,6 +341,7 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
               range "0..10000";
             }
             units "second";
+            mandatory true;
             description "Reload delay in seconds";
           }
         }

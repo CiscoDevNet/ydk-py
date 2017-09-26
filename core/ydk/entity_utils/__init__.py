@@ -14,12 +14,10 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 
-from ydk.ext.entity_utils import get_relative_entity_path
 from ydk.ext.entity_utils import get_data_node_from_entity
 from ydk.ext.entity_utils import get_entity_from_data_node
 from ydk.ext.entity_utils import XmlSubtreeCodec
 
-__all__ = [ "get_relative_entity_path",
-            "get_data_node_from_entity",
+__all__ = [ "get_data_node_from_entity",
             "get_entity_from_data_node",
             "XmlSubtreeCodec"]

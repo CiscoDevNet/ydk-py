@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-dhcpd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -356,6 +356,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     leaf relay-profile-broadcast-flag-policy {
       type uint8;
       description "Broadcast policy";
+    }
+    leaf relay-profile-mac-mismatch-action {
+      type uint8;
+      description "Mac Mismatch Action";
     }
     leaf-list relay-profile-helper-address {
       type inet:ipv4-address;
@@ -784,6 +788,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     leaf waiting-for-dpm-init {
       type uint32;
       description "Number of clients in Init DPM wait state";
+    }
+    leaf waiting-for-dpm-request {
+      type uint32;
+      description "Number of clients in Request DPM wait state";
     }
     leaf waiting-for-daps-init {
       type uint32;

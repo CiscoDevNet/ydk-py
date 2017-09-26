@@ -3,11 +3,10 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -36,7 +35,7 @@ class BgpAddressFamily(Enum):
 
     	IPv4 tunnel
 
-    .. data:: vp_nv4_unicast = 4
+    .. data:: vpnv4_unicast = 4
 
     	VPNv4 unicast
 
@@ -52,15 +51,15 @@ class BgpAddressFamily(Enum):
 
     	IPv6 labeled-unicast
 
-    .. data:: vp_nv6_unicast = 8
+    .. data:: vpnv6_unicast = 8
 
     	VPNv6 unicast
 
-    .. data:: ipv4mdt = 9
+    .. data:: ipv4_mdt = 9
 
     	IPv4 MDT
 
-    .. data:: l2vpnvpls = 10
+    .. data:: l2vpn_vpls = 10
 
     	L2VPN VPLS-VPWS
 
@@ -68,15 +67,15 @@ class BgpAddressFamily(Enum):
 
     	IPv4 rt-filter
 
-    .. data:: ipv4mvpn = 12
+    .. data:: ipv4_mvpn = 12
 
     	IPv4 MVPN
 
-    .. data:: ipv6mvpn = 13
+    .. data:: ipv6_mvpn = 13
 
     	IPv6 MVPN
 
-    .. data:: l2vpnevpn = 14
+    .. data:: l2vpn_evpn = 14
 
     	L2VPN EVPN
 
@@ -84,11 +83,11 @@ class BgpAddressFamily(Enum):
 
     	Link-state link-state
 
-    .. data:: vp_nv4_multicast = 16
+    .. data:: vpnv4_multicast = 16
 
     	VPNv4 Multicast
 
-    .. data:: vp_nv6_multicast = 17
+    .. data:: vpnv6_multicast = 17
 
     	VPNv6 Multicast
 
@@ -100,23 +99,23 @@ class BgpAddressFamily(Enum):
 
     	IPv6 flowspec
 
-    .. data:: vp_nv4_flowspec = 20
+    .. data:: vpnv4_flowspec = 20
 
     	VPNv4 flowspec
 
-    .. data:: vp_nv6_flowspec = 21
+    .. data:: vpnv6_flowspec = 21
 
     	VPNv6 flowspec
 
-    .. data:: l2vpnmspw = 22
+    .. data:: l2vpn_mspw = 22
 
     	L2VPN MSPW
 
-    .. data:: ipv4sr_policy = 23
+    .. data:: ipv4_sr_policy = 23
 
     	IPv4 SRPolicy
 
-    .. data:: ipv6sr_policy = 24
+    .. data:: ipv6_sr_policy = 24
 
     	IPv6 SRPolicy
 
@@ -134,7 +133,7 @@ class BgpAddressFamily(Enum):
 
     ipv4_tunnel = Enum.YLeaf(3, "ipv4-tunnel")
 
-    vp_nv4_unicast = Enum.YLeaf(4, "vp-nv4-unicast")
+    vpnv4_unicast = Enum.YLeaf(4, "vpnv4-unicast")
 
     ipv6_unicast = Enum.YLeaf(5, "ipv6-unicast")
 
@@ -142,39 +141,39 @@ class BgpAddressFamily(Enum):
 
     ipv6_labeled_unicast = Enum.YLeaf(7, "ipv6-labeled-unicast")
 
-    vp_nv6_unicast = Enum.YLeaf(8, "vp-nv6-unicast")
+    vpnv6_unicast = Enum.YLeaf(8, "vpnv6-unicast")
 
-    ipv4mdt = Enum.YLeaf(9, "ipv4mdt")
+    ipv4_mdt = Enum.YLeaf(9, "ipv4-mdt")
 
-    l2vpnvpls = Enum.YLeaf(10, "l2vpnvpls")
+    l2vpn_vpls = Enum.YLeaf(10, "l2vpn-vpls")
 
     ipv4rt_constraint = Enum.YLeaf(11, "ipv4rt-constraint")
 
-    ipv4mvpn = Enum.YLeaf(12, "ipv4mvpn")
+    ipv4_mvpn = Enum.YLeaf(12, "ipv4-mvpn")
 
-    ipv6mvpn = Enum.YLeaf(13, "ipv6mvpn")
+    ipv6_mvpn = Enum.YLeaf(13, "ipv6-mvpn")
 
-    l2vpnevpn = Enum.YLeaf(14, "l2vpnevpn")
+    l2vpn_evpn = Enum.YLeaf(14, "l2vpn-evpn")
 
     lsls = Enum.YLeaf(15, "lsls")
 
-    vp_nv4_multicast = Enum.YLeaf(16, "vp-nv4-multicast")
+    vpnv4_multicast = Enum.YLeaf(16, "vpnv4-multicast")
 
-    vp_nv6_multicast = Enum.YLeaf(17, "vp-nv6-multicast")
+    vpnv6_multicast = Enum.YLeaf(17, "vpnv6-multicast")
 
     ipv4_flowspec = Enum.YLeaf(18, "ipv4-flowspec")
 
     ipv6_flowspec = Enum.YLeaf(19, "ipv6-flowspec")
 
-    vp_nv4_flowspec = Enum.YLeaf(20, "vp-nv4-flowspec")
+    vpnv4_flowspec = Enum.YLeaf(20, "vpnv4-flowspec")
 
-    vp_nv6_flowspec = Enum.YLeaf(21, "vp-nv6-flowspec")
+    vpnv6_flowspec = Enum.YLeaf(21, "vpnv6-flowspec")
 
-    l2vpnmspw = Enum.YLeaf(22, "l2vpnmspw")
+    l2vpn_mspw = Enum.YLeaf(22, "l2vpn-mspw")
 
-    ipv4sr_policy = Enum.YLeaf(23, "ipv4sr-policy")
+    ipv4_sr_policy = Enum.YLeaf(23, "ipv4-sr-policy")
 
-    ipv6sr_policy = Enum.YLeaf(24, "ipv6sr-policy")
+    ipv6_sr_policy = Enum.YLeaf(24, "ipv6-sr-policy")
 
     all_address_family = Enum.YLeaf(25, "all-address-family")
 
@@ -184,6 +183,27 @@ class BgpAdvertiseLocalLabeledRouteCfg(Enum):
     BgpAdvertiseLocalLabeledRouteCfg
 
     Bgp advertise local labeled route cfg
+
+    .. data:: enable = 1
+
+    	Enable
+
+    .. data:: disable = 2
+
+    	Disable
+
+    """
+
+    enable = Enum.YLeaf(1, "enable")
+
+    disable = Enum.YLeaf(2, "disable")
+
+
+class BgpAfAdditionalPathsCfg(Enum):
+    """
+    BgpAfAdditionalPathsCfg
+
+    Bgp af additional paths cfg
 
     .. data:: enable = 1
 
@@ -594,27 +614,6 @@ class BgpUpdateFilterAction(Enum):
     treat_as_withdraw = Enum.YLeaf(1, "treat-as-withdraw")
 
     discard_attibute = Enum.YLeaf(2, "discard-attibute")
-
-
-class BgpafAdditionalPathsCfg(Enum):
-    """
-    BgpafAdditionalPathsCfg
-
-    Bgpaf additional paths cfg
-
-    .. data:: enable = 1
-
-    	Enable
-
-    .. data:: disable = 2
-
-    	Disable
-
-    """
-
-    enable = Enum.YLeaf(1, "enable")
-
-    disable = Enum.YLeaf(2, "disable")
 
 
 

@@ -9,8 +9,6 @@ module Cisco-IOS-XR-ip-icmp-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -34,8 +32,13 @@ module Cisco-IOS-XR-ip-icmp-cfg {
      for the following management objects:
        icmp: IP ICMP configuration data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-08" {
+    description
+      "IOS XR 6.3.1 revision.";
+  }
 
   revision "2015-11-09" {
     description
@@ -56,44 +59,55 @@ module Cisco-IOS-XR-ip-icmp-cfg {
     description "Source policy";
   }
 
+  grouping SOURCE {
+    description "Common node of ipv4, ipv6";
+
+    container source {
+      description "IP ICMP Source Address Selection Policy";
+      leaf source-address-policy {
+        type Source-policy;
+        description "Configure Source Address Policy";
+      }
+    }
+  }
+
+  grouping RATE-LIMIT {
+    description "Common node of ipv4, ipv6";
+
+    container rate-limit {
+      description "Set ratelimit of ICMP packets";
+
+      container unreachable {
+        description "Set unreachable ICMP packets ratelimit";
+        leaf rate {
+          type uint32 {
+            range "0..4294967295";
+          }
+          description "Rate Limit of Unreachable ICMP packets";
+        }
+        leaf fragmentation {
+          type uint32 {
+            range "0..4294967295";
+          }
+          description "Rate Limit of Unreachable DF packets";
+        }
+      }
+    }
+  }
+
   container icmp {
     description "IP ICMP configuration data";
 
-    list ip-protocol {
-      key "protocol-type";
+    container ipv6 {
       description "IP Protocol Type";
+      uses RATE-LIMIT;
+      uses SOURCE;
+    }
 
-      container rate-limit {
-        description "Set ratelimit of ICMP packets";
-
-        container unreachable {
-          description "Set unreachable ICMP packets ratelimit";
-          leaf rate {
-            type uint32 {
-              range "0..4294967295";
-            }
-            description "Rate Limit of Unreachable ICMP paclets";
-          }
-          leaf fragmentation {
-            type uint32 {
-              range "0..4294967295";
-            }
-            description "Rate Limit of Unreachable DF paclets";
-          }
-        }
-      }
-
-      container source {
-        description "IP ICMP Source Address Selection Policy";
-        leaf source-address-policy {
-          type Source-policy;
-          description "Configure Source Address Policy";
-        }
-      }
-      leaf protocol-type {
-        type xr:Cisco-ios-xr-string;
-        description "IP Protocol Type; ipv4 or ipv6";
-      }
+    container ipv4 {
+      description "IP Protocol Type";
+      uses RATE-LIMIT;
+      uses SOURCE;
     }
   }
 }

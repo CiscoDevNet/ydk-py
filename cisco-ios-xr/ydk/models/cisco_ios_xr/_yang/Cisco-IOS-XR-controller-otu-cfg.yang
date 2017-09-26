@@ -10,8 +10,6 @@ module Cisco-IOS-XR-controller-otu-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -37,8 +35,18 @@ module Cisco-IOS-XR-controller-otu-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-03-13" {
+    description
+      "PRBS Config added";
+  }
 
   revision "2015-11-09" {
     description
@@ -122,6 +130,27 @@ module Cisco-IOS-XR-controller-otu-cfg {
     }
     description "Otn send tti type sapi";
   }
+  typedef Otu-mode {
+    type enumeration {
+      enum mode-invalid {
+        value 0;
+        description "prbs Mode Invalid";
+      }
+      enum mode-source {
+        value 1;
+        description "Prbs Mode Source";
+      }
+      enum mode-sink {
+        value 2;
+        description "Prbs Mode Sink";
+      }
+      enum mode-source-sink {
+        value 3;
+        description "Prbs Mode Source_Sink";
+      }
+    }
+    description "Otu mode";
+  }
   typedef Otn-sec-admin-state {
     type enumeration {
       enum normal {
@@ -160,6 +189,39 @@ module Cisco-IOS-XR-controller-otu-cfg {
       }
     }
     description "Otn loopback";
+  }
+  typedef Otu-pattern {
+    type enumeration {
+      enum pattern-none {
+        value 0;
+        description "prbs pattern None";
+      }
+      enum pattern-pn31 {
+        value 1;
+        description "Prbs pattern pn31";
+      }
+      enum pattern-pn23 {
+        value 2;
+        description "Prbs pattern pn23";
+      }
+      enum pattern-pn11 {
+        value 4;
+        description "Prbs pattern pn11";
+      }
+      enum pattern-inverted-pn31 {
+        value 8;
+        description "Prbs pattern inverted pn31";
+      }
+      enum pattern-inverted-pn11 {
+        value 16;
+        description "Prbs pattern inverted pn11";
+      }
+      enum pattern-pn15 {
+        value 32;
+        description "Prbs pattern pn15";
+      }
+    }
+    description "Otu pattern";
   }
   typedef Otn-exp-tti-type-full {
     type enumeration {
@@ -489,6 +551,18 @@ module Cisco-IOS-XR-controller-otu-cfg {
             length "1..14";
           }
           description "SAPI ASCII text (Max 14 characters)";
+        }
+      }
+
+      container prbs {
+        description "Enable Prbs And configure";
+        leaf mode-value {
+          type Otu-mode;
+          description "Mode value";
+        }
+        leaf patternvalue {
+          type Otu-pattern;
+          description "Pattern value";
         }
       }
 

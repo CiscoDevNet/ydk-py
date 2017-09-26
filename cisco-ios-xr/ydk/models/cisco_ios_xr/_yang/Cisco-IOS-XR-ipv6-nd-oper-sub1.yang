@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-nd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -161,6 +161,119 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
       }
     }
     description "IPv6 ND Neighbor Reachability State";
+  }
+
+  grouping IPV6-ND-PREFIX-Q {
+    description "Prefix Queue";
+    leaf prefix-address {
+      type inet:ipv6-address;
+      description "Prefix address";
+    }
+    leaf eui64 {
+      type inet:ipv6-address;
+      description "IPv6 Auto generated address";
+    }
+    leaf valid-life-time {
+      type uint32;
+      description "Valid Life Time";
+    }
+    leaf preferred-life-time {
+      type uint32;
+      description "Preferred Life Time";
+    }
+    leaf prefix-len {
+      type uint32;
+      description "Prefix Length";
+    }
+    leaf flags {
+      type uint32;
+      description "IPv6 Address Specific Flags";
+    }
+    leaf pfx-flags {
+      type uint32;
+      description "Prefix Address Specific Flags";
+    }
+  }
+
+  grouping IPV6-ND-RA-INFO {
+    description "RA Info";
+
+    container elapsed-ra-time {
+      description "elapsedRATime";
+      uses BAG-TIMESPEC;
+    }
+
+    container reachable-time {
+      description "reachabletime";
+      uses BAG-TIMESPEC;
+    }
+
+    container retrans-time {
+      description "retranstime";
+      uses BAG-TIMESPEC;
+    }
+    leaf address {
+      type inet:ipv6-address;
+      description "address";
+    }
+    leaf hops {
+      type uint32;
+      description "hops";
+    }
+    leaf flags {
+      type uint32;
+      description "flags";
+    }
+    leaf life-time {
+      type uint32;
+      description "lifetime";
+    }
+    leaf mtu {
+      type uint32;
+      description "mtu";
+    }
+    leaf err-msg {
+      type boolean;
+      description "errmsg";
+    }
+    leaf vrf-id {
+      type uint32;
+      description "vrf id";
+    }
+    leaf u6-tbl-id {
+      type uint32;
+      description "tbl id";
+    }
+    leaf rib-protoid {
+      type uint16;
+      description "proto id";
+    }
+    leaf default-router {
+      type boolean;
+      description "router";
+    }
+    leaf reachability {
+      type uint32;
+      description "reach";
+    }
+
+    list prefix-q {
+      description "Prefix Queue";
+      uses IPV6-ND-PREFIX-Q;
+    }
+  }
+
+  grouping IPV6-ND-SLAAC-INTFS-INFO {
+    description "Slaac Intfs";
+    leaf idb {
+      type xr:Interface-name;
+      description "idb";
+    }
+
+    list ra {
+      description "slaac db";
+      uses IPV6-ND-RA-INFO;
+    }
   }
 
   grouping IPV6-ND-VR-ENTRY {

@@ -37,12 +37,27 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
      for the following management objects:
        telemetry-model-driven: Model Driven Telemetry configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-02-09" {
+    description
+      "Added DSCP";
+  }
 
   revision "2017-01-30" {
     description
       "Updated version for source-interface/vrf";
+  }
+
+  revision "2016-10-20" {
+    description
+      "Updated version for hierarchy-destinations";
   }
 
   revision "2015-11-09" {
@@ -60,6 +75,10 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
         value 2;
         description "tcp";
       }
+      enum udp {
+        value 3;
+        description "udp";
+      }
     }
     description "Proto type";
   }
@@ -73,8 +92,101 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
         value 3;
         description "SELF DESCRIBING GPB";
       }
+      enum json {
+        value 4;
+        description "JSON";
+      }
     }
     description "Encode type";
+  }
+  typedef Mdt-dscp-value {
+    type enumeration {
+      enum default {
+        value 0;
+        description "Applicable to DSCP: bits 000000";
+      }
+      enum cs1 {
+        value 8;
+        description "Applicable to DSCP: bits 001000";
+      }
+      enum af11 {
+        value 10;
+        description "Applicable to DSCP: bits 001010";
+      }
+      enum af12 {
+        value 12;
+        description "Applicable to DSCP: bits 001100";
+      }
+      enum af13 {
+        value 14;
+        description "Applicable to DSCP: bits 001110";
+      }
+      enum cs2 {
+        value 16;
+        description "Applicable to DSCP: bits 010000";
+      }
+      enum af21 {
+        value 18;
+        description "Applicable to DSCP: bits 010010";
+      }
+      enum af22 {
+        value 20;
+        description "Applicable to DSCP: bits 010100";
+      }
+      enum af23 {
+        value 22;
+        description "Applicable to DSCP: bits 010110";
+      }
+      enum cs3 {
+        value 24;
+        description "Applicable to DSCP: bits 011000";
+      }
+      enum af31 {
+        value 26;
+        description "Applicable to DSCP: bits 011010";
+      }
+      enum af32 {
+        value 28;
+        description "Applicable to DSCP: bits 011100";
+      }
+      enum af33 {
+        value 30;
+        description "Applicable to DSCP: bits 011110";
+      }
+      enum cs4 {
+        value 32;
+        description "Applicable to DSCP: bits 100000";
+      }
+      enum af41 {
+        value 34;
+        description "Applicable to DSCP: bits 100010";
+      }
+      enum af42 {
+        value 36;
+        description "Applicable to DSCP: bits 100100";
+      }
+      enum af43 {
+        value 38;
+        description "Applicable to DSCP: bits 100110";
+      }
+      enum cs5 {
+        value 40;
+        description "Applicable to DSCP: bits 101000";
+      }
+      enum ef {
+        value 46;
+        description "Applicable to DSCP: bits 101110";
+      }
+      enum cs6 {
+        value 48;
+        description "Applicable to DSCP: bits 110000";
+      }
+      enum cs7 {
+        value 56;
+        description "Applicable to DSCP: bits 111000";
+      }
+    }
+    description "Mdt dscp value";
   }
 
   grouping ENCODING {
@@ -195,6 +307,10 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
                 Subscription";
             }
           }
+        }
+        leaf source-qos-marking {
+          type Mdt-dscp-value;
+          description "Outgoing DSCP value";
         }
         leaf source-interface {
           type xr:Interface-name;

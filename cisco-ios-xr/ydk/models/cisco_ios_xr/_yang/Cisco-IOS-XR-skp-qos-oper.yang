@@ -43,7 +43,7 @@ module Cisco-IOS-XR-skp-qos-oper {
        platform-qos: QoS Skywarp platform operational data 
        platform-qos-ea: platform qos ea
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-02-18" {

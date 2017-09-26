@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,12 +27,22 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR telemetry-model-driven package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2017-05-05" {
     description
       "Modified the type for the state variables";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-02-09" {
+    description
+      "Added DSCP";
   }
 
   revision "2017-01-30" {
@@ -47,6 +55,95 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Mdt-source-qos-marking {
+    type enumeration {
+      enum dscp-default {
+        value 0;
+        description "0";
+      }
+      enum dscp-cs1 {
+        value 8;
+        description "8";
+      }
+      enum dscp-af11 {
+        value 10;
+        description "10";
+      }
+      enum dscp-af12 {
+        value 12;
+        description "12";
+      }
+      enum dscp-af13 {
+        value 14;
+        description "14";
+      }
+      enum dscp-cs2 {
+        value 16;
+        description "16";
+      }
+      enum dscp-af21 {
+        value 18;
+        description "18";
+      }
+      enum dscp-af22 {
+        value 20;
+        description "20";
+      }
+      enum dscp-af23 {
+        value 22;
+        description "22";
+      }
+      enum dscp-cs3 {
+        value 24;
+        description "24";
+      }
+      enum dscp-af31 {
+        value 26;
+        description "26";
+      }
+      enum dscp-af32 {
+        value 28;
+        description "28";
+      }
+      enum dscp-af33 {
+        value 30;
+        description "30";
+      }
+      enum dscp-cs4 {
+        value 32;
+        description "32";
+      }
+      enum dscp-af41 {
+        value 34;
+        description "34";
+      }
+      enum dscp-af42 {
+        value 36;
+        description "36";
+      }
+      enum dscp-af43 {
+        value 38;
+        description "38";
+      }
+      enum dscp-cs5 {
+        value 40;
+        description "40";
+      }
+      enum dscp-ef {
+        value 46;
+        description "46";
+      }
+      enum dscp-cs6 {
+        value 48;
+        description "48";
+      }
+      enum dscp-cs7 {
+        value 56;
+        description "56";
+      }
+    }
+    description "DSCP source qos value for subscription";
+  }
   typedef Mdt-subs-state-enum {
     type enumeration {
       enum not-active {
@@ -93,6 +190,22 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
       enum filter-err {
         value 6;
         description "Filter Error";
+      }
+      enum paused {
+        value 7;
+        description "Paused";
+      }
+      enum event-ing-active {
+        value 8;
+        description "Eventing Active";
+      }
+      enum event-ing-not-active {
+        value 9;
+        description "Eventing Not Active";
+      }
+      enum event-ing-err {
+        value 10;
+        description "Eventing Error";
       }
     }
     description "Internal Subscription Path Status";
@@ -285,6 +398,10 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
     leaf state {
       type Mdt-subs-state-enum;
       description "Subscription state";
+    }
+    leaf source-qos-marking {
+      type Mdt-source-qos-marking;
+      description "DSCP";
     }
 
     list sensor-profile {
@@ -593,10 +710,6 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
       type uint32;
       description "UDP MTU if this destination is UDP";
     }
-    leaf dscp {
-      type uint32;
-      description "DSCP setting for this destination";
-    }
     leaf tls {
       type uint32;
       description "TLS connection to this destination";
@@ -619,6 +732,10 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub1 {
     leaf last-collection-time {
       type uint64;
       description "Timestamp of the last collection";
+    }
+    leaf dscp {
+      type uint32;
+      description "DSCP setting for this destination";
     }
     leaf-list sub-id {
       type uint64;

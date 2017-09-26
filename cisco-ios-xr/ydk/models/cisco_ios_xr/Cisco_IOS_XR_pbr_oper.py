@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   pbr\: PBR operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -62,11 +61,16 @@ class Pbr(Entity):
 
         self.yang_name = "pbr"
         self.yang_parent_name = "Cisco-IOS-XR-pbr-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", Pbr.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = Pbr.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr"
 
 
     class Nodes(Entity):
@@ -90,32 +94,17 @@ class Pbr(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "pbr"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", Pbr.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Pbr.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Pbr.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(Pbr.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -146,6 +135,10 @@ class Pbr(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"policy-map" : ("policy_map", Pbr.Nodes.Node.PolicyMap)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -153,30 +146,11 @@ class Pbr(Entity):
                 self.policy_map.parent = self
                 self._children_name_map["policy_map"] = "policy-map"
                 self._children_yang_names.add("policy-map")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Pbr.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Pbr.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(Pbr.Nodes.Node, ['node_name'], name, value)
 
 
             class PolicyMap(Entity):
@@ -200,11 +174,16 @@ class Pbr(Entity):
 
                     self.yang_name = "policy-map"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"interfaces" : ("interfaces", Pbr.Nodes.Node.PolicyMap.Interfaces)}
+                    self._child_list_classes = {}
 
                     self.interfaces = Pbr.Nodes.Node.PolicyMap.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._children_yang_names.add("interfaces")
+                    self._segment_path = lambda: "policy-map"
 
 
                 class Interfaces(Entity):
@@ -228,32 +207,16 @@ class Pbr(Entity):
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "policy-map"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface)}
 
                         self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Pbr.Nodes.Node.PolicyMap.Interfaces, self).__setattr__(name, value)
+                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces, [], name, value)
 
 
                     class Interface(Entity):
@@ -265,7 +228,7 @@ class Pbr(Entity):
                         	Name of the interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: direction
                         
@@ -284,6 +247,10 @@ class Pbr(Entity):
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"direction" : ("direction", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction)}
+                            self._child_list_classes = {}
 
                             self.interface_name = YLeaf(YType.str, "interface-name")
 
@@ -291,30 +258,10 @@ class Pbr(Entity):
                             self.direction.parent = self
                             self._children_name_map["direction"] = "direction"
                             self._children_yang_names.add("direction")
+                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("interface_name") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, self).__setattr__(name, value)
+                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, ['interface_name'], name, value)
 
 
                         class Direction(Entity):
@@ -338,11 +285,16 @@ class Pbr(Entity):
 
                                 self.yang_name = "direction"
                                 self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"input" : ("input", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input)}
+                                self._child_list_classes = {}
 
                                 self.input = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input()
                                 self.input.parent = self
                                 self._children_name_map["input"] = "input"
                                 self._children_yang_names.add("input")
+                                self._segment_path = lambda: "direction"
 
 
                             class Input(Entity):
@@ -392,6 +344,10 @@ class Pbr(Entity):
 
                                     self.yang_name = "input"
                                     self.yang_parent_name = "direction"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"class-stat" : ("class_stat", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat)}
 
                                     self.node_name = YLeaf(YType.str, "node-name")
 
@@ -402,33 +358,10 @@ class Pbr(Entity):
                                     self.state_description = YLeaf(YType.str, "state-description")
 
                                     self.class_stat = YList(self)
+                                    self._segment_path = lambda: "input"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("node_name",
-                                                    "policy_name",
-                                                    "state",
-                                                    "state_description") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, self).__setattr__(name, value)
+                                    self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, ['node_name', 'policy_name', 'state', 'state_description'], name, value)
 
 
                                 class ClassStat(Entity):
@@ -480,6 +413,10 @@ class Pbr(Entity):
 
                                         self.yang_name = "class-stat"
                                         self.yang_parent_name = "input"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"general-stats" : ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats), "httpr-stats" : ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats)}
+                                        self._child_list_classes = {}
 
                                         self.class_id = YLeaf(YType.uint32, "class-id")
 
@@ -496,32 +433,10 @@ class Pbr(Entity):
                                         self.httpr_stats.parent = self
                                         self._children_name_map["httpr_stats"] = "httpr-stats"
                                         self._children_yang_names.add("httpr-stats")
+                                        self._segment_path = lambda: "class-stat"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("class_id",
-                                                        "class_name",
-                                                        "counter_validity_bitmask") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, self).__setattr__(name, value)
+                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['class_id', 'class_name', 'counter_validity_bitmask'], name, value)
 
 
                                     class GeneralStats(Entity):
@@ -619,6 +534,10 @@ class Pbr(Entity):
 
                                             self.yang_name = "general-stats"
                                             self.yang_parent_name = "class-stat"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
                                             self.match_data_rate = YLeaf(YType.uint32, "match-data-rate")
 
@@ -637,149 +556,10 @@ class Pbr(Entity):
                                             self.transmit_bytes = YLeaf(YType.uint64, "transmit-bytes")
 
                                             self.transmit_packets = YLeaf(YType.uint64, "transmit-packets")
+                                            self._segment_path = lambda: "general-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("match_data_rate",
-                                                            "pre_policy_matched_bytes",
-                                                            "pre_policy_matched_packets",
-                                                            "total_drop_bytes",
-                                                            "total_drop_packets",
-                                                            "total_drop_rate",
-                                                            "total_transmit_rate",
-                                                            "transmit_bytes",
-                                                            "transmit_packets") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, self).__setattr__(name, value)
-
-                                        def has_data(self):
-                                            return (
-                                                self.match_data_rate.is_set or
-                                                self.pre_policy_matched_bytes.is_set or
-                                                self.pre_policy_matched_packets.is_set or
-                                                self.total_drop_bytes.is_set or
-                                                self.total_drop_packets.is_set or
-                                                self.total_drop_rate.is_set or
-                                                self.total_transmit_rate.is_set or
-                                                self.transmit_bytes.is_set or
-                                                self.transmit_packets.is_set)
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.match_data_rate.yfilter != YFilter.not_set or
-                                                self.pre_policy_matched_bytes.yfilter != YFilter.not_set or
-                                                self.pre_policy_matched_packets.yfilter != YFilter.not_set or
-                                                self.total_drop_bytes.yfilter != YFilter.not_set or
-                                                self.total_drop_packets.yfilter != YFilter.not_set or
-                                                self.total_drop_rate.yfilter != YFilter.not_set or
-                                                self.total_transmit_rate.yfilter != YFilter.not_set or
-                                                self.transmit_bytes.yfilter != YFilter.not_set or
-                                                self.transmit_packets.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "general-stats" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.match_data_rate.is_set or self.match_data_rate.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.match_data_rate.get_name_leafdata())
-                                            if (self.pre_policy_matched_bytes.is_set or self.pre_policy_matched_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.pre_policy_matched_bytes.get_name_leafdata())
-                                            if (self.pre_policy_matched_packets.is_set or self.pre_policy_matched_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.pre_policy_matched_packets.get_name_leafdata())
-                                            if (self.total_drop_bytes.is_set or self.total_drop_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.total_drop_bytes.get_name_leafdata())
-                                            if (self.total_drop_packets.is_set or self.total_drop_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.total_drop_packets.get_name_leafdata())
-                                            if (self.total_drop_rate.is_set or self.total_drop_rate.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.total_drop_rate.get_name_leafdata())
-                                            if (self.total_transmit_rate.is_set or self.total_transmit_rate.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.total_transmit_rate.get_name_leafdata())
-                                            if (self.transmit_bytes.is_set or self.transmit_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.transmit_bytes.get_name_leafdata())
-                                            if (self.transmit_packets.is_set or self.transmit_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.transmit_packets.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "match-data-rate" or name == "pre-policy-matched-bytes" or name == "pre-policy-matched-packets" or name == "total-drop-bytes" or name == "total-drop-packets" or name == "total-drop-rate" or name == "total-transmit-rate" or name == "transmit-bytes" or name == "transmit-packets"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "match-data-rate"):
-                                                self.match_data_rate = value
-                                                self.match_data_rate.value_namespace = name_space
-                                                self.match_data_rate.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "pre-policy-matched-bytes"):
-                                                self.pre_policy_matched_bytes = value
-                                                self.pre_policy_matched_bytes.value_namespace = name_space
-                                                self.pre_policy_matched_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "pre-policy-matched-packets"):
-                                                self.pre_policy_matched_packets = value
-                                                self.pre_policy_matched_packets.value_namespace = name_space
-                                                self.pre_policy_matched_packets.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "total-drop-bytes"):
-                                                self.total_drop_bytes = value
-                                                self.total_drop_bytes.value_namespace = name_space
-                                                self.total_drop_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "total-drop-packets"):
-                                                self.total_drop_packets = value
-                                                self.total_drop_packets.value_namespace = name_space
-                                                self.total_drop_packets.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "total-drop-rate"):
-                                                self.total_drop_rate = value
-                                                self.total_drop_rate.value_namespace = name_space
-                                                self.total_drop_rate.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "total-transmit-rate"):
-                                                self.total_transmit_rate = value
-                                                self.total_transmit_rate.value_namespace = name_space
-                                                self.total_transmit_rate.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "transmit-bytes"):
-                                                self.transmit_bytes = value
-                                                self.transmit_bytes.value_namespace = name_space
-                                                self.transmit_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "transmit-packets"):
-                                                self.transmit_packets = value
-                                                self.transmit_packets.value_namespace = name_space
-                                                self.transmit_packets.value_namespace_prefix = name_space_prefix
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['match_data_rate', 'pre_policy_matched_bytes', 'pre_policy_matched_packets', 'total_drop_bytes', 'total_drop_packets', 'total_drop_rate', 'total_transmit_rate', 'transmit_bytes', 'transmit_packets'], name, value)
 
 
                                     class HttprStats(Entity):
@@ -846,6 +626,10 @@ class Pbr(Entity):
 
                                             self.yang_name = "httpr-stats"
                                             self.yang_parent_name = "class-stat"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {}
 
                                             self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
 
@@ -858,661 +642,10 @@ class Pbr(Entity):
                                             self.rqst_rcvd_bytes = YLeaf(YType.uint64, "rqst-rcvd-bytes")
 
                                             self.rqst_rcvd_packets = YLeaf(YType.uint64, "rqst-rcvd-packets")
+                                            self._segment_path = lambda: "httpr-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("drop_bytes",
-                                                            "drop_packets",
-                                                            "resp_sent_bytes",
-                                                            "resp_sent_packets",
-                                                            "rqst_rcvd_bytes",
-                                                            "rqst_rcvd_packets") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, self).__setattr__(name, value)
-
-                                        def has_data(self):
-                                            return (
-                                                self.drop_bytes.is_set or
-                                                self.drop_packets.is_set or
-                                                self.resp_sent_bytes.is_set or
-                                                self.resp_sent_packets.is_set or
-                                                self.rqst_rcvd_bytes.is_set or
-                                                self.rqst_rcvd_packets.is_set)
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.drop_bytes.yfilter != YFilter.not_set or
-                                                self.drop_packets.yfilter != YFilter.not_set or
-                                                self.resp_sent_bytes.yfilter != YFilter.not_set or
-                                                self.resp_sent_packets.yfilter != YFilter.not_set or
-                                                self.rqst_rcvd_bytes.yfilter != YFilter.not_set or
-                                                self.rqst_rcvd_packets.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "httpr-stats" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.drop_bytes.is_set or self.drop_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.drop_bytes.get_name_leafdata())
-                                            if (self.drop_packets.is_set or self.drop_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.drop_packets.get_name_leafdata())
-                                            if (self.resp_sent_bytes.is_set or self.resp_sent_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.resp_sent_bytes.get_name_leafdata())
-                                            if (self.resp_sent_packets.is_set or self.resp_sent_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.resp_sent_packets.get_name_leafdata())
-                                            if (self.rqst_rcvd_bytes.is_set or self.rqst_rcvd_bytes.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.rqst_rcvd_bytes.get_name_leafdata())
-                                            if (self.rqst_rcvd_packets.is_set or self.rqst_rcvd_packets.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.rqst_rcvd_packets.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "drop-bytes" or name == "drop-packets" or name == "resp-sent-bytes" or name == "resp-sent-packets" or name == "rqst-rcvd-bytes" or name == "rqst-rcvd-packets"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "drop-bytes"):
-                                                self.drop_bytes = value
-                                                self.drop_bytes.value_namespace = name_space
-                                                self.drop_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "drop-packets"):
-                                                self.drop_packets = value
-                                                self.drop_packets.value_namespace = name_space
-                                                self.drop_packets.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "resp-sent-bytes"):
-                                                self.resp_sent_bytes = value
-                                                self.resp_sent_bytes.value_namespace = name_space
-                                                self.resp_sent_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "resp-sent-packets"):
-                                                self.resp_sent_packets = value
-                                                self.resp_sent_packets.value_namespace = name_space
-                                                self.resp_sent_packets.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "rqst-rcvd-bytes"):
-                                                self.rqst_rcvd_bytes = value
-                                                self.rqst_rcvd_bytes.value_namespace = name_space
-                                                self.rqst_rcvd_bytes.value_namespace_prefix = name_space_prefix
-                                            if(value_path == "rqst-rcvd-packets"):
-                                                self.rqst_rcvd_packets = value
-                                                self.rqst_rcvd_packets.value_namespace = name_space
-                                                self.rqst_rcvd_packets.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        return (
-                                            self.class_id.is_set or
-                                            self.class_name.is_set or
-                                            self.counter_validity_bitmask.is_set or
-                                            (self.general_stats is not None and self.general_stats.has_data()) or
-                                            (self.httpr_stats is not None and self.httpr_stats.has_data()))
-
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.class_id.yfilter != YFilter.not_set or
-                                            self.class_name.yfilter != YFilter.not_set or
-                                            self.counter_validity_bitmask.yfilter != YFilter.not_set or
-                                            (self.general_stats is not None and self.general_stats.has_operation()) or
-                                            (self.httpr_stats is not None and self.httpr_stats.has_operation()))
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "class-stat" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-                                        if (self.class_id.is_set or self.class_id.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.class_id.get_name_leafdata())
-                                        if (self.class_name.is_set or self.class_name.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.class_name.get_name_leafdata())
-                                        if (self.counter_validity_bitmask.is_set or self.counter_validity_bitmask.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.counter_validity_bitmask.get_name_leafdata())
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "general-stats"):
-                                            if (self.general_stats is None):
-                                                self.general_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats()
-                                                self.general_stats.parent = self
-                                                self._children_name_map["general_stats"] = "general-stats"
-                                            return self.general_stats
-
-                                        if (child_yang_name == "httpr-stats"):
-                                            if (self.httpr_stats is None):
-                                                self.httpr_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats()
-                                                self.httpr_stats.parent = self
-                                                self._children_name_map["httpr_stats"] = "httpr-stats"
-                                            return self.httpr_stats
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "general-stats" or name == "httpr-stats" or name == "class-id" or name == "class-name" or name == "counter-validity-bitmask"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "class-id"):
-                                            self.class_id = value
-                                            self.class_id.value_namespace = name_space
-                                            self.class_id.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "class-name"):
-                                            self.class_name = value
-                                            self.class_name.value_namespace = name_space
-                                            self.class_name.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "counter-validity-bitmask"):
-                                            self.counter_validity_bitmask = value
-                                            self.counter_validity_bitmask.value_namespace = name_space
-                                            self.counter_validity_bitmask.value_namespace_prefix = name_space_prefix
-
-                                def has_data(self):
-                                    for c in self.class_stat:
-                                        if (c.has_data()):
-                                            return True
-                                    return (
-                                        self.node_name.is_set or
-                                        self.policy_name.is_set or
-                                        self.state.is_set or
-                                        self.state_description.is_set)
-
-                                def has_operation(self):
-                                    for c in self.class_stat:
-                                        if (c.has_operation()):
-                                            return True
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.node_name.yfilter != YFilter.not_set or
-                                        self.policy_name.yfilter != YFilter.not_set or
-                                        self.state.yfilter != YFilter.not_set or
-                                        self.state_description.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "input" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.node_name.get_name_leafdata())
-                                    if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.policy_name.get_name_leafdata())
-                                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.state.get_name_leafdata())
-                                    if (self.state_description.is_set or self.state_description.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.state_description.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "class-stat"):
-                                        for c in self.class_stat:
-                                            segment = c.get_segment_path()
-                                            if (segment_path == segment):
-                                                return c
-                                        c = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat()
-                                        c.parent = self
-                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                        self._local_refs[local_reference_key] = c
-                                        self.class_stat.append(c)
-                                        return c
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "class-stat" or name == "node-name" or name == "policy-name" or name == "state" or name == "state-description"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "node-name"):
-                                        self.node_name = value
-                                        self.node_name.value_namespace = name_space
-                                        self.node_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "policy-name"):
-                                        self.policy_name = value
-                                        self.policy_name.value_namespace = name_space
-                                        self.policy_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "state"):
-                                        self.state = value
-                                        self.state.value_namespace = name_space
-                                        self.state.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "state-description"):
-                                        self.state_description = value
-                                        self.state_description.value_namespace = name_space
-                                        self.state_description.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                return (self.input is not None and self.input.has_data())
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    (self.input is not None and self.input.has_operation()))
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "direction" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "input"):
-                                    if (self.input is None):
-                                        self.input = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input()
-                                        self.input.parent = self
-                                        self._children_name_map["input"] = "input"
-                                    return self.input
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "input"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-                        def has_data(self):
-                            return (
-                                self.interface_name.is_set or
-                                (self.direction is not None and self.direction.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.interface_name.yfilter != YFilter.not_set or
-                                (self.direction is not None and self.direction.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.interface_name.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "direction"):
-                                if (self.direction is None):
-                                    self.direction = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction()
-                                    self.direction.parent = self
-                                    self._children_name_map["direction"] = "direction"
-                                return self.direction
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "direction" or name == "interface-name"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "interface-name"):
-                                self.interface_name = value
-                                self.interface_name.value_namespace = name_space
-                                self.interface_name.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.interface:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.interface:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "interfaces" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "interface"):
-                            for c in self.interface:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.interface.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (self.interfaces is not None and self.interfaces.has_data())
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.interfaces is not None and self.interfaces.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "policy-map" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "interfaces"):
-                        if (self.interfaces is None):
-                            self.interfaces = Pbr.Nodes.Node.PolicyMap.Interfaces()
-                            self.interfaces.parent = self
-                            self._children_name_map["interfaces"] = "interfaces"
-                        return self.interfaces
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interfaces"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.policy_map is not None and self.policy_map.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.policy_map is not None and self.policy_map.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-pbr-oper:pbr/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "policy-map"):
-                    if (self.policy_map is None):
-                        self.policy_map = Pbr.Nodes.Node.PolicyMap()
-                        self.policy_map.parent = self
-                        self._children_name_map["policy_map"] = "policy-map"
-                    return self.policy_map
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "policy-map" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-pbr-oper:pbr/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Pbr.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-pbr-oper:pbr" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = Pbr.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['drop_bytes', 'drop_packets', 'resp_sent_bytes', 'resp_sent_packets', 'rqst_rcvd_bytes', 'rqst_rcvd_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pbr()

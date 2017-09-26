@@ -43,7 +43,7 @@ module Cisco-IOS-XR-fretta-bcm-dpa-resources-oper {
      for the following management objects:
        dpa: Stats Data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -65,7 +65,7 @@ module Cisco-IOS-XR-fretta-bcm-dpa-resources-oper {
   }
   typedef Max-re-source-s-table {
     type uint32 {
-      range "0..109";
+      range "0..124";
     }
     description "Max re source s table";
   }

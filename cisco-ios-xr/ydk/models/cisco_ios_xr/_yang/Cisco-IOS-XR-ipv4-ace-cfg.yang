@@ -36,6 +36,16 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
      Copyright (c) 2013, 2015-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision "2017-06-08" {
+      description
+        "6.3.1 fragment-type revision";
+  }
+
+  revision "2017-05-11" {
+    description
+      "6.3.1 revision";
+  }
+
   revision "2016-11-07" {
     description
       "6.2.1 revision";
@@ -288,6 +298,12 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       }
     }
 
+    leaf fragment-type {
+      type ipv4-acl-dt:Ipv4-acl-frag-flags;
+      description "Fragment flags, such as dont-fragment, is-fragment,
+                   first-fragment and last-fragment."; 
+    }
+
     container next-hop {
       description "Next-hop settings.";
       leaf next-hop-type {
@@ -405,7 +421,12 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       type ipv4-acl-dt:Ipv4-acl-qos-group-number; 
       description "Set qos-group number";
     }
-    
+   
+    leaf set-ttl {
+      type ipv4-acl-dt:Ipv4-acl-ttl-range;
+      description "Set TTL Value. Ranges from 0-255";
+    }
+ 
     leaf fragments {
       when "../protocol = '1' or ../protocol = 'icmp' or " +
            "../protocol = '2' or ../protocol = 'igmp' or " +
@@ -460,6 +481,6 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       }
       description "Sequence String for the ace.";
     }
-    
+
   } 
 }

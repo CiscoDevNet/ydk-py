@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR icpe-sdacp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -52,10 +52,6 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
       }
     }
     description "Dpm proto host state";
-  }
-  typedef Xr-yang-string {
-    type string;
-    description "Xr yang string";
   }
   typedef Dpm-proto-state {
     type enumeration {
@@ -82,6 +78,10 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
       }
     }
     description "Dpm proto state";
+  }
+  typedef Xr-yang-string {
+    type string;
+    description "Xr yang string";
   }
 
   grouping ICPE-YANG-CAPABILITIES-TLV-TYPE {
@@ -149,7 +149,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
   grouping DPM-OPER-SAT-TYPE {
     description "DPM OPER SAT TYPE";
     leaf satellite-id {
-      type uint32;
+      type uint16;
       description "Satellite ID";
     }
     leaf satellite-interface-id {
@@ -286,9 +286,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
   grouping DPM-OPER-IF {
     description "ICPE DPM operational information";
     leaf discovery-interface-xr {
-      type string {
-        length "0..64";
-      }
+      type Xr-yang-string;
       description "Discovery interface";
     }
     leaf discovery-interface-handle {

@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ip-rip-cfg {
      for the following management objects:
        rip: RIP configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -168,33 +168,34 @@ module Cisco-IOS-XR-ip-rip-cfg {
     description "Common node of default-vrf, vrf";
 
     container timers {
+      presence "Indicates a timers node is configured.";
       description "Various routing timers";
       leaf update-timer {
         type uint32 {
           range "5..50000";
         }
-        default "30";
+        mandatory true;
         description "Interval between updates";
       }
       leaf invalid-timer {
         type uint32 {
           range "15..200000";
         }
-        default "180";
+        mandatory true;
         description "Invalid";
       }
       leaf holddown-timer {
         type uint32 {
           range "15..200000";
         }
-        default "180";
+        mandatory true;
         description "Holddown";
       }
       leaf flush-timer {
         type uint32 {
           range "16..250000";
         }
-        default "240";
+        mandatory true;
         description "Flush";
       }
     }

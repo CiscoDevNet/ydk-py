@@ -15,12 +15,14 @@
 # ------------------------------------------------------------------
 
 from .codec_provider import CodecServiceProvider
+from ydk.ext.providers import ServiceProvider
 from ydk.ext.providers import NetconfServiceProvider
 from ydk.ext.providers import RestconfServiceProvider
 from ydk.ext.providers import OpenDaylightServiceProvider
 
 
-__all__ = [ "CodecServiceProvider",
+__all__ = [ "ServiceProvider",
+            "CodecServiceProvider",
             "NetconfServiceProvider",
             "RestconfServiceProvider",
             "OpenDaylightServiceProvider" ]

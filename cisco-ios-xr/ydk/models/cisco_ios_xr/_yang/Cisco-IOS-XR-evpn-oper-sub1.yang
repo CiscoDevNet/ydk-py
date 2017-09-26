@@ -31,31 +31,19 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR evpn package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
       "IOS XR 6.0 revision.";
   }
 
-  typedef L2vpn-evpn-sc {
-    type enumeration {
-      enum not-applicable {
-        description "Service Carving does not apply";
-      }
-      enum evi {
-        description "Service Carving by EVI";
-      }
-      enum isid {
-        description "Service Carving by ISID";
-      }
-      enum evpn-bag-sc-type-max {
-        description "evpn bag sc type max";
-      }
-    }
-    description "EVPN Ethernet-Segment service carving type";
-  }
   typedef L2vpn-evpn-sc-mode {
     type enumeration {
       enum invalid {
@@ -145,19 +133,22 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
     description "L2vpn evpn rt origin";
   }
-  typedef L2vpn-rg-state {
+  typedef L2vpn-rg-role {
     type enumeration {
-      enum unknown {
-        description "Not defined";
+      enum l2vpn-rg-role-not-defined {
+        description "l2vpn rg role not defined";
       }
-      enum active {
-        description "Active";
+      enum l2vpn-rg-role-active {
+        description "l2vpn rg role active";
       }
-      enum standby {
-        description "Standby";
+      enum l2vpn-rg-role-standby {
+        description "l2vpn rg role standby";
+      }
+      enum l2vpn-rg-role-max {
+        description "l2vpn rg role max";
       }
     }
-    description "L2vpn rg state";
+    description "L2vpn rg role";
   }
   typedef L2vpn-evpn-esi {
     type enumeration {
@@ -305,6 +296,22 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
   }
 
+  grouping L2VPN-EVPN-EAD-SERVICE-INFO {
+    description "L2VPN EVPN EAD Ethernet Tag";
+    leaf vpn-id {
+      type uint32;
+      description "VPN ID";
+    }
+    leaf type {
+      type L2vpn-evpn;
+      description "Service Type";
+    }
+    leaf ethernet-tag {
+      type uint32;
+      description "Ethernet Tag";
+    }
+  }
+
   grouping L2VPN-EVPN-ES-NH-BUFFER {
     description
       "L2VPN EVPN Ethernet Segment (ES) nexthops
@@ -334,7 +341,7 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description "Main port ifhandle";
     }
     leaf main-port-role {
-      type L2vpn-rg-state;
+      type L2vpn-rg-role;
       description "Main port redundancy group role";
     }
     leaf main-port-mac {
@@ -427,52 +434,92 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type uint32;
       description "Count of Forwarders (AC, AC PW, VFI PW)";
     }
+    leaf permanent-forwarder-ports {
+      type uint32;
+      description "Count of Forwarders with permanent service";
+    }
+    leaf elected-forwarder-ports {
+      type uint32;
+      description "Count of Forwarders with elected service";
+    }
+    leaf not-elected-forwarder-ports {
+      type uint32;
+      description "Count of Forwarders with not elected service";
+    }
+    leaf not-config-forwarder-ports {
+      type uint32;
+      description
+        "Count of forwarders with missing config detected";
+    }
     leaf mp-protected {
       type boolean;
       description "MP is protected and not under EVPN control";
     }
-    leaf service-carving-type {
-      type L2vpn-evpn-sc;
-      description "Service Carving Type";
+    leaf nve-anycast-vtep {
+      type boolean;
+      description "Anycast VTEP mode on NVE main-interface";
     }
-    leaf elected-d-fs {
-      type uint32;
-      description "Count of service carving results - elected";
-    }
-    leaf not-elected-d-fs {
-      type uint32;
-      description "Count of service carving results - not elected";
-    }
-    leaf not-config-d-fs {
-      type uint32;
+    leaf nve-ingress-replication {
+      type boolean;
       description
-        "Count of service carving results - missing
-        config detected";
+        "Ingress-Replication is configured on NVE
+        main-interface";
     }
     leaf local-split-horizon-group-label {
       type uint32;
       description "Local split horizon group label";
     }
-    leaf-list ethernet-segment-identifier {
-      type uint8;
+    list ethernet-segment-identifier {
       description "Ethernet Segment id";
+        leaf entry {
+                  type uint8;
+        }
     }
-    leaf-list primary-service {
-      type uint32;
+    list primary-service {
       description "List of Primary services ESI/I-SIDs";
+        leaf entry {
+                  type uint32;
+        }
     }
-    leaf-list secondary-service {
-      type uint32;
+    list secondary-service {
       description "List of Secondary services ESI/I-SIDs";
+        leaf entry {
+                  type uint32;
+        }
     }
-    leaf-list service-carving-result {
-      type uint32;
-      description "Service carving results";
+    list service-carving-i-sidelected-result {
+      description "Elected ISID service carving results";
+        leaf entry {
+                  type uint32;
+        }
+    }
+    list service-carving-isid-not-elected-result {
+      description "Not elected ISID service carving results";
+        leaf entry {
+                  type uint32;
+        }
+    }
+    list service-carving-evi-elected-result {
+      description "Elected EVI service carving results";
+        leaf entry {
+                  type uint32;
+        }
+    }
+    list service-carving-evi-not-elected-result {
+      description "Not elected EVI service carving results";
+        leaf entry {
+                  type uint32;
+        }
     }
 
     list next-hop {
       description "List of nexthop IPv6 addresses";
       uses L2VPN-EVPN-ES-NH-BUFFER;
+    }
+
+    list service-carving-vpws-permanent-result {
+      description "Permanent EVPN VPWS service carving results";
+      uses L2VPN-EVPN-EAD-SERVICE-INFO;
     }
 
     list remote-split-horizon-group-label {
@@ -573,17 +620,28 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Internal Label has resolved per-ES EAD and
         per-EVI EAD or MAC routes";
     }
-    leaf is-static {
+    leaf local-is-static {
       type boolean;
-      description "Indication if MAC is statically configured";
+      description
+        "Indication if Local MAC is statically configured";
     }
-    leaf-list local-ethernet-segment-identifier {
-      type uint8;
+    leaf remote-is-static {
+      type boolean;
+      description
+        "Indication if Remote MAC is statically
+        configured";
+    }
+    list local-ethernet-segment-identifier {
       description "Local Ethernet Segment id";
+        leaf entry {
+                  type uint8;
+        }
     }
-    leaf-list remote-ethernet-segment-identifier {
-      type uint8;
+    list remote-ethernet-segment-identifier {
       description "Remote Ethernet Segment id";
+        leaf entry {
+                  type uint8;
+        }
     }
 
     list path-buffer {
@@ -651,7 +709,7 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
     leaf encap-type {
       type uint8;
-      description "Encap type of IMCAST";
+      description "Encap type of local or remote IMCAST route";
     }
   }
 
@@ -664,6 +722,12 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     leaf output-label {
       type uint32;
       description "Output Label";
+    }
+    leaf srte-tunnel {
+      type xr:Interface-name;
+      description
+        "Segment-Routing Traffic Engineering Tunnel
+        Interface Handle";
     }
   }
 
@@ -709,9 +773,11 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type uint32;
       description " Number of items in path list buffer";
     }
-    leaf-list ethernet-segment-identifier {
-      type uint8;
+    list ethernet-segment-identifier {
       description "Ethernet Segment id";
+        leaf entry {
+                  type uint8;
+        }
     }
 
     list path-buffer {
@@ -1108,6 +1174,37 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type uint32;
       units "second";
       description "EVPN ES Recovery Time (seconds)";
+    }
+    leaf mac-secure-move-count {
+      type uint32;
+      description
+        "Number of moves within the move interval before
+        locking the MAC";
+    }
+    leaf mac-secure-move-interval {
+      type uint32;
+      description
+        "Interval to watch for subsequent mac moves
+        before locking the MAC";
+    }
+    leaf mac-secure-freeze-time {
+      type uint32;
+      description
+        "Length of time to lock the mac after a MAC
+        security violation";
+    }
+    leaf mac-secure-retry-count {
+      type uint32;
+      description "Number of times to retry after a MAC un-freezes";
+    }
+    leaf cost-out {
+      type boolean;
+      description "EVPN Node Cost-out";
+    }
+    leaf startup-cost-in-time {
+      type uint32;
+      units "minute";
+      description "EVPN Node startup cost-in Time (minutes)";
     }
     leaf l2rib-throttle {
       type boolean;

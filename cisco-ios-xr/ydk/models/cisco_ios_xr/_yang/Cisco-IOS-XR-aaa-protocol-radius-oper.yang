@@ -19,11 +19,11 @@ module Cisco-IOS-XR-aaa-protocol-radius-oper {
   import Cisco-IOS-XR-aaa-locald-oper { prefix "a1"; }
 
   include Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-aaa-protocol-radius-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -53,8 +53,13 @@ module Cisco-IOS-XR-aaa-protocol-radius-oper {
        Cisco-IOS-XR-aaa-locald-oper
      module with state data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description

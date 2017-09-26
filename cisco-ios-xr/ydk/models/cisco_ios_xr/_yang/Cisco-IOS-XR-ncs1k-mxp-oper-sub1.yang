@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,7 +25,7 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ncs1k-mxp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -63,6 +61,48 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
       }
     }
     description "Hw module slice status";
+  }
+  typedef Trunk-data-rate {
+    type enumeration {
+      enum fifty-gig {
+        value 1;
+        description "FiftyGig";
+      }
+      enum hundred-gig {
+        value 2;
+        description "HundredGig";
+      }
+      enum two-hundred-gig {
+        value 3;
+        description "TwoHundredGig";
+      }
+      enum two-hundred-fifty-gig {
+        value 4;
+        description "TwoHundredFiftyGig";
+      }
+    }
+    description "Trunk data rate";
+  }
+  typedef Client-data-rate {
+    type enumeration {
+      enum ten-gig {
+        value 1;
+        description "Ten Gig";
+      }
+      enum forty-gig {
+        value 2;
+        description "Forty Gig";
+      }
+      enum hundred-gig {
+        value 3;
+        description "Hundread Gig";
+      }
+      enum ten-and-hundred-gig {
+        value 4;
+        description "Ten and Hundread Gig";
+      }
+    }
+    description "Client data rate";
   }
 
   grouping HW-MODULE-SLICE-CLIENT-TRAFFIC-SPLIT-INFO-B {
@@ -111,11 +151,11 @@ submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
       description "SliceId";
     }
     leaf client-rate {
-      type uint32;
+      type Client-data-rate;
       description "ClientRate";
     }
     leaf trunk-rate {
-      type uint32;
+      type Trunk-data-rate;
       description "TrunkRate";
     }
     leaf hardware-status {

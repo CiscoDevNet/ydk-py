@@ -40,7 +40,7 @@ module Cisco-IOS-XR-ip-mobileip-oper {
      for the following management objects:
        pmipv6: Proxy Mobile IPv6
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-03-10" {
@@ -76,6 +76,11 @@ module Cisco-IOS-XR-ip-mobileip-oper {
             }
             uses PMIPV6-SHOW-LMA-CUST-STATS-BD;
           }
+        }
+
+        container license {
+          description "LMA License Statistics";
+          uses PMIPV6-SHOW-LMA-LICENSE-STATS-BD;
         }
 
         container global {

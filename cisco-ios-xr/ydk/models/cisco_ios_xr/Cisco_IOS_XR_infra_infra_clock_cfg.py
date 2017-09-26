@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   clock\: Configure time\-of\-day clock
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -152,6 +151,10 @@ class Clock(Entity):
 
         self.yang_name = "clock"
         self.yang_parent_name = "Cisco-IOS-XR-infra-infra-clock-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"summer-time" : ("summer_time", Clock.SummerTime), "time-zone" : ("time_zone", Clock.TimeZone)}
+        self._child_list_classes = {}
 
         self.summer_time = None
         self._children_name_map["summer_time"] = "summer-time"
@@ -160,6 +163,7 @@ class Clock(Entity):
         self.time_zone = None
         self._children_name_map["time_zone"] = "time-zone"
         self._children_yang_names.add("time-zone")
+        self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock"
 
 
     class SummerTime(Entity):
@@ -269,6 +273,10 @@ class Clock(Entity):
 
             self.yang_name = "summer-time"
             self.yang_parent_name = "clock"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
             self.is_presence_container = True
 
             self.end_hour = YLeaf(YType.uint32, "end-hour")
@@ -296,185 +304,11 @@ class Clock(Entity):
             self.start_weekday_or_start_year = YLeaf(YType.uint32, "start-weekday-or-start-year")
 
             self.time_zone_name = YLeaf(YType.str, "time-zone-name")
+            self._segment_path = lambda: "summer-time"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("end_hour",
-                            "end_minute",
-                            "end_month",
-                            "end_week_number_or_end_date",
-                            "end_weekday_or_end_year",
-                            "mode",
-                            "offset",
-                            "start_hour",
-                            "start_minute",
-                            "start_month",
-                            "start_week_number_or_start_date",
-                            "start_weekday_or_start_year",
-                            "time_zone_name") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Clock.SummerTime, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Clock.SummerTime, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.end_hour.is_set or
-                self.end_minute.is_set or
-                self.end_month.is_set or
-                self.end_week_number_or_end_date.is_set or
-                self.end_weekday_or_end_year.is_set or
-                self.mode.is_set or
-                self.offset.is_set or
-                self.start_hour.is_set or
-                self.start_minute.is_set or
-                self.start_month.is_set or
-                self.start_week_number_or_start_date.is_set or
-                self.start_weekday_or_start_year.is_set or
-                self.time_zone_name.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.end_hour.yfilter != YFilter.not_set or
-                self.end_minute.yfilter != YFilter.not_set or
-                self.end_month.yfilter != YFilter.not_set or
-                self.end_week_number_or_end_date.yfilter != YFilter.not_set or
-                self.end_weekday_or_end_year.yfilter != YFilter.not_set or
-                self.mode.yfilter != YFilter.not_set or
-                self.offset.yfilter != YFilter.not_set or
-                self.start_hour.yfilter != YFilter.not_set or
-                self.start_minute.yfilter != YFilter.not_set or
-                self.start_month.yfilter != YFilter.not_set or
-                self.start_week_number_or_start_date.yfilter != YFilter.not_set or
-                self.start_weekday_or_start_year.yfilter != YFilter.not_set or
-                self.time_zone_name.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "summer-time" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.end_hour.is_set or self.end_hour.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.end_hour.get_name_leafdata())
-            if (self.end_minute.is_set or self.end_minute.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.end_minute.get_name_leafdata())
-            if (self.end_month.is_set or self.end_month.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.end_month.get_name_leafdata())
-            if (self.end_week_number_or_end_date.is_set or self.end_week_number_or_end_date.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.end_week_number_or_end_date.get_name_leafdata())
-            if (self.end_weekday_or_end_year.is_set or self.end_weekday_or_end_year.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.end_weekday_or_end_year.get_name_leafdata())
-            if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.mode.get_name_leafdata())
-            if (self.offset.is_set or self.offset.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.offset.get_name_leafdata())
-            if (self.start_hour.is_set or self.start_hour.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.start_hour.get_name_leafdata())
-            if (self.start_minute.is_set or self.start_minute.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.start_minute.get_name_leafdata())
-            if (self.start_month.is_set or self.start_month.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.start_month.get_name_leafdata())
-            if (self.start_week_number_or_start_date.is_set or self.start_week_number_or_start_date.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.start_week_number_or_start_date.get_name_leafdata())
-            if (self.start_weekday_or_start_year.is_set or self.start_weekday_or_start_year.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.start_weekday_or_start_year.get_name_leafdata())
-            if (self.time_zone_name.is_set or self.time_zone_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.time_zone_name.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "end-hour" or name == "end-minute" or name == "end-month" or name == "end-week-number-or-end-date" or name == "end-weekday-or-end-year" or name == "mode" or name == "offset" or name == "start-hour" or name == "start-minute" or name == "start-month" or name == "start-week-number-or-start-date" or name == "start-weekday-or-start-year" or name == "time-zone-name"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "end-hour"):
-                self.end_hour = value
-                self.end_hour.value_namespace = name_space
-                self.end_hour.value_namespace_prefix = name_space_prefix
-            if(value_path == "end-minute"):
-                self.end_minute = value
-                self.end_minute.value_namespace = name_space
-                self.end_minute.value_namespace_prefix = name_space_prefix
-            if(value_path == "end-month"):
-                self.end_month = value
-                self.end_month.value_namespace = name_space
-                self.end_month.value_namespace_prefix = name_space_prefix
-            if(value_path == "end-week-number-or-end-date"):
-                self.end_week_number_or_end_date = value
-                self.end_week_number_or_end_date.value_namespace = name_space
-                self.end_week_number_or_end_date.value_namespace_prefix = name_space_prefix
-            if(value_path == "end-weekday-or-end-year"):
-                self.end_weekday_or_end_year = value
-                self.end_weekday_or_end_year.value_namespace = name_space
-                self.end_weekday_or_end_year.value_namespace_prefix = name_space_prefix
-            if(value_path == "mode"):
-                self.mode = value
-                self.mode.value_namespace = name_space
-                self.mode.value_namespace_prefix = name_space_prefix
-            if(value_path == "offset"):
-                self.offset = value
-                self.offset.value_namespace = name_space
-                self.offset.value_namespace_prefix = name_space_prefix
-            if(value_path == "start-hour"):
-                self.start_hour = value
-                self.start_hour.value_namespace = name_space
-                self.start_hour.value_namespace_prefix = name_space_prefix
-            if(value_path == "start-minute"):
-                self.start_minute = value
-                self.start_minute.value_namespace = name_space
-                self.start_minute.value_namespace_prefix = name_space_prefix
-            if(value_path == "start-month"):
-                self.start_month = value
-                self.start_month.value_namespace = name_space
-                self.start_month.value_namespace_prefix = name_space_prefix
-            if(value_path == "start-week-number-or-start-date"):
-                self.start_week_number_or_start_date = value
-                self.start_week_number_or_start_date.value_namespace = name_space
-                self.start_week_number_or_start_date.value_namespace_prefix = name_space_prefix
-            if(value_path == "start-weekday-or-start-year"):
-                self.start_weekday_or_start_year = value
-                self.start_weekday_or_start_year.value_namespace = name_space
-                self.start_weekday_or_start_year.value_namespace_prefix = name_space_prefix
-            if(value_path == "time-zone-name"):
-                self.time_zone_name = value
-                self.time_zone_name.value_namespace = name_space
-                self.time_zone_name.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(Clock.SummerTime, ['end_hour', 'end_minute', 'end_month', 'end_week_number_or_end_date', 'end_weekday_or_end_year', 'mode', 'offset', 'start_hour', 'start_minute', 'start_month', 'start_week_number_or_start_date', 'start_weekday_or_start_year', 'time_zone_name'], name, value)
 
 
     class TimeZone(Entity):
@@ -524,6 +358,10 @@ class Clock(Entity):
 
             self.yang_name = "time-zone"
             self.yang_parent_name = "clock"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
             self.is_presence_container = True
 
             self.hour_offset = YLeaf(YType.int32, "hour-offset")
@@ -531,152 +369,11 @@ class Clock(Entity):
             self.minute_offset = YLeaf(YType.uint32, "minute-offset")
 
             self.time_zone_name = YLeaf(YType.str, "time-zone-name")
+            self._segment_path = lambda: "time-zone"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("hour_offset",
-                            "minute_offset",
-                            "time_zone_name") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Clock.TimeZone, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Clock.TimeZone, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.hour_offset.is_set or
-                self.minute_offset.is_set or
-                self.time_zone_name.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.hour_offset.yfilter != YFilter.not_set or
-                self.minute_offset.yfilter != YFilter.not_set or
-                self.time_zone_name.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "time-zone" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.hour_offset.is_set or self.hour_offset.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.hour_offset.get_name_leafdata())
-            if (self.minute_offset.is_set or self.minute_offset.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.minute_offset.get_name_leafdata())
-            if (self.time_zone_name.is_set or self.time_zone_name.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.time_zone_name.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "hour-offset" or name == "minute-offset" or name == "time-zone-name"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "hour-offset"):
-                self.hour_offset = value
-                self.hour_offset.value_namespace = name_space
-                self.hour_offset.value_namespace_prefix = name_space_prefix
-            if(value_path == "minute-offset"):
-                self.minute_offset = value
-                self.minute_offset.value_namespace = name_space
-                self.minute_offset.value_namespace_prefix = name_space_prefix
-            if(value_path == "time-zone-name"):
-                self.time_zone_name = value
-                self.time_zone_name.value_namespace = name_space
-                self.time_zone_name.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (
-            (self.summer_time is not None) or
-            (self.time_zone is not None))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.summer_time is not None and self.summer_time.has_operation()) or
-            (self.time_zone is not None and self.time_zone.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-infra-infra-clock-cfg:clock" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "summer-time"):
-            if (self.summer_time is None):
-                self.summer_time = Clock.SummerTime()
-                self.summer_time.parent = self
-                self._children_name_map["summer_time"] = "summer-time"
-            return self.summer_time
-
-        if (child_yang_name == "time-zone"):
-            if (self.time_zone is None):
-                self.time_zone = Clock.TimeZone()
-                self.time_zone.parent = self
-                self._children_name_map["time_zone"] = "time-zone"
-            return self.time_zone
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "summer-time" or name == "time-zone"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(Clock.TimeZone, ['hour_offset', 'minute_offset', 'time_zone_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Clock()

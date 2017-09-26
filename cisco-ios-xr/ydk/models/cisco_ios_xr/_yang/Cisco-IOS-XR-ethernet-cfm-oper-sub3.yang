@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ethernet-cfm package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -168,8 +168,20 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
         value 3;
         description "Identifier is a MP2MP cross-connect ID";
       }
-      enum down-only {
+      enum fxc-vlan-aware-id {
         value 4;
+        description
+          "Identifier is a VLAN-aware flexible
+          cross-connect ID";
+      }
+      enum fxc-vlan-unaware-id {
+        value 5;
+        description
+          "Identifier is a VLAN-unaware flexible
+          cross-connect ID";
+      }
+      enum down-only {
+        value 6;
         description "Identifier is a maintenance association name";
       }
     }
@@ -682,6 +694,10 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
     leaf remote-ce-id {
       type uint16;
       description "Remote Customer Edge Identifier (CE-ID)";
+    }
+    leaf evi {
+      type uint32;
+      description "EVPN ID for VLAN-aware flexible cross-connects";
     }
   }
 

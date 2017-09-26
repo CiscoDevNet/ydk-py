@@ -39,7 +39,7 @@ module Cisco-IOS-XR-ncs1k-mxp-lldp-oper {
      for the following management objects:
        lldp-snoop-data: Information related to LLDP Snoop
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-10-13" {

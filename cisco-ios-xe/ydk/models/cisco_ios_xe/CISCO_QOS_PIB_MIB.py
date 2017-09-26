@@ -3,16 +3,15 @@
 The Cisco QOS Policy PIB for provisioning QOS policy.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Qosinterfacequeuetype(Enum):
+class QosInterfaceQueueType(Enum):
     """
-    Qosinterfacequeuetype
+    QosInterfaceQueueType
 
     An enumerated type for all the known interface types.  The
 
@@ -207,9 +206,9 @@ class Qosinterfacequeuetype(Enum):
     oneP7Q2t = Enum.YLeaf(45, "oneP7Q2t")
 
 
-class Queuerange(Enum):
+class QueueRange(Enum):
     """
-    Queuerange
+    QueueRange
 
     An integer that is limited to the number of queues per
 
@@ -252,9 +251,9 @@ class Queuerange(Enum):
     sixtyFourQ = Enum.YLeaf(64, "sixtyFourQ")
 
 
-class Thresholdsetrange(Enum):
+class ThresholdSetRange(Enum):
     """
-    Thresholdsetrange
+    ThresholdSetRange
 
     An integer that is limited to the number of threshold sets
 
@@ -297,113 +296,100 @@ class Thresholdsetrange(Enum):
     eightT = Enum.YLeaf(8, "eightT")
 
 
-class Qosinterfacetypecapabilities(Bits):
-    """
-    Qosinterfacetypecapabilities
 
-    An enumeration of interface capabilities.  Used by the PDP to
-    select policies and configuration to push to the PEP.
-    Keys are:- wfq , outputL2Classification , inputUflowPolicing , outputAggregateShaping , cq , unspecified , pq , cbwfq , tailDrop , outputAggregatePolicing , inputL2Classification , inputAggregateShaping , outputPortClassification , pqWrr , policeByMarkingDown , inputUflowShaping , inputAggregatePolicing , fifo , policeByDropping , inputPortClassification , outputUflowShaping , outputIpClassification , wred , outputUflowPolicing , inputIpClassification , wrr , pqCbwfq
-
-    """
-
-    def __init__(self):
-        super(Qosinterfacetypecapabilities, self).__init__()
-
-
-class CiscoQosPibMib(Entity):
+class CISCOQOSPIBMIB(Entity):
     """
     
     
     .. attribute:: qosaggregatetable
     
     	Instances of this class identify aggregate flows and the policer to apply to each
-    	**type**\:   :py:class:`Qosaggregatetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosaggregatetable>`
+    	**type**\:   :py:class:`Qosaggregatetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosaggregatetable>`
     
     .. attribute:: qoscostodscptable
     
     	Maps each of eight CoS values to a DSCP.  When configured for the first time, all 8 entries of the table must be specified. Thereafter, instances may be modified (with a delete and install in a single decision) but not deleted unless all instances are deleted
-    	**type**\:   :py:class:`Qoscostodscptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qoscostodscptable>`
+    	**type**\:   :py:class:`Qoscostodscptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qoscostodscptable>`
     
     .. attribute:: qosdeviceattributetable
     
     	The single instance of this class indicates specific attributes of the device.  These include configuration values such as the configured PDP addresses, the maximum message size, and specific device capabilities.  The latter include input port\-based and output port\-based classification and/or policing, support for flow based policing, aggregate based policing, traffic shaping capabilities, etc
-    	**type**\:   :py:class:`Qosdeviceattributetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdeviceattributetable>`
+    	**type**\:   :py:class:`Qosdeviceattributetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable>`
     
     .. attribute:: qosdevicepibincarnationtable
     
     	This class contains a single policy instance that identifies the current incarnation of the PIB and the PDP that installed this incarnation.  The instance of this class is reported to the PDP at client connect time so that the PDP can (attempt to) ascertain the current state of the PIB
-    	**type**\:   :py:class:`Qosdevicepibincarnationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdevicepibincarnationtable>`
+    	**type**\:   :py:class:`Qosdevicepibincarnationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdevicepibincarnationtable>`
     
     .. attribute:: qosdiffservmappingtable
     
     	Maps each DSCP to a marked\-down DSCP.  Also maps each DSCP to an IP precedence and QosLayer2Cos.  When configured for the first time, all 64 entries of the table must be specified. Thereafter, instances may be modified (with a delete and install in a single decision) but not deleted unless all instances are deleted
-    	**type**\:   :py:class:`Qosdiffservmappingtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdiffservmappingtable>`
+    	**type**\:   :py:class:`Qosdiffservmappingtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdiffservmappingtable>`
     
     .. attribute:: qosifdroppreferencetable
     
     	This class specifies the preference of the drop mechanism an interface chooses if it supports multiple drop mechanisms. Higher values are preferred over lower values
-    	**type**\:   :py:class:`Qosifdroppreferencetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifdroppreferencetable>`
+    	**type**\:   :py:class:`Qosifdroppreferencetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable>`
     
     .. attribute:: qosifdscpassignmenttable
     
     	The assignment of each DSCP to a queue and threshold for each interface queue type
-    	**type**\:   :py:class:`Qosifdscpassignmenttable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifdscpassignmenttable>`
+    	**type**\:   :py:class:`Qosifdscpassignmenttable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdscpassignmenttable>`
     
     .. attribute:: qosifredtable
     
     	A class of lower and upper values for each threshold set in a queue supporting WRED.  If the size of the queue for a given threshold is below the lower value then packets assigned to that threshold are always accepted into the queue.  If the size of the queue is above upper value then packets are always dropped.  If the size of the queue is between the lower and the upper then packets are randomly dropped
-    	**type**\:   :py:class:`Qosifredtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifredtable>`
+    	**type**\:   :py:class:`Qosifredtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifredtable>`
     
     .. attribute:: qosifschedulingpreferencestable
     
     	This class specifies the scheduling preference an interface chooses if it supports multiple scheduling types.  Higher values are preferred over lower values
-    	**type**\:   :py:class:`Qosifschedulingpreferencestable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifschedulingpreferencestable>`
+    	**type**\:   :py:class:`Qosifschedulingpreferencestable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable>`
     
     .. attribute:: qosiftaildroptable
     
     	A class for threshold sets in a queue supporting tail drop. If the size of the queue for a given threshold set is at or below the specified value then packets assigned to that threshold set are always accepted into the queue.  If the size of the queue is above the specified value then packets are always dropped
-    	**type**\:   :py:class:`Qosiftaildroptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosiftaildroptable>`
+    	**type**\:   :py:class:`Qosiftaildroptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosiftaildroptable>`
     
     .. attribute:: qosifweightstable
     
     	A class of scheduling weights for each queue of an interface that supports weighted round robin scheduling or a mix of priority queueing and weighted round robin.  For a queue with N priority queues, the N highest queue numbers are the priority queues with the highest queue number having the highest priority.  WRR is applied to the non\-priority queues
-    	**type**\:   :py:class:`Qosifweightstable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifweightstable>`
+    	**type**\:   :py:class:`Qosifweightstable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifweightstable>`
     
     .. attribute:: qosinterfacetypetable
     
     	This class describes the interface types of the interfaces that exist on the device.  It includes the queue type, role combination and capabilities of interfaces.  The PEP does not report which specific interfaces have which characteristics
-    	**type**\:   :py:class:`Qosinterfacetypetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosinterfacetypetable>`
+    	**type**\:   :py:class:`Qosinterfacetypetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosinterfacetypetable>`
     
     .. attribute:: qosipacetable
     
     	ACE definitions
-    	**type**\:   :py:class:`Qosipacetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipacetable>`
+    	**type**\:   :py:class:`Qosipacetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacetable>`
     
     .. attribute:: qosipaclactiontable
     
     	A class that applies a set of ACLs to interfaces specifying, for each interface the order of the ACL with respect to other ACLs applied to the same interface and, for each ACL the action to take for a packet that matches a permit ACE in that ACL.  Interfaces are specified abstractly in terms of interface role combinations
-    	**type**\:   :py:class:`Qosipaclactiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipaclactiontable>`
+    	**type**\:   :py:class:`Qosipaclactiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable>`
     
     .. attribute:: qosipacldefinitiontable
     
     	A class that defines a set of ACLs each being an ordered list of ACEs
-    	**type**\:   :py:class:`Qosipacldefinitiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipacldefinitiontable>`
+    	**type**\:   :py:class:`Qosipacldefinitiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacldefinitiontable>`
     
     .. attribute:: qosmacclassificationtable
     
     	A class of MAC/Vlan tuples and their associated CoS values
-    	**type**\:   :py:class:`Qosmacclassificationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosmacclassificationtable>`
+    	**type**\:   :py:class:`Qosmacclassificationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosmacclassificationtable>`
     
     .. attribute:: qospolicertable
     
     	A class specifying policing parameters for both microflows and aggregate flows.  This table is designed for policing according to a token bucket scheme where an average rate and burst size is specified
-    	**type**\:   :py:class:`Qospolicertable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qospolicertable>`
+    	**type**\:   :py:class:`Qospolicertable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable>`
     
     .. attribute:: qosunmatchedpolicytable
     
     	A policy class that specifies what QoS to apply to a packet that does not match any other policy configured for this role combination for a particular direction of traffic
-    	**type**\:   :py:class:`Qosunmatchedpolicytable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosunmatchedpolicytable>`
+    	**type**\:   :py:class:`Qosunmatchedpolicytable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable>`
     
     
 
@@ -413,101 +399,388 @@ class CiscoQosPibMib(Entity):
     _revision = '2007-08-29'
 
     def __init__(self):
-        super(CiscoQosPibMib, self).__init__()
+        super(CISCOQOSPIBMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-QOS-PIB-MIB"
         self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"qosAggregateTable" : ("qosaggregatetable", CISCOQOSPIBMIB.Qosaggregatetable), "qosCosToDscpTable" : ("qoscostodscptable", CISCOQOSPIBMIB.Qoscostodscptable), "qosDeviceAttributeTable" : ("qosdeviceattributetable", CISCOQOSPIBMIB.Qosdeviceattributetable), "qosDevicePibIncarnationTable" : ("qosdevicepibincarnationtable", CISCOQOSPIBMIB.Qosdevicepibincarnationtable), "qosDiffServMappingTable" : ("qosdiffservmappingtable", CISCOQOSPIBMIB.Qosdiffservmappingtable), "qosIfDropPreferenceTable" : ("qosifdroppreferencetable", CISCOQOSPIBMIB.Qosifdroppreferencetable), "qosIfDscpAssignmentTable" : ("qosifdscpassignmenttable", CISCOQOSPIBMIB.Qosifdscpassignmenttable), "qosIfRedTable" : ("qosifredtable", CISCOQOSPIBMIB.Qosifredtable), "qosIfSchedulingPreferencesTable" : ("qosifschedulingpreferencestable", CISCOQOSPIBMIB.Qosifschedulingpreferencestable), "qosIfTailDropTable" : ("qosiftaildroptable", CISCOQOSPIBMIB.Qosiftaildroptable), "qosIfWeightsTable" : ("qosifweightstable", CISCOQOSPIBMIB.Qosifweightstable), "qosInterfaceTypeTable" : ("qosinterfacetypetable", CISCOQOSPIBMIB.Qosinterfacetypetable), "qosIpAceTable" : ("qosipacetable", CISCOQOSPIBMIB.Qosipacetable), "qosIpAclActionTable" : ("qosipaclactiontable", CISCOQOSPIBMIB.Qosipaclactiontable), "qosIpAclDefinitionTable" : ("qosipacldefinitiontable", CISCOQOSPIBMIB.Qosipacldefinitiontable), "qosMacClassificationTable" : ("qosmacclassificationtable", CISCOQOSPIBMIB.Qosmacclassificationtable), "qosPolicerTable" : ("qospolicertable", CISCOQOSPIBMIB.Qospolicertable), "qosUnmatchedPolicyTable" : ("qosunmatchedpolicytable", CISCOQOSPIBMIB.Qosunmatchedpolicytable)}
+        self._child_list_classes = {}
 
-        self.qosaggregatetable = CiscoQosPibMib.Qosaggregatetable()
+        self.qosaggregatetable = CISCOQOSPIBMIB.Qosaggregatetable()
         self.qosaggregatetable.parent = self
         self._children_name_map["qosaggregatetable"] = "qosAggregateTable"
         self._children_yang_names.add("qosAggregateTable")
 
-        self.qoscostodscptable = CiscoQosPibMib.Qoscostodscptable()
+        self.qoscostodscptable = CISCOQOSPIBMIB.Qoscostodscptable()
         self.qoscostodscptable.parent = self
         self._children_name_map["qoscostodscptable"] = "qosCosToDscpTable"
         self._children_yang_names.add("qosCosToDscpTable")
 
-        self.qosdeviceattributetable = CiscoQosPibMib.Qosdeviceattributetable()
+        self.qosdeviceattributetable = CISCOQOSPIBMIB.Qosdeviceattributetable()
         self.qosdeviceattributetable.parent = self
         self._children_name_map["qosdeviceattributetable"] = "qosDeviceAttributeTable"
         self._children_yang_names.add("qosDeviceAttributeTable")
 
-        self.qosdevicepibincarnationtable = CiscoQosPibMib.Qosdevicepibincarnationtable()
+        self.qosdevicepibincarnationtable = CISCOQOSPIBMIB.Qosdevicepibincarnationtable()
         self.qosdevicepibincarnationtable.parent = self
         self._children_name_map["qosdevicepibincarnationtable"] = "qosDevicePibIncarnationTable"
         self._children_yang_names.add("qosDevicePibIncarnationTable")
 
-        self.qosdiffservmappingtable = CiscoQosPibMib.Qosdiffservmappingtable()
+        self.qosdiffservmappingtable = CISCOQOSPIBMIB.Qosdiffservmappingtable()
         self.qosdiffservmappingtable.parent = self
         self._children_name_map["qosdiffservmappingtable"] = "qosDiffServMappingTable"
         self._children_yang_names.add("qosDiffServMappingTable")
 
-        self.qosifdroppreferencetable = CiscoQosPibMib.Qosifdroppreferencetable()
+        self.qosifdroppreferencetable = CISCOQOSPIBMIB.Qosifdroppreferencetable()
         self.qosifdroppreferencetable.parent = self
         self._children_name_map["qosifdroppreferencetable"] = "qosIfDropPreferenceTable"
         self._children_yang_names.add("qosIfDropPreferenceTable")
 
-        self.qosifdscpassignmenttable = CiscoQosPibMib.Qosifdscpassignmenttable()
+        self.qosifdscpassignmenttable = CISCOQOSPIBMIB.Qosifdscpassignmenttable()
         self.qosifdscpassignmenttable.parent = self
         self._children_name_map["qosifdscpassignmenttable"] = "qosIfDscpAssignmentTable"
         self._children_yang_names.add("qosIfDscpAssignmentTable")
 
-        self.qosifredtable = CiscoQosPibMib.Qosifredtable()
+        self.qosifredtable = CISCOQOSPIBMIB.Qosifredtable()
         self.qosifredtable.parent = self
         self._children_name_map["qosifredtable"] = "qosIfRedTable"
         self._children_yang_names.add("qosIfRedTable")
 
-        self.qosifschedulingpreferencestable = CiscoQosPibMib.Qosifschedulingpreferencestable()
+        self.qosifschedulingpreferencestable = CISCOQOSPIBMIB.Qosifschedulingpreferencestable()
         self.qosifschedulingpreferencestable.parent = self
         self._children_name_map["qosifschedulingpreferencestable"] = "qosIfSchedulingPreferencesTable"
         self._children_yang_names.add("qosIfSchedulingPreferencesTable")
 
-        self.qosiftaildroptable = CiscoQosPibMib.Qosiftaildroptable()
+        self.qosiftaildroptable = CISCOQOSPIBMIB.Qosiftaildroptable()
         self.qosiftaildroptable.parent = self
         self._children_name_map["qosiftaildroptable"] = "qosIfTailDropTable"
         self._children_yang_names.add("qosIfTailDropTable")
 
-        self.qosifweightstable = CiscoQosPibMib.Qosifweightstable()
+        self.qosifweightstable = CISCOQOSPIBMIB.Qosifweightstable()
         self.qosifweightstable.parent = self
         self._children_name_map["qosifweightstable"] = "qosIfWeightsTable"
         self._children_yang_names.add("qosIfWeightsTable")
 
-        self.qosinterfacetypetable = CiscoQosPibMib.Qosinterfacetypetable()
+        self.qosinterfacetypetable = CISCOQOSPIBMIB.Qosinterfacetypetable()
         self.qosinterfacetypetable.parent = self
         self._children_name_map["qosinterfacetypetable"] = "qosInterfaceTypeTable"
         self._children_yang_names.add("qosInterfaceTypeTable")
 
-        self.qosipacetable = CiscoQosPibMib.Qosipacetable()
+        self.qosipacetable = CISCOQOSPIBMIB.Qosipacetable()
         self.qosipacetable.parent = self
         self._children_name_map["qosipacetable"] = "qosIpAceTable"
         self._children_yang_names.add("qosIpAceTable")
 
-        self.qosipaclactiontable = CiscoQosPibMib.Qosipaclactiontable()
+        self.qosipaclactiontable = CISCOQOSPIBMIB.Qosipaclactiontable()
         self.qosipaclactiontable.parent = self
         self._children_name_map["qosipaclactiontable"] = "qosIpAclActionTable"
         self._children_yang_names.add("qosIpAclActionTable")
 
-        self.qosipacldefinitiontable = CiscoQosPibMib.Qosipacldefinitiontable()
+        self.qosipacldefinitiontable = CISCOQOSPIBMIB.Qosipacldefinitiontable()
         self.qosipacldefinitiontable.parent = self
         self._children_name_map["qosipacldefinitiontable"] = "qosIpAclDefinitionTable"
         self._children_yang_names.add("qosIpAclDefinitionTable")
 
-        self.qosmacclassificationtable = CiscoQosPibMib.Qosmacclassificationtable()
+        self.qosmacclassificationtable = CISCOQOSPIBMIB.Qosmacclassificationtable()
         self.qosmacclassificationtable.parent = self
         self._children_name_map["qosmacclassificationtable"] = "qosMacClassificationTable"
         self._children_yang_names.add("qosMacClassificationTable")
 
-        self.qospolicertable = CiscoQosPibMib.Qospolicertable()
+        self.qospolicertable = CISCOQOSPIBMIB.Qospolicertable()
         self.qospolicertable.parent = self
         self._children_name_map["qospolicertable"] = "qosPolicerTable"
         self._children_yang_names.add("qosPolicerTable")
 
-        self.qosunmatchedpolicytable = CiscoQosPibMib.Qosunmatchedpolicytable()
+        self.qosunmatchedpolicytable = CISCOQOSPIBMIB.Qosunmatchedpolicytable()
         self.qosunmatchedpolicytable.parent = self
         self._children_name_map["qosunmatchedpolicytable"] = "qosUnmatchedPolicyTable"
         self._children_yang_names.add("qosUnmatchedPolicyTable")
+        self._segment_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
+
+
+    class Qosaggregatetable(Entity):
+        """
+        Instances of this class identify aggregate flows and the
+        policer to apply to each.
+        
+        .. attribute:: qosaggregateentry
+        
+        	An instance of this class specifies the policer to apply to an aggregate flow
+        	**type**\: list of    :py:class:`Qosaggregateentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosaggregatetable, self).__init__()
+
+            self.yang_name = "qosAggregateTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosAggregateEntry" : ("qosaggregateentry", CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry)}
+
+            self.qosaggregateentry = YList(self)
+            self._segment_path = lambda: "qosAggregateTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosaggregatetable, [], name, value)
+
+
+        class Qosaggregateentry(Entity):
+            """
+            An instance of this class specifies the policer to apply to
+            an aggregate flow.
+            
+            .. attribute:: qosaggregateid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosaggregatepolicerid
+            
+            	An index identifying the instance of policer to apply to the aggregate.  It must correspond to the integer index of an instance of class qosPolicerTable
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry, self).__init__()
+
+                self.yang_name = "qosAggregateEntry"
+                self.yang_parent_name = "qosAggregateTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosaggregateid = YLeaf(YType.uint32, "qosAggregateId")
+
+                self.qosaggregatepolicerid = YLeaf(YType.uint32, "qosAggregatePolicerId")
+                self._segment_path = lambda: "qosAggregateEntry" + "[qosAggregateId='" + self.qosaggregateid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosAggregateTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry, ['qosaggregateid', 'qosaggregatepolicerid'], name, value)
+
+
+    class Qoscostodscptable(Entity):
+        """
+        Maps each of eight CoS values to a DSCP.  When configured for
+        the first time, all 8 entries of the table must be
+        specified. Thereafter, instances may be modified (with a
+        delete and install in a single decision) but not deleted
+        unless all instances are deleted.
+        
+        .. attribute:: qoscostodscpentry
+        
+        	An instance of this class maps a CoS value to a DSCP
+        	**type**\: list of    :py:class:`Qoscostodscpentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qoscostodscptable, self).__init__()
+
+            self.yang_name = "qosCosToDscpTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosCosToDscpEntry" : ("qoscostodscpentry", CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry)}
+
+            self.qoscostodscpentry = YList(self)
+            self._segment_path = lambda: "qosCosToDscpTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qoscostodscptable, [], name, value)
+
+
+        class Qoscostodscpentry(Entity):
+            """
+            An instance of this class maps a CoS value to a DSCP.
+            
+            .. attribute:: qoscostodscpcos  <key>
+            
+            	The L2 CoS value that is being mapped
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            .. attribute:: qoscostodscpdscp
+            
+            	The DSCP value to use when mapping the L2 CoS to a DSCP
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry, self).__init__()
+
+                self.yang_name = "qosCosToDscpEntry"
+                self.yang_parent_name = "qosCosToDscpTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qoscostodscpcos = YLeaf(YType.int32, "qosCosToDscpCos")
+
+                self.qoscostodscpdscp = YLeaf(YType.int32, "qosCosToDscpDscp")
+                self._segment_path = lambda: "qosCosToDscpEntry" + "[qosCosToDscpCos='" + self.qoscostodscpcos.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosCosToDscpTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry, ['qoscostodscpcos', 'qoscostodscpdscp'], name, value)
+
+
+    class Qosdeviceattributetable(Entity):
+        """
+        The single instance of this class indicates specific
+        attributes of the device.  These include configuration values
+        such as the configured PDP addresses, the maximum message
+        size, and specific device capabilities.  The latter include
+        input port\-based and output port\-based classification and/or
+        policing, support for flow based policing, aggregate based
+        policing, traffic shaping capabilities, etc.
+        
+        .. attribute:: qosdeviceattributeentry
+        
+        	The single instance of this class indicates specific attributes of the device
+        	**type**\: list of    :py:class:`Qosdeviceattributeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosdeviceattributetable, self).__init__()
+
+            self.yang_name = "qosDeviceAttributeTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosDeviceAttributeEntry" : ("qosdeviceattributeentry", CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry)}
+
+            self.qosdeviceattributeentry = YList(self)
+            self._segment_path = lambda: "qosDeviceAttributeTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosdeviceattributetable, [], name, value)
+
+
+        class Qosdeviceattributeentry(Entity):
+            """
+            The single instance of this class indicates specific
+            attributes of the device.
+            
+            .. attribute:: qosdeviceattributeid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosdevicecapabilities
+            
+            	An enumeration of device capabilities.  Used by the PDP to select policies and configuration to push to the PEP
+            	**type**\:   :py:class:`Qosdevicecapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry.Qosdevicecapabilities>`
+            
+            .. attribute:: qosdevicemaxmessagesize
+            
+            	The maximum size message that this PEP is capable of receiving in bytes.  A value of zero means that the maximum message size is unspecified (but does not mean it is unlimited).  A message greater than this maximum results in a MessageTooBig error on a 'no commit' REP
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosdevicepepdomain
+            
+            	The QoS domain that this device belongs to.  This is configured locally on the device (perhaps by some management protocol such as SNMP).  By default, it is the zero\-length string
+            	**type**\:  str
+            
+            .. attribute:: qosdeviceprimarypdp
+            
+            	The address of the PDP configured to be the primary PDP for the device
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: qosdevicesecondarypdp
+            
+            	The address of the PDP configured to be the secondary PDP for the device.  An address of zero indicates no secondary is configured
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry, self).__init__()
+
+                self.yang_name = "qosDeviceAttributeEntry"
+                self.yang_parent_name = "qosDeviceAttributeTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosdeviceattributeid = YLeaf(YType.uint32, "qosDeviceAttributeId")
+
+                self.qosdevicecapabilities = YLeaf(YType.bits, "qosDeviceCapabilities")
+
+                self.qosdevicemaxmessagesize = YLeaf(YType.uint32, "qosDeviceMaxMessageSize")
+
+                self.qosdevicepepdomain = YLeaf(YType.str, "qosDevicePepDomain")
+
+                self.qosdeviceprimarypdp = YLeaf(YType.str, "qosDevicePrimaryPdp")
+
+                self.qosdevicesecondarypdp = YLeaf(YType.str, "qosDeviceSecondaryPdp")
+                self._segment_path = lambda: "qosDeviceAttributeEntry" + "[qosDeviceAttributeId='" + self.qosdeviceattributeid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDeviceAttributeTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry, ['qosdeviceattributeid', 'qosdevicecapabilities', 'qosdevicemaxmessagesize', 'qosdevicepepdomain', 'qosdeviceprimarypdp', 'qosdevicesecondarypdp'], name, value)
 
 
     class Qosdevicepibincarnationtable(Entity):
@@ -521,7 +794,7 @@ class CiscoQosPibMib(Entity):
         .. attribute:: qosdevicepibincarnationentry
         
         	The single policy instance of this class identifies the current incarnation of the PIB and the PDP that installed this incarnation
-        	**type**\: list of    :py:class:`Qosdevicepibincarnationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry>`
+        	**type**\: list of    :py:class:`Qosdevicepibincarnationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry>`
         
         
 
@@ -531,36 +804,21 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosdevicepibincarnationtable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosdevicepibincarnationtable, self).__init__()
 
             self.yang_name = "qosDevicePibIncarnationTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosDevicePibIncarnationEntry" : ("qosdevicepibincarnationentry", CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry)}
 
             self.qosdevicepibincarnationentry = YList(self)
+            self._segment_path = lambda: "qosDevicePibIncarnationTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosdevicepibincarnationtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosdevicepibincarnationtable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosdevicepibincarnationtable, [], name, value)
 
 
         class Qosdevicepibincarnationentry(Entity):
@@ -603,10 +861,14 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, self).__init__()
 
                 self.yang_name = "qosDevicePibIncarnationEntry"
                 self.yang_parent_name = "qosDevicePibIncarnationTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.qosdeviceincarnationid = YLeaf(YType.uint32, "qosDeviceIncarnationId")
 
@@ -615,712 +877,11 @@ class CiscoQosPibMib(Entity):
                 self.qosdevicepibincarnation = YLeaf(YType.str, "qosDevicePibIncarnation")
 
                 self.qosdevicepibttl = YLeaf(YType.uint32, "qosDevicePibTtl")
+                self._segment_path = lambda: "qosDevicePibIncarnationEntry" + "[qosDeviceIncarnationId='" + self.qosdeviceincarnationid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDevicePibIncarnationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosdeviceincarnationid",
-                                "qosdevicepdpname",
-                                "qosdevicepibincarnation",
-                                "qosdevicepibttl") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosdeviceincarnationid.is_set or
-                    self.qosdevicepdpname.is_set or
-                    self.qosdevicepibincarnation.is_set or
-                    self.qosdevicepibttl.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosdeviceincarnationid.yfilter != YFilter.not_set or
-                    self.qosdevicepdpname.yfilter != YFilter.not_set or
-                    self.qosdevicepibincarnation.yfilter != YFilter.not_set or
-                    self.qosdevicepibttl.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosDevicePibIncarnationEntry" + "[qosDeviceIncarnationId='" + self.qosdeviceincarnationid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDevicePibIncarnationTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosdeviceincarnationid.is_set or self.qosdeviceincarnationid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdeviceincarnationid.get_name_leafdata())
-                if (self.qosdevicepdpname.is_set or self.qosdevicepdpname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicepdpname.get_name_leafdata())
-                if (self.qosdevicepibincarnation.is_set or self.qosdevicepibincarnation.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicepibincarnation.get_name_leafdata())
-                if (self.qosdevicepibttl.is_set or self.qosdevicepibttl.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicepibttl.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosDeviceIncarnationId" or name == "qosDevicePdpName" or name == "qosDevicePibIncarnation" or name == "qosDevicePibTtl"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosDeviceIncarnationId"):
-                    self.qosdeviceincarnationid = value
-                    self.qosdeviceincarnationid.value_namespace = name_space
-                    self.qosdeviceincarnationid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDevicePdpName"):
-                    self.qosdevicepdpname = value
-                    self.qosdevicepdpname.value_namespace = name_space
-                    self.qosdevicepdpname.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDevicePibIncarnation"):
-                    self.qosdevicepibincarnation = value
-                    self.qosdevicepibincarnation.value_namespace = name_space
-                    self.qosdevicepibincarnation.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDevicePibTtl"):
-                    self.qosdevicepibttl = value
-                    self.qosdevicepibttl.value_namespace = name_space
-                    self.qosdevicepibttl.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosdevicepibincarnationentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosdevicepibincarnationentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosDevicePibIncarnationTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosDevicePibIncarnationEntry"):
-                for c in self.qosdevicepibincarnationentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosdevicepibincarnationentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosDevicePibIncarnationEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosdeviceattributetable(Entity):
-        """
-        The single instance of this class indicates specific
-        attributes of the device.  These include configuration values
-        such as the configured PDP addresses, the maximum message
-        size, and specific device capabilities.  The latter include
-        input port\-based and output port\-based classification and/or
-        policing, support for flow based policing, aggregate based
-        policing, traffic shaping capabilities, etc.
-        
-        .. attribute:: qosdeviceattributeentry
-        
-        	The single instance of this class indicates specific attributes of the device
-        	**type**\: list of    :py:class:`Qosdeviceattributeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosdeviceattributetable, self).__init__()
-
-            self.yang_name = "qosDeviceAttributeTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosdeviceattributeentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosdeviceattributetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosdeviceattributetable, self).__setattr__(name, value)
-
-
-        class Qosdeviceattributeentry(Entity):
-            """
-            The single instance of this class indicates specific
-            attributes of the device.
-            
-            .. attribute:: qosdeviceattributeid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosdevicecapabilities
-            
-            	An enumeration of device capabilities.  Used by the PDP to select policies and configuration to push to the PEP
-            	**type**\:   :py:class:`Qosdevicecapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry.Qosdevicecapabilities>`
-            
-            .. attribute:: qosdevicemaxmessagesize
-            
-            	The maximum size message that this PEP is capable of receiving in bytes.  A value of zero means that the maximum message size is unspecified (but does not mean it is unlimited).  A message greater than this maximum results in a MessageTooBig error on a 'no commit' REP
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosdevicepepdomain
-            
-            	The QoS domain that this device belongs to.  This is configured locally on the device (perhaps by some management protocol such as SNMP).  By default, it is the zero\-length string
-            	**type**\:  str
-            
-            .. attribute:: qosdeviceprimarypdp
-            
-            	The address of the PDP configured to be the primary PDP for the device
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: qosdevicesecondarypdp
-            
-            	The address of the PDP configured to be the secondary PDP for the device.  An address of zero indicates no secondary is configured
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry, self).__init__()
-
-                self.yang_name = "qosDeviceAttributeEntry"
-                self.yang_parent_name = "qosDeviceAttributeTable"
-
-                self.qosdeviceattributeid = YLeaf(YType.uint32, "qosDeviceAttributeId")
-
-                self.qosdevicecapabilities = YLeaf(YType.bits, "qosDeviceCapabilities")
-
-                self.qosdevicemaxmessagesize = YLeaf(YType.uint32, "qosDeviceMaxMessageSize")
-
-                self.qosdevicepepdomain = YLeaf(YType.str, "qosDevicePepDomain")
-
-                self.qosdeviceprimarypdp = YLeaf(YType.str, "qosDevicePrimaryPdp")
-
-                self.qosdevicesecondarypdp = YLeaf(YType.str, "qosDeviceSecondaryPdp")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosdeviceattributeid",
-                                "qosdevicecapabilities",
-                                "qosdevicemaxmessagesize",
-                                "qosdevicepepdomain",
-                                "qosdeviceprimarypdp",
-                                "qosdevicesecondarypdp") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosdeviceattributeid.is_set or
-                    self.qosdevicecapabilities.is_set or
-                    self.qosdevicemaxmessagesize.is_set or
-                    self.qosdevicepepdomain.is_set or
-                    self.qosdeviceprimarypdp.is_set or
-                    self.qosdevicesecondarypdp.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosdeviceattributeid.yfilter != YFilter.not_set or
-                    self.qosdevicecapabilities.yfilter != YFilter.not_set or
-                    self.qosdevicemaxmessagesize.yfilter != YFilter.not_set or
-                    self.qosdevicepepdomain.yfilter != YFilter.not_set or
-                    self.qosdeviceprimarypdp.yfilter != YFilter.not_set or
-                    self.qosdevicesecondarypdp.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosDeviceAttributeEntry" + "[qosDeviceAttributeId='" + self.qosdeviceattributeid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDeviceAttributeTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosdeviceattributeid.is_set or self.qosdeviceattributeid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdeviceattributeid.get_name_leafdata())
-                if (self.qosdevicecapabilities.is_set or self.qosdevicecapabilities.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicecapabilities.get_name_leafdata())
-                if (self.qosdevicemaxmessagesize.is_set or self.qosdevicemaxmessagesize.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicemaxmessagesize.get_name_leafdata())
-                if (self.qosdevicepepdomain.is_set or self.qosdevicepepdomain.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicepepdomain.get_name_leafdata())
-                if (self.qosdeviceprimarypdp.is_set or self.qosdeviceprimarypdp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdeviceprimarypdp.get_name_leafdata())
-                if (self.qosdevicesecondarypdp.is_set or self.qosdevicesecondarypdp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdevicesecondarypdp.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosDeviceAttributeId" or name == "qosDeviceCapabilities" or name == "qosDeviceMaxMessageSize" or name == "qosDevicePepDomain" or name == "qosDevicePrimaryPdp" or name == "qosDeviceSecondaryPdp"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosDeviceAttributeId"):
-                    self.qosdeviceattributeid = value
-                    self.qosdeviceattributeid.value_namespace = name_space
-                    self.qosdeviceattributeid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDeviceCapabilities"):
-                    self.qosdevicecapabilities[value] = True
-                if(value_path == "qosDeviceMaxMessageSize"):
-                    self.qosdevicemaxmessagesize = value
-                    self.qosdevicemaxmessagesize.value_namespace = name_space
-                    self.qosdevicemaxmessagesize.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDevicePepDomain"):
-                    self.qosdevicepepdomain = value
-                    self.qosdevicepepdomain.value_namespace = name_space
-                    self.qosdevicepepdomain.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDevicePrimaryPdp"):
-                    self.qosdeviceprimarypdp = value
-                    self.qosdeviceprimarypdp.value_namespace = name_space
-                    self.qosdeviceprimarypdp.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDeviceSecondaryPdp"):
-                    self.qosdevicesecondarypdp = value
-                    self.qosdevicesecondarypdp.value_namespace = name_space
-                    self.qosdevicesecondarypdp.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosdeviceattributeentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosdeviceattributeentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosDeviceAttributeTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosDeviceAttributeEntry"):
-                for c in self.qosdeviceattributeentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosdeviceattributetable.Qosdeviceattributeentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosdeviceattributeentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosDeviceAttributeEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosinterfacetypetable(Entity):
-        """
-        This class describes the interface types of the interfaces
-        that exist on the device.  It includes the queue type, role
-        combination and capabilities of interfaces.  The PEP does not
-        report which specific interfaces have which characteristics.
-        
-        .. attribute:: qosinterfacetypeentry
-        
-        	An instance of this class describes a role combination for an interface type of an interface that exists on the device
-        	**type**\: list of    :py:class:`Qosinterfacetypeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosinterfacetypetable.Qosinterfacetypeentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosinterfacetypetable, self).__init__()
-
-            self.yang_name = "qosInterfaceTypeTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosinterfacetypeentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosinterfacetypetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosinterfacetypetable, self).__setattr__(name, value)
-
-
-        class Qosinterfacetypeentry(Entity):
-            """
-            An instance of this class describes a role combination for
-            an interface type of an interface that exists on the device.
-            
-            .. attribute:: qosinterfacetypeid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosinterfacequeuetype
-            
-            	The interface type in terms of number of queues and thresholds
-            	**type**\:   :py:class:`Qosinterfacequeuetype <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Qosinterfacequeuetype>`
-            
-            .. attribute:: qosinterfacetypecapabilities
-            
-            	An enumeration of interface capabilities.  Used by the PDP to select policies and configuration to push to the PEP
-            	**type**\:   :py:class:`Qosinterfacetypecapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Qosinterfacetypecapabilities>`
-            
-            .. attribute:: qosinterfacetyperoles
-            
-            	A combination of roles on at least one interface of type qosInterfaceType
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosinterfacetypetable.Qosinterfacetypeentry, self).__init__()
-
-                self.yang_name = "qosInterfaceTypeEntry"
-                self.yang_parent_name = "qosInterfaceTypeTable"
-
-                self.qosinterfacetypeid = YLeaf(YType.uint32, "qosInterfaceTypeId")
-
-                self.qosinterfacequeuetype = YLeaf(YType.enumeration, "qosInterfaceQueueType")
-
-                self.qosinterfacetypecapabilities = YLeaf(YType.bits, "qosInterfaceTypeCapabilities")
-
-                self.qosinterfacetyperoles = YLeaf(YType.str, "qosInterfaceTypeRoles")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosinterfacetypeid",
-                                "qosinterfacequeuetype",
-                                "qosinterfacetypecapabilities",
-                                "qosinterfacetyperoles") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosinterfacetypetable.Qosinterfacetypeentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosinterfacetypetable.Qosinterfacetypeentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosinterfacetypeid.is_set or
-                    self.qosinterfacequeuetype.is_set or
-                    self.qosinterfacetypecapabilities.is_set or
-                    self.qosinterfacetyperoles.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosinterfacetypeid.yfilter != YFilter.not_set or
-                    self.qosinterfacequeuetype.yfilter != YFilter.not_set or
-                    self.qosinterfacetypecapabilities.yfilter != YFilter.not_set or
-                    self.qosinterfacetyperoles.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosInterfaceTypeEntry" + "[qosInterfaceTypeId='" + self.qosinterfacetypeid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosInterfaceTypeTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosinterfacetypeid.is_set or self.qosinterfacetypeid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosinterfacetypeid.get_name_leafdata())
-                if (self.qosinterfacequeuetype.is_set or self.qosinterfacequeuetype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosinterfacequeuetype.get_name_leafdata())
-                if (self.qosinterfacetypecapabilities.is_set or self.qosinterfacetypecapabilities.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosinterfacetypecapabilities.get_name_leafdata())
-                if (self.qosinterfacetyperoles.is_set or self.qosinterfacetyperoles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosinterfacetyperoles.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosInterfaceTypeId" or name == "qosInterfaceQueueType" or name == "qosInterfaceTypeCapabilities" or name == "qosInterfaceTypeRoles"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosInterfaceTypeId"):
-                    self.qosinterfacetypeid = value
-                    self.qosinterfacetypeid.value_namespace = name_space
-                    self.qosinterfacetypeid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosInterfaceQueueType"):
-                    self.qosinterfacequeuetype = value
-                    self.qosinterfacequeuetype.value_namespace = name_space
-                    self.qosinterfacequeuetype.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosInterfaceTypeCapabilities"):
-                    self.qosinterfacetypecapabilities[value] = True
-                if(value_path == "qosInterfaceTypeRoles"):
-                    self.qosinterfacetyperoles = value
-                    self.qosinterfacetyperoles.value_namespace = name_space
-                    self.qosinterfacetyperoles.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosinterfacetypeentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosinterfacetypeentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosInterfaceTypeTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosInterfaceTypeEntry"):
-                for c in self.qosinterfacetypeentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosinterfacetypetable.Qosinterfacetypeentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosinterfacetypeentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosInterfaceTypeEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, ['qosdeviceincarnationid', 'qosdevicepdpname', 'qosdevicepibincarnation', 'qosdevicepibttl'], name, value)
 
 
     class Qosdiffservmappingtable(Entity):
@@ -1335,7 +896,7 @@ class CiscoQosPibMib(Entity):
         .. attribute:: qosdiffservmappingentry
         
         	An instance of this class represents mappings from a DSCP
-        	**type**\: list of    :py:class:`Qosdiffservmappingentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosdiffservmappingtable.Qosdiffservmappingentry>`
+        	**type**\: list of    :py:class:`Qosdiffservmappingentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry>`
         
         
 
@@ -1345,36 +906,21 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosdiffservmappingtable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosdiffservmappingtable, self).__init__()
 
             self.yang_name = "qosDiffServMappingTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosDiffServMappingEntry" : ("qosdiffservmappingentry", CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry)}
 
             self.qosdiffservmappingentry = YList(self)
+            self._segment_path = lambda: "qosDiffServMappingTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosdiffservmappingtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosdiffservmappingtable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosdiffservmappingtable, [], name, value)
 
 
         class Qosdiffservmappingentry(Entity):
@@ -1410,176 +956,37 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosdiffservmappingtable.Qosdiffservmappingentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry, self).__init__()
 
                 self.yang_name = "qosDiffServMappingEntry"
                 self.yang_parent_name = "qosDiffServMappingTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.qosdscp = YLeaf(YType.int32, "qosDscp")
 
                 self.qosl2cos = YLeaf(YType.int32, "qosL2Cos")
 
                 self.qosmarkeddscp = YLeaf(YType.int32, "qosMarkedDscp")
+                self._segment_path = lambda: "qosDiffServMappingEntry" + "[qosDscp='" + self.qosdscp.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDiffServMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosdscp",
-                                "qosl2cos",
-                                "qosmarkeddscp") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosdiffservmappingtable.Qosdiffservmappingentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosdiffservmappingtable.Qosdiffservmappingentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosdscp.is_set or
-                    self.qosl2cos.is_set or
-                    self.qosmarkeddscp.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosdscp.yfilter != YFilter.not_set or
-                    self.qosl2cos.yfilter != YFilter.not_set or
-                    self.qosmarkeddscp.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosDiffServMappingEntry" + "[qosDscp='" + self.qosdscp.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDiffServMappingTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosdscp.is_set or self.qosdscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdscp.get_name_leafdata())
-                if (self.qosl2cos.is_set or self.qosl2cos.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosl2cos.get_name_leafdata())
-                if (self.qosmarkeddscp.is_set or self.qosmarkeddscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosmarkeddscp.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosDscp" or name == "qosL2Cos" or name == "qosMarkedDscp"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosDscp"):
-                    self.qosdscp = value
-                    self.qosdscp.value_namespace = name_space
-                    self.qosdscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosL2Cos"):
-                    self.qosl2cos = value
-                    self.qosl2cos.value_namespace = name_space
-                    self.qosl2cos.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosMarkedDscp"):
-                    self.qosmarkeddscp = value
-                    self.qosmarkeddscp.value_namespace = name_space
-                    self.qosmarkeddscp.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosdiffservmappingentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosdiffservmappingentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosDiffServMappingTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosDiffServMappingEntry"):
-                for c in self.qosdiffservmappingentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosdiffservmappingtable.Qosdiffservmappingentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosdiffservmappingentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosDiffServMappingEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry, ['qosdscp', 'qosl2cos', 'qosmarkeddscp'], name, value)
 
 
-    class Qoscostodscptable(Entity):
+    class Qosifdroppreferencetable(Entity):
         """
-        Maps each of eight CoS values to a DSCP.  When configured for
-        the first time, all 8 entries of the table must be
-        specified. Thereafter, instances may be modified (with a
-        delete and install in a single decision) but not deleted
-        unless all instances are deleted.
+        This class specifies the preference of the drop mechanism an
+        interface chooses if it supports multiple drop mechanisms.
+        Higher values are preferred over lower values.
         
-        .. attribute:: qoscostodscpentry
+        .. attribute:: qosifdroppreferenceentry
         
-        	An instance of this class maps a CoS value to a DSCP
-        	**type**\: list of    :py:class:`Qoscostodscpentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qoscostodscptable.Qoscostodscpentry>`
+        	An instance of this class specifies a drop preference for a drop mechanism on an interface with a particular role combination
+        	**type**\: list of    :py:class:`Qosifdroppreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry>`
         
         
 
@@ -1589,313 +996,55 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qoscostodscptable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosifdroppreferencetable, self).__init__()
 
-            self.yang_name = "qosCosToDscpTable"
+            self.yang_name = "qosIfDropPreferenceTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfDropPreferenceEntry" : ("qosifdroppreferenceentry", CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry)}
 
-            self.qoscostodscpentry = YList(self)
+            self.qosifdroppreferenceentry = YList(self)
+            self._segment_path = lambda: "qosIfDropPreferenceTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qoscostodscptable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qoscostodscptable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosifdroppreferencetable, [], name, value)
 
 
-        class Qoscostodscpentry(Entity):
+        class Qosifdroppreferenceentry(Entity):
             """
-            An instance of this class maps a CoS value to a DSCP.
+            An instance of this class specifies a drop preference for
+            a drop mechanism on an interface with a particular role
+            combination.
             
-            .. attribute:: qoscostodscpcos  <key>
-            
-            	The L2 CoS value that is being mapped
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            .. attribute:: qoscostodscpdscp
-            
-            	The DSCP value to use when mapping the L2 CoS to a DSCP
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qoscostodscptable.Qoscostodscpentry, self).__init__()
-
-                self.yang_name = "qosCosToDscpEntry"
-                self.yang_parent_name = "qosCosToDscpTable"
-
-                self.qoscostodscpcos = YLeaf(YType.int32, "qosCosToDscpCos")
-
-                self.qoscostodscpdscp = YLeaf(YType.int32, "qosCosToDscpDscp")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qoscostodscpcos",
-                                "qoscostodscpdscp") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qoscostodscptable.Qoscostodscpentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qoscostodscptable.Qoscostodscpentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qoscostodscpcos.is_set or
-                    self.qoscostodscpdscp.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qoscostodscpcos.yfilter != YFilter.not_set or
-                    self.qoscostodscpdscp.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosCosToDscpEntry" + "[qosCosToDscpCos='" + self.qoscostodscpcos.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosCosToDscpTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qoscostodscpcos.is_set or self.qoscostodscpcos.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qoscostodscpcos.get_name_leafdata())
-                if (self.qoscostodscpdscp.is_set or self.qoscostodscpdscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qoscostodscpdscp.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosCosToDscpCos" or name == "qosCosToDscpDscp"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosCosToDscpCos"):
-                    self.qoscostodscpcos = value
-                    self.qoscostodscpcos.value_namespace = name_space
-                    self.qoscostodscpcos.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosCosToDscpDscp"):
-                    self.qoscostodscpdscp = value
-                    self.qoscostodscpdscp.value_namespace = name_space
-                    self.qoscostodscpdscp.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qoscostodscpentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qoscostodscpentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosCosToDscpTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosCosToDscpEntry"):
-                for c in self.qoscostodscpentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qoscostodscptable.Qoscostodscpentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qoscostodscpentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosCosToDscpEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosunmatchedpolicytable(Entity):
-        """
-        A policy class that specifies what QoS to apply to a packet
-        that does not match any other policy configured for this role
-        combination for a particular direction of traffic.
-        
-        .. attribute:: qosunmatchedpolicyentry
-        
-        	An instance of this class specifies the unmatched policy for a particular role combination for incoming or outgoing traffic
-        	**type**\: list of    :py:class:`Qosunmatchedpolicyentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosunmatchedpolicytable, self).__init__()
-
-            self.yang_name = "qosUnmatchedPolicyTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosunmatchedpolicyentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosunmatchedpolicytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosunmatchedpolicytable, self).__setattr__(name, value)
-
-
-        class Qosunmatchedpolicyentry(Entity):
-            """
-            An instance of this class specifies the unmatched policy
-            for a particular role combination for incoming or outgoing
-            traffic.
-            
-            .. attribute:: qosunmatchedpolicyid  <key>
+            .. attribute:: qosifdroppreferenceid  <key>
             
             	An integer index to identify the instance of the policy class
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: qosunmatchedpolicyaggregateid
+            .. attribute:: qosifdropdiscipline
             
-            	An index identifying the aggregate that the packet belongs to.  It must correspond to the integer index of an instance of class qosAggregateTable or be zero.  If zero, the microflow does not belong to any aggregate and is not policed as part of any aggregate
+            	An enumerate type for all the known drop mechanisms
+            	**type**\:   :py:class:`Qosifdropdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry.Qosifdropdiscipline>`
+            
+            .. attribute:: qosifdroppreference
+            
+            	The preference to use this drop mechanism.  A higher value means a higher preference.  If two mechanisms have the same preference the choice is a local decision
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 1..16
             
-            .. attribute:: qosunmatchedpolicydirection
+            .. attribute:: qosifdroproles
             
-            	The direction of packet flow at the interface in question to which this instance applies
-            	**type**\:   :py:class:`Qosunmatchedpolicydirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry.Qosunmatchedpolicydirection>`
-            
-            .. attribute:: qosunmatchedpolicydscp
-            
-            	The DSCP to classify the unmatched packet with.  This must be specified even if qosUnmatchedPolicyDscpTrusted is true
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            .. attribute:: qosunmatchedpolicydscptrusted
-            
-            	If this attribute is true, then the Dscp associated with the packet is trusted, i.e., it is assumed to have already been set.  In this case, the Dscp is not rewritten with qosUnmatchedPolicyDscp (qosUnmatchedPolicyDscp is ignored) unless this is a non\-IP packet and arrives untagged.  The packet is still policed as part of its micro flow and its aggregate flow.  When a trusted action is applied to an input interface, the Dscp (for an IP packet) or CoS (for a non\-IP packet) associated with the packet is the one contained in the packet. When a trusted action is applied to an output interface, the Dscp associated with the packet is the one that is the result of the input classification and policing
-            	**type**\:  bool
-            
-            .. attribute:: qosunmatchedpolicyrole
-            
-            	Role combination for which this instance applies
+            	The combination of roles the interface must have for this policy instance to apply to that interface
             	**type**\:  str
             
             	**length:** 0..255
             
-            .. attribute:: qosunmatchpolmicroflowpolicerid
-            
-            	An index identifying the instance of policer to apply to unmatched packets.  It must correspond to the integer index of an instance of class qosPolicerTable or be zero.  If zero, the microflow is not policed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             
 
             """
@@ -1904,238 +1053,55 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry, self).__init__()
 
-                self.yang_name = "qosUnmatchedPolicyEntry"
-                self.yang_parent_name = "qosUnmatchedPolicyTable"
+                self.yang_name = "qosIfDropPreferenceEntry"
+                self.yang_parent_name = "qosIfDropPreferenceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.qosunmatchedpolicyid = YLeaf(YType.uint32, "qosUnmatchedPolicyId")
+                self.qosifdroppreferenceid = YLeaf(YType.uint32, "qosIfDropPreferenceId")
 
-                self.qosunmatchedpolicyaggregateid = YLeaf(YType.uint32, "qosUnmatchedPolicyAggregateId")
+                self.qosifdropdiscipline = YLeaf(YType.enumeration, "qosIfDropDiscipline")
 
-                self.qosunmatchedpolicydirection = YLeaf(YType.enumeration, "qosUnmatchedPolicyDirection")
+                self.qosifdroppreference = YLeaf(YType.int32, "qosIfDropPreference")
 
-                self.qosunmatchedpolicydscp = YLeaf(YType.int32, "qosUnmatchedPolicyDscp")
-
-                self.qosunmatchedpolicydscptrusted = YLeaf(YType.boolean, "qosUnmatchedPolicyDscpTrusted")
-
-                self.qosunmatchedpolicyrole = YLeaf(YType.str, "qosUnmatchedPolicyRole")
-
-                self.qosunmatchpolmicroflowpolicerid = YLeaf(YType.uint32, "qosUnmatchPolMicroFlowPolicerId")
+                self.qosifdroproles = YLeaf(YType.str, "qosIfDropRoles")
+                self._segment_path = lambda: "qosIfDropPreferenceEntry" + "[qosIfDropPreferenceId='" + self.qosifdroppreferenceid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDropPreferenceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosunmatchedpolicyid",
-                                "qosunmatchedpolicyaggregateid",
-                                "qosunmatchedpolicydirection",
-                                "qosunmatchedpolicydscp",
-                                "qosunmatchedpolicydscptrusted",
-                                "qosunmatchedpolicyrole",
-                                "qosunmatchpolmicroflowpolicerid") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry, ['qosifdroppreferenceid', 'qosifdropdiscipline', 'qosifdroppreference', 'qosifdroproles'], name, value)
 
-            class Qosunmatchedpolicydirection(Enum):
+            class Qosifdropdiscipline(Enum):
                 """
-                Qosunmatchedpolicydirection
+                Qosifdropdiscipline
 
-                The direction of packet flow at the interface in question to
+                An enumerate type for all the known drop mechanisms.
 
-                which this instance applies.
+                .. data:: qosIfDropWRED = 1
 
-                .. data:: in_ = 0
-
-                .. data:: out = 1
+                .. data:: qosIfDropTailDrop = 2
 
                 """
 
-                in_ = Enum.YLeaf(0, "in")
+                qosIfDropWRED = Enum.YLeaf(1, "qosIfDropWRED")
 
-                out = Enum.YLeaf(1, "out")
-
-
-            def has_data(self):
-                return (
-                    self.qosunmatchedpolicyid.is_set or
-                    self.qosunmatchedpolicyaggregateid.is_set or
-                    self.qosunmatchedpolicydirection.is_set or
-                    self.qosunmatchedpolicydscp.is_set or
-                    self.qosunmatchedpolicydscptrusted.is_set or
-                    self.qosunmatchedpolicyrole.is_set or
-                    self.qosunmatchpolmicroflowpolicerid.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicyid.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicyaggregateid.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicydirection.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicydscp.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicydscptrusted.yfilter != YFilter.not_set or
-                    self.qosunmatchedpolicyrole.yfilter != YFilter.not_set or
-                    self.qosunmatchpolmicroflowpolicerid.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosUnmatchedPolicyEntry" + "[qosUnmatchedPolicyId='" + self.qosunmatchedpolicyid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosUnmatchedPolicyTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosunmatchedpolicyid.is_set or self.qosunmatchedpolicyid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicyid.get_name_leafdata())
-                if (self.qosunmatchedpolicyaggregateid.is_set or self.qosunmatchedpolicyaggregateid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicyaggregateid.get_name_leafdata())
-                if (self.qosunmatchedpolicydirection.is_set or self.qosunmatchedpolicydirection.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicydirection.get_name_leafdata())
-                if (self.qosunmatchedpolicydscp.is_set or self.qosunmatchedpolicydscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicydscp.get_name_leafdata())
-                if (self.qosunmatchedpolicydscptrusted.is_set or self.qosunmatchedpolicydscptrusted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicydscptrusted.get_name_leafdata())
-                if (self.qosunmatchedpolicyrole.is_set or self.qosunmatchedpolicyrole.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchedpolicyrole.get_name_leafdata())
-                if (self.qosunmatchpolmicroflowpolicerid.is_set or self.qosunmatchpolmicroflowpolicerid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosunmatchpolmicroflowpolicerid.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosUnmatchedPolicyId" or name == "qosUnmatchedPolicyAggregateId" or name == "qosUnmatchedPolicyDirection" or name == "qosUnmatchedPolicyDscp" or name == "qosUnmatchedPolicyDscpTrusted" or name == "qosUnmatchedPolicyRole" or name == "qosUnmatchPolMicroFlowPolicerId"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosUnmatchedPolicyId"):
-                    self.qosunmatchedpolicyid = value
-                    self.qosunmatchedpolicyid.value_namespace = name_space
-                    self.qosunmatchedpolicyid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchedPolicyAggregateId"):
-                    self.qosunmatchedpolicyaggregateid = value
-                    self.qosunmatchedpolicyaggregateid.value_namespace = name_space
-                    self.qosunmatchedpolicyaggregateid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchedPolicyDirection"):
-                    self.qosunmatchedpolicydirection = value
-                    self.qosunmatchedpolicydirection.value_namespace = name_space
-                    self.qosunmatchedpolicydirection.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchedPolicyDscp"):
-                    self.qosunmatchedpolicydscp = value
-                    self.qosunmatchedpolicydscp.value_namespace = name_space
-                    self.qosunmatchedpolicydscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchedPolicyDscpTrusted"):
-                    self.qosunmatchedpolicydscptrusted = value
-                    self.qosunmatchedpolicydscptrusted.value_namespace = name_space
-                    self.qosunmatchedpolicydscptrusted.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchedPolicyRole"):
-                    self.qosunmatchedpolicyrole = value
-                    self.qosunmatchedpolicyrole.value_namespace = name_space
-                    self.qosunmatchedpolicyrole.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosUnmatchPolMicroFlowPolicerId"):
-                    self.qosunmatchpolmicroflowpolicerid = value
-                    self.qosunmatchpolmicroflowpolicerid.value_namespace = name_space
-                    self.qosunmatchpolmicroflowpolicerid.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosunmatchedpolicyentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosunmatchedpolicyentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosUnmatchedPolicyTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosUnmatchedPolicyEntry"):
-                for c in self.qosunmatchedpolicyentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosunmatchedpolicytable.Qosunmatchedpolicyentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosunmatchedpolicyentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosUnmatchedPolicyEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                qosIfDropTailDrop = Enum.YLeaf(2, "qosIfDropTailDrop")
 
 
-    class Qospolicertable(Entity):
+
+    class Qosifdscpassignmenttable(Entity):
         """
-        A class specifying policing parameters for both microflows
-        and aggregate flows.  This table is designed for policing
-        according to a token bucket scheme where an average rate and
-        burst size is specified.
+        The assignment of each DSCP to a queue and threshold for each
+        interface queue type.
         
-        .. attribute:: qospolicerentry
+        .. attribute:: qosifdscpassignmententry
         
-        	An instance of this class specifies a set of policing parameters
-        	**type**\: list of    :py:class:`Qospolicerentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qospolicertable.Qospolicerentry>`
+        	An instance of this class specifies the queue and threshold set for a packet with a particular DSCP on an interface of a particular type with a particular role combination
+        	**type**\: list of    :py:class:`Qosifdscpassignmententry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry>`
         
         
 
@@ -2145,594 +1111,68 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qospolicertable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosifdscpassignmenttable, self).__init__()
 
-            self.yang_name = "qosPolicerTable"
+            self.yang_name = "qosIfDscpAssignmentTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfDscpAssignmentEntry" : ("qosifdscpassignmententry", CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry)}
 
-            self.qospolicerentry = YList(self)
+            self.qosifdscpassignmententry = YList(self)
+            self._segment_path = lambda: "qosIfDscpAssignmentTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qospolicertable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qospolicertable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosifdscpassignmenttable, [], name, value)
 
 
-        class Qospolicerentry(Entity):
+        class Qosifdscpassignmententry(Entity):
             """
-            An instance of this class specifies a set of policing
-            parameters.
+            An instance of this class specifies the queue and threshold
+            set for a packet with a particular DSCP on an interface of
+            a particular type with a particular role combination.
             
-            .. attribute:: qospolicerid  <key>
+            .. attribute:: qosifdscpassignmentid  <key>
             
             	An integer index to identify the instance of the policy class
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: qospoliceraction
+            .. attribute:: qosifdscp
             
-            	An indication of how to handle out of profile packets.  When the shape action is chosen then traffic is shaped to the rate specified by qosPolicerRate
-            	**type**\:   :py:class:`Qospoliceraction <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qospolicertable.Qospolicerentry.Qospoliceraction>`
-            
-            .. attribute:: qospolicerexcessburst
-            
-            	The excess size of a burst in terms of bits
+            	The DSCP to which this row applies
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..63
             
-            .. attribute:: qospolicernormalburst
+            .. attribute:: qosifdscproles
             
-            	The normal size of a burst in terms of bits
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qospolicerrate
-            
-            	The token rate.  It is specified in units of bit/s. A rate of zero means that all packets will be out of profile.  If the qosPolicerAction is set to drop then this effectively denies any service to packets policed by this policer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qospolicertable.Qospolicerentry, self).__init__()
-
-                self.yang_name = "qosPolicerEntry"
-                self.yang_parent_name = "qosPolicerTable"
-
-                self.qospolicerid = YLeaf(YType.uint32, "qosPolicerId")
-
-                self.qospoliceraction = YLeaf(YType.enumeration, "qosPolicerAction")
-
-                self.qospolicerexcessburst = YLeaf(YType.uint32, "qosPolicerExcessBurst")
-
-                self.qospolicernormalburst = YLeaf(YType.uint32, "qosPolicerNormalBurst")
-
-                self.qospolicerrate = YLeaf(YType.uint32, "qosPolicerRate")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qospolicerid",
-                                "qospoliceraction",
-                                "qospolicerexcessburst",
-                                "qospolicernormalburst",
-                                "qospolicerrate") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qospolicertable.Qospolicerentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qospolicertable.Qospolicerentry, self).__setattr__(name, value)
-
-            class Qospoliceraction(Enum):
-                """
-                Qospoliceraction
-
-                An indication of how to handle out of profile packets.  When
-
-                the shape action is chosen then traffic is shaped to the rate
-
-                specified by qosPolicerRate.
-
-                .. data:: drop = 0
-
-                .. data:: mark = 1
-
-                .. data:: shape = 2
-
-                """
-
-                drop = Enum.YLeaf(0, "drop")
-
-                mark = Enum.YLeaf(1, "mark")
-
-                shape = Enum.YLeaf(2, "shape")
-
-
-            def has_data(self):
-                return (
-                    self.qospolicerid.is_set or
-                    self.qospoliceraction.is_set or
-                    self.qospolicerexcessburst.is_set or
-                    self.qospolicernormalburst.is_set or
-                    self.qospolicerrate.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qospolicerid.yfilter != YFilter.not_set or
-                    self.qospoliceraction.yfilter != YFilter.not_set or
-                    self.qospolicerexcessburst.yfilter != YFilter.not_set or
-                    self.qospolicernormalburst.yfilter != YFilter.not_set or
-                    self.qospolicerrate.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosPolicerEntry" + "[qosPolicerId='" + self.qospolicerid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosPolicerTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qospolicerid.is_set or self.qospolicerid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qospolicerid.get_name_leafdata())
-                if (self.qospoliceraction.is_set or self.qospoliceraction.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qospoliceraction.get_name_leafdata())
-                if (self.qospolicerexcessburst.is_set or self.qospolicerexcessburst.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qospolicerexcessburst.get_name_leafdata())
-                if (self.qospolicernormalburst.is_set or self.qospolicernormalburst.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qospolicernormalburst.get_name_leafdata())
-                if (self.qospolicerrate.is_set or self.qospolicerrate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qospolicerrate.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosPolicerId" or name == "qosPolicerAction" or name == "qosPolicerExcessBurst" or name == "qosPolicerNormalBurst" or name == "qosPolicerRate"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosPolicerId"):
-                    self.qospolicerid = value
-                    self.qospolicerid.value_namespace = name_space
-                    self.qospolicerid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosPolicerAction"):
-                    self.qospoliceraction = value
-                    self.qospoliceraction.value_namespace = name_space
-                    self.qospoliceraction.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosPolicerExcessBurst"):
-                    self.qospolicerexcessburst = value
-                    self.qospolicerexcessburst.value_namespace = name_space
-                    self.qospolicerexcessburst.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosPolicerNormalBurst"):
-                    self.qospolicernormalburst = value
-                    self.qospolicernormalburst.value_namespace = name_space
-                    self.qospolicernormalburst.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosPolicerRate"):
-                    self.qospolicerrate = value
-                    self.qospolicerrate.value_namespace = name_space
-                    self.qospolicerrate.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qospolicerentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qospolicerentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosPolicerTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosPolicerEntry"):
-                for c in self.qospolicerentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qospolicertable.Qospolicerentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qospolicerentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosPolicerEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosaggregatetable(Entity):
-        """
-        Instances of this class identify aggregate flows and the
-        policer to apply to each.
-        
-        .. attribute:: qosaggregateentry
-        
-        	An instance of this class specifies the policer to apply to an aggregate flow
-        	**type**\: list of    :py:class:`Qosaggregateentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosaggregatetable.Qosaggregateentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosaggregatetable, self).__init__()
-
-            self.yang_name = "qosAggregateTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosaggregateentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosaggregatetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosaggregatetable, self).__setattr__(name, value)
-
-
-        class Qosaggregateentry(Entity):
-            """
-            An instance of this class specifies the policer to apply to
-            an aggregate flow.
-            
-            .. attribute:: qosaggregateid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosaggregatepolicerid
-            
-            	An index identifying the instance of policer to apply to the aggregate.  It must correspond to the integer index of an instance of class qosPolicerTable
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosaggregatetable.Qosaggregateentry, self).__init__()
-
-                self.yang_name = "qosAggregateEntry"
-                self.yang_parent_name = "qosAggregateTable"
-
-                self.qosaggregateid = YLeaf(YType.uint32, "qosAggregateId")
-
-                self.qosaggregatepolicerid = YLeaf(YType.uint32, "qosAggregatePolicerId")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosaggregateid",
-                                "qosaggregatepolicerid") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosaggregatetable.Qosaggregateentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosaggregatetable.Qosaggregateentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosaggregateid.is_set or
-                    self.qosaggregatepolicerid.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosaggregateid.yfilter != YFilter.not_set or
-                    self.qosaggregatepolicerid.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosAggregateEntry" + "[qosAggregateId='" + self.qosaggregateid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosAggregateTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosaggregateid.is_set or self.qosaggregateid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosaggregateid.get_name_leafdata())
-                if (self.qosaggregatepolicerid.is_set or self.qosaggregatepolicerid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosaggregatepolicerid.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosAggregateId" or name == "qosAggregatePolicerId"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosAggregateId"):
-                    self.qosaggregateid = value
-                    self.qosaggregateid.value_namespace = name_space
-                    self.qosaggregateid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosAggregatePolicerId"):
-                    self.qosaggregatepolicerid = value
-                    self.qosaggregatepolicerid.value_namespace = name_space
-                    self.qosaggregatepolicerid.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosaggregateentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosaggregateentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosAggregateTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosAggregateEntry"):
-                for c in self.qosaggregateentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosaggregatetable.Qosaggregateentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosaggregateentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosAggregateEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosmacclassificationtable(Entity):
-        """
-        A class of MAC/Vlan tuples and their associated CoS values.
-        
-        .. attribute:: qosmacclassificationentry
-        
-        	An instance of this class specifies the mapping of a VLAN and a MAC address to a CoS value
-        	**type**\: list of    :py:class:`Qosmacclassificationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosmacclassificationtable.Qosmacclassificationentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosmacclassificationtable, self).__init__()
-
-            self.yang_name = "qosMacClassificationTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosmacclassificationentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosmacclassificationtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosmacclassificationtable, self).__setattr__(name, value)
-
-
-        class Qosmacclassificationentry(Entity):
-            """
-            An instance of this class specifies the mapping of a VLAN
-            and a MAC address to a CoS value.
-            
-            .. attribute:: qosmacclassificationid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosdstmacaddress
-            
-            	The destination MAC address of the L2 frame
+            	The role combination the interface must be configured with
             	**type**\:  str
             
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            	**length:** 0..255
             
-            .. attribute:: qosdstmaccos
+            .. attribute:: qosifqueue
             
-            	The CoS to assign the packet with the associated MAC/VLAN tuple.  Note that this CoS is overridden by the policies to classify the frame at layer 3 if there are any
+            	The queue to which the DSCP applies for the given interface type
             	**type**\:  int
             
-            	**range:** 0..7
+            	**range:** 1..64
             
-            .. attribute:: qosdstmacvlan
+            .. attribute:: qosifqueuetype
             
-            	The VLAN of the destination MAC address of the L2 frame
+            	The interface queue type to which this row applies
+            	**type**\:   :py:class:`QosInterfaceQueueType <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.QosInterfaceQueueType>`
+            
+            .. attribute:: qosifthresholdset
+            
+            	The threshold set of the specified queue to which the DSCP applies for the given interface type
             	**type**\:  int
             
-            	**range:** 1..4095
+            	**range:** 1..8
             
             
 
@@ -2742,173 +1182,627 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosmacclassificationtable.Qosmacclassificationentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry, self).__init__()
 
-                self.yang_name = "qosMacClassificationEntry"
-                self.yang_parent_name = "qosMacClassificationTable"
+                self.yang_name = "qosIfDscpAssignmentEntry"
+                self.yang_parent_name = "qosIfDscpAssignmentTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.qosmacclassificationid = YLeaf(YType.uint32, "qosMacClassificationId")
+                self.qosifdscpassignmentid = YLeaf(YType.uint32, "qosIfDscpAssignmentId")
 
-                self.qosdstmacaddress = YLeaf(YType.str, "qosDstMacAddress")
+                self.qosifdscp = YLeaf(YType.int32, "qosIfDscp")
 
-                self.qosdstmaccos = YLeaf(YType.int32, "qosDstMacCos")
+                self.qosifdscproles = YLeaf(YType.str, "qosIfDscpRoles")
 
-                self.qosdstmacvlan = YLeaf(YType.int32, "qosDstMacVlan")
+                self.qosifqueue = YLeaf(YType.int32, "qosIfQueue")
+
+                self.qosifqueuetype = YLeaf(YType.enumeration, "qosIfQueueType")
+
+                self.qosifthresholdset = YLeaf(YType.int32, "qosIfThresholdSet")
+                self._segment_path = lambda: "qosIfDscpAssignmentEntry" + "[qosIfDscpAssignmentId='" + self.qosifdscpassignmentid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDscpAssignmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosmacclassificationid",
-                                "qosdstmacaddress",
-                                "qosdstmaccos",
-                                "qosdstmacvlan") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosmacclassificationtable.Qosmacclassificationentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosmacclassificationtable.Qosmacclassificationentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry, ['qosifdscpassignmentid', 'qosifdscp', 'qosifdscproles', 'qosifqueue', 'qosifqueuetype', 'qosifthresholdset'], name, value)
 
-            def has_data(self):
-                return (
-                    self.qosmacclassificationid.is_set or
-                    self.qosdstmacaddress.is_set or
-                    self.qosdstmaccos.is_set or
-                    self.qosdstmacvlan.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosmacclassificationid.yfilter != YFilter.not_set or
-                    self.qosdstmacaddress.yfilter != YFilter.not_set or
-                    self.qosdstmaccos.yfilter != YFilter.not_set or
-                    self.qosdstmacvlan.yfilter != YFilter.not_set)
+    class Qosifredtable(Entity):
+        """
+        A class of lower and upper values for each threshold set in a
+        queue supporting WRED.  If the size of the queue for a given
+        threshold is below the lower value then packets assigned to
+        that threshold are always accepted into the queue.  If the
+        size of the queue is above upper value then packets are always
+        dropped.  If the size of the queue is between the lower and
+        the upper then packets are randomly dropped.
+        
+        .. attribute:: qosifredentry
+        
+        	An instance of this class specifies threshold limits for a particular RED threshold of a given threshold set on an interface and with a particular role combination
+        	**type**\: list of    :py:class:`Qosifredentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifredtable.Qosifredentry>`
+        
+        
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosMacClassificationEntry" + "[qosMacClassificationId='" + self.qosmacclassificationid.get() + "']" + path_buffer
+        """
 
-                return path_buffer
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosMacClassificationTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosifredtable, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.qosmacclassificationid.is_set or self.qosmacclassificationid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosmacclassificationid.get_name_leafdata())
-                if (self.qosdstmacaddress.is_set or self.qosdstmacaddress.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdstmacaddress.get_name_leafdata())
-                if (self.qosdstmaccos.is_set or self.qosdstmaccos.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdstmaccos.get_name_leafdata())
-                if (self.qosdstmacvlan.is_set or self.qosdstmacvlan.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosdstmacvlan.get_name_leafdata())
+            self.yang_name = "qosIfRedTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfRedEntry" : ("qosifredentry", CISCOQOSPIBMIB.Qosifredtable.Qosifredentry)}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+            self.qosifredentry = YList(self)
+            self._segment_path = lambda: "qosIfRedTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosifredtable, [], name, value)
 
-                return None
 
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosMacClassificationId" or name == "qosDstMacAddress" or name == "qosDstMacCos" or name == "qosDstMacVlan"):
-                    return True
-                return False
+        class Qosifredentry(Entity):
+            """
+            An instance of this class specifies threshold limits for a
+            particular RED threshold of a given threshold set on an
+            interface and with a particular role combination.
+            
+            .. attribute:: qosifredid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosifrednumthresholdsets
+            
+            	The values in this entry apply only to queues with the number of thresholds specified by this attribute
+            	**type**\:   :py:class:`ThresholdSetRange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.ThresholdSetRange>`
+            
+            .. attribute:: qosifredroles
+            
+            	The role combination the interface must be configured with
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: qosifredthresholdset
+            
+            	The threshold set to which the lower and upper values apply. It must be in the range 1 through qosIfRedNumThresholdSets. There must be exactly one PRI for each value in this range
+            	**type**\:  int
+            
+            	**range:** 1..8
+            
+            .. attribute:: qosifredthresholdsetlower
+            
+            	The threshold value below which no packets are dropped
+            	**type**\:  int
+            
+            	**range:** 0..100
+            
+            .. attribute:: qosifredthresholdsetupper
+            
+            	The threshold value above which all packets are dropped
+            	**type**\:  int
+            
+            	**range:** 0..100
+            
+            
 
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosMacClassificationId"):
-                    self.qosmacclassificationid = value
-                    self.qosmacclassificationid.value_namespace = name_space
-                    self.qosmacclassificationid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDstMacAddress"):
-                    self.qosdstmacaddress = value
-                    self.qosdstmacaddress.value_namespace = name_space
-                    self.qosdstmacaddress.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDstMacCos"):
-                    self.qosdstmaccos = value
-                    self.qosdstmaccos.value_namespace = name_space
-                    self.qosdstmaccos.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosDstMacVlan"):
-                    self.qosdstmacvlan = value
-                    self.qosdstmacvlan.value_namespace = name_space
-                    self.qosdstmacvlan.value_namespace_prefix = name_space_prefix
+            """
 
-        def has_data(self):
-            for c in self.qosmacclassificationentry:
-                if (c.has_data()):
-                    return True
-            return False
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
 
-        def has_operation(self):
-            for c in self.qosmacclassificationentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosifredtable.Qosifredentry, self).__init__()
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosMacClassificationTable" + path_buffer
+                self.yang_name = "qosIfRedEntry"
+                self.yang_parent_name = "qosIfRedTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-            return path_buffer
+                self.qosifredid = YLeaf(YType.uint32, "qosIfRedId")
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                self.qosifrednumthresholdsets = YLeaf(YType.enumeration, "qosIfRedNumThresholdSets")
 
-            leaf_name_data = LeafDataList()
+                self.qosifredroles = YLeaf(YType.str, "qosIfRedRoles")
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+                self.qosifredthresholdset = YLeaf(YType.int32, "qosIfRedThresholdSet")
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+                self.qosifredthresholdsetlower = YLeaf(YType.int32, "qosIfRedThresholdSetLower")
 
-            if (child_yang_name == "qosMacClassificationEntry"):
-                for c in self.qosmacclassificationentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosmacclassificationtable.Qosmacclassificationentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosmacclassificationentry.append(c)
-                return c
+                self.qosifredthresholdsetupper = YLeaf(YType.int32, "qosIfRedThresholdSetUpper")
+                self._segment_path = lambda: "qosIfRedEntry" + "[qosIfRedId='" + self.qosifredid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfRedTable/%s" % self._segment_path()
 
-            return None
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosifredtable.Qosifredentry, ['qosifredid', 'qosifrednumthresholdsets', 'qosifredroles', 'qosifredthresholdset', 'qosifredthresholdsetlower', 'qosifredthresholdsetupper'], name, value)
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosMacClassificationEntry"):
-                return True
-            return False
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+    class Qosifschedulingpreferencestable(Entity):
+        """
+        This class specifies the scheduling preference an interface
+        chooses if it supports multiple scheduling types.  Higher
+        values are preferred over lower values.
+        
+        .. attribute:: qosifschedulingpreferenceentry
+        
+        	An instance of this class specifies a scheduling preference for a queue\-type on an interface with a particular role combination
+        	**type**\: list of    :py:class:`Qosifschedulingpreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosifschedulingpreferencestable, self).__init__()
+
+            self.yang_name = "qosIfSchedulingPreferencesTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfSchedulingPreferenceEntry" : ("qosifschedulingpreferenceentry", CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry)}
+
+            self.qosifschedulingpreferenceentry = YList(self)
+            self._segment_path = lambda: "qosIfSchedulingPreferencesTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosifschedulingpreferencestable, [], name, value)
+
+
+        class Qosifschedulingpreferenceentry(Entity):
+            """
+            An instance of this class specifies a scheduling preference
+            for a queue\-type on an interface with a particular role
+            combination.
+            
+            .. attribute:: qosifschedulingpreferenceid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosifschedulingdiscipline
+            
+            	An enumerate type for all the known scheduling disciplines
+            	**type**\:   :py:class:`Qosifschedulingdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry.Qosifschedulingdiscipline>`
+            
+            .. attribute:: qosifschedulingpreference
+            
+            	The preference to use this scheduling discipline and queue type.  A higher value means a higher preference.  If two disciplines have the same preference the choice is a local decision
+            	**type**\:  int
+            
+            	**range:** 1..16
+            
+            .. attribute:: qosifschedulingqueuetype
+            
+            	The queue type of this preference
+            	**type**\:   :py:class:`QosInterfaceQueueType <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.QosInterfaceQueueType>`
+            
+            .. attribute:: qosifschedulingroles
+            
+            	The combination of roles the interface must have for this policy instance to apply to that interface
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, self).__init__()
+
+                self.yang_name = "qosIfSchedulingPreferenceEntry"
+                self.yang_parent_name = "qosIfSchedulingPreferencesTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosifschedulingpreferenceid = YLeaf(YType.uint32, "qosIfSchedulingPreferenceId")
+
+                self.qosifschedulingdiscipline = YLeaf(YType.enumeration, "qosIfSchedulingDiscipline")
+
+                self.qosifschedulingpreference = YLeaf(YType.int32, "qosIfSchedulingPreference")
+
+                self.qosifschedulingqueuetype = YLeaf(YType.enumeration, "qosIfSchedulingQueueType")
+
+                self.qosifschedulingroles = YLeaf(YType.str, "qosIfSchedulingRoles")
+                self._segment_path = lambda: "qosIfSchedulingPreferenceEntry" + "[qosIfSchedulingPreferenceId='" + self.qosifschedulingpreferenceid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfSchedulingPreferencesTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, ['qosifschedulingpreferenceid', 'qosifschedulingdiscipline', 'qosifschedulingpreference', 'qosifschedulingqueuetype', 'qosifschedulingroles'], name, value)
+
+            class Qosifschedulingdiscipline(Enum):
+                """
+                Qosifschedulingdiscipline
+
+                An enumerate type for all the known scheduling disciplines.
+
+                .. data:: weightedFairQueueing = 1
+
+                .. data:: weightedRoundRobin = 2
+
+                .. data:: customQueueing = 3
+
+                .. data:: priorityQueueing = 4
+
+                .. data:: classBasedWFQ = 5
+
+                .. data:: fifo = 6
+
+                .. data:: pqWrr = 7
+
+                .. data:: pqCbwfq = 8
+
+                """
+
+                weightedFairQueueing = Enum.YLeaf(1, "weightedFairQueueing")
+
+                weightedRoundRobin = Enum.YLeaf(2, "weightedRoundRobin")
+
+                customQueueing = Enum.YLeaf(3, "customQueueing")
+
+                priorityQueueing = Enum.YLeaf(4, "priorityQueueing")
+
+                classBasedWFQ = Enum.YLeaf(5, "classBasedWFQ")
+
+                fifo = Enum.YLeaf(6, "fifo")
+
+                pqWrr = Enum.YLeaf(7, "pqWrr")
+
+                pqCbwfq = Enum.YLeaf(8, "pqCbwfq")
+
+
+
+    class Qosiftaildroptable(Entity):
+        """
+        A class for threshold sets in a queue supporting tail drop.
+        If the size of the queue for a given threshold set is at or
+        below the specified value then packets assigned to that
+        threshold set are always accepted into the queue.  If the size
+        of the queue is above the specified value then packets are
+        always dropped.
+        
+        .. attribute:: qosiftaildropentry
+        
+        	An instance of this class specifies the queue depth for a particular tail\-drop threshold set on an interface with a particular role combination
+        	**type**\: list of    :py:class:`Qosiftaildropentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosiftaildroptable, self).__init__()
+
+            self.yang_name = "qosIfTailDropTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfTailDropEntry" : ("qosiftaildropentry", CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry)}
+
+            self.qosiftaildropentry = YList(self)
+            self._segment_path = lambda: "qosIfTailDropTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosiftaildroptable, [], name, value)
+
+
+        class Qosiftaildropentry(Entity):
+            """
+            An instance of this class specifies the queue depth for a
+            particular tail\-drop threshold set on an interface with a
+            particular role combination.
+            
+            .. attribute:: qosiftaildropid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosiftaildropnumthresholdsets
+            
+            	The value in this entry applies only to queues with the number of thresholds specified by this attribute
+            	**type**\:   :py:class:`ThresholdSetRange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.ThresholdSetRange>`
+            
+            .. attribute:: qosiftaildroproles
+            
+            	The role combination the interface must be configured with
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: qosiftaildropthresholdset
+            
+            	The threshold set to which the threshold value applies
+            	**type**\:  int
+            
+            	**range:** 1..8
+            
+            .. attribute:: qosiftaildropthresholdsetvalue
+            
+            	The threshold value above which packets are dropped
+            	**type**\:  int
+            
+            	**range:** 0..100
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry, self).__init__()
+
+                self.yang_name = "qosIfTailDropEntry"
+                self.yang_parent_name = "qosIfTailDropTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosiftaildropid = YLeaf(YType.uint32, "qosIfTailDropId")
+
+                self.qosiftaildropnumthresholdsets = YLeaf(YType.enumeration, "qosIfTailDropNumThresholdSets")
+
+                self.qosiftaildroproles = YLeaf(YType.str, "qosIfTailDropRoles")
+
+                self.qosiftaildropthresholdset = YLeaf(YType.int32, "qosIfTailDropThresholdSet")
+
+                self.qosiftaildropthresholdsetvalue = YLeaf(YType.int32, "qosIfTailDropThresholdSetValue")
+                self._segment_path = lambda: "qosIfTailDropEntry" + "[qosIfTailDropId='" + self.qosiftaildropid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfTailDropTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry, ['qosiftaildropid', 'qosiftaildropnumthresholdsets', 'qosiftaildroproles', 'qosiftaildropthresholdset', 'qosiftaildropthresholdsetvalue'], name, value)
+
+
+    class Qosifweightstable(Entity):
+        """
+        A class of scheduling weights for each queue of an interface
+        that supports weighted round robin scheduling or a mix of
+        priority queueing and weighted round robin.  For a queue with
+        N priority queues, the N highest queue numbers are the
+        priority queues with the highest queue number having the
+        highest priority.  WRR is applied to the non\-priority queues.
+        
+        .. attribute:: qosifweightsentry
+        
+        	An instance of this class specifies the scheduling weight for a particular queue of an interface with a particular number of queues and with a particular role combination
+        	**type**\: list of    :py:class:`Qosifweightsentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosifweightstable, self).__init__()
+
+            self.yang_name = "qosIfWeightsTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIfWeightsEntry" : ("qosifweightsentry", CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry)}
+
+            self.qosifweightsentry = YList(self)
+            self._segment_path = lambda: "qosIfWeightsTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosifweightstable, [], name, value)
+
+
+        class Qosifweightsentry(Entity):
+            """
+            An instance of this class specifies the scheduling weight for
+            a particular queue of an interface with a particular number
+            of queues and with a particular role combination.
+            
+            .. attribute:: qosifweightsid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosifweightsdrainsize
+            
+            	The maximum number of bytes that may be drained from the queue in one cycle.  The percentage of the bandwith allocated to this queue can be calculated from this attribute and the sum of the drain sizes of all the non\-priority queues of the interface
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosifweightsnumqueues
+            
+            	The value of the weight in this instance applies only to interfaces with the number of queues specified by this attribute
+            	**type**\:   :py:class:`QueueRange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.QueueRange>`
+            
+            .. attribute:: qosifweightsqueue
+            
+            	The queue to which the weight applies
+            	**type**\:  int
+            
+            	**range:** 1..64
+            
+            .. attribute:: qosifweightsqueuesize
+            
+            	The size of the queue in bytes.  Some devices set queue size in terms of packets.  These devices must calculate the queue size in packets by assuming an average packet size suitable for the particular interface.  Some devices have a fixed size buffer to be shared among all queues.  These devices must allocate a fraction of the total buffer space to this queue calculated as the the ratio of the queue size to the sum of the queue sizes for the interface
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosifweightsroles
+            
+            	The role combination the interface must be configured with
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry, self).__init__()
+
+                self.yang_name = "qosIfWeightsEntry"
+                self.yang_parent_name = "qosIfWeightsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosifweightsid = YLeaf(YType.uint32, "qosIfWeightsId")
+
+                self.qosifweightsdrainsize = YLeaf(YType.uint32, "qosIfWeightsDrainSize")
+
+                self.qosifweightsnumqueues = YLeaf(YType.enumeration, "qosIfWeightsNumQueues")
+
+                self.qosifweightsqueue = YLeaf(YType.int32, "qosIfWeightsQueue")
+
+                self.qosifweightsqueuesize = YLeaf(YType.uint32, "qosIfWeightsQueueSize")
+
+                self.qosifweightsroles = YLeaf(YType.str, "qosIfWeightsRoles")
+                self._segment_path = lambda: "qosIfWeightsEntry" + "[qosIfWeightsId='" + self.qosifweightsid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfWeightsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry, ['qosifweightsid', 'qosifweightsdrainsize', 'qosifweightsnumqueues', 'qosifweightsqueue', 'qosifweightsqueuesize', 'qosifweightsroles'], name, value)
+
+
+    class Qosinterfacetypetable(Entity):
+        """
+        This class describes the interface types of the interfaces
+        that exist on the device.  It includes the queue type, role
+        combination and capabilities of interfaces.  The PEP does not
+        report which specific interfaces have which characteristics.
+        
+        .. attribute:: qosinterfacetypeentry
+        
+        	An instance of this class describes a role combination for an interface type of an interface that exists on the device
+        	**type**\: list of    :py:class:`Qosinterfacetypeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosinterfacetypetable, self).__init__()
+
+            self.yang_name = "qosInterfaceTypeTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosInterfaceTypeEntry" : ("qosinterfacetypeentry", CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry)}
+
+            self.qosinterfacetypeentry = YList(self)
+            self._segment_path = lambda: "qosInterfaceTypeTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosinterfacetypetable, [], name, value)
+
+
+        class Qosinterfacetypeentry(Entity):
+            """
+            An instance of this class describes a role combination for
+            an interface type of an interface that exists on the device.
+            
+            .. attribute:: qosinterfacetypeid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosinterfacequeuetype
+            
+            	The interface type in terms of number of queues and thresholds
+            	**type**\:   :py:class:`QosInterfaceQueueType <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.QosInterfaceQueueType>`
+            
+            .. attribute:: qosinterfacetypecapabilities
+            
+            	An enumeration of interface capabilities.  Used by the PDP to select policies and configuration to push to the PEP
+            	**type**\:   :py:class:`QosInterfaceTypeCapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.QosInterfaceTypeCapabilities>`
+            
+            .. attribute:: qosinterfacetyperoles
+            
+            	A combination of roles on at least one interface of type qosInterfaceType
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry, self).__init__()
+
+                self.yang_name = "qosInterfaceTypeEntry"
+                self.yang_parent_name = "qosInterfaceTypeTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qosinterfacetypeid = YLeaf(YType.uint32, "qosInterfaceTypeId")
+
+                self.qosinterfacequeuetype = YLeaf(YType.enumeration, "qosInterfaceQueueType")
+
+                self.qosinterfacetypecapabilities = YLeaf(YType.bits, "qosInterfaceTypeCapabilities")
+
+                self.qosinterfacetyperoles = YLeaf(YType.str, "qosInterfaceTypeRoles")
+                self._segment_path = lambda: "qosInterfaceTypeEntry" + "[qosInterfaceTypeId='" + self.qosinterfacetypeid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosInterfaceTypeTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry, ['qosinterfacetypeid', 'qosinterfacequeuetype', 'qosinterfacetypecapabilities', 'qosinterfacetyperoles'], name, value)
 
 
     class Qosipacetable(Entity):
@@ -2918,7 +1812,7 @@ class CiscoQosPibMib(Entity):
         .. attribute:: qosipaceentry
         
         	An instance of this class specifies an ACE
-        	**type**\: list of    :py:class:`Qosipaceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipacetable.Qosipaceentry>`
+        	**type**\: list of    :py:class:`Qosipaceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry>`
         
         
 
@@ -2928,36 +1822,21 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosipacetable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosipacetable, self).__init__()
 
             self.yang_name = "qosIpAceTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIpAceEntry" : ("qosipaceentry", CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry)}
 
             self.qosipaceentry = YList(self)
+            self._segment_path = lambda: "qosIpAceTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosipacetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosipacetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosipacetable, [], name, value)
 
 
         class Qosipaceentry(Entity):
@@ -3061,10 +1940,14 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosipacetable.Qosipaceentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry, self).__init__()
 
                 self.yang_name = "qosIpAceEntry"
                 self.yang_parent_name = "qosIpAceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.qosipaceid = YLeaf(YType.uint32, "qosIpAceId")
 
@@ -3091,502 +1974,11 @@ class CiscoQosPibMib(Entity):
                 self.qosipacesrcl4portmax = YLeaf(YType.int32, "qosIpAceSrcL4PortMax")
 
                 self.qosipacesrcl4portmin = YLeaf(YType.int32, "qosIpAceSrcL4PortMin")
+                self._segment_path = lambda: "qosIpAceEntry" + "[qosIpAceId='" + self.qosipaceid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosipaceid",
-                                "qosipacedscpmax",
-                                "qosipacedscpmin",
-                                "qosipacedstaddr",
-                                "qosipacedstaddrmask",
-                                "qosipacedstl4portmax",
-                                "qosipacedstl4portmin",
-                                "qosipacepermit",
-                                "qosipaceprotocol",
-                                "qosipacesrcaddr",
-                                "qosipacesrcaddrmask",
-                                "qosipacesrcl4portmax",
-                                "qosipacesrcl4portmin") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosipacetable.Qosipaceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosipacetable.Qosipaceentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosipaceid.is_set or
-                    self.qosipacedscpmax.is_set or
-                    self.qosipacedscpmin.is_set or
-                    self.qosipacedstaddr.is_set or
-                    self.qosipacedstaddrmask.is_set or
-                    self.qosipacedstl4portmax.is_set or
-                    self.qosipacedstl4portmin.is_set or
-                    self.qosipacepermit.is_set or
-                    self.qosipaceprotocol.is_set or
-                    self.qosipacesrcaddr.is_set or
-                    self.qosipacesrcaddrmask.is_set or
-                    self.qosipacesrcl4portmax.is_set or
-                    self.qosipacesrcl4portmin.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosipaceid.yfilter != YFilter.not_set or
-                    self.qosipacedscpmax.yfilter != YFilter.not_set or
-                    self.qosipacedscpmin.yfilter != YFilter.not_set or
-                    self.qosipacedstaddr.yfilter != YFilter.not_set or
-                    self.qosipacedstaddrmask.yfilter != YFilter.not_set or
-                    self.qosipacedstl4portmax.yfilter != YFilter.not_set or
-                    self.qosipacedstl4portmin.yfilter != YFilter.not_set or
-                    self.qosipacepermit.yfilter != YFilter.not_set or
-                    self.qosipaceprotocol.yfilter != YFilter.not_set or
-                    self.qosipacesrcaddr.yfilter != YFilter.not_set or
-                    self.qosipacesrcaddrmask.yfilter != YFilter.not_set or
-                    self.qosipacesrcl4portmax.yfilter != YFilter.not_set or
-                    self.qosipacesrcl4portmin.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIpAceEntry" + "[qosIpAceId='" + self.qosipaceid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAceTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosipaceid.is_set or self.qosipaceid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaceid.get_name_leafdata())
-                if (self.qosipacedscpmax.is_set or self.qosipacedscpmax.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedscpmax.get_name_leafdata())
-                if (self.qosipacedscpmin.is_set or self.qosipacedscpmin.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedscpmin.get_name_leafdata())
-                if (self.qosipacedstaddr.is_set or self.qosipacedstaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedstaddr.get_name_leafdata())
-                if (self.qosipacedstaddrmask.is_set or self.qosipacedstaddrmask.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedstaddrmask.get_name_leafdata())
-                if (self.qosipacedstl4portmax.is_set or self.qosipacedstl4portmax.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedstl4portmax.get_name_leafdata())
-                if (self.qosipacedstl4portmin.is_set or self.qosipacedstl4portmin.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacedstl4portmin.get_name_leafdata())
-                if (self.qosipacepermit.is_set or self.qosipacepermit.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacepermit.get_name_leafdata())
-                if (self.qosipaceprotocol.is_set or self.qosipaceprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaceprotocol.get_name_leafdata())
-                if (self.qosipacesrcaddr.is_set or self.qosipacesrcaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacesrcaddr.get_name_leafdata())
-                if (self.qosipacesrcaddrmask.is_set or self.qosipacesrcaddrmask.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacesrcaddrmask.get_name_leafdata())
-                if (self.qosipacesrcl4portmax.is_set or self.qosipacesrcl4portmax.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacesrcl4portmax.get_name_leafdata())
-                if (self.qosipacesrcl4portmin.is_set or self.qosipacesrcl4portmin.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacesrcl4portmin.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIpAceId" or name == "qosIpAceDscpMax" or name == "qosIpAceDscpMin" or name == "qosIpAceDstAddr" or name == "qosIpAceDstAddrMask" or name == "qosIpAceDstL4PortMax" or name == "qosIpAceDstL4PortMin" or name == "qosIpAcePermit" or name == "qosIpAceProtocol" or name == "qosIpAceSrcAddr" or name == "qosIpAceSrcAddrMask" or name == "qosIpAceSrcL4PortMax" or name == "qosIpAceSrcL4PortMin"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIpAceId"):
-                    self.qosipaceid = value
-                    self.qosipaceid.value_namespace = name_space
-                    self.qosipaceid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDscpMax"):
-                    self.qosipacedscpmax = value
-                    self.qosipacedscpmax.value_namespace = name_space
-                    self.qosipacedscpmax.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDscpMin"):
-                    self.qosipacedscpmin = value
-                    self.qosipacedscpmin.value_namespace = name_space
-                    self.qosipacedscpmin.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDstAddr"):
-                    self.qosipacedstaddr = value
-                    self.qosipacedstaddr.value_namespace = name_space
-                    self.qosipacedstaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDstAddrMask"):
-                    self.qosipacedstaddrmask = value
-                    self.qosipacedstaddrmask.value_namespace = name_space
-                    self.qosipacedstaddrmask.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDstL4PortMax"):
-                    self.qosipacedstl4portmax = value
-                    self.qosipacedstl4portmax.value_namespace = name_space
-                    self.qosipacedstl4portmax.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceDstL4PortMin"):
-                    self.qosipacedstl4portmin = value
-                    self.qosipacedstl4portmin.value_namespace = name_space
-                    self.qosipacedstl4portmin.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAcePermit"):
-                    self.qosipacepermit = value
-                    self.qosipacepermit.value_namespace = name_space
-                    self.qosipacepermit.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceProtocol"):
-                    self.qosipaceprotocol = value
-                    self.qosipaceprotocol.value_namespace = name_space
-                    self.qosipaceprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceSrcAddr"):
-                    self.qosipacesrcaddr = value
-                    self.qosipacesrcaddr.value_namespace = name_space
-                    self.qosipacesrcaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceSrcAddrMask"):
-                    self.qosipacesrcaddrmask = value
-                    self.qosipacesrcaddrmask.value_namespace = name_space
-                    self.qosipacesrcaddrmask.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceSrcL4PortMax"):
-                    self.qosipacesrcl4portmax = value
-                    self.qosipacesrcl4portmax.value_namespace = name_space
-                    self.qosipacesrcl4portmax.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceSrcL4PortMin"):
-                    self.qosipacesrcl4portmin = value
-                    self.qosipacesrcl4portmin.value_namespace = name_space
-                    self.qosipacesrcl4portmin.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosipaceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosipaceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIpAceTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIpAceEntry"):
-                for c in self.qosipaceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosipacetable.Qosipaceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosipaceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIpAceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosipacldefinitiontable(Entity):
-        """
-        A class that defines a set of ACLs each being an ordered list
-        of ACEs.
-        
-        .. attribute:: qosipacldefinitionentry
-        
-        	An instance of this class specifies an ACE in an ACL and its order with respect to other ACEs in the same ACL
-        	**type**\: list of    :py:class:`Qosipacldefinitionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipacldefinitiontable.Qosipacldefinitionentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosipacldefinitiontable, self).__init__()
-
-            self.yang_name = "qosIpAclDefinitionTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosipacldefinitionentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosipacldefinitiontable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosipacldefinitiontable, self).__setattr__(name, value)
-
-
-        class Qosipacldefinitionentry(Entity):
-            """
-            An instance of this class specifies an ACE in an ACL and its
-            order with respect to other ACEs in the same ACL.
-            
-            .. attribute:: qosipacldefinitionid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosipaceorder
-            
-            	An integer that determines the position of this ACE in the ACL. An ACE with a given order is positioned in the access contol list before one with a higher order
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosipacldefaceid
-            
-            	This attribute specifies the ACE in the qosIpAceTable that is in the ACL specified by qosIpAclId at the position specified by qosIpAceOrder
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosipaclid
-            
-            	An index for this ACL.  There will be one instance of policy class qosIpAclDefinition with this integer index for each ACE in the ACL per role combination
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosipacldefinitiontable.Qosipacldefinitionentry, self).__init__()
-
-                self.yang_name = "qosIpAclDefinitionEntry"
-                self.yang_parent_name = "qosIpAclDefinitionTable"
-
-                self.qosipacldefinitionid = YLeaf(YType.uint32, "qosIpAclDefinitionId")
-
-                self.qosipaceorder = YLeaf(YType.uint32, "qosIpAceOrder")
-
-                self.qosipacldefaceid = YLeaf(YType.uint32, "qosIpAclDefAceId")
-
-                self.qosipaclid = YLeaf(YType.uint32, "qosIpAclId")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosipacldefinitionid",
-                                "qosipaceorder",
-                                "qosipacldefaceid",
-                                "qosipaclid") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosipacldefinitiontable.Qosipacldefinitionentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosipacldefinitiontable.Qosipacldefinitionentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosipacldefinitionid.is_set or
-                    self.qosipaceorder.is_set or
-                    self.qosipacldefaceid.is_set or
-                    self.qosipaclid.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosipacldefinitionid.yfilter != YFilter.not_set or
-                    self.qosipaceorder.yfilter != YFilter.not_set or
-                    self.qosipacldefaceid.yfilter != YFilter.not_set or
-                    self.qosipaclid.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIpAclDefinitionEntry" + "[qosIpAclDefinitionId='" + self.qosipacldefinitionid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclDefinitionTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosipacldefinitionid.is_set or self.qosipacldefinitionid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacldefinitionid.get_name_leafdata())
-                if (self.qosipaceorder.is_set or self.qosipaceorder.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaceorder.get_name_leafdata())
-                if (self.qosipacldefaceid.is_set or self.qosipacldefaceid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacldefaceid.get_name_leafdata())
-                if (self.qosipaclid.is_set or self.qosipaclid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclid.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIpAclDefinitionId" or name == "qosIpAceOrder" or name == "qosIpAclDefAceId" or name == "qosIpAclId"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIpAclDefinitionId"):
-                    self.qosipacldefinitionid = value
-                    self.qosipacldefinitionid.value_namespace = name_space
-                    self.qosipacldefinitionid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAceOrder"):
-                    self.qosipaceorder = value
-                    self.qosipaceorder.value_namespace = name_space
-                    self.qosipaceorder.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclDefAceId"):
-                    self.qosipacldefaceid = value
-                    self.qosipacldefaceid.value_namespace = name_space
-                    self.qosipacldefaceid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclId"):
-                    self.qosipaclid = value
-                    self.qosipaclid.value_namespace = name_space
-                    self.qosipaclid.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosipacldefinitionentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosipacldefinitionentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIpAclDefinitionTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIpAclDefinitionEntry"):
-                for c in self.qosipacldefinitionentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosipacldefinitiontable.Qosipacldefinitionentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosipacldefinitionentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIpAclDefinitionEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry, ['qosipaceid', 'qosipacedscpmax', 'qosipacedscpmin', 'qosipacedstaddr', 'qosipacedstaddrmask', 'qosipacedstl4portmax', 'qosipacedstl4portmin', 'qosipacepermit', 'qosipaceprotocol', 'qosipacesrcaddr', 'qosipacesrcaddrmask', 'qosipacesrcl4portmax', 'qosipacesrcl4portmin'], name, value)
 
 
     class Qosipaclactiontable(Entity):
@@ -3601,7 +1993,7 @@ class CiscoQosPibMib(Entity):
         .. attribute:: qosipaclactionentry
         
         	An instance of this class applies an ACL to traffic in a particular direction on an interface with a particular role combination, and specifies the action for packets which match the ACL
-        	**type**\: list of    :py:class:`Qosipaclactionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry>`
+        	**type**\: list of    :py:class:`Qosipaclactionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry>`
         
         
 
@@ -3611,36 +2003,21 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosipaclactiontable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosipaclactiontable, self).__init__()
 
             self.yang_name = "qosIpAclActionTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIpAclActionEntry" : ("qosipaclactionentry", CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry)}
 
             self.qosipaclactionentry = YList(self)
+            self._segment_path = lambda: "qosIpAclActionTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosipaclactiontable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosipaclactiontable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosipaclactiontable, [], name, value)
 
 
         class Qosipaclactionentry(Entity):
@@ -3686,7 +2063,7 @@ class CiscoQosPibMib(Entity):
             .. attribute:: qosipaclinterfacedirection
             
             	The direction of packet flow at the interface in question to which this ACL applies
-            	**type**\:   :py:class:`Qosipaclinterfacedirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry.Qosipaclinterfacedirection>`
+            	**type**\:   :py:class:`Qosipaclinterfacedirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry.Qosipaclinterfacedirection>`
             
             .. attribute:: qosipaclinterfaceroles
             
@@ -3717,10 +2094,14 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry, self).__init__()
 
                 self.yang_name = "qosIpAclActionEntry"
                 self.yang_parent_name = "qosIpAclActionTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.qosipaclactionid = YLeaf(YType.uint32, "qosIpAclActionId")
 
@@ -3739,38 +2120,11 @@ class CiscoQosPibMib(Entity):
                 self.qosipaclmicroflowpolicerid = YLeaf(YType.uint32, "qosIpAclMicroFlowPolicerId")
 
                 self.qosipaclorder = YLeaf(YType.uint32, "qosIpAclOrder")
+                self._segment_path = lambda: "qosIpAclActionEntry" + "[qosIpAclActionId='" + self.qosipaclactionid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclActionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosipaclactionid",
-                                "qosipaclactaclid",
-                                "qosipaclaggregateid",
-                                "qosipacldscp",
-                                "qosipacldscptrusted",
-                                "qosipaclinterfacedirection",
-                                "qosipaclinterfaceroles",
-                                "qosipaclmicroflowpolicerid",
-                                "qosipaclorder") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry, ['qosipaclactionid', 'qosipaclactaclid', 'qosipaclaggregateid', 'qosipacldscp', 'qosipacldscptrusted', 'qosipaclinterfacedirection', 'qosipaclinterfaceroles', 'qosipaclmicroflowpolicerid', 'qosipaclorder'], name, value)
 
             class Qosipaclinterfacedirection(Enum):
                 """
@@ -3791,185 +2145,16 @@ class CiscoQosPibMib(Entity):
                 out = Enum.YLeaf(1, "out")
 
 
-            def has_data(self):
-                return (
-                    self.qosipaclactionid.is_set or
-                    self.qosipaclactaclid.is_set or
-                    self.qosipaclaggregateid.is_set or
-                    self.qosipacldscp.is_set or
-                    self.qosipacldscptrusted.is_set or
-                    self.qosipaclinterfacedirection.is_set or
-                    self.qosipaclinterfaceroles.is_set or
-                    self.qosipaclmicroflowpolicerid.is_set or
-                    self.qosipaclorder.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosipaclactionid.yfilter != YFilter.not_set or
-                    self.qosipaclactaclid.yfilter != YFilter.not_set or
-                    self.qosipaclaggregateid.yfilter != YFilter.not_set or
-                    self.qosipacldscp.yfilter != YFilter.not_set or
-                    self.qosipacldscptrusted.yfilter != YFilter.not_set or
-                    self.qosipaclinterfacedirection.yfilter != YFilter.not_set or
-                    self.qosipaclinterfaceroles.yfilter != YFilter.not_set or
-                    self.qosipaclmicroflowpolicerid.yfilter != YFilter.not_set or
-                    self.qosipaclorder.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIpAclActionEntry" + "[qosIpAclActionId='" + self.qosipaclactionid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclActionTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosipaclactionid.is_set or self.qosipaclactionid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclactionid.get_name_leafdata())
-                if (self.qosipaclactaclid.is_set or self.qosipaclactaclid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclactaclid.get_name_leafdata())
-                if (self.qosipaclaggregateid.is_set or self.qosipaclaggregateid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclaggregateid.get_name_leafdata())
-                if (self.qosipacldscp.is_set or self.qosipacldscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacldscp.get_name_leafdata())
-                if (self.qosipacldscptrusted.is_set or self.qosipacldscptrusted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipacldscptrusted.get_name_leafdata())
-                if (self.qosipaclinterfacedirection.is_set or self.qosipaclinterfacedirection.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclinterfacedirection.get_name_leafdata())
-                if (self.qosipaclinterfaceroles.is_set or self.qosipaclinterfaceroles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclinterfaceroles.get_name_leafdata())
-                if (self.qosipaclmicroflowpolicerid.is_set or self.qosipaclmicroflowpolicerid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclmicroflowpolicerid.get_name_leafdata())
-                if (self.qosipaclorder.is_set or self.qosipaclorder.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosipaclorder.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIpAclActionId" or name == "qosIpAclActAclId" or name == "qosIpAclAggregateId" or name == "qosIpAclDscp" or name == "qosIpAclDscpTrusted" or name == "qosIpAclInterfaceDirection" or name == "qosIpAclInterfaceRoles" or name == "qosIpAclMicroFlowPolicerId" or name == "qosIpAclOrder"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIpAclActionId"):
-                    self.qosipaclactionid = value
-                    self.qosipaclactionid.value_namespace = name_space
-                    self.qosipaclactionid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclActAclId"):
-                    self.qosipaclactaclid = value
-                    self.qosipaclactaclid.value_namespace = name_space
-                    self.qosipaclactaclid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclAggregateId"):
-                    self.qosipaclaggregateid = value
-                    self.qosipaclaggregateid.value_namespace = name_space
-                    self.qosipaclaggregateid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclDscp"):
-                    self.qosipacldscp = value
-                    self.qosipacldscp.value_namespace = name_space
-                    self.qosipacldscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclDscpTrusted"):
-                    self.qosipacldscptrusted = value
-                    self.qosipacldscptrusted.value_namespace = name_space
-                    self.qosipacldscptrusted.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclInterfaceDirection"):
-                    self.qosipaclinterfacedirection = value
-                    self.qosipaclinterfacedirection.value_namespace = name_space
-                    self.qosipaclinterfacedirection.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclInterfaceRoles"):
-                    self.qosipaclinterfaceroles = value
-                    self.qosipaclinterfaceroles.value_namespace = name_space
-                    self.qosipaclinterfaceroles.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclMicroFlowPolicerId"):
-                    self.qosipaclmicroflowpolicerid = value
-                    self.qosipaclmicroflowpolicerid.value_namespace = name_space
-                    self.qosipaclmicroflowpolicerid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIpAclOrder"):
-                    self.qosipaclorder = value
-                    self.qosipaclorder.value_namespace = name_space
-                    self.qosipaclorder.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosipaclactionentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosipaclactionentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIpAclActionTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIpAclActionEntry"):
-                for c in self.qosipaclactionentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosipaclactiontable.Qosipaclactionentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosipaclactionentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIpAclActionEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosifschedulingpreferencestable(Entity):
+    class Qosipacldefinitiontable(Entity):
         """
-        This class specifies the scheduling preference an interface
-        chooses if it supports multiple scheduling types.  Higher
-        values are preferred over lower values.
+        A class that defines a set of ACLs each being an ordered list
+        of ACEs.
         
-        .. attribute:: qosifschedulingpreferenceentry
+        .. attribute:: qosipacldefinitionentry
         
-        	An instance of this class specifies a scheduling preference for a queue\-type on an interface with a particular role combination
-        	**type**\: list of    :py:class:`Qosifschedulingpreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry>`
+        	An instance of this class specifies an ACE in an ACL and its order with respect to other ACEs in the same ACL
+        	**type**\: list of    :py:class:`Qosipacldefinitionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry>`
         
         
 
@@ -3979,74 +2164,55 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosifschedulingpreferencestable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosipacldefinitiontable, self).__init__()
 
-            self.yang_name = "qosIfSchedulingPreferencesTable"
+            self.yang_name = "qosIpAclDefinitionTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosIpAclDefinitionEntry" : ("qosipacldefinitionentry", CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry)}
 
-            self.qosifschedulingpreferenceentry = YList(self)
+            self.qosipacldefinitionentry = YList(self)
+            self._segment_path = lambda: "qosIpAclDefinitionTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosifschedulingpreferencestable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosifschedulingpreferencestable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosipacldefinitiontable, [], name, value)
 
 
-        class Qosifschedulingpreferenceentry(Entity):
+        class Qosipacldefinitionentry(Entity):
             """
-            An instance of this class specifies a scheduling preference
-            for a queue\-type on an interface with a particular role
-            combination.
+            An instance of this class specifies an ACE in an ACL and its
+            order with respect to other ACEs in the same ACL.
             
-            .. attribute:: qosifschedulingpreferenceid  <key>
+            .. attribute:: qosipacldefinitionid  <key>
             
             	An integer index to identify the instance of the policy class
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: qosifschedulingdiscipline
+            .. attribute:: qosipaceorder
             
-            	An enumerate type for all the known scheduling disciplines
-            	**type**\:   :py:class:`Qosifschedulingdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry.Qosifschedulingdiscipline>`
-            
-            .. attribute:: qosifschedulingpreference
-            
-            	The preference to use this scheduling discipline and queue type.  A higher value means a higher preference.  If two disciplines have the same preference the choice is a local decision
+            	An integer that determines the position of this ACE in the ACL. An ACE with a given order is positioned in the access contol list before one with a higher order
             	**type**\:  int
             
-            	**range:** 1..16
+            	**range:** 0..4294967295
             
-            .. attribute:: qosifschedulingqueuetype
+            .. attribute:: qosipacldefaceid
             
-            	The queue type of this preference
-            	**type**\:   :py:class:`Qosinterfacequeuetype <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Qosinterfacequeuetype>`
+            	This attribute specifies the ACE in the qosIpAceTable that is in the ACL specified by qosIpAclId at the position specified by qosIpAceOrder
+            	**type**\:  int
             
-            .. attribute:: qosifschedulingroles
+            	**range:** 0..4294967295
             
-            	The combination of roles the interface must have for this policy instance to apply to that interface
-            	**type**\:  str
+            .. attribute:: qosipaclid
             
-            	**length:** 0..255
+            	An index for this ACL.  There will be one instance of policy class qosIpAclDefinition with this integer index for each ACE in the ACL per role combination
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -4056,237 +2222,37 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry, self).__init__()
 
-                self.yang_name = "qosIfSchedulingPreferenceEntry"
-                self.yang_parent_name = "qosIfSchedulingPreferencesTable"
+                self.yang_name = "qosIpAclDefinitionEntry"
+                self.yang_parent_name = "qosIpAclDefinitionTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.qosifschedulingpreferenceid = YLeaf(YType.uint32, "qosIfSchedulingPreferenceId")
+                self.qosipacldefinitionid = YLeaf(YType.uint32, "qosIpAclDefinitionId")
 
-                self.qosifschedulingdiscipline = YLeaf(YType.enumeration, "qosIfSchedulingDiscipline")
+                self.qosipaceorder = YLeaf(YType.uint32, "qosIpAceOrder")
 
-                self.qosifschedulingpreference = YLeaf(YType.int32, "qosIfSchedulingPreference")
+                self.qosipacldefaceid = YLeaf(YType.uint32, "qosIpAclDefAceId")
 
-                self.qosifschedulingqueuetype = YLeaf(YType.enumeration, "qosIfSchedulingQueueType")
-
-                self.qosifschedulingroles = YLeaf(YType.str, "qosIfSchedulingRoles")
+                self.qosipaclid = YLeaf(YType.uint32, "qosIpAclId")
+                self._segment_path = lambda: "qosIpAclDefinitionEntry" + "[qosIpAclDefinitionId='" + self.qosipacldefinitionid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclDefinitionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosifschedulingpreferenceid",
-                                "qosifschedulingdiscipline",
-                                "qosifschedulingpreference",
-                                "qosifschedulingqueuetype",
-                                "qosifschedulingroles") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, self).__setattr__(name, value)
-
-            class Qosifschedulingdiscipline(Enum):
-                """
-                Qosifschedulingdiscipline
-
-                An enumerate type for all the known scheduling disciplines.
-
-                .. data:: weightedFairQueueing = 1
-
-                .. data:: weightedRoundRobin = 2
-
-                .. data:: customQueueing = 3
-
-                .. data:: priorityQueueing = 4
-
-                .. data:: classBasedWFQ = 5
-
-                .. data:: fifo = 6
-
-                .. data:: pqWrr = 7
-
-                .. data:: pqCbwfq = 8
-
-                """
-
-                weightedFairQueueing = Enum.YLeaf(1, "weightedFairQueueing")
-
-                weightedRoundRobin = Enum.YLeaf(2, "weightedRoundRobin")
-
-                customQueueing = Enum.YLeaf(3, "customQueueing")
-
-                priorityQueueing = Enum.YLeaf(4, "priorityQueueing")
-
-                classBasedWFQ = Enum.YLeaf(5, "classBasedWFQ")
-
-                fifo = Enum.YLeaf(6, "fifo")
-
-                pqWrr = Enum.YLeaf(7, "pqWrr")
-
-                pqCbwfq = Enum.YLeaf(8, "pqCbwfq")
+                self._perform_setattr(CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry, ['qosipacldefinitionid', 'qosipaceorder', 'qosipacldefaceid', 'qosipaclid'], name, value)
 
 
-            def has_data(self):
-                return (
-                    self.qosifschedulingpreferenceid.is_set or
-                    self.qosifschedulingdiscipline.is_set or
-                    self.qosifschedulingpreference.is_set or
-                    self.qosifschedulingqueuetype.is_set or
-                    self.qosifschedulingroles.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosifschedulingpreferenceid.yfilter != YFilter.not_set or
-                    self.qosifschedulingdiscipline.yfilter != YFilter.not_set or
-                    self.qosifschedulingpreference.yfilter != YFilter.not_set or
-                    self.qosifschedulingqueuetype.yfilter != YFilter.not_set or
-                    self.qosifschedulingroles.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfSchedulingPreferenceEntry" + "[qosIfSchedulingPreferenceId='" + self.qosifschedulingpreferenceid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfSchedulingPreferencesTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosifschedulingpreferenceid.is_set or self.qosifschedulingpreferenceid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifschedulingpreferenceid.get_name_leafdata())
-                if (self.qosifschedulingdiscipline.is_set or self.qosifschedulingdiscipline.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifschedulingdiscipline.get_name_leafdata())
-                if (self.qosifschedulingpreference.is_set or self.qosifschedulingpreference.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifschedulingpreference.get_name_leafdata())
-                if (self.qosifschedulingqueuetype.is_set or self.qosifschedulingqueuetype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifschedulingqueuetype.get_name_leafdata())
-                if (self.qosifschedulingroles.is_set or self.qosifschedulingroles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifschedulingroles.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfSchedulingPreferenceId" or name == "qosIfSchedulingDiscipline" or name == "qosIfSchedulingPreference" or name == "qosIfSchedulingQueueType" or name == "qosIfSchedulingRoles"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfSchedulingPreferenceId"):
-                    self.qosifschedulingpreferenceid = value
-                    self.qosifschedulingpreferenceid.value_namespace = name_space
-                    self.qosifschedulingpreferenceid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfSchedulingDiscipline"):
-                    self.qosifschedulingdiscipline = value
-                    self.qosifschedulingdiscipline.value_namespace = name_space
-                    self.qosifschedulingdiscipline.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfSchedulingPreference"):
-                    self.qosifschedulingpreference = value
-                    self.qosifschedulingpreference.value_namespace = name_space
-                    self.qosifschedulingpreference.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfSchedulingQueueType"):
-                    self.qosifschedulingqueuetype = value
-                    self.qosifschedulingqueuetype.value_namespace = name_space
-                    self.qosifschedulingqueuetype.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfSchedulingRoles"):
-                    self.qosifschedulingroles = value
-                    self.qosifschedulingroles.value_namespace = name_space
-                    self.qosifschedulingroles.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosifschedulingpreferenceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosifschedulingpreferenceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfSchedulingPreferencesTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfSchedulingPreferenceEntry"):
-                for c in self.qosifschedulingpreferenceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosifschedulingpreferenceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfSchedulingPreferenceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosifdroppreferencetable(Entity):
+    class Qosmacclassificationtable(Entity):
         """
-        This class specifies the preference of the drop mechanism an
-        interface chooses if it supports multiple drop mechanisms.
-        Higher values are preferred over lower values.
+        A class of MAC/Vlan tuples and their associated CoS values.
         
-        .. attribute:: qosifdroppreferenceentry
+        .. attribute:: qosmacclassificationentry
         
-        	An instance of this class specifies a drop preference for a drop mechanism on an interface with a particular role combination
-        	**type**\: list of    :py:class:`Qosifdroppreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry>`
+        	An instance of this class specifies the mapping of a VLAN and a MAC address to a CoS value
+        	**type**\: list of    :py:class:`Qosmacclassificationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry>`
         
         
 
@@ -4296,69 +2262,55 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosifdroppreferencetable, self).__init__()
+            super(CISCOQOSPIBMIB.Qosmacclassificationtable, self).__init__()
 
-            self.yang_name = "qosIfDropPreferenceTable"
+            self.yang_name = "qosMacClassificationTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosMacClassificationEntry" : ("qosmacclassificationentry", CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry)}
 
-            self.qosifdroppreferenceentry = YList(self)
+            self.qosmacclassificationentry = YList(self)
+            self._segment_path = lambda: "qosMacClassificationTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosifdroppreferencetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosifdroppreferencetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qosmacclassificationtable, [], name, value)
 
 
-        class Qosifdroppreferenceentry(Entity):
+        class Qosmacclassificationentry(Entity):
             """
-            An instance of this class specifies a drop preference for
-            a drop mechanism on an interface with a particular role
-            combination.
+            An instance of this class specifies the mapping of a VLAN
+            and a MAC address to a CoS value.
             
-            .. attribute:: qosifdroppreferenceid  <key>
+            .. attribute:: qosmacclassificationid  <key>
             
             	An integer index to identify the instance of the policy class
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: qosifdropdiscipline
+            .. attribute:: qosdstmacaddress
             
-            	An enumerate type for all the known drop mechanisms
-            	**type**\:   :py:class:`Qosifdropdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry.Qosifdropdiscipline>`
-            
-            .. attribute:: qosifdroppreference
-            
-            	The preference to use this drop mechanism.  A higher value means a higher preference.  If two mechanisms have the same preference the choice is a local decision
-            	**type**\:  int
-            
-            	**range:** 1..16
-            
-            .. attribute:: qosifdroproles
-            
-            	The combination of roles the interface must have for this policy instance to apply to that interface
+            	The destination MAC address of the L2 frame
             	**type**\:  str
             
-            	**length:** 0..255
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            .. attribute:: qosdstmaccos
+            
+            	The CoS to assign the packet with the associated MAC/VLAN tuple.  Note that this CoS is overridden by the policies to classify the frame at layer 3 if there are any
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            .. attribute:: qosdstmacvlan
+            
+            	The VLAN of the destination MAC address of the L2 frame
+            	**type**\:  int
+            
+            	**range:** 1..4095
             
             
 
@@ -4368,201 +2320,40 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry, self).__init__()
 
-                self.yang_name = "qosIfDropPreferenceEntry"
-                self.yang_parent_name = "qosIfDropPreferenceTable"
+                self.yang_name = "qosMacClassificationEntry"
+                self.yang_parent_name = "qosMacClassificationTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.qosifdroppreferenceid = YLeaf(YType.uint32, "qosIfDropPreferenceId")
+                self.qosmacclassificationid = YLeaf(YType.uint32, "qosMacClassificationId")
 
-                self.qosifdropdiscipline = YLeaf(YType.enumeration, "qosIfDropDiscipline")
+                self.qosdstmacaddress = YLeaf(YType.str, "qosDstMacAddress")
 
-                self.qosifdroppreference = YLeaf(YType.int32, "qosIfDropPreference")
+                self.qosdstmaccos = YLeaf(YType.int32, "qosDstMacCos")
 
-                self.qosifdroproles = YLeaf(YType.str, "qosIfDropRoles")
+                self.qosdstmacvlan = YLeaf(YType.int32, "qosDstMacVlan")
+                self._segment_path = lambda: "qosMacClassificationEntry" + "[qosMacClassificationId='" + self.qosmacclassificationid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosMacClassificationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosifdroppreferenceid",
-                                "qosifdropdiscipline",
-                                "qosifdroppreference",
-                                "qosifdroproles") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry, self).__setattr__(name, value)
-
-            class Qosifdropdiscipline(Enum):
-                """
-                Qosifdropdiscipline
-
-                An enumerate type for all the known drop mechanisms.
-
-                .. data:: qosIfDropWRED = 1
-
-                .. data:: qosIfDropTailDrop = 2
-
-                """
-
-                qosIfDropWRED = Enum.YLeaf(1, "qosIfDropWRED")
-
-                qosIfDropTailDrop = Enum.YLeaf(2, "qosIfDropTailDrop")
+                self._perform_setattr(CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry, ['qosmacclassificationid', 'qosdstmacaddress', 'qosdstmaccos', 'qosdstmacvlan'], name, value)
 
 
-            def has_data(self):
-                return (
-                    self.qosifdroppreferenceid.is_set or
-                    self.qosifdropdiscipline.is_set or
-                    self.qosifdroppreference.is_set or
-                    self.qosifdroproles.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosifdroppreferenceid.yfilter != YFilter.not_set or
-                    self.qosifdropdiscipline.yfilter != YFilter.not_set or
-                    self.qosifdroppreference.yfilter != YFilter.not_set or
-                    self.qosifdroproles.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfDropPreferenceEntry" + "[qosIfDropPreferenceId='" + self.qosifdroppreferenceid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDropPreferenceTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosifdroppreferenceid.is_set or self.qosifdroppreferenceid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdroppreferenceid.get_name_leafdata())
-                if (self.qosifdropdiscipline.is_set or self.qosifdropdiscipline.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdropdiscipline.get_name_leafdata())
-                if (self.qosifdroppreference.is_set or self.qosifdroppreference.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdroppreference.get_name_leafdata())
-                if (self.qosifdroproles.is_set or self.qosifdroproles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdroproles.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfDropPreferenceId" or name == "qosIfDropDiscipline" or name == "qosIfDropPreference" or name == "qosIfDropRoles"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfDropPreferenceId"):
-                    self.qosifdroppreferenceid = value
-                    self.qosifdroppreferenceid.value_namespace = name_space
-                    self.qosifdroppreferenceid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfDropDiscipline"):
-                    self.qosifdropdiscipline = value
-                    self.qosifdropdiscipline.value_namespace = name_space
-                    self.qosifdropdiscipline.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfDropPreference"):
-                    self.qosifdroppreference = value
-                    self.qosifdroppreference.value_namespace = name_space
-                    self.qosifdroppreference.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfDropRoles"):
-                    self.qosifdroproles = value
-                    self.qosifdroproles.value_namespace = name_space
-                    self.qosifdroproles.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosifdroppreferenceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosifdroppreferenceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfDropPreferenceTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfDropPreferenceEntry"):
-                for c in self.qosifdroppreferenceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosifdroppreferencetable.Qosifdroppreferenceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosifdroppreferenceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfDropPreferenceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosifdscpassignmenttable(Entity):
+    class Qospolicertable(Entity):
         """
-        The assignment of each DSCP to a queue and threshold for each
-        interface queue type.
+        A class specifying policing parameters for both microflows
+        and aggregate flows.  This table is designed for policing
+        according to a token bucket scheme where an average rate and
+        burst size is specified.
         
-        .. attribute:: qosifdscpassignmententry
+        .. attribute:: qospolicerentry
         
-        	An instance of this class specifies the queue and threshold set for a packet with a particular DSCP on an interface of a particular type with a particular role combination
-        	**type**\: list of    :py:class:`Qosifdscpassignmententry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifdscpassignmenttable.Qosifdscpassignmententry>`
+        	An instance of this class specifies a set of policing parameters
+        	**type**\: list of    :py:class:`Qospolicerentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry>`
         
         
 
@@ -4572,83 +2363,205 @@ class CiscoQosPibMib(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CiscoQosPibMib.Qosifdscpassignmenttable, self).__init__()
+            super(CISCOQOSPIBMIB.Qospolicertable, self).__init__()
 
-            self.yang_name = "qosIfDscpAssignmentTable"
+            self.yang_name = "qosPolicerTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosPolicerEntry" : ("qospolicerentry", CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry)}
 
-            self.qosifdscpassignmententry = YList(self)
+            self.qospolicerentry = YList(self)
+            self._segment_path = lambda: "qosPolicerTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosifdscpassignmenttable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosifdscpassignmenttable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.Qospolicertable, [], name, value)
 
 
-        class Qosifdscpassignmententry(Entity):
+        class Qospolicerentry(Entity):
             """
-            An instance of this class specifies the queue and threshold
-            set for a packet with a particular DSCP on an interface of
-            a particular type with a particular role combination.
+            An instance of this class specifies a set of policing
+            parameters.
             
-            .. attribute:: qosifdscpassignmentid  <key>
+            .. attribute:: qospolicerid  <key>
             
             	An integer index to identify the instance of the policy class
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: qosifdscp
+            .. attribute:: qospoliceraction
             
-            	The DSCP to which this row applies
+            	An indication of how to handle out of profile packets.  When the shape action is chosen then traffic is shaped to the rate specified by qosPolicerRate
+            	**type**\:   :py:class:`Qospoliceraction <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry.Qospoliceraction>`
+            
+            .. attribute:: qospolicerexcessburst
+            
+            	The excess size of a burst in terms of bits
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qospolicernormalburst
+            
+            	The normal size of a burst in terms of bits
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qospolicerrate
+            
+            	The token rate.  It is specified in units of bit/s. A rate of zero means that all packets will be out of profile.  If the qosPolicerAction is set to drop then this effectively denies any service to packets policed by this policer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-QOS-PIB-MIB'
+            _revision = '2007-08-29'
+
+            def __init__(self):
+                super(CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry, self).__init__()
+
+                self.yang_name = "qosPolicerEntry"
+                self.yang_parent_name = "qosPolicerTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.qospolicerid = YLeaf(YType.uint32, "qosPolicerId")
+
+                self.qospoliceraction = YLeaf(YType.enumeration, "qosPolicerAction")
+
+                self.qospolicerexcessburst = YLeaf(YType.uint32, "qosPolicerExcessBurst")
+
+                self.qospolicernormalburst = YLeaf(YType.uint32, "qosPolicerNormalBurst")
+
+                self.qospolicerrate = YLeaf(YType.uint32, "qosPolicerRate")
+                self._segment_path = lambda: "qosPolicerEntry" + "[qosPolicerId='" + self.qospolicerid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosPolicerTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry, ['qospolicerid', 'qospoliceraction', 'qospolicerexcessburst', 'qospolicernormalburst', 'qospolicerrate'], name, value)
+
+            class Qospoliceraction(Enum):
+                """
+                Qospoliceraction
+
+                An indication of how to handle out of profile packets.  When
+
+                the shape action is chosen then traffic is shaped to the rate
+
+                specified by qosPolicerRate.
+
+                .. data:: drop = 0
+
+                .. data:: mark = 1
+
+                .. data:: shape = 2
+
+                """
+
+                drop = Enum.YLeaf(0, "drop")
+
+                mark = Enum.YLeaf(1, "mark")
+
+                shape = Enum.YLeaf(2, "shape")
+
+
+
+    class Qosunmatchedpolicytable(Entity):
+        """
+        A policy class that specifies what QoS to apply to a packet
+        that does not match any other policy configured for this role
+        combination for a particular direction of traffic.
+        
+        .. attribute:: qosunmatchedpolicyentry
+        
+        	An instance of this class specifies the unmatched policy for a particular role combination for incoming or outgoing traffic
+        	**type**\: list of    :py:class:`Qosunmatchedpolicyentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-QOS-PIB-MIB'
+        _revision = '2007-08-29'
+
+        def __init__(self):
+            super(CISCOQOSPIBMIB.Qosunmatchedpolicytable, self).__init__()
+
+            self.yang_name = "qosUnmatchedPolicyTable"
+            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"qosUnmatchedPolicyEntry" : ("qosunmatchedpolicyentry", CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry)}
+
+            self.qosunmatchedpolicyentry = YList(self)
+            self._segment_path = lambda: "qosUnmatchedPolicyTable"
+            self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOQOSPIBMIB.Qosunmatchedpolicytable, [], name, value)
+
+
+        class Qosunmatchedpolicyentry(Entity):
+            """
+            An instance of this class specifies the unmatched policy
+            for a particular role combination for incoming or outgoing
+            traffic.
+            
+            .. attribute:: qosunmatchedpolicyid  <key>
+            
+            	An integer index to identify the instance of the policy class
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosunmatchedpolicyaggregateid
+            
+            	An index identifying the aggregate that the packet belongs to.  It must correspond to the integer index of an instance of class qosAggregateTable or be zero.  If zero, the microflow does not belong to any aggregate and is not policed as part of any aggregate
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: qosunmatchedpolicydirection
+            
+            	The direction of packet flow at the interface in question to which this instance applies
+            	**type**\:   :py:class:`Qosunmatchedpolicydirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry.Qosunmatchedpolicydirection>`
+            
+            .. attribute:: qosunmatchedpolicydscp
+            
+            	The DSCP to classify the unmatched packet with.  This must be specified even if qosUnmatchedPolicyDscpTrusted is true
             	**type**\:  int
             
             	**range:** 0..63
             
-            .. attribute:: qosifdscproles
+            .. attribute:: qosunmatchedpolicydscptrusted
             
-            	The role combination the interface must be configured with
+            	If this attribute is true, then the Dscp associated with the packet is trusted, i.e., it is assumed to have already been set.  In this case, the Dscp is not rewritten with qosUnmatchedPolicyDscp (qosUnmatchedPolicyDscp is ignored) unless this is a non\-IP packet and arrives untagged.  The packet is still policed as part of its micro flow and its aggregate flow.  When a trusted action is applied to an input interface, the Dscp (for an IP packet) or CoS (for a non\-IP packet) associated with the packet is the one contained in the packet. When a trusted action is applied to an output interface, the Dscp associated with the packet is the one that is the result of the input classification and policing
+            	**type**\:  bool
+            
+            .. attribute:: qosunmatchedpolicyrole
+            
+            	Role combination for which this instance applies
             	**type**\:  str
             
             	**length:** 0..255
             
-            .. attribute:: qosifqueue
+            .. attribute:: qosunmatchpolmicroflowpolicerid
             
-            	The queue to which the DSCP applies for the given interface type
+            	An index identifying the instance of policer to apply to unmatched packets.  It must correspond to the integer index of an instance of class qosPolicerTable or be zero.  If zero, the microflow is not policed
             	**type**\:  int
             
-            	**range:** 1..64
-            
-            .. attribute:: qosifqueuetype
-            
-            	The interface queue type to which this row applies
-            	**type**\:   :py:class:`Qosinterfacequeuetype <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Qosinterfacequeuetype>`
-            
-            .. attribute:: qosifthresholdset
-            
-            	The threshold set of the specified queue to which the DSCP applies for the given interface type
-            	**type**\:  int
-            
-            	**range:** 1..8
+            	**range:** 0..4294967295
             
             
 
@@ -4658,1278 +2571,54 @@ class CiscoQosPibMib(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CiscoQosPibMib.Qosifdscpassignmenttable.Qosifdscpassignmententry, self).__init__()
+                super(CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, self).__init__()
 
-                self.yang_name = "qosIfDscpAssignmentEntry"
-                self.yang_parent_name = "qosIfDscpAssignmentTable"
+                self.yang_name = "qosUnmatchedPolicyEntry"
+                self.yang_parent_name = "qosUnmatchedPolicyTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.qosifdscpassignmentid = YLeaf(YType.uint32, "qosIfDscpAssignmentId")
+                self.qosunmatchedpolicyid = YLeaf(YType.uint32, "qosUnmatchedPolicyId")
 
-                self.qosifdscp = YLeaf(YType.int32, "qosIfDscp")
+                self.qosunmatchedpolicyaggregateid = YLeaf(YType.uint32, "qosUnmatchedPolicyAggregateId")
 
-                self.qosifdscproles = YLeaf(YType.str, "qosIfDscpRoles")
+                self.qosunmatchedpolicydirection = YLeaf(YType.enumeration, "qosUnmatchedPolicyDirection")
 
-                self.qosifqueue = YLeaf(YType.int32, "qosIfQueue")
+                self.qosunmatchedpolicydscp = YLeaf(YType.int32, "qosUnmatchedPolicyDscp")
 
-                self.qosifqueuetype = YLeaf(YType.enumeration, "qosIfQueueType")
+                self.qosunmatchedpolicydscptrusted = YLeaf(YType.boolean, "qosUnmatchedPolicyDscpTrusted")
 
-                self.qosifthresholdset = YLeaf(YType.int32, "qosIfThresholdSet")
+                self.qosunmatchedpolicyrole = YLeaf(YType.str, "qosUnmatchedPolicyRole")
 
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosifdscpassignmentid",
-                                "qosifdscp",
-                                "qosifdscproles",
-                                "qosifqueue",
-                                "qosifqueuetype",
-                                "qosifthresholdset") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosifdscpassignmenttable.Qosifdscpassignmententry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosifdscpassignmenttable.Qosifdscpassignmententry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosifdscpassignmentid.is_set or
-                    self.qosifdscp.is_set or
-                    self.qosifdscproles.is_set or
-                    self.qosifqueue.is_set or
-                    self.qosifqueuetype.is_set or
-                    self.qosifthresholdset.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosifdscpassignmentid.yfilter != YFilter.not_set or
-                    self.qosifdscp.yfilter != YFilter.not_set or
-                    self.qosifdscproles.yfilter != YFilter.not_set or
-                    self.qosifqueue.yfilter != YFilter.not_set or
-                    self.qosifqueuetype.yfilter != YFilter.not_set or
-                    self.qosifthresholdset.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfDscpAssignmentEntry" + "[qosIfDscpAssignmentId='" + self.qosifdscpassignmentid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDscpAssignmentTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosifdscpassignmentid.is_set or self.qosifdscpassignmentid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdscpassignmentid.get_name_leafdata())
-                if (self.qosifdscp.is_set or self.qosifdscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdscp.get_name_leafdata())
-                if (self.qosifdscproles.is_set or self.qosifdscproles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifdscproles.get_name_leafdata())
-                if (self.qosifqueue.is_set or self.qosifqueue.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifqueue.get_name_leafdata())
-                if (self.qosifqueuetype.is_set or self.qosifqueuetype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifqueuetype.get_name_leafdata())
-                if (self.qosifthresholdset.is_set or self.qosifthresholdset.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifthresholdset.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfDscpAssignmentId" or name == "qosIfDscp" or name == "qosIfDscpRoles" or name == "qosIfQueue" or name == "qosIfQueueType" or name == "qosIfThresholdSet"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfDscpAssignmentId"):
-                    self.qosifdscpassignmentid = value
-                    self.qosifdscpassignmentid.value_namespace = name_space
-                    self.qosifdscpassignmentid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfDscp"):
-                    self.qosifdscp = value
-                    self.qosifdscp.value_namespace = name_space
-                    self.qosifdscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfDscpRoles"):
-                    self.qosifdscproles = value
-                    self.qosifdscproles.value_namespace = name_space
-                    self.qosifdscproles.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfQueue"):
-                    self.qosifqueue = value
-                    self.qosifqueue.value_namespace = name_space
-                    self.qosifqueue.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfQueueType"):
-                    self.qosifqueuetype = value
-                    self.qosifqueuetype.value_namespace = name_space
-                    self.qosifqueuetype.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfThresholdSet"):
-                    self.qosifthresholdset = value
-                    self.qosifthresholdset.value_namespace = name_space
-                    self.qosifthresholdset.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosifdscpassignmententry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosifdscpassignmententry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfDscpAssignmentTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfDscpAssignmentEntry"):
-                for c in self.qosifdscpassignmententry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosifdscpassignmenttable.Qosifdscpassignmententry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosifdscpassignmententry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfDscpAssignmentEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosifredtable(Entity):
-        """
-        A class of lower and upper values for each threshold set in a
-        queue supporting WRED.  If the size of the queue for a given
-        threshold is below the lower value then packets assigned to
-        that threshold are always accepted into the queue.  If the
-        size of the queue is above upper value then packets are always
-        dropped.  If the size of the queue is between the lower and
-        the upper then packets are randomly dropped.
-        
-        .. attribute:: qosifredentry
-        
-        	An instance of this class specifies threshold limits for a particular RED threshold of a given threshold set on an interface and with a particular role combination
-        	**type**\: list of    :py:class:`Qosifredentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifredtable.Qosifredentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosifredtable, self).__init__()
-
-            self.yang_name = "qosIfRedTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosifredentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosifredtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosifredtable, self).__setattr__(name, value)
-
-
-        class Qosifredentry(Entity):
-            """
-            An instance of this class specifies threshold limits for a
-            particular RED threshold of a given threshold set on an
-            interface and with a particular role combination.
-            
-            .. attribute:: qosifredid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosifrednumthresholdsets
-            
-            	The values in this entry apply only to queues with the number of thresholds specified by this attribute
-            	**type**\:   :py:class:`Thresholdsetrange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Thresholdsetrange>`
-            
-            .. attribute:: qosifredroles
-            
-            	The role combination the interface must be configured with
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: qosifredthresholdset
-            
-            	The threshold set to which the lower and upper values apply. It must be in the range 1 through qosIfRedNumThresholdSets. There must be exactly one PRI for each value in this range
-            	**type**\:  int
-            
-            	**range:** 1..8
-            
-            .. attribute:: qosifredthresholdsetlower
-            
-            	The threshold value below which no packets are dropped
-            	**type**\:  int
-            
-            	**range:** 0..100
-            
-            .. attribute:: qosifredthresholdsetupper
-            
-            	The threshold value above which all packets are dropped
-            	**type**\:  int
-            
-            	**range:** 0..100
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosifredtable.Qosifredentry, self).__init__()
-
-                self.yang_name = "qosIfRedEntry"
-                self.yang_parent_name = "qosIfRedTable"
-
-                self.qosifredid = YLeaf(YType.uint32, "qosIfRedId")
-
-                self.qosifrednumthresholdsets = YLeaf(YType.enumeration, "qosIfRedNumThresholdSets")
-
-                self.qosifredroles = YLeaf(YType.str, "qosIfRedRoles")
-
-                self.qosifredthresholdset = YLeaf(YType.int32, "qosIfRedThresholdSet")
-
-                self.qosifredthresholdsetlower = YLeaf(YType.int32, "qosIfRedThresholdSetLower")
-
-                self.qosifredthresholdsetupper = YLeaf(YType.int32, "qosIfRedThresholdSetUpper")
+                self.qosunmatchpolmicroflowpolicerid = YLeaf(YType.uint32, "qosUnmatchPolMicroFlowPolicerId")
+                self._segment_path = lambda: "qosUnmatchedPolicyEntry" + "[qosUnmatchedPolicyId='" + self.qosunmatchedpolicyid.get() + "']"
+                self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosUnmatchedPolicyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosifredid",
-                                "qosifrednumthresholdsets",
-                                "qosifredroles",
-                                "qosifredthresholdset",
-                                "qosifredthresholdsetlower",
-                                "qosifredthresholdsetupper") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosifredtable.Qosifredentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosifredtable.Qosifredentry, self).__setattr__(name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, ['qosunmatchedpolicyid', 'qosunmatchedpolicyaggregateid', 'qosunmatchedpolicydirection', 'qosunmatchedpolicydscp', 'qosunmatchedpolicydscptrusted', 'qosunmatchedpolicyrole', 'qosunmatchpolmicroflowpolicerid'], name, value)
 
-            def has_data(self):
-                return (
-                    self.qosifredid.is_set or
-                    self.qosifrednumthresholdsets.is_set or
-                    self.qosifredroles.is_set or
-                    self.qosifredthresholdset.is_set or
-                    self.qosifredthresholdsetlower.is_set or
-                    self.qosifredthresholdsetupper.is_set)
+            class Qosunmatchedpolicydirection(Enum):
+                """
+                Qosunmatchedpolicydirection
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosifredid.yfilter != YFilter.not_set or
-                    self.qosifrednumthresholdsets.yfilter != YFilter.not_set or
-                    self.qosifredroles.yfilter != YFilter.not_set or
-                    self.qosifredthresholdset.yfilter != YFilter.not_set or
-                    self.qosifredthresholdsetlower.yfilter != YFilter.not_set or
-                    self.qosifredthresholdsetupper.yfilter != YFilter.not_set)
+                The direction of packet flow at the interface in question to
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfRedEntry" + "[qosIfRedId='" + self.qosifredid.get() + "']" + path_buffer
+                which this instance applies.
 
-                return path_buffer
+                .. data:: in_ = 0
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfRedTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+                .. data:: out = 1
 
-                leaf_name_data = LeafDataList()
-                if (self.qosifredid.is_set or self.qosifredid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifredid.get_name_leafdata())
-                if (self.qosifrednumthresholdsets.is_set or self.qosifrednumthresholdsets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifrednumthresholdsets.get_name_leafdata())
-                if (self.qosifredroles.is_set or self.qosifredroles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifredroles.get_name_leafdata())
-                if (self.qosifredthresholdset.is_set or self.qosifredthresholdset.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifredthresholdset.get_name_leafdata())
-                if (self.qosifredthresholdsetlower.is_set or self.qosifredthresholdsetlower.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifredthresholdsetlower.get_name_leafdata())
-                if (self.qosifredthresholdsetupper.is_set or self.qosifredthresholdsetupper.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifredthresholdsetupper.get_name_leafdata())
+                """
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+                in_ = Enum.YLeaf(0, "in")
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
+                out = Enum.YLeaf(1, "out")
 
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfRedId" or name == "qosIfRedNumThresholdSets" or name == "qosIfRedRoles" or name == "qosIfRedThresholdSet" or name == "qosIfRedThresholdSetLower" or name == "qosIfRedThresholdSetUpper"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfRedId"):
-                    self.qosifredid = value
-                    self.qosifredid.value_namespace = name_space
-                    self.qosifredid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfRedNumThresholdSets"):
-                    self.qosifrednumthresholdsets = value
-                    self.qosifrednumthresholdsets.value_namespace = name_space
-                    self.qosifrednumthresholdsets.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfRedRoles"):
-                    self.qosifredroles = value
-                    self.qosifredroles.value_namespace = name_space
-                    self.qosifredroles.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfRedThresholdSet"):
-                    self.qosifredthresholdset = value
-                    self.qosifredthresholdset.value_namespace = name_space
-                    self.qosifredthresholdset.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfRedThresholdSetLower"):
-                    self.qosifredthresholdsetlower = value
-                    self.qosifredthresholdsetlower.value_namespace = name_space
-                    self.qosifredthresholdsetlower.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfRedThresholdSetUpper"):
-                    self.qosifredthresholdsetupper = value
-                    self.qosifredthresholdsetupper.value_namespace = name_space
-                    self.qosifredthresholdsetupper.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosifredentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosifredentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfRedTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfRedEntry"):
-                for c in self.qosifredentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosifredtable.Qosifredentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosifredentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfRedEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosiftaildroptable(Entity):
-        """
-        A class for threshold sets in a queue supporting tail drop.
-        If the size of the queue for a given threshold set is at or
-        below the specified value then packets assigned to that
-        threshold set are always accepted into the queue.  If the size
-        of the queue is above the specified value then packets are
-        always dropped.
-        
-        .. attribute:: qosiftaildropentry
-        
-        	An instance of this class specifies the queue depth for a particular tail\-drop threshold set on an interface with a particular role combination
-        	**type**\: list of    :py:class:`Qosiftaildropentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosiftaildroptable.Qosiftaildropentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosiftaildroptable, self).__init__()
-
-            self.yang_name = "qosIfTailDropTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosiftaildropentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosiftaildroptable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosiftaildroptable, self).__setattr__(name, value)
-
-
-        class Qosiftaildropentry(Entity):
-            """
-            An instance of this class specifies the queue depth for a
-            particular tail\-drop threshold set on an interface with a
-            particular role combination.
-            
-            .. attribute:: qosiftaildropid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosiftaildropnumthresholdsets
-            
-            	The value in this entry applies only to queues with the number of thresholds specified by this attribute
-            	**type**\:   :py:class:`Thresholdsetrange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Thresholdsetrange>`
-            
-            .. attribute:: qosiftaildroproles
-            
-            	The role combination the interface must be configured with
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: qosiftaildropthresholdset
-            
-            	The threshold set to which the threshold value applies
-            	**type**\:  int
-            
-            	**range:** 1..8
-            
-            .. attribute:: qosiftaildropthresholdsetvalue
-            
-            	The threshold value above which packets are dropped
-            	**type**\:  int
-            
-            	**range:** 0..100
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosiftaildroptable.Qosiftaildropentry, self).__init__()
-
-                self.yang_name = "qosIfTailDropEntry"
-                self.yang_parent_name = "qosIfTailDropTable"
-
-                self.qosiftaildropid = YLeaf(YType.uint32, "qosIfTailDropId")
-
-                self.qosiftaildropnumthresholdsets = YLeaf(YType.enumeration, "qosIfTailDropNumThresholdSets")
-
-                self.qosiftaildroproles = YLeaf(YType.str, "qosIfTailDropRoles")
-
-                self.qosiftaildropthresholdset = YLeaf(YType.int32, "qosIfTailDropThresholdSet")
-
-                self.qosiftaildropthresholdsetvalue = YLeaf(YType.int32, "qosIfTailDropThresholdSetValue")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosiftaildropid",
-                                "qosiftaildropnumthresholdsets",
-                                "qosiftaildroproles",
-                                "qosiftaildropthresholdset",
-                                "qosiftaildropthresholdsetvalue") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosiftaildroptable.Qosiftaildropentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosiftaildroptable.Qosiftaildropentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosiftaildropid.is_set or
-                    self.qosiftaildropnumthresholdsets.is_set or
-                    self.qosiftaildroproles.is_set or
-                    self.qosiftaildropthresholdset.is_set or
-                    self.qosiftaildropthresholdsetvalue.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosiftaildropid.yfilter != YFilter.not_set or
-                    self.qosiftaildropnumthresholdsets.yfilter != YFilter.not_set or
-                    self.qosiftaildroproles.yfilter != YFilter.not_set or
-                    self.qosiftaildropthresholdset.yfilter != YFilter.not_set or
-                    self.qosiftaildropthresholdsetvalue.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfTailDropEntry" + "[qosIfTailDropId='" + self.qosiftaildropid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfTailDropTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosiftaildropid.is_set or self.qosiftaildropid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosiftaildropid.get_name_leafdata())
-                if (self.qosiftaildropnumthresholdsets.is_set or self.qosiftaildropnumthresholdsets.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosiftaildropnumthresholdsets.get_name_leafdata())
-                if (self.qosiftaildroproles.is_set or self.qosiftaildroproles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosiftaildroproles.get_name_leafdata())
-                if (self.qosiftaildropthresholdset.is_set or self.qosiftaildropthresholdset.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosiftaildropthresholdset.get_name_leafdata())
-                if (self.qosiftaildropthresholdsetvalue.is_set or self.qosiftaildropthresholdsetvalue.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosiftaildropthresholdsetvalue.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfTailDropId" or name == "qosIfTailDropNumThresholdSets" or name == "qosIfTailDropRoles" or name == "qosIfTailDropThresholdSet" or name == "qosIfTailDropThresholdSetValue"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfTailDropId"):
-                    self.qosiftaildropid = value
-                    self.qosiftaildropid.value_namespace = name_space
-                    self.qosiftaildropid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfTailDropNumThresholdSets"):
-                    self.qosiftaildropnumthresholdsets = value
-                    self.qosiftaildropnumthresholdsets.value_namespace = name_space
-                    self.qosiftaildropnumthresholdsets.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfTailDropRoles"):
-                    self.qosiftaildroproles = value
-                    self.qosiftaildroproles.value_namespace = name_space
-                    self.qosiftaildroproles.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfTailDropThresholdSet"):
-                    self.qosiftaildropthresholdset = value
-                    self.qosiftaildropthresholdset.value_namespace = name_space
-                    self.qosiftaildropthresholdset.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfTailDropThresholdSetValue"):
-                    self.qosiftaildropthresholdsetvalue = value
-                    self.qosiftaildropthresholdsetvalue.value_namespace = name_space
-                    self.qosiftaildropthresholdsetvalue.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosiftaildropentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosiftaildropentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfTailDropTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfTailDropEntry"):
-                for c in self.qosiftaildropentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosiftaildroptable.Qosiftaildropentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosiftaildropentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfTailDropEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Qosifweightstable(Entity):
-        """
-        A class of scheduling weights for each queue of an interface
-        that supports weighted round robin scheduling or a mix of
-        priority queueing and weighted round robin.  For a queue with
-        N priority queues, the N highest queue numbers are the
-        priority queues with the highest queue number having the
-        highest priority.  WRR is applied to the non\-priority queues.
-        
-        .. attribute:: qosifweightsentry
-        
-        	An instance of this class specifies the scheduling weight for a particular queue of an interface with a particular number of queues and with a particular role combination
-        	**type**\: list of    :py:class:`Qosifweightsentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CiscoQosPibMib.Qosifweightstable.Qosifweightsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-QOS-PIB-MIB'
-        _revision = '2007-08-29'
-
-        def __init__(self):
-            super(CiscoQosPibMib.Qosifweightstable, self).__init__()
-
-            self.yang_name = "qosIfWeightsTable"
-            self.yang_parent_name = "CISCO-QOS-PIB-MIB"
-
-            self.qosifweightsentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoQosPibMib.Qosifweightstable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoQosPibMib.Qosifweightstable, self).__setattr__(name, value)
-
-
-        class Qosifweightsentry(Entity):
-            """
-            An instance of this class specifies the scheduling weight for
-            a particular queue of an interface with a particular number
-            of queues and with a particular role combination.
-            
-            .. attribute:: qosifweightsid  <key>
-            
-            	An integer index to identify the instance of the policy class
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosifweightsdrainsize
-            
-            	The maximum number of bytes that may be drained from the queue in one cycle.  The percentage of the bandwith allocated to this queue can be calculated from this attribute and the sum of the drain sizes of all the non\-priority queues of the interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosifweightsnumqueues
-            
-            	The value of the weight in this instance applies only to interfaces with the number of queues specified by this attribute
-            	**type**\:   :py:class:`Queuerange <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.Queuerange>`
-            
-            .. attribute:: qosifweightsqueue
-            
-            	The queue to which the weight applies
-            	**type**\:  int
-            
-            	**range:** 1..64
-            
-            .. attribute:: qosifweightsqueuesize
-            
-            	The size of the queue in bytes.  Some devices set queue size in terms of packets.  These devices must calculate the queue size in packets by assuming an average packet size suitable for the particular interface.  Some devices have a fixed size buffer to be shared among all queues.  These devices must allocate a fraction of the total buffer space to this queue calculated as the the ratio of the queue size to the sum of the queue sizes for the interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: qosifweightsroles
-            
-            	The role combination the interface must be configured with
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-QOS-PIB-MIB'
-            _revision = '2007-08-29'
-
-            def __init__(self):
-                super(CiscoQosPibMib.Qosifweightstable.Qosifweightsentry, self).__init__()
-
-                self.yang_name = "qosIfWeightsEntry"
-                self.yang_parent_name = "qosIfWeightsTable"
-
-                self.qosifweightsid = YLeaf(YType.uint32, "qosIfWeightsId")
-
-                self.qosifweightsdrainsize = YLeaf(YType.uint32, "qosIfWeightsDrainSize")
-
-                self.qosifweightsnumqueues = YLeaf(YType.enumeration, "qosIfWeightsNumQueues")
-
-                self.qosifweightsqueue = YLeaf(YType.int32, "qosIfWeightsQueue")
-
-                self.qosifweightsqueuesize = YLeaf(YType.uint32, "qosIfWeightsQueueSize")
-
-                self.qosifweightsroles = YLeaf(YType.str, "qosIfWeightsRoles")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("qosifweightsid",
-                                "qosifweightsdrainsize",
-                                "qosifweightsnumqueues",
-                                "qosifweightsqueue",
-                                "qosifweightsqueuesize",
-                                "qosifweightsroles") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoQosPibMib.Qosifweightstable.Qosifweightsentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoQosPibMib.Qosifweightstable.Qosifweightsentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.qosifweightsid.is_set or
-                    self.qosifweightsdrainsize.is_set or
-                    self.qosifweightsnumqueues.is_set or
-                    self.qosifweightsqueue.is_set or
-                    self.qosifweightsqueuesize.is_set or
-                    self.qosifweightsroles.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.qosifweightsid.yfilter != YFilter.not_set or
-                    self.qosifweightsdrainsize.yfilter != YFilter.not_set or
-                    self.qosifweightsnumqueues.yfilter != YFilter.not_set or
-                    self.qosifweightsqueue.yfilter != YFilter.not_set or
-                    self.qosifweightsqueuesize.yfilter != YFilter.not_set or
-                    self.qosifweightsroles.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "qosIfWeightsEntry" + "[qosIfWeightsId='" + self.qosifweightsid.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfWeightsTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.qosifweightsid.is_set or self.qosifweightsid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsid.get_name_leafdata())
-                if (self.qosifweightsdrainsize.is_set or self.qosifweightsdrainsize.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsdrainsize.get_name_leafdata())
-                if (self.qosifweightsnumqueues.is_set or self.qosifweightsnumqueues.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsnumqueues.get_name_leafdata())
-                if (self.qosifweightsqueue.is_set or self.qosifweightsqueue.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsqueue.get_name_leafdata())
-                if (self.qosifweightsqueuesize.is_set or self.qosifweightsqueuesize.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsqueuesize.get_name_leafdata())
-                if (self.qosifweightsroles.is_set or self.qosifweightsroles.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.qosifweightsroles.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "qosIfWeightsId" or name == "qosIfWeightsDrainSize" or name == "qosIfWeightsNumQueues" or name == "qosIfWeightsQueue" or name == "qosIfWeightsQueueSize" or name == "qosIfWeightsRoles"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "qosIfWeightsId"):
-                    self.qosifweightsid = value
-                    self.qosifweightsid.value_namespace = name_space
-                    self.qosifweightsid.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfWeightsDrainSize"):
-                    self.qosifweightsdrainsize = value
-                    self.qosifweightsdrainsize.value_namespace = name_space
-                    self.qosifweightsdrainsize.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfWeightsNumQueues"):
-                    self.qosifweightsnumqueues = value
-                    self.qosifweightsnumqueues.value_namespace = name_space
-                    self.qosifweightsnumqueues.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfWeightsQueue"):
-                    self.qosifweightsqueue = value
-                    self.qosifweightsqueue.value_namespace = name_space
-                    self.qosifweightsqueue.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfWeightsQueueSize"):
-                    self.qosifweightsqueuesize = value
-                    self.qosifweightsqueuesize.value_namespace = name_space
-                    self.qosifweightsqueuesize.value_namespace_prefix = name_space_prefix
-                if(value_path == "qosIfWeightsRoles"):
-                    self.qosifweightsroles = value
-                    self.qosifweightsroles.value_namespace = name_space
-                    self.qosifweightsroles.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.qosifweightsentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.qosifweightsentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qosIfWeightsTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "qosIfWeightsEntry"):
-                for c in self.qosifweightsentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoQosPibMib.Qosifweightstable.Qosifweightsentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.qosifweightsentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "qosIfWeightsEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.qosaggregatetable is not None and self.qosaggregatetable.has_data()) or
-            (self.qoscostodscptable is not None and self.qoscostodscptable.has_data()) or
-            (self.qosdeviceattributetable is not None and self.qosdeviceattributetable.has_data()) or
-            (self.qosdevicepibincarnationtable is not None and self.qosdevicepibincarnationtable.has_data()) or
-            (self.qosdiffservmappingtable is not None and self.qosdiffservmappingtable.has_data()) or
-            (self.qosifdroppreferencetable is not None and self.qosifdroppreferencetable.has_data()) or
-            (self.qosifdscpassignmenttable is not None and self.qosifdscpassignmenttable.has_data()) or
-            (self.qosifredtable is not None and self.qosifredtable.has_data()) or
-            (self.qosifschedulingpreferencestable is not None and self.qosifschedulingpreferencestable.has_data()) or
-            (self.qosiftaildroptable is not None and self.qosiftaildroptable.has_data()) or
-            (self.qosifweightstable is not None and self.qosifweightstable.has_data()) or
-            (self.qosinterfacetypetable is not None and self.qosinterfacetypetable.has_data()) or
-            (self.qosipacetable is not None and self.qosipacetable.has_data()) or
-            (self.qosipaclactiontable is not None and self.qosipaclactiontable.has_data()) or
-            (self.qosipacldefinitiontable is not None and self.qosipacldefinitiontable.has_data()) or
-            (self.qosmacclassificationtable is not None and self.qosmacclassificationtable.has_data()) or
-            (self.qospolicertable is not None and self.qospolicertable.has_data()) or
-            (self.qosunmatchedpolicytable is not None and self.qosunmatchedpolicytable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.qosaggregatetable is not None and self.qosaggregatetable.has_operation()) or
-            (self.qoscostodscptable is not None and self.qoscostodscptable.has_operation()) or
-            (self.qosdeviceattributetable is not None and self.qosdeviceattributetable.has_operation()) or
-            (self.qosdevicepibincarnationtable is not None and self.qosdevicepibincarnationtable.has_operation()) or
-            (self.qosdiffservmappingtable is not None and self.qosdiffservmappingtable.has_operation()) or
-            (self.qosifdroppreferencetable is not None and self.qosifdroppreferencetable.has_operation()) or
-            (self.qosifdscpassignmenttable is not None and self.qosifdscpassignmenttable.has_operation()) or
-            (self.qosifredtable is not None and self.qosifredtable.has_operation()) or
-            (self.qosifschedulingpreferencestable is not None and self.qosifschedulingpreferencestable.has_operation()) or
-            (self.qosiftaildroptable is not None and self.qosiftaildroptable.has_operation()) or
-            (self.qosifweightstable is not None and self.qosifweightstable.has_operation()) or
-            (self.qosinterfacetypetable is not None and self.qosinterfacetypetable.has_operation()) or
-            (self.qosipacetable is not None and self.qosipacetable.has_operation()) or
-            (self.qosipaclactiontable is not None and self.qosipaclactiontable.has_operation()) or
-            (self.qosipacldefinitiontable is not None and self.qosipacldefinitiontable.has_operation()) or
-            (self.qosmacclassificationtable is not None and self.qosmacclassificationtable.has_operation()) or
-            (self.qospolicertable is not None and self.qospolicertable.has_operation()) or
-            (self.qosunmatchedpolicytable is not None and self.qosunmatchedpolicytable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "qosAggregateTable"):
-            if (self.qosaggregatetable is None):
-                self.qosaggregatetable = CiscoQosPibMib.Qosaggregatetable()
-                self.qosaggregatetable.parent = self
-                self._children_name_map["qosaggregatetable"] = "qosAggregateTable"
-            return self.qosaggregatetable
-
-        if (child_yang_name == "qosCosToDscpTable"):
-            if (self.qoscostodscptable is None):
-                self.qoscostodscptable = CiscoQosPibMib.Qoscostodscptable()
-                self.qoscostodscptable.parent = self
-                self._children_name_map["qoscostodscptable"] = "qosCosToDscpTable"
-            return self.qoscostodscptable
-
-        if (child_yang_name == "qosDeviceAttributeTable"):
-            if (self.qosdeviceattributetable is None):
-                self.qosdeviceattributetable = CiscoQosPibMib.Qosdeviceattributetable()
-                self.qosdeviceattributetable.parent = self
-                self._children_name_map["qosdeviceattributetable"] = "qosDeviceAttributeTable"
-            return self.qosdeviceattributetable
-
-        if (child_yang_name == "qosDevicePibIncarnationTable"):
-            if (self.qosdevicepibincarnationtable is None):
-                self.qosdevicepibincarnationtable = CiscoQosPibMib.Qosdevicepibincarnationtable()
-                self.qosdevicepibincarnationtable.parent = self
-                self._children_name_map["qosdevicepibincarnationtable"] = "qosDevicePibIncarnationTable"
-            return self.qosdevicepibincarnationtable
-
-        if (child_yang_name == "qosDiffServMappingTable"):
-            if (self.qosdiffservmappingtable is None):
-                self.qosdiffservmappingtable = CiscoQosPibMib.Qosdiffservmappingtable()
-                self.qosdiffservmappingtable.parent = self
-                self._children_name_map["qosdiffservmappingtable"] = "qosDiffServMappingTable"
-            return self.qosdiffservmappingtable
-
-        if (child_yang_name == "qosIfDropPreferenceTable"):
-            if (self.qosifdroppreferencetable is None):
-                self.qosifdroppreferencetable = CiscoQosPibMib.Qosifdroppreferencetable()
-                self.qosifdroppreferencetable.parent = self
-                self._children_name_map["qosifdroppreferencetable"] = "qosIfDropPreferenceTable"
-            return self.qosifdroppreferencetable
-
-        if (child_yang_name == "qosIfDscpAssignmentTable"):
-            if (self.qosifdscpassignmenttable is None):
-                self.qosifdscpassignmenttable = CiscoQosPibMib.Qosifdscpassignmenttable()
-                self.qosifdscpassignmenttable.parent = self
-                self._children_name_map["qosifdscpassignmenttable"] = "qosIfDscpAssignmentTable"
-            return self.qosifdscpassignmenttable
-
-        if (child_yang_name == "qosIfRedTable"):
-            if (self.qosifredtable is None):
-                self.qosifredtable = CiscoQosPibMib.Qosifredtable()
-                self.qosifredtable.parent = self
-                self._children_name_map["qosifredtable"] = "qosIfRedTable"
-            return self.qosifredtable
-
-        if (child_yang_name == "qosIfSchedulingPreferencesTable"):
-            if (self.qosifschedulingpreferencestable is None):
-                self.qosifschedulingpreferencestable = CiscoQosPibMib.Qosifschedulingpreferencestable()
-                self.qosifschedulingpreferencestable.parent = self
-                self._children_name_map["qosifschedulingpreferencestable"] = "qosIfSchedulingPreferencesTable"
-            return self.qosifschedulingpreferencestable
-
-        if (child_yang_name == "qosIfTailDropTable"):
-            if (self.qosiftaildroptable is None):
-                self.qosiftaildroptable = CiscoQosPibMib.Qosiftaildroptable()
-                self.qosiftaildroptable.parent = self
-                self._children_name_map["qosiftaildroptable"] = "qosIfTailDropTable"
-            return self.qosiftaildroptable
-
-        if (child_yang_name == "qosIfWeightsTable"):
-            if (self.qosifweightstable is None):
-                self.qosifweightstable = CiscoQosPibMib.Qosifweightstable()
-                self.qosifweightstable.parent = self
-                self._children_name_map["qosifweightstable"] = "qosIfWeightsTable"
-            return self.qosifweightstable
-
-        if (child_yang_name == "qosInterfaceTypeTable"):
-            if (self.qosinterfacetypetable is None):
-                self.qosinterfacetypetable = CiscoQosPibMib.Qosinterfacetypetable()
-                self.qosinterfacetypetable.parent = self
-                self._children_name_map["qosinterfacetypetable"] = "qosInterfaceTypeTable"
-            return self.qosinterfacetypetable
-
-        if (child_yang_name == "qosIpAceTable"):
-            if (self.qosipacetable is None):
-                self.qosipacetable = CiscoQosPibMib.Qosipacetable()
-                self.qosipacetable.parent = self
-                self._children_name_map["qosipacetable"] = "qosIpAceTable"
-            return self.qosipacetable
-
-        if (child_yang_name == "qosIpAclActionTable"):
-            if (self.qosipaclactiontable is None):
-                self.qosipaclactiontable = CiscoQosPibMib.Qosipaclactiontable()
-                self.qosipaclactiontable.parent = self
-                self._children_name_map["qosipaclactiontable"] = "qosIpAclActionTable"
-            return self.qosipaclactiontable
-
-        if (child_yang_name == "qosIpAclDefinitionTable"):
-            if (self.qosipacldefinitiontable is None):
-                self.qosipacldefinitiontable = CiscoQosPibMib.Qosipacldefinitiontable()
-                self.qosipacldefinitiontable.parent = self
-                self._children_name_map["qosipacldefinitiontable"] = "qosIpAclDefinitionTable"
-            return self.qosipacldefinitiontable
-
-        if (child_yang_name == "qosMacClassificationTable"):
-            if (self.qosmacclassificationtable is None):
-                self.qosmacclassificationtable = CiscoQosPibMib.Qosmacclassificationtable()
-                self.qosmacclassificationtable.parent = self
-                self._children_name_map["qosmacclassificationtable"] = "qosMacClassificationTable"
-            return self.qosmacclassificationtable
-
-        if (child_yang_name == "qosPolicerTable"):
-            if (self.qospolicertable is None):
-                self.qospolicertable = CiscoQosPibMib.Qospolicertable()
-                self.qospolicertable.parent = self
-                self._children_name_map["qospolicertable"] = "qosPolicerTable"
-            return self.qospolicertable
-
-        if (child_yang_name == "qosUnmatchedPolicyTable"):
-            if (self.qosunmatchedpolicytable is None):
-                self.qosunmatchedpolicytable = CiscoQosPibMib.Qosunmatchedpolicytable()
-                self.qosunmatchedpolicytable.parent = self
-                self._children_name_map["qosunmatchedpolicytable"] = "qosUnmatchedPolicyTable"
-            return self.qosunmatchedpolicytable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "qosAggregateTable" or name == "qosCosToDscpTable" or name == "qosDeviceAttributeTable" or name == "qosDevicePibIncarnationTable" or name == "qosDiffServMappingTable" or name == "qosIfDropPreferenceTable" or name == "qosIfDscpAssignmentTable" or name == "qosIfRedTable" or name == "qosIfSchedulingPreferencesTable" or name == "qosIfTailDropTable" or name == "qosIfWeightsTable" or name == "qosInterfaceTypeTable" or name == "qosIpAceTable" or name == "qosIpAclActionTable" or name == "qosIpAclDefinitionTable" or name == "qosMacClassificationTable" or name == "qosPolicerTable" or name == "qosUnmatchedPolicyTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
 
     def clone_ptr(self):
-        self._top_entity = CiscoQosPibMib()
+        self._top_entity = CISCOQOSPIBMIB()
         return self._top_entity
 

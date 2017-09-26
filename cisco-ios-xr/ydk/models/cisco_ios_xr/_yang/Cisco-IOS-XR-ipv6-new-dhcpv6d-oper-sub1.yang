@@ -31,7 +31,7 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-new-dhcpv6d package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -1346,6 +1346,10 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     leaf profile-link-address {
       type Ipv6-address;
       description "Link address";
+    }
+    leaf proxy-profile-linkaddress-from-ra-enable {
+      type boolean;
+      description "LinkAddress From RA mesage";
     }
     leaf-list profile-helper-address {
       type Ipv6-address;

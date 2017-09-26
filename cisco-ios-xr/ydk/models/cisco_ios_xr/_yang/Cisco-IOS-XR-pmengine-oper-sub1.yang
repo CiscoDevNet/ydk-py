@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,8 +25,18 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pmengine package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-03-30" {
+    description
+      "OTU PRBS Stats Added";
+  }
 
   revision "2015-11-09" {
     description
@@ -72,6 +80,23 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     }
     description "Sonet Path Width Enum";
   }
+  typedef Pm-prbs-status-et {
+    type enumeration {
+      enum not-applicable {
+        value 0;
+        description "not applicable";
+      }
+      enum locked {
+        value 1;
+        description "locked";
+      }
+      enum un-locked {
+        value 2;
+        description "unlocked";
+      }
+    }
+    description "PM PRBS Status Mode Enum";
+  }
   typedef Pm-prbs-pattern-et {
     type enumeration {
       enum prbs-none {
@@ -98,461 +123,12 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
         value 16;
         description "inv pn11";
       }
+      enum pn15 {
+        value 32;
+        description "pn15";
+      }
     }
     description "PM PRBS Pattern Mode Enum";
-  }
-
-  grouping PM-ETHER-PARAM-STRING {
-    description "PM ETHER PARAM STRING";
-    leaf data {
-      type string;
-      description "the number in the interval";
-    }
-    leaf threshold {
-      type string;
-      description "the threshold users set";
-    }
-    leaf tca-report {
-      type boolean;
-      description "enable/disable to report TCA";
-    }
-    leaf valid {
-      type boolean;
-      description "valid";
-    }
-  }
-
-  grouping PM-ETHER-PARAM {
-    description "PM ETHER PARAM";
-    leaf data {
-      type uint64;
-      description "the number in the interval";
-    }
-    leaf threshold {
-      type uint64;
-      description "the threshold users set";
-    }
-    leaf tca-report {
-      type boolean;
-      description "enable/disable to report TCA";
-    }
-    leaf valid {
-      type boolean;
-      description "valid";
-    }
-  }
-
-  grouping PM-ETHERNET-PARAS {
-    description "all paras in ether";
-
-    container rx-pkt {
-      description "RX PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container stat-pkt {
-      description "STAT PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container octet-stat {
-      description "OCTET STAT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container oversize-pkt-stat {
-      description "OVERSIZE PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container fcs-errors-stat {
-      description "FCS ERR";
-      uses PM-ETHER-PARAM;
-    }
-
-    container long-frames-stat {
-      description "LONG FRAMES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container jabber-stat {
-      description "JABBER STATS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether64-octets {
-      description "SIXTY FOUR OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether65127-octet {
-      description "OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether128255-octet {
-      description "TFF OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether256511-octet {
-      description "FOO OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether5121023-octet {
-      description "OZTT OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether10241518-octet {
-      description "OFO OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-ucast-pkt {
-      description "IN UCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-mcast-pkt {
-      description "IN MCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-bcast-pkt {
-      description "IN BCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-ucast-pkt {
-      description "OUT UCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-bcast-pkt {
-      description "OUT BCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-mcast-pkt {
-      description "OUT MCAST";
-      uses PM-ETHER-PARAM;
-    }
-
-    container tx-pkt {
-      description "TX PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container if-in-errors {
-      description "IFIN ERRORS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container if-in-octets {
-      description "IFIN OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether-stat-multicast-pkt {
-      description "ETHER STAT MULTICAST PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether-stat-broadcast-pkt {
-      description "ETHER STAT BROADCAST PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container ether-stat-undersized-pkt {
-      description "ETHER STAT UNDERSIZED PKT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-octets {
-      description "OUT OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pause-frame {
-      description "INPUT PAUSE FRAME";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-good-bytes {
-      description "INPUT GOOD BYTES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in8021q-frames {
-      description "INPUT 802 1Q FRAMES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts1519-max-octets {
-      description "INPUT PKTS 1519MAX OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-good-pkts {
-      description "INPUT GOOD PKTS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-overrun {
-      description "INPUT DROP OVERRUN";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-abort {
-      description "INPUT DROP ABORT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-invalid-vlan {
-      description "INPUT DROP INVALID VLAN";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-invalid-dmac {
-      description "INPUT DROP INVALID DMAC";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-invalid-encap {
-      description "INPUT DROP INVALID ENCAP";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-drop-other {
-      description "INPUT DROP OTHER";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-mib-giant {
-      description "INPUT MIB GIANT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-mib-jabber {
-      description "INPUT MIB JABBER";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-mibcrc {
-      description "IN MIB CRC";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-collisions {
-      description "IN ERROR COLLISIONS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-symbol {
-      description "IN ERROR SYMBOL";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-good-bytes {
-      description "OUT GOOD BYTES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out8021q-frames {
-      description "OUT 802 1Q FRAMES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pause-frames {
-      description "OUT PAUSE FRAMES";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts1519-max-octets {
-      description "OUT PKTS 1519 MAX OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-good-pkts {
-      description "OUT GOOD PKTS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-drop-underrun {
-      description "OUT DROP UNDERRUN";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-drop-abort {
-      description "OUT DROP ABORT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-drop-other {
-      description "OUT DROP OTHER";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-error-other {
-      description "OUT ERROR OTHER";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-giant {
-      description "IN ERROR GIANT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-runt {
-      description "IN ERROR RUNT";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-jabbers {
-      description "IN ERROR JABBERS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-fragments {
-      description "IN ERROR FRAGMENTS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-error-other {
-      description "IN ERROR OTHER";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkt64-octet {
-      description "IN PKT 64 OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts65-to127-octets {
-      description "IN PKTS 65 127OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts128-to255-octets {
-      description "IN PKTS 128 255 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts256-to511-octets {
-      description "IN PKTS 256 511 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts512-to1023-octets {
-      description "IN PKTS 512 1023 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container in-pkts1024-to1518-octets {
-      description "IN PKTS 1024 1518 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container outpkt64octet {
-      description "OUT PKT 64 OCTET";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts65127-octets {
-      description "OUT PKTS 65 127OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts128255-octets {
-      description "OUT PKTS 128 255 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts256511-octets {
-      description "OUT PKTS 256 511 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts5121023-octets {
-      description "OUT PKTS 512 1023 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container out-pkts10241518-octets {
-      description "OUT PKTS 1024 1518 OCTETS";
-      uses PM-ETHER-PARAM;
-    }
-
-    container rx-util {
-      description "Rx Utilization in Percent";
-      uses PM-ETHER-PARAM-STRING;
-    }
-
-    container tx-util {
-      description "Tx Utilization in Percent";
-      uses PM-ETHER-PARAM-STRING;
-    }
-
-    container tx-undersized-pkt {
-      description "TX Undersized Pkt";
-      uses PM-ETHER-PARAM;
-    }
-
-    container tx-oversized-pkt {
-      description "TX Oversized Pkt";
-      uses PM-ETHER-PARAM;
-    }
-
-    container tx-fragments {
-      description "TX Fragments";
-      uses PM-ETHER-PARAM;
-    }
-
-    container tx-jabber {
-      description "TX Jabber";
-      uses PM-ETHER-PARAM;
-    }
-
-    container tx-bad-fcs {
-      description "TX Bad Fcs";
-      uses PM-ETHER-PARAM;
-    }
-    leaf index {
-      type uint32;
-      description "index";
-    }
-    leaf valid {
-      type boolean;
-      description "valid";
-    }
-    leaf timestamp {
-      type string {
-        length "0..64";
-      }
-      description "timestamp";
-    }
-    leaf last-clear-time {
-      type string;
-      description "last clear time";
-    }
-    leaf last-clear30-sec-time {
-      type string;
-      description "last clear time";
-    }
-    leaf last-clear15-min-time {
-      type string;
-      description "last clear time";
-    }
-    leaf last-clear24-hr-time {
-      type string;
-      description "last clear time";
-    }
-    leaf sec30-support {
-      type boolean;
-      description "30 sec support";
-    }
   }
 
   grouping PM-OPTICS-PARAMETER-STRING {
@@ -1509,6 +1085,18 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     }
   }
 
+  grouping PM-PRBS-STATUS-PARAMETER {
+    description "one parameter in optics";
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+    leaf prbs-status {
+      type Pm-prbs-status-et;
+      description "Prbs Status";
+    }
+  }
+
   grouping PM-PRBS-PARAMETER {
     description "one parameter in optics";
     leaf valid {
@@ -1527,6 +1115,11 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     container rcv-patt {
       description "RCVD PTRN";
       uses PM-PRBS-PARAMETER;
+    }
+
+    container prbs-status {
+      description "PRBS STATUS";
+      uses PM-PRBS-STATUS-PARAMETER;
     }
     leaf index {
       type uint32;
@@ -1573,15 +1166,11 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       description "LOST COUNT";
     }
     leaf found-at-time {
-      type string {
-        length "0..64";
-      }
+      type uint64;
       description "FOUND AT TS";
     }
     leaf lost-at-time {
-      type string {
-        length "0..64";
-      }
+      type uint64;
       description "LOST AT TS";
     }
     leaf conf-patt {
@@ -1827,6 +1416,809 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
         length "0..64";
       }
       description "last clear time";
+    }
+  }
+
+  grouping PM-ETHER-PARAM-STRING {
+    description "PM ETHER PARAM STRING";
+    leaf data {
+      type string;
+      description "the number in the interval";
+    }
+    leaf threshold {
+      type string;
+      description "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description "enable/disable to report TCA";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+  }
+
+  grouping PM-ETHER-PARAM {
+    description "PM ETHER PARAM";
+    leaf data {
+      type uint64;
+      description "the number in the interval";
+    }
+    leaf threshold {
+      type uint64;
+      description "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description "enable/disable to report TCA";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+  }
+
+  grouping PM-ETHERNET-PARAS {
+    description "all paras in ether";
+
+    container rx-pkt {
+      description "RX PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container stat-pkt {
+      description "STAT PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container octet-stat {
+      description "OCTET STAT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container oversize-pkt-stat {
+      description "OVERSIZE PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container fcs-errors-stat {
+      description "FCS ERR";
+      uses PM-ETHER-PARAM;
+    }
+
+    container long-frames-stat {
+      description "LONG FRAMES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container jabber-stat {
+      description "JABBER STATS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether64-octets {
+      description "SIXTY FOUR OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether65127-octet {
+      description "OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether128255-octet {
+      description "TFF OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether256511-octet {
+      description "FOO OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether5121023-octet {
+      description "OZTT OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether10241518-octet {
+      description "OFO OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-ucast-pkt {
+      description "IN UCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-mcast-pkt {
+      description "IN MCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-bcast-pkt {
+      description "IN BCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-ucast-pkt {
+      description "OUT UCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-bcast-pkt {
+      description "OUT BCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-mcast-pkt {
+      description "OUT MCAST";
+      uses PM-ETHER-PARAM;
+    }
+
+    container tx-pkt {
+      description "TX PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container if-in-errors {
+      description "IFIN ERRORS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container if-in-octets {
+      description "IFIN OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether-stat-multicast-pkt {
+      description "ETHER STAT MULTICAST PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether-stat-broadcast-pkt {
+      description "ETHER STAT BROADCAST PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container ether-stat-undersized-pkt {
+      description "ETHER STAT UNDERSIZED PKT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-octets {
+      description "OUT OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pause-frame {
+      description "INPUT PAUSE FRAME";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-good-bytes {
+      description "INPUT GOOD BYTES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in8021q-frames {
+      description "INPUT 802 1Q FRAMES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts1519-max-octets {
+      description "INPUT PKTS 1519MAX OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-good-pkts {
+      description "INPUT GOOD PKTS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-overrun {
+      description "INPUT DROP OVERRUN";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-abort {
+      description "INPUT DROP ABORT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-invalid-vlan {
+      description "INPUT DROP INVALID VLAN";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-invalid-dmac {
+      description "INPUT DROP INVALID DMAC";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-invalid-encap {
+      description "INPUT DROP INVALID ENCAP";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-drop-other {
+      description "INPUT DROP OTHER";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-mib-giant {
+      description "INPUT MIB GIANT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-mib-jabber {
+      description "INPUT MIB JABBER";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-mibcrc {
+      description "IN MIB CRC";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-collisions {
+      description "IN ERROR COLLISIONS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-symbol {
+      description "IN ERROR SYMBOL";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-good-bytes {
+      description "OUT GOOD BYTES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out8021q-frames {
+      description "OUT 802 1Q FRAMES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pause-frames {
+      description "OUT PAUSE FRAMES";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts1519-max-octets {
+      description "OUT PKTS 1519 MAX OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-good-pkts {
+      description "OUT GOOD PKTS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-drop-underrun {
+      description "OUT DROP UNDERRUN";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-drop-abort {
+      description "OUT DROP ABORT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-drop-other {
+      description "OUT DROP OTHER";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-error-other {
+      description "OUT ERROR OTHER";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-giant {
+      description "IN ERROR GIANT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-runt {
+      description "IN ERROR RUNT";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-jabbers {
+      description "IN ERROR JABBERS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-fragments {
+      description "IN ERROR FRAGMENTS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-error-other {
+      description "IN ERROR OTHER";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkt64-octet {
+      description "IN PKT 64 OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts65-to127-octets {
+      description "IN PKTS 65 127OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts128-to255-octets {
+      description "IN PKTS 128 255 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts256-to511-octets {
+      description "IN PKTS 256 511 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts512-to1023-octets {
+      description "IN PKTS 512 1023 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container in-pkts1024-to1518-octets {
+      description "IN PKTS 1024 1518 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container outpkt64octet {
+      description "OUT PKT 64 OCTET";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts65127-octets {
+      description "OUT PKTS 65 127OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts128255-octets {
+      description "OUT PKTS 128 255 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts256511-octets {
+      description "OUT PKTS 256 511 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts5121023-octets {
+      description "OUT PKTS 512 1023 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container out-pkts10241518-octets {
+      description "OUT PKTS 1024 1518 OCTETS";
+      uses PM-ETHER-PARAM;
+    }
+
+    container rx-util {
+      description "Rx Utilization in Percent";
+      uses PM-ETHER-PARAM-STRING;
+    }
+
+    container tx-util {
+      description "Tx Utilization in Percent";
+      uses PM-ETHER-PARAM-STRING;
+    }
+
+    container tx-undersized-pkt {
+      description "TX Undersized Pkt";
+      uses PM-ETHER-PARAM;
+    }
+
+    container tx-oversized-pkt {
+      description "TX Oversized Pkt";
+      uses PM-ETHER-PARAM;
+    }
+
+    container tx-fragments {
+      description "TX Fragments";
+      uses PM-ETHER-PARAM;
+    }
+
+    container tx-jabber {
+      description "TX Jabber";
+      uses PM-ETHER-PARAM;
+    }
+
+    container tx-bad-fcs {
+      description "TX Bad Fcs";
+      uses PM-ETHER-PARAM;
+    }
+    leaf index {
+      type uint32;
+      description "index";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+    leaf timestamp {
+      type string {
+        length "0..64";
+      }
+      description "timestamp";
+    }
+    leaf last-clear-time {
+      type string;
+      description "last clear time";
+    }
+    leaf last-clear30-sec-time {
+      type string;
+      description "last clear time";
+    }
+    leaf last-clear15-min-time {
+      type string;
+      description "last clear time";
+    }
+    leaf last-clear24-hr-time {
+      type string;
+      description "last clear time";
+    }
+    leaf sec30-support {
+      type boolean;
+      description "30 sec support";
+    }
+  }
+
+  grouping PM-SECY-TX-PARAM {
+    description "PM SECY TX PARAM";
+    leaf data {
+      type uint64;
+      description "the number in the interval";
+    }
+    leaf threshold {
+      type uint64;
+      description "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description "enable/disable to report TCA";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+  }
+
+  grouping PM-SECY-TX-PARAS {
+    description "PM SECY TX PARAS";
+
+    container out-pkts-protected {
+      description "Out Packets Protected";
+      uses PM-SECY-TX-PARAM;
+    }
+
+    container out-pkts-encrypted {
+      description "Out Packets Encrypted";
+      uses PM-SECY-TX-PARAM;
+    }
+
+    container out-octets-protected {
+      description "Out Octets Protected ";
+      uses PM-SECY-TX-PARAM;
+    }
+
+    container out-octets-encrypted {
+      description "Out Octets Encrypted";
+      uses PM-SECY-TX-PARAM;
+    }
+
+    container out-pkts-too-long {
+      description "Out Packets Too Long";
+      uses PM-SECY-TX-PARAM;
+    }
+    leaf index {
+      type uint32;
+      description "index";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+    leaf timestamp {
+      type string {
+        length "0..64";
+      }
+      description "timestamp";
+    }
+    leaf last-clear-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear15-min-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear30-sec-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear24-hr-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf sec30-support {
+      type boolean;
+      description "30 sec support";
+    }
+    leaf sample-count {
+      type uint64;
+      description "Running Sample Count";
+    }
+  }
+
+  grouping PM-SECY-RX-PARAM {
+    description "PM SECY RX PARAM";
+    leaf data {
+      type uint64;
+      description "the number in the interval";
+    }
+    leaf threshold {
+      type uint64;
+      description "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description "enable/disable to report TCA";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+  }
+
+  grouping PM-SECY-RX-PARAS {
+    description "PM SECY RX PARAS";
+
+    container in-pkts-unchecked {
+      description "In Packet Unchecked";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-delayed {
+      description "In Packet Delay";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-late {
+      description "In Packet Late";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-ok {
+      description "In Packet Ok";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-invalid {
+      description "In Packet Invalid";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-not-valid {
+      description "In Packet Not Valid";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-not-using-sa {
+      description "In Packet Not Using SA";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-unused-sa {
+      description "In Packet Unused SA";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-pkts-untagged-hit {
+      description "In Packet Untagged Hit";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-octets-validated {
+      description "In Octet Validated";
+      uses PM-SECY-RX-PARAM;
+    }
+
+    container in-octets-decrypted {
+      description "In Octet Decrypted";
+      uses PM-SECY-RX-PARAM;
+    }
+    leaf index {
+      type uint32;
+      description "index";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+    leaf timestamp {
+      type string {
+        length "0..64";
+      }
+      description "timestamp";
+    }
+    leaf last-clear-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear15-min-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear30-sec-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear24-hr-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf sec30-support {
+      type boolean;
+      description "30 sec support";
+    }
+    leaf sample-count {
+      type uint64;
+      description "Running Sample Count";
+    }
+  }
+
+  grouping PM-SECY-IF-PARAM {
+    description "PM SECY IF PARAM";
+    leaf data {
+      type uint64;
+      description "the number in the interval";
+    }
+    leaf threshold {
+      type uint64;
+      description "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description "enable/disable to report TCA";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+  }
+
+  grouping PM-SECY-IF-PARAS {
+    description "PM SECY IF PARAS";
+
+    container in-pkts-untagged {
+      description "In Packet Untagged";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-pkts-no-tag {
+      description "In Packet No tag";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-pkts-bad-tag {
+      description "In Packet Bad tag";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-pkts-unknown-sci {
+      description "In Packet Unknown sci";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-pkts-no-sci {
+      description "In Packet No sci";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-pkts-overrun {
+      description "In Packet Overrun";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-octets-validated {
+      description "In Octet Validated";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container in-octets-decrypted {
+      description "In Octet Decrypted";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container out-pkts-untagged {
+      description "Out Packet Untagged";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container out-pkts-too-long {
+      description "Out Packet Too Long";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container out-octets-protected {
+      description "Out Octet Protected";
+      uses PM-SECY-IF-PARAM;
+    }
+
+    container out-octets-encrypted {
+      description "Out Octet encrypted";
+      uses PM-SECY-IF-PARAM;
+    }
+    leaf index {
+      type uint32;
+      description "index";
+    }
+    leaf valid {
+      type boolean;
+      description "valid";
+    }
+    leaf timestamp {
+      type string {
+        length "0..64";
+      }
+      description "timestamp";
+    }
+    leaf last-clear-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear15-min-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear30-sec-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf last-clear24-hr-time {
+      type string {
+        length "0..64";
+      }
+      description "last clear time";
+    }
+    leaf sec30-support {
+      type boolean;
+      description "30 sec support";
+    }
+    leaf sample-count {
+      type uint64;
+      description "Running Sample Count";
     }
   }
 }

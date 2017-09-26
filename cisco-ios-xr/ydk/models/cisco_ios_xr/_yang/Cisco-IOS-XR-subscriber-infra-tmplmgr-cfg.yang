@@ -35,7 +35,7 @@ module Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg {
      for the following management objects:
        dynamic-template: All dynamic template configurations
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-01-07" {

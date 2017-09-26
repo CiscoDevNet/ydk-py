@@ -12,16 +12,15 @@ This version of this MIB module is part of IEEE802.1Q;
 see the draft itself for full legal notices.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Ieee8021Bridgeporttype(Enum):
+class IEEE8021BridgePortType(Enum):
     """
-    Ieee8021Bridgeporttype
+    IEEE8021BridgePortType
 
     A port type.  The possible port types are\:
 
@@ -102,9 +101,9 @@ class Ieee8021Bridgeporttype(Enum):
     dBridgePort = Enum.YLeaf(8, "dBridgePort")
 
 
-class Ieee8021Portacceptableframetypes(Enum):
+class IEEE8021PortAcceptableFrameTypes(Enum):
     """
-    Ieee8021Portacceptableframetypes
+    IEEE8021PortAcceptableFrameTypes
 
     Acceptable frame types on a port.
 
@@ -123,9 +122,9 @@ class Ieee8021Portacceptableframetypes(Enum):
     admitTagged = Enum.YLeaf(3, "admitTagged")
 
 
-class Ieee8021Prioritycodepoint(Enum):
+class IEEE8021PriorityCodePoint(Enum):
     """
-    Ieee8021Prioritycodepoint
+    IEEE8021PriorityCodePoint
 
     Bridge ports may encode or decode the PCP value of the 
 
@@ -162,9 +161,9 @@ class Ieee8021Prioritycodepoint(Enum):
     codePoint5p3d = Enum.YLeaf(4, "codePoint5p3d")
 
 
-class Ieee8021Serviceselectortype(Enum):
+class IEEE8021ServiceSelectorType(Enum):
     """
-    Ieee8021Serviceselectortype
+    IEEE8021ServiceSelectorType
 
     A value that represents a type (and thereby the format)
 
@@ -218,20 +217,5 @@ class Ieee8021Serviceselectortype(Enum):
 
     isid = Enum.YLeaf(2, "isid")
 
-
-class Ieee8021Pbbingressegress(Bits):
-    """
-    Ieee8021Pbbingressegress
-
-    A 2 bit selector which determines if frames on this VIP may
-    ingress to the PBBN but not egress the PBBN, egress to the
-    PBBN but not ingress the PBBN, or both ingress and egress
-    the PBBN.
-    Keys are:- egress , ingress
-
-    """
-
-    def __init__(self):
-        super(Ieee8021Pbbingressegress, self).__init__()
 
 

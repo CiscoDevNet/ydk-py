@@ -10,8 +10,6 @@ module Cisco-IOS-XR-man-xml-ttyagent-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-man-xml-ttyagent-oper-sub1 {
     revision-date 2015-07-30;
   }
@@ -40,7 +38,7 @@ module Cisco-IOS-XR-man-xml-ttyagent-oper {
        netconf: NETCONF operational information
        xr-xml: xr xml
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {

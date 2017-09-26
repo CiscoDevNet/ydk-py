@@ -40,7 +40,7 @@ module Cisco-IOS-XR-ipv6-nd-oper {
      for the following management objects:
        ipv6-node-discovery: IPv6 node discovery operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -167,6 +167,30 @@ module Cisco-IOS-XR-ipv6-nd-oper {
               description "Interface Name";
             }
             uses IPV6-ND-VR-ENTRY;
+          }
+        }
+
+        container slaac-interfaces {
+          description
+            "IPv6 ND list of SLAAC MGMT interfaces for a
+            specific node";
+
+          list slaac-interface {
+            key "interface-name";
+            description
+              "IPv6 ND operational data for a specific slaac
+              interface";
+
+            container router-advert-detail {
+              description
+                "IPv6 ND operational data for a specific
+                slaac interface";
+              uses IPV6-ND-SLAAC-INTFS-INFO;
+            }
+            leaf interface-name {
+              type xr:Interface-name;
+              description "Interface Name";
+            }
           }
         }
         leaf node-name {

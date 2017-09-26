@@ -31,8 +31,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR clns-isis package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -244,6 +254,65 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
     description "Isis if af disabled reason";
   }
+  typedef Isis-frr-tiebreaker {
+    type enumeration {
+      enum isis-frr-tiebreaker-down-stream {
+        value 0;
+        description "Backup path is via downstream node";
+      }
+      enum isis-frr-tiebreaker-lc-disjoint {
+        value 1;
+        description "Backup path is line card disjoint";
+      }
+      enum isis-frr-tiebreaker-low-est-backup-metric {
+        value 2;
+        description "Backup path has lowest metric";
+      }
+      enum isis-frr-tiebreaker-node-protecting {
+        value 3;
+        description "Backup path is node protecting";
+      }
+      enum isis-frr-tiebreaker-primary-path {
+        value 4;
+        description "Backup path is ECMP";
+      }
+      enum isis-frr-tiebreaker-secondary-path {
+        value 5;
+        description "Backup path is not an ECMP";
+      }
+      enum isis-frr-tiebreaker-srlg-disjoint {
+        value 6;
+        description "Backup path is SRLG disjoint";
+      }
+      enum isis-frr-tiebreaker-default {
+        value 7;
+        description "Backup path is link protecting";
+      }
+    }
+    description "Isis frr tiebreaker";
+  }
+  typedef Isis-frr {
+    type enumeration {
+      enum isis-frr-type-none {
+        value 0;
+        description "Computation disabled";
+      }
+      enum isis-frr-type-per-link {
+        value 1;
+        description "Prefix independent per-link computation";
+      }
+      enum isis-frr-type-per-prefix {
+        value 2;
+        description "Prefix dependent computation";
+      }
+      enum isis-frr-type-sr-u-loop {
+        value 3;
+        description
+          "Segment Routing Microloop Avoidance computation";
+      }
+    }
+    description "Isis frr";
+  }
   typedef Isis-if-topo-adv-prefix-disabled-reason {
     type enumeration {
       enum isis-intf-topo-adv-prefix-disabled-intf-suppressed {
@@ -368,8 +437,8 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
   }
   typedef Isis-if-clns-mtu-invalid-reason {
     type enumeration {
-      enum isis-intf-clns-mtu-invalid-too-sm-all {
-        description "isis intf clns mtu invalid too sm all";
+      enum isis-intf-clns-mtu-invalid-too-small {
+        description "isis intf clns mtu invalid too small";
       }
       enum isis-intf-clns-mtu-invalid-internal-error {
         description "isis intf clns mtu invalid internal error";
@@ -983,6 +1052,31 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       }
       enum isis-lsp-trig-pp {
         description "Proactive Protection metric change";
+      }
+      enum isis-lsp-trig-config-force-send {
+        description
+          "Any configuration change that requires all LSPs
+          to be updated";
+      }
+      enum isis-lsp-trig-config-force-init {
+        description
+          "Any configuration change that requires the LBD
+          database re-init.";
+      }
+      enum isis-lsp-trig-adj-sid-add {
+        description "Adjacency SID added";
+      }
+      enum isis-lsp-trig-adj-sid-delete {
+        description "Adjacency SID deleted";
+      }
+      enum isis-lsp-trig-msd {
+        description "Maximum SID depth change";
+      }
+      enum isis-lsp-trig-adj-sid-wait-timer {
+        description "Adjacency SID wait timer expired";
+      }
+      enum isis-lsp-trig-direct-gen {
+        description "Direct LSP generation";
       }
     }
     description "Isis lsp trigger";
@@ -1637,6 +1731,30 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         "Adjacency Stagger Max Number of Forming
         Neighbors Allowed";
     }
+    leaf srgb-allocated {
+      type boolean;
+      description "Is SRGB allocated ?";
+    }
+    leaf srgb-start {
+      type uint32;
+      description "First label in SRGB";
+    }
+    leaf srgb-end {
+      type uint32;
+      description "Last label in SRGB";
+    }
+    leaf srlb-allocated {
+      type boolean;
+      description "Is SRLB allocated ?";
+    }
+    leaf srlb-start {
+      type uint32;
+      description "First label in SRLB";
+    }
+    leaf srlb-end {
+      type uint32;
+      description "Last label in SRLB";
+    }
     list manual-area-address {
       description "Manual area addresses";
         leaf entry {
@@ -2101,6 +2219,93 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
+  grouping ISIS-SH-MADJ-SID-IF {
+    description
+      "Manual Adjacency SID Interface Configuration and
+      Operation";
+    leaf manual-adjacency-sid-label {
+      type Isis-nodal-sid-value;
+      description "Manual Adjacency SID Label";
+    }
+    leaf manual-adjacency-sid-index {
+      type Isis-nodal-sid-value;
+      description
+        "Manual Adjacency SID Index (if configured as
+        index)";
+    }
+    leaf manual-adjacency-sid-type {
+      type uint8;
+      description "Manual Adjacency SID Type (Absolute or Index)";
+    }
+    leaf sid-protected {
+      type boolean;
+      description "SID configured as protected by backup path";
+    }
+    leaf sid-active {
+      type boolean;
+      description "SID is in use";
+    }
+  }
+
+  grouping ISIS-FRR-TIEBREAKER-SORTED {
+    description "FRR Tie Breaker Structure";
+    leaf tie-breaker {
+      type Isis-frr-tiebreaker;
+      description "Tie Breaker Type";
+    }
+    leaf index {
+      type uint8;
+      description "Tie Breaker Index";
+    }
+  }
+
+  grouping ISIS-SH-IF-FRR-LEVEL {
+    description "Per level FRR information";
+    leaf frr-type {
+      type Isis-frr;
+      description
+        "FRR type configured per level for this interface";
+    }
+    leaf is-frr {
+      type boolean;
+      description "Is FRR enabled per level on this interface";
+    }
+    leaf is-remote-lfa {
+      type boolean;
+      description
+        "Is FRR Remote LFA enabled per level for this
+        interface";
+    }
+    leaf is-ti-lfa {
+      type boolean;
+      description
+        "Is FRR TI LFA enabled per level for this
+        interface";
+    }
+    leaf ti-lfa-node-tie-breaker-index {
+      type uint8;
+      description "TI LFA node-protecting Tie breaker index";
+    }
+    leaf ti-lfa-srlg-tie-breaker {
+      type uint8;
+      description "TI LFA srlg Tie breaker index";
+    }
+    leaf is-tie-breakers-configured {
+      type boolean;
+      description
+        "Is Tiebreaker configured per level for this
+        interface";
+    }
+
+    list frr-tie-breaker {
+      max-elements "8";
+      description
+        "FRR TieBreakers array per level for this
+        interface";
+      uses ISIS-FRR-TIEBREAKER-SORTED;
+    }
+  }
+
   grouping ISIS-SH-IF-TOPO-ADV-PREFIX-DISABLED {
     description
       "Topology info when prefix advertisement is
@@ -2172,6 +2377,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     container adv-prefix-status {
       description "Prefix advertisement status of a topology";
       uses ISIS-SH-IF-TOPO-ADV-PREFIX-STATUS;
+    }
+
+    container level1-frr {
+      description "Level1 FRR information";
+      uses ISIS-SH-IF-FRR-LEVEL;
+    }
+
+    container level2-frr {
+      description "Level2 FRR information";
+      uses ISIS-SH-IF-FRR-LEVEL;
     }
     leaf level1-metric {
       type Isis-metric;
@@ -2248,6 +2463,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     leaf level2pp-configured {
       type boolean;
       description "PP configure status for L2";
+    }
+
+    list manual-adj-sid {
+      description "Array of Manual Adjacency SIDs";
+      uses ISIS-SH-MADJ-SID-IF;
     }
   }
 
@@ -2347,6 +2567,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     leaf psnp-transmit-queue-size {
       type uint32;
       description "No. of SNP entries queued to be transmitted";
+    }
+    leaf hello-interval {
+      type uint32;
+      description "Hello interval";
+    }
+    leaf hello-multiplier {
+      type uint32;
+      description "Hello Multiplier";
     }
   }
 
@@ -2751,11 +2979,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type boolean;
       description "Rsi Srlg Registered";
     }
+    leaf bandwidth {
+      type uint32;
+      description "Bandwidth of the interface";
+    }
+
     list underlying-interface {
       description "Underlying interface list for bundle interfaces";
-        leaf entry {
-                  type xr:Interface-name;
-        }
+      uses ISIS-SH-INTF-DET;
     }
 
     list per-area-data {
@@ -5300,7 +5531,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type uint16;
       description "The LSP checksum";
     }
-    leaf lsp-parition-repair-supported-flag {
+    leaf lsp-partition-repair-supported-flag {
       type boolean;
       description "TRUE if partition repair is supported";
     }
@@ -5323,6 +5554,22 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     leaf lsp-length {
       type uint16;
       description "The total length of the LSP";
+    }
+    leaf max-area-addresses {
+      type uint8;
+      description "max area addresses";
+    }
+    leaf id-length {
+      type uint8;
+      description "System Id length";
+    }
+    leaf version {
+      type uint8;
+      description "isis version";
+    }
+    leaf version2 {
+      type uint8;
+      description "isis version2";
     }
   }
 
@@ -5953,17 +6200,28 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
                   type Isis-ipv6-address;
         }
     }
-    list underlying-interface {
-      description "Underlying interface list for bundle interfaces";
-        leaf entry {
-                  type xr:Interface-name;
-        }
-    }
     list underlying-adjacency-sid {
       description "Per bundle member Adjacency sid";
         leaf entry {
                   type Isis-nodal-sid-value;
         }
+    }
+
+    list underlying-interface {
+      description "Underlying interface list for bundle interfaces";
+      uses ISIS-SH-INTF-DET;
+    }
+  }
+
+  grouping ISIS-SH-INTF-DET {
+    description "Interface Detail";
+    leaf interface-handle {
+      type xr:Interface-name;
+      description "Local interface handle";
+    }
+    leaf interface-name {
+      type string;
+      description "Interface name";
     }
   }
 
@@ -6034,17 +6292,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
                   type Isis-ipv4-address;
         }
     }
-    list underlying-interface {
-      description "Underlying interface list for bundle interfaces";
-        leaf entry {
-                  type xr:Interface-name;
-        }
-    }
     list underlying-adjacency-sid {
       description "Per bundle member Adjacency sid";
         leaf entry {
                   type Isis-nodal-sid-value;
         }
+    }
+
+    list underlying-interface {
+      description "Underlying interface list for bundle interfaces";
+      uses ISIS-SH-INTF-DET;
     }
   }
 

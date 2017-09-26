@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
          for interfaces
        interface-configurations: interface configurations
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {
@@ -78,6 +78,10 @@ module Cisco-IOS-XR-ifmgr-cfg {
   }
   typedef Secondary-admin-state-enum {
     type enumeration {
+      enum normal {
+        value 0;
+        description "Normal Mode";
+      }
       enum maintenance {
         value 1;
         description "Maintenance Mode";

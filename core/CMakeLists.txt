@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
 cmake_policy(SET CMP0048 NEW)
-project(path VERSION 0.5.5 LANGUAGES C CXX)
+project(path VERSION 0.6.1 LANGUAGES C CXX)
 set(CMAKE_MACOSX_RPATH 1)
 
 set(path_DESCRIPTION "Python wrapper around C++ path API using pybind11.")

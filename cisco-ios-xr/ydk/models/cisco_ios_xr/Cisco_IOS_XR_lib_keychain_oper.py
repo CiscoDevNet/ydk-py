@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   keychain\: Keychain operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -119,11 +118,16 @@ class Keychain(Entity):
 
         self.yang_name = "keychain"
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"keies" : ("keies", Keychain.Keies)}
+        self._child_list_classes = {}
 
         self.keies = Keychain.Keies()
         self.keies.parent = self
         self._children_name_map["keies"] = "keies"
         self._children_yang_names.add("keies")
+        self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-oper:keychain"
 
 
     class Keies(Entity):
@@ -147,32 +151,17 @@ class Keychain(Entity):
 
             self.yang_name = "keies"
             self.yang_parent_name = "keychain"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"key" : ("key", Keychain.Keies.Key)}
 
             self.key = YList(self)
+            self._segment_path = lambda: "keies"
+            self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-oper:keychain/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Keychain.Keies, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Keychain.Keies, self).__setattr__(name, value)
+            self._perform_setattr(Keychain.Keies, [], name, value)
 
 
         class Key(Entity):
@@ -189,9 +178,7 @@ class Keychain(Entity):
             .. attribute:: accept_tolerance
             
             	Accept tolerance is infinite if value is 0xffffffff
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
+            	**type**\:  str
             
             .. attribute:: key
             
@@ -210,40 +197,24 @@ class Keychain(Entity):
 
                 self.yang_name = "key"
                 self.yang_parent_name = "keies"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"key" : ("key", Keychain.Keies.Key.Key)}
+                self._child_list_classes = {}
 
                 self.key_name = YLeaf(YType.str, "key-name")
 
-                self.accept_tolerance = YLeaf(YType.int32, "accept-tolerance")
+                self.accept_tolerance = YLeaf(YType.str, "accept-tolerance")
 
                 self.key = Keychain.Keies.Key.Key()
                 self.key.parent = self
                 self._children_name_map["key"] = "key"
                 self._children_yang_names.add("key")
+                self._segment_path = lambda: "key" + "[key-name='" + self.key_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-oper:keychain/keies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("key_name",
-                                "accept_tolerance") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Keychain.Keies.Key, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Keychain.Keies.Key, self).__setattr__(name, value)
+                self._perform_setattr(Keychain.Keies.Key, ['key_name', 'accept_tolerance'], name, value)
 
 
             class Key(Entity):
@@ -267,32 +238,16 @@ class Keychain(Entity):
 
                     self.yang_name = "key"
                     self.yang_parent_name = "key"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"key-id" : ("key_id", Keychain.Keies.Key.Key.KeyId)}
 
                     self.key_id = YList(self)
+                    self._segment_path = lambda: "key"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Keychain.Keies.Key.Key, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Keychain.Keies.Key.Key, self).__setattr__(name, value)
+                    self._perform_setattr(Keychain.Keies.Key.Key, [], name, value)
 
 
                 class KeyId(Entity):
@@ -348,6 +303,10 @@ class Keychain(Entity):
 
                         self.yang_name = "key-id"
                         self.yang_parent_name = "key"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"accept-lifetime" : ("accept_lifetime", Keychain.Keies.Key.Key.KeyId.AcceptLifetime), "macsec" : ("macsec", Keychain.Keies.Key.Key.KeyId.Macsec), "send-lifetime" : ("send_lifetime", Keychain.Keies.Key.Key.KeyId.SendLifetime)}
+                        self._child_list_classes = {}
 
                         self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
 
@@ -371,290 +330,10 @@ class Keychain(Entity):
                         self.send_lifetime.parent = self
                         self._children_name_map["send_lifetime"] = "send-lifetime"
                         self._children_yang_names.add("send-lifetime")
+                        self._segment_path = lambda: "key-id"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("cryptographic_algorithm",
-                                        "key_id",
-                                        "key_string",
-                                        "type") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Keychain.Keies.Key.Key.KeyId, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Keychain.Keies.Key.Key.KeyId, self).__setattr__(name, value)
-
-
-                    class Macsec(Entity):
-                        """
-                        To check if it's a macsec key
-                        
-                        .. attribute:: is_macsec_key
-                        
-                        	To check if it's a macsec key
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'lib-keychain-oper'
-                        _revision = '2015-01-07'
-
-                        def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.Macsec, self).__init__()
-
-                            self.yang_name = "macsec"
-                            self.yang_parent_name = "key-id"
-
-                            self.is_macsec_key = YLeaf(YType.boolean, "is-macsec-key")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("is_macsec_key") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Keychain.Keies.Key.Key.KeyId.Macsec, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Keychain.Keies.Key.Key.KeyId.Macsec, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.is_macsec_key.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.is_macsec_key.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "macsec" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.is_macsec_key.is_set or self.is_macsec_key.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_macsec_key.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "is-macsec-key"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "is-macsec-key"):
-                                self.is_macsec_key = value
-                                self.is_macsec_key.value_namespace = name_space
-                                self.is_macsec_key.value_namespace_prefix = name_space_prefix
-
-
-                    class SendLifetime(Entity):
-                        """
-                        Lifetime of the key
-                        
-                        .. attribute:: duration
-                        
-                        	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
-                        	**type**\:  str
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: end
-                        
-                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
-                        	**type**\:  str
-                        
-                        .. attribute:: is_always_valid
-                        
-                        	Is TRUE if duration is 0xffffffff 
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_valid_now
-                        
-                        	Is TRUE if current time is betweenstart and end lifetime , else FALSE
-                        	**type**\:  bool
-                        
-                        .. attribute:: start
-                        
-                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'lib-keychain-oper'
-                        _revision = '2015-01-07'
-
-                        def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.SendLifetime, self).__init__()
-
-                            self.yang_name = "send-lifetime"
-                            self.yang_parent_name = "key-id"
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
-
-                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
-
-                            self.start = YLeaf(YType.str, "start")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("duration",
-                                            "end",
-                                            "is_always_valid",
-                                            "is_valid_now",
-                                            "start") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Keychain.Keies.Key.Key.KeyId.SendLifetime, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Keychain.Keies.Key.Key.KeyId.SendLifetime, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.duration.is_set or
-                                self.end.is_set or
-                                self.is_always_valid.is_set or
-                                self.is_valid_now.is_set or
-                                self.start.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.duration.yfilter != YFilter.not_set or
-                                self.end.yfilter != YFilter.not_set or
-                                self.is_always_valid.yfilter != YFilter.not_set or
-                                self.is_valid_now.yfilter != YFilter.not_set or
-                                self.start.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "send-lifetime" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.duration.is_set or self.duration.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.duration.get_name_leafdata())
-                            if (self.end.is_set or self.end.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.end.get_name_leafdata())
-                            if (self.is_always_valid.is_set or self.is_always_valid.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_always_valid.get_name_leafdata())
-                            if (self.is_valid_now.is_set or self.is_valid_now.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_valid_now.get_name_leafdata())
-                            if (self.start.is_set or self.start.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.start.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "duration" or name == "end" or name == "is-always-valid" or name == "is-valid-now" or name == "start"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "duration"):
-                                self.duration = value
-                                self.duration.value_namespace = name_space
-                                self.duration.value_namespace_prefix = name_space_prefix
-                            if(value_path == "end"):
-                                self.end = value
-                                self.end.value_namespace = name_space
-                                self.end.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-always-valid"):
-                                self.is_always_valid = value
-                                self.is_always_valid.value_namespace = name_space
-                                self.is_always_valid.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-valid-now"):
-                                self.is_valid_now = value
-                                self.is_valid_now.value_namespace = name_space
-                                self.is_valid_now.value_namespace_prefix = name_space_prefix
-                            if(value_path == "start"):
-                                self.start = value
-                                self.start.value_namespace = name_space
-                                self.start.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(Keychain.Keies.Key.Key.KeyId, ['cryptographic_algorithm', 'key_id', 'key_string', 'type'], name, value)
 
 
                     class AcceptLifetime(Entity):
@@ -700,6 +379,10 @@ class Keychain(Entity):
 
                             self.yang_name = "accept-lifetime"
                             self.yang_parent_name = "key-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.duration = YLeaf(YType.str, "duration")
 
@@ -710,436 +393,106 @@ class Keychain(Entity):
                             self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
 
                             self.start = YLeaf(YType.str, "start")
+                            self._segment_path = lambda: "accept-lifetime"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("duration",
-                                            "end",
-                                            "is_always_valid",
-                                            "is_valid_now",
-                                            "start") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.duration.is_set or
-                                self.end.is_set or
-                                self.is_always_valid.is_set or
-                                self.is_valid_now.is_set or
-                                self.start.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.duration.yfilter != YFilter.not_set or
-                                self.end.yfilter != YFilter.not_set or
-                                self.is_always_valid.yfilter != YFilter.not_set or
-                                self.is_valid_now.yfilter != YFilter.not_set or
-                                self.start.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "accept-lifetime" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.duration.is_set or self.duration.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.duration.get_name_leafdata())
-                            if (self.end.is_set or self.end.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.end.get_name_leafdata())
-                            if (self.is_always_valid.is_set or self.is_always_valid.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_always_valid.get_name_leafdata())
-                            if (self.is_valid_now.is_set or self.is_valid_now.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.is_valid_now.get_name_leafdata())
-                            if (self.start.is_set or self.start.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.start.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "duration" or name == "end" or name == "is-always-valid" or name == "is-valid-now" or name == "start"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "duration"):
-                                self.duration = value
-                                self.duration.value_namespace = name_space
-                                self.duration.value_namespace_prefix = name_space_prefix
-                            if(value_path == "end"):
-                                self.end = value
-                                self.end.value_namespace = name_space
-                                self.end.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-always-valid"):
-                                self.is_always_valid = value
-                                self.is_always_valid.value_namespace = name_space
-                                self.is_always_valid.value_namespace_prefix = name_space_prefix
-                            if(value_path == "is-valid-now"):
-                                self.is_valid_now = value
-                                self.is_valid_now.value_namespace = name_space
-                                self.is_valid_now.value_namespace_prefix = name_space_prefix
-                            if(value_path == "start"):
-                                self.start = value
-                                self.start.value_namespace = name_space
-                                self.start.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.cryptographic_algorithm.is_set or
-                            self.key_id.is_set or
-                            self.key_string.is_set or
-                            self.type.is_set or
-                            (self.accept_lifetime is not None and self.accept_lifetime.has_data()) or
-                            (self.macsec is not None and self.macsec.has_data()) or
-                            (self.send_lifetime is not None and self.send_lifetime.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.cryptographic_algorithm.yfilter != YFilter.not_set or
-                            self.key_id.yfilter != YFilter.not_set or
-                            self.key_string.yfilter != YFilter.not_set or
-                            self.type.yfilter != YFilter.not_set or
-                            (self.accept_lifetime is not None and self.accept_lifetime.has_operation()) or
-                            (self.macsec is not None and self.macsec.has_operation()) or
-                            (self.send_lifetime is not None and self.send_lifetime.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "key-id" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.cryptographic_algorithm.is_set or self.cryptographic_algorithm.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.cryptographic_algorithm.get_name_leafdata())
-                        if (self.key_id.is_set or self.key_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.key_id.get_name_leafdata())
-                        if (self.key_string.is_set or self.key_string.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.key_string.get_name_leafdata())
-                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.type.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "accept-lifetime"):
-                            if (self.accept_lifetime is None):
-                                self.accept_lifetime = Keychain.Keies.Key.Key.KeyId.AcceptLifetime()
-                                self.accept_lifetime.parent = self
-                                self._children_name_map["accept_lifetime"] = "accept-lifetime"
-                            return self.accept_lifetime
-
-                        if (child_yang_name == "macsec"):
-                            if (self.macsec is None):
-                                self.macsec = Keychain.Keies.Key.Key.KeyId.Macsec()
-                                self.macsec.parent = self
-                                self._children_name_map["macsec"] = "macsec"
-                            return self.macsec
-
-                        if (child_yang_name == "send-lifetime"):
-                            if (self.send_lifetime is None):
-                                self.send_lifetime = Keychain.Keies.Key.Key.KeyId.SendLifetime()
-                                self.send_lifetime.parent = self
-                                self._children_name_map["send_lifetime"] = "send-lifetime"
-                            return self.send_lifetime
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "accept-lifetime" or name == "macsec" or name == "send-lifetime" or name == "cryptographic-algorithm" or name == "key-id" or name == "key-string" or name == "type"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "cryptographic-algorithm"):
-                            self.cryptographic_algorithm = value
-                            self.cryptographic_algorithm.value_namespace = name_space
-                            self.cryptographic_algorithm.value_namespace_prefix = name_space_prefix
-                        if(value_path == "key-id"):
-                            self.key_id = value
-                            self.key_id.value_namespace = name_space
-                            self.key_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "key-string"):
-                            self.key_string = value
-                            self.key_string.value_namespace = name_space
-                            self.key_string.value_namespace_prefix = name_space_prefix
-                        if(value_path == "type"):
-                            self.type = value
-                            self.type.value_namespace = name_space
-                            self.type.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.key_id:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.key_id:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "key" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "key-id"):
-                        for c in self.key_id:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Keychain.Keies.Key.Key.KeyId()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.key_id.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "key-id"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.key_name.is_set or
-                    self.accept_tolerance.is_set or
-                    (self.key is not None and self.key.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.key_name.yfilter != YFilter.not_set or
-                    self.accept_tolerance.yfilter != YFilter.not_set or
-                    (self.key is not None and self.key.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "key" + "[key-name='" + self.key_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-lib-keychain-oper:keychain/keies/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.key_name.is_set or self.key_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.key_name.get_name_leafdata())
-                if (self.accept_tolerance.is_set or self.accept_tolerance.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.accept_tolerance.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "key"):
-                    if (self.key is None):
-                        self.key = Keychain.Keies.Key.Key()
-                        self.key.parent = self
-                        self._children_name_map["key"] = "key"
-                    return self.key
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "key" or name == "key-name" or name == "accept-tolerance"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "key-name"):
-                    self.key_name = value
-                    self.key_name.value_namespace = name_space
-                    self.key_name.value_namespace_prefix = name_space_prefix
-                if(value_path == "accept-tolerance"):
-                    self.accept_tolerance = value
-                    self.accept_tolerance.value_namespace = name_space
-                    self.accept_tolerance.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.key:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.key:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "keies" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-lib-keychain-oper:keychain/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "key"):
-                for c in self.key:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Keychain.Keies.Key()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.key.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "key"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.keies is not None and self.keies.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.keies is not None and self.keies.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-lib-keychain-oper:keychain" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "keies"):
-            if (self.keies is None):
-                self.keies = Keychain.Keies()
-                self.keies.parent = self
-                self._children_name_map["keies"] = "keies"
-            return self.keies
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "keies"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, ['duration', 'end', 'is_always_valid', 'is_valid_now', 'start'], name, value)
+
+
+                    class Macsec(Entity):
+                        """
+                        To check if it's a macsec key
+                        
+                        .. attribute:: is_macsec_key
+                        
+                        	To check if it's a macsec key
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'lib-keychain-oper'
+                        _revision = '2015-01-07'
+
+                        def __init__(self):
+                            super(Keychain.Keies.Key.Key.KeyId.Macsec, self).__init__()
+
+                            self.yang_name = "macsec"
+                            self.yang_parent_name = "key-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.is_macsec_key = YLeaf(YType.boolean, "is-macsec-key")
+                            self._segment_path = lambda: "macsec"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.Macsec, ['is_macsec_key'], name, value)
+
+
+                    class SendLifetime(Entity):
+                        """
+                        Lifetime of the key
+                        
+                        .. attribute:: duration
+                        
+                        	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
+                        	**type**\:  str
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: end
+                        
+                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
+                        	**type**\:  str
+                        
+                        .. attribute:: is_always_valid
+                        
+                        	Is TRUE if duration is 0xffffffff 
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_valid_now
+                        
+                        	Is TRUE if current time is betweenstart and end lifetime , else FALSE
+                        	**type**\:  bool
+                        
+                        .. attribute:: start
+                        
+                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'lib-keychain-oper'
+                        _revision = '2015-01-07'
+
+                        def __init__(self):
+                            super(Keychain.Keies.Key.Key.KeyId.SendLifetime, self).__init__()
+
+                            self.yang_name = "send-lifetime"
+                            self.yang_parent_name = "key-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.duration = YLeaf(YType.str, "duration")
+
+                            self.end = YLeaf(YType.str, "end")
+
+                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
+
+                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
+
+                            self.start = YLeaf(YType.str, "start")
+                            self._segment_path = lambda: "send-lifetime"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.SendLifetime, ['duration', 'end', 'is_always_valid', 'is_valid_now', 'start'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Keychain()

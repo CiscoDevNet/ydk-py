@@ -10,8 +10,6 @@ module Cisco-IOS-XR-subscriber-ipsub-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -37,7 +35,7 @@ module Cisco-IOS-XR-subscriber-ipsub-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -98,13 +96,19 @@ module Cisco-IOS-XR-subscriber-ipsub-cfg {
               leaf unclassified-ip {
                 type empty;
                 description
-                  "Configure IPv6 subscriber unclassified
+                  "Configure IPv4 subscriber unclassified
                   source initiator";
               }
               leaf dhcp {
                 type empty;
                 description
-                  "Configure IPv6 subscriber DHCP initiator";
+                  "Configure IPv4 subscriber DHCP initiator";
+              }
+              leaf dhcp-snoop {
+                type empty;
+                description
+                  "Configure IPv4 subscriber DHCP Snoop
+                  initiator";
               }
             }
           }
@@ -185,6 +189,23 @@ module Cisco-IOS-XR-subscriber-ipsub-cfg {
                 description
                   "Configure unclassified packets as
                   first-sign-of-life for IPv6 subscriber";
+              }
+              leaf dhcp {
+                type uint32 {
+                  range "1..128";
+                }
+                default "128";
+                description
+                  "Configure IPv6 subscriber DHCP initiator";
+              }
+              leaf dhcp-snoop {
+                type uint32 {
+                  range "1..128";
+                }
+                default "128";
+                description
+                  "Configure IPv6 subscriber DHCP Snoop
+                  initiator";
               }
             }
           }

@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,7 +27,7 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-io package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-10-20" {
@@ -181,28 +179,39 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
 
   grouping HADDR-ARRAY {
     description "Helper Address List ";
-    leaf-list address-array {
-      type inet:ipv4-address;
+    list address-array {
       description "Helper address";
+        leaf entry {
+                  type inet:ipv4-address;
+        }
     }
   }
 
   grouping MULTI-ACL-CONFIG {
     description "Multi ACL config information";
-    leaf-list inbound {
-      type Str;
+    list inbound {
       max-elements "5";
+
       description "Inbound ACLs";
+        leaf entry {
+                  type Str;
+        }
     }
-    leaf-list outbound {
-      type Str;
+    list outbound {
       max-elements "5";
+
       description "Outbound ACLs";
+        leaf entry {
+                  type Str;
+        }
     }
-    leaf-list common {
-      type Str;
+    list common {
       max-elements "5";
+
       description "Common ACLs";
+        leaf entry {
+                  type Str;
+        }
     }
   }
 
@@ -393,6 +402,10 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
     leaf vrf-id {
       type uint32;
       description "VRF ID of the interface";
+    }
+    leaf vrf-name {
+      type string;
+      description "VRF name of the interface";
     }
     leaf line-state {
       type Ipv4-ma-oper-line-state;

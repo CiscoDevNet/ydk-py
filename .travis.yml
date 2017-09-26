@@ -10,8 +10,8 @@ matrix:
           dist: trusty
 
 before_install:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install libssh xml2 curl; curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.0/libydk-0.6.0-Darwin.pkg; sudo installer -pkg libydk*pkg -target / ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev -y; sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y ; sudo apt-get update ; sudo apt-get install gcc-5 g++-5 -y; sudo ln -f -s /usr/bin/g++-5 /usr/bin/g++; sudo ln -f -s /usr/bin/gcc-5 /usr/bin/gcc; sudo apt-get install clang-3.8 lldb-3.8 -y ; sudo ln -f -s /usr/bin/clang++-3.8 /usr/bin/clang++ ; sudo ln -f -s /usr/bin/clang-3.8 /usr/bin/clang; git clone https://github.com/ciscodevnet/ydk-gen.git  ; cd ydk-gen;git checkout 62a48fee784a191dbc54338272937c55ef231cf2 ; cd - ; mkdir ydk-gen/sdk/cpp/core/build ; cd ydk-gen/sdk/cpp/core/build; cmake -DCMAKE_BUILD_TYPE=Release .. ; sudo make install;cd - ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install libssh xml2 curl; curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.1/libydk-0.6.1-Darwin.pkg; sudo installer -pkg libydk*pkg -target / ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev -y; sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y ; sudo apt-get update ; sudo apt-get install gcc-5 g++-5 -y; sudo ln -f -s /usr/bin/g++-5 /usr/bin/g++; sudo ln -f -s /usr/bin/gcc-5 /usr/bin/gcc; sudo apt-get install clang-3.8 lldb-3.8 -y ; sudo ln -f -s /usr/bin/clang++-3.8 /usr/bin/clang++ ; sudo ln -f -s /usr/bin/clang-3.8 /usr/bin/clang; git clone https://github.com/ciscodevnet/ydk-gen.git  ; cd ydk-gen;git checkout c4b11d04e0d87a2e5a235cf2456a701c4aa1baa0 ; cd - ; mkdir ydk-gen/sdk/cpp/core/build ; cd ydk-gen/sdk/cpp/core/build; cmake -DCMAKE_BUILD_TYPE=Release .. ; sudo make install;cd - ; fi
 
 install:
     - virtualenv venv -p python2.7

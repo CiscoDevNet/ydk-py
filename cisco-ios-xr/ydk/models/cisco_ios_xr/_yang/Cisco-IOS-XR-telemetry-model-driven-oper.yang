@@ -39,12 +39,22 @@ module Cisco-IOS-XR-telemetry-model-driven-oper {
      for the following management objects:
        telemetry-model-driven: Telemetry operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2017-05-05" {
     description
       "Modified the type for the state variables";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
+
+  revision "2017-02-09" {
+    description
+      "Added DSCP";
   }
 
   revision "2017-01-30" {

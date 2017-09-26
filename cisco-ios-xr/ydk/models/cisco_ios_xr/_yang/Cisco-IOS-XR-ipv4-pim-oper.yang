@@ -14,11 +14,11 @@ module Cisco-IOS-XR-ipv4-pim-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ipv4-pim-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   include Cisco-IOS-XR-ipv4-pim-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -47,8 +47,18 @@ module Cisco-IOS-XR-ipv4-pim-oper {
        ipv6-pim: ipv6 pim
        pim6-ma: pim6 ma
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-27" {
+    description
+      "Removed deprecated leaves under traffic-counters. Added missing leaves under context. Removed checkpoint-statistics container because the corresponding CLI command requires cisco-support permissions.";
+  }
 
   revision "2015-11-09" {
     description
@@ -489,7 +499,6 @@ module Cisco-IOS-XR-ipv4-pim-oper {
         uses TOPOLOGY-ROUTE-COUNT;
         uses JP-STATISTICS-TABLE;
         uses MIB-DATABASE-TABLE;
-        uses GROUP-MAP-MATCH-RPF-TABLE;
         uses NEIGHBOR-OLD-FORMAT-TABLE;
         uses IFRS-SUMMARY;
         uses RANGE-LIST-TABLE;
@@ -517,7 +526,6 @@ module Cisco-IOS-XR-ipv4-pim-oper {
         uses RPF-REDIRECT;
         uses TUNNEL-TABLE;
         uses MULTICAST-STATIC-ROUTE-TABLE;
-        uses GROUP-MAP-MATCH-SOURCE-TABLE;
         uses NEIGHBOR-TABLE;
       }
     }
@@ -625,11 +633,6 @@ module Cisco-IOS-XR-ipv4-pim-oper {
 
     container process {
       description "Process";
-
-      container checkpoint-statistics {
-        description "Checkpoint Statistics";
-        uses PIM-CHKPT-STATS;
-      }
 
       container nsr {
         description "NSR Information";
@@ -1101,7 +1104,6 @@ module Cisco-IOS-XR-ipv4-pim-oper {
       uses TOPOLOGY-ROUTE-COUNT;
       uses JP-STATISTICS-TABLE;
       uses MIB-DATABASE-TABLE;
-      uses GROUP-MAP-MATCH-RPF-TABLE;
       uses NEIGHBOR-OLD-FORMAT-TABLE;
       uses IFRS-SUMMARY;
       uses RANGE-LIST-TABLE;
@@ -1129,30 +1131,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
       uses RPF-REDIRECT;
       uses TUNNEL-TABLE;
       uses MULTICAST-STATIC-ROUTE-TABLE;
-      uses GROUP-MAP-MATCH-SOURCE-TABLE;
       uses NEIGHBOR-TABLE;
-    }
-  }
-
-  grouping GROUP-MAP-MATCH-SOURCE-TABLE {
-    description "Common node of vrf, default-context";
-
-    container group-map-match-sources {
-      description
-        "Find the matching group-mapping with source
-        information on specified group address";
-
-      list group-map-match-source {
-        key "group-address";
-        description
-          "PIM group-matching mapping entry with source
-          information";
-        leaf group-address {
-          type inet:ip-address-no-zone;
-          description "Group address";
-        }
-        uses PIM-GRP-MAP-INFOSRC-BAG;
-      }
     }
   }
 
@@ -1319,26 +1298,6 @@ module Cisco-IOS-XR-ipv4-pim-oper {
       uses DEFAULT-CONTEXT;
       uses PROCESS;
       uses VRF-TABLE;
-    }
-  }
-
-  grouping GROUP-MAP-MATCH-RPF-TABLE {
-    description "Common node of vrf, default-context";
-
-    container group-map-match-rpfs {
-      description
-        "Find matching group-mapping for the specified
-        group address";
-
-      list group-map-match-rpf {
-        key "group-address";
-        description "PIM group matching mapping entry";
-        leaf group-address {
-          type inet:ip-address-no-zone;
-          description "Group address";
-        }
-        uses PIM-GRP-MAP-INFORPF-BAG;
-      }
     }
   }
 

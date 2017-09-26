@@ -16,12 +16,13 @@
 # ------------------------------------------------------------------
 
 from ydk.providers import RestconfServiceProvider
+from ydk.path import RestconfSession
 from ydk.path import Codec, Repository
 from ydk.types import EncodingFormat
 
 
-def execute_path(provider, codec):
-    schema = provider.get_root_schema()
+def execute_path(session, codec):
+    schema = session.get_root_schema()
     bgp = schema.create_datanode("openconfig-bgp:bgp")
     bgp.create_datanode("global/config/as", "65321")
 
@@ -31,11 +32,11 @@ def execute_path(provider, codec):
     print(xml)
     create_rpc = schema.create_rpc("ydk:create")
     create_rpc.get_input_node().create_datanode("entity", xml)
-    create_rpc(provider)
+    create_rpc(session)
 
 
 if __name__ == "__main__":
     repo = Repository("/usr/local/share/ydktest@0.1.0")
-    provider = RestconfServiceProvider(repo, '127.0.0.1', 'admin', 'admin', 12306, EncodingFormat.JSON)
+    session = RestconfSession(repo, '127.0.0.1', 'admin', 'admin', 12306, EncodingFormat.JSON)
     codec = Codec()
-    execute_path(provider, codec)
+    execute_path(session, codec)

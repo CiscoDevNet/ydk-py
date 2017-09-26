@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,7 +25,7 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR man-ems package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -36,8 +34,44 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
   }
 
 
-  grouping GRPC-CONFIGURATION-INFO {
-    description "gRPC Configuration Info";
+  grouping GRPC-STATUS-INFO-B {
+    description "gRPC status Info bag";
+    leaf transport {
+      type string;
+      description "GRPCTransport";
+    }
+    leaf address-family {
+      type string;
+      description "AddressFamily";
+    }
+    leaf tls {
+      type string;
+      description "GRPCTLS";
+    }
+    leaf trustpoint {
+      type string;
+      description "GRPCTrustpoint";
+    }
+    leaf listening-port {
+      type int32;
+      description "ListeningPort";
+    }
+    leaf vrf-socket-ns-path {
+      type string;
+      description "VrfSocketNamespacePath";
+    }
+    leaf max-req-per-user {
+      type uint32;
+      description "MaxReqPerUser";
+    }
+    leaf max-req-total {
+      type uint32;
+      description "MaxReqTotal";
+    }
+  }
+
+  grouping GRPC-STATISTICS-INFO-B {
+    description "gRPC statistics Info bag";
     leaf ct-show-cmd-txt-req-recv {
       type uint64;
       description "CounterShowCmdTxtReqRecv";
@@ -106,33 +140,21 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
       type uint32;
       description "CounterGetCurrentSession";
     }
-    leaf transport {
-      type string;
-      description "GRPCTransport";
+    leaf ct-commit-config-req-recv {
+      type uint64;
+      description "CounterForHowManyCommitConfigRequests";
     }
-    leaf address-family {
-      type string;
-      description "AddressFamily";
+    leaf ct-commit-config-res-sent {
+      type uint64;
+      description "CounterForHowManyCommitConfigResponses";
     }
-    leaf tls {
-      type string;
-      description "GRPCTLS";
+    leaf ct-action-json-req-recv {
+      type uint64;
+      description "CounterForHowManyActionJsonRequests";
     }
-    leaf trustpoint {
-      type string;
-      description "GRPCTrustpoint";
-    }
-    leaf listening-port {
-      type int32;
-      description "ListeningPort";
-    }
-    leaf max-req-per-user {
-      type uint32;
-      description "MaxReqPerUser";
-    }
-    leaf max-req-total {
-      type uint32;
-      description "MaxReqTotal";
+    leaf ct-action-json-res-sent {
+      type uint64;
+      description "CounterForHowManyActionJsonResponses";
     }
   }
 }

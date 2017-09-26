@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   srms\: Segment Routing Mapping Server operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -121,6 +120,10 @@ class Srms(Entity):
 
         self.yang_name = "srms"
         self.yang_parent_name = "Cisco-IOS-XR-segment-routing-ms-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"mapping" : ("mapping", Srms.Mapping), "policy" : ("policy", Srms.Policy)}
+        self._child_list_classes = {}
 
         self.mapping = Srms.Mapping()
         self.mapping.parent = self
@@ -131,6 +134,7 @@ class Srms(Entity):
         self.policy.parent = self
         self._children_name_map["policy"] = "policy"
         self._children_yang_names.add("policy")
+        self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms"
 
 
     class Mapping(Entity):
@@ -159,6 +163,10 @@ class Srms(Entity):
 
             self.yang_name = "mapping"
             self.yang_parent_name = "srms"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"mapping-ipv4" : ("mapping_ipv4", Srms.Mapping.MappingIpv4), "mapping-ipv6" : ("mapping_ipv6", Srms.Mapping.MappingIpv6)}
+            self._child_list_classes = {}
 
             self.mapping_ipv4 = Srms.Mapping.MappingIpv4()
             self.mapping_ipv4.parent = self
@@ -169,6 +177,8 @@ class Srms(Entity):
             self.mapping_ipv6.parent = self
             self._children_name_map["mapping_ipv6"] = "mapping-ipv6"
             self._children_yang_names.add("mapping-ipv6")
+            self._segment_path = lambda: "mapping"
+            self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
 
 
         class MappingIpv4(Entity):
@@ -192,32 +202,17 @@ class Srms(Entity):
 
                 self.yang_name = "mapping-ipv4"
                 self.yang_parent_name = "mapping"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"mapping-mi" : ("mapping_mi", Srms.Mapping.MappingIpv4.MappingMi)}
 
                 self.mapping_mi = YList(self)
+                self._segment_path = lambda: "mapping-ipv4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Srms.Mapping.MappingIpv4, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Srms.Mapping.MappingIpv4, self).__setattr__(name, value)
+                self._perform_setattr(Srms.Mapping.MappingIpv4, [], name, value)
 
 
             class MappingMi(Entity):
@@ -318,6 +313,10 @@ class Srms(Entity):
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"addr" : ("addr", Srms.Mapping.MappingIpv4.MappingMi.Addr)}
+                    self._child_list_classes = {}
 
                     self.area = YLeaf(YType.str, "area")
 
@@ -345,40 +344,11 @@ class Srms(Entity):
                     self.addr.parent = self
                     self._children_name_map["addr"] = "addr"
                     self._children_yang_names.add("addr")
+                    self._segment_path = lambda: "mapping-mi"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("area",
-                                    "flag_attached",
-                                    "ip",
-                                    "last_prefix",
-                                    "last_sid_index",
-                                    "prefix",
-                                    "prefix_xr",
-                                    "router",
-                                    "sid_count",
-                                    "sid_start",
-                                    "src") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Mapping.MappingIpv4.MappingMi, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Mapping.MappingIpv4.MappingMi, self).__setattr__(name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['area', 'flag_attached', 'ip', 'last_prefix', 'last_sid_index', 'prefix', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
 
 
                 class Addr(Entity):
@@ -416,294 +386,21 @@ class Srms(Entity):
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.af = YLeaf(YType.enumeration, "af")
 
                         self.ipv4 = YLeaf(YType.str, "ipv4")
 
                         self.ipv6 = YLeaf(YType.str, "ipv6")
+                        self._segment_path = lambda: "addr"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("af",
-                                        "ipv4",
-                                        "ipv6") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Mapping.MappingIpv4.MappingMi.Addr, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Mapping.MappingIpv4.MappingMi.Addr, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.af.is_set or
-                            self.ipv4.is_set or
-                            self.ipv6.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.af.yfilter != YFilter.not_set or
-                            self.ipv4.yfilter != YFilter.not_set or
-                            self.ipv6.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "addr" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.af.get_name_leafdata())
-                        if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.ipv4.get_name_leafdata())
-                        if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.ipv6.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "af" or name == "ipv4" or name == "ipv6"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "af"):
-                            self.af = value
-                            self.af.value_namespace = name_space
-                            self.af.value_namespace_prefix = name_space_prefix
-                        if(value_path == "ipv4"):
-                            self.ipv4 = value
-                            self.ipv4.value_namespace = name_space
-                            self.ipv4.value_namespace_prefix = name_space_prefix
-                        if(value_path == "ipv6"):
-                            self.ipv6 = value
-                            self.ipv6.value_namespace = name_space
-                            self.ipv6.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.area.is_set or
-                        self.flag_attached.is_set or
-                        self.ip.is_set or
-                        self.last_prefix.is_set or
-                        self.last_sid_index.is_set or
-                        self.prefix.is_set or
-                        self.prefix_xr.is_set or
-                        self.router.is_set or
-                        self.sid_count.is_set or
-                        self.sid_start.is_set or
-                        self.src.is_set or
-                        (self.addr is not None and self.addr.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.area.yfilter != YFilter.not_set or
-                        self.flag_attached.yfilter != YFilter.not_set or
-                        self.ip.yfilter != YFilter.not_set or
-                        self.last_prefix.yfilter != YFilter.not_set or
-                        self.last_sid_index.yfilter != YFilter.not_set or
-                        self.prefix.yfilter != YFilter.not_set or
-                        self.prefix_xr.yfilter != YFilter.not_set or
-                        self.router.yfilter != YFilter.not_set or
-                        self.sid_count.yfilter != YFilter.not_set or
-                        self.sid_start.yfilter != YFilter.not_set or
-                        self.src.yfilter != YFilter.not_set or
-                        (self.addr is not None and self.addr.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "mapping-mi" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.area.get_name_leafdata())
-                    if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                    if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ip.get_name_leafdata())
-                    if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                    if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.prefix.get_name_leafdata())
-                    if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                    if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.router.get_name_leafdata())
-                    if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sid_count.get_name_leafdata())
-                    if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sid_start.get_name_leafdata())
-                    if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.src.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "addr"):
-                        if (self.addr is None):
-                            self.addr = Srms.Mapping.MappingIpv4.MappingMi.Addr()
-                            self.addr.parent = self
-                            self._children_name_map["addr"] = "addr"
-                        return self.addr
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "addr" or name == "area" or name == "flag-attached" or name == "ip" or name == "last-prefix" or name == "last-sid-index" or name == "prefix" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "area"):
-                        self.area = value
-                        self.area.value_namespace = name_space
-                        self.area.value_namespace_prefix = name_space_prefix
-                    if(value_path == "flag-attached"):
-                        self.flag_attached = value
-                        self.flag_attached.value_namespace = name_space
-                        self.flag_attached.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ip"):
-                        self.ip = value
-                        self.ip.value_namespace = name_space
-                        self.ip.value_namespace_prefix = name_space_prefix
-                    if(value_path == "last-prefix"):
-                        self.last_prefix = value
-                        self.last_prefix.value_namespace = name_space
-                        self.last_prefix.value_namespace_prefix = name_space_prefix
-                    if(value_path == "last-sid-index"):
-                        self.last_sid_index = value
-                        self.last_sid_index.value_namespace = name_space
-                        self.last_sid_index.value_namespace_prefix = name_space_prefix
-                    if(value_path == "prefix"):
-                        self.prefix = value
-                        self.prefix.value_namespace = name_space
-                        self.prefix.value_namespace_prefix = name_space_prefix
-                    if(value_path == "prefix-xr"):
-                        self.prefix_xr = value
-                        self.prefix_xr.value_namespace = name_space
-                        self.prefix_xr.value_namespace_prefix = name_space_prefix
-                    if(value_path == "router"):
-                        self.router = value
-                        self.router.value_namespace = name_space
-                        self.router.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sid-count"):
-                        self.sid_count = value
-                        self.sid_count.value_namespace = name_space
-                        self.sid_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sid-start"):
-                        self.sid_start = value
-                        self.sid_start.value_namespace = name_space
-                        self.sid_start.value_namespace_prefix = name_space_prefix
-                    if(value_path == "src"):
-                        self.src = value
-                        self.src.value_namespace = name_space
-                        self.src.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.mapping_mi:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.mapping_mi:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "mapping-ipv4" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "mapping-mi"):
-                    for c in self.mapping_mi:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Srms.Mapping.MappingIpv4.MappingMi()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.mapping_mi.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "mapping-mi"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
+                        self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
 
         class MappingIpv6(Entity):
@@ -727,32 +424,17 @@ class Srms(Entity):
 
                 self.yang_name = "mapping-ipv6"
                 self.yang_parent_name = "mapping"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"mapping-mi" : ("mapping_mi", Srms.Mapping.MappingIpv6.MappingMi)}
 
                 self.mapping_mi = YList(self)
+                self._segment_path = lambda: "mapping-ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Srms.Mapping.MappingIpv6, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Srms.Mapping.MappingIpv6, self).__setattr__(name, value)
+                self._perform_setattr(Srms.Mapping.MappingIpv6, [], name, value)
 
 
             class MappingMi(Entity):
@@ -853,6 +535,10 @@ class Srms(Entity):
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"addr" : ("addr", Srms.Mapping.MappingIpv6.MappingMi.Addr)}
+                    self._child_list_classes = {}
 
                     self.area = YLeaf(YType.str, "area")
 
@@ -880,40 +566,11 @@ class Srms(Entity):
                     self.addr.parent = self
                     self._children_name_map["addr"] = "addr"
                     self._children_yang_names.add("addr")
+                    self._segment_path = lambda: "mapping-mi"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("area",
-                                    "flag_attached",
-                                    "ip",
-                                    "last_prefix",
-                                    "last_sid_index",
-                                    "prefix",
-                                    "prefix_xr",
-                                    "router",
-                                    "sid_count",
-                                    "sid_start",
-                                    "src") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Mapping.MappingIpv6.MappingMi, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Mapping.MappingIpv6.MappingMi, self).__setattr__(name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['area', 'flag_attached', 'ip', 'last_prefix', 'last_sid_index', 'prefix', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
 
 
                 class Addr(Entity):
@@ -951,352 +608,21 @@ class Srms(Entity):
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.af = YLeaf(YType.enumeration, "af")
 
                         self.ipv4 = YLeaf(YType.str, "ipv4")
 
                         self.ipv6 = YLeaf(YType.str, "ipv6")
+                        self._segment_path = lambda: "addr"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("af",
-                                        "ipv4",
-                                        "ipv6") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Mapping.MappingIpv6.MappingMi.Addr, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Mapping.MappingIpv6.MappingMi.Addr, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.af.is_set or
-                            self.ipv4.is_set or
-                            self.ipv6.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.af.yfilter != YFilter.not_set or
-                            self.ipv4.yfilter != YFilter.not_set or
-                            self.ipv6.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "addr" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.af.get_name_leafdata())
-                        if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.ipv4.get_name_leafdata())
-                        if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.ipv6.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "af" or name == "ipv4" or name == "ipv6"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "af"):
-                            self.af = value
-                            self.af.value_namespace = name_space
-                            self.af.value_namespace_prefix = name_space_prefix
-                        if(value_path == "ipv4"):
-                            self.ipv4 = value
-                            self.ipv4.value_namespace = name_space
-                            self.ipv4.value_namespace_prefix = name_space_prefix
-                        if(value_path == "ipv6"):
-                            self.ipv6 = value
-                            self.ipv6.value_namespace = name_space
-                            self.ipv6.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.area.is_set or
-                        self.flag_attached.is_set or
-                        self.ip.is_set or
-                        self.last_prefix.is_set or
-                        self.last_sid_index.is_set or
-                        self.prefix.is_set or
-                        self.prefix_xr.is_set or
-                        self.router.is_set or
-                        self.sid_count.is_set or
-                        self.sid_start.is_set or
-                        self.src.is_set or
-                        (self.addr is not None and self.addr.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.area.yfilter != YFilter.not_set or
-                        self.flag_attached.yfilter != YFilter.not_set or
-                        self.ip.yfilter != YFilter.not_set or
-                        self.last_prefix.yfilter != YFilter.not_set or
-                        self.last_sid_index.yfilter != YFilter.not_set or
-                        self.prefix.yfilter != YFilter.not_set or
-                        self.prefix_xr.yfilter != YFilter.not_set or
-                        self.router.yfilter != YFilter.not_set or
-                        self.sid_count.yfilter != YFilter.not_set or
-                        self.sid_start.yfilter != YFilter.not_set or
-                        self.src.yfilter != YFilter.not_set or
-                        (self.addr is not None and self.addr.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "mapping-mi" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.area.get_name_leafdata())
-                    if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                    if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ip.get_name_leafdata())
-                    if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                    if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.prefix.get_name_leafdata())
-                    if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                    if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.router.get_name_leafdata())
-                    if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sid_count.get_name_leafdata())
-                    if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.sid_start.get_name_leafdata())
-                    if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.src.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "addr"):
-                        if (self.addr is None):
-                            self.addr = Srms.Mapping.MappingIpv6.MappingMi.Addr()
-                            self.addr.parent = self
-                            self._children_name_map["addr"] = "addr"
-                        return self.addr
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "addr" or name == "area" or name == "flag-attached" or name == "ip" or name == "last-prefix" or name == "last-sid-index" or name == "prefix" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "area"):
-                        self.area = value
-                        self.area.value_namespace = name_space
-                        self.area.value_namespace_prefix = name_space_prefix
-                    if(value_path == "flag-attached"):
-                        self.flag_attached = value
-                        self.flag_attached.value_namespace = name_space
-                        self.flag_attached.value_namespace_prefix = name_space_prefix
-                    if(value_path == "ip"):
-                        self.ip = value
-                        self.ip.value_namespace = name_space
-                        self.ip.value_namespace_prefix = name_space_prefix
-                    if(value_path == "last-prefix"):
-                        self.last_prefix = value
-                        self.last_prefix.value_namespace = name_space
-                        self.last_prefix.value_namespace_prefix = name_space_prefix
-                    if(value_path == "last-sid-index"):
-                        self.last_sid_index = value
-                        self.last_sid_index.value_namespace = name_space
-                        self.last_sid_index.value_namespace_prefix = name_space_prefix
-                    if(value_path == "prefix"):
-                        self.prefix = value
-                        self.prefix.value_namespace = name_space
-                        self.prefix.value_namespace_prefix = name_space_prefix
-                    if(value_path == "prefix-xr"):
-                        self.prefix_xr = value
-                        self.prefix_xr.value_namespace = name_space
-                        self.prefix_xr.value_namespace_prefix = name_space_prefix
-                    if(value_path == "router"):
-                        self.router = value
-                        self.router.value_namespace = name_space
-                        self.router.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sid-count"):
-                        self.sid_count = value
-                        self.sid_count.value_namespace = name_space
-                        self.sid_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "sid-start"):
-                        self.sid_start = value
-                        self.sid_start.value_namespace = name_space
-                        self.sid_start.value_namespace_prefix = name_space_prefix
-                    if(value_path == "src"):
-                        self.src = value
-                        self.src.value_namespace = name_space
-                        self.src.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.mapping_mi:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.mapping_mi:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "mapping-ipv6" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "mapping-mi"):
-                    for c in self.mapping_mi:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Srms.Mapping.MappingIpv6.MappingMi()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.mapping_mi.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "mapping-mi"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (
-                (self.mapping_ipv4 is not None and self.mapping_ipv4.has_data()) or
-                (self.mapping_ipv6 is not None and self.mapping_ipv6.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.mapping_ipv4 is not None and self.mapping_ipv4.has_operation()) or
-                (self.mapping_ipv6 is not None and self.mapping_ipv6.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "mapping" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "mapping-ipv4"):
-                if (self.mapping_ipv4 is None):
-                    self.mapping_ipv4 = Srms.Mapping.MappingIpv4()
-                    self.mapping_ipv4.parent = self
-                    self._children_name_map["mapping_ipv4"] = "mapping-ipv4"
-                return self.mapping_ipv4
-
-            if (child_yang_name == "mapping-ipv6"):
-                if (self.mapping_ipv6 is None):
-                    self.mapping_ipv6 = Srms.Mapping.MappingIpv6()
-                    self.mapping_ipv6.parent = self
-                    self._children_name_map["mapping_ipv6"] = "mapping-ipv6"
-                return self.mapping_ipv6
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "mapping-ipv4" or name == "mapping-ipv6"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                        self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
 
     class Policy(Entity):
@@ -1325,6 +651,10 @@ class Srms(Entity):
 
             self.yang_name = "policy"
             self.yang_parent_name = "srms"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"policy-ipv4" : ("policy_ipv4", Srms.Policy.PolicyIpv4), "policy-ipv6" : ("policy_ipv6", Srms.Policy.PolicyIpv6)}
+            self._child_list_classes = {}
 
             self.policy_ipv4 = Srms.Policy.PolicyIpv4()
             self.policy_ipv4.parent = self
@@ -1335,6 +665,8 @@ class Srms(Entity):
             self.policy_ipv6.parent = self
             self._children_name_map["policy_ipv6"] = "policy-ipv6"
             self._children_yang_names.add("policy-ipv6")
+            self._segment_path = lambda: "policy"
+            self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
 
 
         class PolicyIpv4(Entity):
@@ -1363,6 +695,10 @@ class Srms(Entity):
 
                 self.yang_name = "policy-ipv4"
                 self.yang_parent_name = "policy"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"policy-ipv4-active" : ("policy_ipv4_active", Srms.Policy.PolicyIpv4.PolicyIpv4Active), "policy-ipv4-backup" : ("policy_ipv4_backup", Srms.Policy.PolicyIpv4.PolicyIpv4Backup)}
+                self._child_list_classes = {}
 
                 self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
                 self.policy_ipv4_active.parent = self
@@ -1373,519 +709,8 @@ class Srms(Entity):
                 self.policy_ipv4_backup.parent = self
                 self._children_name_map["policy_ipv4_backup"] = "policy-ipv4-backup"
                 self._children_yang_names.add("policy-ipv4-backup")
-
-
-            class PolicyIpv4Backup(Entity):
-                """
-                IPv4 backup policy operational data
-                
-                .. attribute:: policy_mi
-                
-                	Mapping Item
-                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi>`
-                
-                
-
-                """
-
-                _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
-
-                    self.yang_name = "policy-ipv4-backup"
-                    self.yang_parent_name = "policy-ipv4"
-
-                    self.policy_mi = YList(self)
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__setattr__(name, value)
-
-
-                class PolicyMi(Entity):
-                    """
-                    Mapping Item
-                    
-                    .. attribute:: mi_id  <key>
-                    
-                    	Mapping Item ID (0, 1, 2, ...)
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
-                    
-                    .. attribute:: area
-                    
-                    	Area (OSPF) or Level (ISIS)
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: flag_attached
-                    
-                    	Attached flag
-                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
-                    
-                    .. attribute:: last_prefix
-                    
-                    	Last IP Prefix
-                    	**type**\:  str
-                    
-                    	**length:** 0..50
-                    
-                    .. attribute:: last_sid_index
-                    
-                    	Last SID Index
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: prefix_xr
-                    
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: router
-                    
-                    	Router ID
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: sid_count
-                    
-                    	SID range
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sid_start
-                    
-                    	Starting SID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
-
-                        self.yang_name = "policy-mi"
-                        self.yang_parent_name = "policy-ipv4-backup"
-
-                        self.mi_id = YLeaf(YType.str, "mi-id")
-
-                        self.area = YLeaf(YType.str, "area")
-
-                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
-
-                        self.last_prefix = YLeaf(YType.str, "last-prefix")
-
-                        self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
-
-                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                        self.router = YLeaf(YType.str, "router")
-
-                        self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                        self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                        self.src = YLeaf(YType.enumeration, "src")
-
-                        self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
-                        self.addr.parent = self
-                        self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("mi_id",
-                                        "area",
-                                        "flag_attached",
-                                        "last_prefix",
-                                        "last_sid_index",
-                                        "prefix_xr",
-                                        "router",
-                                        "sid_count",
-                                        "sid_start",
-                                        "src") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__setattr__(name, value)
-
-
-                    class Addr(Entity):
-                        """
-                        addr
-                        
-                        .. attribute:: af
-                        
-                        	AF
-                        	**type**\:   :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
-                        
-                        .. attribute:: ipv4
-                        
-                        	IPv4
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6
-                        
-                        	IPv6
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
-
-                            self.yang_name = "addr"
-                            self.yang_parent_name = "policy-mi"
-
-                            self.af = YLeaf(YType.enumeration, "af")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("af",
-                                            "ipv4",
-                                            "ipv6") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.af.is_set or
-                                self.ipv4.is_set or
-                                self.ipv6.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.af.yfilter != YFilter.not_set or
-                                self.ipv4.yfilter != YFilter.not_set or
-                                self.ipv6.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "addr" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.af.get_name_leafdata())
-                            if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv4.get_name_leafdata())
-                            if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "af" or name == "ipv4" or name == "ipv6"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "af"):
-                                self.af = value
-                                self.af.value_namespace = name_space
-                                self.af.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv4"):
-                                self.ipv4 = value
-                                self.ipv4.value_namespace = name_space
-                                self.ipv4.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv6"):
-                                self.ipv6 = value
-                                self.ipv6.value_namespace = name_space
-                                self.ipv6.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.mi_id.is_set or
-                            self.area.is_set or
-                            self.flag_attached.is_set or
-                            self.last_prefix.is_set or
-                            self.last_sid_index.is_set or
-                            self.prefix_xr.is_set or
-                            self.router.is_set or
-                            self.sid_count.is_set or
-                            self.sid_start.is_set or
-                            self.src.is_set or
-                            (self.addr is not None and self.addr.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.mi_id.yfilter != YFilter.not_set or
-                            self.area.yfilter != YFilter.not_set or
-                            self.flag_attached.yfilter != YFilter.not_set or
-                            self.last_prefix.yfilter != YFilter.not_set or
-                            self.last_sid_index.yfilter != YFilter.not_set or
-                            self.prefix_xr.yfilter != YFilter.not_set or
-                            self.router.yfilter != YFilter.not_set or
-                            self.sid_count.yfilter != YFilter.not_set or
-                            self.sid_start.yfilter != YFilter.not_set or
-                            self.src.yfilter != YFilter.not_set or
-                            (self.addr is not None and self.addr.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "policy-mi" + "[mi-id='" + self.mi_id.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.mi_id.is_set or self.mi_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mi_id.get_name_leafdata())
-                        if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.area.get_name_leafdata())
-                        if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                        if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                        if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                        if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                        if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.router.get_name_leafdata())
-                        if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_count.get_name_leafdata())
-                        if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_start.get_name_leafdata())
-                        if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.src.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "addr"):
-                            if (self.addr is None):
-                                self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
-                                self.addr.parent = self
-                                self._children_name_map["addr"] = "addr"
-                            return self.addr
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "addr" or name == "mi-id" or name == "area" or name == "flag-attached" or name == "last-prefix" or name == "last-sid-index" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "mi-id"):
-                            self.mi_id = value
-                            self.mi_id.value_namespace = name_space
-                            self.mi_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "area"):
-                            self.area = value
-                            self.area.value_namespace = name_space
-                            self.area.value_namespace_prefix = name_space_prefix
-                        if(value_path == "flag-attached"):
-                            self.flag_attached = value
-                            self.flag_attached.value_namespace = name_space
-                            self.flag_attached.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-prefix"):
-                            self.last_prefix = value
-                            self.last_prefix.value_namespace = name_space
-                            self.last_prefix.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-sid-index"):
-                            self.last_sid_index = value
-                            self.last_sid_index.value_namespace = name_space
-                            self.last_sid_index.value_namespace_prefix = name_space_prefix
-                        if(value_path == "prefix-xr"):
-                            self.prefix_xr = value
-                            self.prefix_xr.value_namespace = name_space
-                            self.prefix_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "router"):
-                            self.router = value
-                            self.router.value_namespace = name_space
-                            self.router.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-count"):
-                            self.sid_count = value
-                            self.sid_count.value_namespace = name_space
-                            self.sid_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-start"):
-                            self.sid_start = value
-                            self.sid_start.value_namespace = name_space
-                            self.sid_start.value_namespace_prefix = name_space_prefix
-                        if(value_path == "src"):
-                            self.src = value
-                            self.src.value_namespace = name_space
-                            self.src.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.policy_mi:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.policy_mi:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "policy-ipv4-backup" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "policy-mi"):
-                        for c in self.policy_mi:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.policy_mi.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "policy-mi"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                self._segment_path = lambda: "policy-ipv4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
 
 
             class PolicyIpv4Active(Entity):
@@ -1909,32 +734,17 @@ class Srms(Entity):
 
                     self.yang_name = "policy-ipv4-active"
                     self.yang_parent_name = "policy-ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi)}
 
                     self.policy_mi = YList(self)
+                    self._segment_path = lambda: "policy-ipv4-active"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__setattr__(name, value)
+                    self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
 
 
                 class PolicyMi(Entity):
@@ -2024,6 +834,10 @@ class Srms(Entity):
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv4-active"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr)}
+                        self._child_list_classes = {}
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
@@ -2049,39 +863,11 @@ class Srms(Entity):
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
                         self._children_yang_names.add("addr")
+                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("mi_id",
-                                        "area",
-                                        "flag_attached",
-                                        "last_prefix",
-                                        "last_sid_index",
-                                        "prefix_xr",
-                                        "router",
-                                        "sid_count",
-                                        "sid_start",
-                                        "src") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__setattr__(name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
 
 
                     class Addr(Entity):
@@ -2119,392 +905,30 @@ class Srms(Entity):
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.af = YLeaf(YType.enumeration, "af")
 
                             self.ipv4 = YLeaf(YType.str, "ipv4")
 
                             self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "addr"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("af",
-                                            "ipv4",
-                                            "ipv6") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.af.is_set or
-                                self.ipv4.is_set or
-                                self.ipv6.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.af.yfilter != YFilter.not_set or
-                                self.ipv4.yfilter != YFilter.not_set or
-                                self.ipv6.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "addr" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.af.get_name_leafdata())
-                            if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv4.get_name_leafdata())
-                            if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "af" or name == "ipv4" or name == "ipv6"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "af"):
-                                self.af = value
-                                self.af.value_namespace = name_space
-                                self.af.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv4"):
-                                self.ipv4 = value
-                                self.ipv4.value_namespace = name_space
-                                self.ipv4.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv6"):
-                                self.ipv6 = value
-                                self.ipv6.value_namespace = name_space
-                                self.ipv6.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.mi_id.is_set or
-                            self.area.is_set or
-                            self.flag_attached.is_set or
-                            self.last_prefix.is_set or
-                            self.last_sid_index.is_set or
-                            self.prefix_xr.is_set or
-                            self.router.is_set or
-                            self.sid_count.is_set or
-                            self.sid_start.is_set or
-                            self.src.is_set or
-                            (self.addr is not None and self.addr.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.mi_id.yfilter != YFilter.not_set or
-                            self.area.yfilter != YFilter.not_set or
-                            self.flag_attached.yfilter != YFilter.not_set or
-                            self.last_prefix.yfilter != YFilter.not_set or
-                            self.last_sid_index.yfilter != YFilter.not_set or
-                            self.prefix_xr.yfilter != YFilter.not_set or
-                            self.router.yfilter != YFilter.not_set or
-                            self.sid_count.yfilter != YFilter.not_set or
-                            self.sid_start.yfilter != YFilter.not_set or
-                            self.src.yfilter != YFilter.not_set or
-                            (self.addr is not None and self.addr.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "policy-mi" + "[mi-id='" + self.mi_id.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.mi_id.is_set or self.mi_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mi_id.get_name_leafdata())
-                        if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.area.get_name_leafdata())
-                        if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                        if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                        if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                        if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                        if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.router.get_name_leafdata())
-                        if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_count.get_name_leafdata())
-                        if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_start.get_name_leafdata())
-                        if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.src.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "addr"):
-                            if (self.addr is None):
-                                self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
-                                self.addr.parent = self
-                                self._children_name_map["addr"] = "addr"
-                            return self.addr
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "addr" or name == "mi-id" or name == "area" or name == "flag-attached" or name == "last-prefix" or name == "last-sid-index" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "mi-id"):
-                            self.mi_id = value
-                            self.mi_id.value_namespace = name_space
-                            self.mi_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "area"):
-                            self.area = value
-                            self.area.value_namespace = name_space
-                            self.area.value_namespace_prefix = name_space_prefix
-                        if(value_path == "flag-attached"):
-                            self.flag_attached = value
-                            self.flag_attached.value_namespace = name_space
-                            self.flag_attached.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-prefix"):
-                            self.last_prefix = value
-                            self.last_prefix.value_namespace = name_space
-                            self.last_prefix.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-sid-index"):
-                            self.last_sid_index = value
-                            self.last_sid_index.value_namespace = name_space
-                            self.last_sid_index.value_namespace_prefix = name_space_prefix
-                        if(value_path == "prefix-xr"):
-                            self.prefix_xr = value
-                            self.prefix_xr.value_namespace = name_space
-                            self.prefix_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "router"):
-                            self.router = value
-                            self.router.value_namespace = name_space
-                            self.router.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-count"):
-                            self.sid_count = value
-                            self.sid_count.value_namespace = name_space
-                            self.sid_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-start"):
-                            self.sid_start = value
-                            self.sid_start.value_namespace = name_space
-                            self.sid_start.value_namespace_prefix = name_space_prefix
-                        if(value_path == "src"):
-                            self.src = value
-                            self.src.value_namespace = name_space
-                            self.src.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.policy_mi:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.policy_mi:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "policy-ipv4-active" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "policy-mi"):
-                        for c in self.policy_mi:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.policy_mi.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "policy-mi"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    (self.policy_ipv4_active is not None and self.policy_ipv4_active.has_data()) or
-                    (self.policy_ipv4_backup is not None and self.policy_ipv4_backup.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    (self.policy_ipv4_active is not None and self.policy_ipv4_active.has_operation()) or
-                    (self.policy_ipv4_backup is not None and self.policy_ipv4_backup.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "policy-ipv4" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "policy-ipv4-active"):
-                    if (self.policy_ipv4_active is None):
-                        self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
-                        self.policy_ipv4_active.parent = self
-                        self._children_name_map["policy_ipv4_active"] = "policy-ipv4-active"
-                    return self.policy_ipv4_active
-
-                if (child_yang_name == "policy-ipv4-backup"):
-                    if (self.policy_ipv4_backup is None):
-                        self.policy_ipv4_backup = Srms.Policy.PolicyIpv4.PolicyIpv4Backup()
-                        self.policy_ipv4_backup.parent = self
-                        self._children_name_map["policy_ipv4_backup"] = "policy-ipv4-backup"
-                    return self.policy_ipv4_backup
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "policy-ipv4-active" or name == "policy-ipv4-backup"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
+                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
 
-        class PolicyIpv6(Entity):
-            """
-            IPv6 policy operational data
-            
-            .. attribute:: policy_ipv6_active
-            
-            	IPv6 active policy operational data
-            	**type**\:   :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
-            
-            .. attribute:: policy_ipv6_backup
-            
-            	IPv6 backup policy operational data
-            	**type**\:   :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
-            
-            
-
-            """
-
-            _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Srms.Policy.PolicyIpv6, self).__init__()
-
-                self.yang_name = "policy-ipv6"
-                self.yang_parent_name = "policy"
-
-                self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
-                self.policy_ipv6_active.parent = self
-                self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
-                self._children_yang_names.add("policy-ipv6-active")
-
-                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
-                self.policy_ipv6_backup.parent = self
-                self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
-                self._children_yang_names.add("policy-ipv6-backup")
-
-
-            class PolicyIpv6Backup(Entity):
+            class PolicyIpv4Backup(Entity):
                 """
-                IPv6 backup policy operational data
+                IPv4 backup policy operational data
                 
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi>`
                 
                 
 
@@ -2514,36 +938,21 @@ class Srms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
+                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
 
-                    self.yang_name = "policy-ipv6-backup"
-                    self.yang_parent_name = "policy-ipv6"
+                    self.yang_name = "policy-ipv4-backup"
+                    self.yang_parent_name = "policy-ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi)}
 
                     self.policy_mi = YList(self)
+                    self._segment_path = lambda: "policy-ipv4-backup"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__setattr__(name, value)
+                    self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, [], name, value)
 
 
                 class PolicyMi(Entity):
@@ -2560,7 +969,7 @@ class Srms(Entity):
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
@@ -2629,10 +1038,14 @@ class Srms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
+                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
-                        self.yang_parent_name = "policy-ipv6-backup"
+                        self.yang_parent_name = "policy-ipv4-backup"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr)}
+                        self._child_list_classes = {}
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
@@ -2654,43 +1067,15 @@ class Srms(Entity):
 
                         self.src = YLeaf(YType.enumeration, "src")
 
-                        self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
+                        self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
                         self._children_yang_names.add("addr")
+                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("mi_id",
-                                        "area",
-                                        "flag_attached",
-                                        "last_prefix",
-                                        "last_sid_index",
-                                        "prefix_xr",
-                                        "router",
-                                        "sid_count",
-                                        "sid_start",
-                                        "src") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__setattr__(name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
 
 
                     class Addr(Entity):
@@ -2724,290 +1109,68 @@ class Srms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
+                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.af = YLeaf(YType.enumeration, "af")
 
                             self.ipv4 = YLeaf(YType.str, "ipv4")
 
                             self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "addr"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("af",
-                                            "ipv4",
-                                            "ipv6") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__setattr__(name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
-                        def has_data(self):
-                            return (
-                                self.af.is_set or
-                                self.ipv4.is_set or
-                                self.ipv6.is_set)
 
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.af.yfilter != YFilter.not_set or
-                                self.ipv4.yfilter != YFilter.not_set or
-                                self.ipv6.yfilter != YFilter.not_set)
+        class PolicyIpv6(Entity):
+            """
+            IPv6 policy operational data
+            
+            .. attribute:: policy_ipv6_active
+            
+            	IPv6 active policy operational data
+            	**type**\:   :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
+            
+            .. attribute:: policy_ipv6_backup
+            
+            	IPv6 backup policy operational data
+            	**type**\:   :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
+            
+            
 
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "addr" + path_buffer
+            """
 
-                            return path_buffer
+            _prefix = 'segment-routing-ms-oper'
+            _revision = '2015-11-09'
 
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __init__(self):
+                super(Srms.Policy.PolicyIpv6, self).__init__()
 
-                            leaf_name_data = LeafDataList()
-                            if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.af.get_name_leafdata())
-                            if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv4.get_name_leafdata())
-                            if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6.get_name_leafdata())
+                self.yang_name = "policy-ipv6"
+                self.yang_parent_name = "policy"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"policy-ipv6-active" : ("policy_ipv6_active", Srms.Policy.PolicyIpv6.PolicyIpv6Active), "policy-ipv6-backup" : ("policy_ipv6_backup", Srms.Policy.PolicyIpv6.PolicyIpv6Backup)}
+                self._child_list_classes = {}
 
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
+                self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
+                self.policy_ipv6_active.parent = self
+                self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
+                self._children_yang_names.add("policy-ipv6-active")
 
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "af" or name == "ipv4" or name == "ipv6"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "af"):
-                                self.af = value
-                                self.af.value_namespace = name_space
-                                self.af.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv4"):
-                                self.ipv4 = value
-                                self.ipv4.value_namespace = name_space
-                                self.ipv4.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv6"):
-                                self.ipv6 = value
-                                self.ipv6.value_namespace = name_space
-                                self.ipv6.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.mi_id.is_set or
-                            self.area.is_set or
-                            self.flag_attached.is_set or
-                            self.last_prefix.is_set or
-                            self.last_sid_index.is_set or
-                            self.prefix_xr.is_set or
-                            self.router.is_set or
-                            self.sid_count.is_set or
-                            self.sid_start.is_set or
-                            self.src.is_set or
-                            (self.addr is not None and self.addr.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.mi_id.yfilter != YFilter.not_set or
-                            self.area.yfilter != YFilter.not_set or
-                            self.flag_attached.yfilter != YFilter.not_set or
-                            self.last_prefix.yfilter != YFilter.not_set or
-                            self.last_sid_index.yfilter != YFilter.not_set or
-                            self.prefix_xr.yfilter != YFilter.not_set or
-                            self.router.yfilter != YFilter.not_set or
-                            self.sid_count.yfilter != YFilter.not_set or
-                            self.sid_start.yfilter != YFilter.not_set or
-                            self.src.yfilter != YFilter.not_set or
-                            (self.addr is not None and self.addr.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "policy-mi" + "[mi-id='" + self.mi_id.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.mi_id.is_set or self.mi_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mi_id.get_name_leafdata())
-                        if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.area.get_name_leafdata())
-                        if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                        if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                        if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                        if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                        if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.router.get_name_leafdata())
-                        if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_count.get_name_leafdata())
-                        if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_start.get_name_leafdata())
-                        if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.src.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "addr"):
-                            if (self.addr is None):
-                                self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
-                                self.addr.parent = self
-                                self._children_name_map["addr"] = "addr"
-                            return self.addr
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "addr" or name == "mi-id" or name == "area" or name == "flag-attached" or name == "last-prefix" or name == "last-sid-index" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "mi-id"):
-                            self.mi_id = value
-                            self.mi_id.value_namespace = name_space
-                            self.mi_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "area"):
-                            self.area = value
-                            self.area.value_namespace = name_space
-                            self.area.value_namespace_prefix = name_space_prefix
-                        if(value_path == "flag-attached"):
-                            self.flag_attached = value
-                            self.flag_attached.value_namespace = name_space
-                            self.flag_attached.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-prefix"):
-                            self.last_prefix = value
-                            self.last_prefix.value_namespace = name_space
-                            self.last_prefix.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-sid-index"):
-                            self.last_sid_index = value
-                            self.last_sid_index.value_namespace = name_space
-                            self.last_sid_index.value_namespace_prefix = name_space_prefix
-                        if(value_path == "prefix-xr"):
-                            self.prefix_xr = value
-                            self.prefix_xr.value_namespace = name_space
-                            self.prefix_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "router"):
-                            self.router = value
-                            self.router.value_namespace = name_space
-                            self.router.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-count"):
-                            self.sid_count = value
-                            self.sid_count.value_namespace = name_space
-                            self.sid_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-start"):
-                            self.sid_start = value
-                            self.sid_start.value_namespace = name_space
-                            self.sid_start.value_namespace_prefix = name_space_prefix
-                        if(value_path == "src"):
-                            self.src = value
-                            self.src.value_namespace = name_space
-                            self.src.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.policy_mi:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.policy_mi:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "policy-ipv6-backup" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "policy-mi"):
-                        for c in self.policy_mi:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.policy_mi.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "policy-mi"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
+                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
+                self.policy_ipv6_backup.parent = self
+                self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
+                self._children_yang_names.add("policy-ipv6-backup")
+                self._segment_path = lambda: "policy-ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
 
 
             class PolicyIpv6Active(Entity):
@@ -3031,32 +1194,17 @@ class Srms(Entity):
 
                     self.yang_name = "policy-ipv6-active"
                     self.yang_parent_name = "policy-ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi)}
 
                     self.policy_mi = YList(self)
+                    self._segment_path = lambda: "policy-ipv6-active"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__setattr__(name, value)
+                    self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
 
 
                 class PolicyMi(Entity):
@@ -3146,6 +1294,10 @@ class Srms(Entity):
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv6-active"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr)}
+                        self._child_list_classes = {}
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
@@ -3171,39 +1323,11 @@ class Srms(Entity):
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
                         self._children_yang_names.add("addr")
+                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("mi_id",
-                                        "area",
-                                        "flag_attached",
-                                        "last_prefix",
-                                        "last_sid_index",
-                                        "prefix_xr",
-                                        "router",
-                                        "sid_count",
-                                        "sid_start",
-                                        "src") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__setattr__(name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
 
 
                     class Addr(Entity):
@@ -3241,459 +1365,228 @@ class Srms(Entity):
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.af = YLeaf(YType.enumeration, "af")
 
                             self.ipv4 = YLeaf(YType.str, "ipv4")
 
                             self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "addr"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("af",
-                                            "ipv4",
-                                            "ipv6") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.af.is_set or
-                                self.ipv4.is_set or
-                                self.ipv6.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.af.yfilter != YFilter.not_set or
-                                self.ipv4.yfilter != YFilter.not_set or
-                                self.ipv6.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "addr" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.af.is_set or self.af.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.af.get_name_leafdata())
-                            if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv4.get_name_leafdata())
-                            if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.ipv6.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "af" or name == "ipv4" or name == "ipv6"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "af"):
-                                self.af = value
-                                self.af.value_namespace = name_space
-                                self.af.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv4"):
-                                self.ipv4 = value
-                                self.ipv4.value_namespace = name_space
-                                self.ipv4.value_namespace_prefix = name_space_prefix
-                            if(value_path == "ipv6"):
-                                self.ipv6 = value
-                                self.ipv6.value_namespace = name_space
-                                self.ipv6.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.mi_id.is_set or
-                            self.area.is_set or
-                            self.flag_attached.is_set or
-                            self.last_prefix.is_set or
-                            self.last_sid_index.is_set or
-                            self.prefix_xr.is_set or
-                            self.router.is_set or
-                            self.sid_count.is_set or
-                            self.sid_start.is_set or
-                            self.src.is_set or
-                            (self.addr is not None and self.addr.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.mi_id.yfilter != YFilter.not_set or
-                            self.area.yfilter != YFilter.not_set or
-                            self.flag_attached.yfilter != YFilter.not_set or
-                            self.last_prefix.yfilter != YFilter.not_set or
-                            self.last_sid_index.yfilter != YFilter.not_set or
-                            self.prefix_xr.yfilter != YFilter.not_set or
-                            self.router.yfilter != YFilter.not_set or
-                            self.sid_count.yfilter != YFilter.not_set or
-                            self.sid_start.yfilter != YFilter.not_set or
-                            self.src.yfilter != YFilter.not_set or
-                            (self.addr is not None and self.addr.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "policy-mi" + "[mi-id='" + self.mi_id.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.mi_id.is_set or self.mi_id.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.mi_id.get_name_leafdata())
-                        if (self.area.is_set or self.area.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.area.get_name_leafdata())
-                        if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.flag_attached.get_name_leafdata())
-                        if (self.last_prefix.is_set or self.last_prefix.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_prefix.get_name_leafdata())
-                        if (self.last_sid_index.is_set or self.last_sid_index.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.last_sid_index.get_name_leafdata())
-                        if (self.prefix_xr.is_set or self.prefix_xr.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.prefix_xr.get_name_leafdata())
-                        if (self.router.is_set or self.router.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.router.get_name_leafdata())
-                        if (self.sid_count.is_set or self.sid_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_count.get_name_leafdata())
-                        if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.sid_start.get_name_leafdata())
-                        if (self.src.is_set or self.src.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.src.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "addr"):
-                            if (self.addr is None):
-                                self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
-                                self.addr.parent = self
-                                self._children_name_map["addr"] = "addr"
-                            return self.addr
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "addr" or name == "mi-id" or name == "area" or name == "flag-attached" or name == "last-prefix" or name == "last-sid-index" or name == "prefix-xr" or name == "router" or name == "sid-count" or name == "sid-start" or name == "src"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "mi-id"):
-                            self.mi_id = value
-                            self.mi_id.value_namespace = name_space
-                            self.mi_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "area"):
-                            self.area = value
-                            self.area.value_namespace = name_space
-                            self.area.value_namespace_prefix = name_space_prefix
-                        if(value_path == "flag-attached"):
-                            self.flag_attached = value
-                            self.flag_attached.value_namespace = name_space
-                            self.flag_attached.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-prefix"):
-                            self.last_prefix = value
-                            self.last_prefix.value_namespace = name_space
-                            self.last_prefix.value_namespace_prefix = name_space_prefix
-                        if(value_path == "last-sid-index"):
-                            self.last_sid_index = value
-                            self.last_sid_index.value_namespace = name_space
-                            self.last_sid_index.value_namespace_prefix = name_space_prefix
-                        if(value_path == "prefix-xr"):
-                            self.prefix_xr = value
-                            self.prefix_xr.value_namespace = name_space
-                            self.prefix_xr.value_namespace_prefix = name_space_prefix
-                        if(value_path == "router"):
-                            self.router = value
-                            self.router.value_namespace = name_space
-                            self.router.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-count"):
-                            self.sid_count = value
-                            self.sid_count.value_namespace = name_space
-                            self.sid_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "sid-start"):
-                            self.sid_start = value
-                            self.sid_start.value_namespace = name_space
-                            self.sid_start.value_namespace_prefix = name_space_prefix
-                        if(value_path == "src"):
-                            self.src = value
-                            self.src.value_namespace = name_space
-                            self.src.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.policy_mi:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.policy_mi:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "policy-ipv6-active" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "policy-mi"):
-                        for c in self.policy_mi:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.policy_mi.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "policy-mi"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    (self.policy_ipv6_active is not None and self.policy_ipv6_active.has_data()) or
-                    (self.policy_ipv6_backup is not None and self.policy_ipv6_backup.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    (self.policy_ipv6_active is not None and self.policy_ipv6_active.has_operation()) or
-                    (self.policy_ipv6_backup is not None and self.policy_ipv6_backup.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "policy-ipv6" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "policy-ipv6-active"):
-                    if (self.policy_ipv6_active is None):
-                        self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
-                        self.policy_ipv6_active.parent = self
-                        self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
-                    return self.policy_ipv6_active
-
-                if (child_yang_name == "policy-ipv6-backup"):
-                    if (self.policy_ipv6_backup is None):
-                        self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
-                        self.policy_ipv6_backup.parent = self
-                        self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
-                    return self.policy_ipv6_backup
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "policy-ipv6-active" or name == "policy-ipv6-backup"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (
-                (self.policy_ipv4 is not None and self.policy_ipv4.has_data()) or
-                (self.policy_ipv6 is not None and self.policy_ipv6.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.policy_ipv4 is not None and self.policy_ipv4.has_operation()) or
-                (self.policy_ipv6 is not None and self.policy_ipv6.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "policy" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "policy-ipv4"):
-                if (self.policy_ipv4 is None):
-                    self.policy_ipv4 = Srms.Policy.PolicyIpv4()
-                    self.policy_ipv4.parent = self
-                    self._children_name_map["policy_ipv4"] = "policy-ipv4"
-                return self.policy_ipv4
-
-            if (child_yang_name == "policy-ipv6"):
-                if (self.policy_ipv6 is None):
-                    self.policy_ipv6 = Srms.Policy.PolicyIpv6()
-                    self.policy_ipv6.parent = self
-                    self._children_name_map["policy_ipv6"] = "policy-ipv6"
-                return self.policy_ipv6
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "policy-ipv4" or name == "policy-ipv6"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.mapping is not None and self.mapping.has_data()) or
-            (self.policy is not None and self.policy.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.mapping is not None and self.mapping.has_operation()) or
-            (self.policy is not None and self.policy.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-segment-routing-ms-oper:srms" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "mapping"):
-            if (self.mapping is None):
-                self.mapping = Srms.Mapping()
-                self.mapping.parent = self
-                self._children_name_map["mapping"] = "mapping"
-            return self.mapping
-
-        if (child_yang_name == "policy"):
-            if (self.policy is None):
-                self.policy = Srms.Policy()
-                self.policy.parent = self
-                self._children_name_map["policy"] = "policy"
-            return self.policy
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "mapping" or name == "policy"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+
+
+            class PolicyIpv6Backup(Entity):
+                """
+                IPv6 backup policy operational data
+                
+                .. attribute:: policy_mi
+                
+                	Mapping Item
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi>`
+                
+                
+
+                """
+
+                _prefix = 'segment-routing-ms-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
+
+                    self.yang_name = "policy-ipv6-backup"
+                    self.yang_parent_name = "policy-ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi)}
+
+                    self.policy_mi = YList(self)
+                    self._segment_path = lambda: "policy-ipv6-backup"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, [], name, value)
+
+
+                class PolicyMi(Entity):
+                    """
+                    Mapping Item
+                    
+                    .. attribute:: mi_id  <key>
+                    
+                    	Mapping Item ID (0, 1, 2, ...)
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: addr
+                    
+                    	addr
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
+                    
+                    .. attribute:: area
+                    
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
+                    
+                    .. attribute:: flag_attached
+                    
+                    	Attached flag
+                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**length:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: prefix_xr
+                    
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: router
+                    
+                    	Router ID
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
+                    
+                    .. attribute:: sid_count
+                    
+                    	SID range
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sid_start
+                    
+                    	Starting SID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'segment-routing-ms-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
+
+                        self.yang_name = "policy-mi"
+                        self.yang_parent_name = "policy-ipv6-backup"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr)}
+                        self._child_list_classes = {}
+
+                        self.mi_id = YLeaf(YType.str, "mi-id")
+
+                        self.area = YLeaf(YType.str, "area")
+
+                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+
+                        self.last_prefix = YLeaf(YType.str, "last-prefix")
+
+                        self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
+
+                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+
+                        self.router = YLeaf(YType.str, "router")
+
+                        self.sid_count = YLeaf(YType.uint32, "sid-count")
+
+                        self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                        self.src = YLeaf(YType.enumeration, "src")
+
+                        self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
+                        self.addr.parent = self
+                        self._children_name_map["addr"] = "addr"
+                        self._children_yang_names.add("addr")
+                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+
+
+                    class Addr(Entity):
+                        """
+                        addr
+                        
+                        .. attribute:: af
+                        
+                        	AF
+                        	**type**\:   :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'segment-routing-ms-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
+
+                            self.yang_name = "addr"
+                            self.yang_parent_name = "policy-mi"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.af = YLeaf(YType.enumeration, "af")
+
+                            self.ipv4 = YLeaf(YType.str, "ipv4")
+
+                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "addr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Srms()

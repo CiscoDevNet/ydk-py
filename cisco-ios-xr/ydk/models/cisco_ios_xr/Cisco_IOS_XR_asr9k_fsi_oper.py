@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   fabric\-stats\: Fabric stats operational data
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,11 +40,16 @@ class FabricStats(Entity):
 
         self.yang_name = "fabric-stats"
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-fsi-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", FabricStats.Nodes)}
+        self._child_list_classes = {}
 
         self.nodes = FabricStats.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats"
 
 
     class Nodes(Entity):
@@ -69,32 +73,17 @@ class FabricStats(Entity):
 
             self.yang_name = "nodes"
             self.yang_parent_name = "fabric-stats"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", FabricStats.Nodes.Node)}
 
             self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(FabricStats.Nodes, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(FabricStats.Nodes, self).__setattr__(name, value)
+            self._perform_setattr(FabricStats.Nodes, [], name, value)
 
 
         class Node(Entity):
@@ -125,6 +114,10 @@ class FabricStats(Entity):
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"statses" : ("statses", FabricStats.Nodes.Node.Statses)}
+                self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
 
@@ -132,30 +125,11 @@ class FabricStats(Entity):
                 self.statses.parent = self
                 self._children_name_map["statses"] = "statses"
                 self._children_yang_names.add("statses")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("node_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(FabricStats.Nodes.Node, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(FabricStats.Nodes.Node, self).__setattr__(name, value)
+                self._perform_setattr(FabricStats.Nodes.Node, ['node_name'], name, value)
 
 
             class Statses(Entity):
@@ -179,32 +153,16 @@ class FabricStats(Entity):
 
                     self.yang_name = "statses"
                     self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"stats" : ("stats", FabricStats.Nodes.Node.Statses.Stats)}
 
                     self.stats = YList(self)
+                    self._segment_path = lambda: "statses"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(FabricStats.Nodes.Node.Statses, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(FabricStats.Nodes.Node.Statses, self).__setattr__(name, value)
+                    self._perform_setattr(FabricStats.Nodes.Node.Statses, [], name, value)
 
 
                 class Stats(Entity):
@@ -217,6 +175,13 @@ class FabricStats(Entity):
                     	**type**\:  str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: last_clear_time
+                    
+                    	Last Clear Time
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: stat_table_name
                     
@@ -240,37 +205,22 @@ class FabricStats(Entity):
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "statses"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"stats-table" : ("stats_table", FabricStats.Nodes.Node.Statses.Stats.StatsTable)}
 
                         self.type = YLeaf(YType.str, "type")
+
+                        self.last_clear_time = YLeaf(YType.uint64, "last-clear-time")
 
                         self.stat_table_name = YLeaf(YType.str, "stat-table-name")
 
                         self.stats_table = YList(self)
+                        self._segment_path = lambda: "stats" + "[type='" + self.type.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("type",
-                                        "stat_table_name") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(FabricStats.Nodes.Node.Statses.Stats, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(FabricStats.Nodes.Node.Statses.Stats, self).__setattr__(name, value)
+                        self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats, ['type', 'last_clear_time', 'stat_table_name'], name, value)
 
 
                     class StatsTable(Entity):
@@ -294,32 +244,16 @@ class FabricStats(Entity):
 
                             self.yang_name = "stats-table"
                             self.yang_parent_name = "stats"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"fsi-stat" : ("fsi_stat", FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat)}
 
                             self.fsi_stat = YList(self)
+                            self._segment_path = lambda: "stats-table"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(FabricStats.Nodes.Node.Statses.Stats.StatsTable, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(FabricStats.Nodes.Node.Statses.Stats.StatsTable, self).__setattr__(name, value)
+                            self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable, [], name, value)
 
 
                         class FsiStat(Entity):
@@ -350,437 +284,18 @@ class FabricStats(Entity):
 
                                 self.yang_name = "fsi-stat"
                                 self.yang_parent_name = "stats-table"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.count = YLeaf(YType.uint64, "count")
 
                                 self.counter_name = YLeaf(YType.str, "counter-name")
+                                self._segment_path = lambda: "fsi-stat"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("count",
-                                                "counter_name") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.count.is_set or
-                                    self.counter_name.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.count.yfilter != YFilter.not_set or
-                                    self.counter_name.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "fsi-stat" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.count.is_set or self.count.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.count.get_name_leafdata())
-                                if (self.counter_name.is_set or self.counter_name.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.counter_name.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "count" or name == "counter-name"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "count"):
-                                    self.count = value
-                                    self.count.value_namespace = name_space
-                                    self.count.value_namespace_prefix = name_space_prefix
-                                if(value_path == "counter-name"):
-                                    self.counter_name = value
-                                    self.counter_name.value_namespace = name_space
-                                    self.counter_name.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.fsi_stat:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.fsi_stat:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "stats-table" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "fsi-stat"):
-                                for c in self.fsi_stat:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.fsi_stat.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "fsi-stat"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        for c in self.stats_table:
-                            if (c.has_data()):
-                                return True
-                        return (
-                            self.type.is_set or
-                            self.stat_table_name.is_set)
-
-                    def has_operation(self):
-                        for c in self.stats_table:
-                            if (c.has_operation()):
-                                return True
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.type.yfilter != YFilter.not_set or
-                            self.stat_table_name.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "stats" + "[type='" + self.type.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.type.get_name_leafdata())
-                        if (self.stat_table_name.is_set or self.stat_table_name.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.stat_table_name.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "stats-table"):
-                            for c in self.stats_table:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = FabricStats.Nodes.Node.Statses.Stats.StatsTable()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.stats_table.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "stats-table" or name == "type" or name == "stat-table-name"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "type"):
-                            self.type = value
-                            self.type.value_namespace = name_space
-                            self.type.value_namespace_prefix = name_space_prefix
-                        if(value_path == "stat-table-name"):
-                            self.stat_table_name = value
-                            self.stat_table_name.value_namespace = name_space
-                            self.stat_table_name.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.stats:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.stats:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "statses" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "stats"):
-                        for c in self.stats:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = FabricStats.Nodes.Node.Statses.Stats()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.stats.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "stats"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.node_name.is_set or
-                    (self.statses is not None and self.statses.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.node_name.yfilter != YFilter.not_set or
-                    (self.statses is not None and self.statses.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/nodes/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.node_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "statses"):
-                    if (self.statses is None):
-                        self.statses = FabricStats.Nodes.Node.Statses()
-                        self.statses.parent = self
-                        self._children_name_map["statses"] = "statses"
-                    return self.statses
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "statses" or name == "node-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "node-name"):
-                    self.node_name = value
-                    self.node_name.value_namespace = name_space
-                    self.node_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.node:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.node:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "nodes" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "node"):
-                for c in self.node:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = FabricStats.Nodes.Node()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.node.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "node"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.nodes is not None and self.nodes.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.nodes is not None and self.nodes.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "nodes"):
-            if (self.nodes is None):
-                self.nodes = FabricStats.Nodes()
-                self.nodes.parent = self
-                self._children_name_map["nodes"] = "nodes"
-            return self.nodes
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "nodes"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                                self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, ['count', 'counter_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FabricStats()

@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   netconf\-yang\: NETCONF YANG configuration commands
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,11 +40,16 @@ class NetconfYang(Entity):
 
         self.yang_name = "netconf-yang"
         self.yang_parent_name = "Cisco-IOS-XR-man-netconf-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"agent" : ("agent", NetconfYang.Agent)}
+        self._child_list_classes = {}
 
         self.agent = NetconfYang.Agent()
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
         self._children_yang_names.add("agent")
+        self._segment_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang"
 
 
     class Agent(Entity):
@@ -83,6 +87,10 @@ class NetconfYang(Entity):
 
             self.yang_name = "agent"
             self.yang_parent_name = "netconf-yang"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"session" : ("session", NetconfYang.Agent.Session), "ssh" : ("ssh", NetconfYang.Agent.Ssh)}
+            self._child_list_classes = {}
 
             self.rate_limit = YLeaf(YType.uint32, "rate-limit")
 
@@ -95,125 +103,11 @@ class NetconfYang(Entity):
             self.ssh.parent = self
             self._children_name_map["ssh"] = "ssh"
             self._children_yang_names.add("ssh")
+            self._segment_path = lambda: "agent"
+            self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("rate_limit") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(NetconfYang.Agent, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(NetconfYang.Agent, self).__setattr__(name, value)
-
-
-        class Ssh(Entity):
-            """
-            NETCONF YANG agent over SSH connection
-            
-            .. attribute:: enable
-            
-            	Enable NETCONF YANG agent over SSH connection
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'man-netconf-cfg'
-            _revision = '2016-03-15'
-
-            def __init__(self):
-                super(NetconfYang.Agent.Ssh, self).__init__()
-
-                self.yang_name = "ssh"
-                self.yang_parent_name = "agent"
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("enable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NetconfYang.Agent.Ssh, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NetconfYang.Agent.Ssh, self).__setattr__(name, value)
-
-            def has_data(self):
-                return self.enable.is_set
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.enable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "ssh" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.enable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "enable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "enable"):
-                    self.enable = value
-                    self.enable.value_namespace = name_space
-                    self.enable.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(NetconfYang.Agent, ['rate_limit'], name, value)
 
 
         class Session(Entity):
@@ -259,213 +153,55 @@ class NetconfYang(Entity):
 
                 self.yang_name = "session"
                 self.yang_parent_name = "agent"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
 
                 self.idle_timeout = YLeaf(YType.uint32, "idle-timeout")
 
                 self.limit = YLeaf(YType.uint32, "limit")
+                self._segment_path = lambda: "session"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("absolute_timeout",
-                                "idle_timeout",
-                                "limit") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(NetconfYang.Agent.Session, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(NetconfYang.Agent.Session, self).__setattr__(name, value)
+                self._perform_setattr(NetconfYang.Agent.Session, ['absolute_timeout', 'idle_timeout', 'limit'], name, value)
 
-            def has_data(self):
-                return (
-                    self.absolute_timeout.is_set or
-                    self.idle_timeout.is_set or
-                    self.limit.is_set)
 
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.absolute_timeout.yfilter != YFilter.not_set or
-                    self.idle_timeout.yfilter != YFilter.not_set or
-                    self.limit.yfilter != YFilter.not_set)
+        class Ssh(Entity):
+            """
+            NETCONF YANG agent over SSH connection
+            
+            .. attribute:: enable
+            
+            	Enable NETCONF YANG agent over SSH connection
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "session" + path_buffer
+            """
 
-                return path_buffer
+            _prefix = 'man-netconf-cfg'
+            _revision = '2016-03-15'
 
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            def __init__(self):
+                super(NetconfYang.Agent.Ssh, self).__init__()
 
-                leaf_name_data = LeafDataList()
-                if (self.absolute_timeout.is_set or self.absolute_timeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.absolute_timeout.get_name_leafdata())
-                if (self.idle_timeout.is_set or self.idle_timeout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.idle_timeout.get_name_leafdata())
-                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.limit.get_name_leafdata())
+                self.yang_name = "ssh"
+                self.yang_parent_name = "agent"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
+                self.enable = YLeaf(YType.empty, "enable")
+                self._segment_path = lambda: "ssh"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
 
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "absolute-timeout" or name == "idle-timeout" or name == "limit"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "absolute-timeout"):
-                    self.absolute_timeout = value
-                    self.absolute_timeout.value_namespace = name_space
-                    self.absolute_timeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "idle-timeout"):
-                    self.idle_timeout = value
-                    self.idle_timeout.value_namespace = name_space
-                    self.idle_timeout.value_namespace_prefix = name_space_prefix
-                if(value_path == "limit"):
-                    self.limit = value
-                    self.limit.value_namespace = name_space
-                    self.limit.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.rate_limit.is_set or
-                (self.session is not None and self.session.has_data()) or
-                (self.ssh is not None and self.ssh.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.rate_limit.yfilter != YFilter.not_set or
-                (self.session is not None and self.session.has_operation()) or
-                (self.ssh is not None and self.ssh.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "agent" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.rate_limit.is_set or self.rate_limit.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.rate_limit.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "session"):
-                if (self.session is None):
-                    self.session = NetconfYang.Agent.Session()
-                    self.session.parent = self
-                    self._children_name_map["session"] = "session"
-                return self.session
-
-            if (child_yang_name == "ssh"):
-                if (self.ssh is None):
-                    self.ssh = NetconfYang.Agent.Ssh()
-                    self.ssh.parent = self
-                    self._children_name_map["ssh"] = "ssh"
-                return self.ssh
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "session" or name == "ssh" or name == "rate-limit"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "rate-limit"):
-                self.rate_limit = value
-                self.rate_limit.value_namespace = name_space
-                self.rate_limit.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.agent is not None and self.agent.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.agent is not None and self.agent.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "agent"):
-            if (self.agent is None):
-                self.agent = NetconfYang.Agent()
-                self.agent.parent = self
-                self._children_name_map["agent"] = "agent"
-            return self.agent
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "agent"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            def __setattr__(self, name, value):
+                self._perform_setattr(NetconfYang.Agent.Ssh, ['enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NetconfYang()

@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub5 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,8 +25,13 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub5 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-tcp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-02-26" {
     description

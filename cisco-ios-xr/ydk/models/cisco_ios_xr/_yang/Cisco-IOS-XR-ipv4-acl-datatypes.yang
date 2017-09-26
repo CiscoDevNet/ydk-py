@@ -29,8 +29,13 @@ module Cisco-IOS-XR-ipv4-acl-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -878,6 +883,27 @@ module Cisco-IOS-XR-ipv4-acl-datatypes {
       range "1..2147483646";
     }
     description "Ipv4 acl sequence number range";
+  }
+  typedef Ipv4-acl-frag-flags {
+    type enumeration {
+      enum dont-fragment {
+        value 1;
+        description "Match don't fragment flag";
+      }
+      enum is-fragment {
+        value 2;
+        description "Match is fragment flag";
+      }
+      enum first-fragment {
+        value 4;
+        description "Match first fragment flag";
+      }
+      enum last-fragment {
+        value 8;
+        description "Match last fragment flag";
+      }
+    }
+    description "Ipv4 acl frag flags";
   }
   typedef Ipv4-acl-tcp-bits-number {
     type union {

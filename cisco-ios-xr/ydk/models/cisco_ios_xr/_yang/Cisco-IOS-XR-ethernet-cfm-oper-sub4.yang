@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub4 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
     revision-date 2015-11-09;
   }
@@ -31,7 +29,7 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub4 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ethernet-cfm package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

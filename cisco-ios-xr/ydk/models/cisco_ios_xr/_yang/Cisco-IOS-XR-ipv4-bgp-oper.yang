@@ -16,7 +16,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
   import Cisco-IOS-XR-ipv4-bgp-datatypes { prefix "dt1"; }
 
   include Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
-    revision-date 2015-08-27;
+    revision-date 2017-06-26;
   }
 
   /*** META INFORMATION ***/
@@ -42,8 +42,18 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
      for the following management objects:
        bgp: BGP operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-08-27" {
     description
@@ -144,7 +154,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
       }
       leaf network {
         type xr:Cisco-ios-xr-string;
-        description "Network Prefix in Hex format";
+        description
+          "Network prefix in dotted decimal format for ip
+          prefix, else in hex string format";
       }
       leaf prefix-length {
         type int32;
@@ -723,7 +735,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             }
             leaf network {
               type xr:Cisco-ios-xr-string;
-              description "Network Prefix in Hex format";
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
             leaf prefix-length {
               type int32;
@@ -789,7 +803,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             }
             leaf network-prefix {
               type xr:Cisco-ios-xr-string;
-              description "Network prefix";
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
             uses BGP-NET-BAG;
           }
@@ -807,7 +823,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             }
             leaf network {
               type xr:Cisco-ios-xr-string;
-              description "Network Prefix in Hex format";
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
             leaf prefix-length {
               type int32;
@@ -929,7 +947,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             description "A BMP path table entry";
             leaf network {
               type xr:Cisco-ios-xr-string;
-              description "Network Prefix in Hex format";
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
             leaf prefix-length {
               type int32;
@@ -990,8 +1010,14 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               description "Route Distinguisher value";
             }
             leaf network {
-              type inet:ip-prefix;
-              description "Network in prefix/length format";
+              type xr:Cisco-ios-xr-string;
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
+            }
+            leaf prefix-length {
+              type int32;
+              description "Prefix Length";
             }
             uses BGP-NET-BAG;
           }
@@ -1053,8 +1079,9 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             }
             leaf network {
               type xr:Cisco-ios-xr-string;
-              units "byte";
-              description "Network in hex string bytes format";
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
             leaf prefix-length {
               type int32;
@@ -1077,7 +1104,6 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           description "The BGP Network Lookup Table";
 
           list network-all-rd {
-            key "network-addr network-prefix";
             description "The BGP Network Lookup table";
 
             container network-rds {
@@ -1093,19 +1119,15 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                 uses BGP-NET-BAG;
               }
             }
-            leaf network-addr {
-              type inet:ip-address;
+            leaf network {
+              type xr:Cisco-ios-xr-string;
               description
-                "Network in prefix/length format (address
-                part)";
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
             }
-            leaf network-prefix {
-              type uint16 {
-                range "0..128";
-              }
-              description
-                "Network in prefix/length format (prefix
-                part)";
+            leaf prefix-length {
+              type int32;
+              description "prefix length";
             }
           }
         }
@@ -1162,8 +1184,14 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               description "Route Distinguisher value";
             }
             leaf network {
-              type inet:ip-prefix;
-              description "Network in prefix/length format";
+              type xr:Cisco-ios-xr-string;
+              description
+                "Network prefix in dotted decimal format for
+                ip prefix, else in hex string format";
+            }
+            leaf length {
+              type int32;
+              description "Prefix length";
             }
             leaf neighbor-address {
               type inet:ip-address-no-zone;

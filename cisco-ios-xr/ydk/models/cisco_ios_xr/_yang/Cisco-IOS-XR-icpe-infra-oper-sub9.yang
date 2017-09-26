@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub9 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-icpe-infra-oper-sub3 {
     revision-date 2015-11-09;
   }
@@ -31,7 +29,7 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub9 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR icpe-infra package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -39,201 +37,36 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub9 {
       "IOS XR 6.0 revision.";
   }
 
-  typedef Icpe-install-sat-state {
-    type enumeration {
-      enum icpe-install-sat-state-unknown {
-        description "Unknown";
-      }
-      enum icpe-install-sat-state-not-initiat-ed {
-        description "Not initiated";
-      }
-      enum icpe-install-sat-state-transferring {
-        description "Transferring";
-      }
-      enum icpe-install-sat-state-activating {
-        description "Activating";
-      }
-      enum icpe-install-sat-state-updating {
-        description "Updating";
-      }
-      enum icpe-install-sat-state-deactivating {
-        description "Deactivating";
-      }
-      enum icpe-install-sat-state-removing {
-        description "Removing";
-      }
-      enum icpe-install-sat-state-success {
-        description "Success";
-      }
-      enum icpe-install-sat-state-failure {
-        description "Failure";
-      }
-      enum icpe-install-sat-state-multiple-ops {
-        description "Multiple ops";
-      }
-      enum icpe-install-sat-state-aborted {
-        description "Aborted";
-      }
-      enum icpe-install-sat-state-protocol-version {
-        description "Protocol version";
-      }
-      enum icpe-install-sat-state-pkg-not-present {
-        description "Pkg not present";
-      }
-      enum icpe-install-sat-state-no-image {
-        description "No image";
-      }
-      enum icpe-install-sat-state-no-such-file {
-        description "No such file";
-      }
-    }
-    description "Icpe install sat state";
-  }
 
-  grouping ICPE-INSTALL-SHOW-DETAIL-SATELLITE-TYPE {
-    description "ICPE INSTALL SHOW DETAIL SATELLITE TYPE";
-    leaf satellite-id {
+  grouping ICPE-GCO-PRIORITY-OPER-TYPE {
+    description "Satellite priority information";
+    leaf satellite-id-xr {
       type uint16;
       description "Satellite ID";
     }
-    leaf state {
-      type Icpe-install-sat-state;
-      description "State";
-    }
-    leaf percentage {
-      type uint16;
-      units "percentage";
-      description "Percentage";
-    }
-    leaf retries {
-      type uint16;
-      description "Retries";
-    }
-    leaf start-time {
+    leaf rgid {
       type uint32;
-      description "Start time";
+      description "RG ID";
     }
-    leaf end-time {
+    leaf best-path-hops {
       type uint32;
-      description "End time";
+      description "Best path hops";
     }
-    leaf info {
-      type Xr-yang-string;
-      description "Info";
+    leaf configured-priority {
+      type uint8;
+      description "Configured priority";
     }
-  }
-
-  grouping ICPE-INSTALL-SHOW-DETAIL-TYPE {
-    description "Detailed breakdown of install status";
-    leaf operation-id-xr {
-      type uint32;
-      description "Operation ID";
+    leaf host-priority {
+      type uint64;
+      description "Host priority";
     }
-    leaf satellite-range {
-      type Xr-yang-string;
-      description "Satellite range";
+    leaf partner-priority {
+      type uint64;
+      description "Partner priority";
     }
-    leaf operation-type {
-      type uint16;
-      description "Operation type";
-    }
-    leaf progress-percentage {
-      type uint16;
-      units "percentage";
-      description "Progress percentage";
-    }
-    leaf start-time {
-      type uint32;
-      description "Start time";
-    }
-    leaf end-time {
-      type uint32;
-      description "End time";
-    }
-    leaf ref-state {
-      type Icpe-install-sat-state;
-      description "Ref state";
-    }
-    leaf-list sats-not-initiated {
-      type uint16;
-      description "Sats not initiated";
-    }
-    leaf-list sats-transferring {
-      type uint16;
-      description "Sats transferring";
-    }
-    leaf-list sats-activating {
-      type uint16;
-      description "Sats activating";
-    }
-    leaf-list sats-updating {
-      type uint16;
-      description "Sats updating";
-    }
-    leaf-list sats-deactivating {
-      type uint16;
-      description "Sats deactivating";
-    }
-    leaf-list sats-removing {
-      type uint16;
-      description "Sats removing";
-    }
-    leaf-list sats-transfer-failed {
-      type uint16;
-      description "Sats transfer failed";
-    }
-    leaf-list sats-activate-failed {
-      type uint16;
-      description "Sats activate failed";
-    }
-    leaf-list sats-update-failed {
-      type uint16;
-      description "Sats update failed";
-    }
-    leaf-list sats-deactivate-failed {
-      type uint16;
-      description "Sats deactivate failed";
-    }
-    leaf-list sats-remove-failed {
-      type uint16;
-      description "Sats remove failed";
-    }
-    leaf-list sats-transfer-aborted {
-      type uint16;
-      description "Sats transfer aborted";
-    }
-    leaf-list sats-activate-aborted {
-      type uint16;
-      description "Sats activate aborted";
-    }
-    leaf-list sats-update-aborted {
-      type uint16;
-      description "Sats update aborted";
-    }
-    leaf-list sats-deactivate-aborted {
-      type uint16;
-      description "Sats deactivate aborted";
-    }
-    leaf-list sats-remove-aborted {
-      type uint16;
-      description "Sats remove aborted";
-    }
-    leaf-list sats-no-operation {
-      type uint16;
-      description "Sats no operation";
-    }
-    leaf-list sats-completed {
-      type uint16;
-      description "Sats completed";
-    }
-    leaf-list name-string {
-      type Xr-yang-string;
-      description "Name strings";
-    }
-
-    list satellite {
-      description "Breakdown per satellite table";
-      uses ICPE-INSTALL-SHOW-DETAIL-SATELLITE-TYPE;
+    leaf multichassis-redundancy {
+      type Icpe-oper-multichassis-redundancy;
+      description "Multichassis redundancy";
     }
   }
 }

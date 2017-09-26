@@ -35,16 +35,15 @@ message and the presumption that the sending router has
 failed.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Hsrpstate(Enum):
+class HsrpState(Enum):
     """
-    Hsrpstate
+    HsrpState
 
     The current state of the HSRP protocol for a given
 
@@ -78,19 +77,19 @@ class Hsrpstate(Enum):
 
 
 
-class CiscoHsrpMib(Entity):
+class CISCOHSRPMIB(Entity):
     """
     
     
     .. attribute:: chsrpglobalconfig
     
     	
-    	**type**\:   :py:class:`Chsrpglobalconfig <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CiscoHsrpMib.Chsrpglobalconfig>`
+    	**type**\:   :py:class:`Chsrpglobalconfig <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpglobalconfig>`
     
     .. attribute:: chsrpgrptable
     
     	A table containing information on each HSRP group for each interface
-    	**type**\:   :py:class:`Chsrpgrptable <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CiscoHsrpMib.Chsrpgrptable>`
+    	**type**\:   :py:class:`Chsrpgrptable <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable>`
     
     
 
@@ -100,21 +99,26 @@ class CiscoHsrpMib(Entity):
     _revision = '2010-09-06'
 
     def __init__(self):
-        super(CiscoHsrpMib, self).__init__()
+        super(CISCOHSRPMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-HSRP-MIB"
         self.yang_parent_name = "CISCO-HSRP-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"cHsrpGlobalConfig" : ("chsrpglobalconfig", CISCOHSRPMIB.Chsrpglobalconfig), "cHsrpGrpTable" : ("chsrpgrptable", CISCOHSRPMIB.Chsrpgrptable)}
+        self._child_list_classes = {}
 
-        self.chsrpglobalconfig = CiscoHsrpMib.Chsrpglobalconfig()
+        self.chsrpglobalconfig = CISCOHSRPMIB.Chsrpglobalconfig()
         self.chsrpglobalconfig.parent = self
         self._children_name_map["chsrpglobalconfig"] = "cHsrpGlobalConfig"
         self._children_yang_names.add("cHsrpGlobalConfig")
 
-        self.chsrpgrptable = CiscoHsrpMib.Chsrpgrptable()
+        self.chsrpgrptable = CISCOHSRPMIB.Chsrpgrptable()
         self.chsrpgrptable.parent = self
         self._children_name_map["chsrpgrptable"] = "cHsrpGrpTable"
         self._children_yang_names.add("cHsrpGrpTable")
+        self._segment_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
 
 
     class Chsrpglobalconfig(Entity):
@@ -138,82 +142,21 @@ class CiscoHsrpMib(Entity):
         _revision = '2010-09-06'
 
         def __init__(self):
-            super(CiscoHsrpMib.Chsrpglobalconfig, self).__init__()
+            super(CISCOHSRPMIB.Chsrpglobalconfig, self).__init__()
 
             self.yang_name = "cHsrpGlobalConfig"
             self.yang_parent_name = "CISCO-HSRP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.chsrpconfigtimeout = YLeaf(YType.uint32, "cHsrpConfigTimeout")
+            self._segment_path = lambda: "cHsrpGlobalConfig"
+            self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("chsrpconfigtimeout") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoHsrpMib.Chsrpglobalconfig, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoHsrpMib.Chsrpglobalconfig, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.chsrpconfigtimeout.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.chsrpconfigtimeout.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cHsrpGlobalConfig" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.chsrpconfigtimeout.is_set or self.chsrpconfigtimeout.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.chsrpconfigtimeout.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cHsrpConfigTimeout"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cHsrpConfigTimeout"):
-                self.chsrpconfigtimeout = value
-                self.chsrpconfigtimeout.value_namespace = name_space
-                self.chsrpconfigtimeout.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(CISCOHSRPMIB.Chsrpglobalconfig, ['chsrpconfigtimeout'], name, value)
 
 
     class Chsrpgrptable(Entity):
@@ -224,7 +167,7 @@ class CiscoHsrpMib(Entity):
         .. attribute:: chsrpgrpentry
         
         	Information about an HSRP group. Management applications use cHsrpGrpRowStatus to control entry modification, creation and deletion.  Setting cHsrpGrpRowStatus to 'active' causes the router to communicate using HSRP.  The value of cHsrpGrpRowStatus may be set to 'destroy' at any time.  Entries may not be created via SNMP without explicitly  setting cHsrpGrpRowStatus to either 'createAndGo' or  'createAndWait'.  Entries can be created and modified via the management  protocol or by the device's local management interface.  A management application wishing to create an entry should choose the ifIndex of the interface which is to be added as part of an HSRP group. Also, a cHsrpGrpNumber should be chosen. A group number is unique only amongst the groups  on a particular interface. The value of the group number appears in packets which are transmitted and received on a  LAN segment to which the router is connected. The application must select the group number as explained in the description for cHsrpGrpNumber.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout  period can be changed by setting cHsrpConfigTimeout
-        	**type**\: list of    :py:class:`Chsrpgrpentry <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CiscoHsrpMib.Chsrpgrptable.Chsrpgrpentry>`
+        	**type**\: list of    :py:class:`Chsrpgrpentry <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry>`
         
         
 
@@ -234,36 +177,21 @@ class CiscoHsrpMib(Entity):
         _revision = '2010-09-06'
 
         def __init__(self):
-            super(CiscoHsrpMib.Chsrpgrptable, self).__init__()
+            super(CISCOHSRPMIB.Chsrpgrptable, self).__init__()
 
             self.yang_name = "cHsrpGrpTable"
             self.yang_parent_name = "CISCO-HSRP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cHsrpGrpEntry" : ("chsrpgrpentry", CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry)}
 
             self.chsrpgrpentry = YList(self)
+            self._segment_path = lambda: "cHsrpGrpTable"
+            self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoHsrpMib.Chsrpgrptable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoHsrpMib.Chsrpgrptable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable, [], name, value)
 
 
         class Chsrpgrpentry(Entity):
@@ -310,7 +238,7 @@ class CiscoHsrpMib(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IfMib.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
             .. attribute:: chsrpgrpnumber  <key>
             
@@ -354,7 +282,7 @@ class CiscoHsrpMib(Entity):
             .. attribute:: chsrpgrpentryrowstatus
             
             	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cHsrpGrpEntry
-            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: chsrpgrpipnone
             
@@ -410,7 +338,7 @@ class CiscoHsrpMib(Entity):
             .. attribute:: chsrpgrpstandbystate
             
             	The current HSRP state of this group on this interface
-            	**type**\:   :py:class:`Hsrpstate <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.Hsrpstate>`
+            	**type**\:   :py:class:`HsrpState <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.HsrpState>`
             
             .. attribute:: chsrpgrpuseconfiguredtimers
             
@@ -444,10 +372,14 @@ class CiscoHsrpMib(Entity):
             _revision = '2010-09-06'
 
             def __init__(self):
-                super(CiscoHsrpMib.Chsrpgrptable.Chsrpgrpentry, self).__init__()
+                super(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, self).__init__()
 
                 self.yang_name = "cHsrpGrpEntry"
                 self.yang_parent_name = "cHsrpGrpTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ifindex = YLeaf(YType.str, "ifIndex")
 
@@ -486,355 +418,13 @@ class CiscoHsrpMib(Entity):
                 self.chsrpgrpvirtualipaddr = YLeaf(YType.str, "cHsrpGrpVirtualIpAddr")
 
                 self.chsrpgrpvirtualmacaddr = YLeaf(YType.str, "cHsrpGrpVirtualMacAddr")
+                self._segment_path = lambda: "cHsrpGrpEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']"
+                self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ifindex",
-                                "chsrpgrpnumber",
-                                "chsrpgrpactiverouter",
-                                "chsrpgrpauth",
-                                "chsrpgrpconfiguredhellotime",
-                                "chsrpgrpconfiguredholdtime",
-                                "chsrpgrpentryrowstatus",
-                                "chsrpgrpipnone",
-                                "chsrpgrplearnedhellotime",
-                                "chsrpgrplearnedholdtime",
-                                "chsrpgrppreempt",
-                                "chsrpgrppreemptdelay",
-                                "chsrpgrppriority",
-                                "chsrpgrpstandbyrouter",
-                                "chsrpgrpstandbystate",
-                                "chsrpgrpuseconfiguredtimers",
-                                "chsrpgrpuseconfigvirtualipaddr",
-                                "chsrpgrpvirtualipaddr",
-                                "chsrpgrpvirtualmacaddr") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoHsrpMib.Chsrpgrptable.Chsrpgrpentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoHsrpMib.Chsrpgrptable.Chsrpgrpentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ifindex.is_set or
-                    self.chsrpgrpnumber.is_set or
-                    self.chsrpgrpactiverouter.is_set or
-                    self.chsrpgrpauth.is_set or
-                    self.chsrpgrpconfiguredhellotime.is_set or
-                    self.chsrpgrpconfiguredholdtime.is_set or
-                    self.chsrpgrpentryrowstatus.is_set or
-                    self.chsrpgrpipnone.is_set or
-                    self.chsrpgrplearnedhellotime.is_set or
-                    self.chsrpgrplearnedholdtime.is_set or
-                    self.chsrpgrppreempt.is_set or
-                    self.chsrpgrppreemptdelay.is_set or
-                    self.chsrpgrppriority.is_set or
-                    self.chsrpgrpstandbyrouter.is_set or
-                    self.chsrpgrpstandbystate.is_set or
-                    self.chsrpgrpuseconfiguredtimers.is_set or
-                    self.chsrpgrpuseconfigvirtualipaddr.is_set or
-                    self.chsrpgrpvirtualipaddr.is_set or
-                    self.chsrpgrpvirtualmacaddr.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ifindex.yfilter != YFilter.not_set or
-                    self.chsrpgrpnumber.yfilter != YFilter.not_set or
-                    self.chsrpgrpactiverouter.yfilter != YFilter.not_set or
-                    self.chsrpgrpauth.yfilter != YFilter.not_set or
-                    self.chsrpgrpconfiguredhellotime.yfilter != YFilter.not_set or
-                    self.chsrpgrpconfiguredholdtime.yfilter != YFilter.not_set or
-                    self.chsrpgrpentryrowstatus.yfilter != YFilter.not_set or
-                    self.chsrpgrpipnone.yfilter != YFilter.not_set or
-                    self.chsrpgrplearnedhellotime.yfilter != YFilter.not_set or
-                    self.chsrpgrplearnedholdtime.yfilter != YFilter.not_set or
-                    self.chsrpgrppreempt.yfilter != YFilter.not_set or
-                    self.chsrpgrppreemptdelay.yfilter != YFilter.not_set or
-                    self.chsrpgrppriority.yfilter != YFilter.not_set or
-                    self.chsrpgrpstandbyrouter.yfilter != YFilter.not_set or
-                    self.chsrpgrpstandbystate.yfilter != YFilter.not_set or
-                    self.chsrpgrpuseconfiguredtimers.yfilter != YFilter.not_set or
-                    self.chsrpgrpuseconfigvirtualipaddr.yfilter != YFilter.not_set or
-                    self.chsrpgrpvirtualipaddr.yfilter != YFilter.not_set or
-                    self.chsrpgrpvirtualmacaddr.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cHsrpGrpEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ifindex.get_name_leafdata())
-                if (self.chsrpgrpnumber.is_set or self.chsrpgrpnumber.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpnumber.get_name_leafdata())
-                if (self.chsrpgrpactiverouter.is_set or self.chsrpgrpactiverouter.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpactiverouter.get_name_leafdata())
-                if (self.chsrpgrpauth.is_set or self.chsrpgrpauth.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpauth.get_name_leafdata())
-                if (self.chsrpgrpconfiguredhellotime.is_set or self.chsrpgrpconfiguredhellotime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpconfiguredhellotime.get_name_leafdata())
-                if (self.chsrpgrpconfiguredholdtime.is_set or self.chsrpgrpconfiguredholdtime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpconfiguredholdtime.get_name_leafdata())
-                if (self.chsrpgrpentryrowstatus.is_set or self.chsrpgrpentryrowstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpentryrowstatus.get_name_leafdata())
-                if (self.chsrpgrpipnone.is_set or self.chsrpgrpipnone.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpipnone.get_name_leafdata())
-                if (self.chsrpgrplearnedhellotime.is_set or self.chsrpgrplearnedhellotime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrplearnedhellotime.get_name_leafdata())
-                if (self.chsrpgrplearnedholdtime.is_set or self.chsrpgrplearnedholdtime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrplearnedholdtime.get_name_leafdata())
-                if (self.chsrpgrppreempt.is_set or self.chsrpgrppreempt.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrppreempt.get_name_leafdata())
-                if (self.chsrpgrppreemptdelay.is_set or self.chsrpgrppreemptdelay.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrppreemptdelay.get_name_leafdata())
-                if (self.chsrpgrppriority.is_set or self.chsrpgrppriority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrppriority.get_name_leafdata())
-                if (self.chsrpgrpstandbyrouter.is_set or self.chsrpgrpstandbyrouter.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpstandbyrouter.get_name_leafdata())
-                if (self.chsrpgrpstandbystate.is_set or self.chsrpgrpstandbystate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpstandbystate.get_name_leafdata())
-                if (self.chsrpgrpuseconfiguredtimers.is_set or self.chsrpgrpuseconfiguredtimers.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpuseconfiguredtimers.get_name_leafdata())
-                if (self.chsrpgrpuseconfigvirtualipaddr.is_set or self.chsrpgrpuseconfigvirtualipaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpuseconfigvirtualipaddr.get_name_leafdata())
-                if (self.chsrpgrpvirtualipaddr.is_set or self.chsrpgrpvirtualipaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpvirtualipaddr.get_name_leafdata())
-                if (self.chsrpgrpvirtualmacaddr.is_set or self.chsrpgrpvirtualmacaddr.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.chsrpgrpvirtualmacaddr.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "ifIndex" or name == "cHsrpGrpNumber" or name == "cHsrpGrpActiveRouter" or name == "cHsrpGrpAuth" or name == "cHsrpGrpConfiguredHelloTime" or name == "cHsrpGrpConfiguredHoldTime" or name == "cHsrpGrpEntryRowStatus" or name == "cHsrpGrpIpNone" or name == "cHsrpGrpLearnedHelloTime" or name == "cHsrpGrpLearnedHoldTime" or name == "cHsrpGrpPreempt" or name == "cHsrpGrpPreemptDelay" or name == "cHsrpGrpPriority" or name == "cHsrpGrpStandbyRouter" or name == "cHsrpGrpStandbyState" or name == "cHsrpGrpUseConfiguredTimers" or name == "cHsrpGrpUseConfigVirtualIpAddr" or name == "cHsrpGrpVirtualIpAddr" or name == "cHsrpGrpVirtualMacAddr"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "ifIndex"):
-                    self.ifindex = value
-                    self.ifindex.value_namespace = name_space
-                    self.ifindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpNumber"):
-                    self.chsrpgrpnumber = value
-                    self.chsrpgrpnumber.value_namespace = name_space
-                    self.chsrpgrpnumber.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpActiveRouter"):
-                    self.chsrpgrpactiverouter = value
-                    self.chsrpgrpactiverouter.value_namespace = name_space
-                    self.chsrpgrpactiverouter.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpAuth"):
-                    self.chsrpgrpauth = value
-                    self.chsrpgrpauth.value_namespace = name_space
-                    self.chsrpgrpauth.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpConfiguredHelloTime"):
-                    self.chsrpgrpconfiguredhellotime = value
-                    self.chsrpgrpconfiguredhellotime.value_namespace = name_space
-                    self.chsrpgrpconfiguredhellotime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpConfiguredHoldTime"):
-                    self.chsrpgrpconfiguredholdtime = value
-                    self.chsrpgrpconfiguredholdtime.value_namespace = name_space
-                    self.chsrpgrpconfiguredholdtime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpEntryRowStatus"):
-                    self.chsrpgrpentryrowstatus = value
-                    self.chsrpgrpentryrowstatus.value_namespace = name_space
-                    self.chsrpgrpentryrowstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpIpNone"):
-                    self.chsrpgrpipnone = value
-                    self.chsrpgrpipnone.value_namespace = name_space
-                    self.chsrpgrpipnone.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpLearnedHelloTime"):
-                    self.chsrpgrplearnedhellotime = value
-                    self.chsrpgrplearnedhellotime.value_namespace = name_space
-                    self.chsrpgrplearnedhellotime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpLearnedHoldTime"):
-                    self.chsrpgrplearnedholdtime = value
-                    self.chsrpgrplearnedholdtime.value_namespace = name_space
-                    self.chsrpgrplearnedholdtime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpPreempt"):
-                    self.chsrpgrppreempt = value
-                    self.chsrpgrppreempt.value_namespace = name_space
-                    self.chsrpgrppreempt.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpPreemptDelay"):
-                    self.chsrpgrppreemptdelay = value
-                    self.chsrpgrppreemptdelay.value_namespace = name_space
-                    self.chsrpgrppreemptdelay.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpPriority"):
-                    self.chsrpgrppriority = value
-                    self.chsrpgrppriority.value_namespace = name_space
-                    self.chsrpgrppriority.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpStandbyRouter"):
-                    self.chsrpgrpstandbyrouter = value
-                    self.chsrpgrpstandbyrouter.value_namespace = name_space
-                    self.chsrpgrpstandbyrouter.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpStandbyState"):
-                    self.chsrpgrpstandbystate = value
-                    self.chsrpgrpstandbystate.value_namespace = name_space
-                    self.chsrpgrpstandbystate.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpUseConfiguredTimers"):
-                    self.chsrpgrpuseconfiguredtimers = value
-                    self.chsrpgrpuseconfiguredtimers.value_namespace = name_space
-                    self.chsrpgrpuseconfiguredtimers.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpUseConfigVirtualIpAddr"):
-                    self.chsrpgrpuseconfigvirtualipaddr = value
-                    self.chsrpgrpuseconfigvirtualipaddr.value_namespace = name_space
-                    self.chsrpgrpuseconfigvirtualipaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpVirtualIpAddr"):
-                    self.chsrpgrpvirtualipaddr = value
-                    self.chsrpgrpvirtualipaddr.value_namespace = name_space
-                    self.chsrpgrpvirtualipaddr.value_namespace_prefix = name_space_prefix
-                if(value_path == "cHsrpGrpVirtualMacAddr"):
-                    self.chsrpgrpvirtualmacaddr = value
-                    self.chsrpgrpvirtualmacaddr.value_namespace = name_space
-                    self.chsrpgrpvirtualmacaddr.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.chsrpgrpentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.chsrpgrpentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cHsrpGrpTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cHsrpGrpEntry"):
-                for c in self.chsrpgrpentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoHsrpMib.Chsrpgrptable.Chsrpgrpentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.chsrpgrpentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cHsrpGrpEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.chsrpglobalconfig is not None and self.chsrpglobalconfig.has_data()) or
-            (self.chsrpgrptable is not None and self.chsrpgrptable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.chsrpglobalconfig is not None and self.chsrpglobalconfig.has_operation()) or
-            (self.chsrpgrptable is not None and self.chsrpgrptable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-HSRP-MIB:CISCO-HSRP-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cHsrpGlobalConfig"):
-            if (self.chsrpglobalconfig is None):
-                self.chsrpglobalconfig = CiscoHsrpMib.Chsrpglobalconfig()
-                self.chsrpglobalconfig.parent = self
-                self._children_name_map["chsrpglobalconfig"] = "cHsrpGlobalConfig"
-            return self.chsrpglobalconfig
-
-        if (child_yang_name == "cHsrpGrpTable"):
-            if (self.chsrpgrptable is None):
-                self.chsrpgrptable = CiscoHsrpMib.Chsrpgrptable()
-                self.chsrpgrptable.parent = self
-                self._children_name_map["chsrpgrptable"] = "cHsrpGrpTable"
-            return self.chsrpgrptable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cHsrpGlobalConfig" or name == "cHsrpGrpTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, ['ifindex', 'chsrpgrpnumber', 'chsrpgrpactiverouter', 'chsrpgrpauth', 'chsrpgrpconfiguredhellotime', 'chsrpgrpconfiguredholdtime', 'chsrpgrpentryrowstatus', 'chsrpgrpipnone', 'chsrpgrplearnedhellotime', 'chsrpgrplearnedholdtime', 'chsrpgrppreempt', 'chsrpgrppreemptdelay', 'chsrpgrppriority', 'chsrpgrpstandbyrouter', 'chsrpgrpstandbystate', 'chsrpgrpuseconfiguredtimers', 'chsrpgrpuseconfigvirtualipaddr', 'chsrpgrpvirtualipaddr', 'chsrpgrpvirtualmacaddr'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoHsrpMib()
+        self._top_entity = CISCOHSRPMIB()
         return self._top_entity
 

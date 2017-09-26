@@ -41,7 +41,7 @@ module Cisco-IOS-XR-subscriber-accounting-cfg {
        Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -94,12 +94,16 @@ module Cisco-IOS-XR-subscriber-accounting-cfg {
       container idle-timeout {
         description "Subscriber accounting idle timeout";
         leaf timeout-value {
-          type int32;
+          type uint32 {
+            range "60..4320000";
+          }
           units "second";
           description "Idle timeout value in seconds";
         }
         leaf threshold {
-          type int32;
+          type uint32 {
+            range "1..10000";
+          }
           description "Threshold in minute(s) per packet";
         }
         leaf direction {
@@ -191,11 +195,15 @@ module Cisco-IOS-XR-subscriber-accounting-cfg {
       container idle-timeout {
         description "Subscriber accounting idle timeout";
         leaf timeout-value {
-          type int32;
+          type uint32 {
+            range "60..4320000";
+          }
           description "Idle timeout value in seconds";
         }
         leaf threshold {
-          type int32;
+          type uint32 {
+            range "1..10000";
+          }
           description "Threshold in minute(s) per packet";
         }
         leaf direction {

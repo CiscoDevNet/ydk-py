@@ -13,16 +13,15 @@ will be selected by the IESG Area Director(s) of the Routing
 Area.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Ianaipmrouteprotocol(Enum):
+class IANAipMRouteProtocol(Enum):
     """
-    Ianaipmrouteprotocol
+    IANAipMRouteProtocol
 
     The multicast routing protocol.  Inclusion of values for
 
@@ -81,9 +80,9 @@ class Ianaipmrouteprotocol(Enum):
     msdp = Enum.YLeaf(12, "msdp")
 
 
-class Ianaiprouteprotocol(Enum):
+class IANAipRouteProtocol(Enum):
     """
-    Ianaiprouteprotocol
+    IANAipRouteProtocol
 
     A mechanism for learning routes.  Inclusion of values for
 

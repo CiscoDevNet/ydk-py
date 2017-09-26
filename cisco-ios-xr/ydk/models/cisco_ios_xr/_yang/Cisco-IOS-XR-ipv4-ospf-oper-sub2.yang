@@ -31,8 +31,13 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-ospf package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2017-01-02" {
     description
@@ -77,6 +82,9 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       }
       enum mgmt-ospf-opq-ri-tlv-type-sr-range {
         description "Segment Routing SID Range";
+      }
+      enum mgmt-ospf-opq-ri-tlv-type-node-msd {
+        description "Node MSD (Max SID Depth)";
       }
     }
     description "OSPF Router Information TLV types";
@@ -1221,6 +1229,31 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-OPQ-RI-MSD-SUBTYPE {
+    description "OSPF MSD Subtype";
+    leaf msd-sub-type {
+      type uint8;
+      description "MSD SubType";
+    }
+    leaf msd-value {
+      type uint8;
+      description "MSD Value";
+    }
+  }
+
+  grouping OSPF-SH-OPQ-RI-NODE-MSD-TLV {
+    description "OSPF Node MSD TLV";
+
+    container node-msd-sub-types {
+      description "Node MSD Subtypes";
+      uses OSPF-SH-OPQ-RI-MSD-SUBTYPE;
+    }
+    leaf node-msdtlv-length {
+      type uint16;
+      description "Length of TLV";
+    }
+  }
+
   grouping OSPF-SH-SR-SID-STLV {
     description "OSPF PCE-Discovery PCE Scope SubTLV";
     leaf sr-sid-length {
@@ -1495,6 +1528,17 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       }
       description "SR Range TLV";
       uses OSPF-SH-OPQ-RI-SR-RANGE-TLV;
+    }
+
+    container node-msdtlv {
+      when "../ritlv-internal-type ="+
+        " 'mgmt-ospf-opq-ri-tlv-type-node-msd'" {
+          description
+            "../RITLVInternalType =
+            'MGMT_OSPF_OPQ_RI_TLV_TYPE_NODE_MSD'";
+      }
+      description "Node MSD TLV";
+      uses OSPF-SH-OPQ-RI-NODE-MSD-TLV;
     }
     leaf ritlv-internal-type {
       type Ospf-sh-opq-ri-tlv-types;
@@ -3116,6 +3160,18 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-SEC-ADDR {
+    description "OSPF Secondary Address";
+    leaf secondary-addr {
+      type inet:ipv4-address;
+      description "Secondary Address Type";
+    }
+    leaf secondary-prefix {
+      type uint32;
+      description "Secondary Prefix Length";
+    }
+  }
+
   grouping OSPF-SH-IPFRR-TB {
     description "OSPF IPFRR Tiebreakers";
     leaf tiebreaker-type {
@@ -3548,6 +3604,26 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type boolean;
       description "Topology Independent LFA";
     }
+    leaf interface-unnum {
+      type xr:Interface-name;
+      description "Unnumbered interface";
+    }
+    leaf interface-forw {
+      type boolean;
+      description "Forward reference interface";
+    }
+    leaf interface-pri-labels {
+      type uint8;
+      description "Max number of primary labels";
+    }
+    leaf interface-bkp-labels {
+      type uint8;
+      description "Max number of backup labels";
+    }
+    leaf interface-srte-labels {
+      type uint8;
+      description "Max number of SRTE labels";
+    }
     list srlg {
       description "SRLG Values";
         leaf entry {
@@ -3568,6 +3644,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     list ipfrr-tiebreakers {
       description "IPFRR-Tiebreakers list";
       uses OSPF-SH-IPFRR-TB;
+    }
+
+    list ip-sec-addr {
+      description "Secondary IP address list";
+      uses OSPF-SH-SEC-ADDR;
     }
   }
 
@@ -4422,7 +4503,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description "Number of pending events";
     }
     leaf neighbor-lls-option {
-      type uint16;
+      type uint32;
       description
         "This is a bitmask of Link Local signalling
         options received from the neighbor";
@@ -4480,6 +4561,10 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf adjacency-sid-unprotected-label {
       type uint32;
       description "SR Adjacency SID Unprotected Label";
+    }
+    leaf neighbor-interface-id {
+      type uint16;
+      description "Interface ID of neighbor recived via LLS";
     }
   }
 

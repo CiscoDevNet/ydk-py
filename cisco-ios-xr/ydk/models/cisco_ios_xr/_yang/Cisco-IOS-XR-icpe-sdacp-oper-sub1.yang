@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub1 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-icpe-sdacp-oper-sub2 {
     revision-date 2015-11-09;
   }
@@ -33,7 +31,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR icpe-sdacp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -210,7 +208,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub1 {
       uses ICPE-CPM-TIMESTAMP-TYPE;
     }
     leaf satellite-id-xr {
-      type uint32;
+      type uint16;
       description "Satellite ID";
     }
     leaf satellite-ip-address {

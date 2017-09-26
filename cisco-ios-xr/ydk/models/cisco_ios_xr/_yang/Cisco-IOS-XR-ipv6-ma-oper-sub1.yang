@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-ma package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-10-20" {
@@ -375,10 +375,12 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
   grouping IPV6-ADDR-NODE {
     description "List of IPv6 Addresses ";
     leaf address {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type inet:ipv6-address;
       description "IPv6 Address";
     }
     leaf prefix-length {
+      xr:event-telemetry "Subscribe Telemetry Event";
       type uint32;
       description "Prefix Length of IPv6 Address";
     }

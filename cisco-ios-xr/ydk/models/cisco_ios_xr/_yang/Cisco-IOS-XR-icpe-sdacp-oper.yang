@@ -48,7 +48,7 @@ module Cisco-IOS-XR-icpe-sdacp-oper {
        Cisco-IOS-XR-icpe-infra-oper
      module with state data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -56,6 +56,12 @@ module Cisco-IOS-XR-icpe-sdacp-oper {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Icpe-sat-id {
+    type uint32 {
+      range "100..65534";
+    }
+    description "Icpe sat id";
+  }
 
   augment "/a1:nv-satellite" {
 
@@ -108,9 +114,7 @@ module Cisco-IOS-XR-icpe-sdacp-oper {
         key "satellite-id";
         description "SDAC Protocol Discovery information";
         leaf satellite-id {
-          type uint32 {
-            range "0..4294967295";
-          }
+          type Icpe-sat-id;
           description "Satellite ID";
         }
         uses ICPE-CPM-OPER-SAT;

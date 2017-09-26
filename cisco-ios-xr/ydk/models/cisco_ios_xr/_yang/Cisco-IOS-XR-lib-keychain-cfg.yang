@@ -34,8 +34,13 @@ module Cisco-IOS-XR-lib-keychain-cfg {
      for the following management objects:
        keychains: Configure a Key Chain
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-07-30" {
     description

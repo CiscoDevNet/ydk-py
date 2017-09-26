@@ -25,7 +25,7 @@ module Cisco-IOS-XR-ipv4-ospf-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR OSPF action package configuration.
 
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
    
     revision "2016-09-14" {
@@ -33,8 +33,8 @@ module Cisco-IOS-XR-ipv4-ospf-act {
             "IOS XR 6.2.1 revision.";
     }
 
-    rpc act-ospf-routes {
-        description "Clear OSPF Routes Table";
+    rpc clear-ospf-routes {
+        description "Clear OSPF route table";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -51,8 +51,8 @@ module Cisco-IOS-XR-ipv4-ospf-act {
         }
     }
 
-    rpc act-ospf-redistribution {
-        description "Clear OSPF Route Redistribution";
+    rpc clear-ospf-redistribution {
+        description "Clear OSPF route redistribution";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -62,15 +62,15 @@ module Cisco-IOS-XR-ipv4-ospf-act {
                 }
             }
             leaf redistribution {
-                description "Clear OSPF Route Redistribution";
+                description "Clear OSPF route redistribution";
                 mandatory true;
                 type empty;
             }
         }
     }
 
-    rpc act-ospf-statistics {
-        description "Clear OSPF Counters And Statistics";
+    rpc clear-ospf-statistics {
+        description "Clear OSPF counters and statistics";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -102,8 +102,8 @@ module Cisco-IOS-XR-ipv4-ospf-act {
         }
     }
 
-    rpc act-ospf-statistics-neighbor {
-        description "Neighbor statistics per neighbor id";
+    rpc clear-ospf-statistics-neighbor {
+        description "Clear OSPF neighbor statistics per interface or neighbor id";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -125,8 +125,8 @@ module Cisco-IOS-XR-ipv4-ospf-act {
         }
     }
 
-    rpc act-ospf-statistics-interface {
-        description "Neighbor statistics per interface";
+    rpc clear-ospf-statistics-interface {
+        description "Clear OSPF interface statistics";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -144,8 +144,8 @@ module Cisco-IOS-XR-ipv4-ospf-act {
         }
     }
 
-    rpc act-ospf-process {
-        description "Reset OSPF Process";
+    rpc clear-ospf-process {
+        description "Clear (reset) OSPF process";
         input {
             container instance {
                 description "Clear data from OSPF instance";
@@ -207,7 +207,7 @@ module Cisco-IOS-XR-ipv4-ospf-act {
         }
     }
 
-    rpc act-ospf-instance-vrf {
+    rpc clear-ospf-instance-vrf {
         description "Clear one or more non-default OSPF VRFs in process";
         input {
             container instance {

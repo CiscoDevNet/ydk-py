@@ -41,7 +41,7 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
        rib-stdby: RIB standby node operational data
        rib: rib
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -51,19 +51,19 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
 
   typedef Rib-saf-name {
     type string {
-      pattern "(Unicast)";
+      pattern "(Unicast)|(Multicast)";
     }
     description
-      "Unicast:   Comment: Ucast string for <safi_name>;
+      "Unicast:   Comment: Ucast string for <safi_name>,
       Multicast: Comment: Mcast string for <safi_name>";
   }
   typedef Rib-af-name {
     type string {
-      pattern "(IPv4)";
+      pattern "(IPv4)|(IPv6)";
     }
     description
-      "IPv4: Comment: v4 string for <afi_name>;         
-      IPv6: Comment: v6 string for <afi_name>";
+      "IPv4: Comment: v4 string for <afi_name>, IPv6:
+      Comment: v6 string for <afi_name>";
   }
 
   grouping VRF-TABLE {
@@ -504,6 +504,11 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
               uses IPV4-RIB-EDM-ROUTE;
             }
           }
+        }
+
+        container information {
+          description "Table related Information";
+          uses IPV4-RIB-EDM-TABLE;
         }
         leaf tableid {
           type xr:Hex-integer;

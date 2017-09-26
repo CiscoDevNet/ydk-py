@@ -41,7 +41,7 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
        Cisco-IOS-XR-aaa-locald-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -57,7 +57,7 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
   }
   typedef Aaa-diameter-timeout {
     type uint32 {
-      range "1..1000";
+      range "6..1000";
     }
     description "Aaa diameter timeout";
   }
@@ -136,17 +136,14 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
             description "Timers used for the peer";
             leaf transaction {
               type Aaa-diameter-timeout;
-              default "5";
               description "Timer value in seconds";
             }
             leaf connection {
               type Aaa-diameter-timeout;
-              default "5";
               description "Timer value in seconds";
             }
             leaf watchdog {
               type Aaa-diameter-timeout;
-              default "5";
               description "Timer value in seconds";
             }
           }

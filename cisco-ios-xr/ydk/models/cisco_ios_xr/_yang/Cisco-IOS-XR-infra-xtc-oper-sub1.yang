@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,8 +27,18 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-xtc package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-05-31" {
     description
@@ -42,6 +50,82 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Pce-cspf-rc {
+    type enumeration {
+      enum pce-cspf-not-set {
+        description "Not set";
+      }
+      enum pce-cspf-src-not-found {
+        description "Source not found";
+      }
+      enum pce-cspf-dst-not-found {
+        description "Destination not found";
+      }
+      enum pce-cspf-second-src-not-found {
+        description "Second source not found";
+      }
+      enum pce-cspf-second-dst-not-found {
+        description "Second destination not found";
+      }
+      enum pce-cspf-no-mem {
+        description "No memory";
+      }
+      enum pce-cspf-ex-path-not-resolved {
+        description "Second path not resolved";
+      }
+      enum pce-cspf-no-path {
+        description "No path";
+      }
+      enum pce-cspf-sp-success {
+        description "Shortest path success";
+      }
+      enum pce-cspf-error {
+        description "Error";
+      }
+      enum pce-cspf-fallback-srlg-node-node {
+        description "Fallback from SRLG-NODE to NODE";
+      }
+      enum pce-cspf-fallback-srlg-node-link {
+        description "Fallback from SRLG-NODE to LINK";
+      }
+      enum pce-cspf-fallback-srlg-node-sp {
+        description "Fallback from SRLG-NODE to SP";
+      }
+      enum pce-cspf-fallback-node-link {
+        description "Fallback from NODE to LINK";
+      }
+      enum pce-cspf-fallback-link-sp {
+        description "Fallback from LINK to SP";
+      }
+      enum pce-cspf-fallback-node-sp {
+        description "Fallback from NODE to SP";
+      }
+      enum pce-cspf-fallback-srlg-link {
+        description "Fallback from SRLG to LINK";
+      }
+      enum pce-cspf-fallback-srlg-sp {
+        description "Fallback from SRLG to SP";
+      }
+      enum pce-cspf-dp-success {
+        description "Disjoint path success";
+      }
+    }
+    description "PCE CSPF Result Code";
+  }
+  typedef Pce-headend-swap {
+    type enumeration {
+      enum pcehs-none {
+        description "Headends not swapped";
+      }
+      enum pcehs-plain {
+        description "Headends swapped";
+      }
+      enum pcehs-rwi {
+        description "Headends swapped with increment";
+      }
+    }
+    description "PCE Headends Swap Code";
+  }
   typedef Pce-ipv6-address {
     type inet:ipv6-address;
     description "Pce ipv6 address";
@@ -73,7 +157,7 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
         value 2;
         description "Unprotected Adjacency SID";
       }
-      enum srbgp-egress-peer-engineering-sid {
+      enum sr-bgp-egress-peer-engineering-sid {
         value 3;
         description "BGP egress peer engineering SID";
       }
@@ -221,6 +305,62 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       }
     }
     description "LSP setup type";
+  }
+
+  grouping PCE-ADDR-BAG {
+    description "PCE Address Information";
+    leaf address-family {
+      type uint8;
+      description "Address Family";
+    }
+    leaf ipv4-prefix {
+      type inet:ipv4-address;
+      description "IPv4 prefix";
+    }
+    leaf ipv6-prefix {
+      type inet:ipv6-address;
+      description "IPv6 prefix";
+    }
+  }
+
+  grouping PCE-PATH-BAG {
+    description "PCE path information";
+
+    container source {
+      description "Source of path";
+      uses PCE-IP-ADDR-TYPE;
+    }
+
+    container destination {
+      description "Destination of path";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    leaf cost {
+      type uint64;
+      description "Cost";
+    }
+
+    list hops {
+      description "Hop addresses";
+      uses PCE-ADDR-BAG;
+    }
+  }
+
+  grouping PCE-PATH-LIST-BAG {
+    description "PCE path list";
+    leaf headends-swapped {
+      type Pce-headend-swap;
+      description "Headends swapped";
+    }
+    leaf cspf-result {
+      type Pce-cspf-rc;
+      description "CSPF Result";
+    }
+
+    list output-path {
+      description "Output PCE paths";
+      uses PCE-PATH-BAG;
+    }
   }
 
   grouping PCE-ASSO-LSP-INFO {
@@ -567,11 +707,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type string;
       description "Node Name";
     }
-    leaf ipv4bgp-router-id-set {
+    leaf ipv4-bgp-router-id-set {
       type boolean;
       description "True if IPv4 BGP router ID is set";
     }
-    leaf ipv4bgp-router-id {
+    leaf ipv4-bgp-router-id {
       type inet:ipv4-address;
       description "IPv4 TE router ID";
     }

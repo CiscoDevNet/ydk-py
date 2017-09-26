@@ -18,7 +18,6 @@ Terms and Acronyms
 
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -166,21 +165,6 @@ class MacLimitNotificationType(Identity):
         super(MacLimitNotificationType, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:mac-limit-notification-type")
 
 
-class NotifSyslog(Identity):
-    """
-    Generate syslog
-    
-    
-
-    """
-
-    _prefix = 'cbridge'
-    _revision = '2016-12-14'
-
-    def __init__(self):
-        super(NotifSyslog, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog")
-
-
 class NotifNone(Identity):
     """
     Disable notification
@@ -209,6 +193,21 @@ class NotifSnmpTrap(Identity):
 
     def __init__(self):
         super(NotifSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-snmp-trap")
+
+
+class NotifSyslog(Identity):
+    """
+    Generate syslog
+    
+    
+
+    """
+
+    _prefix = 'cbridge'
+    _revision = '2016-12-14'
+
+    def __init__(self):
+        super(NotifSyslog, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog")
 
 
 class NotifSyslogAndSnmpTrap(Identity):

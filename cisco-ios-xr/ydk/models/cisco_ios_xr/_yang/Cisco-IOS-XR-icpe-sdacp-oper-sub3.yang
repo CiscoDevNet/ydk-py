@@ -35,7 +35,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR icpe-sdacp package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -87,7 +87,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub3 {
   grouping ICPE-SDACP-SAT-TYPE {
     description "ICPE SDACP SAT TYPE";
     leaf satellite-id {
-      type uint32;
+      type uint16;
       description "Satellite ID";
     }
     leaf satellite-status {
@@ -118,9 +118,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub3 {
   grouping ICPE-SDACP-DISC-SFL-TYPE {
     description "ICPE SDACP DISC SFL TYPE";
     leaf interface-name {
-      type string {
-        length "0..64";
-      }
+      type Xr-yang-string;
       description "Interface name";
     }
     leaf interface-status {
@@ -132,9 +130,7 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub3 {
   grouping ICPE-SDACP-CFG-SFL {
     description "ICPE Configured interface state information";
     leaf interface-name-xr {
-      type string {
-        length "0..64";
-      }
+      type Xr-yang-string;
       description "Interface name";
     }
 

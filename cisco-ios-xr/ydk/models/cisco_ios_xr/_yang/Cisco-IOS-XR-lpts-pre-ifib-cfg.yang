@@ -40,7 +40,7 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
        Cisco-IOS-XR-config-mda-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -48,6 +48,19 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Lpts-dynamic-flow-config {
+    type enumeration {
+      enum flows-config {
+        value 0;
+        description "LPTS Flows Limit";
+      }
+      enum platform-config {
+        value 1;
+        description "Platform Limit";
+      }
+    }
+    description "Lpts dynamic flow config";
+  }
   typedef Lpts-pre-i-fib-precedence-number {
     type union {
       type enumeration {
@@ -561,6 +574,10 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
         value 96;
         description "EXR packets.";
       }
+      enum platform-limit {
+        value 97;
+        description "Platform Limit.";
+      }
     }
     description "Lpts flow";
   }
@@ -602,6 +619,34 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
           leaf id1 {
             type xr:Cisco-ios-xr-string;
             description "none";
+          }
+        }
+      }
+
+      container dynamic-flows-tables {
+        description
+          "Node specific Pre IFIB (Internal Forwarding
+          Information Base) Configuration";
+
+        list dynamic-flows-table {
+          key "table-type";
+          description "Table for Dynamic Flows";
+          leaf table-type {
+            type Lpts-dynamic-flow-config;
+            description "LPTS Dynamic Flows Table Type";
+          }
+
+          list flow-type {
+            key "flow-type";
+            description "Selected flow type";
+            leaf max {
+              type int32;
+              description "Configured Max TCAM value";
+            }
+            leaf flow-type {
+              type Lpts-flow;
+              description "LPTS Flow Type";
+            }
           }
         }
       }

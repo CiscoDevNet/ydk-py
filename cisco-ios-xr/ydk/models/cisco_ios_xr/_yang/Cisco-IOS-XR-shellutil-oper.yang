@@ -9,8 +9,6 @@ module Cisco-IOS-XR-shellutil-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-shellutil-oper-sub1 {
     revision-date 2015-01-07;
   }
@@ -38,7 +36,7 @@ module Cisco-IOS-XR-shellutil-oper {
      for the following management objects:
        system-time: System time information
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-01-07" {

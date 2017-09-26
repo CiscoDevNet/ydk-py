@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ipv4-smiap-cfg {
      for the following management objects:
        ipv4-virtual: IPv4 virtual address for management interfaces
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-07-04" {

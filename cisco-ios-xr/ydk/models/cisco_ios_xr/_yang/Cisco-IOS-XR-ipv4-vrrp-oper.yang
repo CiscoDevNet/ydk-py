@@ -12,7 +12,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ipv4-vrrp-oper-sub1 {
-    revision-date 2016-12-16;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -38,8 +38,13 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
      for the following management objects:
        vrrp: VRRP operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-16" {
     description

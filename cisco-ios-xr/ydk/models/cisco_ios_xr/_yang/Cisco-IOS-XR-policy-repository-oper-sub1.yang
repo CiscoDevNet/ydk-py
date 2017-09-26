@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-policy-repository-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,8 +25,13 @@ submodule Cisco-IOS-XR-policy-repository-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR policy-repository package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -254,17 +257,16 @@ submodule Cisco-IOS-XR-policy-repository-oper-sub1 {
     leaf source-protocol {
       type string;
       description
-        "Source Protocol to redistribute,                
-        Source Protocol can be one of the following
-        values                               {all,
-        connected, local, static, bgp, rip, isis, ospf, 
-        ospfv3, eigrp, unknown }";
+        "Source Protocol to redistribute, Source Protocol
+        can be one of the following values{all,
+        connected, local, static, bgp, rip, isis, ospf
+        ,ospfv3, eigrp, unknown }";
     }
     leaf aggregate-network-address {
       type string;
       description
-        "Aggregate IP address or Network IP Address      
-        in IPv4 or IPv6 Format";
+        "Aggregate IP address or Network IP Address in
+        IPv4 or IPv6 Format";
     }
     leaf interface-name {
       type string;

@@ -47,9 +47,9 @@ module Cisco-IOS-XR-qos-ma-sat-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-04-24" {
+  revision "2017-03-03" {
     description
-      "IOS XR 6.2.2 revision.";
+      "IOS XR 6.3.1 revision.";
   }
 
   revision "2016-12-15" {

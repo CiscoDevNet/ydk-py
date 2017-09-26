@@ -36,7 +36,7 @@ module Cisco-IOS-XR-lib-mpp-cfg {
      for the following management objects:
        control-plane: Configure control Plane
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-07-30" {

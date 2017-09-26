@@ -17,7 +17,6 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -40,21 +39,6 @@ class Direction(Identity):
         super(Direction, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:direction")
 
 
-class Outbound(Identity):
-    """
-    Direction of traffic going out of the network entry
-    
-    
-
-    """
-
-    _prefix = 'target'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        super(Outbound, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:outbound")
-
-
 class Inbound(Identity):
     """
     Direction of traffic coming into the network entry
@@ -68,5 +52,20 @@ class Inbound(Identity):
 
     def __init__(self):
         super(Inbound, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:inbound")
+
+
+class Outbound(Identity):
+    """
+    Direction of traffic going out of the network entry
+    
+    
+
+    """
+
+    _prefix = 'target'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(Outbound, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:outbound")
 
 

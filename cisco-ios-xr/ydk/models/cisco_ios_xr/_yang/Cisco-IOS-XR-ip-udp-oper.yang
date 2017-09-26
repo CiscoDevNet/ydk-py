@@ -51,7 +51,7 @@ module Cisco-IOS-XR-ip-udp-oper {
        udp: IP UDP Operational Data
        udp-connection: udp connection
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-02-26" {
@@ -165,7 +165,9 @@ module Cisco-IOS-XR-ip-udp-oper {
               description
                 "Satistics associated with a particular PCB";
               leaf pcb-address {
-                type int32;
+                type uint32 {
+                  range "0..4294967295";
+                }
                 description "Protocol Control Block address";
               }
               uses UDP-SH-PCB-STATS-BAG;
@@ -190,7 +192,9 @@ module Cisco-IOS-XR-ip-udp-oper {
                   key "pcb-address";
                   description "A PCB information";
                   leaf pcb-address {
-                    type int32;
+                    type uint32 {
+                      range "0..4294967295";
+                    }
                     description "PCB address";
                   }
                   uses SHOW-PCB-INFO;
@@ -213,7 +217,9 @@ module Cisco-IOS-XR-ip-udp-oper {
             key "pcb-address";
             description "Detail information about a UDP connection";
             leaf pcb-address {
-              type int32;
+              type uint32 {
+                range "0..4294967295";
+              }
               description "Protocol Control Block address";
             }
             uses UDP-SH-TABLE-BAG;
@@ -228,7 +234,9 @@ module Cisco-IOS-XR-ip-udp-oper {
             key "pcb-address";
             description "Brief information about a UDP connection";
             leaf pcb-address {
-              type int32;
+              type uint32 {
+                range "0..4294967295";
+              }
               description "Protocol Control Block address";
             }
             uses UDP-SH-BRIEF-BAG;

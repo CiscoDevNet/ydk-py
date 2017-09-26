@@ -4,16 +4,15 @@ This MIB module defines textual conventions describing
 subscriber sessions.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Subsessionredundancymode(Enum):
+class SubSessionRedundancyMode(Enum):
     """
-    Subsessionredundancymode
+    SubSessionRedundancyMode
 
     An enumerated integer\-value describing the redundancy mode in
 
@@ -68,9 +67,9 @@ class Subsessionredundancymode(Enum):
     standby = Enum.YLeaf(4, "standby")
 
 
-class Subsessionstate(Enum):
+class SubSessionState(Enum):
     """
-    Subsessionstate
+    SubSessionState
 
     An enumerated integer\-value describing the state of a
 
@@ -115,9 +114,9 @@ class Subsessionstate(Enum):
     up = Enum.YLeaf(3, "up")
 
 
-class Subsessiontype(Enum):
+class SubSessionType(Enum):
     """
-    Subsessiontype
+    SubSessionType
 
     An enumerated integer\-value describing the type of subscriber
 
@@ -323,68 +322,5 @@ class Subsessiontype(Enum):
 
     l2RadiusSubscriber = Enum.YLeaf(13, "l2RadiusSubscriber")
 
-
-class Subsessiontypes(Bits):
-    """
-    Subsessiontypes
-
-    A bit string describing a set of subscriber session types\:
-    
-    'pppSubscriber'
-        A PPP connection initiated over a circuit (e.g., an ISDN
-        line or ATM VC) using the LCP (RFC\-1661).
-    
-    'pppoeSubscriber'
-        A PPP connection over Ethernet (RFC\-2516), initiated
-        by a PADI (PPPoE Active Discovery Initiation) packet.
-    
-    'l2tpSubscriber'
-        A PPP connection over an L2TP tunnel (RFC\-2661),
-        initiated by an Incoming\-Call\-Request control message.
-    
-    'l2fSubscriber'
-        A PPP connection over an L2F tunnel (RFC\-2341),
-        initiated by a L2F\_OPEN message with a non\-zero MID.
-    
-    'ipInterfaceSubscriber'
-        An IP subcriber session provisioned by the system's
-        configuration which consists of all traffic received by
-        the interface the provisioning applies.
-    
-    'ipPktSubscriber'
-        An IP subscriber session initiated by the receipt of
-        the first packet received with an unclassified source IP
-        address.
-    
-    'ipDhcpv4Subscriber'
-        An IP subscriber session initiated by the receipt of a
-        DHCPv4 DISCOVER packet (RFC\-2131).
-    
-    'ipRadiusSubscriber'
-        An IP subscriber session initiated by the receipt of a
-        RADIUS Access\-Request packet (RFC\-2865).
-    
-    'l2MacSubscriber'
-        An L2 subscriber session initiated by the receipt of the
-        first layer 2 packet with an unclassified source MAC
-        address.
-    
-    'l2Dhcpv4Subscriber'
-        An L2 subscriber session initiated by the receipt of a
-        DHCPv4 DISCOVER packet (RFC\-2131).
-    
-    'l2RadiusSubscriber'
-        An L2 subscriber session initiated by the receipt of a
-        RADIUS Access\-Request packet (RFC\-2865).
-    
-    For more details regarding subscriber session types, see the
-    descriptive text associated with the SubSessionType textual
-    convention.
-    Keys are:- ipInterfaceSubscriber , l2tpSubscriber , l2fSubscriber , pppoeSubscriber , l2RadiusSubscriber , l2MacSubscriber , ipPktSubscriber , pppSubscriber , l2Dhcpv4Subscriber , ipRadiusSubscriber , ipDhcpv4Subscriber
-
-    """
-
-    def __init__(self):
-        super(Subsessiontypes, self).__init__()
 
 

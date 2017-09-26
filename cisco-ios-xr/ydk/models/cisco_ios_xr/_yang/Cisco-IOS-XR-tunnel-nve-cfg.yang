@@ -11,8 +11,6 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
 
   import ietf-inet-types { prefix "inet"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -38,7 +36,7 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-08-30" {
@@ -111,6 +109,15 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
       }
     }
     description "Load balance enum";
+  }
+  typedef Ir-protocol-enum {
+    type enumeration {
+      enum bgp {
+        value 1;
+        description "Use BGP Protocol for Ingress-Replication";
+      }
+    }
+    description "Ir protocol enum";
   }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
@@ -230,6 +237,10 @@ module Cisco-IOS-XR-tunnel-nve-cfg {
       leaf source-interface {
         type string;
         description "Source Interface for this NVE";
+      }
+      leaf ingress-replication-protocol {
+        type Ir-protocol-enum;
+        description "The Ingress Replication Protocol for this NVE";
       }
     }
     description

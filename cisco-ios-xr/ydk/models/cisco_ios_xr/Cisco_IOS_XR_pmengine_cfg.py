@@ -7,11 +7,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -2479,6 +2478,396 @@ class Report(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(1, "true")
+
+
+class SecyifReport(Enum):
+    """
+    SecyifReport
+
+    Secyif report
+
+    .. data:: report_if_inpkts_untagged = 134217728
+
+    	PM SECYIF if InPktsUntagged report
+
+    .. data:: report_if_inpkts_not_ag = 134217729
+
+    	PM SECYIF if InPktsNoTag report
+
+    .. data:: report_if_inpktsbadtag = 134217730
+
+    	PM SECYIF if InPktsBadTag report
+
+    .. data:: report_if_inpkts_unknown_sci = 134217731
+
+    	PM SECYIF if InPktsUnknownSCI report
+
+    .. data:: report_if_inpktsnosci = 134217732
+
+    	PM SECYIF if InPktsNoSCI report
+
+    .. data:: report_if_inpkts_overrun = 134217733
+
+    	PM SECYIF if InPktsOverrun report
+
+    .. data:: report_if_inoctets_validate_d = 134217734
+
+    	PM SECYIF if InOctetsValidated report
+
+    .. data:: report_if_inoctetsdecrypted = 134217735
+
+    	PM SECYIF if InOctetsDecrypted report
+
+    .. data:: report_if_outpkts_untagged = 134217736
+
+    	PM SECYIF if OutPktsUntagged report
+
+    .. data:: report_if_outpkts_too_long = 134217737
+
+    	PM SECYIF if OutPktsTooLong report
+
+    .. data:: report_if_outoctetsprotected = 134217738
+
+    	PM SECYIF if OutOctetsProtected report
+
+    .. data:: report_if_outoctetsencrypted = 134217739
+
+    	PM SECYIF if OutOctetsEncrypted report
+
+    """
+
+    report_if_inpkts_untagged = Enum.YLeaf(134217728, "report-if-inpkts-untagged")
+
+    report_if_inpkts_not_ag = Enum.YLeaf(134217729, "report-if-inpkts-not-ag")
+
+    report_if_inpktsbadtag = Enum.YLeaf(134217730, "report-if-inpktsbadtag")
+
+    report_if_inpkts_unknown_sci = Enum.YLeaf(134217731, "report-if-inpkts-unknown-sci")
+
+    report_if_inpktsnosci = Enum.YLeaf(134217732, "report-if-inpktsnosci")
+
+    report_if_inpkts_overrun = Enum.YLeaf(134217733, "report-if-inpkts-overrun")
+
+    report_if_inoctets_validate_d = Enum.YLeaf(134217734, "report-if-inoctets-validate-d")
+
+    report_if_inoctetsdecrypted = Enum.YLeaf(134217735, "report-if-inoctetsdecrypted")
+
+    report_if_outpkts_untagged = Enum.YLeaf(134217736, "report-if-outpkts-untagged")
+
+    report_if_outpkts_too_long = Enum.YLeaf(134217737, "report-if-outpkts-too-long")
+
+    report_if_outoctetsprotected = Enum.YLeaf(134217738, "report-if-outoctetsprotected")
+
+    report_if_outoctetsencrypted = Enum.YLeaf(134217739, "report-if-outoctetsencrypted")
+
+
+class SecyifThreshold(Enum):
+    """
+    SecyifThreshold
+
+    Secyif threshold
+
+    .. data:: thresh_if_inpkts_untagged = 150994944
+
+    	PM SECYIF if InPktsUntagged thresh
+
+    .. data:: thresh_if_inpkts_not_ag = 150994945
+
+    	PM SECYIF if InPktsNoTag thresh
+
+    .. data:: thresh_if_inpktsbadtag = 150994946
+
+    	PM SECYIF if InPktsBadTag thresh
+
+    .. data:: thresh_if_inpktsunkownsci = 150994947
+
+    	PM SECYIF if InPktsUnknownSCI thresh
+
+    .. data:: thresh_if_inpktsnosci = 150994948
+
+    	PM SECYIF if InPktsNoSCI thresh
+
+    .. data:: thresh_if_inpkts_overrun = 150994949
+
+    	PM SECYIF if InPktsOverrun thresh
+
+    .. data:: thresh_if_inoctets_validate_d = 150994950
+
+    	PM SECYIF if InOctetsValidated thresh
+
+    .. data:: thresh_if_inoctetsdecrypted = 150994951
+
+    	PM SECYIF if InOctetsDecrypted thresh
+
+    .. data:: thresh_if_outpkts_untagged = 150994952
+
+    	PM SECYIF if OutPktsUntagged thresh
+
+    .. data:: thresh_if_thresh_outpkts_too_long = 150994953
+
+    	PM SECYIF if OutPktsTooLong thresh
+
+    .. data:: thresh_if_outoctetsprotected = 150994954
+
+    	PM SECYIF if OutOctetsProtected thresh
+
+    .. data:: thresh_if_outoctetsencrypted = 150994955
+
+    	PM SECYIF if OutOctetsEncrypted thresh
+
+    """
+
+    thresh_if_inpkts_untagged = Enum.YLeaf(150994944, "thresh-if-inpkts-untagged")
+
+    thresh_if_inpkts_not_ag = Enum.YLeaf(150994945, "thresh-if-inpkts-not-ag")
+
+    thresh_if_inpktsbadtag = Enum.YLeaf(150994946, "thresh-if-inpktsbadtag")
+
+    thresh_if_inpktsunkownsci = Enum.YLeaf(150994947, "thresh-if-inpktsunkownsci")
+
+    thresh_if_inpktsnosci = Enum.YLeaf(150994948, "thresh-if-inpktsnosci")
+
+    thresh_if_inpkts_overrun = Enum.YLeaf(150994949, "thresh-if-inpkts-overrun")
+
+    thresh_if_inoctets_validate_d = Enum.YLeaf(150994950, "thresh-if-inoctets-validate-d")
+
+    thresh_if_inoctetsdecrypted = Enum.YLeaf(150994951, "thresh-if-inoctetsdecrypted")
+
+    thresh_if_outpkts_untagged = Enum.YLeaf(150994952, "thresh-if-outpkts-untagged")
+
+    thresh_if_thresh_outpkts_too_long = Enum.YLeaf(150994953, "thresh-if-thresh-outpkts-too-long")
+
+    thresh_if_outoctetsprotected = Enum.YLeaf(150994954, "thresh-if-outoctetsprotected")
+
+    thresh_if_outoctetsencrypted = Enum.YLeaf(150994955, "thresh-if-outoctetsencrypted")
+
+
+class SecyrxReport(Enum):
+    """
+    SecyrxReport
+
+    Secyrx report
+
+    .. data:: report_rx_inpktsun_check_ed = 117440512
+
+    	PM SECYRX rx InPktsUnchecked report
+
+    .. data:: report_rx_inpkts_delayed = 117440513
+
+    	PM SECYRX rx InPktsDelayed report
+
+    .. data:: report_rx_inpktslate = 117440514
+
+    	PM SECYRX rx InPktsLate report
+
+    .. data:: report_rx_inpktsok = 117440515
+
+    	PM SECYRX rx InPktsOK report
+
+    .. data:: report_rx_inpkts_invalid = 117440516
+
+    	PM SECYRX rx InPktsInvalid report
+
+    .. data:: report_rx_inpkts_not_valid = 117440517
+
+    	PM SECYRX rx InPktsNotValid report
+
+    .. data:: report_rx_inpkts_not_usingsa = 117440518
+
+    	PM SECYRX rx InPktsNotUsingSA sa report
+
+    .. data:: report_rx_inpktsunusedsa = 117440519
+
+    	PM SECYRX rx InPktsUnusedSA report
+
+    .. data:: report_rx_inpkts_untagged_hit = 117440520
+
+    	PM SECYRX rx InPktsUntaggedHit report
+
+    .. data:: report_rx_inoctets_validate_d = 117440521
+
+    	PM SECYRX rx InOctetsValidated report
+
+    .. data:: report_rx_inoctetsdecrypted = 117440522
+
+    	PM SECYRX rx InOctetsDecrypted report
+
+    """
+
+    report_rx_inpktsun_check_ed = Enum.YLeaf(117440512, "report-rx-inpktsun-check-ed")
+
+    report_rx_inpkts_delayed = Enum.YLeaf(117440513, "report-rx-inpkts-delayed")
+
+    report_rx_inpktslate = Enum.YLeaf(117440514, "report-rx-inpktslate")
+
+    report_rx_inpktsok = Enum.YLeaf(117440515, "report-rx-inpktsok")
+
+    report_rx_inpkts_invalid = Enum.YLeaf(117440516, "report-rx-inpkts-invalid")
+
+    report_rx_inpkts_not_valid = Enum.YLeaf(117440517, "report-rx-inpkts-not-valid")
+
+    report_rx_inpkts_not_usingsa = Enum.YLeaf(117440518, "report-rx-inpkts-not-usingsa")
+
+    report_rx_inpktsunusedsa = Enum.YLeaf(117440519, "report-rx-inpktsunusedsa")
+
+    report_rx_inpkts_untagged_hit = Enum.YLeaf(117440520, "report-rx-inpkts-untagged-hit")
+
+    report_rx_inoctets_validate_d = Enum.YLeaf(117440521, "report-rx-inoctets-validate-d")
+
+    report_rx_inoctetsdecrypted = Enum.YLeaf(117440522, "report-rx-inoctetsdecrypted")
+
+
+class SecyrxThreshold(Enum):
+    """
+    SecyrxThreshold
+
+    Secyrx threshold
+
+    .. data:: thresh_rx_inpktsun_check_ed = 117440512
+
+    	PM SECYRX rx InPktsUnchecked thresh
+
+    .. data:: thresh_rx_inpkts_delayed = 117440513
+
+    	PM SECYRX rx InPktsDelayed thresh
+
+    .. data:: thresh_rx_inpktslate = 117440514
+
+    	PM SECYRX rx InPktsLate thresh
+
+    .. data:: thresh_rx_inpktsok = 117440515
+
+    	PM SECYRX rx InPktsOK thresh
+
+    .. data:: thresh_rx_inpkts_invalid = 117440516
+
+    	PM SECYRX rx InPktsInvalid thresh
+
+    .. data:: thresh_rx_inpkts_not_valid = 117440517
+
+    	PM SECYRX rx InPktsNotValid thresh
+
+    .. data:: thresh_rx_inpkts_not_usingsa = 117440518
+
+    	PM SECYRX rx InPktsNotUsingSA thresh
+
+    .. data:: thresh_rx_inpktsunusedsa = 117440519
+
+    	PM SECYRX rx InPktsUnusedSA thresh
+
+    .. data:: thresh_rx_inpkts_untagged_hit = 117440520
+
+    	PM SECYRX rx InPktsUntaggedHit thresh
+
+    .. data:: thresh_rx_inoctets_validate_d = 117440521
+
+    	PM SECYRX rx InOctetsValidated thresh
+
+    .. data:: thresh_rx_inoctetsdecrypted = 117440522
+
+    	PM SECYRX rx InOctetsDecrypted thresh
+
+    """
+
+    thresh_rx_inpktsun_check_ed = Enum.YLeaf(117440512, "thresh-rx-inpktsun-check-ed")
+
+    thresh_rx_inpkts_delayed = Enum.YLeaf(117440513, "thresh-rx-inpkts-delayed")
+
+    thresh_rx_inpktslate = Enum.YLeaf(117440514, "thresh-rx-inpktslate")
+
+    thresh_rx_inpktsok = Enum.YLeaf(117440515, "thresh-rx-inpktsok")
+
+    thresh_rx_inpkts_invalid = Enum.YLeaf(117440516, "thresh-rx-inpkts-invalid")
+
+    thresh_rx_inpkts_not_valid = Enum.YLeaf(117440517, "thresh-rx-inpkts-not-valid")
+
+    thresh_rx_inpkts_not_usingsa = Enum.YLeaf(117440518, "thresh-rx-inpkts-not-usingsa")
+
+    thresh_rx_inpktsunusedsa = Enum.YLeaf(117440519, "thresh-rx-inpktsunusedsa")
+
+    thresh_rx_inpkts_untagged_hit = Enum.YLeaf(117440520, "thresh-rx-inpkts-untagged-hit")
+
+    thresh_rx_inoctets_validate_d = Enum.YLeaf(117440521, "thresh-rx-inoctets-validate-d")
+
+    thresh_rx_inoctetsdecrypted = Enum.YLeaf(117440522, "thresh-rx-inoctetsdecrypted")
+
+
+class SecytxReport(Enum):
+    """
+    SecytxReport
+
+    Secytx report
+
+    .. data:: report_tx_outpktsprotected = 150994944
+
+    	PM SECYTX tx OutPktsProtected report
+
+    .. data:: report_tx_outpktsencrypted = 150994945
+
+    	PM SECYTX tx OutPktsEncrypted report
+
+    .. data:: report_tx_outoctetsprotected = 150994946
+
+    	PM SECYTX tx OutOctetsProtected report
+
+    .. data:: report_tx_outoctetsencrypted = 150994947
+
+    	PM SECYTX tx OutOctetsEncrypted report
+
+    .. data:: report_tx_outpkts_too_long = 150994948
+
+    	PM SECYTX tx OutPktsTooLong report
+
+    """
+
+    report_tx_outpktsprotected = Enum.YLeaf(150994944, "report-tx-outpktsprotected")
+
+    report_tx_outpktsencrypted = Enum.YLeaf(150994945, "report-tx-outpktsencrypted")
+
+    report_tx_outoctetsprotected = Enum.YLeaf(150994946, "report-tx-outoctetsprotected")
+
+    report_tx_outoctetsencrypted = Enum.YLeaf(150994947, "report-tx-outoctetsencrypted")
+
+    report_tx_outpkts_too_long = Enum.YLeaf(150994948, "report-tx-outpkts-too-long")
+
+
+class SecytxThreshold(Enum):
+    """
+    SecytxThreshold
+
+    Secytx threshold
+
+    .. data:: thresh_tx_outpktsprotected = 134217728
+
+    	PM SECYTX tx OutPktsProtected thresh
+
+    .. data:: thresh_tx_outpktsencrypted = 134217729
+
+    	PM SECYTX tx OutPktsEncrypted thresh
+
+    .. data:: thresh_tx_outoctetsprotected = 134217730
+
+    	PM SECYTX tx OutOctetsProtected thresh
+
+    .. data:: thresh_tx_outoctetsencrypted = 134217731
+
+    	PM SECYTX tx OutOctetsEncrypted thresh
+
+    .. data:: thresh_tx_outpkts_too_long = 134217732
+
+    	PM SECYTX tx OutPktsTooLong thresh
+
+    """
+
+    thresh_tx_outpktsprotected = Enum.YLeaf(134217728, "thresh-tx-outpktsprotected")
+
+    thresh_tx_outpktsencrypted = Enum.YLeaf(134217729, "thresh-tx-outpktsencrypted")
+
+    thresh_tx_outoctetsprotected = Enum.YLeaf(134217730, "thresh-tx-outoctetsprotected")
+
+    thresh_tx_outoctetsencrypted = Enum.YLeaf(134217731, "thresh-tx-outoctetsencrypted")
+
+    thresh_tx_outpkts_too_long = Enum.YLeaf(134217732, "thresh-tx-outpkts-too-long")
 
 
 class StmReport(Enum):

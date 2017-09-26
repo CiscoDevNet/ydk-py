@@ -11,16 +11,15 @@ for concepts used in Multiprotocol Label
 Switching (MPLS) networks.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Mplslabeldistributionmethod(Enum):
+class MplsLabelDistributionMethod(Enum):
     """
-    Mplslabeldistributionmethod
+    MplsLabelDistributionMethod
 
     The label distribution method which is also called
 
@@ -43,9 +42,9 @@ class Mplslabeldistributionmethod(Enum):
     downstreamUnsolicited = Enum.YLeaf(2, "downstreamUnsolicited")
 
 
-class Mplsldplabeltype(Enum):
+class MplsLdpLabelType(Enum):
     """
-    Mplsldplabeltype
+    MplsLdpLabelType
 
     The Layer 2 label types which are defined for MPLS
 
@@ -68,9 +67,9 @@ class Mplsldplabeltype(Enum):
     frameRelay = Enum.YLeaf(3, "frameRelay")
 
 
-class Mplslsptype(Enum):
+class MplsLspType(Enum):
     """
-    Mplslsptype
+    MplsLspType
 
     Types of Label Switch Paths (LSPs)
 
@@ -129,9 +128,9 @@ class Mplslsptype(Enum):
     crossConnectingLsp = Enum.YLeaf(4, "crossConnectingLsp")
 
 
-class Mplsowner(Enum):
+class MplsOwner(Enum):
     """
-    Mplsowner
+    MplsOwner
 
     This object indicates the local network
 
@@ -218,9 +217,9 @@ class Mplsowner(Enum):
     policyAgent = Enum.YLeaf(7, "policyAgent")
 
 
-class Mplsretentionmode(Enum):
+class MplsRetentionMode(Enum):
     """
-    Mplsretentionmode
+    MplsRetentionMode
 
     The label retention mode which specifies whether
 
@@ -255,9 +254,9 @@ class Mplsretentionmode(Enum):
     liberal = Enum.YLeaf(2, "liberal")
 
 
-class Tehopaddresstype(Enum):
+class TeHopAddressType(Enum):
     """
-    Tehopaddresstype
+    TeHopAddressType
 
     A value that represents a type of address for a
 

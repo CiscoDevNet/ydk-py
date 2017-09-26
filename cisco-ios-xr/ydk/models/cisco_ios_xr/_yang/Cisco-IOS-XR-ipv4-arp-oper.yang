@@ -14,11 +14,11 @@ module Cisco-IOS-XR-ipv4-arp-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-ipv4-arp-oper-sub2 {
-    revision-date 2016-12-19;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-ipv4-arp-oper-sub1 {
-    revision-date 2016-12-19;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -45,8 +45,13 @@ module Cisco-IOS-XR-ipv4-arp-oper {
        arp-gmp: ARP-GMP global operational data
        arp: arp
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-19" {
     description

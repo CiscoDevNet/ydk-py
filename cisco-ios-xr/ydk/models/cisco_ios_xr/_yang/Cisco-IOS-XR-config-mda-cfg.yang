@@ -35,7 +35,7 @@ module Cisco-IOS-XR-config-mda-cfg {
        active-nodes: Per-node configuration for active nodes
        preconfigured-nodes: preconfigured nodes
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {

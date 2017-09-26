@@ -4,7 +4,6 @@ This module contains a collection of YANG definitions for
 monitoring memory usage of processes in a Network Element.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -34,32 +33,16 @@ class MplsForwardingTable(Entity):
 
         self.yang_name = "mpls-forwarding-table"
         self.yang_parent_name = "Cisco-IOS-XE-mpls-fwd-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"local-label-entry" : ("local_label_entry", MplsForwardingTable.LocalLabelEntry)}
 
         self.local_label_entry = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(MplsForwardingTable, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(MplsForwardingTable, self).__setattr__(name, value)
+        self._perform_setattr(MplsForwardingTable, [], name, value)
 
 
     class LocalLabelEntry(Entity):
@@ -90,34 +73,19 @@ class MplsForwardingTable(Entity):
 
             self.yang_name = "local-label-entry"
             self.yang_parent_name = "mpls-forwarding-table"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"forwarding-info" : ("forwarding_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo)}
 
             self.local_label = YLeaf(YType.uint32, "local-label")
 
             self.forwarding_info = YList(self)
+            self._segment_path = lambda: "local-label-entry" + "[local-label='" + self.local_label.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("local_label") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(MplsForwardingTable.LocalLabelEntry, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(MplsForwardingTable.LocalLabelEntry, self).__setattr__(name, value)
+            self._perform_setattr(MplsForwardingTable.LocalLabelEntry, ['local_label'], name, value)
 
 
         class ForwardingInfo(Entity):
@@ -205,6 +173,10 @@ class MplsForwardingTable(Entity):
 
                 self.yang_name = "forwarding-info"
                 self.yang_parent_name = "local-label-entry"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"connection-info" : ("connection_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo)}
+                self._child_list_classes = {}
 
                 self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
 
@@ -218,33 +190,10 @@ class MplsForwardingTable(Entity):
                 self.connection_info.parent = self
                 self._children_name_map["connection_info"] = "connection-info"
                 self._children_yang_names.add("connection-info")
+                self._segment_path = lambda: "forwarding-info" + "[outgoing-interface='" + self.outgoing_interface.get() + "']"
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("outgoing_interface",
-                                "label_switched_bytes",
-                                "next_hop",
-                                "outgoing_label") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, self).__setattr__(name, value)
+                self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, ['outgoing_interface', 'label_switched_bytes', 'next_hop', 'outgoing_label'], name, value)
 
             class NextHop(Enum):
                 """
@@ -411,6 +360,10 @@ class MplsForwardingTable(Entity):
 
                     self.yang_name = "connection-info"
                     self.yang_parent_name = "forwarding-info"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"tunnel-tp" : ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp)}
+                    self._child_list_classes = {}
 
                     self.ip = YLeaf(YType.str, "ip")
 
@@ -430,36 +383,10 @@ class MplsForwardingTable(Entity):
                     self.tunnel_tp.parent = self
                     self._children_name_map["tunnel_tp"] = "tunnel-tp"
                     self._children_yang_names.add("tunnel-tp")
+                    self._segment_path = lambda: "connection-info"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("ip",
-                                    "l2ckt_id",
-                                    "mask",
-                                    "nh_id",
-                                    "tunnel_id",
-                                    "type",
-                                    "vrf_id") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo, self).__setattr__(name, value)
+                    self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo, ['ip', 'l2ckt_id', 'mask', 'nh_id', 'tunnel_id', 'type', 'vrf_id'], name, value)
 
                 class Type(Enum):
                     """
@@ -532,6 +459,10 @@ class MplsForwardingTable(Entity):
 
                         self.yang_name = "tunnel-tp"
                         self.yang_parent_name = "connection-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"dst-id" : ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId), "src-id" : ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId)}
+                        self._child_list_classes = {}
 
                         self.tunnel = YLeaf(YType.uint32, "tunnel")
 
@@ -544,156 +475,10 @@ class MplsForwardingTable(Entity):
                         self.src_id.parent = self
                         self._children_name_map["src_id"] = "src-id"
                         self._children_yang_names.add("src-id")
+                        self._segment_path = lambda: "tunnel-tp"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("tunnel") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp, self).__setattr__(name, value)
-
-
-                    class SrcId(Entity):
-                        """
-                        
-                        
-                        .. attribute:: global_
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: node
-                        
-                        	
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        
-
-                        """
-
-                        _prefix = 'mpls-fwd-ios-xe-oper'
-                        _revision = '2017-02-07'
-
-                        def __init__(self):
-                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, self).__init__()
-
-                            self.yang_name = "src-id"
-                            self.yang_parent_name = "tunnel-tp"
-
-                            self.global_ = YLeaf(YType.uint32, "global")
-
-                            self.node = YLeaf(YType.str, "node")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("global_",
-                                            "node") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.global_.is_set or
-                                self.node.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.global_.yfilter != YFilter.not_set or
-                                self.node.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "src-id" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.global_.is_set or self.global_.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.global_.get_name_leafdata())
-                            if (self.node.is_set or self.node.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.node.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "global" or name == "node"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "global"):
-                                self.global_ = value
-                                self.global_.value_namespace = name_space
-                                self.global_.value_namespace_prefix = name_space_prefix
-                            if(value_path == "node"):
-                                self.node = value
-                                self.node.value_namespace = name_space
-                                self.node.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp, ['tunnel'], name, value)
 
 
                     class DstId(Entity):
@@ -736,459 +521,72 @@ class MplsForwardingTable(Entity):
 
                             self.yang_name = "dst-id"
                             self.yang_parent_name = "tunnel-tp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.global_ = YLeaf(YType.uint32, "global")
 
                             self.node = YLeaf(YType.str, "node")
+                            self._segment_path = lambda: "dst-id"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("global_",
-                                            "node") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.global_.is_set or
-                                self.node.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.global_.yfilter != YFilter.not_set or
-                                self.node.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "dst-id" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.global_.is_set or self.global_.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.global_.get_name_leafdata())
-                            if (self.node.is_set or self.node.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.node.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "global" or name == "node"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "global"):
-                                self.global_ = value
-                                self.global_.value_namespace = name_space
-                                self.global_.value_namespace_prefix = name_space_prefix
-                            if(value_path == "node"):
-                                self.node = value
-                                self.node.value_namespace = name_space
-                                self.node.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.tunnel.is_set or
-                            (self.dst_id is not None and self.dst_id.has_data()) or
-                            (self.src_id is not None and self.src_id.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.tunnel.yfilter != YFilter.not_set or
-                            (self.dst_id is not None and self.dst_id.has_operation()) or
-                            (self.src_id is not None and self.src_id.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "tunnel-tp" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.tunnel.is_set or self.tunnel.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.tunnel.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "dst-id"):
-                            if (self.dst_id is None):
-                                self.dst_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId()
-                                self.dst_id.parent = self
-                                self._children_name_map["dst_id"] = "dst-id"
-                            return self.dst_id
-
-                        if (child_yang_name == "src-id"):
-                            if (self.src_id is None):
-                                self.src_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId()
-                                self.src_id.parent = self
-                                self._children_name_map["src_id"] = "src-id"
-                            return self.src_id
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "dst-id" or name == "src-id" or name == "tunnel"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "tunnel"):
-                            self.tunnel = value
-                            self.tunnel.value_namespace = name_space
-                            self.tunnel.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.ip.is_set or
-                        self.l2ckt_id.is_set or
-                        self.mask.is_set or
-                        self.nh_id.is_set or
-                        self.tunnel_id.is_set or
-                        self.type.is_set or
-                        self.vrf_id.is_set or
-                        (self.tunnel_tp is not None and self.tunnel_tp.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.ip.yfilter != YFilter.not_set or
-                        self.l2ckt_id.yfilter != YFilter.not_set or
-                        self.mask.yfilter != YFilter.not_set or
-                        self.nh_id.yfilter != YFilter.not_set or
-                        self.tunnel_id.yfilter != YFilter.not_set or
-                        self.type.yfilter != YFilter.not_set or
-                        self.vrf_id.yfilter != YFilter.not_set or
-                        (self.tunnel_tp is not None and self.tunnel_tp.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "connection-info" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.ip.get_name_leafdata())
-                    if (self.l2ckt_id.is_set or self.l2ckt_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.l2ckt_id.get_name_leafdata())
-                    if (self.mask.is_set or self.mask.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.mask.get_name_leafdata())
-                    if (self.nh_id.is_set or self.nh_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nh_id.get_name_leafdata())
-                    if (self.tunnel_id.is_set or self.tunnel_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.tunnel_id.get_name_leafdata())
-                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.type.get_name_leafdata())
-                    if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.vrf_id.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "tunnel-tp"):
-                        if (self.tunnel_tp is None):
-                            self.tunnel_tp = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp()
-                            self.tunnel_tp.parent = self
-                            self._children_name_map["tunnel_tp"] = "tunnel-tp"
-                        return self.tunnel_tp
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "tunnel-tp" or name == "ip" or name == "l2ckt-id" or name == "mask" or name == "nh-id" or name == "tunnel-id" or name == "type" or name == "vrf-id"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "ip"):
-                        self.ip = value
-                        self.ip.value_namespace = name_space
-                        self.ip.value_namespace_prefix = name_space_prefix
-                    if(value_path == "l2ckt-id"):
-                        self.l2ckt_id = value
-                        self.l2ckt_id.value_namespace = name_space
-                        self.l2ckt_id.value_namespace_prefix = name_space_prefix
-                    if(value_path == "mask"):
-                        self.mask = value
-                        self.mask.value_namespace = name_space
-                        self.mask.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nh-id"):
-                        self.nh_id = value
-                        self.nh_id.value_namespace = name_space
-                        self.nh_id.value_namespace_prefix = name_space_prefix
-                    if(value_path == "tunnel-id"):
-                        self.tunnel_id = value
-                        self.tunnel_id.value_namespace = name_space
-                        self.tunnel_id.value_namespace_prefix = name_space_prefix
-                    if(value_path == "type"):
-                        self.type = value
-                        self.type.value_namespace = name_space
-                        self.type.value_namespace_prefix = name_space_prefix
-                    if(value_path == "vrf-id"):
-                        self.vrf_id = value
-                        self.vrf_id.value_namespace = name_space
-                        self.vrf_id.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.outgoing_interface.is_set or
-                    self.label_switched_bytes.is_set or
-                    self.next_hop.is_set or
-                    self.outgoing_label.is_set or
-                    (self.connection_info is not None and self.connection_info.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.outgoing_interface.yfilter != YFilter.not_set or
-                    self.label_switched_bytes.yfilter != YFilter.not_set or
-                    self.next_hop.yfilter != YFilter.not_set or
-                    self.outgoing_label.yfilter != YFilter.not_set or
-                    (self.connection_info is not None and self.connection_info.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "forwarding-info" + "[outgoing-interface='" + self.outgoing_interface.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.outgoing_interface.is_set or self.outgoing_interface.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.outgoing_interface.get_name_leafdata())
-                if (self.label_switched_bytes.is_set or self.label_switched_bytes.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.label_switched_bytes.get_name_leafdata())
-                if (self.next_hop.is_set or self.next_hop.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.next_hop.get_name_leafdata())
-                if (self.outgoing_label.is_set or self.outgoing_label.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.outgoing_label.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "connection-info"):
-                    if (self.connection_info is None):
-                        self.connection_info = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo()
-                        self.connection_info.parent = self
-                        self._children_name_map["connection_info"] = "connection-info"
-                    return self.connection_info
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "connection-info" or name == "outgoing-interface" or name == "label-switched-bytes" or name == "next-hop" or name == "outgoing-label"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "outgoing-interface"):
-                    self.outgoing_interface = value
-                    self.outgoing_interface.value_namespace = name_space
-                    self.outgoing_interface.value_namespace_prefix = name_space_prefix
-                if(value_path == "label-switched-bytes"):
-                    self.label_switched_bytes = value
-                    self.label_switched_bytes.value_namespace = name_space
-                    self.label_switched_bytes.value_namespace_prefix = name_space_prefix
-                if(value_path == "next-hop"):
-                    self.next_hop = value
-                    self.next_hop.value_namespace = name_space
-                    self.next_hop.value_namespace_prefix = name_space_prefix
-                if(value_path == "outgoing-label"):
-                    self.outgoing_label = value
-                    self.outgoing_label.value_namespace = name_space
-                    self.outgoing_label.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.forwarding_info:
-                if (c.has_data()):
-                    return True
-            return self.local_label.is_set
-
-        def has_operation(self):
-            for c in self.forwarding_info:
-                if (c.has_operation()):
-                    return True
-            return (
-                self.yfilter != YFilter.not_set or
-                self.local_label.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "local-label-entry" + "[local-label='" + self.local_label.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.local_label.is_set or self.local_label.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.local_label.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "forwarding-info"):
-                for c in self.forwarding_info:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = MplsForwardingTable.LocalLabelEntry.ForwardingInfo()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.forwarding_info.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "forwarding-info" or name == "local-label"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "local-label"):
-                self.local_label = value
-                self.local_label.value_namespace = name_space
-                self.local_label.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.local_label_entry:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.local_label_entry:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "local-label-entry"):
-            for c in self.local_label_entry:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = MplsForwardingTable.LocalLabelEntry()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.local_label_entry.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "local-label-entry"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                            self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, ['global_', 'node'], name, value)
+
+
+                    class SrcId(Entity):
+                        """
+                        
+                        
+                        .. attribute:: global_
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: node
+                        
+                        	
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'mpls-fwd-ios-xe-oper'
+                        _revision = '2017-02-07'
+
+                        def __init__(self):
+                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, self).__init__()
+
+                            self.yang_name = "src-id"
+                            self.yang_parent_name = "tunnel-tp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.global_ = YLeaf(YType.uint32, "global")
+
+                            self.node = YLeaf(YType.str, "node")
+                            self._segment_path = lambda: "src-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, ['global_', 'node'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsForwardingTable()

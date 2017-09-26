@@ -29,8 +29,13 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
 
   revision "2015-08-27" {
     description
@@ -125,7 +130,7 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         value 3;
         description "IPv4 tunnel";
       }
-      enum vp-nv4-unicast {
+      enum vpnv4-unicast {
         value 4;
         description "VPNv4 unicast";
       }
@@ -141,15 +146,15 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         value 7;
         description "IPv6 labeled-unicast";
       }
-      enum vp-nv6-unicast {
+      enum vpnv6-unicast {
         value 8;
         description "VPNv6 unicast";
       }
-      enum ipv4mdt {
+      enum ipv4-mdt {
         value 9;
         description "IPv4 MDT";
       }
-      enum l2vpnvpls {
+      enum l2vpn-vpls {
         value 10;
         description "L2VPN VPLS-VPWS";
       }
@@ -157,15 +162,15 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         value 11;
         description "IPv4 rt-filter";
       }
-      enum ipv4mvpn {
+      enum ipv4-mvpn {
         value 12;
         description "IPv4 MVPN";
       }
-      enum ipv6mvpn {
+      enum ipv6-mvpn {
         value 13;
         description "IPv6 MVPN";
       }
-      enum l2vpnevpn {
+      enum l2vpn-evpn {
         value 14;
         description "L2VPN EVPN";
       }
@@ -173,11 +178,11 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         value 15;
         description "Link-state link-state";
       }
-      enum vp-nv4-multicast {
+      enum vpnv4-multicast {
         value 16;
         description "VPNv4 Multicast";
       }
-      enum vp-nv6-multicast {
+      enum vpnv6-multicast {
         value 17;
         description "VPNv6 Multicast";
       }
@@ -189,23 +194,23 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         value 19;
         description "IPv6 flowspec";
       }
-      enum vp-nv4-flowspec {
+      enum vpnv4-flowspec {
         value 20;
         description "VPNv4 flowspec";
       }
-      enum vp-nv6-flowspec {
+      enum vpnv6-flowspec {
         value 21;
         description "VPNv6 flowspec";
       }
-      enum l2vpnmspw {
+      enum l2vpn-mspw {
         value 22;
         description "L2VPN MSPW";
       }
-      enum ipv4sr-policy {
+      enum ipv4-sr-policy {
         value 23;
         description "IPv4 SRPolicy";
       }
-      enum ipv6sr-policy {
+      enum ipv6-sr-policy {
         value 24;
         description "IPv6 SRPolicy";
       }
@@ -357,7 +362,7 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
     }
     description "Bgp precedence dscp";
   }
-  typedef Bgpaf-additional-paths-cfg {
+  typedef Bgp-af-additional-paths-cfg {
     type enumeration {
       enum enable {
         value 1;
@@ -368,7 +373,7 @@ module Cisco-IOS-XR-ipv4-bgp-datatypes {
         description "Disable";
       }
     }
-    description "Bgpaf additional paths cfg";
+    description "Bgp af additional paths cfg";
   }
   typedef Bgp-as-range {
     type uint32 {

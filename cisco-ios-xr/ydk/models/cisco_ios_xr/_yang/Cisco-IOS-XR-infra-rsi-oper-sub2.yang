@@ -6,10 +6,8 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-infra-rsi-oper-sub1 {
-    revision-date 2015-01-07;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -31,8 +29,13 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-rsi package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-01-07" {
     description

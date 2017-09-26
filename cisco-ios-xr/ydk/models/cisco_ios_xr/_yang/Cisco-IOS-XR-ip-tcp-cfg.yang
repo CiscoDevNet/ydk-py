@@ -35,7 +35,7 @@ module Cisco-IOS-XR-ip-tcp-cfg {
        ip-tcp: Global IP TCP configuration
        ip: ip
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-02-26" {
@@ -100,10 +100,12 @@ module Cisco-IOS-XR-ip-tcp-cfg {
           servers";
         leaf access-control-list-name {
           type string;
-          description "Access list";
+          description "Specify the access list";
         }
         leaf small-server {
-          type int32;
+          type uint32 {
+            range "1..2147483647";
+          }
           mandatory true;
           description
             "Set number of allowable TCP small servers,

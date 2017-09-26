@@ -1,0 +1,149 @@
+""" Cisco_IOS_XR_drivers_vpa_infra_cfg 
+
+This module contains a collection of YANG definitions
+for Cisco IOS\-XR drivers\-vpa\-infra package configuration.
+
+This module contains definitions
+for the following management objects\:
+  hardware\-module\: Configure subslot h/w module
+
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+"""
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
+from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+class HwModuleShutdownPowerMode(Enum):
+    """
+    HwModuleShutdownPowerMode
+
+    Hw module shutdown power mode
+
+    .. data:: powered = 2
+
+    	Keep the showdown module powered (default)
+
+    """
+
+    powered = Enum.YLeaf(2, "powered")
+
+
+
+class HardwareModule(Entity):
+    """
+    Configure subslot h/w module
+    
+    .. attribute:: nodes
+    
+    	 subslot h/w module
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes>`
+    
+    
+
+    """
+
+    _prefix = 'drivers-vpa-infra-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(HardwareModule, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hardware-module"
+        self.yang_parent_name = "Cisco-IOS-XR-drivers-vpa-infra-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"nodes" : ("nodes", HardwareModule.Nodes)}
+        self._child_list_classes = {}
+
+        self.nodes = HardwareModule.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
+        self._segment_path = lambda: "Cisco-IOS-XR-drivers-vpa-infra-cfg:hardware-module"
+
+
+    class Nodes(Entity):
+        """
+         subslot h/w module
+        
+        .. attribute:: node
+        
+        	The identifier for a SPA node
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'drivers-vpa-infra-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(HardwareModule.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "hardware-module"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"node" : ("node", HardwareModule.Nodes.Node)}
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-drivers-vpa-infra-cfg:hardware-module/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HardwareModule.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            The identifier for a SPA node
+            
+            .. attribute:: node_name  <key>
+            
+            	A SPA node
+            	**type**\:  str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: shutdown
+            
+            	Shutdown a subslot h/w module
+            	**type**\:   :py:class:`HwModuleShutdownPowerMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HwModuleShutdownPowerMode>`
+            
+            
+
+            """
+
+            _prefix = 'drivers-vpa-infra-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(HardwareModule.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.shutdown = YLeaf(YType.enumeration, "shutdown")
+                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-drivers-vpa-infra-cfg:hardware-module/nodes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HardwareModule.Nodes.Node, ['node_name', 'shutdown'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = HardwareModule()
+        return self._top_entity
+

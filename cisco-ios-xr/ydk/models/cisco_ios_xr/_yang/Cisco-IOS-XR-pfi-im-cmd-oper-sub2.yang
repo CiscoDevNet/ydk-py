@@ -27,8 +27,18 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pfi-im-cmd package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-06-26" {
+    description
+      "Change identifiers to be more readable.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-12-18" {
     description

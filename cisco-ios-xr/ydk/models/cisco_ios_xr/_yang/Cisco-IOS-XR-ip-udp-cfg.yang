@@ -40,8 +40,13 @@ module Cisco-IOS-XR-ip-udp-cfg {
        Cisco-IOS-XR-ip-tcp-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-02-26" {
     description
@@ -161,12 +166,11 @@ module Cisco-IOS-XR-ip-udp-cfg {
       description "UDP small servers configuration";
       leaf access-control-list-name {
         type string;
-        mandatory true;
         description "Specify the access list";
       }
       leaf small-server {
         type uint32 {
-          range "0..2147483647";
+          range "1..2147483647";
         }
         mandatory true;
         description

@@ -10,8 +10,6 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-asr9k-sc-invmgr-oper-sub1 {
     revision-date 2017-01-04;
   }
@@ -39,7 +37,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
      for the following management objects:
        inventory: Logical Router Inventory operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2017-01-04" {

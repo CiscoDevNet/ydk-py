@@ -13,7 +13,7 @@ module Cisco-IOS-XR-policy-repository-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-policy-repository-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -39,8 +39,13 @@ module Cisco-IOS-XR-policy-repository-oper {
      for the following management objects:
        routing-policy: Routing policy operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
@@ -51,7 +56,7 @@ module Cisco-IOS-XR-policy-repository-oper {
   grouping UNUSED {
     description
       "Common node of policies, as-path, community,
-      extended-community-cost, rd,
+      large-community, extended-community-cost, rd,
       extended-community-rt, extended-community-soo,
       extended-community-opaque,
       extended-community-seg-nh,
@@ -69,7 +74,7 @@ module Cisco-IOS-XR-policy-repository-oper {
   grouping SET-TABLE {
     description
       "Common node of as-path, community,
-      extended-community-cost, rd,
+      large-community, extended-community-cost, rd,
       extended-community-rt, extended-community-soo,
       extended-community-opaque,
       extended-community-seg-nh,
@@ -95,7 +100,7 @@ module Cisco-IOS-XR-policy-repository-oper {
   grouping INACTIVE {
     description
       "Common node of policies, as-path, community,
-      extended-community-cost, rd,
+      large-community, extended-community-cost, rd,
       extended-community-rt, extended-community-soo,
       extended-community-opaque,
       extended-community-seg-nh,
@@ -124,7 +129,7 @@ module Cisco-IOS-XR-policy-repository-oper {
   grouping ACTIVE {
     description
       "Common node of policies, as-path, community,
-      extended-community-cost, rd,
+      large-community, extended-community-cost, rd,
       extended-community-rt, extended-community-soo,
       extended-community-opaque,
       extended-community-seg-nh, prefix, esi, etag, mac
@@ -284,6 +289,14 @@ module Cisco-IOS-XR-policy-repository-oper {
 
       container as-path {
         description "Information about AS Path sets";
+        uses SET-TABLE;
+        uses UNUSED;
+        uses INACTIVE;
+        uses ACTIVE;
+      }
+
+      container large-community {
+        description "Information about Large Community sets";
         uses SET-TABLE;
         uses UNUSED;
         uses INACTIVE;

@@ -42,59 +42,29 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-07-14" {
+    description
+      "Trace buffer size enum name modified for intelligible.";
+  }
+
+  revision "2017-06-09" {
+    description
+      "Datatype modified to Range for area id, route tag and redistribute tag.";
+  }
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
       "IOS XR 6.0 revision.";
   }
 
-  typedef Trace-buf-size {
-    type enumeration {
-      enum disable {
-        value 0;
-        description "Disable trace";
-      }
-      enum one {
-        value 256;
-        description "trace buffer size 256";
-      }
-      enum two {
-        value 512;
-        description "trace buffer size 512";
-      }
-      enum three {
-        value 1024;
-        description "trace buffer size 1024";
-      }
-      enum four {
-        value 2048;
-        description "trace buffer size 2048";
-      }
-      enum five {
-        value 4096;
-        description "trace buffer size 4096";
-      }
-      enum six {
-        value 8192;
-        description "trace buffer size 8192";
-      }
-      enum seven {
-        value 16384;
-        description "trace buffer size 16384";
-      }
-      enum eight {
-        value 32768;
-        description "trace buffer size 32768";
-      }
-      enum nine {
-        value 65536;
-        description "trace buffer size 65536";
-      }
-    }
-    description "Trace buf size";
-  }
   typedef Ospfv3-protocol {
     type enumeration {
       enum all {
@@ -266,6 +236,51 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       }
     }
     description "Ospfv3 metric";
+  }
+  typedef Ospfv3-trace-buf-size {
+    type enumeration {
+      enum size0 {
+        value 0;
+        description "Disable trace";
+      }
+      enum size256 {
+        value 256;
+        description "trace buffer size 256";
+      }
+      enum size512 {
+        value 512;
+        description "trace buffer size 512";
+      }
+      enum size1024 {
+        value 1024;
+        description "trace buffer size 1024";
+      }
+      enum size2048 {
+        value 2048;
+        description "trace buffer size 2048";
+      }
+      enum size4096 {
+        value 4096;
+        description "trace buffer size 4096";
+      }
+      enum size8192 {
+        value 8192;
+        description "trace buffer size 8192";
+      }
+      enum size16384 {
+        value 16384;
+        description "trace buffer size 16384";
+      }
+      enum size32768 {
+        value 32768;
+        description "trace buffer size 32768";
+      }
+      enum size65536 {
+        value 65536;
+        description "trace buffer size 65536";
+      }
+    }
+    description "Ospfv3 trace buf size";
   }
   typedef Ospfv3-external-route {
     type enumeration {
@@ -538,7 +553,9 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               routes";
           }
           leaf tag {
-            type int32;
+            type uint32 {
+              range "0..4294967295";
+            }
             description "Tag for routes redistributed into OSPFv3";
           }
           leaf route-policy-name {
@@ -1532,7 +1549,9 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         key "area-id";
         description "Configuration for a particular area";
         leaf area-id {
-          type int32;
+          type uint32 {
+            range "0..4294967295";
+          }
           description "Area ID if in integer format";
         }
         uses AREA-CONTENT;
@@ -1727,7 +1746,9 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           description "OSPFv3 metric type for default routes";
         }
         leaf tag {
-          type int32;
+          type uint32 {
+            range "0..4294967295";
+          }
           description "Tag for default route";
         }
         leaf route-policy-name {
@@ -2668,10 +2689,10 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               buffer";
             leaf trace-buf-name {
               type xr:Cisco-ios-xr-string;
-              description "Name for this VRF";
+              description "Name for this trace buffer";
             }
             leaf bufsize {
-              type Trace-buf-size;
+              type Ospfv3-trace-buf-size;
               mandatory true;
               description "Buffer size";
             }

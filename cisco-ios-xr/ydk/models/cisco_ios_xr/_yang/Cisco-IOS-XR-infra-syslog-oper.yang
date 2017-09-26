@@ -10,8 +10,6 @@ module Cisco-IOS-XR-infra-syslog-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   include Cisco-IOS-XR-infra-syslog-oper-sub1 {
     revision-date 2016-06-24;
   }
@@ -40,7 +38,7 @@ module Cisco-IOS-XR-infra-syslog-oper {
        logging: Logging History data
        syslog: syslog
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2016-06-24" {

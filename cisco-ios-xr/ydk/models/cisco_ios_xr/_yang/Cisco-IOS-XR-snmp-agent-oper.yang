@@ -14,31 +14,31 @@ module Cisco-IOS-XR-snmp-agent-oper {
   import Cisco-IOS-XR-types { prefix "xr"; }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub7 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub6 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub5 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub4 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub3 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub2 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   include Cisco-IOS-XR-snmp-agent-oper-sub1 {
-    revision-date 2016-06-01;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -64,8 +64,13 @@ module Cisco-IOS-XR-snmp-agent-oper {
      for the following management objects:
        snmp: SNMP operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2016-06-01" {
     description

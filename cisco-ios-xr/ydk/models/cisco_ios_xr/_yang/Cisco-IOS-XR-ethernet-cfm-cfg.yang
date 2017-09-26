@@ -51,7 +51,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
        Cisco-IOS-XR-infra-sla-cfg
      modules with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -96,8 +96,20 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
           "Use a MP2MP Cross Connect - all MEPs will be Up
           MEPs and MIPs are permitted";
       }
-      enum down-meps {
+      enum vlan-aware-flexible-cross-connect {
         value 4;
+        description
+          "Use a VLAN-aware Flexible Cross Connect - all
+          MEPs will be Up MEPs and MIPs are permitted";
+      }
+      enum vlan-unaware-flexible-cross-connect {
+        value 5;
+        description
+          "Use a VLAN-unaware Flexible Cross Connect - all
+          MEPs will be Up MEPs and MIPs are permitted";
+      }
+      enum down-meps {
+        value 6;
         description "Down MEPs - no MIPs permitted";
       }
     }
@@ -794,6 +806,12 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                     range "1..16384";
                   }
                   description "Remote Customer Edge Identifier";
+                }
+                leaf evi {
+                  type uint32 {
+                    range "1..65534";
+                  }
+                  description "EVPN ID";
                 }
                 leaf short-ma-name-format {
                   type Cfm-short-ma-name-format;

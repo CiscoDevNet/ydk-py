@@ -6,8 +6,6 @@ submodule Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -27,12 +25,12 @@ submodule Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ncs1k-mxp-headless package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2016-09-13" {
+  revision "2017-03-30" {
     description
-      "Rx vlan stats added";
+      "PRBS stats added";
   }
 
   revision "2015-11-09" {
@@ -40,6 +38,27 @@ submodule Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Mxp-otn-prbs-status {
+    type enumeration {
+      enum locked {
+        value 0;
+        description "Locked";
+      }
+      enum not-locked {
+        value 1;
+        description "Not Locked";
+      }
+      enum not-applicable {
+        value 2;
+        description "Not Applicable";
+      }
+      enum locked-with-errors {
+        value 3;
+        description "Locked With Errors";
+      }
+    }
+    description "Mxp otn prbs status";
+  }
 
   grouping MXP-ETHER-PRIM-INFO {
     description "Ether statistics";
@@ -198,6 +217,18 @@ submodule Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
     }
   }
 
+  grouping MXP-OTN-PRBS-INFO {
+    description "PRBS Statistics";
+    leaf ebc {
+      type uint64;
+      description "EBC";
+    }
+    leaf sync-status {
+      type Mxp-otn-prbs-status;
+      description "SyncStatus";
+    }
+  }
+
   grouping MXP-OTN-CNT-INFO {
     description "OTN statistics";
     leaf sm-bip {
@@ -224,6 +255,11 @@ submodule Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1 {
     container otn-statistics {
       description "OTN statistics";
       uses MXP-OTN-CNT-INFO;
+    }
+
+    container prbs-statistics {
+      description "PRBS Statistics";
+      uses MXP-OTN-PRBS-INFO;
     }
     leaf started-stateful {
       type boolean;

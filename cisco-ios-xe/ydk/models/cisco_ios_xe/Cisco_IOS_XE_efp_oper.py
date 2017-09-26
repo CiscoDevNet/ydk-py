@@ -6,7 +6,6 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -36,32 +35,16 @@ class EfpStats(Entity):
 
         self.yang_name = "efp-stats"
         self.yang_parent_name = "Cisco-IOS-XE-efp-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {"efp-stat" : ("efp_stat", EfpStats.EfpStat)}
 
         self.efp_stat = YList(self)
+        self._segment_path = lambda: "Cisco-IOS-XE-efp-oper:efp-stats"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in () and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(EfpStats, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(EfpStats, self).__setattr__(name, value)
+        self._perform_setattr(EfpStats, [], name, value)
 
 
     class EfpStat(Entity):
@@ -120,6 +103,10 @@ class EfpStats(Entity):
 
             self.yang_name = "efp-stat"
             self.yang_parent_name = "efp-stats"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.id = YLeaf(YType.uint32, "id")
 
@@ -132,178 +119,11 @@ class EfpStats(Entity):
             self.out_bytes = YLeaf(YType.uint64, "out-bytes")
 
             self.out_pkts = YLeaf(YType.uint64, "out-pkts")
+            self._segment_path = lambda: "efp-stat" + "[id='" + self.id.get() + "']" + "[interface='" + self.interface.get() + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-efp-oper:efp-stats/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("id",
-                            "interface",
-                            "in_bytes",
-                            "in_pkts",
-                            "out_bytes",
-                            "out_pkts") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(EfpStats.EfpStat, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(EfpStats.EfpStat, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.id.is_set or
-                self.interface.is_set or
-                self.in_bytes.is_set or
-                self.in_pkts.is_set or
-                self.out_bytes.is_set or
-                self.out_pkts.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.id.yfilter != YFilter.not_set or
-                self.interface.yfilter != YFilter.not_set or
-                self.in_bytes.yfilter != YFilter.not_set or
-                self.in_pkts.yfilter != YFilter.not_set or
-                self.out_bytes.yfilter != YFilter.not_set or
-                self.out_pkts.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "efp-stat" + "[id='" + self.id.get() + "']" + "[interface='" + self.interface.get() + "']" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XE-efp-oper:efp-stats/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.id.is_set or self.id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.id.get_name_leafdata())
-            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.interface.get_name_leafdata())
-            if (self.in_bytes.is_set or self.in_bytes.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.in_bytes.get_name_leafdata())
-            if (self.in_pkts.is_set or self.in_pkts.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.in_pkts.get_name_leafdata())
-            if (self.out_bytes.is_set or self.out_bytes.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.out_bytes.get_name_leafdata())
-            if (self.out_pkts.is_set or self.out_pkts.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.out_pkts.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "id" or name == "interface" or name == "in-bytes" or name == "in-pkts" or name == "out-bytes" or name == "out-pkts"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "id"):
-                self.id = value
-                self.id.value_namespace = name_space
-                self.id.value_namespace_prefix = name_space_prefix
-            if(value_path == "interface"):
-                self.interface = value
-                self.interface.value_namespace = name_space
-                self.interface.value_namespace_prefix = name_space_prefix
-            if(value_path == "in-bytes"):
-                self.in_bytes = value
-                self.in_bytes.value_namespace = name_space
-                self.in_bytes.value_namespace_prefix = name_space_prefix
-            if(value_path == "in-pkts"):
-                self.in_pkts = value
-                self.in_pkts.value_namespace = name_space
-                self.in_pkts.value_namespace_prefix = name_space_prefix
-            if(value_path == "out-bytes"):
-                self.out_bytes = value
-                self.out_bytes.value_namespace = name_space
-                self.out_bytes.value_namespace_prefix = name_space_prefix
-            if(value_path == "out-pkts"):
-                self.out_pkts = value
-                self.out_pkts.value_namespace = name_space
-                self.out_pkts.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        for c in self.efp_stat:
-            if (c.has_data()):
-                return True
-        return False
-
-    def has_operation(self):
-        for c in self.efp_stat:
-            if (c.has_operation()):
-                return True
-        return self.yfilter != YFilter.not_set
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XE-efp-oper:efp-stats" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "efp-stat"):
-            for c in self.efp_stat:
-                segment = c.get_segment_path()
-                if (segment_path == segment):
-                    return c
-            c = EfpStats.EfpStat()
-            c.parent = self
-            local_reference_key = "ydk::seg::%s" % segment_path
-            self._local_refs[local_reference_key] = c
-            self.efp_stat.append(c)
-            return c
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "efp-stat"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+            self._perform_setattr(EfpStats.EfpStat, ['id', 'interface', 'in_bytes', 'in_pkts', 'out_bytes', 'out_pkts'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EfpStats()

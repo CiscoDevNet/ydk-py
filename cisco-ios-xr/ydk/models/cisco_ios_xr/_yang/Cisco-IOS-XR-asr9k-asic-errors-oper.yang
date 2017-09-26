@@ -39,7 +39,7 @@ module Cisco-IOS-XR-asr9k-asic-errors-oper {
      for the following management objects:
        asic-error-stats: Asic error stats operational data
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -52,30 +52,45 @@ module Cisco-IOS-XR-asr9k-asic-errors-oper {
     config false;
     description "Asic error stats operational data";
 
-    container nodes {
-      description "Table of Nodes";
+    container racks {
+      description "Table of racks";
 
-      list node {
-        key "node-name";
-        description "Information about a particular node";
+      list rack {
+        key "rack";
+        description "Number";
 
-        container counts {
-          description
-            "Table of all Asic Types information on a node";
+        container nodes {
+          description "Table of Nodes";
 
-          list count {
-            key "type";
-            description "Summary Asic error counts for a Asic Type";
-            leaf type {
-              type xr:Cisco-ios-xr-string;
-              description "Asic Type";
+          list node {
+            key "node-name";
+            description "Information about a particular node";
+
+            container counts {
+              description
+                "Table of all Asic Types information on a
+                node";
+
+              list count {
+                key "type";
+                description
+                  "Summary Asic error counts for a Asic Type";
+                leaf type {
+                  type xr:Cisco-ios-xr-string;
+                  description "Asic Type";
+                }
+                uses HFR-ASIC-SUMMARY;
+              }
             }
-            uses HFR-ASIC-SUMMARY;
+            leaf node-name {
+              type xr:Node-id;
+              description "Node name";
+            }
           }
         }
-        leaf node-name {
-          type xr:Node-id;
-          description "Node name";
+        leaf rack {
+          type int32;
+          description "Rack number";
         }
       }
     }

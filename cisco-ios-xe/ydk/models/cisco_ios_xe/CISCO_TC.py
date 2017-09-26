@@ -4,16 +4,15 @@ This module defines textual conventions used throughout
 cisco enterprise mibs.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Ciscoalarmseverity(Enum):
+class CiscoAlarmSeverity(Enum):
     """
-    Ciscoalarmseverity
+    CiscoAlarmSeverity
 
     Represents the perceived alarm severity associated
 
@@ -118,9 +117,9 @@ class Ciscoalarmseverity(Enum):
     info = Enum.YLeaf(7, "info")
 
 
-class Ciscolocationclass(Enum):
+class CiscoLocationClass(Enum):
     """
-    Ciscolocationclass
+    CiscoLocationClass
 
     An enumerated value which provides an indication of
 
@@ -185,9 +184,9 @@ class Ciscolocationclass(Enum):
     subChannel = Enum.YLeaf(8, "subChannel")
 
 
-class Cisconetworkprotocol(Enum):
+class CiscoNetworkProtocol(Enum):
     """
-    Cisconetworkprotocol
+    CiscoNetworkProtocol
 
     Represents the different types of network layer protocols.
 
@@ -298,9 +297,9 @@ class Cisconetworkprotocol(Enum):
     unknown = Enum.YLeaf(65535, "unknown")
 
 
-class Ciscoportlistrange(Enum):
+class CiscoPortListRange(Enum):
     """
-    Ciscoportlistrange
+    CiscoPortListRange
 
     Indicates the port range.
 
@@ -377,9 +376,9 @@ class Ciscoportlistrange(Enum):
     fourteenKto16K = Enum.YLeaf(8, "fourteenKto16K")
 
 
-class Ciscorowoperstatus(Enum):
+class CiscoRowOperStatus(Enum):
     """
-    Ciscorowoperstatus
+    CiscoRowOperStatus
 
     Represents the operational status of an table entry.
 
@@ -430,9 +429,9 @@ class Ciscorowoperstatus(Enum):
     missingDependency = Enum.YLeaf(4, "missingDependency")
 
 
-class Ifoperstatusreason(Enum):
+class IfOperStatusReason(Enum):
     """
-    Ifoperstatusreason
+    IfOperStatusReason
 
     The cause of current operational state of the
 
@@ -2652,17 +2651,5 @@ class Ifoperstatusreason(Enum):
 
     fabricNameInvalid = Enum.YLeaf(268, "fabricNameInvalid")
 
-
-class Ciscocoslist(Bits):
-    """
-    Ciscocoslist
-
-    Each bit represents a CoS value (0 through 7).
-    Keys are:- cos5 , cos2 , cos7 , cos4 , cos1 , cos0 , cos3 , cos6
-
-    """
-
-    def __init__(self):
-        super(Ciscocoslist, self).__init__()
 
 

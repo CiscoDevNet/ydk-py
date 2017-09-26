@@ -34,13 +34,13 @@ module Cisco-IOS-XR-ipv4-bgp-act {
 
   typedef update-group-id {
     type string {
-      pattern "(([0-9]|1[0-5])\.\d+)";
+      pattern '(([0-9]|1[0-5])\.\d+)';
     }
   }
 
   typedef refresh-sub-group-id {
     type string {
-      pattern "(([0-9]|1[0-5])\.\d+)(:\d+)";
+      pattern '(([0-9]|1[0-5])\.\d+)(:\d+)';
     }
   }
 
@@ -85,7 +85,7 @@ module Cisco-IOS-XR-ipv4-bgp-act {
 
   typedef as-four-byte {
     type string {
-      pattern "(\d+\.\d+)";
+      pattern '(\d+\.\d+)';
     }
   }
 
@@ -107,19 +107,19 @@ module Cisco-IOS-XR-ipv4-bgp-act {
 
   typedef rd-four-byte-as {
     type string {
-      pattern "(\d+\.\d+:\d+)";
+      pattern '(\d+\.\d+:\d+)';
     }
   }
 
   typedef rd-two-byte-as {
     type string {
-      pattern "(\d+:\d+)";
+      pattern '(\d+:\d+)';
     }
   }
 
   typedef rd-plain-as {
     type string {
-      pattern "(\d+:\d+)";
+      pattern '(\d+:\d+)';
     }
   }
 

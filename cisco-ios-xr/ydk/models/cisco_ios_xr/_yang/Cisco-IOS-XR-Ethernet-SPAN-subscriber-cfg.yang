@@ -10,8 +10,6 @@ module Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-Ethernet-SPAN-datatypes { prefix "dt1"; }
 
   import Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg { prefix "a1"; }
@@ -39,7 +37,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg {
        Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -172,9 +170,19 @@ module Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg {
     description
       "Common node of span-monitor-session,
       span-monitor-session";
-    leaf acl {
-      type empty;
+
+    container acl {
+      presence "Indicates a acl node is configured.";
       description "Enable ACL matching for traffic mirroring";
+      leaf acl-enable {
+        type empty;
+        mandatory true;
+        description "Enable ACL";
+      }
+      leaf acl-name {
+        type dt1:Span-acl-name;
+        description "ACL Name";
+      }
     }
   }
 

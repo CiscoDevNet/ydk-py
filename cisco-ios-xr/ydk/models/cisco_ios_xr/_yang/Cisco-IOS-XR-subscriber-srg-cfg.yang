@@ -39,7 +39,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
      for the following management objects:
        subscriber-redundancy: Subscriber Redundancy configuration
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -234,7 +234,9 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
               grouping IPV4-ROUTE-CONTENT {
                 description "Content grouping.";
                 leaf tagvalue {
-                  type int32;
+                  type uint32 {
+                    range "1..4294967295";
+                  }
                   mandatory true;
                   description "Tag value";
                 }
@@ -287,7 +289,9 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
                   description "IPv6 address with prefix-length";
                 }
                 leaf tagvalue {
-                  type int32;
+                  type uint32 {
+                    range "1..4294967295";
+                  }
                   mandatory true;
                   description "Tag value";
                 }
@@ -313,7 +317,9 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
                   description "IPv6 address with prefix-length";
                 }
                 leaf tagvalue {
-                  type int32;
+                  type uint32 {
+                    range "1..4294967295";
+                  }
                   mandatory true;
                   description "Tag value";
                 }

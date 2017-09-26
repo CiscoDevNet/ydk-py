@@ -176,7 +176,6 @@ glossary of feature\-specific terms.
     termed an 'Application Firewall'.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -184,89 +183,89 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CiscoUnifiedFirewallMib(Entity):
+class CISCOUNIFIEDFIREWALLMIB(Entity):
     """
     
     
     .. attribute:: cufwaaicglobals
     
     	
-    	**type**\:   :py:class:`Cufwaaicglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwaaicglobals>`
+    	**type**\:   :py:class:`Cufwaaicglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals>`
     
     .. attribute:: cufwaaichttpprotocolstats
     
     	
-    	**type**\:   :py:class:`Cufwaaichttpprotocolstats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats>`
+    	**type**\:   :py:class:`Cufwaaichttpprotocolstats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats>`
     
     .. attribute:: cufwappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued by distinct application protocols.  Each entry in the table lists the connection summary corresponding to a distinct application  protocol.  For instance, to obtain the connection summary  for SMTP on the firewall since the last reboot  of the device, use the conceptual row  corresponding to      cufwAppConnProtocol = fwApSmtp
-    	**type**\:   :py:class:`Cufwappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwappconnsummarytable>`
+    	**type**\:   :py:class:`Cufwappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable>`
     
     .. attribute:: cufwapplinspectiongrp
     
     	
-    	**type**\:   :py:class:`Cufwapplinspectiongrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwapplinspectiongrp>`
+    	**type**\:   :py:class:`Cufwapplinspectiongrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp>`
     
     .. attribute:: cufwconnectionglobals
     
     	
-    	**type**\:   :py:class:`Cufwconnectionglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwconnectionglobals>`
+    	**type**\:   :py:class:`Cufwconnectionglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals>`
     
     .. attribute:: cufwconnectionreportsettings
     
     	
-    	**type**\:   :py:class:`Cufwconnectionreportsettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwconnectionreportsettings>`
+    	**type**\:   :py:class:`Cufwconnectionreportsettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings>`
     
     .. attribute:: cufwconnectionresources
     
     	
-    	**type**\:   :py:class:`Cufwconnectionresources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwconnectionresources>`
+    	**type**\:   :py:class:`Cufwconnectionresources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources>`
     
     .. attribute:: cufwconnsummarytable
     
     	This table summarizes the connection activity on the firewall per layer3\-layer 4 protocol instance.  Each entry in the table lists the connection summary of a distinct network protocol.  For instance, the conceptual row corresponding to the index       cufwConnProtocol = fwpTcp  yields the summary of TCP connection activity on the  firewall since its reboot
-    	**type**\:   :py:class:`Cufwconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwconnsummarytable>`
+    	**type**\:   :py:class:`Cufwconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable>`
     
     .. attribute:: cufwinspectiontable
     
     	This table identifies if an application protocol has been configured for inspection and if so, the name of  the firewall policy or the inspection configuration that configures the specified protocol for inspection. The table also identifies if the specified protocol is actively being inspected.  This table may be used by an administrator to quickly identify if a protocol is being subjected to application inspection by the managed firewall
-    	**type**\:   :py:class:`Cufwinspectiontable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwinspectiontable>`
+    	**type**\:   :py:class:`Cufwinspectiontable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable>`
     
     .. attribute:: cufwl2fwglobals
     
     	
-    	**type**\:   :py:class:`Cufwl2Fwglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwl2Fwglobals>`
+    	**type**\:   :py:class:`Cufwl2Fwglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals>`
     
     .. attribute:: cufwnotifcntlgrp
     
     	
-    	**type**\:   :py:class:`Cufwnotifcntlgrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwnotifcntlgrp>`
+    	**type**\:   :py:class:`Cufwnotifcntlgrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp>`
     
     .. attribute:: cufwpolicyappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued on a per policy basis  Each entry in the table lists the connection summary of a distinct application protocol,  configured on the specified policy on the firewall,  and pertaining to a specified target to which the policy has been applied.  If a policy is bound to a target, it would have one or more entries in this table. If the policy is detached from the target, all entries corresponding to the association between the policy and the target are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the policy is currently applied by setting        cufwAppConnPolicyTargetType = 'targetALL'
-    	**type**\:   :py:class:`Cufwpolicyappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable>`
+    	**type**\:   :py:class:`Cufwpolicyappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable>`
     
     .. attribute:: cufwpolicyconnsummarytable
     
     	This table lists the summary of firewall  connections for layer3\-layer 4 protocols catalogued  on a per policy basis.  Each entry in the table lists the connection summary of a distinct network protocol, configured on the specified policy on the firewall, and pertaining to a specified  target to which the policy is currently applied.   If a policy is bound to a target, it would have one or more entries in this table. If the policy is  detached from the target, all entries corresponding  to the association between the policy and the target  are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the  policy is currently applied by setting        cufwConnPolicyTargetType =  'targetAll'
-    	**type**\:   :py:class:`Cufwpolicyconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable>`
+    	**type**\:   :py:class:`Cufwpolicyconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable>`
     
     .. attribute:: cufwurlfilterglobals
     
     	
-    	**type**\:   :py:class:`Cufwurlfilterglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwurlfilterglobals>`
+    	**type**\:   :py:class:`Cufwurlfilterglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals>`
     
     .. attribute:: cufwurlfilterresourceusage
     
     	
-    	**type**\:   :py:class:`Cufwurlfilterresourceusage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage>`
+    	**type**\:   :py:class:`Cufwurlfilterresourceusage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage>`
     
     .. attribute:: cufwurlfservertable
     
     	This table lists the URL filtering servers configured on the managed device and their performance statistics.  This table is not meant as a device to  configure URL filtering servers
-    	**type**\:   :py:class:`Cufwurlfservertable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwurlfservertable>`
+    	**type**\:   :py:class:`Cufwurlfservertable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable>`
     
     
 
@@ -276,91 +275,483 @@ class CiscoUnifiedFirewallMib(Entity):
     _revision = '2005-09-22'
 
     def __init__(self):
-        super(CiscoUnifiedFirewallMib, self).__init__()
+        super(CISCOUNIFIEDFIREWALLMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-UNIFIED-FIREWALL-MIB"
         self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"cufwAaicGlobals" : ("cufwaaicglobals", CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals), "cufwAaicHttpProtocolStats" : ("cufwaaichttpprotocolstats", CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats), "cufwAppConnSummaryTable" : ("cufwappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable), "cuFwApplInspectionGrp" : ("cufwapplinspectiongrp", CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp), "cuFwConnectionGlobals" : ("cufwconnectionglobals", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals), "cuFwConnectionReportSettings" : ("cufwconnectionreportsettings", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings), "cuFwConnectionResources" : ("cufwconnectionresources", CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources), "cufwConnSummaryTable" : ("cufwconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable), "cufwInspectionTable" : ("cufwinspectiontable", CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable), "cufwL2FwGlobals" : ("cufwl2fwglobals", CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals), "cuFwNotifCntlGrp" : ("cufwnotifcntlgrp", CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp), "cufwPolicyAppConnSummaryTable" : ("cufwpolicyappconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable), "cufwPolicyConnSummaryTable" : ("cufwpolicyconnsummarytable", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable), "cufwUrlFilterGlobals" : ("cufwurlfilterglobals", CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals), "cufwUrlFilterResourceUsage" : ("cufwurlfilterresourceusage", CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage), "cufwUrlfServerTable" : ("cufwurlfservertable", CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable)}
+        self._child_list_classes = {}
 
-        self.cufwaaicglobals = CiscoUnifiedFirewallMib.Cufwaaicglobals()
+        self.cufwaaicglobals = CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals()
         self.cufwaaicglobals.parent = self
         self._children_name_map["cufwaaicglobals"] = "cufwAaicGlobals"
         self._children_yang_names.add("cufwAaicGlobals")
 
-        self.cufwaaichttpprotocolstats = CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats()
+        self.cufwaaichttpprotocolstats = CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats()
         self.cufwaaichttpprotocolstats.parent = self
         self._children_name_map["cufwaaichttpprotocolstats"] = "cufwAaicHttpProtocolStats"
         self._children_yang_names.add("cufwAaicHttpProtocolStats")
 
-        self.cufwappconnsummarytable = CiscoUnifiedFirewallMib.Cufwappconnsummarytable()
+        self.cufwappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable()
         self.cufwappconnsummarytable.parent = self
         self._children_name_map["cufwappconnsummarytable"] = "cufwAppConnSummaryTable"
         self._children_yang_names.add("cufwAppConnSummaryTable")
 
-        self.cufwapplinspectiongrp = CiscoUnifiedFirewallMib.Cufwapplinspectiongrp()
+        self.cufwapplinspectiongrp = CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp()
         self.cufwapplinspectiongrp.parent = self
         self._children_name_map["cufwapplinspectiongrp"] = "cuFwApplInspectionGrp"
         self._children_yang_names.add("cuFwApplInspectionGrp")
 
-        self.cufwconnectionglobals = CiscoUnifiedFirewallMib.Cufwconnectionglobals()
+        self.cufwconnectionglobals = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals()
         self.cufwconnectionglobals.parent = self
         self._children_name_map["cufwconnectionglobals"] = "cuFwConnectionGlobals"
         self._children_yang_names.add("cuFwConnectionGlobals")
 
-        self.cufwconnectionreportsettings = CiscoUnifiedFirewallMib.Cufwconnectionreportsettings()
+        self.cufwconnectionreportsettings = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings()
         self.cufwconnectionreportsettings.parent = self
         self._children_name_map["cufwconnectionreportsettings"] = "cuFwConnectionReportSettings"
         self._children_yang_names.add("cuFwConnectionReportSettings")
 
-        self.cufwconnectionresources = CiscoUnifiedFirewallMib.Cufwconnectionresources()
+        self.cufwconnectionresources = CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources()
         self.cufwconnectionresources.parent = self
         self._children_name_map["cufwconnectionresources"] = "cuFwConnectionResources"
         self._children_yang_names.add("cuFwConnectionResources")
 
-        self.cufwconnsummarytable = CiscoUnifiedFirewallMib.Cufwconnsummarytable()
+        self.cufwconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable()
         self.cufwconnsummarytable.parent = self
         self._children_name_map["cufwconnsummarytable"] = "cufwConnSummaryTable"
         self._children_yang_names.add("cufwConnSummaryTable")
 
-        self.cufwinspectiontable = CiscoUnifiedFirewallMib.Cufwinspectiontable()
+        self.cufwinspectiontable = CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable()
         self.cufwinspectiontable.parent = self
         self._children_name_map["cufwinspectiontable"] = "cufwInspectionTable"
         self._children_yang_names.add("cufwInspectionTable")
 
-        self.cufwl2fwglobals = CiscoUnifiedFirewallMib.Cufwl2Fwglobals()
+        self.cufwl2fwglobals = CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals()
         self.cufwl2fwglobals.parent = self
         self._children_name_map["cufwl2fwglobals"] = "cufwL2FwGlobals"
         self._children_yang_names.add("cufwL2FwGlobals")
 
-        self.cufwnotifcntlgrp = CiscoUnifiedFirewallMib.Cufwnotifcntlgrp()
+        self.cufwnotifcntlgrp = CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp()
         self.cufwnotifcntlgrp.parent = self
         self._children_name_map["cufwnotifcntlgrp"] = "cuFwNotifCntlGrp"
         self._children_yang_names.add("cuFwNotifCntlGrp")
 
-        self.cufwpolicyappconnsummarytable = CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable()
+        self.cufwpolicyappconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable()
         self.cufwpolicyappconnsummarytable.parent = self
         self._children_name_map["cufwpolicyappconnsummarytable"] = "cufwPolicyAppConnSummaryTable"
         self._children_yang_names.add("cufwPolicyAppConnSummaryTable")
 
-        self.cufwpolicyconnsummarytable = CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable()
+        self.cufwpolicyconnsummarytable = CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable()
         self.cufwpolicyconnsummarytable.parent = self
         self._children_name_map["cufwpolicyconnsummarytable"] = "cufwPolicyConnSummaryTable"
         self._children_yang_names.add("cufwPolicyConnSummaryTable")
 
-        self.cufwurlfilterglobals = CiscoUnifiedFirewallMib.Cufwurlfilterglobals()
+        self.cufwurlfilterglobals = CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals()
         self.cufwurlfilterglobals.parent = self
         self._children_name_map["cufwurlfilterglobals"] = "cufwUrlFilterGlobals"
         self._children_yang_names.add("cufwUrlFilterGlobals")
 
-        self.cufwurlfilterresourceusage = CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage()
+        self.cufwurlfilterresourceusage = CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage()
         self.cufwurlfilterresourceusage.parent = self
         self._children_name_map["cufwurlfilterresourceusage"] = "cufwUrlFilterResourceUsage"
         self._children_yang_names.add("cufwUrlFilterResourceUsage")
 
-        self.cufwurlfservertable = CiscoUnifiedFirewallMib.Cufwurlfservertable()
+        self.cufwurlfservertable = CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable()
         self.cufwurlfservertable.parent = self
         self._children_name_map["cufwurlfservertable"] = "cufwUrlfServerTable"
         self._children_yang_names.add("cufwUrlfServerTable")
+        self._segment_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB"
+
+
+    class Cufwaaicglobals(Entity):
+        """
+        
+        
+        .. attribute:: cufwaaicglobalnumbadpdusize
+        
+        	This MIB object records the number of application  protocol data units (PDU) that had either an invalid header size or an invalid payload size, as determined  by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: Protocol Data Units
+        
+        .. attribute:: cufwaaicglobalnumbadportrange
+        
+        	Number of application protocol units that attempted  to advertise illegal port ranges for secondary  connections. An example of such an occurrence would be a passive FTP connection, where the  server advertises a disallowed port range for data connection.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: Protocol Data Units
+        
+        .. attribute:: cufwaaicglobalnumbadprotocolops
+        
+        	'Protocol Operation' is the application protocol specific operation that the PDU is intended to  perform. An example of 'protocol operation' is the  HELO command of SMTP protocol.  This MIB object records the number of application  protocol data units that contained a protocol operation which was disallowed by the local security policy.   For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: Protocol Data Units
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals, self).__init__()
+
+            self.yang_name = "cufwAaicGlobals"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cufwaaicglobalnumbadpdusize = YLeaf(YType.uint64, "cufwAaicGlobalNumBadPDUSize")
+
+            self.cufwaaicglobalnumbadportrange = YLeaf(YType.uint64, "cufwAaicGlobalNumBadPortRange")
+
+            self.cufwaaicglobalnumbadprotocolops = YLeaf(YType.uint64, "cufwAaicGlobalNumBadProtocolOps")
+            self._segment_path = lambda: "cufwAaicGlobals"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals, ['cufwaaicglobalnumbadpdusize', 'cufwaaicglobalnumbadportrange', 'cufwaaicglobalnumbadprotocolops'], name, value)
+
+
+    class Cufwaaichttpprotocolstats(Entity):
+        """
+        
+        
+        .. attribute:: cufwaaichttpnumbadcontent
+        
+        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type disallowed by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnumbadpdusize
+        
+        	The number of PDUs corresponding to HTTP protocol  that had either an invalid header size or an invalid  payload size, as determined by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnumbadprotocolops
+        
+        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing HTTP protocol methods which are disallowed by the local security  policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnumdoubleencodedpkts
+        
+        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing double encoding. Double encoding is a mechanism to obfuscate content  in which a encoded data is re\-encoded so as to evade  deep packet inspections.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnumlargeuris
+        
+        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing a URI of size not permitted by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnummismatchcontent
+        
+        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type was different from the content type specified  in the header of the PDU.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: HTTP Protocol Data Units
+        
+        .. attribute:: cufwaaichttpnumtunneledconns
+        
+        	The number of connections corresponding to HTTP protocol which were detected to be tunneling other  application traffic streams. An instance of this  would be InstantMessenger traffic running on HTTP.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: Connections
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats, self).__init__()
+
+            self.yang_name = "cufwAaicHttpProtocolStats"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cufwaaichttpnumbadcontent = YLeaf(YType.uint64, "cufwAaicHttpNumBadContent")
+
+            self.cufwaaichttpnumbadpdusize = YLeaf(YType.uint64, "cufwAaicHttpNumBadPDUSize")
+
+            self.cufwaaichttpnumbadprotocolops = YLeaf(YType.uint64, "cufwAaicHttpNumBadProtocolOps")
+
+            self.cufwaaichttpnumdoubleencodedpkts = YLeaf(YType.uint64, "cufwAaicHttpNumDoubleEncodedPkts")
+
+            self.cufwaaichttpnumlargeuris = YLeaf(YType.uint64, "cufwAaicHttpNumLargeURIs")
+
+            self.cufwaaichttpnummismatchcontent = YLeaf(YType.uint64, "cufwAaicHttpNumMismatchContent")
+
+            self.cufwaaichttpnumtunneledconns = YLeaf(YType.uint64, "cufwAaicHttpNumTunneledConns")
+            self._segment_path = lambda: "cufwAaicHttpProtocolStats"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats, ['cufwaaichttpnumbadcontent', 'cufwaaichttpnumbadpdusize', 'cufwaaichttpnumbadprotocolops', 'cufwaaichttpnumdoubleencodedpkts', 'cufwaaichttpnumlargeuris', 'cufwaaichttpnummismatchcontent', 'cufwaaichttpnumtunneledconns'], name, value)
+
+
+    class Cufwappconnsummarytable(Entity):
+        """
+        This table lists the summary of firewall 
+        connections pertaining to Layer 7 protocols,
+        catalogued by distinct application protocols.
+        
+        Each entry in the table lists the connection
+        summary corresponding to a distinct application 
+        protocol.
+        
+        For instance, to obtain the connection summary 
+        for SMTP on the firewall since the last reboot 
+        of the device, use the conceptual row 
+        corresponding to 
+        
+           cufwAppConnProtocol = fwApSmtp
+        
+        .. attribute:: cufwappconnsummaryentry
+        
+        	Each entry contains the summary of connection activity for a distinct layer 7 protocol identified by the index element 'cufwAppConnProtocol'
+        	**type**\: list of    :py:class:`Cufwappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable, self).__init__()
+
+            self.yang_name = "cufwAppConnSummaryTable"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwAppConnSummaryEntry" : ("cufwappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry)}
+
+            self.cufwappconnsummaryentry = YList(self)
+            self._segment_path = lambda: "cufwAppConnSummaryTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable, [], name, value)
+
+
+        class Cufwappconnsummaryentry(Entity):
+            """
+            Each entry contains the summary of connection
+            activity for a distinct layer 7 protocol identified
+            by the index element 'cufwAppConnProtocol'.
+            
+            .. attribute:: cufwappconnprotocol  <key>
+            
+            	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
+            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            
+            .. attribute:: cufwappconnnumaborted
+            
+            	The number of connections that were terminated by the  firewall successful establishment, corresponding  to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumactive
+            
+            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwAppConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumattempted
+            
+            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumhalfopen
+            
+            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwAppConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumpolicydeclined
+            
+            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumresdeclined
+            
+            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnnumsetupsaborted
+            
+            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwAppConnProtocol', that were aborted before the connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwAppConnNumPolicyDeclined' and  'cufwAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwappconnsetuprate1
+            
+            	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections Per Second
+            
+            .. attribute:: cufwappconnsetuprate5
+            
+            	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections Per Second
+            
+            
+
+            """
+
+            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+            _revision = '2005-09-22'
+
+            def __init__(self):
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry, self).__init__()
+
+                self.yang_name = "cufwAppConnSummaryEntry"
+                self.yang_parent_name = "cufwAppConnSummaryTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cufwappconnprotocol = YLeaf(YType.enumeration, "cufwAppConnProtocol")
+
+                self.cufwappconnnumaborted = YLeaf(YType.uint64, "cufwAppConnNumAborted")
+
+                self.cufwappconnnumactive = YLeaf(YType.uint32, "cufwAppConnNumActive")
+
+                self.cufwappconnnumattempted = YLeaf(YType.uint64, "cufwAppConnNumAttempted")
+
+                self.cufwappconnnumhalfopen = YLeaf(YType.uint32, "cufwAppConnNumHalfOpen")
+
+                self.cufwappconnnumpolicydeclined = YLeaf(YType.uint64, "cufwAppConnNumPolicyDeclined")
+
+                self.cufwappconnnumresdeclined = YLeaf(YType.uint64, "cufwAppConnNumResDeclined")
+
+                self.cufwappconnnumsetupsaborted = YLeaf(YType.uint64, "cufwAppConnNumSetupsAborted")
+
+                self.cufwappconnsetuprate1 = YLeaf(YType.uint32, "cufwAppConnSetupRate1")
+
+                self.cufwappconnsetuprate5 = YLeaf(YType.uint32, "cufwAppConnSetupRate5")
+                self._segment_path = lambda: "cufwAppConnSummaryEntry" + "[cufwAppConnProtocol='" + self.cufwappconnprotocol.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwAppConnSummaryTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry, ['cufwappconnprotocol', 'cufwappconnnumaborted', 'cufwappconnnumactive', 'cufwappconnnumattempted', 'cufwappconnnumhalfopen', 'cufwappconnnumpolicydeclined', 'cufwappconnnumresdeclined', 'cufwappconnnumsetupsaborted', 'cufwappconnsetuprate1', 'cufwappconnsetuprate5'], name, value)
+
+
+    class Cufwapplinspectiongrp(Entity):
+        """
+        
+        
+        .. attribute:: cufwaialertenabled
+        
+        	The value identifies if application inspection alerts have been globally enabled or disabled
+        	**type**\:  bool
+        
+        .. attribute:: cufwaiaudittrailenabled
+        
+        	The value identifies if audit trail in application  inspection has been globally enabled or disabled
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp, self).__init__()
+
+            self.yang_name = "cuFwApplInspectionGrp"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cufwaialertenabled = YLeaf(YType.boolean, "cufwAIAlertEnabled")
+
+            self.cufwaiaudittrailenabled = YLeaf(YType.boolean, "cufwAIAuditTrailEnabled")
+            self._segment_path = lambda: "cuFwApplInspectionGrp"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp, ['cufwaialertenabled', 'cufwaiaudittrailenabled'], name, value)
 
 
     class Cufwconnectionglobals(Entity):
@@ -483,10 +874,14 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwconnectionglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals, self).__init__()
 
             self.yang_name = "cuFwConnectionGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cufwconnglobalconnsetuprate1 = YLeaf(YType.uint32, "cufwConnGlobalConnSetupRate1")
 
@@ -511,176 +906,54 @@ class CiscoUnifiedFirewallMib(Entity):
             self.cufwconnglobalnumresdeclined = YLeaf(YType.uint64, "cufwConnGlobalNumResDeclined")
 
             self.cufwconnglobalnumsetupsaborted = YLeaf(YType.uint64, "cufwConnGlobalNumSetupsAborted")
+            self._segment_path = lambda: "cuFwConnectionGlobals"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwconnglobalconnsetuprate1",
-                            "cufwconnglobalconnsetuprate5",
-                            "cufwconnglobalnumaborted",
-                            "cufwconnglobalnumactive",
-                            "cufwconnglobalnumattempted",
-                            "cufwconnglobalnumembryonic",
-                            "cufwconnglobalnumexpired",
-                            "cufwconnglobalnumhalfopen",
-                            "cufwconnglobalnumpolicydeclined",
-                            "cufwconnglobalnumremoteaccess",
-                            "cufwconnglobalnumresdeclined",
-                            "cufwconnglobalnumsetupsaborted") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwconnectionglobals, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwconnectionglobals, self).__setattr__(name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals, ['cufwconnglobalconnsetuprate1', 'cufwconnglobalconnsetuprate5', 'cufwconnglobalnumaborted', 'cufwconnglobalnumactive', 'cufwconnglobalnumattempted', 'cufwconnglobalnumembryonic', 'cufwconnglobalnumexpired', 'cufwconnglobalnumhalfopen', 'cufwconnglobalnumpolicydeclined', 'cufwconnglobalnumremoteaccess', 'cufwconnglobalnumresdeclined', 'cufwconnglobalnumsetupsaborted'], name, value)
 
-        def has_data(self):
-            return (
-                self.cufwconnglobalconnsetuprate1.is_set or
-                self.cufwconnglobalconnsetuprate5.is_set or
-                self.cufwconnglobalnumaborted.is_set or
-                self.cufwconnglobalnumactive.is_set or
-                self.cufwconnglobalnumattempted.is_set or
-                self.cufwconnglobalnumembryonic.is_set or
-                self.cufwconnglobalnumexpired.is_set or
-                self.cufwconnglobalnumhalfopen.is_set or
-                self.cufwconnglobalnumpolicydeclined.is_set or
-                self.cufwconnglobalnumremoteaccess.is_set or
-                self.cufwconnglobalnumresdeclined.is_set or
-                self.cufwconnglobalnumsetupsaborted.is_set)
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwconnglobalconnsetuprate1.yfilter != YFilter.not_set or
-                self.cufwconnglobalconnsetuprate5.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumaborted.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumactive.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumattempted.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumembryonic.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumexpired.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumhalfopen.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumpolicydeclined.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumremoteaccess.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumresdeclined.yfilter != YFilter.not_set or
-                self.cufwconnglobalnumsetupsaborted.yfilter != YFilter.not_set)
+    class Cufwconnectionreportsettings(Entity):
+        """
+        
+        
+        .. attribute:: cufwconnreptappstats
+        
+        	Setting this object to 'true' enables the MIB to report connection activity statistics pertaining to application protocols.  If this object is set to 'false', the agent should stop updating the objects defined in this module pertaining to application protocols.  Application monitoring could be a resource intensive operation. It is expected that the administrators  would use this control to disable application  monitoring when the performance of the firewall is  degrading
+        	**type**\:  bool
+        
+        .. attribute:: cufwconnreptappstatslastchanged
+        
+        	The time at which the value of cufwConnReptAppStats  was last changed
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cuFwConnectionGlobals" + path_buffer
+        """
 
-            return path_buffer
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings, self).__init__()
 
-            leaf_name_data = LeafDataList()
-            if (self.cufwconnglobalconnsetuprate1.is_set or self.cufwconnglobalconnsetuprate1.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalconnsetuprate1.get_name_leafdata())
-            if (self.cufwconnglobalconnsetuprate5.is_set or self.cufwconnglobalconnsetuprate5.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalconnsetuprate5.get_name_leafdata())
-            if (self.cufwconnglobalnumaborted.is_set or self.cufwconnglobalnumaborted.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumaborted.get_name_leafdata())
-            if (self.cufwconnglobalnumactive.is_set or self.cufwconnglobalnumactive.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumactive.get_name_leafdata())
-            if (self.cufwconnglobalnumattempted.is_set or self.cufwconnglobalnumattempted.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumattempted.get_name_leafdata())
-            if (self.cufwconnglobalnumembryonic.is_set or self.cufwconnglobalnumembryonic.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumembryonic.get_name_leafdata())
-            if (self.cufwconnglobalnumexpired.is_set or self.cufwconnglobalnumexpired.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumexpired.get_name_leafdata())
-            if (self.cufwconnglobalnumhalfopen.is_set or self.cufwconnglobalnumhalfopen.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumhalfopen.get_name_leafdata())
-            if (self.cufwconnglobalnumpolicydeclined.is_set or self.cufwconnglobalnumpolicydeclined.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumpolicydeclined.get_name_leafdata())
-            if (self.cufwconnglobalnumremoteaccess.is_set or self.cufwconnglobalnumremoteaccess.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumremoteaccess.get_name_leafdata())
-            if (self.cufwconnglobalnumresdeclined.is_set or self.cufwconnglobalnumresdeclined.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumresdeclined.get_name_leafdata())
-            if (self.cufwconnglobalnumsetupsaborted.is_set or self.cufwconnglobalnumsetupsaborted.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnglobalnumsetupsaborted.get_name_leafdata())
+            self.yang_name = "cuFwConnectionReportSettings"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+            self.cufwconnreptappstats = YLeaf(YType.boolean, "cufwConnReptAppStats")
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+            self.cufwconnreptappstatslastchanged = YLeaf(YType.uint32, "cufwConnReptAppStatsLastChanged")
+            self._segment_path = lambda: "cuFwConnectionReportSettings"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwConnGlobalConnSetupRate1" or name == "cufwConnGlobalConnSetupRate5" or name == "cufwConnGlobalNumAborted" or name == "cufwConnGlobalNumActive" or name == "cufwConnGlobalNumAttempted" or name == "cufwConnGlobalNumEmbryonic" or name == "cufwConnGlobalNumExpired" or name == "cufwConnGlobalNumHalfOpen" or name == "cufwConnGlobalNumPolicyDeclined" or name == "cufwConnGlobalNumRemoteAccess" or name == "cufwConnGlobalNumResDeclined" or name == "cufwConnGlobalNumSetupsAborted"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwConnGlobalConnSetupRate1"):
-                self.cufwconnglobalconnsetuprate1 = value
-                self.cufwconnglobalconnsetuprate1.value_namespace = name_space
-                self.cufwconnglobalconnsetuprate1.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalConnSetupRate5"):
-                self.cufwconnglobalconnsetuprate5 = value
-                self.cufwconnglobalconnsetuprate5.value_namespace = name_space
-                self.cufwconnglobalconnsetuprate5.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumAborted"):
-                self.cufwconnglobalnumaborted = value
-                self.cufwconnglobalnumaborted.value_namespace = name_space
-                self.cufwconnglobalnumaborted.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumActive"):
-                self.cufwconnglobalnumactive = value
-                self.cufwconnglobalnumactive.value_namespace = name_space
-                self.cufwconnglobalnumactive.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumAttempted"):
-                self.cufwconnglobalnumattempted = value
-                self.cufwconnglobalnumattempted.value_namespace = name_space
-                self.cufwconnglobalnumattempted.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumEmbryonic"):
-                self.cufwconnglobalnumembryonic = value
-                self.cufwconnglobalnumembryonic.value_namespace = name_space
-                self.cufwconnglobalnumembryonic.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumExpired"):
-                self.cufwconnglobalnumexpired = value
-                self.cufwconnglobalnumexpired.value_namespace = name_space
-                self.cufwconnglobalnumexpired.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumHalfOpen"):
-                self.cufwconnglobalnumhalfopen = value
-                self.cufwconnglobalnumhalfopen.value_namespace = name_space
-                self.cufwconnglobalnumhalfopen.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumPolicyDeclined"):
-                self.cufwconnglobalnumpolicydeclined = value
-                self.cufwconnglobalnumpolicydeclined.value_namespace = name_space
-                self.cufwconnglobalnumpolicydeclined.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumRemoteAccess"):
-                self.cufwconnglobalnumremoteaccess = value
-                self.cufwconnglobalnumremoteaccess.value_namespace = name_space
-                self.cufwconnglobalnumremoteaccess.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumResDeclined"):
-                self.cufwconnglobalnumresdeclined = value
-                self.cufwconnglobalnumresdeclined.value_namespace = name_space
-                self.cufwconnglobalnumresdeclined.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnGlobalNumSetupsAborted"):
-                self.cufwconnglobalnumsetupsaborted = value
-                self.cufwconnglobalnumsetupsaborted.value_namespace = name_space
-                self.cufwconnglobalnumsetupsaborted.value_namespace_prefix = name_space_prefix
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings, ['cufwconnreptappstats', 'cufwconnreptappstatslastchanged'], name, value)
 
 
     class Cufwconnectionresources(Entity):
@@ -731,10 +1004,14 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwconnectionresources, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources, self).__init__()
 
             self.yang_name = "cuFwConnectionResources"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cufwconnresactiveconnmemoryusage = YLeaf(YType.uint32, "cufwConnResActiveConnMemoryUsage")
 
@@ -743,233 +1020,366 @@ class CiscoUnifiedFirewallMib(Entity):
             self.cufwconnreshoconnmemoryusage = YLeaf(YType.uint32, "cufwConnResHOConnMemoryUsage")
 
             self.cufwconnresmemoryusage = YLeaf(YType.uint32, "cufwConnResMemoryUsage")
+            self._segment_path = lambda: "cuFwConnectionResources"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwconnresactiveconnmemoryusage",
-                            "cufwconnresembrconnmemoryusage",
-                            "cufwconnreshoconnmemoryusage",
-                            "cufwconnresmemoryusage") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwconnectionresources, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwconnectionresources, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwconnresactiveconnmemoryusage.is_set or
-                self.cufwconnresembrconnmemoryusage.is_set or
-                self.cufwconnreshoconnmemoryusage.is_set or
-                self.cufwconnresmemoryusage.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwconnresactiveconnmemoryusage.yfilter != YFilter.not_set or
-                self.cufwconnresembrconnmemoryusage.yfilter != YFilter.not_set or
-                self.cufwconnreshoconnmemoryusage.yfilter != YFilter.not_set or
-                self.cufwconnresmemoryusage.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cuFwConnectionResources" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwconnresactiveconnmemoryusage.is_set or self.cufwconnresactiveconnmemoryusage.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnresactiveconnmemoryusage.get_name_leafdata())
-            if (self.cufwconnresembrconnmemoryusage.is_set or self.cufwconnresembrconnmemoryusage.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnresembrconnmemoryusage.get_name_leafdata())
-            if (self.cufwconnreshoconnmemoryusage.is_set or self.cufwconnreshoconnmemoryusage.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnreshoconnmemoryusage.get_name_leafdata())
-            if (self.cufwconnresmemoryusage.is_set or self.cufwconnresmemoryusage.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnresmemoryusage.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwConnResActiveConnMemoryUsage" or name == "cufwConnResEmbrConnMemoryUsage" or name == "cufwConnResHOConnMemoryUsage" or name == "cufwConnResMemoryUsage"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwConnResActiveConnMemoryUsage"):
-                self.cufwconnresactiveconnmemoryusage = value
-                self.cufwconnresactiveconnmemoryusage.value_namespace = name_space
-                self.cufwconnresactiveconnmemoryusage.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnResEmbrConnMemoryUsage"):
-                self.cufwconnresembrconnmemoryusage = value
-                self.cufwconnresembrconnmemoryusage.value_namespace = name_space
-                self.cufwconnresembrconnmemoryusage.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnResHOConnMemoryUsage"):
-                self.cufwconnreshoconnmemoryusage = value
-                self.cufwconnreshoconnmemoryusage.value_namespace = name_space
-                self.cufwconnreshoconnmemoryusage.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnResMemoryUsage"):
-                self.cufwconnresmemoryusage = value
-                self.cufwconnresmemoryusage.value_namespace = name_space
-                self.cufwconnresmemoryusage.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources, ['cufwconnresactiveconnmemoryusage', 'cufwconnresembrconnmemoryusage', 'cufwconnreshoconnmemoryusage', 'cufwconnresmemoryusage'], name, value)
 
 
-    class Cufwconnectionreportsettings(Entity):
+    class Cufwconnsummarytable(Entity):
+        """
+        This table summarizes the connection activity on
+        the firewall per layer3\-layer 4 protocol instance.
+        
+        Each entry in the table lists the connection
+        summary of a distinct network protocol.
+        
+        For instance, the conceptual row corresponding to the
+        index
+        
+             cufwConnProtocol = fwpTcp
+        
+        yields the summary of TCP connection activity on the 
+        firewall since its reboot.
+        
+        .. attribute:: cufwconnsummaryentry
+        
+        	Each entry contains the summary of connection activity for a layer3\-layer4 network protocol
+        	**type**\: list of    :py:class:`Cufwconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable, self).__init__()
+
+            self.yang_name = "cufwConnSummaryTable"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwConnSummaryEntry" : ("cufwconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry)}
+
+            self.cufwconnsummaryentry = YList(self)
+            self._segment_path = lambda: "cufwConnSummaryTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable, [], name, value)
+
+
+        class Cufwconnsummaryentry(Entity):
+            """
+            Each entry contains the summary of connection
+            activity for a layer3\-layer4 network protocol.
+            
+            .. attribute:: cufwconnprotocol  <key>
+            
+            	The (L3\-L4) protocol for which this conceptual  row summarizes the connection activity on the managed entity
+            	**type**\:   :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
+            
+            .. attribute:: cufwconnnumaborted
+            
+            	The number of connections that were abnormally  terminated after successful establishment,  corresponding to the protocol denoted by  'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumactive
+            
+            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumattempted
+            
+            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumhalfopen
+            
+            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumpolicydeclined
+            
+            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumresdeclined
+            
+            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnnumsetupsaborted
+            
+            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwConnProtocol', that were aborted before the  connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwConnNumPolicyDeclined' and  'cufwConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwconnsetuprate1
+            
+            	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections Per Second
+            
+            .. attribute:: cufwconnsetuprate5
+            
+            	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections Per Second
+            
+            
+
+            """
+
+            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+            _revision = '2005-09-22'
+
+            def __init__(self):
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry, self).__init__()
+
+                self.yang_name = "cufwConnSummaryEntry"
+                self.yang_parent_name = "cufwConnSummaryTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cufwconnprotocol = YLeaf(YType.enumeration, "cufwConnProtocol")
+
+                self.cufwconnnumaborted = YLeaf(YType.uint64, "cufwConnNumAborted")
+
+                self.cufwconnnumactive = YLeaf(YType.uint32, "cufwConnNumActive")
+
+                self.cufwconnnumattempted = YLeaf(YType.uint64, "cufwConnNumAttempted")
+
+                self.cufwconnnumhalfopen = YLeaf(YType.uint32, "cufwConnNumHalfOpen")
+
+                self.cufwconnnumpolicydeclined = YLeaf(YType.uint64, "cufwConnNumPolicyDeclined")
+
+                self.cufwconnnumresdeclined = YLeaf(YType.uint64, "cufwConnNumResDeclined")
+
+                self.cufwconnnumsetupsaborted = YLeaf(YType.uint64, "cufwConnNumSetupsAborted")
+
+                self.cufwconnsetuprate1 = YLeaf(YType.uint32, "cufwConnSetupRate1")
+
+                self.cufwconnsetuprate5 = YLeaf(YType.uint32, "cufwConnSetupRate5")
+                self._segment_path = lambda: "cufwConnSummaryEntry" + "[cufwConnProtocol='" + self.cufwconnprotocol.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwConnSummaryTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry, ['cufwconnprotocol', 'cufwconnnumaborted', 'cufwconnnumactive', 'cufwconnnumattempted', 'cufwconnnumhalfopen', 'cufwconnnumpolicydeclined', 'cufwconnnumresdeclined', 'cufwconnnumsetupsaborted', 'cufwconnsetuprate1', 'cufwconnsetuprate5'], name, value)
+
+
+    class Cufwinspectiontable(Entity):
+        """
+        This table identifies if an application protocol has
+        been configured for inspection and if so, the name of 
+        the firewall policy or the inspection configuration
+        that configures the specified protocol for inspection.
+        The table also identifies if the specified protocol is
+        actively being inspected.
+        
+        This table may be used by an administrator to quickly
+        identify if a protocol is being subjected to application
+        inspection by the managed firewall.
+        
+        .. attribute:: cufwinspectionentry
+        
+        	Each entry contains the configuration of a specific application inspection element
+        	**type**\: list of    :py:class:`Cufwinspectionentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable, self).__init__()
+
+            self.yang_name = "cufwInspectionTable"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwInspectionEntry" : ("cufwinspectionentry", CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry)}
+
+            self.cufwinspectionentry = YList(self)
+            self._segment_path = lambda: "cufwInspectionTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable, [], name, value)
+
+
+        class Cufwinspectionentry(Entity):
+            """
+            Each entry contains the configuration of
+            a specific application inspection element.
+            
+            .. attribute:: cufwinspectionpolicyname  <key>
+            
+            	The name of the policy that configures the device inspect the protocol specified by    'cufwInspectionProtocol'
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cufwinspectionprotocol  <key>
+            
+            	The application protocol that is configured for  inspection
+            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            
+            .. attribute:: cufwinspectionstatus
+            
+            	This MIB object identifies if the directive to inspect the protocol specified by 'cufwInspectionProtocol' by the policy corresponding to this conceptual row is enabled or disabled
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+            _revision = '2005-09-22'
+
+            def __init__(self):
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry, self).__init__()
+
+                self.yang_name = "cufwInspectionEntry"
+                self.yang_parent_name = "cufwInspectionTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cufwinspectionpolicyname = YLeaf(YType.str, "cufwInspectionPolicyName")
+
+                self.cufwinspectionprotocol = YLeaf(YType.enumeration, "cufwInspectionProtocol")
+
+                self.cufwinspectionstatus = YLeaf(YType.boolean, "cufwInspectionStatus")
+                self._segment_path = lambda: "cufwInspectionEntry" + "[cufwInspectionPolicyName='" + self.cufwinspectionpolicyname.get() + "']" + "[cufwInspectionProtocol='" + self.cufwinspectionprotocol.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwInspectionTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry, ['cufwinspectionpolicyname', 'cufwinspectionprotocol', 'cufwinspectionstatus'], name, value)
+
+
+    class Cufwl2Fwglobals(Entity):
         """
         
         
-        .. attribute:: cufwconnreptappstats
+        .. attribute:: cufwl2globalarpcachesize
         
-        	Setting this object to 'true' enables the MIB to report connection activity statistics pertaining to application protocols.  If this object is set to 'false', the agent should stop updating the objects defined in this module pertaining to application protocols.  Application monitoring could be a resource intensive operation. It is expected that the administrators  would use this control to disable application  monitoring when the performance of the firewall is  degrading
-        	**type**\:  bool
+        	The value indicates the configured maximum size of the ARP cache used for management traffic
+        	**type**\:  int
         
-        .. attribute:: cufwconnreptappstatslastchanged
+        	**range:** 1..2147483647
         
-        	The time at which the value of cufwConnReptAppStats  was last changed
+        	**units**\: ARP entries
+        
+        .. attribute:: cufwl2globalarpoverflowrate5
+        
+        	The number of times an existing entry from the ARP cache had to be ejected in order to insert a new entry in the last 300 seconds.  This counter is accumulated since the last reboot of  the firewall
         	**type**\:  int
         
         	**range:** 0..4294967295
         
+        .. attribute:: cufwl2globalenablearpinspection
         
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwconnectionreportsettings, self).__init__()
-
-            self.yang_name = "cuFwConnectionReportSettings"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwconnreptappstats = YLeaf(YType.boolean, "cufwConnReptAppStats")
-
-            self.cufwconnreptappstatslastchanged = YLeaf(YType.uint32, "cufwConnReptAppStatsLastChanged")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwconnreptappstats",
-                            "cufwconnreptappstatslastchanged") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwconnectionreportsettings, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwconnectionreportsettings, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwconnreptappstats.is_set or
-                self.cufwconnreptappstatslastchanged.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwconnreptappstats.yfilter != YFilter.not_set or
-                self.cufwconnreptappstatslastchanged.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cuFwConnectionReportSettings" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwconnreptappstats.is_set or self.cufwconnreptappstats.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnreptappstats.get_name_leafdata())
-            if (self.cufwconnreptappstatslastchanged.is_set or self.cufwconnreptappstatslastchanged.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwconnreptappstatslastchanged.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwConnReptAppStats" or name == "cufwConnReptAppStatsLastChanged"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwConnReptAppStats"):
-                self.cufwconnreptappstats = value
-                self.cufwconnreptappstats.value_namespace = name_space
-                self.cufwconnreptappstats.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwConnReptAppStatsLastChanged"):
-                self.cufwconnreptappstatslastchanged = value
-                self.cufwconnreptappstatslastchanged.value_namespace = name_space
-                self.cufwconnreptappstatslastchanged.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwapplinspectiongrp(Entity):
-        """
-        
-        
-        .. attribute:: cufwaialertenabled
-        
-        	The value identifies if application inspection alerts have been globally enabled or disabled
+        	The value indicates if ARP inspection, which is a security feature, is enabled globally on the managed firewall
         	**type**\:  bool
         
-        .. attribute:: cufwaiaudittrailenabled
+        .. attribute:: cufwl2globalenablestealthmode
         
-        	The value identifies if audit trail in application  inspection has been globally enabled or disabled
+        	The value indicates if the firewall is operating in transparent (layer 2) mode or not.  When operating in transparent mode, the firewall operates as a bridge while performing firewalling functions
         	**type**\:  bool
+        
+        .. attribute:: cufwl2globalnumarprequests
+        
+        	The number of ARP requests issued by the transparent firewall to resolve a destination IP address.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: ARP Requests
+        
+        .. attribute:: cufwl2globalnumbadarpresponses
+        
+        	The number of malformed ARP responses received by the firewall in trying to resolve the MAC address of the destination IP address in an incoming frame.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: ARP Responses
+        
+        .. attribute:: cufwl2globalnumdrops
+        
+        	The number of times the firewall dropped an incoming frame because the destination MAC address is missing  in the bridge table.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: cufwl2globalnumfloods
+        
+        	The number of times the firewall floods a frame to be  forwarded to the egress interfaces because the  destination MAC address is missing in the bridge table.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: cufwl2globalnumicmprequests
+        
+        	The number of ICMP traceroute requests issued by the  transparent firewall to resolve a destination IP  address.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: ICMP Traceroute Requests
+        
+        .. attribute:: cufwl2globalnumspoofedarpresps
+        
+        	The number of spoofed ARP responses received by the firewall. Such an event would occur when the firewall encounters an ARP response mapping an IP address to a different MAC Address from the one present in the local ARP cache.  This counter is accumulated since the last reboot of  the firewall
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: ARP Responses
         
         
 
@@ -979,94 +1389,466 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwapplinspectiongrp, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals, self).__init__()
 
-            self.yang_name = "cuFwApplInspectionGrp"
+            self.yang_name = "cufwL2FwGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-            self.cufwaialertenabled = YLeaf(YType.boolean, "cufwAIAlertEnabled")
+            self.cufwl2globalarpcachesize = YLeaf(YType.int32, "cufwL2GlobalArpCacheSize")
 
-            self.cufwaiaudittrailenabled = YLeaf(YType.boolean, "cufwAIAuditTrailEnabled")
+            self.cufwl2globalarpoverflowrate5 = YLeaf(YType.uint32, "cufwL2GlobalArpOverflowRate5")
+
+            self.cufwl2globalenablearpinspection = YLeaf(YType.boolean, "cufwL2GlobalEnableArpInspection")
+
+            self.cufwl2globalenablestealthmode = YLeaf(YType.boolean, "cufwL2GlobalEnableStealthMode")
+
+            self.cufwl2globalnumarprequests = YLeaf(YType.uint64, "cufwL2GlobalNumArpRequests")
+
+            self.cufwl2globalnumbadarpresponses = YLeaf(YType.uint64, "cufwL2GlobalNumBadArpResponses")
+
+            self.cufwl2globalnumdrops = YLeaf(YType.uint64, "cufwL2GlobalNumDrops")
+
+            self.cufwl2globalnumfloods = YLeaf(YType.uint64, "cufwL2GlobalNumFloods")
+
+            self.cufwl2globalnumicmprequests = YLeaf(YType.uint64, "cufwL2GlobalNumIcmpRequests")
+
+            self.cufwl2globalnumspoofedarpresps = YLeaf(YType.uint64, "cufwL2GlobalNumSpoofedArpResps")
+            self._segment_path = lambda: "cufwL2FwGlobals"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwaialertenabled",
-                            "cufwaiaudittrailenabled") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwapplinspectiongrp, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwapplinspectiongrp, self).__setattr__(name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals, ['cufwl2globalarpcachesize', 'cufwl2globalarpoverflowrate5', 'cufwl2globalenablearpinspection', 'cufwl2globalenablestealthmode', 'cufwl2globalnumarprequests', 'cufwl2globalnumbadarpresponses', 'cufwl2globalnumdrops', 'cufwl2globalnumfloods', 'cufwl2globalnumicmprequests', 'cufwl2globalnumspoofedarpresps'], name, value)
 
-        def has_data(self):
-            return (
-                self.cufwaialertenabled.is_set or
-                self.cufwaiaudittrailenabled.is_set)
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwaialertenabled.yfilter != YFilter.not_set or
-                self.cufwaiaudittrailenabled.yfilter != YFilter.not_set)
+    class Cufwnotifcntlgrp(Entity):
+        """
+        
+        
+        .. attribute:: cufwcntll2staticmacaddressmoved
+        
+        	This object defines the administrative state of sending the SNMP notification to signal the move of a statically configured MAC address to a new  port.  Such a change could occur either as a result of physical move of the device with the MAC Address to the new port or due to MAC address spoofing
+        	**type**\:  bool
+        
+        .. attribute:: cufwcntlurlfserverstatuschange
+        
+        	This object defines the administrative state of sending the SNMP notification to signal the election of a new primary URL filtering server by this firewall.  Such a change could occur either as a result of  the current primary server becoming unavailable or as a result of explicit management action in  nominating a filtering server the primary server
+        	**type**\:  bool
+        
+        
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cuFwApplInspectionGrp" + path_buffer
+        """
 
-            return path_buffer
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp, self).__init__()
 
-            leaf_name_data = LeafDataList()
-            if (self.cufwaialertenabled.is_set or self.cufwaialertenabled.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaialertenabled.get_name_leafdata())
-            if (self.cufwaiaudittrailenabled.is_set or self.cufwaiaudittrailenabled.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaiaudittrailenabled.get_name_leafdata())
+            self.yang_name = "cuFwNotifCntlGrp"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+            self.cufwcntll2staticmacaddressmoved = YLeaf(YType.boolean, "cufwCntlL2StaticMacAddressMoved")
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
+            self.cufwcntlurlfserverstatuschange = YLeaf(YType.boolean, "cufwCntlUrlfServerStatusChange")
+            self._segment_path = lambda: "cuFwNotifCntlGrp"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
-            return None
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp, ['cufwcntll2staticmacaddressmoved', 'cufwcntlurlfserverstatuschange'], name, value)
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwAIAlertEnabled" or name == "cufwAIAuditTrailEnabled"):
-                return True
-            return False
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwAIAlertEnabled"):
-                self.cufwaialertenabled = value
-                self.cufwaialertenabled.value_namespace = name_space
-                self.cufwaialertenabled.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAIAuditTrailEnabled"):
-                self.cufwaiaudittrailenabled = value
-                self.cufwaiaudittrailenabled.value_namespace = name_space
-                self.cufwaiaudittrailenabled.value_namespace_prefix = name_space_prefix
+    class Cufwpolicyappconnsummarytable(Entity):
+        """
+        This table lists the summary of firewall 
+        connections pertaining to Layer 7 protocols,
+        catalogued on a per policy basis
+        
+        Each entry in the table lists the connection
+        summary of a distinct application protocol, 
+        configured on the specified policy on the firewall, 
+        and pertaining to a specified target to which the
+        policy has been applied.
+        
+        If a policy is bound to a target, it would have one
+        or more entries in this table. If the policy is
+        detached from the target, all entries corresponding
+        to the association between the policy and the target
+        are elminated from this table.
+        
+        Although the information is indexed by policy targets
+        as well, one may aggregate the connection summary for
+        a specific policy across all the target to which the
+        policy is currently applied by setting
+        
+              cufwAppConnPolicyTargetType = 'targetALL'
+        
+        .. attribute:: cufwpolicyappconnsummaryentry
+        
+        	Each entry contains the summary of connection activity for a specific layer 7 protocol in a specific policy applied to the specified policy  target
+        	**type**\: list of    :py:class:`Cufwpolicyappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable, self).__init__()
+
+            self.yang_name = "cufwPolicyAppConnSummaryTable"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwPolicyAppConnSummaryEntry" : ("cufwpolicyappconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry)}
+
+            self.cufwpolicyappconnsummaryentry = YList(self)
+            self._segment_path = lambda: "cufwPolicyAppConnSummaryTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable, [], name, value)
+
+
+        class Cufwpolicyappconnsummaryentry(Entity):
+            """
+            Each entry contains the summary of connection
+            activity for a specific layer 7 protocol in a
+            specific policy applied to the specified policy 
+            target.
+            
+            .. attribute:: cufwpolappconnpolicy  <key>
+            
+            	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cufwpolappconnpolicytargettype  <key>
+            
+            	The type of the entity to which the firewall policy 'cufwPolAppConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwAppConnPolicyTarget is ignored
+            	**type**\:   :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
+            
+            .. attribute:: cufwpolappconnpolicytarget  <key>
+            
+            	The identity of the entity to which the firewall  policy 'cufwPolAppProtocol' refers. This could be an  interface object (most commonly), another object or group of objects defined in the firewall configuration
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cufwpolappconnprotocol  <key>
+            
+            	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
+            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            
+            .. attribute:: cufwpolappconnnumaborted
+            
+            	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumactive
+            
+            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumattempted
+            
+            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumhalfopen
+            
+            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumpolicydeclined
+            
+            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumresdeclined
+            
+            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolappconnnumsetupsaborted
+            
+            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', associated with the policy 'cufwPolAppConnPolicy' applied to the entity  identified by 'cufwPolAppConnPolicyTarget', that were aborted before the connections could  proceed to completion. The counter includes setup  attempts aborted by the firewall as well as those  aborted by the initiator and/or the responder(s)  of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolAppConnNumPolicyDeclined' and  'cufwPolAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            
+
+            """
+
+            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+            _revision = '2005-09-22'
+
+            def __init__(self):
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, self).__init__()
+
+                self.yang_name = "cufwPolicyAppConnSummaryEntry"
+                self.yang_parent_name = "cufwPolicyAppConnSummaryTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cufwpolappconnpolicy = YLeaf(YType.str, "cufwPolAppConnPolicy")
+
+                self.cufwpolappconnpolicytargettype = YLeaf(YType.enumeration, "cufwPolAppConnPolicyTargetType")
+
+                self.cufwpolappconnpolicytarget = YLeaf(YType.str, "cufwPolAppConnPolicyTarget")
+
+                self.cufwpolappconnprotocol = YLeaf(YType.enumeration, "cufwPolAppConnProtocol")
+
+                self.cufwpolappconnnumaborted = YLeaf(YType.uint64, "cufwPolAppConnNumAborted")
+
+                self.cufwpolappconnnumactive = YLeaf(YType.uint32, "cufwPolAppConnNumActive")
+
+                self.cufwpolappconnnumattempted = YLeaf(YType.uint64, "cufwPolAppConnNumAttempted")
+
+                self.cufwpolappconnnumhalfopen = YLeaf(YType.uint32, "cufwPolAppConnNumHalfOpen")
+
+                self.cufwpolappconnnumpolicydeclined = YLeaf(YType.uint64, "cufwPolAppConnNumPolicyDeclined")
+
+                self.cufwpolappconnnumresdeclined = YLeaf(YType.uint64, "cufwPolAppConnNumResDeclined")
+
+                self.cufwpolappconnnumsetupsaborted = YLeaf(YType.uint64, "cufwPolAppConnNumSetupsAborted")
+                self._segment_path = lambda: "cufwPolicyAppConnSummaryEntry" + "[cufwPolAppConnPolicy='" + self.cufwpolappconnpolicy.get() + "']" + "[cufwPolAppConnPolicyTargetType='" + self.cufwpolappconnpolicytargettype.get() + "']" + "[cufwPolAppConnPolicyTarget='" + self.cufwpolappconnpolicytarget.get() + "']" + "[cufwPolAppConnProtocol='" + self.cufwpolappconnprotocol.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyAppConnSummaryTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, ['cufwpolappconnpolicy', 'cufwpolappconnpolicytargettype', 'cufwpolappconnpolicytarget', 'cufwpolappconnprotocol', 'cufwpolappconnnumaborted', 'cufwpolappconnnumactive', 'cufwpolappconnnumattempted', 'cufwpolappconnnumhalfopen', 'cufwpolappconnnumpolicydeclined', 'cufwpolappconnnumresdeclined', 'cufwpolappconnnumsetupsaborted'], name, value)
+
+
+    class Cufwpolicyconnsummarytable(Entity):
+        """
+        This table lists the summary of firewall 
+        connections for layer3\-layer 4 protocols catalogued 
+        on a per policy basis.
+        
+        Each entry in the table lists the connection summary of
+        a distinct network protocol, configured on the specified
+        policy on the firewall, and pertaining to a specified 
+        target to which the policy is currently applied. 
+        
+        If a policy is bound to a target, it would have one
+        or more entries in this table. If the policy is 
+        detached from the target, all entries corresponding 
+        to the association between the policy and the target 
+        are elminated from this table.
+        
+        Although the information is indexed by policy targets
+        as well, one may aggregate the connection summary for
+        a specific policy across all the target to which the 
+        policy is currently applied by setting
+        
+              cufwConnPolicyTargetType =  'targetAll'
+        
+        .. attribute:: cufwpolicyconnsummaryentry
+        
+        	Each entry contains the summary of connection activity for a specific protocol in a specific policy applied to the specified policy target
+        	**type**\: list of    :py:class:`Cufwpolicyconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+        _revision = '2005-09-22'
+
+        def __init__(self):
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable, self).__init__()
+
+            self.yang_name = "cufwPolicyConnSummaryTable"
+            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwPolicyConnSummaryEntry" : ("cufwpolicyconnsummaryentry", CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry)}
+
+            self.cufwpolicyconnsummaryentry = YList(self)
+            self._segment_path = lambda: "cufwPolicyConnSummaryTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable, [], name, value)
+
+
+        class Cufwpolicyconnsummaryentry(Entity):
+            """
+            Each entry contains the summary of connection
+            activity for a specific protocol in a specific
+            policy applied to the specified policy target.
+            
+            .. attribute:: cufwpolconnpolicy  <key>
+            
+            	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cufwpolconnpolicytargettype  <key>
+            
+            	The type of the entity to which the firewall policy 'cufwPolConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwConnPolicyTarget is ignored
+            	**type**\:   :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
+            
+            .. attribute:: cufwpolconnpolicytarget  <key>
+            
+            	The identity of the entity to which the firewall  policy 'cufwPolConnPolicy' is applied. This could be an interface object (most commonly), another object or group of objects defined in the firewall configuration
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cufwpolconnprotocol  <key>
+            
+            	The (L3\-L4) protocol corresponding to which this  conceptual row summarizes the connection activity on the firewall
+            	**type**\:   :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
+            
+            .. attribute:: cufwpolconnnumaborted
+            
+            	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolConnProtocol',  in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumactive
+            
+            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumattempted
+            
+            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumhalfopen
+            
+            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the  policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumpolicydeclined
+            
+            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumresdeclined
+            
+            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            .. attribute:: cufwpolconnnumsetupsaborted
+            
+            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolConnProtocol', associated with the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget', that were aborted before the connection could  proceed to completion. The counter includes  setup attempts aborted by the firewall as well  as those aborted by the initiator and/or the  responder(s) of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolConnNumPolicyDeclined' and 'cufwPolConnNumResDeclined'
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: Connections
+            
+            
+
+            """
+
+            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
+            _revision = '2005-09-22'
+
+            def __init__(self):
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, self).__init__()
+
+                self.yang_name = "cufwPolicyConnSummaryEntry"
+                self.yang_parent_name = "cufwPolicyConnSummaryTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cufwpolconnpolicy = YLeaf(YType.str, "cufwPolConnPolicy")
+
+                self.cufwpolconnpolicytargettype = YLeaf(YType.enumeration, "cufwPolConnPolicyTargetType")
+
+                self.cufwpolconnpolicytarget = YLeaf(YType.str, "cufwPolConnPolicyTarget")
+
+                self.cufwpolconnprotocol = YLeaf(YType.enumeration, "cufwPolConnProtocol")
+
+                self.cufwpolconnnumaborted = YLeaf(YType.uint64, "cufwPolConnNumAborted")
+
+                self.cufwpolconnnumactive = YLeaf(YType.uint32, "cufwPolConnNumActive")
+
+                self.cufwpolconnnumattempted = YLeaf(YType.uint64, "cufwPolConnNumAttempted")
+
+                self.cufwpolconnnumhalfopen = YLeaf(YType.uint32, "cufwPolConnNumHalfOpen")
+
+                self.cufwpolconnnumpolicydeclined = YLeaf(YType.uint64, "cufwPolConnNumPolicyDeclined")
+
+                self.cufwpolconnnumresdeclined = YLeaf(YType.uint64, "cufwPolConnNumResDeclined")
+
+                self.cufwpolconnnumsetupsaborted = YLeaf(YType.uint64, "cufwPolConnNumSetupsAborted")
+                self._segment_path = lambda: "cufwPolicyConnSummaryEntry" + "[cufwPolConnPolicy='" + self.cufwpolconnpolicy.get() + "']" + "[cufwPolConnPolicyTargetType='" + self.cufwpolconnpolicytargettype.get() + "']" + "[cufwPolConnPolicyTarget='" + self.cufwpolconnpolicytarget.get() + "']" + "[cufwPolConnProtocol='" + self.cufwpolconnprotocol.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyConnSummaryTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, ['cufwpolconnpolicy', 'cufwpolconnpolicytargettype', 'cufwpolconnpolicytarget', 'cufwpolconnprotocol', 'cufwpolconnnumaborted', 'cufwpolconnnumactive', 'cufwpolconnnumattempted', 'cufwpolconnnumhalfopen', 'cufwpolconnnumpolicydeclined', 'cufwpolconnnumresdeclined', 'cufwpolconnnumsetupsaborted'], name, value)
 
 
     class Cufwurlfilterglobals(Entity):
@@ -1246,10 +2028,14 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwurlfilterglobals, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals, self).__init__()
 
             self.yang_name = "cufwUrlFilterGlobals"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cufwurlfallowmodereqnumallowed = YLeaf(YType.uint64, "cufwUrlfAllowModeReqNumAllowed")
 
@@ -1288,239 +2074,11 @@ class CiscoUnifiedFirewallMib(Entity):
             self.cufwurlfresponsesnumlate = YLeaf(YType.uint64, "cufwUrlfResponsesNumLate")
 
             self.cufwurlfurlaccrespsnumresdropped = YLeaf(YType.uint64, "cufwUrlfUrlAccRespsNumResDropped")
+            self._segment_path = lambda: "cufwUrlFilterGlobals"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwurlfallowmodereqnumallowed",
-                            "cufwurlfallowmodereqnumdenied",
-                            "cufwurlffunctionenabled",
-                            "cufwurlfnumserverretries",
-                            "cufwurlfnumservertimeouts",
-                            "cufwurlfrequestsdeniedrate1",
-                            "cufwurlfrequestsdeniedrate5",
-                            "cufwurlfrequestsnumallowed",
-                            "cufwurlfrequestsnumcacheallowed",
-                            "cufwurlfrequestsnumcachedenied",
-                            "cufwurlfrequestsnumdenied",
-                            "cufwurlfrequestsnumprocessed",
-                            "cufwurlfrequestsnumresdropped",
-                            "cufwurlfrequestsprocrate1",
-                            "cufwurlfrequestsprocrate5",
-                            "cufwurlfrequestsresdroprate1",
-                            "cufwurlfrequestsresdroprate5",
-                            "cufwurlfresponsesnumlate",
-                            "cufwurlfurlaccrespsnumresdropped") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwurlfilterglobals, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwurlfilterglobals, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwurlfallowmodereqnumallowed.is_set or
-                self.cufwurlfallowmodereqnumdenied.is_set or
-                self.cufwurlffunctionenabled.is_set or
-                self.cufwurlfnumserverretries.is_set or
-                self.cufwurlfnumservertimeouts.is_set or
-                self.cufwurlfrequestsdeniedrate1.is_set or
-                self.cufwurlfrequestsdeniedrate5.is_set or
-                self.cufwurlfrequestsnumallowed.is_set or
-                self.cufwurlfrequestsnumcacheallowed.is_set or
-                self.cufwurlfrequestsnumcachedenied.is_set or
-                self.cufwurlfrequestsnumdenied.is_set or
-                self.cufwurlfrequestsnumprocessed.is_set or
-                self.cufwurlfrequestsnumresdropped.is_set or
-                self.cufwurlfrequestsprocrate1.is_set or
-                self.cufwurlfrequestsprocrate5.is_set or
-                self.cufwurlfrequestsresdroprate1.is_set or
-                self.cufwurlfrequestsresdroprate5.is_set or
-                self.cufwurlfresponsesnumlate.is_set or
-                self.cufwurlfurlaccrespsnumresdropped.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwurlfallowmodereqnumallowed.yfilter != YFilter.not_set or
-                self.cufwurlfallowmodereqnumdenied.yfilter != YFilter.not_set or
-                self.cufwurlffunctionenabled.yfilter != YFilter.not_set or
-                self.cufwurlfnumserverretries.yfilter != YFilter.not_set or
-                self.cufwurlfnumservertimeouts.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsdeniedrate1.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsdeniedrate5.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumallowed.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumcacheallowed.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumcachedenied.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumdenied.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumprocessed.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsnumresdropped.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsprocrate1.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsprocrate5.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsresdroprate1.yfilter != YFilter.not_set or
-                self.cufwurlfrequestsresdroprate5.yfilter != YFilter.not_set or
-                self.cufwurlfresponsesnumlate.yfilter != YFilter.not_set or
-                self.cufwurlfurlaccrespsnumresdropped.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwUrlFilterGlobals" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwurlfallowmodereqnumallowed.is_set or self.cufwurlfallowmodereqnumallowed.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfallowmodereqnumallowed.get_name_leafdata())
-            if (self.cufwurlfallowmodereqnumdenied.is_set or self.cufwurlfallowmodereqnumdenied.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfallowmodereqnumdenied.get_name_leafdata())
-            if (self.cufwurlffunctionenabled.is_set or self.cufwurlffunctionenabled.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlffunctionenabled.get_name_leafdata())
-            if (self.cufwurlfnumserverretries.is_set or self.cufwurlfnumserverretries.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfnumserverretries.get_name_leafdata())
-            if (self.cufwurlfnumservertimeouts.is_set or self.cufwurlfnumservertimeouts.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfnumservertimeouts.get_name_leafdata())
-            if (self.cufwurlfrequestsdeniedrate1.is_set or self.cufwurlfrequestsdeniedrate1.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsdeniedrate1.get_name_leafdata())
-            if (self.cufwurlfrequestsdeniedrate5.is_set or self.cufwurlfrequestsdeniedrate5.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsdeniedrate5.get_name_leafdata())
-            if (self.cufwurlfrequestsnumallowed.is_set or self.cufwurlfrequestsnumallowed.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumallowed.get_name_leafdata())
-            if (self.cufwurlfrequestsnumcacheallowed.is_set or self.cufwurlfrequestsnumcacheallowed.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumcacheallowed.get_name_leafdata())
-            if (self.cufwurlfrequestsnumcachedenied.is_set or self.cufwurlfrequestsnumcachedenied.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumcachedenied.get_name_leafdata())
-            if (self.cufwurlfrequestsnumdenied.is_set or self.cufwurlfrequestsnumdenied.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumdenied.get_name_leafdata())
-            if (self.cufwurlfrequestsnumprocessed.is_set or self.cufwurlfrequestsnumprocessed.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumprocessed.get_name_leafdata())
-            if (self.cufwurlfrequestsnumresdropped.is_set or self.cufwurlfrequestsnumresdropped.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsnumresdropped.get_name_leafdata())
-            if (self.cufwurlfrequestsprocrate1.is_set or self.cufwurlfrequestsprocrate1.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsprocrate1.get_name_leafdata())
-            if (self.cufwurlfrequestsprocrate5.is_set or self.cufwurlfrequestsprocrate5.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsprocrate5.get_name_leafdata())
-            if (self.cufwurlfrequestsresdroprate1.is_set or self.cufwurlfrequestsresdroprate1.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsresdroprate1.get_name_leafdata())
-            if (self.cufwurlfrequestsresdroprate5.is_set or self.cufwurlfrequestsresdroprate5.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrequestsresdroprate5.get_name_leafdata())
-            if (self.cufwurlfresponsesnumlate.is_set or self.cufwurlfresponsesnumlate.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfresponsesnumlate.get_name_leafdata())
-            if (self.cufwurlfurlaccrespsnumresdropped.is_set or self.cufwurlfurlaccrespsnumresdropped.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfurlaccrespsnumresdropped.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwUrlfAllowModeReqNumAllowed" or name == "cufwUrlfAllowModeReqNumDenied" or name == "cufwUrlfFunctionEnabled" or name == "cufwUrlfNumServerRetries" or name == "cufwUrlfNumServerTimeouts" or name == "cufwUrlfRequestsDeniedRate1" or name == "cufwUrlfRequestsDeniedRate5" or name == "cufwUrlfRequestsNumAllowed" or name == "cufwUrlfRequestsNumCacheAllowed" or name == "cufwUrlfRequestsNumCacheDenied" or name == "cufwUrlfRequestsNumDenied" or name == "cufwUrlfRequestsNumProcessed" or name == "cufwUrlfRequestsNumResDropped" or name == "cufwUrlfRequestsProcRate1" or name == "cufwUrlfRequestsProcRate5" or name == "cufwUrlfRequestsResDropRate1" or name == "cufwUrlfRequestsResDropRate5" or name == "cufwUrlfResponsesNumLate" or name == "cufwUrlfUrlAccRespsNumResDropped"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwUrlfAllowModeReqNumAllowed"):
-                self.cufwurlfallowmodereqnumallowed = value
-                self.cufwurlfallowmodereqnumallowed.value_namespace = name_space
-                self.cufwurlfallowmodereqnumallowed.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfAllowModeReqNumDenied"):
-                self.cufwurlfallowmodereqnumdenied = value
-                self.cufwurlfallowmodereqnumdenied.value_namespace = name_space
-                self.cufwurlfallowmodereqnumdenied.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfFunctionEnabled"):
-                self.cufwurlffunctionenabled = value
-                self.cufwurlffunctionenabled.value_namespace = name_space
-                self.cufwurlffunctionenabled.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfNumServerRetries"):
-                self.cufwurlfnumserverretries = value
-                self.cufwurlfnumserverretries.value_namespace = name_space
-                self.cufwurlfnumserverretries.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfNumServerTimeouts"):
-                self.cufwurlfnumservertimeouts = value
-                self.cufwurlfnumservertimeouts.value_namespace = name_space
-                self.cufwurlfnumservertimeouts.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsDeniedRate1"):
-                self.cufwurlfrequestsdeniedrate1 = value
-                self.cufwurlfrequestsdeniedrate1.value_namespace = name_space
-                self.cufwurlfrequestsdeniedrate1.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsDeniedRate5"):
-                self.cufwurlfrequestsdeniedrate5 = value
-                self.cufwurlfrequestsdeniedrate5.value_namespace = name_space
-                self.cufwurlfrequestsdeniedrate5.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumAllowed"):
-                self.cufwurlfrequestsnumallowed = value
-                self.cufwurlfrequestsnumallowed.value_namespace = name_space
-                self.cufwurlfrequestsnumallowed.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumCacheAllowed"):
-                self.cufwurlfrequestsnumcacheallowed = value
-                self.cufwurlfrequestsnumcacheallowed.value_namespace = name_space
-                self.cufwurlfrequestsnumcacheallowed.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumCacheDenied"):
-                self.cufwurlfrequestsnumcachedenied = value
-                self.cufwurlfrequestsnumcachedenied.value_namespace = name_space
-                self.cufwurlfrequestsnumcachedenied.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumDenied"):
-                self.cufwurlfrequestsnumdenied = value
-                self.cufwurlfrequestsnumdenied.value_namespace = name_space
-                self.cufwurlfrequestsnumdenied.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumProcessed"):
-                self.cufwurlfrequestsnumprocessed = value
-                self.cufwurlfrequestsnumprocessed.value_namespace = name_space
-                self.cufwurlfrequestsnumprocessed.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsNumResDropped"):
-                self.cufwurlfrequestsnumresdropped = value
-                self.cufwurlfrequestsnumresdropped.value_namespace = name_space
-                self.cufwurlfrequestsnumresdropped.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsProcRate1"):
-                self.cufwurlfrequestsprocrate1 = value
-                self.cufwurlfrequestsprocrate1.value_namespace = name_space
-                self.cufwurlfrequestsprocrate1.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsProcRate5"):
-                self.cufwurlfrequestsprocrate5 = value
-                self.cufwurlfrequestsprocrate5.value_namespace = name_space
-                self.cufwurlfrequestsprocrate5.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsResDropRate1"):
-                self.cufwurlfrequestsresdroprate1 = value
-                self.cufwurlfrequestsresdroprate1.value_namespace = name_space
-                self.cufwurlfrequestsresdroprate1.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfRequestsResDropRate5"):
-                self.cufwurlfrequestsresdroprate5 = value
-                self.cufwurlfrequestsresdroprate5.value_namespace = name_space
-                self.cufwurlfrequestsresdroprate5.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfResponsesNumLate"):
-                self.cufwurlfresponsesnumlate = value
-                self.cufwurlfresponsesnumlate.value_namespace = name_space
-                self.cufwurlfresponsesnumlate.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfUrlAccRespsNumResDropped"):
-                self.cufwurlfurlaccrespsnumresdropped = value
-                self.cufwurlfurlaccrespsnumresdropped.value_namespace = name_space
-                self.cufwurlfurlaccrespsnumresdropped.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals, ['cufwurlfallowmodereqnumallowed', 'cufwurlfallowmodereqnumdenied', 'cufwurlffunctionenabled', 'cufwurlfnumserverretries', 'cufwurlfnumservertimeouts', 'cufwurlfrequestsdeniedrate1', 'cufwurlfrequestsdeniedrate5', 'cufwurlfrequestsnumallowed', 'cufwurlfrequestsnumcacheallowed', 'cufwurlfrequestsnumcachedenied', 'cufwurlfrequestsnumdenied', 'cufwurlfrequestsnumprocessed', 'cufwurlfrequestsnumresdropped', 'cufwurlfrequestsprocrate1', 'cufwurlfrequestsprocrate5', 'cufwurlfrequestsresdroprate1', 'cufwurlfrequestsresdroprate5', 'cufwurlfresponsesnumlate', 'cufwurlfurlaccrespsnumresdropped'], name, value)
 
 
     class Cufwurlfilterresourceusage(Entity):
@@ -1553,2704 +2111,23 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage, self).__init__()
 
             self.yang_name = "cufwUrlFilterResourceUsage"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cufwurlfrestotalrequestcachesize = YLeaf(YType.uint32, "cufwUrlfResTotalRequestCacheSize")
 
             self.cufwurlfrestotalrespcachesize = YLeaf(YType.uint32, "cufwUrlfResTotalRespCacheSize")
+            self._segment_path = lambda: "cufwUrlFilterResourceUsage"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwurlfrestotalrequestcachesize",
-                            "cufwurlfrestotalrespcachesize") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwurlfrestotalrequestcachesize.is_set or
-                self.cufwurlfrestotalrespcachesize.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwurlfrestotalrequestcachesize.yfilter != YFilter.not_set or
-                self.cufwurlfrestotalrespcachesize.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwUrlFilterResourceUsage" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwurlfrestotalrequestcachesize.is_set or self.cufwurlfrestotalrequestcachesize.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrestotalrequestcachesize.get_name_leafdata())
-            if (self.cufwurlfrestotalrespcachesize.is_set or self.cufwurlfrestotalrespcachesize.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwurlfrestotalrespcachesize.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwUrlfResTotalRequestCacheSize" or name == "cufwUrlfResTotalRespCacheSize"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwUrlfResTotalRequestCacheSize"):
-                self.cufwurlfrestotalrequestcachesize = value
-                self.cufwurlfrestotalrequestcachesize.value_namespace = name_space
-                self.cufwurlfrestotalrequestcachesize.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwUrlfResTotalRespCacheSize"):
-                self.cufwurlfrestotalrespcachesize = value
-                self.cufwurlfrestotalrespcachesize.value_namespace = name_space
-                self.cufwurlfrestotalrespcachesize.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwaaicglobals(Entity):
-        """
-        
-        
-        .. attribute:: cufwaaicglobalnumbadpdusize
-        
-        	This MIB object records the number of application  protocol data units (PDU) that had either an invalid header size or an invalid payload size, as determined  by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: Protocol Data Units
-        
-        .. attribute:: cufwaaicglobalnumbadportrange
-        
-        	Number of application protocol units that attempted  to advertise illegal port ranges for secondary  connections. An example of such an occurrence would be a passive FTP connection, where the  server advertises a disallowed port range for data connection.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: Protocol Data Units
-        
-        .. attribute:: cufwaaicglobalnumbadprotocolops
-        
-        	'Protocol Operation' is the application protocol specific operation that the PDU is intended to  perform. An example of 'protocol operation' is the  HELO command of SMTP protocol.  This MIB object records the number of application  protocol data units that contained a protocol operation which was disallowed by the local security policy.   For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: Protocol Data Units
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwaaicglobals, self).__init__()
-
-            self.yang_name = "cufwAaicGlobals"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwaaicglobalnumbadpdusize = YLeaf(YType.uint64, "cufwAaicGlobalNumBadPDUSize")
-
-            self.cufwaaicglobalnumbadportrange = YLeaf(YType.uint64, "cufwAaicGlobalNumBadPortRange")
-
-            self.cufwaaicglobalnumbadprotocolops = YLeaf(YType.uint64, "cufwAaicGlobalNumBadProtocolOps")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwaaicglobalnumbadpdusize",
-                            "cufwaaicglobalnumbadportrange",
-                            "cufwaaicglobalnumbadprotocolops") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwaaicglobals, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwaaicglobals, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwaaicglobalnumbadpdusize.is_set or
-                self.cufwaaicglobalnumbadportrange.is_set or
-                self.cufwaaicglobalnumbadprotocolops.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwaaicglobalnumbadpdusize.yfilter != YFilter.not_set or
-                self.cufwaaicglobalnumbadportrange.yfilter != YFilter.not_set or
-                self.cufwaaicglobalnumbadprotocolops.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwAaicGlobals" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwaaicglobalnumbadpdusize.is_set or self.cufwaaicglobalnumbadpdusize.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaicglobalnumbadpdusize.get_name_leafdata())
-            if (self.cufwaaicglobalnumbadportrange.is_set or self.cufwaaicglobalnumbadportrange.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaicglobalnumbadportrange.get_name_leafdata())
-            if (self.cufwaaicglobalnumbadprotocolops.is_set or self.cufwaaicglobalnumbadprotocolops.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaicglobalnumbadprotocolops.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwAaicGlobalNumBadPDUSize" or name == "cufwAaicGlobalNumBadPortRange" or name == "cufwAaicGlobalNumBadProtocolOps"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwAaicGlobalNumBadPDUSize"):
-                self.cufwaaicglobalnumbadpdusize = value
-                self.cufwaaicglobalnumbadpdusize.value_namespace = name_space
-                self.cufwaaicglobalnumbadpdusize.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicGlobalNumBadPortRange"):
-                self.cufwaaicglobalnumbadportrange = value
-                self.cufwaaicglobalnumbadportrange.value_namespace = name_space
-                self.cufwaaicglobalnumbadportrange.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicGlobalNumBadProtocolOps"):
-                self.cufwaaicglobalnumbadprotocolops = value
-                self.cufwaaicglobalnumbadprotocolops.value_namespace = name_space
-                self.cufwaaicglobalnumbadprotocolops.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwaaichttpprotocolstats(Entity):
-        """
-        
-        
-        .. attribute:: cufwaaichttpnumbadcontent
-        
-        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type disallowed by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnumbadpdusize
-        
-        	The number of PDUs corresponding to HTTP protocol  that had either an invalid header size or an invalid  payload size, as determined by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnumbadprotocolops
-        
-        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing HTTP protocol methods which are disallowed by the local security  policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnumdoubleencodedpkts
-        
-        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing double encoding. Double encoding is a mechanism to obfuscate content  in which a encoded data is re\-encoded so as to evade  deep packet inspections.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnumlargeuris
-        
-        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing a URI of size not permitted by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnummismatchcontent
-        
-        	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type was different from the content type specified  in the header of the PDU.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: HTTP Protocol Data Units
-        
-        .. attribute:: cufwaaichttpnumtunneledconns
-        
-        	The number of connections corresponding to HTTP protocol which were detected to be tunneling other  application traffic streams. An instance of this  would be InstantMessenger traffic running on HTTP.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: Connections
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats, self).__init__()
-
-            self.yang_name = "cufwAaicHttpProtocolStats"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwaaichttpnumbadcontent = YLeaf(YType.uint64, "cufwAaicHttpNumBadContent")
-
-            self.cufwaaichttpnumbadpdusize = YLeaf(YType.uint64, "cufwAaicHttpNumBadPDUSize")
-
-            self.cufwaaichttpnumbadprotocolops = YLeaf(YType.uint64, "cufwAaicHttpNumBadProtocolOps")
-
-            self.cufwaaichttpnumdoubleencodedpkts = YLeaf(YType.uint64, "cufwAaicHttpNumDoubleEncodedPkts")
-
-            self.cufwaaichttpnumlargeuris = YLeaf(YType.uint64, "cufwAaicHttpNumLargeURIs")
-
-            self.cufwaaichttpnummismatchcontent = YLeaf(YType.uint64, "cufwAaicHttpNumMismatchContent")
-
-            self.cufwaaichttpnumtunneledconns = YLeaf(YType.uint64, "cufwAaicHttpNumTunneledConns")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwaaichttpnumbadcontent",
-                            "cufwaaichttpnumbadpdusize",
-                            "cufwaaichttpnumbadprotocolops",
-                            "cufwaaichttpnumdoubleencodedpkts",
-                            "cufwaaichttpnumlargeuris",
-                            "cufwaaichttpnummismatchcontent",
-                            "cufwaaichttpnumtunneledconns") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwaaichttpnumbadcontent.is_set or
-                self.cufwaaichttpnumbadpdusize.is_set or
-                self.cufwaaichttpnumbadprotocolops.is_set or
-                self.cufwaaichttpnumdoubleencodedpkts.is_set or
-                self.cufwaaichttpnumlargeuris.is_set or
-                self.cufwaaichttpnummismatchcontent.is_set or
-                self.cufwaaichttpnumtunneledconns.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumbadcontent.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumbadpdusize.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumbadprotocolops.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumdoubleencodedpkts.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumlargeuris.yfilter != YFilter.not_set or
-                self.cufwaaichttpnummismatchcontent.yfilter != YFilter.not_set or
-                self.cufwaaichttpnumtunneledconns.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwAaicHttpProtocolStats" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwaaichttpnumbadcontent.is_set or self.cufwaaichttpnumbadcontent.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumbadcontent.get_name_leafdata())
-            if (self.cufwaaichttpnumbadpdusize.is_set or self.cufwaaichttpnumbadpdusize.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumbadpdusize.get_name_leafdata())
-            if (self.cufwaaichttpnumbadprotocolops.is_set or self.cufwaaichttpnumbadprotocolops.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumbadprotocolops.get_name_leafdata())
-            if (self.cufwaaichttpnumdoubleencodedpkts.is_set or self.cufwaaichttpnumdoubleencodedpkts.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumdoubleencodedpkts.get_name_leafdata())
-            if (self.cufwaaichttpnumlargeuris.is_set or self.cufwaaichttpnumlargeuris.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumlargeuris.get_name_leafdata())
-            if (self.cufwaaichttpnummismatchcontent.is_set or self.cufwaaichttpnummismatchcontent.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnummismatchcontent.get_name_leafdata())
-            if (self.cufwaaichttpnumtunneledconns.is_set or self.cufwaaichttpnumtunneledconns.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwaaichttpnumtunneledconns.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwAaicHttpNumBadContent" or name == "cufwAaicHttpNumBadPDUSize" or name == "cufwAaicHttpNumBadProtocolOps" or name == "cufwAaicHttpNumDoubleEncodedPkts" or name == "cufwAaicHttpNumLargeURIs" or name == "cufwAaicHttpNumMismatchContent" or name == "cufwAaicHttpNumTunneledConns"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwAaicHttpNumBadContent"):
-                self.cufwaaichttpnumbadcontent = value
-                self.cufwaaichttpnumbadcontent.value_namespace = name_space
-                self.cufwaaichttpnumbadcontent.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumBadPDUSize"):
-                self.cufwaaichttpnumbadpdusize = value
-                self.cufwaaichttpnumbadpdusize.value_namespace = name_space
-                self.cufwaaichttpnumbadpdusize.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumBadProtocolOps"):
-                self.cufwaaichttpnumbadprotocolops = value
-                self.cufwaaichttpnumbadprotocolops.value_namespace = name_space
-                self.cufwaaichttpnumbadprotocolops.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumDoubleEncodedPkts"):
-                self.cufwaaichttpnumdoubleencodedpkts = value
-                self.cufwaaichttpnumdoubleencodedpkts.value_namespace = name_space
-                self.cufwaaichttpnumdoubleencodedpkts.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumLargeURIs"):
-                self.cufwaaichttpnumlargeuris = value
-                self.cufwaaichttpnumlargeuris.value_namespace = name_space
-                self.cufwaaichttpnumlargeuris.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumMismatchContent"):
-                self.cufwaaichttpnummismatchcontent = value
-                self.cufwaaichttpnummismatchcontent.value_namespace = name_space
-                self.cufwaaichttpnummismatchcontent.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwAaicHttpNumTunneledConns"):
-                self.cufwaaichttpnumtunneledconns = value
-                self.cufwaaichttpnumtunneledconns.value_namespace = name_space
-                self.cufwaaichttpnumtunneledconns.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwl2Fwglobals(Entity):
-        """
-        
-        
-        .. attribute:: cufwl2globalarpcachesize
-        
-        	The value indicates the configured maximum size of the ARP cache used for management traffic
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        	**units**\: ARP entries
-        
-        .. attribute:: cufwl2globalarpoverflowrate5
-        
-        	The number of times an existing entry from the ARP cache had to be ejected in order to insert a new entry in the last 300 seconds.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cufwl2globalenablearpinspection
-        
-        	The value indicates if ARP inspection, which is a security feature, is enabled globally on the managed firewall
-        	**type**\:  bool
-        
-        .. attribute:: cufwl2globalenablestealthmode
-        
-        	The value indicates if the firewall is operating in transparent (layer 2) mode or not.  When operating in transparent mode, the firewall operates as a bridge while performing firewalling functions
-        	**type**\:  bool
-        
-        .. attribute:: cufwl2globalnumarprequests
-        
-        	The number of ARP requests issued by the transparent firewall to resolve a destination IP address.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: ARP Requests
-        
-        .. attribute:: cufwl2globalnumbadarpresponses
-        
-        	The number of malformed ARP responses received by the firewall in trying to resolve the MAC address of the destination IP address in an incoming frame.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: ARP Responses
-        
-        .. attribute:: cufwl2globalnumdrops
-        
-        	The number of times the firewall dropped an incoming frame because the destination MAC address is missing  in the bridge table.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: cufwl2globalnumfloods
-        
-        	The number of times the firewall floods a frame to be  forwarded to the egress interfaces because the  destination MAC address is missing in the bridge table.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: cufwl2globalnumicmprequests
-        
-        	The number of ICMP traceroute requests issued by the  transparent firewall to resolve a destination IP  address.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: ICMP Traceroute Requests
-        
-        .. attribute:: cufwl2globalnumspoofedarpresps
-        
-        	The number of spoofed ARP responses received by the firewall. Such an event would occur when the firewall encounters an ARP response mapping an IP address to a different MAC Address from the one present in the local ARP cache.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        	**units**\: ARP Responses
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwl2Fwglobals, self).__init__()
-
-            self.yang_name = "cufwL2FwGlobals"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwl2globalarpcachesize = YLeaf(YType.int32, "cufwL2GlobalArpCacheSize")
-
-            self.cufwl2globalarpoverflowrate5 = YLeaf(YType.uint32, "cufwL2GlobalArpOverflowRate5")
-
-            self.cufwl2globalenablearpinspection = YLeaf(YType.boolean, "cufwL2GlobalEnableArpInspection")
-
-            self.cufwl2globalenablestealthmode = YLeaf(YType.boolean, "cufwL2GlobalEnableStealthMode")
-
-            self.cufwl2globalnumarprequests = YLeaf(YType.uint64, "cufwL2GlobalNumArpRequests")
-
-            self.cufwl2globalnumbadarpresponses = YLeaf(YType.uint64, "cufwL2GlobalNumBadArpResponses")
-
-            self.cufwl2globalnumdrops = YLeaf(YType.uint64, "cufwL2GlobalNumDrops")
-
-            self.cufwl2globalnumfloods = YLeaf(YType.uint64, "cufwL2GlobalNumFloods")
-
-            self.cufwl2globalnumicmprequests = YLeaf(YType.uint64, "cufwL2GlobalNumIcmpRequests")
-
-            self.cufwl2globalnumspoofedarpresps = YLeaf(YType.uint64, "cufwL2GlobalNumSpoofedArpResps")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwl2globalarpcachesize",
-                            "cufwl2globalarpoverflowrate5",
-                            "cufwl2globalenablearpinspection",
-                            "cufwl2globalenablestealthmode",
-                            "cufwl2globalnumarprequests",
-                            "cufwl2globalnumbadarpresponses",
-                            "cufwl2globalnumdrops",
-                            "cufwl2globalnumfloods",
-                            "cufwl2globalnumicmprequests",
-                            "cufwl2globalnumspoofedarpresps") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwl2Fwglobals, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwl2Fwglobals, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwl2globalarpcachesize.is_set or
-                self.cufwl2globalarpoverflowrate5.is_set or
-                self.cufwl2globalenablearpinspection.is_set or
-                self.cufwl2globalenablestealthmode.is_set or
-                self.cufwl2globalnumarprequests.is_set or
-                self.cufwl2globalnumbadarpresponses.is_set or
-                self.cufwl2globalnumdrops.is_set or
-                self.cufwl2globalnumfloods.is_set or
-                self.cufwl2globalnumicmprequests.is_set or
-                self.cufwl2globalnumspoofedarpresps.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwl2globalarpcachesize.yfilter != YFilter.not_set or
-                self.cufwl2globalarpoverflowrate5.yfilter != YFilter.not_set or
-                self.cufwl2globalenablearpinspection.yfilter != YFilter.not_set or
-                self.cufwl2globalenablestealthmode.yfilter != YFilter.not_set or
-                self.cufwl2globalnumarprequests.yfilter != YFilter.not_set or
-                self.cufwl2globalnumbadarpresponses.yfilter != YFilter.not_set or
-                self.cufwl2globalnumdrops.yfilter != YFilter.not_set or
-                self.cufwl2globalnumfloods.yfilter != YFilter.not_set or
-                self.cufwl2globalnumicmprequests.yfilter != YFilter.not_set or
-                self.cufwl2globalnumspoofedarpresps.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwL2FwGlobals" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwl2globalarpcachesize.is_set or self.cufwl2globalarpcachesize.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalarpcachesize.get_name_leafdata())
-            if (self.cufwl2globalarpoverflowrate5.is_set or self.cufwl2globalarpoverflowrate5.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalarpoverflowrate5.get_name_leafdata())
-            if (self.cufwl2globalenablearpinspection.is_set or self.cufwl2globalenablearpinspection.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalenablearpinspection.get_name_leafdata())
-            if (self.cufwl2globalenablestealthmode.is_set or self.cufwl2globalenablestealthmode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalenablestealthmode.get_name_leafdata())
-            if (self.cufwl2globalnumarprequests.is_set or self.cufwl2globalnumarprequests.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumarprequests.get_name_leafdata())
-            if (self.cufwl2globalnumbadarpresponses.is_set or self.cufwl2globalnumbadarpresponses.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumbadarpresponses.get_name_leafdata())
-            if (self.cufwl2globalnumdrops.is_set or self.cufwl2globalnumdrops.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumdrops.get_name_leafdata())
-            if (self.cufwl2globalnumfloods.is_set or self.cufwl2globalnumfloods.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumfloods.get_name_leafdata())
-            if (self.cufwl2globalnumicmprequests.is_set or self.cufwl2globalnumicmprequests.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumicmprequests.get_name_leafdata())
-            if (self.cufwl2globalnumspoofedarpresps.is_set or self.cufwl2globalnumspoofedarpresps.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwl2globalnumspoofedarpresps.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwL2GlobalArpCacheSize" or name == "cufwL2GlobalArpOverflowRate5" or name == "cufwL2GlobalEnableArpInspection" or name == "cufwL2GlobalEnableStealthMode" or name == "cufwL2GlobalNumArpRequests" or name == "cufwL2GlobalNumBadArpResponses" or name == "cufwL2GlobalNumDrops" or name == "cufwL2GlobalNumFloods" or name == "cufwL2GlobalNumIcmpRequests" or name == "cufwL2GlobalNumSpoofedArpResps"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwL2GlobalArpCacheSize"):
-                self.cufwl2globalarpcachesize = value
-                self.cufwl2globalarpcachesize.value_namespace = name_space
-                self.cufwl2globalarpcachesize.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalArpOverflowRate5"):
-                self.cufwl2globalarpoverflowrate5 = value
-                self.cufwl2globalarpoverflowrate5.value_namespace = name_space
-                self.cufwl2globalarpoverflowrate5.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalEnableArpInspection"):
-                self.cufwl2globalenablearpinspection = value
-                self.cufwl2globalenablearpinspection.value_namespace = name_space
-                self.cufwl2globalenablearpinspection.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalEnableStealthMode"):
-                self.cufwl2globalenablestealthmode = value
-                self.cufwl2globalenablestealthmode.value_namespace = name_space
-                self.cufwl2globalenablestealthmode.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumArpRequests"):
-                self.cufwl2globalnumarprequests = value
-                self.cufwl2globalnumarprequests.value_namespace = name_space
-                self.cufwl2globalnumarprequests.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumBadArpResponses"):
-                self.cufwl2globalnumbadarpresponses = value
-                self.cufwl2globalnumbadarpresponses.value_namespace = name_space
-                self.cufwl2globalnumbadarpresponses.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumDrops"):
-                self.cufwl2globalnumdrops = value
-                self.cufwl2globalnumdrops.value_namespace = name_space
-                self.cufwl2globalnumdrops.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumFloods"):
-                self.cufwl2globalnumfloods = value
-                self.cufwl2globalnumfloods.value_namespace = name_space
-                self.cufwl2globalnumfloods.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumIcmpRequests"):
-                self.cufwl2globalnumicmprequests = value
-                self.cufwl2globalnumicmprequests.value_namespace = name_space
-                self.cufwl2globalnumicmprequests.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwL2GlobalNumSpoofedArpResps"):
-                self.cufwl2globalnumspoofedarpresps = value
-                self.cufwl2globalnumspoofedarpresps.value_namespace = name_space
-                self.cufwl2globalnumspoofedarpresps.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwnotifcntlgrp(Entity):
-        """
-        
-        
-        .. attribute:: cufwcntll2staticmacaddressmoved
-        
-        	This object defines the administrative state of sending the SNMP notification to signal the move of a statically configured MAC address to a new  port.  Such a change could occur either as a result of physical move of the device with the MAC Address to the new port or due to MAC address spoofing
-        	**type**\:  bool
-        
-        .. attribute:: cufwcntlurlfserverstatuschange
-        
-        	This object defines the administrative state of sending the SNMP notification to signal the election of a new primary URL filtering server by this firewall.  Such a change could occur either as a result of  the current primary server becoming unavailable or as a result of explicit management action in  nominating a filtering server the primary server
-        	**type**\:  bool
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwnotifcntlgrp, self).__init__()
-
-            self.yang_name = "cuFwNotifCntlGrp"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwcntll2staticmacaddressmoved = YLeaf(YType.boolean, "cufwCntlL2StaticMacAddressMoved")
-
-            self.cufwcntlurlfserverstatuschange = YLeaf(YType.boolean, "cufwCntlUrlfServerStatusChange")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cufwcntll2staticmacaddressmoved",
-                            "cufwcntlurlfserverstatuschange") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwnotifcntlgrp, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwnotifcntlgrp, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.cufwcntll2staticmacaddressmoved.is_set or
-                self.cufwcntlurlfserverstatuschange.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cufwcntll2staticmacaddressmoved.yfilter != YFilter.not_set or
-                self.cufwcntlurlfserverstatuschange.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cuFwNotifCntlGrp" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cufwcntll2staticmacaddressmoved.is_set or self.cufwcntll2staticmacaddressmoved.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwcntll2staticmacaddressmoved.get_name_leafdata())
-            if (self.cufwcntlurlfserverstatuschange.is_set or self.cufwcntlurlfserverstatuschange.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cufwcntlurlfserverstatuschange.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwCntlL2StaticMacAddressMoved" or name == "cufwCntlUrlfServerStatusChange"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cufwCntlL2StaticMacAddressMoved"):
-                self.cufwcntll2staticmacaddressmoved = value
-                self.cufwcntll2staticmacaddressmoved.value_namespace = name_space
-                self.cufwcntll2staticmacaddressmoved.value_namespace_prefix = name_space_prefix
-            if(value_path == "cufwCntlUrlfServerStatusChange"):
-                self.cufwcntlurlfserverstatuschange = value
-                self.cufwcntlurlfserverstatuschange.value_namespace = name_space
-                self.cufwcntlurlfserverstatuschange.value_namespace_prefix = name_space_prefix
-
-
-    class Cufwconnsummarytable(Entity):
-        """
-        This table summarizes the connection activity on
-        the firewall per layer3\-layer 4 protocol instance.
-        
-        Each entry in the table lists the connection
-        summary of a distinct network protocol.
-        
-        For instance, the conceptual row corresponding to the
-        index
-        
-             cufwConnProtocol = fwpTcp
-        
-        yields the summary of TCP connection activity on the 
-        firewall since its reboot.
-        
-        .. attribute:: cufwconnsummaryentry
-        
-        	Each entry contains the summary of connection activity for a layer3\-layer4 network protocol
-        	**type**\: list of    :py:class:`Cufwconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwconnsummarytable.Cufwconnsummaryentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwconnsummarytable, self).__init__()
-
-            self.yang_name = "cufwConnSummaryTable"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwconnsummaryentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwconnsummarytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwconnsummarytable, self).__setattr__(name, value)
-
-
-        class Cufwconnsummaryentry(Entity):
-            """
-            Each entry contains the summary of connection
-            activity for a layer3\-layer4 network protocol.
-            
-            .. attribute:: cufwconnprotocol  <key>
-            
-            	The (L3\-L4) protocol for which this conceptual  row summarizes the connection activity on the managed entity
-            	**type**\:   :py:class:`Cfwnetworkprotocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwnetworkprotocol>`
-            
-            .. attribute:: cufwconnnumaborted
-            
-            	The number of connections that were abnormally  terminated after successful establishment,  corresponding to the protocol denoted by  'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumactive
-            
-            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumattempted
-            
-            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumhalfopen
-            
-            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumpolicydeclined
-            
-            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumresdeclined
-            
-            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnnumsetupsaborted
-            
-            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwConnProtocol', that were aborted before the  connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwConnNumPolicyDeclined' and  'cufwConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwconnsetuprate1
-            
-            	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections Per Second
-            
-            .. attribute:: cufwconnsetuprate5
-            
-            	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections Per Second
-            
-            
-
-            """
-
-            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-            _revision = '2005-09-22'
-
-            def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwconnsummarytable.Cufwconnsummaryentry, self).__init__()
-
-                self.yang_name = "cufwConnSummaryEntry"
-                self.yang_parent_name = "cufwConnSummaryTable"
-
-                self.cufwconnprotocol = YLeaf(YType.enumeration, "cufwConnProtocol")
-
-                self.cufwconnnumaborted = YLeaf(YType.uint64, "cufwConnNumAborted")
-
-                self.cufwconnnumactive = YLeaf(YType.uint32, "cufwConnNumActive")
-
-                self.cufwconnnumattempted = YLeaf(YType.uint64, "cufwConnNumAttempted")
-
-                self.cufwconnnumhalfopen = YLeaf(YType.uint32, "cufwConnNumHalfOpen")
-
-                self.cufwconnnumpolicydeclined = YLeaf(YType.uint64, "cufwConnNumPolicyDeclined")
-
-                self.cufwconnnumresdeclined = YLeaf(YType.uint64, "cufwConnNumResDeclined")
-
-                self.cufwconnnumsetupsaborted = YLeaf(YType.uint64, "cufwConnNumSetupsAborted")
-
-                self.cufwconnsetuprate1 = YLeaf(YType.uint32, "cufwConnSetupRate1")
-
-                self.cufwconnsetuprate5 = YLeaf(YType.uint32, "cufwConnSetupRate5")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwconnprotocol",
-                                "cufwconnnumaborted",
-                                "cufwconnnumactive",
-                                "cufwconnnumattempted",
-                                "cufwconnnumhalfopen",
-                                "cufwconnnumpolicydeclined",
-                                "cufwconnnumresdeclined",
-                                "cufwconnnumsetupsaborted",
-                                "cufwconnsetuprate1",
-                                "cufwconnsetuprate5") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwconnsummarytable.Cufwconnsummaryentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwconnsummarytable.Cufwconnsummaryentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwconnprotocol.is_set or
-                    self.cufwconnnumaborted.is_set or
-                    self.cufwconnnumactive.is_set or
-                    self.cufwconnnumattempted.is_set or
-                    self.cufwconnnumhalfopen.is_set or
-                    self.cufwconnnumpolicydeclined.is_set or
-                    self.cufwconnnumresdeclined.is_set or
-                    self.cufwconnnumsetupsaborted.is_set or
-                    self.cufwconnsetuprate1.is_set or
-                    self.cufwconnsetuprate5.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwconnprotocol.yfilter != YFilter.not_set or
-                    self.cufwconnnumaborted.yfilter != YFilter.not_set or
-                    self.cufwconnnumactive.yfilter != YFilter.not_set or
-                    self.cufwconnnumattempted.yfilter != YFilter.not_set or
-                    self.cufwconnnumhalfopen.yfilter != YFilter.not_set or
-                    self.cufwconnnumpolicydeclined.yfilter != YFilter.not_set or
-                    self.cufwconnnumresdeclined.yfilter != YFilter.not_set or
-                    self.cufwconnnumsetupsaborted.yfilter != YFilter.not_set or
-                    self.cufwconnsetuprate1.yfilter != YFilter.not_set or
-                    self.cufwconnsetuprate5.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwConnSummaryEntry" + "[cufwConnProtocol='" + self.cufwconnprotocol.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwConnSummaryTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwconnprotocol.is_set or self.cufwconnprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnprotocol.get_name_leafdata())
-                if (self.cufwconnnumaborted.is_set or self.cufwconnnumaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumaborted.get_name_leafdata())
-                if (self.cufwconnnumactive.is_set or self.cufwconnnumactive.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumactive.get_name_leafdata())
-                if (self.cufwconnnumattempted.is_set or self.cufwconnnumattempted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumattempted.get_name_leafdata())
-                if (self.cufwconnnumhalfopen.is_set or self.cufwconnnumhalfopen.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumhalfopen.get_name_leafdata())
-                if (self.cufwconnnumpolicydeclined.is_set or self.cufwconnnumpolicydeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumpolicydeclined.get_name_leafdata())
-                if (self.cufwconnnumresdeclined.is_set or self.cufwconnnumresdeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumresdeclined.get_name_leafdata())
-                if (self.cufwconnnumsetupsaborted.is_set or self.cufwconnnumsetupsaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnnumsetupsaborted.get_name_leafdata())
-                if (self.cufwconnsetuprate1.is_set or self.cufwconnsetuprate1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnsetuprate1.get_name_leafdata())
-                if (self.cufwconnsetuprate5.is_set or self.cufwconnsetuprate5.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwconnsetuprate5.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwConnProtocol" or name == "cufwConnNumAborted" or name == "cufwConnNumActive" or name == "cufwConnNumAttempted" or name == "cufwConnNumHalfOpen" or name == "cufwConnNumPolicyDeclined" or name == "cufwConnNumResDeclined" or name == "cufwConnNumSetupsAborted" or name == "cufwConnSetupRate1" or name == "cufwConnSetupRate5"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwConnProtocol"):
-                    self.cufwconnprotocol = value
-                    self.cufwconnprotocol.value_namespace = name_space
-                    self.cufwconnprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumAborted"):
-                    self.cufwconnnumaborted = value
-                    self.cufwconnnumaborted.value_namespace = name_space
-                    self.cufwconnnumaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumActive"):
-                    self.cufwconnnumactive = value
-                    self.cufwconnnumactive.value_namespace = name_space
-                    self.cufwconnnumactive.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumAttempted"):
-                    self.cufwconnnumattempted = value
-                    self.cufwconnnumattempted.value_namespace = name_space
-                    self.cufwconnnumattempted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumHalfOpen"):
-                    self.cufwconnnumhalfopen = value
-                    self.cufwconnnumhalfopen.value_namespace = name_space
-                    self.cufwconnnumhalfopen.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumPolicyDeclined"):
-                    self.cufwconnnumpolicydeclined = value
-                    self.cufwconnnumpolicydeclined.value_namespace = name_space
-                    self.cufwconnnumpolicydeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumResDeclined"):
-                    self.cufwconnnumresdeclined = value
-                    self.cufwconnnumresdeclined.value_namespace = name_space
-                    self.cufwconnnumresdeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnNumSetupsAborted"):
-                    self.cufwconnnumsetupsaborted = value
-                    self.cufwconnnumsetupsaborted.value_namespace = name_space
-                    self.cufwconnnumsetupsaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnSetupRate1"):
-                    self.cufwconnsetuprate1 = value
-                    self.cufwconnsetuprate1.value_namespace = name_space
-                    self.cufwconnsetuprate1.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwConnSetupRate5"):
-                    self.cufwconnsetuprate5 = value
-                    self.cufwconnsetuprate5.value_namespace = name_space
-                    self.cufwconnsetuprate5.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwconnsummaryentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwconnsummaryentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwConnSummaryTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwConnSummaryEntry"):
-                for c in self.cufwconnsummaryentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwconnsummarytable.Cufwconnsummaryentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwconnsummaryentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwConnSummaryEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Cufwappconnsummarytable(Entity):
-        """
-        This table lists the summary of firewall 
-        connections pertaining to Layer 7 protocols,
-        catalogued by distinct application protocols.
-        
-        Each entry in the table lists the connection
-        summary corresponding to a distinct application 
-        protocol.
-        
-        For instance, to obtain the connection summary 
-        for SMTP on the firewall since the last reboot 
-        of the device, use the conceptual row 
-        corresponding to 
-        
-           cufwAppConnProtocol = fwApSmtp
-        
-        .. attribute:: cufwappconnsummaryentry
-        
-        	Each entry contains the summary of connection activity for a distinct layer 7 protocol identified by the index element 'cufwAppConnProtocol'
-        	**type**\: list of    :py:class:`Cufwappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwappconnsummarytable.Cufwappconnsummaryentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable, self).__init__()
-
-            self.yang_name = "cufwAppConnSummaryTable"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwappconnsummaryentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable, self).__setattr__(name, value)
-
-
-        class Cufwappconnsummaryentry(Entity):
-            """
-            Each entry contains the summary of connection
-            activity for a distinct layer 7 protocol identified
-            by the index element 'cufwAppConnProtocol'.
-            
-            .. attribute:: cufwappconnprotocol  <key>
-            
-            	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
-            	**type**\:   :py:class:`Cfwapplicationprotocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwapplicationprotocol>`
-            
-            .. attribute:: cufwappconnnumaborted
-            
-            	The number of connections that were terminated by the  firewall successful establishment, corresponding  to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumactive
-            
-            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumattempted
-            
-            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumhalfopen
-            
-            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwAppConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumpolicydeclined
-            
-            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumresdeclined
-            
-            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnnumsetupsaborted
-            
-            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwAppConnProtocol', that were aborted before the connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwAppConnNumPolicyDeclined' and  'cufwAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwappconnsetuprate1
-            
-            	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections Per Second
-            
-            .. attribute:: cufwappconnsetuprate5
-            
-            	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections Per Second
-            
-            
-
-            """
-
-            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-            _revision = '2005-09-22'
-
-            def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable.Cufwappconnsummaryentry, self).__init__()
-
-                self.yang_name = "cufwAppConnSummaryEntry"
-                self.yang_parent_name = "cufwAppConnSummaryTable"
-
-                self.cufwappconnprotocol = YLeaf(YType.enumeration, "cufwAppConnProtocol")
-
-                self.cufwappconnnumaborted = YLeaf(YType.uint64, "cufwAppConnNumAborted")
-
-                self.cufwappconnnumactive = YLeaf(YType.uint32, "cufwAppConnNumActive")
-
-                self.cufwappconnnumattempted = YLeaf(YType.uint64, "cufwAppConnNumAttempted")
-
-                self.cufwappconnnumhalfopen = YLeaf(YType.uint32, "cufwAppConnNumHalfOpen")
-
-                self.cufwappconnnumpolicydeclined = YLeaf(YType.uint64, "cufwAppConnNumPolicyDeclined")
-
-                self.cufwappconnnumresdeclined = YLeaf(YType.uint64, "cufwAppConnNumResDeclined")
-
-                self.cufwappconnnumsetupsaborted = YLeaf(YType.uint64, "cufwAppConnNumSetupsAborted")
-
-                self.cufwappconnsetuprate1 = YLeaf(YType.uint32, "cufwAppConnSetupRate1")
-
-                self.cufwappconnsetuprate5 = YLeaf(YType.uint32, "cufwAppConnSetupRate5")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwappconnprotocol",
-                                "cufwappconnnumaborted",
-                                "cufwappconnnumactive",
-                                "cufwappconnnumattempted",
-                                "cufwappconnnumhalfopen",
-                                "cufwappconnnumpolicydeclined",
-                                "cufwappconnnumresdeclined",
-                                "cufwappconnnumsetupsaborted",
-                                "cufwappconnsetuprate1",
-                                "cufwappconnsetuprate5") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable.Cufwappconnsummaryentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwappconnsummarytable.Cufwappconnsummaryentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwappconnprotocol.is_set or
-                    self.cufwappconnnumaborted.is_set or
-                    self.cufwappconnnumactive.is_set or
-                    self.cufwappconnnumattempted.is_set or
-                    self.cufwappconnnumhalfopen.is_set or
-                    self.cufwappconnnumpolicydeclined.is_set or
-                    self.cufwappconnnumresdeclined.is_set or
-                    self.cufwappconnnumsetupsaborted.is_set or
-                    self.cufwappconnsetuprate1.is_set or
-                    self.cufwappconnsetuprate5.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwappconnprotocol.yfilter != YFilter.not_set or
-                    self.cufwappconnnumaborted.yfilter != YFilter.not_set or
-                    self.cufwappconnnumactive.yfilter != YFilter.not_set or
-                    self.cufwappconnnumattempted.yfilter != YFilter.not_set or
-                    self.cufwappconnnumhalfopen.yfilter != YFilter.not_set or
-                    self.cufwappconnnumpolicydeclined.yfilter != YFilter.not_set or
-                    self.cufwappconnnumresdeclined.yfilter != YFilter.not_set or
-                    self.cufwappconnnumsetupsaborted.yfilter != YFilter.not_set or
-                    self.cufwappconnsetuprate1.yfilter != YFilter.not_set or
-                    self.cufwappconnsetuprate5.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwAppConnSummaryEntry" + "[cufwAppConnProtocol='" + self.cufwappconnprotocol.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwAppConnSummaryTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwappconnprotocol.is_set or self.cufwappconnprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnprotocol.get_name_leafdata())
-                if (self.cufwappconnnumaborted.is_set or self.cufwappconnnumaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumaborted.get_name_leafdata())
-                if (self.cufwappconnnumactive.is_set or self.cufwappconnnumactive.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumactive.get_name_leafdata())
-                if (self.cufwappconnnumattempted.is_set or self.cufwappconnnumattempted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumattempted.get_name_leafdata())
-                if (self.cufwappconnnumhalfopen.is_set or self.cufwappconnnumhalfopen.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumhalfopen.get_name_leafdata())
-                if (self.cufwappconnnumpolicydeclined.is_set or self.cufwappconnnumpolicydeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumpolicydeclined.get_name_leafdata())
-                if (self.cufwappconnnumresdeclined.is_set or self.cufwappconnnumresdeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumresdeclined.get_name_leafdata())
-                if (self.cufwappconnnumsetupsaborted.is_set or self.cufwappconnnumsetupsaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnnumsetupsaborted.get_name_leafdata())
-                if (self.cufwappconnsetuprate1.is_set or self.cufwappconnsetuprate1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnsetuprate1.get_name_leafdata())
-                if (self.cufwappconnsetuprate5.is_set or self.cufwappconnsetuprate5.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwappconnsetuprate5.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwAppConnProtocol" or name == "cufwAppConnNumAborted" or name == "cufwAppConnNumActive" or name == "cufwAppConnNumAttempted" or name == "cufwAppConnNumHalfOpen" or name == "cufwAppConnNumPolicyDeclined" or name == "cufwAppConnNumResDeclined" or name == "cufwAppConnNumSetupsAborted" or name == "cufwAppConnSetupRate1" or name == "cufwAppConnSetupRate5"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwAppConnProtocol"):
-                    self.cufwappconnprotocol = value
-                    self.cufwappconnprotocol.value_namespace = name_space
-                    self.cufwappconnprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumAborted"):
-                    self.cufwappconnnumaborted = value
-                    self.cufwappconnnumaborted.value_namespace = name_space
-                    self.cufwappconnnumaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumActive"):
-                    self.cufwappconnnumactive = value
-                    self.cufwappconnnumactive.value_namespace = name_space
-                    self.cufwappconnnumactive.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumAttempted"):
-                    self.cufwappconnnumattempted = value
-                    self.cufwappconnnumattempted.value_namespace = name_space
-                    self.cufwappconnnumattempted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumHalfOpen"):
-                    self.cufwappconnnumhalfopen = value
-                    self.cufwappconnnumhalfopen.value_namespace = name_space
-                    self.cufwappconnnumhalfopen.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumPolicyDeclined"):
-                    self.cufwappconnnumpolicydeclined = value
-                    self.cufwappconnnumpolicydeclined.value_namespace = name_space
-                    self.cufwappconnnumpolicydeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumResDeclined"):
-                    self.cufwappconnnumresdeclined = value
-                    self.cufwappconnnumresdeclined.value_namespace = name_space
-                    self.cufwappconnnumresdeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnNumSetupsAborted"):
-                    self.cufwappconnnumsetupsaborted = value
-                    self.cufwappconnnumsetupsaborted.value_namespace = name_space
-                    self.cufwappconnnumsetupsaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnSetupRate1"):
-                    self.cufwappconnsetuprate1 = value
-                    self.cufwappconnsetuprate1.value_namespace = name_space
-                    self.cufwappconnsetuprate1.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwAppConnSetupRate5"):
-                    self.cufwappconnsetuprate5 = value
-                    self.cufwappconnsetuprate5.value_namespace = name_space
-                    self.cufwappconnsetuprate5.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwappconnsummaryentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwappconnsummaryentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwAppConnSummaryTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwAppConnSummaryEntry"):
-                for c in self.cufwappconnsummaryentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwappconnsummarytable.Cufwappconnsummaryentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwappconnsummaryentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwAppConnSummaryEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Cufwpolicyconnsummarytable(Entity):
-        """
-        This table lists the summary of firewall 
-        connections for layer3\-layer 4 protocols catalogued 
-        on a per policy basis.
-        
-        Each entry in the table lists the connection summary of
-        a distinct network protocol, configured on the specified
-        policy on the firewall, and pertaining to a specified 
-        target to which the policy is currently applied. 
-        
-        If a policy is bound to a target, it would have one
-        or more entries in this table. If the policy is 
-        detached from the target, all entries corresponding 
-        to the association between the policy and the target 
-        are elminated from this table.
-        
-        Although the information is indexed by policy targets
-        as well, one may aggregate the connection summary for
-        a specific policy across all the target to which the 
-        policy is currently applied by setting
-        
-              cufwConnPolicyTargetType =  'targetAll'
-        
-        .. attribute:: cufwpolicyconnsummaryentry
-        
-        	Each entry contains the summary of connection activity for a specific protocol in a specific policy applied to the specified policy target
-        	**type**\: list of    :py:class:`Cufwpolicyconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable, self).__init__()
-
-            self.yang_name = "cufwPolicyConnSummaryTable"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwpolicyconnsummaryentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable, self).__setattr__(name, value)
-
-
-        class Cufwpolicyconnsummaryentry(Entity):
-            """
-            Each entry contains the summary of connection
-            activity for a specific protocol in a specific
-            policy applied to the specified policy target.
-            
-            .. attribute:: cufwpolconnpolicy  <key>
-            
-            	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cufwpolconnpolicytargettype  <key>
-            
-            	The type of the entity to which the firewall policy 'cufwPolConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwConnPolicyTarget is ignored
-            	**type**\:   :py:class:`Cfwpolicytargettype <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwpolicytargettype>`
-            
-            .. attribute:: cufwpolconnpolicytarget  <key>
-            
-            	The identity of the entity to which the firewall  policy 'cufwPolConnPolicy' is applied. This could be an interface object (most commonly), another object or group of objects defined in the firewall configuration
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cufwpolconnprotocol  <key>
-            
-            	The (L3\-L4) protocol corresponding to which this  conceptual row summarizes the connection activity on the firewall
-            	**type**\:   :py:class:`Cfwnetworkprotocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwnetworkprotocol>`
-            
-            .. attribute:: cufwpolconnnumaborted
-            
-            	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolConnProtocol',  in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumactive
-            
-            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumattempted
-            
-            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumhalfopen
-            
-            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the  policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumpolicydeclined
-            
-            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumresdeclined
-            
-            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolconnnumsetupsaborted
-            
-            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolConnProtocol', associated with the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget', that were aborted before the connection could  proceed to completion. The counter includes  setup attempts aborted by the firewall as well  as those aborted by the initiator and/or the  responder(s) of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolConnNumPolicyDeclined' and 'cufwPolConnNumResDeclined'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            
-
-            """
-
-            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-            _revision = '2005-09-22'
-
-            def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, self).__init__()
-
-                self.yang_name = "cufwPolicyConnSummaryEntry"
-                self.yang_parent_name = "cufwPolicyConnSummaryTable"
-
-                self.cufwpolconnpolicy = YLeaf(YType.str, "cufwPolConnPolicy")
-
-                self.cufwpolconnpolicytargettype = YLeaf(YType.enumeration, "cufwPolConnPolicyTargetType")
-
-                self.cufwpolconnpolicytarget = YLeaf(YType.str, "cufwPolConnPolicyTarget")
-
-                self.cufwpolconnprotocol = YLeaf(YType.enumeration, "cufwPolConnProtocol")
-
-                self.cufwpolconnnumaborted = YLeaf(YType.uint64, "cufwPolConnNumAborted")
-
-                self.cufwpolconnnumactive = YLeaf(YType.uint32, "cufwPolConnNumActive")
-
-                self.cufwpolconnnumattempted = YLeaf(YType.uint64, "cufwPolConnNumAttempted")
-
-                self.cufwpolconnnumhalfopen = YLeaf(YType.uint32, "cufwPolConnNumHalfOpen")
-
-                self.cufwpolconnnumpolicydeclined = YLeaf(YType.uint64, "cufwPolConnNumPolicyDeclined")
-
-                self.cufwpolconnnumresdeclined = YLeaf(YType.uint64, "cufwPolConnNumResDeclined")
-
-                self.cufwpolconnnumsetupsaborted = YLeaf(YType.uint64, "cufwPolConnNumSetupsAborted")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwpolconnpolicy",
-                                "cufwpolconnpolicytargettype",
-                                "cufwpolconnpolicytarget",
-                                "cufwpolconnprotocol",
-                                "cufwpolconnnumaborted",
-                                "cufwpolconnnumactive",
-                                "cufwpolconnnumattempted",
-                                "cufwpolconnnumhalfopen",
-                                "cufwpolconnnumpolicydeclined",
-                                "cufwpolconnnumresdeclined",
-                                "cufwpolconnnumsetupsaborted") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwpolconnpolicy.is_set or
-                    self.cufwpolconnpolicytargettype.is_set or
-                    self.cufwpolconnpolicytarget.is_set or
-                    self.cufwpolconnprotocol.is_set or
-                    self.cufwpolconnnumaborted.is_set or
-                    self.cufwpolconnnumactive.is_set or
-                    self.cufwpolconnnumattempted.is_set or
-                    self.cufwpolconnnumhalfopen.is_set or
-                    self.cufwpolconnnumpolicydeclined.is_set or
-                    self.cufwpolconnnumresdeclined.is_set or
-                    self.cufwpolconnnumsetupsaborted.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwpolconnpolicy.yfilter != YFilter.not_set or
-                    self.cufwpolconnpolicytargettype.yfilter != YFilter.not_set or
-                    self.cufwpolconnpolicytarget.yfilter != YFilter.not_set or
-                    self.cufwpolconnprotocol.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumaborted.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumactive.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumattempted.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumhalfopen.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumpolicydeclined.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumresdeclined.yfilter != YFilter.not_set or
-                    self.cufwpolconnnumsetupsaborted.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwPolicyConnSummaryEntry" + "[cufwPolConnPolicy='" + self.cufwpolconnpolicy.get() + "']" + "[cufwPolConnPolicyTargetType='" + self.cufwpolconnpolicytargettype.get() + "']" + "[cufwPolConnPolicyTarget='" + self.cufwpolconnpolicytarget.get() + "']" + "[cufwPolConnProtocol='" + self.cufwpolconnprotocol.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyConnSummaryTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwpolconnpolicy.is_set or self.cufwpolconnpolicy.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnpolicy.get_name_leafdata())
-                if (self.cufwpolconnpolicytargettype.is_set or self.cufwpolconnpolicytargettype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnpolicytargettype.get_name_leafdata())
-                if (self.cufwpolconnpolicytarget.is_set or self.cufwpolconnpolicytarget.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnpolicytarget.get_name_leafdata())
-                if (self.cufwpolconnprotocol.is_set or self.cufwpolconnprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnprotocol.get_name_leafdata())
-                if (self.cufwpolconnnumaborted.is_set or self.cufwpolconnnumaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumaborted.get_name_leafdata())
-                if (self.cufwpolconnnumactive.is_set or self.cufwpolconnnumactive.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumactive.get_name_leafdata())
-                if (self.cufwpolconnnumattempted.is_set or self.cufwpolconnnumattempted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumattempted.get_name_leafdata())
-                if (self.cufwpolconnnumhalfopen.is_set or self.cufwpolconnnumhalfopen.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumhalfopen.get_name_leafdata())
-                if (self.cufwpolconnnumpolicydeclined.is_set or self.cufwpolconnnumpolicydeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumpolicydeclined.get_name_leafdata())
-                if (self.cufwpolconnnumresdeclined.is_set or self.cufwpolconnnumresdeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumresdeclined.get_name_leafdata())
-                if (self.cufwpolconnnumsetupsaborted.is_set or self.cufwpolconnnumsetupsaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolconnnumsetupsaborted.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwPolConnPolicy" or name == "cufwPolConnPolicyTargetType" or name == "cufwPolConnPolicyTarget" or name == "cufwPolConnProtocol" or name == "cufwPolConnNumAborted" or name == "cufwPolConnNumActive" or name == "cufwPolConnNumAttempted" or name == "cufwPolConnNumHalfOpen" or name == "cufwPolConnNumPolicyDeclined" or name == "cufwPolConnNumResDeclined" or name == "cufwPolConnNumSetupsAborted"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwPolConnPolicy"):
-                    self.cufwpolconnpolicy = value
-                    self.cufwpolconnpolicy.value_namespace = name_space
-                    self.cufwpolconnpolicy.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnPolicyTargetType"):
-                    self.cufwpolconnpolicytargettype = value
-                    self.cufwpolconnpolicytargettype.value_namespace = name_space
-                    self.cufwpolconnpolicytargettype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnPolicyTarget"):
-                    self.cufwpolconnpolicytarget = value
-                    self.cufwpolconnpolicytarget.value_namespace = name_space
-                    self.cufwpolconnpolicytarget.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnProtocol"):
-                    self.cufwpolconnprotocol = value
-                    self.cufwpolconnprotocol.value_namespace = name_space
-                    self.cufwpolconnprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumAborted"):
-                    self.cufwpolconnnumaborted = value
-                    self.cufwpolconnnumaborted.value_namespace = name_space
-                    self.cufwpolconnnumaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumActive"):
-                    self.cufwpolconnnumactive = value
-                    self.cufwpolconnnumactive.value_namespace = name_space
-                    self.cufwpolconnnumactive.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumAttempted"):
-                    self.cufwpolconnnumattempted = value
-                    self.cufwpolconnnumattempted.value_namespace = name_space
-                    self.cufwpolconnnumattempted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumHalfOpen"):
-                    self.cufwpolconnnumhalfopen = value
-                    self.cufwpolconnnumhalfopen.value_namespace = name_space
-                    self.cufwpolconnnumhalfopen.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumPolicyDeclined"):
-                    self.cufwpolconnnumpolicydeclined = value
-                    self.cufwpolconnnumpolicydeclined.value_namespace = name_space
-                    self.cufwpolconnnumpolicydeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumResDeclined"):
-                    self.cufwpolconnnumresdeclined = value
-                    self.cufwpolconnnumresdeclined.value_namespace = name_space
-                    self.cufwpolconnnumresdeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolConnNumSetupsAborted"):
-                    self.cufwpolconnnumsetupsaborted = value
-                    self.cufwpolconnnumsetupsaborted.value_namespace = name_space
-                    self.cufwpolconnnumsetupsaborted.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwpolicyconnsummaryentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwpolicyconnsummaryentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwPolicyConnSummaryTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwPolicyConnSummaryEntry"):
-                for c in self.cufwpolicyconnsummaryentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwpolicyconnsummaryentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwPolicyConnSummaryEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Cufwpolicyappconnsummarytable(Entity):
-        """
-        This table lists the summary of firewall 
-        connections pertaining to Layer 7 protocols,
-        catalogued on a per policy basis
-        
-        Each entry in the table lists the connection
-        summary of a distinct application protocol, 
-        configured on the specified policy on the firewall, 
-        and pertaining to a specified target to which the
-        policy has been applied.
-        
-        If a policy is bound to a target, it would have one
-        or more entries in this table. If the policy is
-        detached from the target, all entries corresponding
-        to the association between the policy and the target
-        are elminated from this table.
-        
-        Although the information is indexed by policy targets
-        as well, one may aggregate the connection summary for
-        a specific policy across all the target to which the
-        policy is currently applied by setting
-        
-              cufwAppConnPolicyTargetType = 'targetALL'
-        
-        .. attribute:: cufwpolicyappconnsummaryentry
-        
-        	Each entry contains the summary of connection activity for a specific layer 7 protocol in a specific policy applied to the specified policy  target
-        	**type**\: list of    :py:class:`Cufwpolicyappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable, self).__init__()
-
-            self.yang_name = "cufwPolicyAppConnSummaryTable"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwpolicyappconnsummaryentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable, self).__setattr__(name, value)
-
-
-        class Cufwpolicyappconnsummaryentry(Entity):
-            """
-            Each entry contains the summary of connection
-            activity for a specific layer 7 protocol in a
-            specific policy applied to the specified policy 
-            target.
-            
-            .. attribute:: cufwpolappconnpolicy  <key>
-            
-            	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cufwpolappconnpolicytargettype  <key>
-            
-            	The type of the entity to which the firewall policy 'cufwPolAppConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwAppConnPolicyTarget is ignored
-            	**type**\:   :py:class:`Cfwpolicytargettype <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwpolicytargettype>`
-            
-            .. attribute:: cufwpolappconnpolicytarget  <key>
-            
-            	The identity of the entity to which the firewall  policy 'cufwPolAppProtocol' refers. This could be an  interface object (most commonly), another object or group of objects defined in the firewall configuration
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cufwpolappconnprotocol  <key>
-            
-            	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
-            	**type**\:   :py:class:`Cfwapplicationprotocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwapplicationprotocol>`
-            
-            .. attribute:: cufwpolappconnnumaborted
-            
-            	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumactive
-            
-            	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumattempted
-            
-            	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumhalfopen
-            
-            	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumpolicydeclined
-            
-            	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumresdeclined
-            
-            	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            .. attribute:: cufwpolappconnnumsetupsaborted
-            
-            	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', associated with the policy 'cufwPolAppConnPolicy' applied to the entity  identified by 'cufwPolAppConnPolicyTarget', that were aborted before the connections could  proceed to completion. The counter includes setup  attempts aborted by the firewall as well as those  aborted by the initiator and/or the responder(s)  of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolAppConnNumPolicyDeclined' and  'cufwPolAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: Connections
-            
-            
-
-            """
-
-            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-            _revision = '2005-09-22'
-
-            def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, self).__init__()
-
-                self.yang_name = "cufwPolicyAppConnSummaryEntry"
-                self.yang_parent_name = "cufwPolicyAppConnSummaryTable"
-
-                self.cufwpolappconnpolicy = YLeaf(YType.str, "cufwPolAppConnPolicy")
-
-                self.cufwpolappconnpolicytargettype = YLeaf(YType.enumeration, "cufwPolAppConnPolicyTargetType")
-
-                self.cufwpolappconnpolicytarget = YLeaf(YType.str, "cufwPolAppConnPolicyTarget")
-
-                self.cufwpolappconnprotocol = YLeaf(YType.enumeration, "cufwPolAppConnProtocol")
-
-                self.cufwpolappconnnumaborted = YLeaf(YType.uint64, "cufwPolAppConnNumAborted")
-
-                self.cufwpolappconnnumactive = YLeaf(YType.uint32, "cufwPolAppConnNumActive")
-
-                self.cufwpolappconnnumattempted = YLeaf(YType.uint64, "cufwPolAppConnNumAttempted")
-
-                self.cufwpolappconnnumhalfopen = YLeaf(YType.uint32, "cufwPolAppConnNumHalfOpen")
-
-                self.cufwpolappconnnumpolicydeclined = YLeaf(YType.uint64, "cufwPolAppConnNumPolicyDeclined")
-
-                self.cufwpolappconnnumresdeclined = YLeaf(YType.uint64, "cufwPolAppConnNumResDeclined")
-
-                self.cufwpolappconnnumsetupsaborted = YLeaf(YType.uint64, "cufwPolAppConnNumSetupsAborted")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwpolappconnpolicy",
-                                "cufwpolappconnpolicytargettype",
-                                "cufwpolappconnpolicytarget",
-                                "cufwpolappconnprotocol",
-                                "cufwpolappconnnumaborted",
-                                "cufwpolappconnnumactive",
-                                "cufwpolappconnnumattempted",
-                                "cufwpolappconnnumhalfopen",
-                                "cufwpolappconnnumpolicydeclined",
-                                "cufwpolappconnnumresdeclined",
-                                "cufwpolappconnnumsetupsaborted") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwpolappconnpolicy.is_set or
-                    self.cufwpolappconnpolicytargettype.is_set or
-                    self.cufwpolappconnpolicytarget.is_set or
-                    self.cufwpolappconnprotocol.is_set or
-                    self.cufwpolappconnnumaborted.is_set or
-                    self.cufwpolappconnnumactive.is_set or
-                    self.cufwpolappconnnumattempted.is_set or
-                    self.cufwpolappconnnumhalfopen.is_set or
-                    self.cufwpolappconnnumpolicydeclined.is_set or
-                    self.cufwpolappconnnumresdeclined.is_set or
-                    self.cufwpolappconnnumsetupsaborted.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwpolappconnpolicy.yfilter != YFilter.not_set or
-                    self.cufwpolappconnpolicytargettype.yfilter != YFilter.not_set or
-                    self.cufwpolappconnpolicytarget.yfilter != YFilter.not_set or
-                    self.cufwpolappconnprotocol.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumaborted.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumactive.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumattempted.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumhalfopen.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumpolicydeclined.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumresdeclined.yfilter != YFilter.not_set or
-                    self.cufwpolappconnnumsetupsaborted.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwPolicyAppConnSummaryEntry" + "[cufwPolAppConnPolicy='" + self.cufwpolappconnpolicy.get() + "']" + "[cufwPolAppConnPolicyTargetType='" + self.cufwpolappconnpolicytargettype.get() + "']" + "[cufwPolAppConnPolicyTarget='" + self.cufwpolappconnpolicytarget.get() + "']" + "[cufwPolAppConnProtocol='" + self.cufwpolappconnprotocol.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyAppConnSummaryTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwpolappconnpolicy.is_set or self.cufwpolappconnpolicy.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnpolicy.get_name_leafdata())
-                if (self.cufwpolappconnpolicytargettype.is_set or self.cufwpolappconnpolicytargettype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnpolicytargettype.get_name_leafdata())
-                if (self.cufwpolappconnpolicytarget.is_set or self.cufwpolappconnpolicytarget.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnpolicytarget.get_name_leafdata())
-                if (self.cufwpolappconnprotocol.is_set or self.cufwpolappconnprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnprotocol.get_name_leafdata())
-                if (self.cufwpolappconnnumaborted.is_set or self.cufwpolappconnnumaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumaborted.get_name_leafdata())
-                if (self.cufwpolappconnnumactive.is_set or self.cufwpolappconnnumactive.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumactive.get_name_leafdata())
-                if (self.cufwpolappconnnumattempted.is_set or self.cufwpolappconnnumattempted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumattempted.get_name_leafdata())
-                if (self.cufwpolappconnnumhalfopen.is_set or self.cufwpolappconnnumhalfopen.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumhalfopen.get_name_leafdata())
-                if (self.cufwpolappconnnumpolicydeclined.is_set or self.cufwpolappconnnumpolicydeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumpolicydeclined.get_name_leafdata())
-                if (self.cufwpolappconnnumresdeclined.is_set or self.cufwpolappconnnumresdeclined.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumresdeclined.get_name_leafdata())
-                if (self.cufwpolappconnnumsetupsaborted.is_set or self.cufwpolappconnnumsetupsaborted.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwpolappconnnumsetupsaborted.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwPolAppConnPolicy" or name == "cufwPolAppConnPolicyTargetType" or name == "cufwPolAppConnPolicyTarget" or name == "cufwPolAppConnProtocol" or name == "cufwPolAppConnNumAborted" or name == "cufwPolAppConnNumActive" or name == "cufwPolAppConnNumAttempted" or name == "cufwPolAppConnNumHalfOpen" or name == "cufwPolAppConnNumPolicyDeclined" or name == "cufwPolAppConnNumResDeclined" or name == "cufwPolAppConnNumSetupsAborted"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwPolAppConnPolicy"):
-                    self.cufwpolappconnpolicy = value
-                    self.cufwpolappconnpolicy.value_namespace = name_space
-                    self.cufwpolappconnpolicy.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnPolicyTargetType"):
-                    self.cufwpolappconnpolicytargettype = value
-                    self.cufwpolappconnpolicytargettype.value_namespace = name_space
-                    self.cufwpolappconnpolicytargettype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnPolicyTarget"):
-                    self.cufwpolappconnpolicytarget = value
-                    self.cufwpolappconnpolicytarget.value_namespace = name_space
-                    self.cufwpolappconnpolicytarget.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnProtocol"):
-                    self.cufwpolappconnprotocol = value
-                    self.cufwpolappconnprotocol.value_namespace = name_space
-                    self.cufwpolappconnprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumAborted"):
-                    self.cufwpolappconnnumaborted = value
-                    self.cufwpolappconnnumaborted.value_namespace = name_space
-                    self.cufwpolappconnnumaborted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumActive"):
-                    self.cufwpolappconnnumactive = value
-                    self.cufwpolappconnnumactive.value_namespace = name_space
-                    self.cufwpolappconnnumactive.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumAttempted"):
-                    self.cufwpolappconnnumattempted = value
-                    self.cufwpolappconnnumattempted.value_namespace = name_space
-                    self.cufwpolappconnnumattempted.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumHalfOpen"):
-                    self.cufwpolappconnnumhalfopen = value
-                    self.cufwpolappconnnumhalfopen.value_namespace = name_space
-                    self.cufwpolappconnnumhalfopen.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumPolicyDeclined"):
-                    self.cufwpolappconnnumpolicydeclined = value
-                    self.cufwpolappconnnumpolicydeclined.value_namespace = name_space
-                    self.cufwpolappconnnumpolicydeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumResDeclined"):
-                    self.cufwpolappconnnumresdeclined = value
-                    self.cufwpolappconnnumresdeclined.value_namespace = name_space
-                    self.cufwpolappconnnumresdeclined.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwPolAppConnNumSetupsAborted"):
-                    self.cufwpolappconnnumsetupsaborted = value
-                    self.cufwpolappconnnumsetupsaborted.value_namespace = name_space
-                    self.cufwpolappconnnumsetupsaborted.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwpolicyappconnsummaryentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwpolicyappconnsummaryentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwPolicyAppConnSummaryTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwPolicyAppConnSummaryEntry"):
-                for c in self.cufwpolicyappconnsummaryentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwpolicyappconnsummaryentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwPolicyAppConnSummaryEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Cufwinspectiontable(Entity):
-        """
-        This table identifies if an application protocol has
-        been configured for inspection and if so, the name of 
-        the firewall policy or the inspection configuration
-        that configures the specified protocol for inspection.
-        The table also identifies if the specified protocol is
-        actively being inspected.
-        
-        This table may be used by an administrator to quickly
-        identify if a protocol is being subjected to application
-        inspection by the managed firewall.
-        
-        .. attribute:: cufwinspectionentry
-        
-        	Each entry contains the configuration of a specific application inspection element
-        	**type**\: list of    :py:class:`Cufwinspectionentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwinspectiontable.Cufwinspectionentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-        _revision = '2005-09-22'
-
-        def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwinspectiontable, self).__init__()
-
-            self.yang_name = "cufwInspectionTable"
-            self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
-
-            self.cufwinspectionentry = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwinspectiontable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwinspectiontable, self).__setattr__(name, value)
-
-
-        class Cufwinspectionentry(Entity):
-            """
-            Each entry contains the configuration of
-            a specific application inspection element.
-            
-            .. attribute:: cufwinspectionpolicyname  <key>
-            
-            	The name of the policy that configures the device inspect the protocol specified by    'cufwInspectionProtocol'
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cufwinspectionprotocol  <key>
-            
-            	The application protocol that is configured for  inspection
-            	**type**\:   :py:class:`Cfwapplicationprotocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwapplicationprotocol>`
-            
-            .. attribute:: cufwinspectionstatus
-            
-            	This MIB object identifies if the directive to inspect the protocol specified by 'cufwInspectionProtocol' by the policy corresponding to this conceptual row is enabled or disabled
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-UNIFIED-FIREWALL-MIB'
-            _revision = '2005-09-22'
-
-            def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwinspectiontable.Cufwinspectionentry, self).__init__()
-
-                self.yang_name = "cufwInspectionEntry"
-                self.yang_parent_name = "cufwInspectionTable"
-
-                self.cufwinspectionpolicyname = YLeaf(YType.str, "cufwInspectionPolicyName")
-
-                self.cufwinspectionprotocol = YLeaf(YType.enumeration, "cufwInspectionProtocol")
-
-                self.cufwinspectionstatus = YLeaf(YType.boolean, "cufwInspectionStatus")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwinspectionpolicyname",
-                                "cufwinspectionprotocol",
-                                "cufwinspectionstatus") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwinspectiontable.Cufwinspectionentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwinspectiontable.Cufwinspectionentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwinspectionpolicyname.is_set or
-                    self.cufwinspectionprotocol.is_set or
-                    self.cufwinspectionstatus.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwinspectionpolicyname.yfilter != YFilter.not_set or
-                    self.cufwinspectionprotocol.yfilter != YFilter.not_set or
-                    self.cufwinspectionstatus.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwInspectionEntry" + "[cufwInspectionPolicyName='" + self.cufwinspectionpolicyname.get() + "']" + "[cufwInspectionProtocol='" + self.cufwinspectionprotocol.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwInspectionTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwinspectionpolicyname.is_set or self.cufwinspectionpolicyname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwinspectionpolicyname.get_name_leafdata())
-                if (self.cufwinspectionprotocol.is_set or self.cufwinspectionprotocol.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwinspectionprotocol.get_name_leafdata())
-                if (self.cufwinspectionstatus.is_set or self.cufwinspectionstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwinspectionstatus.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwInspectionPolicyName" or name == "cufwInspectionProtocol" or name == "cufwInspectionStatus"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwInspectionPolicyName"):
-                    self.cufwinspectionpolicyname = value
-                    self.cufwinspectionpolicyname.value_namespace = name_space
-                    self.cufwinspectionpolicyname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwInspectionProtocol"):
-                    self.cufwinspectionprotocol = value
-                    self.cufwinspectionprotocol.value_namespace = name_space
-                    self.cufwinspectionprotocol.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwInspectionStatus"):
-                    self.cufwinspectionstatus = value
-                    self.cufwinspectionstatus.value_namespace = name_space
-                    self.cufwinspectionstatus.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwinspectionentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwinspectionentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwInspectionTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwInspectionEntry"):
-                for c in self.cufwinspectionentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwinspectiontable.Cufwinspectionentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwinspectionentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwInspectionEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage, ['cufwurlfrestotalrequestcachesize', 'cufwurlfrestotalrespcachesize'], name, value)
 
 
     class Cufwurlfservertable(Entity):
@@ -4265,7 +2142,7 @@ class CiscoUnifiedFirewallMib(Entity):
         .. attribute:: cufwurlfserverentry
         
         	Each entry contains the configuration of a specific URL filtering server
-        	**type**\: list of    :py:class:`Cufwurlfserverentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CiscoUnifiedFirewallMib.Cufwurlfservertable.Cufwurlfserverentry>`
+        	**type**\: list of    :py:class:`Cufwurlfserverentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry>`
         
         
 
@@ -4275,36 +2152,21 @@ class CiscoUnifiedFirewallMib(Entity):
         _revision = '2005-09-22'
 
         def __init__(self):
-            super(CiscoUnifiedFirewallMib.Cufwurlfservertable, self).__init__()
+            super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable, self).__init__()
 
             self.yang_name = "cufwUrlfServerTable"
             self.yang_parent_name = "CISCO-UNIFIED-FIREWALL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cufwUrlfServerEntry" : ("cufwurlfserverentry", CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry)}
 
             self.cufwurlfserverentry = YList(self)
+            self._segment_path = lambda: "cufwUrlfServerTable"
+            self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoUnifiedFirewallMib.Cufwurlfservertable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoUnifiedFirewallMib.Cufwurlfservertable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable, [], name, value)
 
 
         class Cufwurlfserverentry(Entity):
@@ -4315,7 +2177,7 @@ class CiscoUnifiedFirewallMib(Entity):
             .. attribute:: cufwurlfserveraddrtype  <key>
             
             	The type of the IP address of the URL filtering server
-            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cufwurlfserveraddress  <key>
             
@@ -4401,12 +2263,12 @@ class CiscoUnifiedFirewallMib(Entity):
             .. attribute:: cufwurlfserverstatus
             
             	The status of the URL filtering server corresponding to this conceptual row
-            	**type**\:   :py:class:`Cfwurlserverstatus <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwurlserverstatus>`
+            	**type**\:   :py:class:`CFWUrlServerStatus <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlServerStatus>`
             
             .. attribute:: cufwurlfservervendor
             
             	The vendor type of the URL filtering server
-            	**type**\:   :py:class:`Cfwurlfvendorid <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.Cfwurlfvendorid>`
+            	**type**\:   :py:class:`CFWUrlfVendorId <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlfVendorId>`
             
             
 
@@ -4416,10 +2278,14 @@ class CiscoUnifiedFirewallMib(Entity):
             _revision = '2005-09-22'
 
             def __init__(self):
-                super(CiscoUnifiedFirewallMib.Cufwurlfservertable.Cufwurlfserverentry, self).__init__()
+                super(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry, self).__init__()
 
                 self.yang_name = "cufwUrlfServerEntry"
                 self.yang_parent_name = "cufwUrlfServerTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cufwurlfserveraddrtype = YLeaf(YType.enumeration, "cufwUrlfServerAddrType")
 
@@ -4448,436 +2314,13 @@ class CiscoUnifiedFirewallMib(Entity):
                 self.cufwurlfserverstatus = YLeaf(YType.enumeration, "cufwUrlfServerStatus")
 
                 self.cufwurlfservervendor = YLeaf(YType.enumeration, "cufwUrlfServerVendor")
+                self._segment_path = lambda: "cufwUrlfServerEntry" + "[cufwUrlfServerAddrType='" + self.cufwurlfserveraddrtype.get() + "']" + "[cufwUrlfServerAddress='" + self.cufwurlfserveraddress.get() + "']" + "[cufwUrlfServerPort='" + self.cufwurlfserverport.get() + "']"
+                self._absolute_path = lambda: "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwUrlfServerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cufwurlfserveraddrtype",
-                                "cufwurlfserveraddress",
-                                "cufwurlfserverport",
-                                "cufwurlfserveravgresptime1",
-                                "cufwurlfserveravgresptime5",
-                                "cufwurlfservernumretries",
-                                "cufwurlfservernumtimeouts",
-                                "cufwurlfserverreqsnumallowed",
-                                "cufwurlfserverreqsnumdenied",
-                                "cufwurlfserverreqsnumprocessed",
-                                "cufwurlfserverrespsnumlate",
-                                "cufwurlfserverrespsnumreceived",
-                                "cufwurlfserverstatus",
-                                "cufwurlfservervendor") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoUnifiedFirewallMib.Cufwurlfservertable.Cufwurlfserverentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoUnifiedFirewallMib.Cufwurlfservertable.Cufwurlfserverentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cufwurlfserveraddrtype.is_set or
-                    self.cufwurlfserveraddress.is_set or
-                    self.cufwurlfserverport.is_set or
-                    self.cufwurlfserveravgresptime1.is_set or
-                    self.cufwurlfserveravgresptime5.is_set or
-                    self.cufwurlfservernumretries.is_set or
-                    self.cufwurlfservernumtimeouts.is_set or
-                    self.cufwurlfserverreqsnumallowed.is_set or
-                    self.cufwurlfserverreqsnumdenied.is_set or
-                    self.cufwurlfserverreqsnumprocessed.is_set or
-                    self.cufwurlfserverrespsnumlate.is_set or
-                    self.cufwurlfserverrespsnumreceived.is_set or
-                    self.cufwurlfserverstatus.is_set or
-                    self.cufwurlfservervendor.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cufwurlfserveraddrtype.yfilter != YFilter.not_set or
-                    self.cufwurlfserveraddress.yfilter != YFilter.not_set or
-                    self.cufwurlfserverport.yfilter != YFilter.not_set or
-                    self.cufwurlfserveravgresptime1.yfilter != YFilter.not_set or
-                    self.cufwurlfserveravgresptime5.yfilter != YFilter.not_set or
-                    self.cufwurlfservernumretries.yfilter != YFilter.not_set or
-                    self.cufwurlfservernumtimeouts.yfilter != YFilter.not_set or
-                    self.cufwurlfserverreqsnumallowed.yfilter != YFilter.not_set or
-                    self.cufwurlfserverreqsnumdenied.yfilter != YFilter.not_set or
-                    self.cufwurlfserverreqsnumprocessed.yfilter != YFilter.not_set or
-                    self.cufwurlfserverrespsnumlate.yfilter != YFilter.not_set or
-                    self.cufwurlfserverrespsnumreceived.yfilter != YFilter.not_set or
-                    self.cufwurlfserverstatus.yfilter != YFilter.not_set or
-                    self.cufwurlfservervendor.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cufwUrlfServerEntry" + "[cufwUrlfServerAddrType='" + self.cufwurlfserveraddrtype.get() + "']" + "[cufwUrlfServerAddress='" + self.cufwurlfserveraddress.get() + "']" + "[cufwUrlfServerPort='" + self.cufwurlfserverport.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwUrlfServerTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cufwurlfserveraddrtype.is_set or self.cufwurlfserveraddrtype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserveraddrtype.get_name_leafdata())
-                if (self.cufwurlfserveraddress.is_set or self.cufwurlfserveraddress.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserveraddress.get_name_leafdata())
-                if (self.cufwurlfserverport.is_set or self.cufwurlfserverport.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverport.get_name_leafdata())
-                if (self.cufwurlfserveravgresptime1.is_set or self.cufwurlfserveravgresptime1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserveravgresptime1.get_name_leafdata())
-                if (self.cufwurlfserveravgresptime5.is_set or self.cufwurlfserveravgresptime5.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserveravgresptime5.get_name_leafdata())
-                if (self.cufwurlfservernumretries.is_set or self.cufwurlfservernumretries.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfservernumretries.get_name_leafdata())
-                if (self.cufwurlfservernumtimeouts.is_set or self.cufwurlfservernumtimeouts.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfservernumtimeouts.get_name_leafdata())
-                if (self.cufwurlfserverreqsnumallowed.is_set or self.cufwurlfserverreqsnumallowed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverreqsnumallowed.get_name_leafdata())
-                if (self.cufwurlfserverreqsnumdenied.is_set or self.cufwurlfserverreqsnumdenied.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverreqsnumdenied.get_name_leafdata())
-                if (self.cufwurlfserverreqsnumprocessed.is_set or self.cufwurlfserverreqsnumprocessed.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverreqsnumprocessed.get_name_leafdata())
-                if (self.cufwurlfserverrespsnumlate.is_set or self.cufwurlfserverrespsnumlate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverrespsnumlate.get_name_leafdata())
-                if (self.cufwurlfserverrespsnumreceived.is_set or self.cufwurlfserverrespsnumreceived.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverrespsnumreceived.get_name_leafdata())
-                if (self.cufwurlfserverstatus.is_set or self.cufwurlfserverstatus.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfserverstatus.get_name_leafdata())
-                if (self.cufwurlfservervendor.is_set or self.cufwurlfservervendor.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cufwurlfservervendor.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cufwUrlfServerAddrType" or name == "cufwUrlfServerAddress" or name == "cufwUrlfServerPort" or name == "cufwUrlfServerAvgRespTime1" or name == "cufwUrlfServerAvgRespTime5" or name == "cufwUrlfServerNumRetries" or name == "cufwUrlfServerNumTimeouts" or name == "cufwUrlfServerReqsNumAllowed" or name == "cufwUrlfServerReqsNumDenied" or name == "cufwUrlfServerReqsNumProcessed" or name == "cufwUrlfServerRespsNumLate" or name == "cufwUrlfServerRespsNumReceived" or name == "cufwUrlfServerStatus" or name == "cufwUrlfServerVendor"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cufwUrlfServerAddrType"):
-                    self.cufwurlfserveraddrtype = value
-                    self.cufwurlfserveraddrtype.value_namespace = name_space
-                    self.cufwurlfserveraddrtype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerAddress"):
-                    self.cufwurlfserveraddress = value
-                    self.cufwurlfserveraddress.value_namespace = name_space
-                    self.cufwurlfserveraddress.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerPort"):
-                    self.cufwurlfserverport = value
-                    self.cufwurlfserverport.value_namespace = name_space
-                    self.cufwurlfserverport.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerAvgRespTime1"):
-                    self.cufwurlfserveravgresptime1 = value
-                    self.cufwurlfserveravgresptime1.value_namespace = name_space
-                    self.cufwurlfserveravgresptime1.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerAvgRespTime5"):
-                    self.cufwurlfserveravgresptime5 = value
-                    self.cufwurlfserveravgresptime5.value_namespace = name_space
-                    self.cufwurlfserveravgresptime5.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerNumRetries"):
-                    self.cufwurlfservernumretries = value
-                    self.cufwurlfservernumretries.value_namespace = name_space
-                    self.cufwurlfservernumretries.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerNumTimeouts"):
-                    self.cufwurlfservernumtimeouts = value
-                    self.cufwurlfservernumtimeouts.value_namespace = name_space
-                    self.cufwurlfservernumtimeouts.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerReqsNumAllowed"):
-                    self.cufwurlfserverreqsnumallowed = value
-                    self.cufwurlfserverreqsnumallowed.value_namespace = name_space
-                    self.cufwurlfserverreqsnumallowed.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerReqsNumDenied"):
-                    self.cufwurlfserverreqsnumdenied = value
-                    self.cufwurlfserverreqsnumdenied.value_namespace = name_space
-                    self.cufwurlfserverreqsnumdenied.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerReqsNumProcessed"):
-                    self.cufwurlfserverreqsnumprocessed = value
-                    self.cufwurlfserverreqsnumprocessed.value_namespace = name_space
-                    self.cufwurlfserverreqsnumprocessed.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerRespsNumLate"):
-                    self.cufwurlfserverrespsnumlate = value
-                    self.cufwurlfserverrespsnumlate.value_namespace = name_space
-                    self.cufwurlfserverrespsnumlate.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerRespsNumReceived"):
-                    self.cufwurlfserverrespsnumreceived = value
-                    self.cufwurlfserverrespsnumreceived.value_namespace = name_space
-                    self.cufwurlfserverrespsnumreceived.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerStatus"):
-                    self.cufwurlfserverstatus = value
-                    self.cufwurlfserverstatus.value_namespace = name_space
-                    self.cufwurlfserverstatus.value_namespace_prefix = name_space_prefix
-                if(value_path == "cufwUrlfServerVendor"):
-                    self.cufwurlfservervendor = value
-                    self.cufwurlfservervendor.value_namespace = name_space
-                    self.cufwurlfservervendor.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cufwurlfserverentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cufwurlfserverentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cufwUrlfServerTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cufwUrlfServerEntry"):
-                for c in self.cufwurlfserverentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoUnifiedFirewallMib.Cufwurlfservertable.Cufwurlfserverentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cufwurlfserverentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cufwUrlfServerEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.cufwaaicglobals is not None and self.cufwaaicglobals.has_data()) or
-            (self.cufwaaichttpprotocolstats is not None and self.cufwaaichttpprotocolstats.has_data()) or
-            (self.cufwappconnsummarytable is not None and self.cufwappconnsummarytable.has_data()) or
-            (self.cufwapplinspectiongrp is not None and self.cufwapplinspectiongrp.has_data()) or
-            (self.cufwconnectionglobals is not None and self.cufwconnectionglobals.has_data()) or
-            (self.cufwconnectionreportsettings is not None and self.cufwconnectionreportsettings.has_data()) or
-            (self.cufwconnectionresources is not None and self.cufwconnectionresources.has_data()) or
-            (self.cufwconnsummarytable is not None and self.cufwconnsummarytable.has_data()) or
-            (self.cufwinspectiontable is not None and self.cufwinspectiontable.has_data()) or
-            (self.cufwl2fwglobals is not None and self.cufwl2fwglobals.has_data()) or
-            (self.cufwnotifcntlgrp is not None and self.cufwnotifcntlgrp.has_data()) or
-            (self.cufwpolicyappconnsummarytable is not None and self.cufwpolicyappconnsummarytable.has_data()) or
-            (self.cufwpolicyconnsummarytable is not None and self.cufwpolicyconnsummarytable.has_data()) or
-            (self.cufwurlfilterglobals is not None and self.cufwurlfilterglobals.has_data()) or
-            (self.cufwurlfilterresourceusage is not None and self.cufwurlfilterresourceusage.has_data()) or
-            (self.cufwurlfservertable is not None and self.cufwurlfservertable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.cufwaaicglobals is not None and self.cufwaaicglobals.has_operation()) or
-            (self.cufwaaichttpprotocolstats is not None and self.cufwaaichttpprotocolstats.has_operation()) or
-            (self.cufwappconnsummarytable is not None and self.cufwappconnsummarytable.has_operation()) or
-            (self.cufwapplinspectiongrp is not None and self.cufwapplinspectiongrp.has_operation()) or
-            (self.cufwconnectionglobals is not None and self.cufwconnectionglobals.has_operation()) or
-            (self.cufwconnectionreportsettings is not None and self.cufwconnectionreportsettings.has_operation()) or
-            (self.cufwconnectionresources is not None and self.cufwconnectionresources.has_operation()) or
-            (self.cufwconnsummarytable is not None and self.cufwconnsummarytable.has_operation()) or
-            (self.cufwinspectiontable is not None and self.cufwinspectiontable.has_operation()) or
-            (self.cufwl2fwglobals is not None and self.cufwl2fwglobals.has_operation()) or
-            (self.cufwnotifcntlgrp is not None and self.cufwnotifcntlgrp.has_operation()) or
-            (self.cufwpolicyappconnsummarytable is not None and self.cufwpolicyappconnsummarytable.has_operation()) or
-            (self.cufwpolicyconnsummarytable is not None and self.cufwpolicyconnsummarytable.has_operation()) or
-            (self.cufwurlfilterglobals is not None and self.cufwurlfilterglobals.has_operation()) or
-            (self.cufwurlfilterresourceusage is not None and self.cufwurlfilterresourceusage.has_operation()) or
-            (self.cufwurlfservertable is not None and self.cufwurlfservertable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cufwAaicGlobals"):
-            if (self.cufwaaicglobals is None):
-                self.cufwaaicglobals = CiscoUnifiedFirewallMib.Cufwaaicglobals()
-                self.cufwaaicglobals.parent = self
-                self._children_name_map["cufwaaicglobals"] = "cufwAaicGlobals"
-            return self.cufwaaicglobals
-
-        if (child_yang_name == "cufwAaicHttpProtocolStats"):
-            if (self.cufwaaichttpprotocolstats is None):
-                self.cufwaaichttpprotocolstats = CiscoUnifiedFirewallMib.Cufwaaichttpprotocolstats()
-                self.cufwaaichttpprotocolstats.parent = self
-                self._children_name_map["cufwaaichttpprotocolstats"] = "cufwAaicHttpProtocolStats"
-            return self.cufwaaichttpprotocolstats
-
-        if (child_yang_name == "cufwAppConnSummaryTable"):
-            if (self.cufwappconnsummarytable is None):
-                self.cufwappconnsummarytable = CiscoUnifiedFirewallMib.Cufwappconnsummarytable()
-                self.cufwappconnsummarytable.parent = self
-                self._children_name_map["cufwappconnsummarytable"] = "cufwAppConnSummaryTable"
-            return self.cufwappconnsummarytable
-
-        if (child_yang_name == "cuFwApplInspectionGrp"):
-            if (self.cufwapplinspectiongrp is None):
-                self.cufwapplinspectiongrp = CiscoUnifiedFirewallMib.Cufwapplinspectiongrp()
-                self.cufwapplinspectiongrp.parent = self
-                self._children_name_map["cufwapplinspectiongrp"] = "cuFwApplInspectionGrp"
-            return self.cufwapplinspectiongrp
-
-        if (child_yang_name == "cuFwConnectionGlobals"):
-            if (self.cufwconnectionglobals is None):
-                self.cufwconnectionglobals = CiscoUnifiedFirewallMib.Cufwconnectionglobals()
-                self.cufwconnectionglobals.parent = self
-                self._children_name_map["cufwconnectionglobals"] = "cuFwConnectionGlobals"
-            return self.cufwconnectionglobals
-
-        if (child_yang_name == "cuFwConnectionReportSettings"):
-            if (self.cufwconnectionreportsettings is None):
-                self.cufwconnectionreportsettings = CiscoUnifiedFirewallMib.Cufwconnectionreportsettings()
-                self.cufwconnectionreportsettings.parent = self
-                self._children_name_map["cufwconnectionreportsettings"] = "cuFwConnectionReportSettings"
-            return self.cufwconnectionreportsettings
-
-        if (child_yang_name == "cuFwConnectionResources"):
-            if (self.cufwconnectionresources is None):
-                self.cufwconnectionresources = CiscoUnifiedFirewallMib.Cufwconnectionresources()
-                self.cufwconnectionresources.parent = self
-                self._children_name_map["cufwconnectionresources"] = "cuFwConnectionResources"
-            return self.cufwconnectionresources
-
-        if (child_yang_name == "cufwConnSummaryTable"):
-            if (self.cufwconnsummarytable is None):
-                self.cufwconnsummarytable = CiscoUnifiedFirewallMib.Cufwconnsummarytable()
-                self.cufwconnsummarytable.parent = self
-                self._children_name_map["cufwconnsummarytable"] = "cufwConnSummaryTable"
-            return self.cufwconnsummarytable
-
-        if (child_yang_name == "cufwInspectionTable"):
-            if (self.cufwinspectiontable is None):
-                self.cufwinspectiontable = CiscoUnifiedFirewallMib.Cufwinspectiontable()
-                self.cufwinspectiontable.parent = self
-                self._children_name_map["cufwinspectiontable"] = "cufwInspectionTable"
-            return self.cufwinspectiontable
-
-        if (child_yang_name == "cufwL2FwGlobals"):
-            if (self.cufwl2fwglobals is None):
-                self.cufwl2fwglobals = CiscoUnifiedFirewallMib.Cufwl2Fwglobals()
-                self.cufwl2fwglobals.parent = self
-                self._children_name_map["cufwl2fwglobals"] = "cufwL2FwGlobals"
-            return self.cufwl2fwglobals
-
-        if (child_yang_name == "cuFwNotifCntlGrp"):
-            if (self.cufwnotifcntlgrp is None):
-                self.cufwnotifcntlgrp = CiscoUnifiedFirewallMib.Cufwnotifcntlgrp()
-                self.cufwnotifcntlgrp.parent = self
-                self._children_name_map["cufwnotifcntlgrp"] = "cuFwNotifCntlGrp"
-            return self.cufwnotifcntlgrp
-
-        if (child_yang_name == "cufwPolicyAppConnSummaryTable"):
-            if (self.cufwpolicyappconnsummarytable is None):
-                self.cufwpolicyappconnsummarytable = CiscoUnifiedFirewallMib.Cufwpolicyappconnsummarytable()
-                self.cufwpolicyappconnsummarytable.parent = self
-                self._children_name_map["cufwpolicyappconnsummarytable"] = "cufwPolicyAppConnSummaryTable"
-            return self.cufwpolicyappconnsummarytable
-
-        if (child_yang_name == "cufwPolicyConnSummaryTable"):
-            if (self.cufwpolicyconnsummarytable is None):
-                self.cufwpolicyconnsummarytable = CiscoUnifiedFirewallMib.Cufwpolicyconnsummarytable()
-                self.cufwpolicyconnsummarytable.parent = self
-                self._children_name_map["cufwpolicyconnsummarytable"] = "cufwPolicyConnSummaryTable"
-            return self.cufwpolicyconnsummarytable
-
-        if (child_yang_name == "cufwUrlFilterGlobals"):
-            if (self.cufwurlfilterglobals is None):
-                self.cufwurlfilterglobals = CiscoUnifiedFirewallMib.Cufwurlfilterglobals()
-                self.cufwurlfilterglobals.parent = self
-                self._children_name_map["cufwurlfilterglobals"] = "cufwUrlFilterGlobals"
-            return self.cufwurlfilterglobals
-
-        if (child_yang_name == "cufwUrlFilterResourceUsage"):
-            if (self.cufwurlfilterresourceusage is None):
-                self.cufwurlfilterresourceusage = CiscoUnifiedFirewallMib.Cufwurlfilterresourceusage()
-                self.cufwurlfilterresourceusage.parent = self
-                self._children_name_map["cufwurlfilterresourceusage"] = "cufwUrlFilterResourceUsage"
-            return self.cufwurlfilterresourceusage
-
-        if (child_yang_name == "cufwUrlfServerTable"):
-            if (self.cufwurlfservertable is None):
-                self.cufwurlfservertable = CiscoUnifiedFirewallMib.Cufwurlfservertable()
-                self.cufwurlfservertable.parent = self
-                self._children_name_map["cufwurlfservertable"] = "cufwUrlfServerTable"
-            return self.cufwurlfservertable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cufwAaicGlobals" or name == "cufwAaicHttpProtocolStats" or name == "cufwAppConnSummaryTable" or name == "cuFwApplInspectionGrp" or name == "cuFwConnectionGlobals" or name == "cuFwConnectionReportSettings" or name == "cuFwConnectionResources" or name == "cufwConnSummaryTable" or name == "cufwInspectionTable" or name == "cufwL2FwGlobals" or name == "cuFwNotifCntlGrp" or name == "cufwPolicyAppConnSummaryTable" or name == "cufwPolicyConnSummaryTable" or name == "cufwUrlFilterGlobals" or name == "cufwUrlFilterResourceUsage" or name == "cufwUrlfServerTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry, ['cufwurlfserveraddrtype', 'cufwurlfserveraddress', 'cufwurlfserverport', 'cufwurlfserveravgresptime1', 'cufwurlfserveravgresptime5', 'cufwurlfservernumretries', 'cufwurlfservernumtimeouts', 'cufwurlfserverreqsnumallowed', 'cufwurlfserverreqsnumdenied', 'cufwurlfserverreqsnumprocessed', 'cufwurlfserverrespsnumlate', 'cufwurlfserverrespsnumreceived', 'cufwurlfserverstatus', 'cufwurlfservervendor'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoUnifiedFirewallMib()
+        self._top_entity = CISCOUNIFIEDFIREWALLMIB()
         return self._top_entity
 

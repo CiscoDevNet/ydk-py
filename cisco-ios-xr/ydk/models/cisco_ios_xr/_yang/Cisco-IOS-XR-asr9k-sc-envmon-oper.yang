@@ -40,7 +40,7 @@ module Cisco-IOS-XR-asr9k-sc-envmon-oper {
        environmental-monitoring: Environmental Monitoring Operational
          data space
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2017-01-19" {

@@ -11,8 +11,6 @@ module Cisco-IOS-XR-mdrv-lib-cfg {
 
   import ietf-yang-types { prefix "yang"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -34,11 +32,15 @@ module Cisco-IOS-XR-mdrv-lib-cfg {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR mdrv-lib package configuration.
 
+     This module contains definitions
+     for the following management objects:
+       fast-shutdown: Fast Shutdown configuration
+
      This YANG module augments the
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -46,6 +48,25 @@ module Cisco-IOS-XR-mdrv-lib-cfg {
       "IOS XR 6.0 revision.";
   }
 
+
+  container fast-shutdown {
+    description "Fast Shutdown configuration";
+    leaf ethernet {
+      type empty;
+      description
+        "Enable Fast Shutdown for all Ethernet interfaces";
+    }
+  }
+
+  augment "/a1:interface-configurations/a1:interface-configuration" {
+    leaf fast-shutdown {
+      type empty;
+      description "Enable Fast Shutdown for this interface";
+    }
+    description
+      "This augment extends the configuration data of
+      'Cisco-IOS-XR-ifmgr-cfg'";
+  }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
     leaf mac-addr {

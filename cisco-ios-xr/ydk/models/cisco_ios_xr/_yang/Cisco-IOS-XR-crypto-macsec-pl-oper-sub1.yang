@@ -8,8 +8,6 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
 
   import ietf-yang-types { prefix "yang"; }
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   /*** META INFORMATION ***/
 
   organization "Cisco Systems, Inc.";
@@ -29,7 +27,7 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR crypto-macsec-pl package operational data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -978,7 +976,7 @@ submodule Cisco-IOS-XR-crypto-macsec-pl-oper-sub1 {
       type uint64;
       description
         "correctly tagged ingress frames for which no
-        valid SC found & \;                             
+        valid SC found &                                
         validateFrames is strict";
     }
     leaf in-pkts-unknown-sci {

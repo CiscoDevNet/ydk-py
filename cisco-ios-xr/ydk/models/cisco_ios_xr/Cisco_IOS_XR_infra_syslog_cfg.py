@@ -8,11 +8,10 @@ for the following management objects\:
   syslog\-service\: Syslog Timestamp Services
   syslog\: syslog
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -647,941 +646,6 @@ class TimeInfo(Enum):
 
 
 
-class SyslogService(Entity):
-    """
-    Syslog Timestamp Services
-    
-    .. attribute:: timestamps
-    
-    	Timestamp debug/log messages configuration
-    	**type**\:   :py:class:`Timestamps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps>`
-    
-    
-
-    """
-
-    _prefix = 'infra-syslog-cfg'
-    _revision = '2016-06-22'
-
-    def __init__(self):
-        super(SyslogService, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "syslog-service"
-        self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-cfg"
-
-        self.timestamps = SyslogService.Timestamps()
-        self.timestamps.parent = self
-        self._children_name_map["timestamps"] = "timestamps"
-        self._children_yang_names.add("timestamps")
-
-
-    class Timestamps(Entity):
-        """
-        Timestamp debug/log messages configuration
-        
-        .. attribute:: debug
-        
-        	Timestamp debug messages
-        	**type**\:   :py:class:`Debug <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug>`
-        
-        .. attribute:: enable
-        
-        	Enable timestamp debug/log messages
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: log
-        
-        	Timestamp log messages
-        	**type**\:   :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(SyslogService.Timestamps, self).__init__()
-
-            self.yang_name = "timestamps"
-            self.yang_parent_name = "syslog-service"
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.debug = SyslogService.Timestamps.Debug()
-            self.debug.parent = self
-            self._children_name_map["debug"] = "debug"
-            self._children_yang_names.add("debug")
-
-            self.log = SyslogService.Timestamps.Log()
-            self.log.parent = self
-            self._children_name_map["log"] = "log"
-            self._children_yang_names.add("log")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("enable") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(SyslogService.Timestamps, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(SyslogService.Timestamps, self).__setattr__(name, value)
-
-
-        class Log(Entity):
-            """
-            Timestamp log messages
-            
-            .. attribute:: log_datetime
-            
-            	Timestamp with date and time
-            	**type**\:   :py:class:`LogDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime>`
-            
-            .. attribute:: log_timestamp_disable
-            
-            	Disable timestamp log messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: log_uptime
-            
-            	Timestamp with systime uptime
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(SyslogService.Timestamps.Log, self).__init__()
-
-                self.yang_name = "log"
-                self.yang_parent_name = "timestamps"
-
-                self.log_timestamp_disable = YLeaf(YType.empty, "log-timestamp-disable")
-
-                self.log_uptime = YLeaf(YType.empty, "log-uptime")
-
-                self.log_datetime = SyslogService.Timestamps.Log.LogDatetime()
-                self.log_datetime.parent = self
-                self._children_name_map["log_datetime"] = "log-datetime"
-                self._children_yang_names.add("log-datetime")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("log_timestamp_disable",
-                                "log_uptime") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(SyslogService.Timestamps.Log, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(SyslogService.Timestamps.Log, self).__setattr__(name, value)
-
-
-            class LogDatetime(Entity):
-                """
-                Timestamp with date and time
-                
-                .. attribute:: log_datetime_value
-                
-                	Set timestamp for log message
-                	**type**\:   :py:class:`LogDatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue>`
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(SyslogService.Timestamps.Log.LogDatetime, self).__init__()
-
-                    self.yang_name = "log-datetime"
-                    self.yang_parent_name = "log"
-
-                    self.log_datetime_value = SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue()
-                    self.log_datetime_value.parent = self
-                    self._children_name_map["log_datetime_value"] = "log-datetime-value"
-                    self._children_yang_names.add("log-datetime-value")
-
-
-                class LogDatetimeValue(Entity):
-                    """
-                    Set timestamp for log message
-                    
-                    .. attribute:: msec
-                    
-                    	Seconds
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: enable
-                    
-                    .. attribute:: time_stamp_value
-                    
-                    	Time
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: enable
-                    
-                    .. attribute:: time_zone
-                    
-                    	Timezone
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: disable
-                    
-                    .. attribute:: year
-                    
-                    	Year
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: disable
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__init__()
-
-                        self.yang_name = "log-datetime-value"
-                        self.yang_parent_name = "log-datetime"
-
-                        self.msec = YLeaf(YType.enumeration, "msec")
-
-                        self.time_stamp_value = YLeaf(YType.enumeration, "time-stamp-value")
-
-                        self.time_zone = YLeaf(YType.enumeration, "time-zone")
-
-                        self.year = YLeaf(YType.enumeration, "year")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("msec",
-                                        "time_stamp_value",
-                                        "time_zone",
-                                        "year") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.msec.is_set or
-                            self.time_stamp_value.is_set or
-                            self.time_zone.is_set or
-                            self.year.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.msec.yfilter != YFilter.not_set or
-                            self.time_stamp_value.yfilter != YFilter.not_set or
-                            self.time_zone.yfilter != YFilter.not_set or
-                            self.year.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "log-datetime-value" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/log/log-datetime/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.msec.is_set or self.msec.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.msec.get_name_leafdata())
-                        if (self.time_stamp_value.is_set or self.time_stamp_value.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.time_stamp_value.get_name_leafdata())
-                        if (self.time_zone.is_set or self.time_zone.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.time_zone.get_name_leafdata())
-                        if (self.year.is_set or self.year.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.year.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "msec" or name == "time-stamp-value" or name == "time-zone" or name == "year"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "msec"):
-                            self.msec = value
-                            self.msec.value_namespace = name_space
-                            self.msec.value_namespace_prefix = name_space_prefix
-                        if(value_path == "time-stamp-value"):
-                            self.time_stamp_value = value
-                            self.time_stamp_value.value_namespace = name_space
-                            self.time_stamp_value.value_namespace_prefix = name_space_prefix
-                        if(value_path == "time-zone"):
-                            self.time_zone = value
-                            self.time_zone.value_namespace = name_space
-                            self.time_zone.value_namespace_prefix = name_space_prefix
-                        if(value_path == "year"):
-                            self.year = value
-                            self.year.value_namespace = name_space
-                            self.year.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (self.log_datetime_value is not None and self.log_datetime_value.has_data())
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.log_datetime_value is not None and self.log_datetime_value.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "log-datetime" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/log/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "log-datetime-value"):
-                        if (self.log_datetime_value is None):
-                            self.log_datetime_value = SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue()
-                            self.log_datetime_value.parent = self
-                            self._children_name_map["log_datetime_value"] = "log-datetime-value"
-                        return self.log_datetime_value
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "log-datetime-value"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.log_timestamp_disable.is_set or
-                    self.log_uptime.is_set or
-                    (self.log_datetime is not None and self.log_datetime.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.log_timestamp_disable.yfilter != YFilter.not_set or
-                    self.log_uptime.yfilter != YFilter.not_set or
-                    (self.log_datetime is not None and self.log_datetime.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "log" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.log_timestamp_disable.is_set or self.log_timestamp_disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.log_timestamp_disable.get_name_leafdata())
-                if (self.log_uptime.is_set or self.log_uptime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.log_uptime.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "log-datetime"):
-                    if (self.log_datetime is None):
-                        self.log_datetime = SyslogService.Timestamps.Log.LogDatetime()
-                        self.log_datetime.parent = self
-                        self._children_name_map["log_datetime"] = "log-datetime"
-                    return self.log_datetime
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "log-datetime" or name == "log-timestamp-disable" or name == "log-uptime"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "log-timestamp-disable"):
-                    self.log_timestamp_disable = value
-                    self.log_timestamp_disable.value_namespace = name_space
-                    self.log_timestamp_disable.value_namespace_prefix = name_space_prefix
-                if(value_path == "log-uptime"):
-                    self.log_uptime = value
-                    self.log_uptime.value_namespace = name_space
-                    self.log_uptime.value_namespace_prefix = name_space_prefix
-
-
-        class Debug(Entity):
-            """
-            Timestamp debug messages
-            
-            .. attribute:: debug_datetime
-            
-            	Timestamp with date and time
-            	**type**\:   :py:class:`DebugDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime>`
-            
-            .. attribute:: debug_timestamp_disable
-            
-            	Disable timestamp debug messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: debug_uptime
-            
-            	Timestamp with systime uptime
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(SyslogService.Timestamps.Debug, self).__init__()
-
-                self.yang_name = "debug"
-                self.yang_parent_name = "timestamps"
-
-                self.debug_timestamp_disable = YLeaf(YType.empty, "debug-timestamp-disable")
-
-                self.debug_uptime = YLeaf(YType.empty, "debug-uptime")
-
-                self.debug_datetime = SyslogService.Timestamps.Debug.DebugDatetime()
-                self.debug_datetime.parent = self
-                self._children_name_map["debug_datetime"] = "debug-datetime"
-                self._children_yang_names.add("debug-datetime")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("debug_timestamp_disable",
-                                "debug_uptime") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(SyslogService.Timestamps.Debug, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(SyslogService.Timestamps.Debug, self).__setattr__(name, value)
-
-
-            class DebugDatetime(Entity):
-                """
-                Timestamp with date and time
-                
-                .. attribute:: datetime_value
-                
-                	Set time format for debug msg
-                	**type**\:   :py:class:`DatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue>`
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(SyslogService.Timestamps.Debug.DebugDatetime, self).__init__()
-
-                    self.yang_name = "debug-datetime"
-                    self.yang_parent_name = "debug"
-
-                    self.datetime_value = SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue()
-                    self.datetime_value.parent = self
-                    self._children_name_map["datetime_value"] = "datetime-value"
-                    self._children_yang_names.add("datetime-value")
-
-
-                class DatetimeValue(Entity):
-                    """
-                    Set time format for debug msg
-                    
-                    .. attribute:: msec
-                    
-                    	Seconds
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: enable
-                    
-                    .. attribute:: time_stamp_value
-                    
-                    	Time
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: enable
-                    
-                    .. attribute:: time_zone
-                    
-                    	Timezone
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: disable
-                    
-                    .. attribute:: year
-                    
-                    	Year
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
-                    
-                    	**default value**\: disable
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__init__()
-
-                        self.yang_name = "datetime-value"
-                        self.yang_parent_name = "debug-datetime"
-
-                        self.msec = YLeaf(YType.enumeration, "msec")
-
-                        self.time_stamp_value = YLeaf(YType.enumeration, "time-stamp-value")
-
-                        self.time_zone = YLeaf(YType.enumeration, "time-zone")
-
-                        self.year = YLeaf(YType.enumeration, "year")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("msec",
-                                        "time_stamp_value",
-                                        "time_zone",
-                                        "year") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.msec.is_set or
-                            self.time_stamp_value.is_set or
-                            self.time_zone.is_set or
-                            self.year.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.msec.yfilter != YFilter.not_set or
-                            self.time_stamp_value.yfilter != YFilter.not_set or
-                            self.time_zone.yfilter != YFilter.not_set or
-                            self.year.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "datetime-value" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/debug/debug-datetime/%s" % self.get_segment_path()
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.msec.is_set or self.msec.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.msec.get_name_leafdata())
-                        if (self.time_stamp_value.is_set or self.time_stamp_value.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.time_stamp_value.get_name_leafdata())
-                        if (self.time_zone.is_set or self.time_zone.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.time_zone.get_name_leafdata())
-                        if (self.year.is_set or self.year.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.year.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "msec" or name == "time-stamp-value" or name == "time-zone" or name == "year"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "msec"):
-                            self.msec = value
-                            self.msec.value_namespace = name_space
-                            self.msec.value_namespace_prefix = name_space_prefix
-                        if(value_path == "time-stamp-value"):
-                            self.time_stamp_value = value
-                            self.time_stamp_value.value_namespace = name_space
-                            self.time_stamp_value.value_namespace_prefix = name_space_prefix
-                        if(value_path == "time-zone"):
-                            self.time_zone = value
-                            self.time_zone.value_namespace = name_space
-                            self.time_zone.value_namespace_prefix = name_space_prefix
-                        if(value_path == "year"):
-                            self.year = value
-                            self.year.value_namespace = name_space
-                            self.year.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (self.datetime_value is not None and self.datetime_value.has_data())
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        (self.datetime_value is not None and self.datetime_value.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "debug-datetime" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/debug/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "datetime-value"):
-                        if (self.datetime_value is None):
-                            self.datetime_value = SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue()
-                            self.datetime_value.parent = self
-                            self._children_name_map["datetime_value"] = "datetime-value"
-                        return self.datetime_value
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "datetime-value"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.debug_timestamp_disable.is_set or
-                    self.debug_uptime.is_set or
-                    (self.debug_datetime is not None and self.debug_datetime.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.debug_timestamp_disable.yfilter != YFilter.not_set or
-                    self.debug_uptime.yfilter != YFilter.not_set or
-                    (self.debug_datetime is not None and self.debug_datetime.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "debug" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.debug_timestamp_disable.is_set or self.debug_timestamp_disable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.debug_timestamp_disable.get_name_leafdata())
-                if (self.debug_uptime.is_set or self.debug_uptime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.debug_uptime.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "debug-datetime"):
-                    if (self.debug_datetime is None):
-                        self.debug_datetime = SyslogService.Timestamps.Debug.DebugDatetime()
-                        self.debug_datetime.parent = self
-                        self._children_name_map["debug_datetime"] = "debug-datetime"
-                    return self.debug_datetime
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "debug-datetime" or name == "debug-timestamp-disable" or name == "debug-uptime"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "debug-timestamp-disable"):
-                    self.debug_timestamp_disable = value
-                    self.debug_timestamp_disable.value_namespace = name_space
-                    self.debug_timestamp_disable.value_namespace_prefix = name_space_prefix
-                if(value_path == "debug-uptime"):
-                    self.debug_uptime = value
-                    self.debug_uptime.value_namespace = name_space
-                    self.debug_uptime.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.enable.is_set or
-                (self.debug is not None and self.debug.has_data()) or
-                (self.log is not None and self.log.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.enable.yfilter != YFilter.not_set or
-                (self.debug is not None and self.debug.has_operation()) or
-                (self.log is not None and self.log.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "timestamps" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.enable.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "debug"):
-                if (self.debug is None):
-                    self.debug = SyslogService.Timestamps.Debug()
-                    self.debug.parent = self
-                    self._children_name_map["debug"] = "debug"
-                return self.debug
-
-            if (child_yang_name == "log"):
-                if (self.log is None):
-                    self.log = SyslogService.Timestamps.Log()
-                    self.log.parent = self
-                    self._children_name_map["log"] = "log"
-                return self.log
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "debug" or name == "log" or name == "enable"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "enable"):
-                self.enable = value
-                self.enable.value_namespace = name_space
-                self.enable.value_namespace_prefix = name_space_prefix
-
-    def has_data(self):
-        return (self.timestamps is not None and self.timestamps.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.timestamps is not None and self.timestamps.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog-service" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "timestamps"):
-            if (self.timestamps is None):
-                self.timestamps = SyslogService.Timestamps()
-                self.timestamps.parent = self
-                self._children_name_map["timestamps"] = "timestamps"
-            return self.timestamps
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "timestamps"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
-
-    def clone_ptr(self):
-        self._top_entity = SyslogService()
-        return self._top_entity
-
 class Syslog(Entity):
     """
     syslog
@@ -1698,6 +762,10 @@ class Syslog(Entity):
 
         self.yang_name = "syslog"
         self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"alarm-logger" : ("alarm_logger", Syslog.AlarmLogger), "archive" : ("archive", Syslog.Archive), "buffered-logging" : ("buffered_logging", Syslog.BufferedLogging), "console-logging" : ("console_logging", Syslog.ConsoleLogging), "correlator" : ("correlator", Syslog.Correlator), "files" : ("files", Syslog.Files), "history-logging" : ("history_logging", Syslog.HistoryLogging), "host-server" : ("host_server", Syslog.HostServer), "ipv4" : ("ipv4", Syslog.Ipv4), "ipv6" : ("ipv6", Syslog.Ipv6), "logging-facilities" : ("logging_facilities", Syslog.LoggingFacilities), "monitor-logging" : ("monitor_logging", Syslog.MonitorLogging), "source-interface-table" : ("source_interface_table", Syslog.SourceInterfaceTable), "suppression" : ("suppression", Syslog.Suppression), "trap-logging" : ("trap_logging", Syslog.TrapLogging)}
+        self._child_list_classes = {}
 
         self.enable_console_logging = YLeaf(YType.boolean, "enable-console-logging")
 
@@ -1781,5143 +849,171 @@ class Syslog(Entity):
         self.trap_logging.parent = self
         self._children_name_map["trap_logging"] = "trap-logging"
         self._children_yang_names.add("trap-logging")
+        self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in ("enable_console_logging",
-                        "host_name_prefix",
-                        "local_log_file_size",
-                        "suppress_duplicates") and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(Syslog, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(Syslog, self).__setattr__(name, value)
+        self._perform_setattr(Syslog, ['enable_console_logging', 'host_name_prefix', 'local_log_file_size', 'suppress_duplicates'], name, value)
 
 
-    class MonitorLogging(Entity):
+    class AlarmLogger(Entity):
         """
-        Set monitor logging
+        Alarm Logger Properties
         
-        .. attribute:: logging_level
+        .. attribute:: alarm_filter_strings
         
-        	Monitor Logging Level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
-        
-        	**default value**\: debug
-        
-        .. attribute:: monitor_discriminator
-        
-        	Set monitor logging discriminators
-        	**type**\:   :py:class:`MonitorDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.MonitorLogging, self).__init__()
-
-            self.yang_name = "monitor-logging"
-            self.yang_parent_name = "syslog"
-
-            self.logging_level = YLeaf(YType.enumeration, "logging-level")
-
-            self.monitor_discriminator = Syslog.MonitorLogging.MonitorDiscriminator()
-            self.monitor_discriminator.parent = self
-            self._children_name_map["monitor_discriminator"] = "monitor-discriminator"
-            self._children_yang_names.add("monitor-discriminator")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("logging_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.MonitorLogging, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.MonitorLogging, self).__setattr__(name, value)
-
-
-        class MonitorDiscriminator(Entity):
-            """
-            Set monitor logging discriminators
-            
-            .. attribute:: match1
-            
-            	Set monitor logging match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match2
-            
-            	Set monitor logging match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match3
-            
-            	Set monitor logging match3 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch1
-            
-            	Set monitor logging no\-match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch2
-            
-            	Set monitor logging no\-match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch3
-            
-            	Set monitor logging no\-match3 discriminator
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.MonitorLogging.MonitorDiscriminator, self).__init__()
-
-                self.yang_name = "monitor-discriminator"
-                self.yang_parent_name = "monitor-logging"
-
-                self.match1 = YLeaf(YType.str, "match1")
-
-                self.match2 = YLeaf(YType.str, "match2")
-
-                self.match3 = YLeaf(YType.str, "match3")
-
-                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("match1",
-                                "match2",
-                                "match3",
-                                "nomatch1",
-                                "nomatch2",
-                                "nomatch3") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.MonitorLogging.MonitorDiscriminator, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.MonitorLogging.MonitorDiscriminator, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.match1.is_set or
-                    self.match2.is_set or
-                    self.match3.is_set or
-                    self.nomatch1.is_set or
-                    self.nomatch2.is_set or
-                    self.nomatch3.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.match1.yfilter != YFilter.not_set or
-                    self.match2.yfilter != YFilter.not_set or
-                    self.match3.yfilter != YFilter.not_set or
-                    self.nomatch1.yfilter != YFilter.not_set or
-                    self.nomatch2.yfilter != YFilter.not_set or
-                    self.nomatch3.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "monitor-discriminator" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/monitor-logging/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match1.get_name_leafdata())
-                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match2.get_name_leafdata())
-                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match3.get_name_leafdata())
-                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "match1"):
-                    self.match1 = value
-                    self.match1.value_namespace = name_space
-                    self.match1.value_namespace_prefix = name_space_prefix
-                if(value_path == "match2"):
-                    self.match2 = value
-                    self.match2.value_namespace = name_space
-                    self.match2.value_namespace_prefix = name_space_prefix
-                if(value_path == "match3"):
-                    self.match3 = value
-                    self.match3.value_namespace = name_space
-                    self.match3.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch1"):
-                    self.nomatch1 = value
-                    self.nomatch1.value_namespace = name_space
-                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch2"):
-                    self.nomatch2 = value
-                    self.nomatch2.value_namespace = name_space
-                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch3"):
-                    self.nomatch3 = value
-                    self.nomatch3.value_namespace = name_space
-                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.logging_level.is_set or
-                (self.monitor_discriminator is not None and self.monitor_discriminator.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.logging_level.yfilter != YFilter.not_set or
-                (self.monitor_discriminator is not None and self.monitor_discriminator.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "monitor-logging" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.logging_level.is_set or self.logging_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logging_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "monitor-discriminator"):
-                if (self.monitor_discriminator is None):
-                    self.monitor_discriminator = Syslog.MonitorLogging.MonitorDiscriminator()
-                    self.monitor_discriminator.parent = self
-                    self._children_name_map["monitor_discriminator"] = "monitor-discriminator"
-                return self.monitor_discriminator
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "monitor-discriminator" or name == "logging-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "logging-level"):
-                self.logging_level = value
-                self.logging_level.value_namespace = name_space
-                self.logging_level.value_namespace_prefix = name_space_prefix
-
-
-    class HistoryLogging(Entity):
-        """
-        Set history logging
-        
-        .. attribute:: history_size
-        
-        	Logging history size
-        	**type**\:  int
-        
-        	**range:** 1..500
-        
-        	**default value**\: 1
-        
-        .. attribute:: logging_level
-        
-        	History logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
-        
-        	**default value**\: warning
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.HistoryLogging, self).__init__()
-
-            self.yang_name = "history-logging"
-            self.yang_parent_name = "syslog"
-
-            self.history_size = YLeaf(YType.uint32, "history-size")
-
-            self.logging_level = YLeaf(YType.enumeration, "logging-level")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("history_size",
-                            "logging_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.HistoryLogging, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.HistoryLogging, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.history_size.is_set or
-                self.logging_level.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.history_size.yfilter != YFilter.not_set or
-                self.logging_level.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "history-logging" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.history_size.is_set or self.history_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.history_size.get_name_leafdata())
-            if (self.logging_level.is_set or self.logging_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logging_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "history-size" or name == "logging-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "history-size"):
-                self.history_size = value
-                self.history_size.value_namespace = name_space
-                self.history_size.value_namespace_prefix = name_space_prefix
-            if(value_path == "logging-level"):
-                self.logging_level = value
-                self.logging_level.value_namespace = name_space
-                self.logging_level.value_namespace_prefix = name_space_prefix
-
-
-    class LoggingFacilities(Entity):
-        """
-        Modify message logging facilities
-        
-        .. attribute:: facility_level
-        
-        	Facility from which logging is done
-        	**type**\:   :py:class:`Facility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Facility>`
-        
-        	**default value**\: local7
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.LoggingFacilities, self).__init__()
-
-            self.yang_name = "logging-facilities"
-            self.yang_parent_name = "syslog"
-
-            self.facility_level = YLeaf(YType.enumeration, "facility-level")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("facility_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.LoggingFacilities, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.LoggingFacilities, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.facility_level.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.facility_level.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "logging-facilities" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.facility_level.is_set or self.facility_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.facility_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "facility-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "facility-level"):
-                self.facility_level = value
-                self.facility_level.value_namespace = name_space
-                self.facility_level.value_namespace_prefix = name_space_prefix
-
-
-    class TrapLogging(Entity):
-        """
-        Set trap logging
-        
-        .. attribute:: logging_level
-        
-        	Trap logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
-        
-        	**default value**\: info
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.TrapLogging, self).__init__()
-
-            self.yang_name = "trap-logging"
-            self.yang_parent_name = "syslog"
-
-            self.logging_level = YLeaf(YType.enumeration, "logging-level")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("logging_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.TrapLogging, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.TrapLogging, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.logging_level.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.logging_level.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "trap-logging" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.logging_level.is_set or self.logging_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logging_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "logging-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "logging-level"):
-                self.logging_level = value
-                self.logging_level.value_namespace = name_space
-                self.logging_level.value_namespace_prefix = name_space_prefix
-
-
-    class BufferedLogging(Entity):
-        """
-        Set buffered logging parameters
+        	List of filter strings
+        	**type**\:   :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
         
         .. attribute:: buffer_size
         
-        	Logging buffered size
+        	Set size of the local event buffer
         	**type**\:  int
         
-        	**range:** 4096..4294967295
+        	**range:** 1024..1024000
         
-        	**default value**\: 2097152
+        .. attribute:: pre_config_suppression
         
-        .. attribute:: buffered_discriminator
+        	Suppress events from a card/VM till its configuration is complete
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
-        	Set buffered logging discriminators
-        	**type**\:   :py:class:`BufferedDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging.BufferedDiscriminator>`
+        .. attribute:: pre_config_suppression_timeout
         
-        .. attribute:: logging_level
+        	Timeout (in minutes) for pre\-config events suppression (default 15)
+        	**type**\:  int
         
-        	Logging level for Buffered logging
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**range:** 1..60
         
-        	**default value**\: debug
+        	**units**\: minute
+        
+        	**default value**\: 15
+        
+        .. attribute:: severity_level
+        
+        	Log all events with equal or higher (lower level) severity than this
+        	**type**\:   :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
+        
+        .. attribute:: source_location
+        
+        	Enable alarm source location in message text
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: threshold
+        
+        	Configure threshold (%) for capacity alarm
+        	**type**\:  int
+        
+        	**range:** 10..100
+        
+        	**default value**\: 90
         
         
 
         """
 
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
+        _prefix = 'infra-alarm-logger-cfg'
+        _revision = '2017-02-23'
 
         def __init__(self):
-            super(Syslog.BufferedLogging, self).__init__()
+            super(Syslog.AlarmLogger, self).__init__()
 
-            self.yang_name = "buffered-logging"
+            self.yang_name = "alarm-logger"
             self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"alarm-filter-strings" : ("alarm_filter_strings", Syslog.AlarmLogger.AlarmFilterStrings)}
+            self._child_list_classes = {}
 
             self.buffer_size = YLeaf(YType.uint32, "buffer-size")
 
-            self.logging_level = YLeaf(YType.enumeration, "logging-level")
+            self.pre_config_suppression = YLeaf(YType.empty, "pre-config-suppression")
 
-            self.buffered_discriminator = Syslog.BufferedLogging.BufferedDiscriminator()
-            self.buffered_discriminator.parent = self
-            self._children_name_map["buffered_discriminator"] = "buffered-discriminator"
-            self._children_yang_names.add("buffered-discriminator")
+            self.pre_config_suppression_timeout = YLeaf(YType.uint32, "pre-config-suppression-timeout")
+
+            self.severity_level = YLeaf(YType.enumeration, "severity-level")
+
+            self.source_location = YLeaf(YType.empty, "source-location")
+
+            self.threshold = YLeaf(YType.uint32, "threshold")
+
+            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
+            self.alarm_filter_strings.parent = self
+            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
+            self._children_yang_names.add("alarm-filter-strings")
+            self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("buffer_size",
-                            "logging_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.BufferedLogging, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.BufferedLogging, self).__setattr__(name, value)
+            self._perform_setattr(Syslog.AlarmLogger, ['buffer_size', 'pre_config_suppression', 'pre_config_suppression_timeout', 'severity_level', 'source_location', 'threshold'], name, value)
 
 
-        class BufferedDiscriminator(Entity):
+        class AlarmFilterStrings(Entity):
             """
-            Set buffered logging discriminators
+            List of filter strings
             
-            .. attribute:: match1
+            .. attribute:: alarm_filter_string
             
-            	Set buffered logging match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match2
-            
-            	Set buffered logging match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match3
-            
-            	Set buffered logging match3 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch1
-            
-            	Set buffered logging no\-match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch2
-            
-            	Set buffered logging no\-match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch3
-            
-            	Set buffered logging no\-match3 discriminator
-            	**type**\:  str
+            	Match string to filter alarms
+            	**type**\: list of    :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
             
             
 
             """
 
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
+            _prefix = 'infra-alarm-logger-cfg'
+            _revision = '2017-02-23'
 
             def __init__(self):
-                super(Syslog.BufferedLogging.BufferedDiscriminator, self).__init__()
+                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
 
-                self.yang_name = "buffered-discriminator"
-                self.yang_parent_name = "buffered-logging"
+                self.yang_name = "alarm-filter-strings"
+                self.yang_parent_name = "alarm-logger"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"alarm-filter-string" : ("alarm_filter_string", Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString)}
 
-                self.match1 = YLeaf(YType.str, "match1")
-
-                self.match2 = YLeaf(YType.str, "match2")
-
-                self.match3 = YLeaf(YType.str, "match3")
-
-                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                self.alarm_filter_string = YList(self)
+                self._segment_path = lambda: "alarm-filter-strings"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("match1",
-                                "match2",
-                                "match3",
-                                "nomatch1",
-                                "nomatch2",
-                                "nomatch3") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.BufferedLogging.BufferedDiscriminator, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.BufferedLogging.BufferedDiscriminator, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.match1.is_set or
-                    self.match2.is_set or
-                    self.match3.is_set or
-                    self.nomatch1.is_set or
-                    self.nomatch2.is_set or
-                    self.nomatch3.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.match1.yfilter != YFilter.not_set or
-                    self.match2.yfilter != YFilter.not_set or
-                    self.match3.yfilter != YFilter.not_set or
-                    self.nomatch1.yfilter != YFilter.not_set or
-                    self.nomatch2.yfilter != YFilter.not_set or
-                    self.nomatch3.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "buffered-discriminator" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/buffered-logging/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match1.get_name_leafdata())
-                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match2.get_name_leafdata())
-                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match3.get_name_leafdata())
-                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "match1"):
-                    self.match1 = value
-                    self.match1.value_namespace = name_space
-                    self.match1.value_namespace_prefix = name_space_prefix
-                if(value_path == "match2"):
-                    self.match2 = value
-                    self.match2.value_namespace = name_space
-                    self.match2.value_namespace_prefix = name_space_prefix
-                if(value_path == "match3"):
-                    self.match3 = value
-                    self.match3.value_namespace = name_space
-                    self.match3.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch1"):
-                    self.nomatch1 = value
-                    self.nomatch1.value_namespace = name_space
-                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch2"):
-                    self.nomatch2 = value
-                    self.nomatch2.value_namespace = name_space
-                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch3"):
-                    self.nomatch3 = value
-                    self.nomatch3.value_namespace = name_space
-                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.buffer_size.is_set or
-                self.logging_level.is_set or
-                (self.buffered_discriminator is not None and self.buffered_discriminator.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.buffer_size.yfilter != YFilter.not_set or
-                self.logging_level.yfilter != YFilter.not_set or
-                (self.buffered_discriminator is not None and self.buffered_discriminator.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "buffered-logging" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.buffer_size.is_set or self.buffer_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.buffer_size.get_name_leafdata())
-            if (self.logging_level.is_set or self.logging_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logging_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "buffered-discriminator"):
-                if (self.buffered_discriminator is None):
-                    self.buffered_discriminator = Syslog.BufferedLogging.BufferedDiscriminator()
-                    self.buffered_discriminator.parent = self
-                    self._children_name_map["buffered_discriminator"] = "buffered-discriminator"
-                return self.buffered_discriminator
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "buffered-discriminator" or name == "buffer-size" or name == "logging-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "buffer-size"):
-                self.buffer_size = value
-                self.buffer_size.value_namespace = name_space
-                self.buffer_size.value_namespace_prefix = name_space_prefix
-            if(value_path == "logging-level"):
-                self.logging_level = value
-                self.logging_level.value_namespace = name_space
-                self.logging_level.value_namespace_prefix = name_space_prefix
+                self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
 
 
-    class HostServer(Entity):
-        """
-        Configure logging host
-        
-        .. attribute:: vrfs
-        
-        	VRF table
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.HostServer, self).__init__()
-
-            self.yang_name = "host-server"
-            self.yang_parent_name = "syslog"
-
-            self.vrfs = Syslog.HostServer.Vrfs()
-            self.vrfs.parent = self
-            self._children_name_map["vrfs"] = "vrfs"
-            self._children_yang_names.add("vrfs")
-
-
-        class Vrfs(Entity):
-            """
-            VRF table
-            
-            .. attribute:: vrf
-            
-            	VRF specific data
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.HostServer.Vrfs, self).__init__()
-
-                self.yang_name = "vrfs"
-                self.yang_parent_name = "host-server"
-
-                self.vrf = YList(self)
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.HostServer.Vrfs, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.HostServer.Vrfs, self).__setattr__(name, value)
-
-
-            class Vrf(Entity):
+            class AlarmFilterString(Entity):
                 """
-                VRF specific data
+                Match string to filter alarms
                 
-                .. attribute:: vrf_name  <key>
+                .. attribute:: filter_string  <key>
                 
-                	Name of the VRF instance
+                	Filter String
                 	**type**\:  str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: hosts
-                
-                	List of the logging host
-                	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts>`
-                
-                .. attribute:: ipv4s
-                
-                	List of the IPv4 logging host
-                	**type**\:   :py:class:`Ipv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
-                
-                .. attribute:: ipv6s
-                
-                	List of the IPv6 logging host
-                	**type**\:   :py:class:`Ipv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
-                
                 
 
                 """
 
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
+                _prefix = 'infra-alarm-logger-cfg'
+                _revision = '2017-02-23'
 
                 def __init__(self):
-                    super(Syslog.HostServer.Vrfs.Vrf, self).__init__()
+                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
 
-                    self.yang_name = "vrf"
-                    self.yang_parent_name = "vrfs"
+                    self.yang_name = "alarm-filter-string"
+                    self.yang_parent_name = "alarm-filter-strings"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.hosts = Syslog.HostServer.Vrfs.Vrf.Hosts()
-                    self.hosts.parent = self
-                    self._children_name_map["hosts"] = "hosts"
-                    self._children_yang_names.add("hosts")
-
-                    self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4S()
-                    self.ipv4s.parent = self
-                    self._children_name_map["ipv4s"] = "ipv4s"
-                    self._children_yang_names.add("ipv4s")
-
-                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
-                    self.ipv6s.parent = self
-                    self._children_name_map["ipv6s"] = "ipv6s"
-                    self._children_yang_names.add("ipv6s")
+                    self.filter_string = YLeaf(YType.str, "filter-string")
+                    self._segment_path = lambda: "alarm-filter-string" + "[filter-string='" + self.filter_string.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("vrf_name") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.HostServer.Vrfs.Vrf, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.HostServer.Vrfs.Vrf, self).__setattr__(name, value)
-
-
-                class Ipv6S(Entity):
-                    """
-                    List of the IPv6 logging host
-                    
-                    .. attribute:: ipv6
-                    
-                    	IPv6 address of the logging host
-                    	**type**\: list of    :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S, self).__init__()
-
-                        self.yang_name = "ipv6s"
-                        self.yang_parent_name = "vrf"
-
-                        self.ipv6 = YList(self)
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6S, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S, self).__setattr__(name, value)
-
-
-                    class Ipv6(Entity):
-                        """
-                        IPv6 address of the logging host
-                        
-                        .. attribute:: address  <key>
-                        
-                        	IPv6 address of the logging host
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6_discriminator
-                        
-                        	Set IPv6 logging discriminators
-                        	**type**\:   :py:class:`Ipv6Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator>`
-                        
-                        .. attribute:: ipv6_severity_levels
-                        
-                        	Severity container of the logging host
-                        	**type**\:   :py:class:`Ipv6SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
-                        
-                        	**status**\: obsolete
-                        
-                        .. attribute:: ipv6_severity_port
-                        
-                        	Severity/Port for the logging host
-                        	**type**\:   :py:class:`Ipv6SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-syslog-cfg'
-                        _revision = '2016-06-22'
-
-                        def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6, self).__init__()
-
-                            self.yang_name = "ipv6"
-                            self.yang_parent_name = "ipv6s"
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator()
-                            self.ipv6_discriminator.parent = self
-                            self._children_name_map["ipv6_discriminator"] = "ipv6-discriminator"
-                            self._children_yang_names.add("ipv6-discriminator")
-
-                            self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels()
-                            self.ipv6_severity_levels.parent = self
-                            self._children_name_map["ipv6_severity_levels"] = "ipv6-severity-levels"
-                            self._children_yang_names.add("ipv6-severity-levels")
-
-                            self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort()
-                            self.ipv6_severity_port.parent = self
-                            self._children_name_map["ipv6_severity_port"] = "ipv6-severity-port"
-                            self._children_yang_names.add("ipv6-severity-port")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6, self).__setattr__(name, value)
-
-
-                        class Ipv6SeverityPort(Entity):
-                            """
-                            Severity/Port for the logging host
-                            
-                            .. attribute:: port
-                            
-                            	Port for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 514
-                            
-                            .. attribute:: severity
-                            
-                            	Severity for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 6
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort, self).__init__()
-
-                                self.yang_name = "ipv6-severity-port"
-                                self.yang_parent_name = "ipv6"
-
-                                self.port = YLeaf(YType.int32, "port")
-
-                                self.severity = YLeaf(YType.int32, "severity")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("port",
-                                                "severity") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.port.is_set or
-                                    self.severity.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.port.yfilter != YFilter.not_set or
-                                    self.severity.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv6-severity-port" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.port.is_set or self.port.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port.get_name_leafdata())
-                                if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "port" or name == "severity"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "port"):
-                                    self.port = value
-                                    self.port.value_namespace = name_space
-                                    self.port.value_namespace_prefix = name_space_prefix
-                                if(value_path == "severity"):
-                                    self.severity = value
-                                    self.severity.value_namespace = name_space
-                                    self.severity.value_namespace_prefix = name_space_prefix
-
-
-                        class Ipv6Discriminator(Entity):
-                            """
-                            Set IPv6 logging discriminators
-                            
-                            .. attribute:: match1
-                            
-                            	Set IPv6 logging match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match2
-                            
-                            	Set IPv6 logging match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match3
-                            
-                            	Set IPv6 logging match3 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch1
-                            
-                            	Set IPv6 logging no\-match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch2
-                            
-                            	Set IPv6 logging no\-match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch3
-                            
-                            	Set IPv6 logging no\-match3 discriminator
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator, self).__init__()
-
-                                self.yang_name = "ipv6-discriminator"
-                                self.yang_parent_name = "ipv6"
-
-                                self.match1 = YLeaf(YType.str, "match1")
-
-                                self.match2 = YLeaf(YType.str, "match2")
-
-                                self.match3 = YLeaf(YType.str, "match3")
-
-                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("match1",
-                                                "match2",
-                                                "match3",
-                                                "nomatch1",
-                                                "nomatch2",
-                                                "nomatch3") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.match1.is_set or
-                                    self.match2.is_set or
-                                    self.match3.is_set or
-                                    self.nomatch1.is_set or
-                                    self.nomatch2.is_set or
-                                    self.nomatch3.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.match1.yfilter != YFilter.not_set or
-                                    self.match2.yfilter != YFilter.not_set or
-                                    self.match3.yfilter != YFilter.not_set or
-                                    self.nomatch1.yfilter != YFilter.not_set or
-                                    self.nomatch2.yfilter != YFilter.not_set or
-                                    self.nomatch3.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv6-discriminator" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match1.get_name_leafdata())
-                                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match2.get_name_leafdata())
-                                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match3.get_name_leafdata())
-                                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "match1"):
-                                    self.match1 = value
-                                    self.match1.value_namespace = name_space
-                                    self.match1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match2"):
-                                    self.match2 = value
-                                    self.match2.value_namespace = name_space
-                                    self.match2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match3"):
-                                    self.match3 = value
-                                    self.match3.value_namespace = name_space
-                                    self.match3.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch1"):
-                                    self.nomatch1 = value
-                                    self.nomatch1.value_namespace = name_space
-                                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch2"):
-                                    self.nomatch2 = value
-                                    self.nomatch2.value_namespace = name_space
-                                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch3"):
-                                    self.nomatch3 = value
-                                    self.nomatch3.value_namespace = name_space
-                                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-
-                        class Ipv6SeverityLevels(Entity):
-                            """
-                            Severity container of the logging host
-                            
-                            .. attribute:: ipv6_severity_level
-                            
-                            	Severity for the logging host
-                            	**type**\: list of    :py:class:`Ipv6SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
-                            
-                            	**status**\: obsolete
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels, self).__init__()
-
-                                self.yang_name = "ipv6-severity-levels"
-                                self.yang_parent_name = "ipv6"
-
-                                self.ipv6_severity_level = YList(self)
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels, self).__setattr__(name, value)
-
-
-                            class Ipv6SeverityLevel(Entity):
-                                """
-                                Severity for the logging host
-                                
-                                .. attribute:: severity  <key>
-                                
-                                	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-syslog-cfg'
-                                _revision = '2016-06-22'
-
-                                def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__init__()
-
-                                    self.yang_name = "ipv6-severity-level"
-                                    self.yang_parent_name = "ipv6-severity-levels"
-
-                                    self.severity = YLeaf(YType.enumeration, "severity")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("severity") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return self.severity.is_set
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.severity.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "ipv6-severity-level" + "[severity='" + self.severity.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "severity"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "severity"):
-                                        self.severity = value
-                                        self.severity.value_namespace = name_space
-                                        self.severity.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.ipv6_severity_level:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.ipv6_severity_level:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv6-severity-levels" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "ipv6-severity-level"):
-                                    for c in self.ipv6_severity_level:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.ipv6_severity_level.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "ipv6-severity-level"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-                        def has_data(self):
-                            return (
-                                self.address.is_set or
-                                (self.ipv6_discriminator is not None and self.ipv6_discriminator.has_data()) or
-                                (self.ipv6_severity_levels is not None and self.ipv6_severity_levels.has_data()) or
-                                (self.ipv6_severity_port is not None and self.ipv6_severity_port.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.address.yfilter != YFilter.not_set or
-                                (self.ipv6_discriminator is not None and self.ipv6_discriminator.has_operation()) or
-                                (self.ipv6_severity_levels is not None and self.ipv6_severity_levels.has_operation()) or
-                                (self.ipv6_severity_port is not None and self.ipv6_severity_port.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "ipv6" + "[address='" + self.address.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.address.is_set or self.address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "ipv6-discriminator"):
-                                if (self.ipv6_discriminator is None):
-                                    self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator()
-                                    self.ipv6_discriminator.parent = self
-                                    self._children_name_map["ipv6_discriminator"] = "ipv6-discriminator"
-                                return self.ipv6_discriminator
-
-                            if (child_yang_name == "ipv6-severity-levels"):
-                                if (self.ipv6_severity_levels is None):
-                                    self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels()
-                                    self.ipv6_severity_levels.parent = self
-                                    self._children_name_map["ipv6_severity_levels"] = "ipv6-severity-levels"
-                                return self.ipv6_severity_levels
-
-                            if (child_yang_name == "ipv6-severity-port"):
-                                if (self.ipv6_severity_port is None):
-                                    self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort()
-                                    self.ipv6_severity_port.parent = self
-                                    self._children_name_map["ipv6_severity_port"] = "ipv6-severity-port"
-                                return self.ipv6_severity_port
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv6-discriminator" or name == "ipv6-severity-levels" or name == "ipv6-severity-port" or name == "address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "address"):
-                                self.address = value
-                                self.address.value_namespace = name_space
-                                self.address.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.ipv6:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.ipv6:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv6s" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "ipv6"):
-                            for c in self.ipv6:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.ipv6.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "ipv6"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-
-                class Hosts(Entity):
-                    """
-                    List of the logging host
-                    
-                    .. attribute:: host
-                    
-                    	Name of the logging host
-                    	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__init__()
-
-                        self.yang_name = "hosts"
-                        self.yang_parent_name = "vrf"
-
-                        self.host = YList(self)
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__setattr__(name, value)
-
-
-                    class Host(Entity):
-                        """
-                        Name of the logging host
-                        
-                        .. attribute:: host_name  <key>
-                        
-                        	Name of the logging host
-                        	**type**\:  str
-                        
-                        .. attribute:: host_name_discriminator
-                        
-                        	Set Hostname logging discriminators
-                        	**type**\:   :py:class:`HostNameDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator>`
-                        
-                        .. attribute:: host_name_severities
-                        
-                        	Severity container of the logging host
-                        	**type**\:   :py:class:`HostNameSeverities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
-                        
-                        	**status**\: obsolete
-                        
-                        .. attribute:: host_severity_port
-                        
-                        	Severity/Port for the logging host
-                        	**type**\:   :py:class:`HostSeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-syslog-cfg'
-                        _revision = '2016-06-22'
-
-                        def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__init__()
-
-                            self.yang_name = "host"
-                            self.yang_parent_name = "hosts"
-
-                            self.host_name = YLeaf(YType.str, "host-name")
-
-                            self.host_name_discriminator = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator()
-                            self.host_name_discriminator.parent = self
-                            self._children_name_map["host_name_discriminator"] = "host-name-discriminator"
-                            self._children_yang_names.add("host-name-discriminator")
-
-                            self.host_name_severities = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities()
-                            self.host_name_severities.parent = self
-                            self._children_name_map["host_name_severities"] = "host-name-severities"
-                            self._children_yang_names.add("host-name-severities")
-
-                            self.host_severity_port = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort()
-                            self.host_severity_port.parent = self
-                            self._children_name_map["host_severity_port"] = "host-severity-port"
-                            self._children_yang_names.add("host-severity-port")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("host_name") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__setattr__(name, value)
-
-
-                        class HostNameSeverities(Entity):
-                            """
-                            Severity container of the logging host
-                            
-                            .. attribute:: host_name_severity
-                            
-                            	Severity for the logging host
-                            	**type**\: list of    :py:class:`HostNameSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity>`
-                            
-                            	**status**\: obsolete
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__init__()
-
-                                self.yang_name = "host-name-severities"
-                                self.yang_parent_name = "host"
-
-                                self.host_name_severity = YList(self)
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__setattr__(name, value)
-
-
-                            class HostNameSeverity(Entity):
-                                """
-                                Severity for the logging host
-                                
-                                .. attribute:: severity  <key>
-                                
-                                	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-syslog-cfg'
-                                _revision = '2016-06-22'
-
-                                def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__init__()
-
-                                    self.yang_name = "host-name-severity"
-                                    self.yang_parent_name = "host-name-severities"
-
-                                    self.severity = YLeaf(YType.enumeration, "severity")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("severity") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return self.severity.is_set
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.severity.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "host-name-severity" + "[severity='" + self.severity.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "severity"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "severity"):
-                                        self.severity = value
-                                        self.severity.value_namespace = name_space
-                                        self.severity.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.host_name_severity:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.host_name_severity:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "host-name-severities" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "host-name-severity"):
-                                    for c in self.host_name_severity:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.host_name_severity.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "host-name-severity"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-
-                        class HostNameDiscriminator(Entity):
-                            """
-                            Set Hostname logging discriminators
-                            
-                            .. attribute:: match1
-                            
-                            	Set hostname logging match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match2
-                            
-                            	Set hostname logging match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match3
-                            
-                            	Set hostname logging match3 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch1
-                            
-                            	Set hostname logging no\-match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch2
-                            
-                            	Set hostname logging no\-match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch3
-                            
-                            	Set hostname logging no\-match3 discriminator
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator, self).__init__()
-
-                                self.yang_name = "host-name-discriminator"
-                                self.yang_parent_name = "host"
-
-                                self.match1 = YLeaf(YType.str, "match1")
-
-                                self.match2 = YLeaf(YType.str, "match2")
-
-                                self.match3 = YLeaf(YType.str, "match3")
-
-                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("match1",
-                                                "match2",
-                                                "match3",
-                                                "nomatch1",
-                                                "nomatch2",
-                                                "nomatch3") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.match1.is_set or
-                                    self.match2.is_set or
-                                    self.match3.is_set or
-                                    self.nomatch1.is_set or
-                                    self.nomatch2.is_set or
-                                    self.nomatch3.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.match1.yfilter != YFilter.not_set or
-                                    self.match2.yfilter != YFilter.not_set or
-                                    self.match3.yfilter != YFilter.not_set or
-                                    self.nomatch1.yfilter != YFilter.not_set or
-                                    self.nomatch2.yfilter != YFilter.not_set or
-                                    self.nomatch3.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "host-name-discriminator" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match1.get_name_leafdata())
-                                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match2.get_name_leafdata())
-                                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match3.get_name_leafdata())
-                                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "match1"):
-                                    self.match1 = value
-                                    self.match1.value_namespace = name_space
-                                    self.match1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match2"):
-                                    self.match2 = value
-                                    self.match2.value_namespace = name_space
-                                    self.match2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match3"):
-                                    self.match3 = value
-                                    self.match3.value_namespace = name_space
-                                    self.match3.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch1"):
-                                    self.nomatch1 = value
-                                    self.nomatch1.value_namespace = name_space
-                                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch2"):
-                                    self.nomatch2 = value
-                                    self.nomatch2.value_namespace = name_space
-                                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch3"):
-                                    self.nomatch3 = value
-                                    self.nomatch3.value_namespace = name_space
-                                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-
-                        class HostSeverityPort(Entity):
-                            """
-                            Severity/Port for the logging host
-                            
-                            .. attribute:: port
-                            
-                            	Port for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 514
-                            
-                            .. attribute:: severity
-                            
-                            	Severity for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 6
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__init__()
-
-                                self.yang_name = "host-severity-port"
-                                self.yang_parent_name = "host"
-
-                                self.port = YLeaf(YType.int32, "port")
-
-                                self.severity = YLeaf(YType.int32, "severity")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("port",
-                                                "severity") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.port.is_set or
-                                    self.severity.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.port.yfilter != YFilter.not_set or
-                                    self.severity.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "host-severity-port" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.port.is_set or self.port.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port.get_name_leafdata())
-                                if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "port" or name == "severity"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "port"):
-                                    self.port = value
-                                    self.port.value_namespace = name_space
-                                    self.port.value_namespace_prefix = name_space_prefix
-                                if(value_path == "severity"):
-                                    self.severity = value
-                                    self.severity.value_namespace = name_space
-                                    self.severity.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.host_name.is_set or
-                                (self.host_name_discriminator is not None and self.host_name_discriminator.has_data()) or
-                                (self.host_name_severities is not None and self.host_name_severities.has_data()) or
-                                (self.host_severity_port is not None and self.host_severity_port.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.host_name.yfilter != YFilter.not_set or
-                                (self.host_name_discriminator is not None and self.host_name_discriminator.has_operation()) or
-                                (self.host_name_severities is not None and self.host_name_severities.has_operation()) or
-                                (self.host_severity_port is not None and self.host_severity_port.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "host" + "[host-name='" + self.host_name.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.host_name.is_set or self.host_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.host_name.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "host-name-discriminator"):
-                                if (self.host_name_discriminator is None):
-                                    self.host_name_discriminator = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator()
-                                    self.host_name_discriminator.parent = self
-                                    self._children_name_map["host_name_discriminator"] = "host-name-discriminator"
-                                return self.host_name_discriminator
-
-                            if (child_yang_name == "host-name-severities"):
-                                if (self.host_name_severities is None):
-                                    self.host_name_severities = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities()
-                                    self.host_name_severities.parent = self
-                                    self._children_name_map["host_name_severities"] = "host-name-severities"
-                                return self.host_name_severities
-
-                            if (child_yang_name == "host-severity-port"):
-                                if (self.host_severity_port is None):
-                                    self.host_severity_port = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort()
-                                    self.host_severity_port.parent = self
-                                    self._children_name_map["host_severity_port"] = "host-severity-port"
-                                return self.host_severity_port
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "host-name-discriminator" or name == "host-name-severities" or name == "host-severity-port" or name == "host-name"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "host-name"):
-                                self.host_name = value
-                                self.host_name.value_namespace = name_space
-                                self.host_name.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.host:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.host:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "hosts" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "host"):
-                            for c in self.host:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.HostServer.Vrfs.Vrf.Hosts.Host()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.host.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "host"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-
-                class Ipv4S(Entity):
-                    """
-                    List of the IPv4 logging host
-                    
-                    .. attribute:: ipv4
-                    
-                    	IPv4 address of the logging host
-                    	**type**\: list of    :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S, self).__init__()
-
-                        self.yang_name = "ipv4s"
-                        self.yang_parent_name = "vrf"
-
-                        self.ipv4 = YList(self)
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4S, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S, self).__setattr__(name, value)
-
-
-                    class Ipv4(Entity):
-                        """
-                        IPv4 address of the logging host
-                        
-                        .. attribute:: address  <key>
-                        
-                        	IPv4 address of the logging host
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv4_discriminator
-                        
-                        	Set IPv4 logging discriminators
-                        	**type**\:   :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
-                        
-                        .. attribute:: ipv4_severity_levels
-                        
-                        	Severity container of the logging host
-                        	**type**\:   :py:class:`Ipv4SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels>`
-                        
-                        	**status**\: obsolete
-                        
-                        .. attribute:: ipv4_severity_port
-                        
-                        	Severity/Port for the logging host
-                        	**type**\:   :py:class:`Ipv4SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-syslog-cfg'
-                        _revision = '2016-06-22'
-
-                        def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4, self).__init__()
-
-                            self.yang_name = "ipv4"
-                            self.yang_parent_name = "ipv4s"
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
-                            self.ipv4_discriminator.parent = self
-                            self._children_name_map["ipv4_discriminator"] = "ipv4-discriminator"
-                            self._children_yang_names.add("ipv4-discriminator")
-
-                            self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels()
-                            self.ipv4_severity_levels.parent = self
-                            self._children_name_map["ipv4_severity_levels"] = "ipv4-severity-levels"
-                            self._children_yang_names.add("ipv4-severity-levels")
-
-                            self.ipv4_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort()
-                            self.ipv4_severity_port.parent = self
-                            self._children_name_map["ipv4_severity_port"] = "ipv4-severity-port"
-                            self._children_yang_names.add("ipv4-severity-port")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("address") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4, self).__setattr__(name, value)
-
-
-                        class Ipv4SeverityLevels(Entity):
-                            """
-                            Severity container of the logging host
-                            
-                            .. attribute:: ipv4_severity_level
-                            
-                            	Severity for the logging host
-                            	**type**\: list of    :py:class:`Ipv4SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
-                            
-                            	**status**\: obsolete
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels, self).__init__()
-
-                                self.yang_name = "ipv4-severity-levels"
-                                self.yang_parent_name = "ipv4"
-
-                                self.ipv4_severity_level = YList(self)
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels, self).__setattr__(name, value)
-
-
-                            class Ipv4SeverityLevel(Entity):
-                                """
-                                Severity for the logging host
-                                
-                                .. attribute:: severity  <key>
-                                
-                                	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-syslog-cfg'
-                                _revision = '2016-06-22'
-
-                                def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__init__()
-
-                                    self.yang_name = "ipv4-severity-level"
-                                    self.yang_parent_name = "ipv4-severity-levels"
-
-                                    self.severity = YLeaf(YType.enumeration, "severity")
-
-                                def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("severity") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return self.severity.is_set
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.severity.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "ipv4-severity-level" + "[severity='" + self.severity.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "severity"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "severity"):
-                                        self.severity = value
-                                        self.severity.value_namespace = name_space
-                                        self.severity.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.ipv4_severity_level:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.ipv4_severity_level:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv4-severity-levels" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "ipv4-severity-level"):
-                                    for c in self.ipv4_severity_level:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.ipv4_severity_level.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "ipv4-severity-level"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-
-                        class Ipv4SeverityPort(Entity):
-                            """
-                            Severity/Port for the logging host
-                            
-                            .. attribute:: port
-                            
-                            	Port for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 514
-                            
-                            .. attribute:: severity
-                            
-                            	Severity for the logging host
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**default value**\: 6
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort, self).__init__()
-
-                                self.yang_name = "ipv4-severity-port"
-                                self.yang_parent_name = "ipv4"
-
-                                self.port = YLeaf(YType.int32, "port")
-
-                                self.severity = YLeaf(YType.int32, "severity")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("port",
-                                                "severity") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.port.is_set or
-                                    self.severity.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.port.yfilter != YFilter.not_set or
-                                    self.severity.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv4-severity-port" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.port.is_set or self.port.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.port.get_name_leafdata())
-                                if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.severity.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "port" or name == "severity"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "port"):
-                                    self.port = value
-                                    self.port.value_namespace = name_space
-                                    self.port.value_namespace_prefix = name_space_prefix
-                                if(value_path == "severity"):
-                                    self.severity = value
-                                    self.severity.value_namespace = name_space
-                                    self.severity.value_namespace_prefix = name_space_prefix
-
-
-                        class Ipv4Discriminator(Entity):
-                            """
-                            Set IPv4 logging discriminators
-                            
-                            .. attribute:: match1
-                            
-                            	Set IPv4 logging match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match2
-                            
-                            	Set IPv4 logging match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: match3
-                            
-                            	Set IPv4 logging match3 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch1
-                            
-                            	Set IPv4 logging no\-match1 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch2
-                            
-                            	Set IPv4 logging no\-match2 discriminator
-                            	**type**\:  str
-                            
-                            .. attribute:: nomatch3
-                            
-                            	Set IPv4 logging no\-match3 discriminator
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-syslog-cfg'
-                            _revision = '2016-06-22'
-
-                            def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator, self).__init__()
-
-                                self.yang_name = "ipv4-discriminator"
-                                self.yang_parent_name = "ipv4"
-
-                                self.match1 = YLeaf(YType.str, "match1")
-
-                                self.match2 = YLeaf(YType.str, "match2")
-
-                                self.match3 = YLeaf(YType.str, "match3")
-
-                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("match1",
-                                                "match2",
-                                                "match3",
-                                                "nomatch1",
-                                                "nomatch2",
-                                                "nomatch3") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.match1.is_set or
-                                    self.match2.is_set or
-                                    self.match3.is_set or
-                                    self.nomatch1.is_set or
-                                    self.nomatch2.is_set or
-                                    self.nomatch3.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.match1.yfilter != YFilter.not_set or
-                                    self.match2.yfilter != YFilter.not_set or
-                                    self.match3.yfilter != YFilter.not_set or
-                                    self.nomatch1.yfilter != YFilter.not_set or
-                                    self.nomatch2.yfilter != YFilter.not_set or
-                                    self.nomatch3.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "ipv4-discriminator" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match1.get_name_leafdata())
-                                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match2.get_name_leafdata())
-                                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.match3.get_name_leafdata())
-                                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "match1"):
-                                    self.match1 = value
-                                    self.match1.value_namespace = name_space
-                                    self.match1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match2"):
-                                    self.match2 = value
-                                    self.match2.value_namespace = name_space
-                                    self.match2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "match3"):
-                                    self.match3 = value
-                                    self.match3.value_namespace = name_space
-                                    self.match3.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch1"):
-                                    self.nomatch1 = value
-                                    self.nomatch1.value_namespace = name_space
-                                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch2"):
-                                    self.nomatch2 = value
-                                    self.nomatch2.value_namespace = name_space
-                                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                                if(value_path == "nomatch3"):
-                                    self.nomatch3 = value
-                                    self.nomatch3.value_namespace = name_space
-                                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            return (
-                                self.address.is_set or
-                                (self.ipv4_discriminator is not None and self.ipv4_discriminator.has_data()) or
-                                (self.ipv4_severity_levels is not None and self.ipv4_severity_levels.has_data()) or
-                                (self.ipv4_severity_port is not None and self.ipv4_severity_port.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.address.yfilter != YFilter.not_set or
-                                (self.ipv4_discriminator is not None and self.ipv4_discriminator.has_operation()) or
-                                (self.ipv4_severity_levels is not None and self.ipv4_severity_levels.has_operation()) or
-                                (self.ipv4_severity_port is not None and self.ipv4_severity_port.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "ipv4" + "[address='" + self.address.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.address.is_set or self.address.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.address.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "ipv4-discriminator"):
-                                if (self.ipv4_discriminator is None):
-                                    self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
-                                    self.ipv4_discriminator.parent = self
-                                    self._children_name_map["ipv4_discriminator"] = "ipv4-discriminator"
-                                return self.ipv4_discriminator
-
-                            if (child_yang_name == "ipv4-severity-levels"):
-                                if (self.ipv4_severity_levels is None):
-                                    self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels()
-                                    self.ipv4_severity_levels.parent = self
-                                    self._children_name_map["ipv4_severity_levels"] = "ipv4-severity-levels"
-                                return self.ipv4_severity_levels
-
-                            if (child_yang_name == "ipv4-severity-port"):
-                                if (self.ipv4_severity_port is None):
-                                    self.ipv4_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort()
-                                    self.ipv4_severity_port.parent = self
-                                    self._children_name_map["ipv4_severity_port"] = "ipv4-severity-port"
-                                return self.ipv4_severity_port
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "ipv4-discriminator" or name == "ipv4-severity-levels" or name == "ipv4-severity-port" or name == "address"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "address"):
-                                self.address = value
-                                self.address.value_namespace = name_space
-                                self.address.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.ipv4:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.ipv4:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "ipv4s" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "ipv4"):
-                            for c in self.ipv4:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.ipv4.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "ipv4"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.vrf_name.is_set or
-                        (self.hosts is not None and self.hosts.has_data()) or
-                        (self.ipv4s is not None and self.ipv4s.has_data()) or
-                        (self.ipv6s is not None and self.ipv6s.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.vrf_name.yfilter != YFilter.not_set or
-                        (self.hosts is not None and self.hosts.has_operation()) or
-                        (self.ipv4s is not None and self.ipv4s.has_operation()) or
-                        (self.ipv6s is not None and self.ipv6s.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/host-server/vrfs/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "hosts"):
-                        if (self.hosts is None):
-                            self.hosts = Syslog.HostServer.Vrfs.Vrf.Hosts()
-                            self.hosts.parent = self
-                            self._children_name_map["hosts"] = "hosts"
-                        return self.hosts
-
-                    if (child_yang_name == "ipv4s"):
-                        if (self.ipv4s is None):
-                            self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4S()
-                            self.ipv4s.parent = self
-                            self._children_name_map["ipv4s"] = "ipv4s"
-                        return self.ipv4s
-
-                    if (child_yang_name == "ipv6s"):
-                        if (self.ipv6s is None):
-                            self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
-                            self.ipv6s.parent = self
-                            self._children_name_map["ipv6s"] = "ipv6s"
-                        return self.ipv6s
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "hosts" or name == "ipv4s" or name == "ipv6s" or name == "vrf-name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "vrf-name"):
-                        self.vrf_name = value
-                        self.vrf_name.value_namespace = name_space
-                        self.vrf_name.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.vrf:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.vrf:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "vrfs" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/host-server/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "vrf"):
-                    for c in self.vrf:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.HostServer.Vrfs.Vrf()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.vrf.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "vrf"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.vrfs is not None and self.vrfs.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.vrfs is not None and self.vrfs.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "host-server" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "vrfs"):
-                if (self.vrfs is None):
-                    self.vrfs = Syslog.HostServer.Vrfs()
-                    self.vrfs.parent = self
-                    self._children_name_map["vrfs"] = "vrfs"
-                return self.vrfs
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "vrfs"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class ConsoleLogging(Entity):
-        """
-        Set console logging
-        
-        .. attribute:: console_discriminator
-        
-        	Set console logging discriminators
-        	**type**\:   :py:class:`ConsoleDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging.ConsoleDiscriminator>`
-        
-        .. attribute:: logging_level
-        
-        	Console logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
-        
-        	**default value**\: warning
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.ConsoleLogging, self).__init__()
-
-            self.yang_name = "console-logging"
-            self.yang_parent_name = "syslog"
-
-            self.logging_level = YLeaf(YType.enumeration, "logging-level")
-
-            self.console_discriminator = Syslog.ConsoleLogging.ConsoleDiscriminator()
-            self.console_discriminator.parent = self
-            self._children_name_map["console_discriminator"] = "console-discriminator"
-            self._children_yang_names.add("console-discriminator")
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("logging_level") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.ConsoleLogging, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.ConsoleLogging, self).__setattr__(name, value)
-
-
-        class ConsoleDiscriminator(Entity):
-            """
-            Set console logging discriminators
-            
-            .. attribute:: match1
-            
-            	Set console logging match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match2
-            
-            	Set console logging match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: match3
-            
-            	Set console logging match3 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch1
-            
-            	Set console logging no\-match1 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch2
-            
-            	Set console logging no\-match2 discriminator
-            	**type**\:  str
-            
-            .. attribute:: nomatch3
-            
-            	Set console logging no\-match3 discriminator
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__init__()
-
-                self.yang_name = "console-discriminator"
-                self.yang_parent_name = "console-logging"
-
-                self.match1 = YLeaf(YType.str, "match1")
-
-                self.match2 = YLeaf(YType.str, "match2")
-
-                self.match3 = YLeaf(YType.str, "match3")
-
-                self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("match1",
-                                "match2",
-                                "match3",
-                                "nomatch1",
-                                "nomatch2",
-                                "nomatch3") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.match1.is_set or
-                    self.match2.is_set or
-                    self.match3.is_set or
-                    self.nomatch1.is_set or
-                    self.nomatch2.is_set or
-                    self.nomatch3.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.match1.yfilter != YFilter.not_set or
-                    self.match2.yfilter != YFilter.not_set or
-                    self.match3.yfilter != YFilter.not_set or
-                    self.nomatch1.yfilter != YFilter.not_set or
-                    self.nomatch2.yfilter != YFilter.not_set or
-                    self.nomatch3.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "console-discriminator" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/console-logging/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match1.get_name_leafdata())
-                if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match2.get_name_leafdata())
-                if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.match3.get_name_leafdata())
-                if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "match1"):
-                    self.match1 = value
-                    self.match1.value_namespace = name_space
-                    self.match1.value_namespace_prefix = name_space_prefix
-                if(value_path == "match2"):
-                    self.match2 = value
-                    self.match2.value_namespace = name_space
-                    self.match2.value_namespace_prefix = name_space_prefix
-                if(value_path == "match3"):
-                    self.match3 = value
-                    self.match3.value_namespace = name_space
-                    self.match3.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch1"):
-                    self.nomatch1 = value
-                    self.nomatch1.value_namespace = name_space
-                    self.nomatch1.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch2"):
-                    self.nomatch2 = value
-                    self.nomatch2.value_namespace = name_space
-                    self.nomatch2.value_namespace_prefix = name_space_prefix
-                if(value_path == "nomatch3"):
-                    self.nomatch3 = value
-                    self.nomatch3.value_namespace = name_space
-                    self.nomatch3.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                self.logging_level.is_set or
-                (self.console_discriminator is not None and self.console_discriminator.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.logging_level.yfilter != YFilter.not_set or
-                (self.console_discriminator is not None and self.console_discriminator.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "console-logging" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.logging_level.is_set or self.logging_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.logging_level.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "console-discriminator"):
-                if (self.console_discriminator is None):
-                    self.console_discriminator = Syslog.ConsoleLogging.ConsoleDiscriminator()
-                    self.console_discriminator.parent = self
-                    self._children_name_map["console_discriminator"] = "console-discriminator"
-                return self.console_discriminator
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "console-discriminator" or name == "logging-level"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "logging-level"):
-                self.logging_level = value
-                self.logging_level.value_namespace = name_space
-                self.logging_level.value_namespace_prefix = name_space_prefix
-
-
-    class Files(Entity):
-        """
-        Configure logging file destination
-        
-        .. attribute:: file
-        
-        	Specify File Name
-        	**type**\: list of    :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.Files, self).__init__()
-
-            self.yang_name = "files"
-            self.yang_parent_name = "syslog"
-
-            self.file = YList(self)
-
-        def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.Files, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.Files, self).__setattr__(name, value)
-
-
-        class File(Entity):
-            """
-            Specify File Name
-            
-            .. attribute:: file_name  <key>
-            
-            	Name of the file
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: file_log_attributes
-            
-            	Attributes of the logging file destination
-            	**type**\:   :py:class:`FileLogAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogAttributes>`
-            
-            .. attribute:: file_log_discriminator
-            
-            	Set File logging discriminators
-            	**type**\:   :py:class:`FileLogDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogDiscriminator>`
-            
-            .. attribute:: file_specification
-            
-            	Specifications of the logging file destination
-            	**type**\:   :py:class:`FileSpecification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
-            
-            	**status**\: obsolete
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Files.File, self).__init__()
-
-                self.yang_name = "file"
-                self.yang_parent_name = "files"
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.file_log_attributes = Syslog.Files.File.FileLogAttributes()
-                self.file_log_attributes.parent = self
-                self._children_name_map["file_log_attributes"] = "file-log-attributes"
-                self._children_yang_names.add("file-log-attributes")
-
-                self.file_log_discriminator = Syslog.Files.File.FileLogDiscriminator()
-                self.file_log_discriminator.parent = self
-                self._children_name_map["file_log_discriminator"] = "file-log-discriminator"
-                self._children_yang_names.add("file-log-discriminator")
-
-                self.file_specification = Syslog.Files.File.FileSpecification()
-                self.file_specification.parent = self
-                self._children_name_map["file_specification"] = "file-specification"
-                self._children_yang_names.add("file-specification")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("file_name") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Files.File, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Files.File, self).__setattr__(name, value)
-
-
-            class FileSpecification(Entity):
-                """
-                Specifications of the logging file destination
-                
-                .. attribute:: max_file_size
-                
-                	Maximum file size (in KB)
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                	**default value**\: 1024
-                
-                .. attribute:: path
-                
-                	File path
-                	**type**\:  str
-                
-                .. attribute:: severity
-                
-                	Severity of messages
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                	**default value**\: 6
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(Syslog.Files.File.FileSpecification, self).__init__()
-
-                    self.yang_name = "file-specification"
-                    self.yang_parent_name = "file"
-
-                    self.max_file_size = YLeaf(YType.int32, "max-file-size")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.severity = YLeaf(YType.int32, "severity")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("max_file_size",
-                                    "path",
-                                    "severity") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Files.File.FileSpecification, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Files.File.FileSpecification, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.max_file_size.is_set or
-                        self.path.is_set or
-                        self.severity.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.max_file_size.yfilter != YFilter.not_set or
-                        self.path.yfilter != YFilter.not_set or
-                        self.severity.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "file-specification" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.max_file_size.is_set or self.max_file_size.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.max_file_size.get_name_leafdata())
-                    if (self.path.is_set or self.path.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.path.get_name_leafdata())
-                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.severity.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "max-file-size" or name == "path" or name == "severity"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "max-file-size"):
-                        self.max_file_size = value
-                        self.max_file_size.value_namespace = name_space
-                        self.max_file_size.value_namespace_prefix = name_space_prefix
-                    if(value_path == "path"):
-                        self.path = value
-                        self.path.value_namespace = name_space
-                        self.path.value_namespace_prefix = name_space_prefix
-                    if(value_path == "severity"):
-                        self.severity = value
-                        self.severity.value_namespace = name_space
-                        self.severity.value_namespace_prefix = name_space_prefix
-
-
-            class FileLogAttributes(Entity):
-                """
-                Attributes of the logging file destination
-                
-                .. attribute:: max_file_size
-                
-                	Maximum file size (in KB)
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                	**default value**\: 1024
-                
-                .. attribute:: severity
-                
-                	Severity of messages
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                	**default value**\: 6
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(Syslog.Files.File.FileLogAttributes, self).__init__()
-
-                    self.yang_name = "file-log-attributes"
-                    self.yang_parent_name = "file"
-
-                    self.max_file_size = YLeaf(YType.int32, "max-file-size")
-
-                    self.severity = YLeaf(YType.int32, "severity")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("max_file_size",
-                                    "severity") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Files.File.FileLogAttributes, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Files.File.FileLogAttributes, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.max_file_size.is_set or
-                        self.severity.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.max_file_size.yfilter != YFilter.not_set or
-                        self.severity.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "file-log-attributes" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.max_file_size.is_set or self.max_file_size.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.max_file_size.get_name_leafdata())
-                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.severity.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "max-file-size" or name == "severity"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "max-file-size"):
-                        self.max_file_size = value
-                        self.max_file_size.value_namespace = name_space
-                        self.max_file_size.value_namespace_prefix = name_space_prefix
-                    if(value_path == "severity"):
-                        self.severity = value
-                        self.severity.value_namespace = name_space
-                        self.severity.value_namespace_prefix = name_space_prefix
-
-
-            class FileLogDiscriminator(Entity):
-                """
-                Set File logging discriminators
-                
-                .. attribute:: match1
-                
-                	Set file logging match discriminator 1
-                	**type**\:  str
-                
-                .. attribute:: match2
-                
-                	Set file logging match discriminator 2
-                	**type**\:  str
-                
-                .. attribute:: match3
-                
-                	Set file logging match discriminator 3
-                	**type**\:  str
-                
-                .. attribute:: nomatch1
-                
-                	Set file logging no match discriminator 1
-                	**type**\:  str
-                
-                .. attribute:: nomatch2
-                
-                	Set file logging no match discriminator 2
-                	**type**\:  str
-                
-                .. attribute:: nomatch3
-                
-                	Set file logging no match discriminator 3
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(Syslog.Files.File.FileLogDiscriminator, self).__init__()
-
-                    self.yang_name = "file-log-discriminator"
-                    self.yang_parent_name = "file"
-
-                    self.match1 = YLeaf(YType.str, "match1")
-
-                    self.match2 = YLeaf(YType.str, "match2")
-
-                    self.match3 = YLeaf(YType.str, "match3")
-
-                    self.nomatch1 = YLeaf(YType.str, "nomatch1")
-
-                    self.nomatch2 = YLeaf(YType.str, "nomatch2")
-
-                    self.nomatch3 = YLeaf(YType.str, "nomatch3")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("match1",
-                                    "match2",
-                                    "match3",
-                                    "nomatch1",
-                                    "nomatch2",
-                                    "nomatch3") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Files.File.FileLogDiscriminator, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Files.File.FileLogDiscriminator, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.match1.is_set or
-                        self.match2.is_set or
-                        self.match3.is_set or
-                        self.nomatch1.is_set or
-                        self.nomatch2.is_set or
-                        self.nomatch3.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.match1.yfilter != YFilter.not_set or
-                        self.match2.yfilter != YFilter.not_set or
-                        self.match3.yfilter != YFilter.not_set or
-                        self.nomatch1.yfilter != YFilter.not_set or
-                        self.nomatch2.yfilter != YFilter.not_set or
-                        self.nomatch3.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "file-log-discriminator" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.match1.is_set or self.match1.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.match1.get_name_leafdata())
-                    if (self.match2.is_set or self.match2.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.match2.get_name_leafdata())
-                    if (self.match3.is_set or self.match3.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.match3.get_name_leafdata())
-                    if (self.nomatch1.is_set or self.nomatch1.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nomatch1.get_name_leafdata())
-                    if (self.nomatch2.is_set or self.nomatch2.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nomatch2.get_name_leafdata())
-                    if (self.nomatch3.is_set or self.nomatch3.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.nomatch3.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "match1" or name == "match2" or name == "match3" or name == "nomatch1" or name == "nomatch2" or name == "nomatch3"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "match1"):
-                        self.match1 = value
-                        self.match1.value_namespace = name_space
-                        self.match1.value_namespace_prefix = name_space_prefix
-                    if(value_path == "match2"):
-                        self.match2 = value
-                        self.match2.value_namespace = name_space
-                        self.match2.value_namespace_prefix = name_space_prefix
-                    if(value_path == "match3"):
-                        self.match3 = value
-                        self.match3.value_namespace = name_space
-                        self.match3.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nomatch1"):
-                        self.nomatch1 = value
-                        self.nomatch1.value_namespace = name_space
-                        self.nomatch1.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nomatch2"):
-                        self.nomatch2 = value
-                        self.nomatch2.value_namespace = name_space
-                        self.nomatch2.value_namespace_prefix = name_space_prefix
-                    if(value_path == "nomatch3"):
-                        self.nomatch3 = value
-                        self.nomatch3.value_namespace = name_space
-                        self.nomatch3.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.file_name.is_set or
-                    (self.file_log_attributes is not None and self.file_log_attributes.has_data()) or
-                    (self.file_log_discriminator is not None and self.file_log_discriminator.has_data()) or
-                    (self.file_specification is not None and self.file_specification.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.file_name.yfilter != YFilter.not_set or
-                    (self.file_log_attributes is not None and self.file_log_attributes.has_operation()) or
-                    (self.file_log_discriminator is not None and self.file_log_discriminator.has_operation()) or
-                    (self.file_specification is not None and self.file_specification.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "file" + "[file-name='" + self.file_name.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/files/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.file_name.is_set or self.file_name.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.file_name.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "file-log-attributes"):
-                    if (self.file_log_attributes is None):
-                        self.file_log_attributes = Syslog.Files.File.FileLogAttributes()
-                        self.file_log_attributes.parent = self
-                        self._children_name_map["file_log_attributes"] = "file-log-attributes"
-                    return self.file_log_attributes
-
-                if (child_yang_name == "file-log-discriminator"):
-                    if (self.file_log_discriminator is None):
-                        self.file_log_discriminator = Syslog.Files.File.FileLogDiscriminator()
-                        self.file_log_discriminator.parent = self
-                        self._children_name_map["file_log_discriminator"] = "file-log-discriminator"
-                    return self.file_log_discriminator
-
-                if (child_yang_name == "file-specification"):
-                    if (self.file_specification is None):
-                        self.file_specification = Syslog.Files.File.FileSpecification()
-                        self.file_specification.parent = self
-                        self._children_name_map["file_specification"] = "file-specification"
-                    return self.file_specification
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "file-log-attributes" or name == "file-log-discriminator" or name == "file-specification" or name == "file-name"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "file-name"):
-                    self.file_name = value
-                    self.file_name.value_namespace = name_space
-                    self.file_name.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.file:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.file:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "files" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "file"):
-                for c in self.file:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = Syslog.Files.File()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.file.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "file"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class Ipv4(Entity):
-        """
-        Syslog TOS bit for outgoing messages
-        
-        .. attribute:: dscp
-        
-        	DSCP value
-        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Dscp>`
-        
-        	**presence node**\: True
-        
-        	**status**\: obsolete
-        
-        .. attribute:: precedence
-        
-        	Precedence value
-        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Precedence>`
-        
-        	**presence node**\: True
-        
-        	**status**\: obsolete
-        
-        .. attribute:: tos
-        
-        	Type of service
-        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.Ipv4, self).__init__()
-
-            self.yang_name = "ipv4"
-            self.yang_parent_name = "syslog"
-
-            self.dscp = None
-            self._children_name_map["dscp"] = "dscp"
-            self._children_yang_names.add("dscp")
-
-            self.precedence = None
-            self._children_name_map["precedence"] = "precedence"
-            self._children_yang_names.add("precedence")
-
-            self.tos = Syslog.Ipv4.Tos()
-            self.tos.parent = self
-            self._children_name_map["tos"] = "tos"
-            self._children_yang_names.add("tos")
-
-
-        class Dscp(Entity):
-            """
-            DSCP value
-            
-            .. attribute:: type
-            
-            	Logging TOS type DSCP
-            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
-            
-            	**mandatory**\: True
-            
-            .. attribute:: unused
-            
-            	Unused
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            
-            ----
-            .. attribute:: value
-            
-            	Logging DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv4.Dscp, self).__init__()
-
-                self.yang_name = "dscp"
-                self.yang_parent_name = "ipv4"
-                self.is_presence_container = True
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.unused = YLeaf(YType.str, "unused")
-
-                self.value = YLeaf(YType.str, "value")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("type",
-                                "unused",
-                                "value") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv4.Dscp, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv4.Dscp, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.type.is_set or
-                    self.unused.is_set or
-                    self.value.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set or
-                    self.unused.yfilter != YFilter.not_set or
-                    self.value.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dscp" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-                if (self.unused.is_set or self.unused.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.unused.get_name_leafdata())
-                if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.value.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "type" or name == "unused" or name == "value"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-                if(value_path == "unused"):
-                    self.unused = value
-                    self.unused.value_namespace = name_space
-                    self.unused.value_namespace_prefix = name_space_prefix
-                if(value_path == "value"):
-                    self.value = value
-                    self.value.value_namespace = name_space
-                    self.value.value_namespace_prefix = name_space_prefix
-
-
-        class Tos(Entity):
-            """
-            Type of service
-            
-            .. attribute:: dscp
-            
-            	Logging DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            .. attribute:: precedence
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            
-            ----
-            .. attribute:: type
-            
-            	Logging TOS type DSCP or precedence
-            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv4.Tos, self).__init__()
-
-                self.yang_name = "tos"
-                self.yang_parent_name = "ipv4"
-
-                self.dscp = YLeaf(YType.str, "dscp")
-
-                self.precedence = YLeaf(YType.str, "precedence")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dscp",
-                                "precedence",
-                                "type") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv4.Tos, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv4.Tos, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dscp.is_set or
-                    self.precedence.is_set or
-                    self.type.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dscp.yfilter != YFilter.not_set or
-                    self.precedence.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "tos" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dscp.get_name_leafdata())
-                if (self.precedence.is_set or self.precedence.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.precedence.get_name_leafdata())
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dscp" or name == "precedence" or name == "type"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dscp"):
-                    self.dscp = value
-                    self.dscp.value_namespace = name_space
-                    self.dscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "precedence"):
-                    self.precedence = value
-                    self.precedence.value_namespace = name_space
-                    self.precedence.value_namespace_prefix = name_space_prefix
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-
-
-        class Precedence(Entity):
-            """
-            Precedence value
-            
-            .. attribute:: type
-            
-            	Logging TOS type precedence
-            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
-            
-            	**mandatory**\: True
-            
-            .. attribute:: unused
-            
-            	Unused
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            .. attribute:: value
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv4.Precedence, self).__init__()
-
-                self.yang_name = "precedence"
-                self.yang_parent_name = "ipv4"
-                self.is_presence_container = True
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.unused = YLeaf(YType.str, "unused")
-
-                self.value = YLeaf(YType.str, "value")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("type",
-                                "unused",
-                                "value") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv4.Precedence, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv4.Precedence, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.type.is_set or
-                    self.unused.is_set or
-                    self.value.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set or
-                    self.unused.yfilter != YFilter.not_set or
-                    self.value.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "precedence" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-                if (self.unused.is_set or self.unused.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.unused.get_name_leafdata())
-                if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.value.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "type" or name == "unused" or name == "value"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-                if(value_path == "unused"):
-                    self.unused = value
-                    self.unused.value_namespace = name_space
-                    self.unused.value_namespace_prefix = name_space_prefix
-                if(value_path == "value"):
-                    self.value = value
-                    self.value.value_namespace = name_space
-                    self.value.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                (self.tos is not None and self.tos.has_data()) or
-                (self.dscp is not None) or
-                (self.precedence is not None))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.dscp is not None and self.dscp.has_operation()) or
-                (self.precedence is not None and self.precedence.has_operation()) or
-                (self.tos is not None and self.tos.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ipv4" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dscp"):
-                if (self.dscp is None):
-                    self.dscp = Syslog.Ipv4.Dscp()
-                    self.dscp.parent = self
-                    self._children_name_map["dscp"] = "dscp"
-                return self.dscp
-
-            if (child_yang_name == "precedence"):
-                if (self.precedence is None):
-                    self.precedence = Syslog.Ipv4.Precedence()
-                    self.precedence.parent = self
-                    self._children_name_map["precedence"] = "precedence"
-                return self.precedence
-
-            if (child_yang_name == "tos"):
-                if (self.tos is None):
-                    self.tos = Syslog.Ipv4.Tos()
-                    self.tos.parent = self
-                    self._children_name_map["tos"] = "tos"
-                return self.tos
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dscp" or name == "precedence" or name == "tos"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                    self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
 
 
     class Archive(Entity):
@@ -6981,6 +1077,10 @@ class Syslog(Entity):
 
             self.yang_name = "archive"
             self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.device = YLeaf(YType.str, "device")
 
@@ -6995,1589 +1095,252 @@ class Syslog(Entity):
             self.size = YLeaf(YType.uint32, "size")
 
             self.threshold = YLeaf(YType.uint32, "threshold")
+            self._segment_path = lambda: "archive"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("device",
-                            "file_size",
-                            "frequency",
-                            "length",
-                            "severity",
-                            "size",
-                            "threshold") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.Archive, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.Archive, self).__setattr__(name, value)
-
-        def has_data(self):
-            return (
-                self.device.is_set or
-                self.file_size.is_set or
-                self.frequency.is_set or
-                self.length.is_set or
-                self.severity.is_set or
-                self.size.is_set or
-                self.threshold.is_set)
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.device.yfilter != YFilter.not_set or
-                self.file_size.yfilter != YFilter.not_set or
-                self.frequency.yfilter != YFilter.not_set or
-                self.length.yfilter != YFilter.not_set or
-                self.severity.yfilter != YFilter.not_set or
-                self.size.yfilter != YFilter.not_set or
-                self.threshold.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "archive" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.device.is_set or self.device.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.device.get_name_leafdata())
-            if (self.file_size.is_set or self.file_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.file_size.get_name_leafdata())
-            if (self.frequency.is_set or self.frequency.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.frequency.get_name_leafdata())
-            if (self.length.is_set or self.length.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.length.get_name_leafdata())
-            if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.severity.get_name_leafdata())
-            if (self.size.is_set or self.size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.size.get_name_leafdata())
-            if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.threshold.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "device" or name == "file-size" or name == "frequency" or name == "length" or name == "severity" or name == "size" or name == "threshold"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "device"):
-                self.device = value
-                self.device.value_namespace = name_space
-                self.device.value_namespace_prefix = name_space_prefix
-            if(value_path == "file-size"):
-                self.file_size = value
-                self.file_size.value_namespace = name_space
-                self.file_size.value_namespace_prefix = name_space_prefix
-            if(value_path == "frequency"):
-                self.frequency = value
-                self.frequency.value_namespace = name_space
-                self.frequency.value_namespace_prefix = name_space_prefix
-            if(value_path == "length"):
-                self.length = value
-                self.length.value_namespace = name_space
-                self.length.value_namespace_prefix = name_space_prefix
-            if(value_path == "severity"):
-                self.severity = value
-                self.severity.value_namespace = name_space
-                self.severity.value_namespace_prefix = name_space_prefix
-            if(value_path == "size"):
-                self.size = value
-                self.size.value_namespace = name_space
-                self.size.value_namespace_prefix = name_space_prefix
-            if(value_path == "threshold"):
-                self.threshold = value
-                self.threshold.value_namespace = name_space
-                self.threshold.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(Syslog.Archive, ['device', 'file_size', 'frequency', 'length', 'severity', 'size', 'threshold'], name, value)
 
 
-    class Ipv6(Entity):
+    class BufferedLogging(Entity):
         """
-        Syslog traffic class bit for outgoing messages
-        
-        .. attribute:: dscp
-        
-        	DSCP value
-        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Dscp>`
-        
-        	**presence node**\: True
-        
-        	**status**\: obsolete
-        
-        .. attribute:: precedence
-        
-        	Precedence value
-        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Precedence>`
-        
-        	**presence node**\: True
-        
-        	**status**\: obsolete
-        
-        .. attribute:: traffic_class
-        
-        	Type of traffic class
-        	**type**\:   :py:class:`TrafficClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.Ipv6, self).__init__()
-
-            self.yang_name = "ipv6"
-            self.yang_parent_name = "syslog"
-
-            self.dscp = None
-            self._children_name_map["dscp"] = "dscp"
-            self._children_yang_names.add("dscp")
-
-            self.precedence = None
-            self._children_name_map["precedence"] = "precedence"
-            self._children_yang_names.add("precedence")
-
-            self.traffic_class = Syslog.Ipv6.TrafficClass()
-            self.traffic_class.parent = self
-            self._children_name_map["traffic_class"] = "traffic-class"
-            self._children_yang_names.add("traffic-class")
-
-
-        class Dscp(Entity):
-            """
-            DSCP value
-            
-            .. attribute:: type
-            
-            	Logging TOS type DSCP
-            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
-            
-            	**mandatory**\: True
-            
-            .. attribute:: unused
-            
-            	Unused
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            
-            ----
-            .. attribute:: value
-            
-            	Logging DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv6.Dscp, self).__init__()
-
-                self.yang_name = "dscp"
-                self.yang_parent_name = "ipv6"
-                self.is_presence_container = True
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.unused = YLeaf(YType.str, "unused")
-
-                self.value = YLeaf(YType.str, "value")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("type",
-                                "unused",
-                                "value") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv6.Dscp, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv6.Dscp, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.type.is_set or
-                    self.unused.is_set or
-                    self.value.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set or
-                    self.unused.yfilter != YFilter.not_set or
-                    self.value.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "dscp" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-                if (self.unused.is_set or self.unused.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.unused.get_name_leafdata())
-                if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.value.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "type" or name == "unused" or name == "value"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-                if(value_path == "unused"):
-                    self.unused = value
-                    self.unused.value_namespace = name_space
-                    self.unused.value_namespace_prefix = name_space_prefix
-                if(value_path == "value"):
-                    self.value = value
-                    self.value.value_namespace = name_space
-                    self.value.value_namespace_prefix = name_space_prefix
-
-
-        class TrafficClass(Entity):
-            """
-            Type of traffic class
-            
-            .. attribute:: dscp
-            
-            	Logging DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            .. attribute:: precedence
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            
-            ----
-            .. attribute:: type
-            
-            	Logging TOS type DSCP or precedence
-            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv6.TrafficClass, self).__init__()
-
-                self.yang_name = "traffic-class"
-                self.yang_parent_name = "ipv6"
-
-                self.dscp = YLeaf(YType.str, "dscp")
-
-                self.precedence = YLeaf(YType.str, "precedence")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("dscp",
-                                "precedence",
-                                "type") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv6.TrafficClass, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv6.TrafficClass, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.dscp.is_set or
-                    self.precedence.is_set or
-                    self.type.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.dscp.yfilter != YFilter.not_set or
-                    self.precedence.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "traffic-class" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.dscp.get_name_leafdata())
-                if (self.precedence.is_set or self.precedence.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.precedence.get_name_leafdata())
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "dscp" or name == "precedence" or name == "type"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "dscp"):
-                    self.dscp = value
-                    self.dscp.value_namespace = name_space
-                    self.dscp.value_namespace_prefix = name_space_prefix
-                if(value_path == "precedence"):
-                    self.precedence = value
-                    self.precedence.value_namespace = name_space
-                    self.precedence.value_namespace_prefix = name_space_prefix
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-
-
-        class Precedence(Entity):
-            """
-            Precedence value
-            
-            .. attribute:: type
-            
-            	Logging TOS type precedence
-            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
-            
-            	**mandatory**\: True
-            
-            .. attribute:: unused
-            
-            	Unused
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            .. attribute:: value
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
-            	**mandatory**\: True
-            
-            
-            ----
-            
-
-            This class is a :ref:`presence class<presence-class>`
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.Ipv6.Precedence, self).__init__()
-
-                self.yang_name = "precedence"
-                self.yang_parent_name = "ipv6"
-                self.is_presence_container = True
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.unused = YLeaf(YType.str, "unused")
-
-                self.value = YLeaf(YType.str, "value")
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("type",
-                                "unused",
-                                "value") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Ipv6.Precedence, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Ipv6.Precedence, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.type.is_set or
-                    self.unused.is_set or
-                    self.value.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.type.yfilter != YFilter.not_set or
-                    self.unused.yfilter != YFilter.not_set or
-                    self.value.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "precedence" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.type.get_name_leafdata())
-                if (self.unused.is_set or self.unused.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.unused.get_name_leafdata())
-                if (self.value.is_set or self.value.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.value.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "type" or name == "unused" or name == "value"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "type"):
-                    self.type = value
-                    self.type.value_namespace = name_space
-                    self.type.value_namespace_prefix = name_space_prefix
-                if(value_path == "unused"):
-                    self.unused = value
-                    self.unused.value_namespace = name_space
-                    self.unused.value_namespace_prefix = name_space_prefix
-                if(value_path == "value"):
-                    self.value = value
-                    self.value.value_namespace = name_space
-                    self.value.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            return (
-                (self.traffic_class is not None and self.traffic_class.has_data()) or
-                (self.dscp is not None) or
-                (self.precedence is not None))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.dscp is not None and self.dscp.has_operation()) or
-                (self.precedence is not None and self.precedence.has_operation()) or
-                (self.traffic_class is not None and self.traffic_class.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ipv6" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "dscp"):
-                if (self.dscp is None):
-                    self.dscp = Syslog.Ipv6.Dscp()
-                    self.dscp.parent = self
-                    self._children_name_map["dscp"] = "dscp"
-                return self.dscp
-
-            if (child_yang_name == "precedence"):
-                if (self.precedence is None):
-                    self.precedence = Syslog.Ipv6.Precedence()
-                    self.precedence.parent = self
-                    self._children_name_map["precedence"] = "precedence"
-                return self.precedence
-
-            if (child_yang_name == "traffic-class"):
-                if (self.traffic_class is None):
-                    self.traffic_class = Syslog.Ipv6.TrafficClass()
-                    self.traffic_class.parent = self
-                    self._children_name_map["traffic_class"] = "traffic-class"
-                return self.traffic_class
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "dscp" or name == "precedence" or name == "traffic-class"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class SourceInterfaceTable(Entity):
-        """
-        Configure source interface
-        
-        .. attribute:: source_interface_values
-        
-        	Specify interface for source address in logging transactions
-        	**type**\:   :py:class:`SourceInterfaceValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-cfg'
-        _revision = '2016-06-22'
-
-        def __init__(self):
-            super(Syslog.SourceInterfaceTable, self).__init__()
-
-            self.yang_name = "source-interface-table"
-            self.yang_parent_name = "syslog"
-
-            self.source_interface_values = Syslog.SourceInterfaceTable.SourceInterfaceValues()
-            self.source_interface_values.parent = self
-            self._children_name_map["source_interface_values"] = "source-interface-values"
-            self._children_yang_names.add("source-interface-values")
-
-
-        class SourceInterfaceValues(Entity):
-            """
-            Specify interface for source address in logging
-            transactions
-            
-            .. attribute:: source_interface_value
-            
-            	Source interface
-            	**type**\: list of    :py:class:`SourceInterfaceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-cfg'
-            _revision = '2016-06-22'
-
-            def __init__(self):
-                super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__init__()
-
-                self.yang_name = "source-interface-values"
-                self.yang_parent_name = "source-interface-table"
-
-                self.source_interface_value = YList(self)
-
-            def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__setattr__(name, value)
-
-
-            class SourceInterfaceValue(Entity):
-                """
-                Source interface
-                
-                .. attribute:: src_interface_name_value  <key>
-                
-                	Which Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: source_interface_vrfs
-                
-                	Configure source interface VRF
-                	**type**\:   :py:class:`SourceInterfaceVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs>`
-                
-                
-
-                """
-
-                _prefix = 'infra-syslog-cfg'
-                _revision = '2016-06-22'
-
-                def __init__(self):
-                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__init__()
-
-                    self.yang_name = "source-interface-value"
-                    self.yang_parent_name = "source-interface-values"
-
-                    self.src_interface_name_value = YLeaf(YType.str, "src-interface-name-value")
-
-                    self.source_interface_vrfs = Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs()
-                    self.source_interface_vrfs.parent = self
-                    self._children_name_map["source_interface_vrfs"] = "source-interface-vrfs"
-                    self._children_yang_names.add("source-interface-vrfs")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("src_interface_name_value") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__setattr__(name, value)
-
-
-                class SourceInterfaceVrfs(Entity):
-                    """
-                    Configure source interface VRF
-                    
-                    .. attribute:: source_interface_vrf
-                    
-                    	Specify VRF for source interface
-                    	**type**\: list of    :py:class:`SourceInterfaceVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-syslog-cfg'
-                    _revision = '2016-06-22'
-
-                    def __init__(self):
-                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__init__()
-
-                        self.yang_name = "source-interface-vrfs"
-                        self.yang_parent_name = "source-interface-value"
-
-                        self.source_interface_vrf = YList(self)
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__setattr__(name, value)
-
-
-                    class SourceInterfaceVrf(Entity):
-                        """
-                        Specify VRF for source interface
-                        
-                        .. attribute:: vrf_name  <key>
-                        
-                        	Name of the VRF instance
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-syslog-cfg'
-                        _revision = '2016-06-22'
-
-                        def __init__(self):
-                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__init__()
-
-                            self.yang_name = "source-interface-vrf"
-                            self.yang_parent_name = "source-interface-vrfs"
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("vrf_name") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.vrf_name.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.vrf_name.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "source-interface-vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "vrf-name"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "vrf-name"):
-                                self.vrf_name = value
-                                self.vrf_name.value_namespace = name_space
-                                self.vrf_name.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.source_interface_vrf:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.source_interface_vrf:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "source-interface-vrfs" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "source-interface-vrf"):
-                            for c in self.source_interface_vrf:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.source_interface_vrf.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "source-interface-vrf"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.src_interface_name_value.is_set or
-                        (self.source_interface_vrfs is not None and self.source_interface_vrfs.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.src_interface_name_value.yfilter != YFilter.not_set or
-                        (self.source_interface_vrfs is not None and self.source_interface_vrfs.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "source-interface-value" + "[src-interface-name-value='" + self.src_interface_name_value.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/source-interface-table/source-interface-values/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.src_interface_name_value.is_set or self.src_interface_name_value.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.src_interface_name_value.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "source-interface-vrfs"):
-                        if (self.source_interface_vrfs is None):
-                            self.source_interface_vrfs = Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs()
-                            self.source_interface_vrfs.parent = self
-                            self._children_name_map["source_interface_vrfs"] = "source-interface-vrfs"
-                        return self.source_interface_vrfs
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "source-interface-vrfs" or name == "src-interface-name-value"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "src-interface-name-value"):
-                        self.src_interface_name_value = value
-                        self.src_interface_name_value.value_namespace = name_space
-                        self.src_interface_name_value.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.source_interface_value:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.source_interface_value:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "source-interface-values" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/source-interface-table/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "source-interface-value"):
-                    for c in self.source_interface_value:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.source_interface_value.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "source-interface-value"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.source_interface_values is not None and self.source_interface_values.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.source_interface_values is not None and self.source_interface_values.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "source-interface-table" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "source-interface-values"):
-                if (self.source_interface_values is None):
-                    self.source_interface_values = Syslog.SourceInterfaceTable.SourceInterfaceValues()
-                    self.source_interface_values.parent = self
-                    self._children_name_map["source_interface_values"] = "source-interface-values"
-                return self.source_interface_values
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "source-interface-values"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-
-    class AlarmLogger(Entity):
-        """
-        Alarm Logger Properties
-        
-        .. attribute:: alarm_filter_strings
-        
-        	List of filter strings
-        	**type**\:   :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
+        Set buffered logging parameters
         
         .. attribute:: buffer_size
         
-        	Set size of the local event buffer
+        	Logging buffered size
         	**type**\:  int
         
-        	**range:** 1024..1024000
+        	**range:** 4096..4294967295
         
-        .. attribute:: severity_level
+        	**default value**\: 2097152
         
-        	Log all events with equal or higher (lower level) severity than this
-        	**type**\:   :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
+        .. attribute:: buffered_discriminator
         
-        .. attribute:: source_location
+        	Set buffered logging discriminators
+        	**type**\:   :py:class:`BufferedDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging.BufferedDiscriminator>`
         
-        	Enable alarm source location in message text
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        .. attribute:: logging_level
         
-        .. attribute:: threshold
+        	Logging level for Buffered logging
+        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
-        	Configure threshold (%) for capacity alarm
-        	**type**\:  int
-        
-        	**range:** 10..100
-        
-        	**default value**\: 90
+        	**default value**\: debug
         
         
 
         """
 
-        _prefix = 'infra-alarm-logger-cfg'
-        _revision = '2016-08-10'
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
 
         def __init__(self):
-            super(Syslog.AlarmLogger, self).__init__()
+            super(Syslog.BufferedLogging, self).__init__()
 
-            self.yang_name = "alarm-logger"
+            self.yang_name = "buffered-logging"
             self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"buffered-discriminator" : ("buffered_discriminator", Syslog.BufferedLogging.BufferedDiscriminator)}
+            self._child_list_classes = {}
 
             self.buffer_size = YLeaf(YType.uint32, "buffer-size")
 
-            self.severity_level = YLeaf(YType.enumeration, "severity-level")
+            self.logging_level = YLeaf(YType.enumeration, "logging-level")
 
-            self.source_location = YLeaf(YType.empty, "source-location")
-
-            self.threshold = YLeaf(YType.uint32, "threshold")
-
-            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
-            self.alarm_filter_strings.parent = self
-            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
-            self._children_yang_names.add("alarm-filter-strings")
+            self.buffered_discriminator = Syslog.BufferedLogging.BufferedDiscriminator()
+            self.buffered_discriminator.parent = self
+            self._children_name_map["buffered_discriminator"] = "buffered-discriminator"
+            self._children_yang_names.add("buffered-discriminator")
+            self._segment_path = lambda: "buffered-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("buffer_size",
-                            "severity_level",
-                            "source_location",
-                            "threshold") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.AlarmLogger, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.AlarmLogger, self).__setattr__(name, value)
+            self._perform_setattr(Syslog.BufferedLogging, ['buffer_size', 'logging_level'], name, value)
 
 
-        class AlarmFilterStrings(Entity):
+        class BufferedDiscriminator(Entity):
             """
-            List of filter strings
+            Set buffered logging discriminators
             
-            .. attribute:: alarm_filter_string
+            .. attribute:: match1
             
-            	Match string to filter alarms
-            	**type**\: list of    :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
+            	Set buffered logging match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match2
+            
+            	Set buffered logging match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match3
+            
+            	Set buffered logging match3 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch1
+            
+            	Set buffered logging no\-match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch2
+            
+            	Set buffered logging no\-match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch3
+            
+            	Set buffered logging no\-match3 discriminator
+            	**type**\:  str
             
             
 
             """
 
-            _prefix = 'infra-alarm-logger-cfg'
-            _revision = '2016-08-10'
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
 
             def __init__(self):
-                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
+                super(Syslog.BufferedLogging.BufferedDiscriminator, self).__init__()
 
-                self.yang_name = "alarm-filter-strings"
-                self.yang_parent_name = "alarm-logger"
+                self.yang_name = "buffered-discriminator"
+                self.yang_parent_name = "buffered-logging"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.alarm_filter_string = YList(self)
+                self.match1 = YLeaf(YType.str, "match1")
+
+                self.match2 = YLeaf(YType.str, "match2")
+
+                self.match3 = YLeaf(YType.str, "match3")
+
+                self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                self._segment_path = lambda: "buffered-discriminator"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/buffered-logging/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.AlarmLogger.AlarmFilterStrings, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.AlarmLogger.AlarmFilterStrings, self).__setattr__(name, value)
+                self._perform_setattr(Syslog.BufferedLogging.BufferedDiscriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
 
 
-            class AlarmFilterString(Entity):
-                """
-                Match string to filter alarms
-                
-                .. attribute:: filter_string  <key>
-                
-                	Filter String
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                
+    class ConsoleLogging(Entity):
+        """
+        Set console logging
+        
+        .. attribute:: console_discriminator
+        
+        	Set console logging discriminators
+        	**type**\:   :py:class:`ConsoleDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging.ConsoleDiscriminator>`
+        
+        .. attribute:: logging_level
+        
+        	Console logging level
+        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        
+        	**default value**\: warning
+        
+        
 
-                """
+        """
 
-                _prefix = 'infra-alarm-logger-cfg'
-                _revision = '2016-08-10'
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
 
-                def __init__(self):
-                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
+        def __init__(self):
+            super(Syslog.ConsoleLogging, self).__init__()
 
-                    self.yang_name = "alarm-filter-string"
-                    self.yang_parent_name = "alarm-filter-strings"
+            self.yang_name = "console-logging"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"console-discriminator" : ("console_discriminator", Syslog.ConsoleLogging.ConsoleDiscriminator)}
+            self._child_list_classes = {}
 
-                    self.filter_string = YLeaf(YType.str, "filter-string")
+            self.logging_level = YLeaf(YType.enumeration, "logging-level")
 
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("filter_string") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__setattr__(name, value)
+            self.console_discriminator = Syslog.ConsoleLogging.ConsoleDiscriminator()
+            self.console_discriminator.parent = self
+            self._children_name_map["console_discriminator"] = "console-discriminator"
+            self._children_yang_names.add("console-discriminator")
+            self._segment_path = lambda: "console-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
-                def has_data(self):
-                    return self.filter_string.is_set
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.ConsoleLogging, ['logging_level'], name, value)
 
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.filter_string.yfilter != YFilter.not_set)
 
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "alarm-filter-string" + "[filter-string='" + self.filter_string.get() + "']" + path_buffer
+        class ConsoleDiscriminator(Entity):
+            """
+            Set console logging discriminators
+            
+            .. attribute:: match1
+            
+            	Set console logging match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match2
+            
+            	Set console logging match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match3
+            
+            	Set console logging match3 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch1
+            
+            	Set console logging no\-match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch2
+            
+            	Set console logging no\-match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch3
+            
+            	Set console logging no\-match3 discriminator
+            	**type**\:  str
+            
+            
 
-                    return path_buffer
+            """
 
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
 
-                    leaf_name_data = LeafDataList()
-                    if (self.filter_string.is_set or self.filter_string.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.filter_string.get_name_leafdata())
+            def __init__(self):
+                super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__init__()
 
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
+                self.yang_name = "console-discriminator"
+                self.yang_parent_name = "console-logging"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
+                self.match1 = YLeaf(YType.str, "match1")
 
-                    return None
+                self.match2 = YLeaf(YType.str, "match2")
 
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "filter-string"):
-                        return True
-                    return False
+                self.match3 = YLeaf(YType.str, "match3")
 
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "filter-string"):
-                        self.filter_string = value
-                        self.filter_string.value_namespace = name_space
-                        self.filter_string.value_namespace_prefix = name_space_prefix
+                self.nomatch1 = YLeaf(YType.str, "nomatch1")
 
-            def has_data(self):
-                for c in self.alarm_filter_string:
-                    if (c.has_data()):
-                        return True
-                return False
+                self.nomatch2 = YLeaf(YType.str, "nomatch2")
 
-            def has_operation(self):
-                for c in self.alarm_filter_string:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
+                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                self._segment_path = lambda: "console-discriminator"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/console-logging/%s" % self._segment_path()
 
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "alarm-filter-strings" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "alarm-filter-string"):
-                    for c in self.alarm_filter_string:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.alarm_filter_string.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "alarm-filter-string"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (
-                self.buffer_size.is_set or
-                self.severity_level.is_set or
-                self.source_location.is_set or
-                self.threshold.is_set or
-                (self.alarm_filter_strings is not None and self.alarm_filter_strings.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.buffer_size.yfilter != YFilter.not_set or
-                self.severity_level.yfilter != YFilter.not_set or
-                self.source_location.yfilter != YFilter.not_set or
-                self.threshold.yfilter != YFilter.not_set or
-                (self.alarm_filter_strings is not None and self.alarm_filter_strings.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.buffer_size.is_set or self.buffer_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.buffer_size.get_name_leafdata())
-            if (self.severity_level.is_set or self.severity_level.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.severity_level.get_name_leafdata())
-            if (self.source_location.is_set or self.source_location.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.source_location.get_name_leafdata())
-            if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.threshold.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "alarm-filter-strings"):
-                if (self.alarm_filter_strings is None):
-                    self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
-                    self.alarm_filter_strings.parent = self
-                    self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
-                return self.alarm_filter_strings
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "alarm-filter-strings" or name == "buffer-size" or name == "severity-level" or name == "source-location" or name == "threshold"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "buffer-size"):
-                self.buffer_size = value
-                self.buffer_size.value_namespace = name_space
-                self.buffer_size.value_namespace_prefix = name_space_prefix
-            if(value_path == "severity-level"):
-                self.severity_level = value
-                self.severity_level.value_namespace = name_space
-                self.severity_level.value_namespace_prefix = name_space_prefix
-            if(value_path == "source-location"):
-                self.source_location = value
-                self.source_location.value_namespace = name_space
-                self.source_location.value_namespace_prefix = name_space_prefix
-            if(value_path == "threshold"):
-                self.threshold = value
-                self.threshold.value_namespace = name_space
-                self.threshold.value_namespace_prefix = name_space_prefix
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.ConsoleLogging.ConsoleDiscriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
 
 
     class Correlator(Entity):
@@ -8606,13 +1369,17 @@ class Syslog(Entity):
         """
 
         _prefix = 'infra-correlator-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Syslog.Correlator, self).__init__()
 
             self.yang_name = "correlator"
             self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"rule-sets" : ("rule_sets", Syslog.Correlator.RuleSets), "rules" : ("rules", Syslog.Correlator.Rules)}
+            self._child_list_classes = {}
 
             self.buffer_size = YLeaf(YType.uint32, "buffer-size")
 
@@ -8625,30 +1392,358 @@ class Syslog(Entity):
             self.rules.parent = self
             self._children_name_map["rules"] = "rules"
             self._children_yang_names.add("rules")
+            self._segment_path = lambda: "Cisco-IOS-XR-infra-correlator-cfg:correlator"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("buffer_size") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Syslog.Correlator, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Syslog.Correlator, self).__setattr__(name, value)
+            self._perform_setattr(Syslog.Correlator, ['buffer_size'], name, value)
+
+
+        class RuleSets(Entity):
+            """
+            Table of configured rulesets
+            
+            .. attribute:: rule_set
+            
+            	Ruleset name
+            	**type**\: list of    :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet>`
+            
+            
+
+            """
+
+            _prefix = 'infra-correlator-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Syslog.Correlator.RuleSets, self).__init__()
+
+                self.yang_name = "rule-sets"
+                self.yang_parent_name = "correlator"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"rule-set" : ("rule_set", Syslog.Correlator.RuleSets.RuleSet)}
+
+                self.rule_set = YList(self)
+                self._segment_path = lambda: "rule-sets"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Correlator.RuleSets, [], name, value)
+
+
+            class RuleSet(Entity):
+                """
+                Ruleset name
+                
+                .. attribute:: name  <key>
+                
+                	Ruleset name
+                	**type**\:  str
+                
+                	**length:** 1..32
+                
+                .. attribute:: applied_to
+                
+                	Applied to the Rule or Ruleset
+                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo>`
+                
+                .. attribute:: rulenames
+                
+                	Table of configured rulenames
+                	**type**\:   :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames>`
+                
+                
+
+                """
+
+                _prefix = 'infra-correlator-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Syslog.Correlator.RuleSets.RuleSet, self).__init__()
+
+                    self.yang_name = "rule-set"
+                    self.yang_parent_name = "rule-sets"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"applied-to" : ("applied_to", Syslog.Correlator.RuleSets.RuleSet.AppliedTo), "rulenames" : ("rulenames", Syslog.Correlator.RuleSets.RuleSet.Rulenames)}
+                    self._child_list_classes = {}
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.applied_to = Syslog.Correlator.RuleSets.RuleSet.AppliedTo()
+                    self.applied_to.parent = self
+                    self._children_name_map["applied_to"] = "applied-to"
+                    self._children_yang_names.add("applied-to")
+
+                    self.rulenames = Syslog.Correlator.RuleSets.RuleSet.Rulenames()
+                    self.rulenames.parent = self
+                    self._children_name_map["rulenames"] = "rulenames"
+                    self._children_yang_names.add("rulenames")
+                    self._segment_path = lambda: "rule-set" + "[name='" + self.name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/rule-sets/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet, ['name'], name, value)
+
+
+                class AppliedTo(Entity):
+                    """
+                    Applied to the Rule or Ruleset
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Table of configured contexts to apply
+                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Table of configured locations to apply
+                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
+
+                        self.yang_name = "applied-to"
+                        self.yang_parent_name = "rule-set"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"contexts" : ("contexts", Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts), "locations" : ("locations", Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations)}
+                        self._child_list_classes = {}
+
+                        self.all = YLeaf(YType.empty, "all")
+
+                        self.contexts = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts()
+                        self.contexts.parent = self
+                        self._children_name_map["contexts"] = "contexts"
+                        self._children_yang_names.add("contexts")
+
+                        self.locations = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations()
+                        self.locations.parent = self
+                        self._children_name_map["locations"] = "locations"
+                        self._children_yang_names.add("locations")
+                        self._segment_path = lambda: "applied-to"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, ['all'], name, value)
+
+
+                    class Contexts(Entity):
+                        """
+                        Table of configured contexts to apply
+                        
+                        .. attribute:: context
+                        
+                        	A context
+                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__init__()
+
+                            self.yang_name = "contexts"
+                            self.yang_parent_name = "applied-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"context" : ("context", Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context)}
+
+                            self.context = YList(self)
+                            self._segment_path = lambda: "contexts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, [], name, value)
+
+
+                        class Context(Entity):
+                            """
+                            A context
+                            
+                            .. attribute:: context  <key>
+                            
+                            	Context
+                            	**type**\:  str
+                            
+                            	**length:** 1..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__init__()
+
+                                self.yang_name = "context"
+                                self.yang_parent_name = "contexts"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.context = YLeaf(YType.str, "context")
+                                self._segment_path = lambda: "context" + "[context='" + self.context.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, ['context'], name, value)
+
+
+                    class Locations(Entity):
+                        """
+                        Table of configured locations to apply
+                        
+                        .. attribute:: location
+                        
+                        	A location
+                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__init__()
+
+                            self.yang_name = "locations"
+                            self.yang_parent_name = "applied-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"location" : ("location", Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location)}
+
+                            self.location = YList(self)
+                            self._segment_path = lambda: "locations"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, [], name, value)
+
+
+                        class Location(Entity):
+                            """
+                            A location
+                            
+                            .. attribute:: location  <key>
+                            
+                            	Location
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__init__()
+
+                                self.yang_name = "location"
+                                self.yang_parent_name = "locations"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.location = YLeaf(YType.str, "location")
+                                self._segment_path = lambda: "location" + "[location='" + self.location.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, ['location'], name, value)
+
+
+                class Rulenames(Entity):
+                    """
+                    Table of configured rulenames
+                    
+                    .. attribute:: rulename
+                    
+                    	A rulename
+                    	**type**\: list of    :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
+
+                        self.yang_name = "rulenames"
+                        self.yang_parent_name = "rule-set"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"rulename" : ("rulename", Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename)}
+
+                        self.rulename = YList(self)
+                        self._segment_path = lambda: "rulenames"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.Rulenames, [], name, value)
+
+
+                    class Rulename(Entity):
+                        """
+                        A rulename
+                        
+                        .. attribute:: rulename  <key>
+                        
+                        	Rule name
+                        	**type**\:  str
+                        
+                        	**length:** 1..32
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
+
+                            self.yang_name = "rulename"
+                            self.yang_parent_name = "rulenames"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rulename = YLeaf(YType.str, "rulename")
+                            self._segment_path = lambda: "rulename" + "[rulename='" + self.rulename.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, ['rulename'], name, value)
 
 
         class Rules(Entity):
@@ -8665,39 +1760,24 @@ class Syslog(Entity):
             """
 
             _prefix = 'infra-correlator-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Syslog.Correlator.Rules, self).__init__()
 
                 self.yang_name = "rules"
                 self.yang_parent_name = "correlator"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"rule" : ("rule", Syslog.Correlator.Rules.Rule)}
 
                 self.rule = YList(self)
+                self._segment_path = lambda: "rules"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Correlator.Rules, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Correlator.Rules, self).__setattr__(name, value)
+                self._perform_setattr(Syslog.Correlator.Rules, [], name, value)
 
 
             class Rule(Entity):
@@ -8741,13 +1821,17 @@ class Syslog(Entity):
                 """
 
                 _prefix = 'infra-correlator-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-05-01'
 
                 def __init__(self):
                     super(Syslog.Correlator.Rules.Rule, self).__init__()
 
                     self.yang_name = "rule"
                     self.yang_parent_name = "rules"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"applied-to" : ("applied_to", Syslog.Correlator.Rules.Rule.AppliedTo), "apply-to" : ("apply_to", Syslog.Correlator.Rules.Rule.ApplyTo), "definition" : ("definition", Syslog.Correlator.Rules.Rule.Definition), "non-stateful" : ("non_stateful", Syslog.Correlator.Rules.Rule.NonStateful), "stateful" : ("stateful", Syslog.Correlator.Rules.Rule.Stateful)}
+                    self._child_list_classes = {}
 
                     self.name = YLeaf(YType.str, "name")
 
@@ -8775,30 +1859,322 @@ class Syslog(Entity):
                     self.stateful.parent = self
                     self._children_name_map["stateful"] = "stateful"
                     self._children_yang_names.add("stateful")
+                    self._segment_path = lambda: "rule" + "[name='" + self.name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/rules/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("name") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Correlator.Rules.Rule, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Correlator.Rules.Rule, self).__setattr__(name, value)
+                    self._perform_setattr(Syslog.Correlator.Rules.Rule, ['name'], name, value)
+
+
+                class AppliedTo(Entity):
+                    """
+                    Applied to the Rule or Ruleset
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Table of configured contexts to apply
+                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Table of configured locations to apply
+                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__init__()
+
+                        self.yang_name = "applied-to"
+                        self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"contexts" : ("contexts", Syslog.Correlator.Rules.Rule.AppliedTo.Contexts), "locations" : ("locations", Syslog.Correlator.Rules.Rule.AppliedTo.Locations)}
+                        self._child_list_classes = {}
+
+                        self.all = YLeaf(YType.empty, "all")
+
+                        self.contexts = Syslog.Correlator.Rules.Rule.AppliedTo.Contexts()
+                        self.contexts.parent = self
+                        self._children_name_map["contexts"] = "contexts"
+                        self._children_yang_names.add("contexts")
+
+                        self.locations = Syslog.Correlator.Rules.Rule.AppliedTo.Locations()
+                        self.locations.parent = self
+                        self._children_name_map["locations"] = "locations"
+                        self._children_yang_names.add("locations")
+                        self._segment_path = lambda: "applied-to"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo, ['all'], name, value)
+
+
+                    class Contexts(Entity):
+                        """
+                        Table of configured contexts to apply
+                        
+                        .. attribute:: context
+                        
+                        	A context
+                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__init__()
+
+                            self.yang_name = "contexts"
+                            self.yang_parent_name = "applied-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"context" : ("context", Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context)}
+
+                            self.context = YList(self)
+                            self._segment_path = lambda: "contexts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, [], name, value)
+
+
+                        class Context(Entity):
+                            """
+                            A context
+                            
+                            .. attribute:: context  <key>
+                            
+                            	Context
+                            	**type**\:  str
+                            
+                            	**length:** 1..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__init__()
+
+                                self.yang_name = "context"
+                                self.yang_parent_name = "contexts"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.context = YLeaf(YType.str, "context")
+                                self._segment_path = lambda: "context" + "[context='" + self.context.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, ['context'], name, value)
+
+
+                    class Locations(Entity):
+                        """
+                        Table of configured locations to apply
+                        
+                        .. attribute:: location
+                        
+                        	A location
+                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__init__()
+
+                            self.yang_name = "locations"
+                            self.yang_parent_name = "applied-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"location" : ("location", Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location)}
+
+                            self.location = YList(self)
+                            self._segment_path = lambda: "locations"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, [], name, value)
+
+
+                        class Location(Entity):
+                            """
+                            A location
+                            
+                            .. attribute:: location  <key>
+                            
+                            	Location
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__init__()
+
+                                self.yang_name = "location"
+                                self.yang_parent_name = "locations"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.location = YLeaf(YType.str, "location")
+                                self._segment_path = lambda: "location" + "[location='" + self.location.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, ['location'], name, value)
+
+
+                class ApplyTo(Entity):
+                    """
+                    Apply the Rules
+                    
+                    .. attribute:: all_of_router
+                    
+                    	Apply the rule to all of the router
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Apply rule to a specified list of contexts, e.g. interfaces
+                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Apply rule to a specified list of Locations
+                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__init__()
+
+                        self.yang_name = "apply-to"
+                        self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"contexts" : ("contexts", Syslog.Correlator.Rules.Rule.ApplyTo.Contexts), "locations" : ("locations", Syslog.Correlator.Rules.Rule.ApplyTo.Locations)}
+                        self._child_list_classes = {}
+
+                        self.all_of_router = YLeaf(YType.empty, "all-of-router")
+
+                        self.contexts = Syslog.Correlator.Rules.Rule.ApplyTo.Contexts()
+                        self.contexts.parent = self
+                        self._children_name_map["contexts"] = "contexts"
+                        self._children_yang_names.add("contexts")
+
+                        self.locations = Syslog.Correlator.Rules.Rule.ApplyTo.Locations()
+                        self.locations.parent = self
+                        self._children_name_map["locations"] = "locations"
+                        self._children_yang_names.add("locations")
+                        self._segment_path = lambda: "apply-to"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo, ['all_of_router'], name, value)
+
+
+                    class Contexts(Entity):
+                        """
+                        Apply rule to a specified list of contexts,
+                        e.g. interfaces
+                        
+                        .. attribute:: context
+                        
+                        	One or more context names
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__init__()
+
+                            self.yang_name = "contexts"
+                            self.yang_parent_name = "apply-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.context = YLeafList(YType.str, "context")
+                            self._segment_path = lambda: "contexts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, ['context'], name, value)
+
+
+                    class Locations(Entity):
+                        """
+                        Apply rule to a specified list of Locations
+                        
+                        .. attribute:: location
+                        
+                        	One or more Locations
+                        	**type**\:  list of str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__init__()
+
+                            self.yang_name = "locations"
+                            self.yang_parent_name = "apply-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.location = YLeafList(YType.str, "location")
+                            self._segment_path = lambda: "locations"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, ['location'], name, value)
 
 
                 class Definition(Entity):
@@ -8967,13 +2343,17 @@ class Syslog(Entity):
                     """
 
                     _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-05-01'
 
                     def __init__(self):
                         super(Syslog.Correlator.Rules.Rule.Definition, self).__init__()
 
                         self.yang_name = "definition"
                         self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
                         self.category_name_entry1 = YLeaf(YType.str, "category-name-entry1")
 
@@ -9036,347 +2416,10 @@ class Syslog(Entity):
                         self.message_code_entry9 = YLeaf(YType.str, "message-code-entry9")
 
                         self.timeout = YLeaf(YType.uint32, "timeout")
+                        self._segment_path = lambda: "definition"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("category_name_entry1",
-                                        "category_name_entry10",
-                                        "category_name_entry2",
-                                        "category_name_entry3",
-                                        "category_name_entry4",
-                                        "category_name_entry5",
-                                        "category_name_entry6",
-                                        "category_name_entry7",
-                                        "category_name_entry8",
-                                        "category_name_entry9",
-                                        "group_name_entry1",
-                                        "group_name_entry10",
-                                        "group_name_entry2",
-                                        "group_name_entry3",
-                                        "group_name_entry4",
-                                        "group_name_entry5",
-                                        "group_name_entry6",
-                                        "group_name_entry7",
-                                        "group_name_entry8",
-                                        "group_name_entry9",
-                                        "message_code_entry1",
-                                        "message_code_entry10",
-                                        "message_code_entry2",
-                                        "message_code_entry3",
-                                        "message_code_entry4",
-                                        "message_code_entry5",
-                                        "message_code_entry6",
-                                        "message_code_entry7",
-                                        "message_code_entry8",
-                                        "message_code_entry9",
-                                        "timeout") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.Rules.Rule.Definition, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.Rules.Rule.Definition, self).__setattr__(name, value)
-
-                    def has_data(self):
-                        return (
-                            self.category_name_entry1.is_set or
-                            self.category_name_entry10.is_set or
-                            self.category_name_entry2.is_set or
-                            self.category_name_entry3.is_set or
-                            self.category_name_entry4.is_set or
-                            self.category_name_entry5.is_set or
-                            self.category_name_entry6.is_set or
-                            self.category_name_entry7.is_set or
-                            self.category_name_entry8.is_set or
-                            self.category_name_entry9.is_set or
-                            self.group_name_entry1.is_set or
-                            self.group_name_entry10.is_set or
-                            self.group_name_entry2.is_set or
-                            self.group_name_entry3.is_set or
-                            self.group_name_entry4.is_set or
-                            self.group_name_entry5.is_set or
-                            self.group_name_entry6.is_set or
-                            self.group_name_entry7.is_set or
-                            self.group_name_entry8.is_set or
-                            self.group_name_entry9.is_set or
-                            self.message_code_entry1.is_set or
-                            self.message_code_entry10.is_set or
-                            self.message_code_entry2.is_set or
-                            self.message_code_entry3.is_set or
-                            self.message_code_entry4.is_set or
-                            self.message_code_entry5.is_set or
-                            self.message_code_entry6.is_set or
-                            self.message_code_entry7.is_set or
-                            self.message_code_entry8.is_set or
-                            self.message_code_entry9.is_set or
-                            self.timeout.is_set)
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.category_name_entry1.yfilter != YFilter.not_set or
-                            self.category_name_entry10.yfilter != YFilter.not_set or
-                            self.category_name_entry2.yfilter != YFilter.not_set or
-                            self.category_name_entry3.yfilter != YFilter.not_set or
-                            self.category_name_entry4.yfilter != YFilter.not_set or
-                            self.category_name_entry5.yfilter != YFilter.not_set or
-                            self.category_name_entry6.yfilter != YFilter.not_set or
-                            self.category_name_entry7.yfilter != YFilter.not_set or
-                            self.category_name_entry8.yfilter != YFilter.not_set or
-                            self.category_name_entry9.yfilter != YFilter.not_set or
-                            self.group_name_entry1.yfilter != YFilter.not_set or
-                            self.group_name_entry10.yfilter != YFilter.not_set or
-                            self.group_name_entry2.yfilter != YFilter.not_set or
-                            self.group_name_entry3.yfilter != YFilter.not_set or
-                            self.group_name_entry4.yfilter != YFilter.not_set or
-                            self.group_name_entry5.yfilter != YFilter.not_set or
-                            self.group_name_entry6.yfilter != YFilter.not_set or
-                            self.group_name_entry7.yfilter != YFilter.not_set or
-                            self.group_name_entry8.yfilter != YFilter.not_set or
-                            self.group_name_entry9.yfilter != YFilter.not_set or
-                            self.message_code_entry1.yfilter != YFilter.not_set or
-                            self.message_code_entry10.yfilter != YFilter.not_set or
-                            self.message_code_entry2.yfilter != YFilter.not_set or
-                            self.message_code_entry3.yfilter != YFilter.not_set or
-                            self.message_code_entry4.yfilter != YFilter.not_set or
-                            self.message_code_entry5.yfilter != YFilter.not_set or
-                            self.message_code_entry6.yfilter != YFilter.not_set or
-                            self.message_code_entry7.yfilter != YFilter.not_set or
-                            self.message_code_entry8.yfilter != YFilter.not_set or
-                            self.message_code_entry9.yfilter != YFilter.not_set or
-                            self.timeout.yfilter != YFilter.not_set)
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "definition" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.category_name_entry1.is_set or self.category_name_entry1.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry1.get_name_leafdata())
-                        if (self.category_name_entry10.is_set or self.category_name_entry10.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry10.get_name_leafdata())
-                        if (self.category_name_entry2.is_set or self.category_name_entry2.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry2.get_name_leafdata())
-                        if (self.category_name_entry3.is_set or self.category_name_entry3.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry3.get_name_leafdata())
-                        if (self.category_name_entry4.is_set or self.category_name_entry4.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry4.get_name_leafdata())
-                        if (self.category_name_entry5.is_set or self.category_name_entry5.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry5.get_name_leafdata())
-                        if (self.category_name_entry6.is_set or self.category_name_entry6.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry6.get_name_leafdata())
-                        if (self.category_name_entry7.is_set or self.category_name_entry7.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry7.get_name_leafdata())
-                        if (self.category_name_entry8.is_set or self.category_name_entry8.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry8.get_name_leafdata())
-                        if (self.category_name_entry9.is_set or self.category_name_entry9.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.category_name_entry9.get_name_leafdata())
-                        if (self.group_name_entry1.is_set or self.group_name_entry1.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry1.get_name_leafdata())
-                        if (self.group_name_entry10.is_set or self.group_name_entry10.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry10.get_name_leafdata())
-                        if (self.group_name_entry2.is_set or self.group_name_entry2.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry2.get_name_leafdata())
-                        if (self.group_name_entry3.is_set or self.group_name_entry3.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry3.get_name_leafdata())
-                        if (self.group_name_entry4.is_set or self.group_name_entry4.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry4.get_name_leafdata())
-                        if (self.group_name_entry5.is_set or self.group_name_entry5.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry5.get_name_leafdata())
-                        if (self.group_name_entry6.is_set or self.group_name_entry6.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry6.get_name_leafdata())
-                        if (self.group_name_entry7.is_set or self.group_name_entry7.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry7.get_name_leafdata())
-                        if (self.group_name_entry8.is_set or self.group_name_entry8.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry8.get_name_leafdata())
-                        if (self.group_name_entry9.is_set or self.group_name_entry9.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.group_name_entry9.get_name_leafdata())
-                        if (self.message_code_entry1.is_set or self.message_code_entry1.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry1.get_name_leafdata())
-                        if (self.message_code_entry10.is_set or self.message_code_entry10.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry10.get_name_leafdata())
-                        if (self.message_code_entry2.is_set or self.message_code_entry2.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry2.get_name_leafdata())
-                        if (self.message_code_entry3.is_set or self.message_code_entry3.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry3.get_name_leafdata())
-                        if (self.message_code_entry4.is_set or self.message_code_entry4.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry4.get_name_leafdata())
-                        if (self.message_code_entry5.is_set or self.message_code_entry5.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry5.get_name_leafdata())
-                        if (self.message_code_entry6.is_set or self.message_code_entry6.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry6.get_name_leafdata())
-                        if (self.message_code_entry7.is_set or self.message_code_entry7.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry7.get_name_leafdata())
-                        if (self.message_code_entry8.is_set or self.message_code_entry8.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry8.get_name_leafdata())
-                        if (self.message_code_entry9.is_set or self.message_code_entry9.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.message_code_entry9.get_name_leafdata())
-                        if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.timeout.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "category-name-entry1" or name == "category-name-entry10" or name == "category-name-entry2" or name == "category-name-entry3" or name == "category-name-entry4" or name == "category-name-entry5" or name == "category-name-entry6" or name == "category-name-entry7" or name == "category-name-entry8" or name == "category-name-entry9" or name == "group-name-entry1" or name == "group-name-entry10" or name == "group-name-entry2" or name == "group-name-entry3" or name == "group-name-entry4" or name == "group-name-entry5" or name == "group-name-entry6" or name == "group-name-entry7" or name == "group-name-entry8" or name == "group-name-entry9" or name == "message-code-entry1" or name == "message-code-entry10" or name == "message-code-entry2" or name == "message-code-entry3" or name == "message-code-entry4" or name == "message-code-entry5" or name == "message-code-entry6" or name == "message-code-entry7" or name == "message-code-entry8" or name == "message-code-entry9" or name == "timeout"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "category-name-entry1"):
-                            self.category_name_entry1 = value
-                            self.category_name_entry1.value_namespace = name_space
-                            self.category_name_entry1.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry10"):
-                            self.category_name_entry10 = value
-                            self.category_name_entry10.value_namespace = name_space
-                            self.category_name_entry10.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry2"):
-                            self.category_name_entry2 = value
-                            self.category_name_entry2.value_namespace = name_space
-                            self.category_name_entry2.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry3"):
-                            self.category_name_entry3 = value
-                            self.category_name_entry3.value_namespace = name_space
-                            self.category_name_entry3.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry4"):
-                            self.category_name_entry4 = value
-                            self.category_name_entry4.value_namespace = name_space
-                            self.category_name_entry4.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry5"):
-                            self.category_name_entry5 = value
-                            self.category_name_entry5.value_namespace = name_space
-                            self.category_name_entry5.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry6"):
-                            self.category_name_entry6 = value
-                            self.category_name_entry6.value_namespace = name_space
-                            self.category_name_entry6.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry7"):
-                            self.category_name_entry7 = value
-                            self.category_name_entry7.value_namespace = name_space
-                            self.category_name_entry7.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry8"):
-                            self.category_name_entry8 = value
-                            self.category_name_entry8.value_namespace = name_space
-                            self.category_name_entry8.value_namespace_prefix = name_space_prefix
-                        if(value_path == "category-name-entry9"):
-                            self.category_name_entry9 = value
-                            self.category_name_entry9.value_namespace = name_space
-                            self.category_name_entry9.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry1"):
-                            self.group_name_entry1 = value
-                            self.group_name_entry1.value_namespace = name_space
-                            self.group_name_entry1.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry10"):
-                            self.group_name_entry10 = value
-                            self.group_name_entry10.value_namespace = name_space
-                            self.group_name_entry10.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry2"):
-                            self.group_name_entry2 = value
-                            self.group_name_entry2.value_namespace = name_space
-                            self.group_name_entry2.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry3"):
-                            self.group_name_entry3 = value
-                            self.group_name_entry3.value_namespace = name_space
-                            self.group_name_entry3.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry4"):
-                            self.group_name_entry4 = value
-                            self.group_name_entry4.value_namespace = name_space
-                            self.group_name_entry4.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry5"):
-                            self.group_name_entry5 = value
-                            self.group_name_entry5.value_namespace = name_space
-                            self.group_name_entry5.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry6"):
-                            self.group_name_entry6 = value
-                            self.group_name_entry6.value_namespace = name_space
-                            self.group_name_entry6.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry7"):
-                            self.group_name_entry7 = value
-                            self.group_name_entry7.value_namespace = name_space
-                            self.group_name_entry7.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry8"):
-                            self.group_name_entry8 = value
-                            self.group_name_entry8.value_namespace = name_space
-                            self.group_name_entry8.value_namespace_prefix = name_space_prefix
-                        if(value_path == "group-name-entry9"):
-                            self.group_name_entry9 = value
-                            self.group_name_entry9.value_namespace = name_space
-                            self.group_name_entry9.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry1"):
-                            self.message_code_entry1 = value
-                            self.message_code_entry1.value_namespace = name_space
-                            self.message_code_entry1.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry10"):
-                            self.message_code_entry10 = value
-                            self.message_code_entry10.value_namespace = name_space
-                            self.message_code_entry10.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry2"):
-                            self.message_code_entry2 = value
-                            self.message_code_entry2.value_namespace = name_space
-                            self.message_code_entry2.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry3"):
-                            self.message_code_entry3 = value
-                            self.message_code_entry3.value_namespace = name_space
-                            self.message_code_entry3.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry4"):
-                            self.message_code_entry4 = value
-                            self.message_code_entry4.value_namespace = name_space
-                            self.message_code_entry4.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry5"):
-                            self.message_code_entry5 = value
-                            self.message_code_entry5.value_namespace = name_space
-                            self.message_code_entry5.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry6"):
-                            self.message_code_entry6 = value
-                            self.message_code_entry6.value_namespace = name_space
-                            self.message_code_entry6.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry7"):
-                            self.message_code_entry7 = value
-                            self.message_code_entry7.value_namespace = name_space
-                            self.message_code_entry7.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry8"):
-                            self.message_code_entry8 = value
-                            self.message_code_entry8.value_namespace = name_space
-                            self.message_code_entry8.value_namespace_prefix = name_space_prefix
-                        if(value_path == "message-code-entry9"):
-                            self.message_code_entry9 = value
-                            self.message_code_entry9.value_namespace = name_space
-                            self.message_code_entry9.value_namespace_prefix = name_space_prefix
-                        if(value_path == "timeout"):
-                            self.timeout = value
-                            self.timeout.value_namespace = name_space
-                            self.timeout.value_namespace_prefix = name_space_prefix
+                        self._perform_setattr(Syslog.Correlator.Rules.Rule.Definition, ['category_name_entry1', 'category_name_entry10', 'category_name_entry2', 'category_name_entry3', 'category_name_entry4', 'category_name_entry5', 'category_name_entry6', 'category_name_entry7', 'category_name_entry8', 'category_name_entry9', 'group_name_entry1', 'group_name_entry10', 'group_name_entry2', 'group_name_entry3', 'group_name_entry4', 'group_name_entry5', 'group_name_entry6', 'group_name_entry7', 'group_name_entry8', 'group_name_entry9', 'message_code_entry1', 'message_code_entry10', 'message_code_entry2', 'message_code_entry3', 'message_code_entry4', 'message_code_entry5', 'message_code_entry6', 'message_code_entry7', 'message_code_entry8', 'message_code_entry9', 'timeout'], name, value)
 
 
                 class NonStateful(Entity):
@@ -9421,13 +2464,17 @@ class Syslog(Entity):
                     """
 
                     _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-05-01'
 
                     def __init__(self):
                         super(Syslog.Correlator.Rules.Rule.NonStateful, self).__init__()
 
                         self.yang_name = "non-stateful"
                         self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"non-root-causes" : ("non_root_causes", Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses), "root-cause" : ("root_cause", Syslog.Correlator.Rules.Rule.NonStateful.RootCause)}
+                        self._child_list_classes = {}
 
                         self.context_correlation = YLeaf(YType.empty, "context-correlation")
 
@@ -9444,32 +2491,10 @@ class Syslog(Entity):
                         self.root_cause.parent = self
                         self._children_name_map["root_cause"] = "root-cause"
                         self._children_yang_names.add("root-cause")
+                        self._segment_path = lambda: "non-stateful"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("context_correlation",
-                                        "timeout",
-                                        "timeout_root_cause") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.Rules.Rule.NonStateful, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.Rules.Rule.NonStateful, self).__setattr__(name, value)
+                        self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful, ['context_correlation', 'timeout', 'timeout_root_cause'], name, value)
 
 
                     class NonRootCauses(Entity):
@@ -9486,39 +2511,23 @@ class Syslog(Entity):
                         """
 
                         _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-05-01'
 
                         def __init__(self):
                             super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, self).__init__()
 
                             self.yang_name = "non-root-causes"
                             self.yang_parent_name = "non-stateful"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"non-root-cause" : ("non_root_cause", Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause)}
 
                             self.non_root_cause = YList(self)
+                            self._segment_path = lambda: "non-root-causes"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, self).__setattr__(name, value)
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, [], name, value)
 
 
                         class NonRootCause(Entity):
@@ -9545,165 +2554,27 @@ class Syslog(Entity):
                             """
 
                             _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-05-01'
 
                             def __init__(self):
                                 super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, self).__init__()
 
                                 self.yang_name = "non-root-cause"
                                 self.yang_parent_name = "non-root-causes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.category = YLeaf(YType.str, "category")
 
                                 self.group = YLeaf(YType.str, "group")
 
                                 self.message_code = YLeaf(YType.str, "message-code")
+                                self._segment_path = lambda: "non-root-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[message-code='" + self.message_code.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("category",
-                                                "group",
-                                                "message_code") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.category.is_set or
-                                    self.group.is_set or
-                                    self.message_code.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.category.yfilter != YFilter.not_set or
-                                    self.group.yfilter != YFilter.not_set or
-                                    self.message_code.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "non-root-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[message-code='" + self.message_code.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.category.is_set or self.category.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.category.get_name_leafdata())
-                                if (self.group.is_set or self.group.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.group.get_name_leafdata())
-                                if (self.message_code.is_set or self.message_code.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.message_code.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "category" or name == "group" or name == "message-code"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "category"):
-                                    self.category = value
-                                    self.category.value_namespace = name_space
-                                    self.category.value_namespace_prefix = name_space_prefix
-                                if(value_path == "group"):
-                                    self.group = value
-                                    self.group.value_namespace = name_space
-                                    self.group.value_namespace_prefix = name_space_prefix
-                                if(value_path == "message-code"):
-                                    self.message_code = value
-                                    self.message_code.value_namespace = name_space
-                                    self.message_code.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.non_root_cause:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.non_root_cause:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "non-root-causes" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "non-root-cause"):
-                                for c in self.non_root_cause:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.non_root_cause.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "non-root-cause"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
+                                self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
 
                     class RootCause(Entity):
@@ -9730,189 +2601,27 @@ class Syslog(Entity):
                         """
 
                         _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-05-01'
 
                         def __init__(self):
                             super(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, self).__init__()
 
                             self.yang_name = "root-cause"
                             self.yang_parent_name = "non-stateful"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.category = YLeaf(YType.str, "category")
 
                             self.group = YLeaf(YType.str, "group")
 
                             self.message_code = YLeaf(YType.str, "message-code")
+                            self._segment_path = lambda: "root-cause"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("category",
-                                            "group",
-                                            "message_code") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.category.is_set or
-                                self.group.is_set or
-                                self.message_code.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.category.yfilter != YFilter.not_set or
-                                self.group.yfilter != YFilter.not_set or
-                                self.message_code.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "root-cause" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.category.is_set or self.category.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.category.get_name_leafdata())
-                            if (self.group.is_set or self.group.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.group.get_name_leafdata())
-                            if (self.message_code.is_set or self.message_code.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.message_code.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "category" or name == "group" or name == "message-code"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "category"):
-                                self.category = value
-                                self.category.value_namespace = name_space
-                                self.category.value_namespace_prefix = name_space_prefix
-                            if(value_path == "group"):
-                                self.group = value
-                                self.group.value_namespace = name_space
-                                self.group.value_namespace_prefix = name_space_prefix
-                            if(value_path == "message-code"):
-                                self.message_code = value
-                                self.message_code.value_namespace = name_space
-                                self.message_code.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.context_correlation.is_set or
-                            self.timeout.is_set or
-                            self.timeout_root_cause.is_set or
-                            (self.non_root_causes is not None and self.non_root_causes.has_data()) or
-                            (self.root_cause is not None and self.root_cause.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.context_correlation.yfilter != YFilter.not_set or
-                            self.timeout.yfilter != YFilter.not_set or
-                            self.timeout_root_cause.yfilter != YFilter.not_set or
-                            (self.non_root_causes is not None and self.non_root_causes.has_operation()) or
-                            (self.root_cause is not None and self.root_cause.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "non-stateful" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.context_correlation.is_set or self.context_correlation.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.context_correlation.get_name_leafdata())
-                        if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.timeout.get_name_leafdata())
-                        if (self.timeout_root_cause.is_set or self.timeout_root_cause.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.timeout_root_cause.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "non-root-causes"):
-                            if (self.non_root_causes is None):
-                                self.non_root_causes = Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses()
-                                self.non_root_causes.parent = self
-                                self._children_name_map["non_root_causes"] = "non-root-causes"
-                            return self.non_root_causes
-
-                        if (child_yang_name == "root-cause"):
-                            if (self.root_cause is None):
-                                self.root_cause = Syslog.Correlator.Rules.Rule.NonStateful.RootCause()
-                                self.root_cause.parent = self
-                                self._children_name_map["root_cause"] = "root-cause"
-                            return self.root_cause
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "non-root-causes" or name == "root-cause" or name == "context-correlation" or name == "timeout" or name == "timeout-root-cause"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "context-correlation"):
-                            self.context_correlation = value
-                            self.context_correlation.value_namespace = name_space
-                            self.context_correlation.value_namespace_prefix = name_space_prefix
-                        if(value_path == "timeout"):
-                            self.timeout = value
-                            self.timeout.value_namespace = name_space
-                            self.timeout.value_namespace_prefix = name_space_prefix
-                        if(value_path == "timeout-root-cause"):
-                            self.timeout_root_cause = value
-                            self.timeout_root_cause.value_namespace = name_space
-                            self.timeout_root_cause.value_namespace_prefix = name_space_prefix
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, ['category', 'group', 'message_code'], name, value)
 
 
                 class Stateful(Entity):
@@ -9967,13 +2676,17 @@ class Syslog(Entity):
                     """
 
                     _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-05-01'
 
                     def __init__(self):
                         super(Syslog.Correlator.Rules.Rule.Stateful, self).__init__()
 
                         self.yang_name = "stateful"
                         self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"non-root-causes" : ("non_root_causes", Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses), "root-cause" : ("root_cause", Syslog.Correlator.Rules.Rule.Stateful.RootCause)}
+                        self._child_list_classes = {}
 
                         self.context_correlation = YLeaf(YType.empty, "context-correlation")
 
@@ -9994,34 +2707,10 @@ class Syslog(Entity):
                         self.root_cause.parent = self
                         self._children_name_map["root_cause"] = "root-cause"
                         self._children_yang_names.add("root-cause")
+                        self._segment_path = lambda: "stateful"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("context_correlation",
-                                        "reissue",
-                                        "reparent",
-                                        "timeout",
-                                        "timeout_root_cause") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.Rules.Rule.Stateful, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.Rules.Rule.Stateful, self).__setattr__(name, value)
+                        self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful, ['context_correlation', 'reissue', 'reparent', 'timeout', 'timeout_root_cause'], name, value)
 
 
                     class NonRootCauses(Entity):
@@ -10038,39 +2727,23 @@ class Syslog(Entity):
                         """
 
                         _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-05-01'
 
                         def __init__(self):
                             super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, self).__init__()
 
                             self.yang_name = "non-root-causes"
                             self.yang_parent_name = "stateful"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"non-root-cause" : ("non_root_cause", Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause)}
 
                             self.non_root_cause = YList(self)
+                            self._segment_path = lambda: "non-root-causes"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, self).__setattr__(name, value)
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, [], name, value)
 
 
                         class NonRootCause(Entity):
@@ -10097,165 +2770,27 @@ class Syslog(Entity):
                             """
 
                             _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-05-01'
 
                             def __init__(self):
                                 super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, self).__init__()
 
                                 self.yang_name = "non-root-cause"
                                 self.yang_parent_name = "non-root-causes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
                                 self.category = YLeaf(YType.str, "category")
 
                                 self.group = YLeaf(YType.str, "group")
 
                                 self.message_code = YLeaf(YType.str, "message-code")
+                                self._segment_path = lambda: "non-root-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[message-code='" + self.message_code.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("category",
-                                                "group",
-                                                "message_code") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return (
-                                    self.category.is_set or
-                                    self.group.is_set or
-                                    self.message_code.is_set)
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.category.yfilter != YFilter.not_set or
-                                    self.group.yfilter != YFilter.not_set or
-                                    self.message_code.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "non-root-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[message-code='" + self.message_code.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.category.is_set or self.category.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.category.get_name_leafdata())
-                                if (self.group.is_set or self.group.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.group.get_name_leafdata())
-                                if (self.message_code.is_set or self.message_code.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.message_code.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "category" or name == "group" or name == "message-code"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "category"):
-                                    self.category = value
-                                    self.category.value_namespace = name_space
-                                    self.category.value_namespace_prefix = name_space_prefix
-                                if(value_path == "group"):
-                                    self.group = value
-                                    self.group.value_namespace = name_space
-                                    self.group.value_namespace_prefix = name_space_prefix
-                                if(value_path == "message-code"):
-                                    self.message_code = value
-                                    self.message_code.value_namespace = name_space
-                                    self.message_code.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.non_root_cause:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.non_root_cause:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "non-root-causes" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "non-root-cause"):
-                                for c in self.non_root_cause:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.non_root_cause.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "non-root-cause"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
+                                self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
 
                     class RootCause(Entity):
@@ -10282,2279 +2817,2241 @@ class Syslog(Entity):
                         """
 
                         _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-05-01'
 
                         def __init__(self):
                             super(Syslog.Correlator.Rules.Rule.Stateful.RootCause, self).__init__()
 
                             self.yang_name = "root-cause"
                             self.yang_parent_name = "stateful"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.category = YLeaf(YType.str, "category")
 
                             self.group = YLeaf(YType.str, "group")
 
                             self.message_code = YLeaf(YType.str, "message-code")
+                            self._segment_path = lambda: "root-cause"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("category",
-                                            "group",
-                                            "message_code") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.Stateful.RootCause, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.Stateful.RootCause, self).__setattr__(name, value)
+                            self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.RootCause, ['category', 'group', 'message_code'], name, value)
 
-                        def has_data(self):
-                            return (
-                                self.category.is_set or
-                                self.group.is_set or
-                                self.message_code.is_set)
 
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.category.yfilter != YFilter.not_set or
-                                self.group.yfilter != YFilter.not_set or
-                                self.message_code.yfilter != YFilter.not_set)
+    class Files(Entity):
+        """
+        Configure logging file destination
+        
+        .. attribute:: file
+        
+        	Specify File Name
+        	**type**\: list of    :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File>`
+        
+        
 
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "root-cause" + path_buffer
+        """
 
-                            return path_buffer
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
 
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(Syslog.Files, self).__init__()
 
-                            leaf_name_data = LeafDataList()
-                            if (self.category.is_set or self.category.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.category.get_name_leafdata())
-                            if (self.group.is_set or self.group.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.group.get_name_leafdata())
-                            if (self.message_code.is_set or self.message_code.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.message_code.get_name_leafdata())
+            self.yang_name = "files"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"file" : ("file", Syslog.Files.File)}
 
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
+            self.file = YList(self)
+            self._segment_path = lambda: "files"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.Files, [], name, value)
 
-                            return None
 
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "category" or name == "group" or name == "message-code"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "category"):
-                                self.category = value
-                                self.category.value_namespace = name_space
-                                self.category.value_namespace_prefix = name_space_prefix
-                            if(value_path == "group"):
-                                self.group = value
-                                self.group.value_namespace = name_space
-                                self.group.value_namespace_prefix = name_space_prefix
-                            if(value_path == "message-code"):
-                                self.message_code = value
-                                self.message_code.value_namespace = name_space
-                                self.message_code.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        return (
-                            self.context_correlation.is_set or
-                            self.reissue.is_set or
-                            self.reparent.is_set or
-                            self.timeout.is_set or
-                            self.timeout_root_cause.is_set or
-                            (self.non_root_causes is not None and self.non_root_causes.has_data()) or
-                            (self.root_cause is not None and self.root_cause.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.context_correlation.yfilter != YFilter.not_set or
-                            self.reissue.yfilter != YFilter.not_set or
-                            self.reparent.yfilter != YFilter.not_set or
-                            self.timeout.yfilter != YFilter.not_set or
-                            self.timeout_root_cause.yfilter != YFilter.not_set or
-                            (self.non_root_causes is not None and self.non_root_causes.has_operation()) or
-                            (self.root_cause is not None and self.root_cause.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "stateful" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.context_correlation.is_set or self.context_correlation.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.context_correlation.get_name_leafdata())
-                        if (self.reissue.is_set or self.reissue.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.reissue.get_name_leafdata())
-                        if (self.reparent.is_set or self.reparent.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.reparent.get_name_leafdata())
-                        if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.timeout.get_name_leafdata())
-                        if (self.timeout_root_cause.is_set or self.timeout_root_cause.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.timeout_root_cause.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "non-root-causes"):
-                            if (self.non_root_causes is None):
-                                self.non_root_causes = Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses()
-                                self.non_root_causes.parent = self
-                                self._children_name_map["non_root_causes"] = "non-root-causes"
-                            return self.non_root_causes
-
-                        if (child_yang_name == "root-cause"):
-                            if (self.root_cause is None):
-                                self.root_cause = Syslog.Correlator.Rules.Rule.Stateful.RootCause()
-                                self.root_cause.parent = self
-                                self._children_name_map["root_cause"] = "root-cause"
-                            return self.root_cause
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "non-root-causes" or name == "root-cause" or name == "context-correlation" or name == "reissue" or name == "reparent" or name == "timeout" or name == "timeout-root-cause"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "context-correlation"):
-                            self.context_correlation = value
-                            self.context_correlation.value_namespace = name_space
-                            self.context_correlation.value_namespace_prefix = name_space_prefix
-                        if(value_path == "reissue"):
-                            self.reissue = value
-                            self.reissue.value_namespace = name_space
-                            self.reissue.value_namespace_prefix = name_space_prefix
-                        if(value_path == "reparent"):
-                            self.reparent = value
-                            self.reparent.value_namespace = name_space
-                            self.reparent.value_namespace_prefix = name_space_prefix
-                        if(value_path == "timeout"):
-                            self.timeout = value
-                            self.timeout.value_namespace = name_space
-                            self.timeout.value_namespace_prefix = name_space_prefix
-                        if(value_path == "timeout-root-cause"):
-                            self.timeout_root_cause = value
-                            self.timeout_root_cause.value_namespace = name_space
-                            self.timeout_root_cause.value_namespace_prefix = name_space_prefix
-
-
-                class ApplyTo(Entity):
-                    """
-                    Apply the Rules
-                    
-                    .. attribute:: all_of_router
-                    
-                    	Apply the rule to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: contexts
-                    
-                    	Apply rule to a specified list of contexts, e.g. interfaces
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Contexts>`
-                    
-                    .. attribute:: locations
-                    
-                    	Apply rule to a specified list of Locations
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Locations>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__init__()
-
-                        self.yang_name = "apply-to"
-                        self.yang_parent_name = "rule"
-
-                        self.all_of_router = YLeaf(YType.empty, "all-of-router")
-
-                        self.contexts = Syslog.Correlator.Rules.Rule.ApplyTo.Contexts()
-                        self.contexts.parent = self
-                        self._children_name_map["contexts"] = "contexts"
-                        self._children_yang_names.add("contexts")
-
-                        self.locations = Syslog.Correlator.Rules.Rule.ApplyTo.Locations()
-                        self.locations.parent = self
-                        self._children_name_map["locations"] = "locations"
-                        self._children_yang_names.add("locations")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("all_of_router") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__setattr__(name, value)
-
-
-                    class Contexts(Entity):
-                        """
-                        Apply rule to a specified list of contexts,
-                        e.g. interfaces
-                        
-                        .. attribute:: context
-                        
-                        	One or more context names
-                        	**type**\:  list of str
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__init__()
-
-                            self.yang_name = "contexts"
-                            self.yang_parent_name = "apply-to"
-
-                            self.context = YLeafList(YType.str, "context")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("context") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            for leaf in self.context.getYLeafs():
-                                if (leaf.yfilter != YFilter.not_set):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for leaf in self.context.getYLeafs():
-                                if (leaf.is_set):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.context.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "contexts" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            leaf_name_data.extend(self.context.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "context"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "context"):
-                                self.context.append(value)
-
-
-                    class Locations(Entity):
-                        """
-                        Apply rule to a specified list of Locations
-                        
-                        .. attribute:: location
-                        
-                        	One or more Locations
-                        	**type**\:  list of str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__init__()
-
-                            self.yang_name = "locations"
-                            self.yang_parent_name = "apply-to"
-
-                            self.location = YLeafList(YType.str, "location")
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("location") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            for leaf in self.location.getYLeafs():
-                                if (leaf.yfilter != YFilter.not_set):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for leaf in self.location.getYLeafs():
-                                if (leaf.is_set):
-                                    return True
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.location.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "locations" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            leaf_name_data.extend(self.location.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "location"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "location"):
-                                self.location.append(value)
-
-                    def has_data(self):
-                        return (
-                            self.all_of_router.is_set or
-                            (self.contexts is not None and self.contexts.has_data()) or
-                            (self.locations is not None and self.locations.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.all_of_router.yfilter != YFilter.not_set or
-                            (self.contexts is not None and self.contexts.has_operation()) or
-                            (self.locations is not None and self.locations.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "apply-to" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.all_of_router.is_set or self.all_of_router.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.all_of_router.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "contexts"):
-                            if (self.contexts is None):
-                                self.contexts = Syslog.Correlator.Rules.Rule.ApplyTo.Contexts()
-                                self.contexts.parent = self
-                                self._children_name_map["contexts"] = "contexts"
-                            return self.contexts
-
-                        if (child_yang_name == "locations"):
-                            if (self.locations is None):
-                                self.locations = Syslog.Correlator.Rules.Rule.ApplyTo.Locations()
-                                self.locations.parent = self
-                                self._children_name_map["locations"] = "locations"
-                            return self.locations
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "contexts" or name == "locations" or name == "all-of-router"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "all-of-router"):
-                            self.all_of_router = value
-                            self.all_of_router.value_namespace = name_space
-                            self.all_of_router.value_namespace_prefix = name_space_prefix
-
-
-                class AppliedTo(Entity):
-                    """
-                    Applied to the Rule or Ruleset
-                    
-                    .. attribute:: all
-                    
-                    	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: contexts
-                    
-                    	Table of configured contexts to apply
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts>`
-                    
-                    .. attribute:: locations
-                    
-                    	Table of configured locations to apply
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__init__()
-
-                        self.yang_name = "applied-to"
-                        self.yang_parent_name = "rule"
-
-                        self.all = YLeaf(YType.empty, "all")
-
-                        self.contexts = Syslog.Correlator.Rules.Rule.AppliedTo.Contexts()
-                        self.contexts.parent = self
-                        self._children_name_map["contexts"] = "contexts"
-                        self._children_yang_names.add("contexts")
-
-                        self.locations = Syslog.Correlator.Rules.Rule.AppliedTo.Locations()
-                        self.locations.parent = self
-                        self._children_name_map["locations"] = "locations"
-                        self._children_yang_names.add("locations")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("all") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__setattr__(name, value)
-
-
-                    class Contexts(Entity):
-                        """
-                        Table of configured contexts to apply
-                        
-                        .. attribute:: context
-                        
-                        	A context
-                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__init__()
-
-                            self.yang_name = "contexts"
-                            self.yang_parent_name = "applied-to"
-
-                            self.context = YList(self)
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__setattr__(name, value)
-
-
-                        class Context(Entity):
-                            """
-                            A context
-                            
-                            .. attribute:: context  <key>
-                            
-                            	Context
-                            	**type**\:  str
-                            
-                            	**length:** 1..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__init__()
-
-                                self.yang_name = "context"
-                                self.yang_parent_name = "contexts"
-
-                                self.context = YLeaf(YType.str, "context")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("context") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.context.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.context.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "context" + "[context='" + self.context.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.context.is_set or self.context.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.context.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "context"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "context"):
-                                    self.context = value
-                                    self.context.value_namespace = name_space
-                                    self.context.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.context:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.context:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "contexts" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "context"):
-                                for c in self.context:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.context.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "context"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-
-                    class Locations(Entity):
-                        """
-                        Table of configured locations to apply
-                        
-                        .. attribute:: location
-                        
-                        	A location
-                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__init__()
-
-                            self.yang_name = "locations"
-                            self.yang_parent_name = "applied-to"
-
-                            self.location = YList(self)
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__setattr__(name, value)
-
-
-                        class Location(Entity):
-                            """
-                            A location
-                            
-                            .. attribute:: location  <key>
-                            
-                            	Location
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__init__()
-
-                                self.yang_name = "location"
-                                self.yang_parent_name = "locations"
-
-                                self.location = YLeaf(YType.str, "location")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("location") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.location.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.location.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "location" + "[location='" + self.location.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.location.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "location"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "location"):
-                                    self.location = value
-                                    self.location.value_namespace = name_space
-                                    self.location.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.location:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.location:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "locations" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "location"):
-                                for c in self.location:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.location.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "location"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            self.all.is_set or
-                            (self.contexts is not None and self.contexts.has_data()) or
-                            (self.locations is not None and self.locations.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.all.yfilter != YFilter.not_set or
-                            (self.contexts is not None and self.contexts.has_operation()) or
-                            (self.locations is not None and self.locations.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "applied-to" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.all.is_set or self.all.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.all.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "contexts"):
-                            if (self.contexts is None):
-                                self.contexts = Syslog.Correlator.Rules.Rule.AppliedTo.Contexts()
-                                self.contexts.parent = self
-                                self._children_name_map["contexts"] = "contexts"
-                            return self.contexts
-
-                        if (child_yang_name == "locations"):
-                            if (self.locations is None):
-                                self.locations = Syslog.Correlator.Rules.Rule.AppliedTo.Locations()
-                                self.locations.parent = self
-                                self._children_name_map["locations"] = "locations"
-                            return self.locations
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "contexts" or name == "locations" or name == "all"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "all"):
-                            self.all = value
-                            self.all.value_namespace = name_space
-                            self.all.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.name.is_set or
-                        (self.applied_to is not None and self.applied_to.has_data()) or
-                        (self.apply_to is not None and self.apply_to.has_data()) or
-                        (self.definition is not None and self.definition.has_data()) or
-                        (self.non_stateful is not None and self.non_stateful.has_data()) or
-                        (self.stateful is not None and self.stateful.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.name.yfilter != YFilter.not_set or
-                        (self.applied_to is not None and self.applied_to.has_operation()) or
-                        (self.apply_to is not None and self.apply_to.has_operation()) or
-                        (self.definition is not None and self.definition.has_operation()) or
-                        (self.non_stateful is not None and self.non_stateful.has_operation()) or
-                        (self.stateful is not None and self.stateful.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "rule" + "[name='" + self.name.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/rules/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.name.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "applied-to"):
-                        if (self.applied_to is None):
-                            self.applied_to = Syslog.Correlator.Rules.Rule.AppliedTo()
-                            self.applied_to.parent = self
-                            self._children_name_map["applied_to"] = "applied-to"
-                        return self.applied_to
-
-                    if (child_yang_name == "apply-to"):
-                        if (self.apply_to is None):
-                            self.apply_to = Syslog.Correlator.Rules.Rule.ApplyTo()
-                            self.apply_to.parent = self
-                            self._children_name_map["apply_to"] = "apply-to"
-                        return self.apply_to
-
-                    if (child_yang_name == "definition"):
-                        if (self.definition is None):
-                            self.definition = Syslog.Correlator.Rules.Rule.Definition()
-                            self.definition.parent = self
-                            self._children_name_map["definition"] = "definition"
-                        return self.definition
-
-                    if (child_yang_name == "non-stateful"):
-                        if (self.non_stateful is None):
-                            self.non_stateful = Syslog.Correlator.Rules.Rule.NonStateful()
-                            self.non_stateful.parent = self
-                            self._children_name_map["non_stateful"] = "non-stateful"
-                        return self.non_stateful
-
-                    if (child_yang_name == "stateful"):
-                        if (self.stateful is None):
-                            self.stateful = Syslog.Correlator.Rules.Rule.Stateful()
-                            self.stateful.parent = self
-                            self._children_name_map["stateful"] = "stateful"
-                        return self.stateful
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "applied-to" or name == "apply-to" or name == "definition" or name == "non-stateful" or name == "stateful" or name == "name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "name"):
-                        self.name = value
-                        self.name.value_namespace = name_space
-                        self.name.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.rule:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.rule:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "rules" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "rule"):
-                    for c in self.rule:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.Correlator.Rules.Rule()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.rule.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "rule"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-
-        class RuleSets(Entity):
+        class File(Entity):
             """
-            Table of configured rulesets
+            Specify File Name
             
-            .. attribute:: rule_set
+            .. attribute:: file_name  <key>
             
-            	Ruleset name
-            	**type**\: list of    :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet>`
+            	Name of the file
+            	**type**\:  str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            .. attribute:: file_log_attributes
+            
+            	Attributes of the logging file destination
+            	**type**\:   :py:class:`FileLogAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogAttributes>`
+            
+            .. attribute:: file_log_discriminator
+            
+            	Set File logging discriminators
+            	**type**\:   :py:class:`FileLogDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogDiscriminator>`
+            
+            .. attribute:: file_specification
+            
+            	Specifications of the logging file destination
+            	**type**\:   :py:class:`FileSpecification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
+            
+            	**status**\: obsolete
             
             
 
             """
 
-            _prefix = 'infra-correlator-cfg'
-            _revision = '2015-11-09'
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
 
             def __init__(self):
-                super(Syslog.Correlator.RuleSets, self).__init__()
+                super(Syslog.Files.File, self).__init__()
 
-                self.yang_name = "rule-sets"
-                self.yang_parent_name = "correlator"
+                self.yang_name = "file"
+                self.yang_parent_name = "files"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"file-log-attributes" : ("file_log_attributes", Syslog.Files.File.FileLogAttributes), "file-log-discriminator" : ("file_log_discriminator", Syslog.Files.File.FileLogDiscriminator), "file-specification" : ("file_specification", Syslog.Files.File.FileSpecification)}
+                self._child_list_classes = {}
 
-                self.rule_set = YList(self)
+                self.file_name = YLeaf(YType.str, "file-name")
+
+                self.file_log_attributes = Syslog.Files.File.FileLogAttributes()
+                self.file_log_attributes.parent = self
+                self._children_name_map["file_log_attributes"] = "file-log-attributes"
+                self._children_yang_names.add("file-log-attributes")
+
+                self.file_log_discriminator = Syslog.Files.File.FileLogDiscriminator()
+                self.file_log_discriminator.parent = self
+                self._children_name_map["file_log_discriminator"] = "file-log-discriminator"
+                self._children_yang_names.add("file-log-discriminator")
+
+                self.file_specification = Syslog.Files.File.FileSpecification()
+                self.file_specification.parent = self
+                self._children_name_map["file_specification"] = "file-specification"
+                self._children_yang_names.add("file-specification")
+                self._segment_path = lambda: "file" + "[file-name='" + self.file_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/files/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Correlator.RuleSets, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Correlator.RuleSets, self).__setattr__(name, value)
+                self._perform_setattr(Syslog.Files.File, ['file_name'], name, value)
 
 
-            class RuleSet(Entity):
+            class FileLogAttributes(Entity):
                 """
-                Ruleset name
+                Attributes of the logging file destination
                 
-                .. attribute:: name  <key>
+                .. attribute:: max_file_size
                 
-                	Ruleset name
-                	**type**\:  str
+                	Maximum file size (in KB)
+                	**type**\:  int
                 
-                	**length:** 1..32
+                	**range:** \-2147483648..2147483647
                 
-                .. attribute:: applied_to
+                	**default value**\: 1024
                 
-                	Applied to the Rule or Ruleset
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo>`
+                .. attribute:: severity
                 
-                .. attribute:: rulenames
+                	Severity of messages
+                	**type**\:  int
                 
-                	Table of configured rulenames
-                	**type**\:   :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames>`
+                	**range:** \-2147483648..2147483647
+                
+                	**default value**\: 6
                 
                 
 
                 """
 
-                _prefix = 'infra-correlator-cfg'
-                _revision = '2015-11-09'
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
 
                 def __init__(self):
-                    super(Syslog.Correlator.RuleSets.RuleSet, self).__init__()
+                    super(Syslog.Files.File.FileLogAttributes, self).__init__()
 
-                    self.yang_name = "rule-set"
-                    self.yang_parent_name = "rule-sets"
+                    self.yang_name = "file-log-attributes"
+                    self.yang_parent_name = "file"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-                    self.name = YLeaf(YType.str, "name")
+                    self.max_file_size = YLeaf(YType.int32, "max-file-size")
 
-                    self.applied_to = Syslog.Correlator.RuleSets.RuleSet.AppliedTo()
-                    self.applied_to.parent = self
-                    self._children_name_map["applied_to"] = "applied-to"
-                    self._children_yang_names.add("applied-to")
-
-                    self.rulenames = Syslog.Correlator.RuleSets.RuleSet.Rulenames()
-                    self.rulenames.parent = self
-                    self._children_name_map["rulenames"] = "rulenames"
-                    self._children_yang_names.add("rulenames")
+                    self.severity = YLeaf(YType.int32, "severity")
+                    self._segment_path = lambda: "file-log-attributes"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("name") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Correlator.RuleSets.RuleSet, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Correlator.RuleSets.RuleSet, self).__setattr__(name, value)
+                    self._perform_setattr(Syslog.Files.File.FileLogAttributes, ['max_file_size', 'severity'], name, value)
 
 
-                class Rulenames(Entity):
+            class FileLogDiscriminator(Entity):
+                """
+                Set File logging discriminators
+                
+                .. attribute:: match1
+                
+                	Set file logging match discriminator 1
+                	**type**\:  str
+                
+                .. attribute:: match2
+                
+                	Set file logging match discriminator 2
+                	**type**\:  str
+                
+                .. attribute:: match3
+                
+                	Set file logging match discriminator 3
+                	**type**\:  str
+                
+                .. attribute:: nomatch1
+                
+                	Set file logging no match discriminator 1
+                	**type**\:  str
+                
+                .. attribute:: nomatch2
+                
+                	Set file logging no match discriminator 2
+                	**type**\:  str
+                
+                .. attribute:: nomatch3
+                
+                	Set file logging no match discriminator 3
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(Syslog.Files.File.FileLogDiscriminator, self).__init__()
+
+                    self.yang_name = "file-log-discriminator"
+                    self.yang_parent_name = "file"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.match1 = YLeaf(YType.str, "match1")
+
+                    self.match2 = YLeaf(YType.str, "match2")
+
+                    self.match3 = YLeaf(YType.str, "match3")
+
+                    self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                    self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                    self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                    self._segment_path = lambda: "file-log-discriminator"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.Files.File.FileLogDiscriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
+
+
+            class FileSpecification(Entity):
+                """
+                Specifications of the logging file destination
+                
+                .. attribute:: max_file_size
+                
+                	Maximum file size (in KB)
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                	**default value**\: 1024
+                
+                .. attribute:: path
+                
+                	File path
+                	**type**\:  str
+                
+                .. attribute:: severity
+                
+                	Severity of messages
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                	**default value**\: 6
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(Syslog.Files.File.FileSpecification, self).__init__()
+
+                    self.yang_name = "file-specification"
+                    self.yang_parent_name = "file"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.max_file_size = YLeaf(YType.int32, "max-file-size")
+
+                    self.path = YLeaf(YType.str, "path")
+
+                    self.severity = YLeaf(YType.int32, "severity")
+                    self._segment_path = lambda: "file-specification"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.Files.File.FileSpecification, ['max_file_size', 'path', 'severity'], name, value)
+
+
+    class HistoryLogging(Entity):
+        """
+        Set history logging
+        
+        .. attribute:: history_size
+        
+        	Logging history size
+        	**type**\:  int
+        
+        	**range:** 1..500
+        
+        	**default value**\: 1
+        
+        .. attribute:: logging_level
+        
+        	History logging level
+        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        
+        	**default value**\: warning
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.HistoryLogging, self).__init__()
+
+            self.yang_name = "history-logging"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.history_size = YLeaf(YType.uint32, "history-size")
+
+            self.logging_level = YLeaf(YType.enumeration, "logging-level")
+            self._segment_path = lambda: "history-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.HistoryLogging, ['history_size', 'logging_level'], name, value)
+
+
+    class HostServer(Entity):
+        """
+        Configure logging host
+        
+        .. attribute:: vrfs
+        
+        	VRF table
+        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.HostServer, self).__init__()
+
+            self.yang_name = "host-server"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"vrfs" : ("vrfs", Syslog.HostServer.Vrfs)}
+            self._child_list_classes = {}
+
+            self.vrfs = Syslog.HostServer.Vrfs()
+            self.vrfs.parent = self
+            self._children_name_map["vrfs"] = "vrfs"
+            self._children_yang_names.add("vrfs")
+            self._segment_path = lambda: "host-server"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+
+        class Vrfs(Entity):
+            """
+            VRF table
+            
+            .. attribute:: vrf
+            
+            	VRF specific data
+            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.HostServer.Vrfs, self).__init__()
+
+                self.yang_name = "vrfs"
+                self.yang_parent_name = "host-server"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"vrf" : ("vrf", Syslog.HostServer.Vrfs.Vrf)}
+
+                self.vrf = YList(self)
+                self._segment_path = lambda: "vrfs"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/host-server/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.HostServer.Vrfs, [], name, value)
+
+
+            class Vrf(Entity):
+                """
+                VRF specific data
+                
+                .. attribute:: vrf_name  <key>
+                
+                	Name of the VRF instance
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: hosts
+                
+                	List of the logging host
+                	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts>`
+                
+                .. attribute:: ipv4s
+                
+                	List of the IPv4 logging host
+                	**type**\:   :py:class:`Ipv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
+                
+                .. attribute:: ipv6s
+                
+                	List of the IPv6 logging host
+                	**type**\:   :py:class:`Ipv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(Syslog.HostServer.Vrfs.Vrf, self).__init__()
+
+                    self.yang_name = "vrf"
+                    self.yang_parent_name = "vrfs"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"hosts" : ("hosts", Syslog.HostServer.Vrfs.Vrf.Hosts), "ipv4s" : ("ipv4s", Syslog.HostServer.Vrfs.Vrf.Ipv4S), "ipv6s" : ("ipv6s", Syslog.HostServer.Vrfs.Vrf.Ipv6S)}
+                    self._child_list_classes = {}
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.hosts = Syslog.HostServer.Vrfs.Vrf.Hosts()
+                    self.hosts.parent = self
+                    self._children_name_map["hosts"] = "hosts"
+                    self._children_yang_names.add("hosts")
+
+                    self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4S()
+                    self.ipv4s.parent = self
+                    self._children_name_map["ipv4s"] = "ipv4s"
+                    self._children_yang_names.add("ipv4s")
+
+                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
+                    self.ipv6s.parent = self
+                    self._children_name_map["ipv6s"] = "ipv6s"
+                    self._children_yang_names.add("ipv6s")
+                    self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/host-server/vrfs/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf, ['vrf_name'], name, value)
+
+
+                class Hosts(Entity):
                     """
-                    Table of configured rulenames
+                    List of the logging host
                     
-                    .. attribute:: rulename
+                    .. attribute:: host
                     
-                    	A rulename
-                    	**type**\: list of    :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
+                    	Name of the logging host
+                    	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host>`
                     
                     
 
                     """
 
-                    _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
-                        super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
+                        super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__init__()
 
-                        self.yang_name = "rulenames"
-                        self.yang_parent_name = "rule-set"
+                        self.yang_name = "hosts"
+                        self.yang_parent_name = "vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"host" : ("host", Syslog.HostServer.Vrfs.Vrf.Hosts.Host)}
 
-                        self.rulename = YList(self)
+                        self.host = YList(self)
+                        self._segment_path = lambda: "hosts"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__setattr__(name, value)
+                        self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts, [], name, value)
 
 
-                    class Rulename(Entity):
+                    class Host(Entity):
                         """
-                        A rulename
+                        Name of the logging host
                         
-                        .. attribute:: rulename  <key>
+                        .. attribute:: host_name  <key>
                         
-                        	Rule name
+                        	Name of the logging host
                         	**type**\:  str
                         
-                        	**length:** 1..32
+                        .. attribute:: host_name_discriminator
+                        
+                        	Set Hostname logging discriminators
+                        	**type**\:   :py:class:`HostNameDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator>`
+                        
+                        .. attribute:: host_name_severities
+                        
+                        	Severity container of the logging host
+                        	**type**\:   :py:class:`HostNameSeverities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
+                        
+                        	**status**\: obsolete
+                        
+                        .. attribute:: host_severity_port
+                        
+                        	Severity/Port for the logging host
+                        	**type**\:   :py:class:`HostSeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort>`
+                        
+                        	**presence node**\: True
                         
                         
 
                         """
 
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _prefix = 'infra-syslog-cfg'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
+                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__init__()
 
-                            self.yang_name = "rulename"
-                            self.yang_parent_name = "rulenames"
+                            self.yang_name = "host"
+                            self.yang_parent_name = "hosts"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"host-name-discriminator" : ("host_name_discriminator", Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator), "host-name-severities" : ("host_name_severities", Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities), "host-severity-port" : ("host_severity_port", Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort)}
+                            self._child_list_classes = {}
 
-                            self.rulename = YLeaf(YType.str, "rulename")
+                            self.host_name = YLeaf(YType.str, "host-name")
+
+                            self.host_name_discriminator = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator()
+                            self.host_name_discriminator.parent = self
+                            self._children_name_map["host_name_discriminator"] = "host-name-discriminator"
+                            self._children_yang_names.add("host-name-discriminator")
+
+                            self.host_name_severities = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities()
+                            self.host_name_severities.parent = self
+                            self._children_name_map["host_name_severities"] = "host-name-severities"
+                            self._children_yang_names.add("host-name-severities")
+
+                            self.host_severity_port = None
+                            self._children_name_map["host_severity_port"] = "host-severity-port"
+                            self._children_yang_names.add("host-severity-port")
+                            self._segment_path = lambda: "host" + "[host-name='" + self.host_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("rulename") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return self.rulename.is_set
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.rulename.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "rulename" + "[rulename='" + self.rulename.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.rulename.is_set or self.rulename.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.rulename.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "rulename"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "rulename"):
-                                self.rulename = value
-                                self.rulename.value_namespace = name_space
-                                self.rulename.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.rulename:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.rulename:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "rulenames" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "rulename"):
-                            for c in self.rulename:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.rulename.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "rulename"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, ['host_name'], name, value)
 
 
-                class AppliedTo(Entity):
+                        class HostNameDiscriminator(Entity):
+                            """
+                            Set Hostname logging discriminators
+                            
+                            .. attribute:: match1
+                            
+                            	Set hostname logging match1 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: match2
+                            
+                            	Set hostname logging match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: match3
+                            
+                            	Set hostname logging match3 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch1
+                            
+                            	Set hostname logging no\-match1 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch2
+                            
+                            	Set hostname logging no\-match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set hostname logging no\-match3 discriminator
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator, self).__init__()
+
+                                self.yang_name = "host-name-discriminator"
+                                self.yang_parent_name = "host"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.match1 = YLeaf(YType.str, "match1")
+
+                                self.match2 = YLeaf(YType.str, "match2")
+
+                                self.match3 = YLeaf(YType.str, "match3")
+
+                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                                self._segment_path = lambda: "host-name-discriminator"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
+
+
+                        class HostNameSeverities(Entity):
+                            """
+                            Severity container of the logging host
+                            
+                            .. attribute:: host_name_severity
+                            
+                            	Severity for the logging host
+                            	**type**\: list of    :py:class:`HostNameSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity>`
+                            
+                            	**status**\: obsolete
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__init__()
+
+                                self.yang_name = "host-name-severities"
+                                self.yang_parent_name = "host"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"host-name-severity" : ("host_name_severity", Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity)}
+
+                                self.host_name_severity = YList(self)
+                                self._segment_path = lambda: "host-name-severities"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, [], name, value)
+
+
+                            class HostNameSeverity(Entity):
+                                """
+                                Severity for the logging host
+                                
+                                .. attribute:: severity  <key>
+                                
+                                	Severity for the logging host
+                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-syslog-cfg'
+                                _revision = '2016-06-22'
+
+                                def __init__(self):
+                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__init__()
+
+                                    self.yang_name = "host-name-severity"
+                                    self.yang_parent_name = "host-name-severities"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.severity = YLeaf(YType.enumeration, "severity")
+                                    self._segment_path = lambda: "host-name-severity" + "[severity='" + self.severity.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, ['severity'], name, value)
+
+
+                        class HostSeverityPort(Entity):
+                            """
+                            Severity/Port for the logging host
+                            
+                            .. attribute:: port
+                            
+                            	Port for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 514
+                            
+                            .. attribute:: severity
+                            
+                            	Severity for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 6
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__init__()
+
+                                self.yang_name = "host-severity-port"
+                                self.yang_parent_name = "host"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self.is_presence_container = True
+
+                                self.port = YLeaf(YType.int32, "port")
+
+                                self.severity = YLeaf(YType.int32, "severity")
+                                self._segment_path = lambda: "host-severity-port"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, ['port', 'severity'], name, value)
+
+
+                class Ipv4S(Entity):
                     """
-                    Applied to the Rule or Ruleset
+                    List of the IPv4 logging host
                     
-                    .. attribute:: all
+                    .. attribute:: ipv4
                     
-                    	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: contexts
-                    
-                    	Table of configured contexts to apply
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts>`
-                    
-                    .. attribute:: locations
-                    
-                    	Table of configured locations to apply
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations>`
+                    	IPv4 address of the logging host
+                    	**type**\: list of    :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4>`
                     
                     
 
                     """
 
-                    _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
-                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
+                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4S, self).__init__()
 
-                        self.yang_name = "applied-to"
-                        self.yang_parent_name = "rule-set"
+                        self.yang_name = "ipv4s"
+                        self.yang_parent_name = "vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"ipv4" : ("ipv4", Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4)}
 
-                        self.all = YLeaf(YType.empty, "all")
-
-                        self.contexts = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts()
-                        self.contexts.parent = self
-                        self._children_name_map["contexts"] = "contexts"
-                        self._children_yang_names.add("contexts")
-
-                        self.locations = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations()
-                        self.locations.parent = self
-                        self._children_name_map["locations"] = "locations"
-                        self._children_yang_names.add("locations")
+                        self.ipv4 = YList(self)
+                        self._segment_path = lambda: "ipv4s"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("all") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__setattr__(name, value)
+                        self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S, [], name, value)
 
 
-                    class Contexts(Entity):
+                    class Ipv4(Entity):
                         """
-                        Table of configured contexts to apply
+                        IPv4 address of the logging host
                         
-                        .. attribute:: context
+                        .. attribute:: address  <key>
                         
-                        	A context
-                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context>`
+                        	IPv4 address of the logging host
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv4_discriminator
+                        
+                        	Set IPv4 logging discriminators
+                        	**type**\:   :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
+                        
+                        .. attribute:: ipv4_severity_levels
+                        
+                        	Severity container of the logging host
+                        	**type**\:   :py:class:`Ipv4SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels>`
+                        
+                        	**status**\: obsolete
+                        
+                        .. attribute:: ipv4_severity_port
+                        
+                        	Severity/Port for the logging host
+                        	**type**\:   :py:class:`Ipv4SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
+                        
+                        	**presence node**\: True
                         
                         
 
                         """
 
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _prefix = 'infra-syslog-cfg'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__init__()
+                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4, self).__init__()
 
-                            self.yang_name = "contexts"
-                            self.yang_parent_name = "applied-to"
+                            self.yang_name = "ipv4"
+                            self.yang_parent_name = "ipv4s"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"ipv4-discriminator" : ("ipv4_discriminator", Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator), "ipv4-severity-levels" : ("ipv4_severity_levels", Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels), "ipv4-severity-port" : ("ipv4_severity_port", Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort)}
+                            self._child_list_classes = {}
 
-                            self.context = YList(self)
+                            self.address = YLeaf(YType.str, "address")
+
+                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
+                            self.ipv4_discriminator.parent = self
+                            self._children_name_map["ipv4_discriminator"] = "ipv4-discriminator"
+                            self._children_yang_names.add("ipv4-discriminator")
+
+                            self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels()
+                            self.ipv4_severity_levels.parent = self
+                            self._children_name_map["ipv4_severity_levels"] = "ipv4-severity-levels"
+                            self._children_yang_names.add("ipv4-severity-levels")
+
+                            self.ipv4_severity_port = None
+                            self._children_name_map["ipv4_severity_port"] = "ipv4-severity-port"
+                            self._children_yang_names.add("ipv4-severity-port")
+                            self._segment_path = lambda: "ipv4" + "[address='" + self.address.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__setattr__(name, value)
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4, ['address'], name, value)
 
 
-                        class Context(Entity):
+                        class Ipv4Discriminator(Entity):
                             """
-                            A context
+                            Set IPv4 logging discriminators
                             
-                            .. attribute:: context  <key>
+                            .. attribute:: match1
                             
-                            	Context
+                            	Set IPv4 logging match1 discriminator
                             	**type**\:  str
                             
-                            	**length:** 1..32
+                            .. attribute:: match2
+                            
+                            	Set IPv4 logging match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: match3
+                            
+                            	Set IPv4 logging match3 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch1
+                            
+                            	Set IPv4 logging no\-match1 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch2
+                            
+                            	Set IPv4 logging no\-match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set IPv4 logging no\-match3 discriminator
+                            	**type**\:  str
                             
                             
 
                             """
 
-                            _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
-                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__init__()
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator, self).__init__()
 
-                                self.yang_name = "context"
-                                self.yang_parent_name = "contexts"
+                                self.yang_name = "ipv4-discriminator"
+                                self.yang_parent_name = "ipv4"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                                self.context = YLeaf(YType.str, "context")
+                                self.match1 = YLeaf(YType.str, "match1")
+
+                                self.match2 = YLeaf(YType.str, "match2")
+
+                                self.match3 = YLeaf(YType.str, "match3")
+
+                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                                self._segment_path = lambda: "ipv4-discriminator"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("context") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.context.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.context.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "context" + "[context='" + self.context.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.context.is_set or self.context.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.context.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "context"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "context"):
-                                    self.context = value
-                                    self.context.value_namespace = name_space
-                                    self.context.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.context:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.context:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "contexts" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "context"):
-                                for c in self.context:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.context.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "context"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
 
 
-                    class Locations(Entity):
+                        class Ipv4SeverityLevels(Entity):
+                            """
+                            Severity container of the logging host
+                            
+                            .. attribute:: ipv4_severity_level
+                            
+                            	Severity for the logging host
+                            	**type**\: list of    :py:class:`Ipv4SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
+                            
+                            	**status**\: obsolete
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels, self).__init__()
+
+                                self.yang_name = "ipv4-severity-levels"
+                                self.yang_parent_name = "ipv4"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"ipv4-severity-level" : ("ipv4_severity_level", Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel)}
+
+                                self.ipv4_severity_level = YList(self)
+                                self._segment_path = lambda: "ipv4-severity-levels"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels, [], name, value)
+
+
+                            class Ipv4SeverityLevel(Entity):
+                                """
+                                Severity for the logging host
+                                
+                                .. attribute:: severity  <key>
+                                
+                                	Severity for the logging host
+                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-syslog-cfg'
+                                _revision = '2016-06-22'
+
+                                def __init__(self):
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__init__()
+
+                                    self.yang_name = "ipv4-severity-level"
+                                    self.yang_parent_name = "ipv4-severity-levels"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.severity = YLeaf(YType.enumeration, "severity")
+                                    self._segment_path = lambda: "ipv4-severity-level" + "[severity='" + self.severity.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, ['severity'], name, value)
+
+
+                        class Ipv4SeverityPort(Entity):
+                            """
+                            Severity/Port for the logging host
+                            
+                            .. attribute:: port
+                            
+                            	Port for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 514
+                            
+                            .. attribute:: severity
+                            
+                            	Severity for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 6
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort, self).__init__()
+
+                                self.yang_name = "ipv4-severity-port"
+                                self.yang_parent_name = "ipv4"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self.is_presence_container = True
+
+                                self.port = YLeaf(YType.int32, "port")
+
+                                self.severity = YLeaf(YType.int32, "severity")
+                                self._segment_path = lambda: "ipv4-severity-port"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort, ['port', 'severity'], name, value)
+
+
+                class Ipv6S(Entity):
+                    """
+                    List of the IPv6 logging host
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address of the logging host
+                    	**type**\: list of    :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
+
+                    def __init__(self):
+                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6S, self).__init__()
+
+                        self.yang_name = "ipv6s"
+                        self.yang_parent_name = "vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"ipv6" : ("ipv6", Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6)}
+
+                        self.ipv6 = YList(self)
+                        self._segment_path = lambda: "ipv6s"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S, [], name, value)
+
+
+                    class Ipv6(Entity):
                         """
-                        Table of configured locations to apply
+                        IPv6 address of the logging host
                         
-                        .. attribute:: location
+                        .. attribute:: address  <key>
                         
-                        	A location
-                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location>`
+                        	IPv6 address of the logging host
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_discriminator
+                        
+                        	Set IPv6 logging discriminators
+                        	**type**\:   :py:class:`Ipv6Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator>`
+                        
+                        .. attribute:: ipv6_severity_levels
+                        
+                        	Severity container of the logging host
+                        	**type**\:   :py:class:`Ipv6SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
+                        
+                        	**status**\: obsolete
+                        
+                        .. attribute:: ipv6_severity_port
+                        
+                        	Severity/Port for the logging host
+                        	**type**\:   :py:class:`Ipv6SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
+                        
+                        	**presence node**\: True
                         
                         
 
                         """
 
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _prefix = 'infra-syslog-cfg'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__init__()
+                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6, self).__init__()
 
-                            self.yang_name = "locations"
-                            self.yang_parent_name = "applied-to"
+                            self.yang_name = "ipv6"
+                            self.yang_parent_name = "ipv6s"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"ipv6-discriminator" : ("ipv6_discriminator", Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator), "ipv6-severity-levels" : ("ipv6_severity_levels", Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels), "ipv6-severity-port" : ("ipv6_severity_port", Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort)}
+                            self._child_list_classes = {}
 
-                            self.location = YList(self)
+                            self.address = YLeaf(YType.str, "address")
+
+                            self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator()
+                            self.ipv6_discriminator.parent = self
+                            self._children_name_map["ipv6_discriminator"] = "ipv6-discriminator"
+                            self._children_yang_names.add("ipv6-discriminator")
+
+                            self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels()
+                            self.ipv6_severity_levels.parent = self
+                            self._children_name_map["ipv6_severity_levels"] = "ipv6-severity-levels"
+                            self._children_yang_names.add("ipv6-severity-levels")
+
+                            self.ipv6_severity_port = None
+                            self._children_name_map["ipv6_severity_port"] = "ipv6-severity-port"
+                            self._children_yang_names.add("ipv6-severity-port")
+                            self._segment_path = lambda: "ipv6" + "[address='" + self.address.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__setattr__(name, value)
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6, ['address'], name, value)
 
 
-                        class Location(Entity):
+                        class Ipv6Discriminator(Entity):
                             """
-                            A location
+                            Set IPv6 logging discriminators
                             
-                            .. attribute:: location  <key>
+                            .. attribute:: match1
                             
-                            	Location
+                            	Set IPv6 logging match1 discriminator
                             	**type**\:  str
                             
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            .. attribute:: match2
+                            
+                            	Set IPv6 logging match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: match3
+                            
+                            	Set IPv6 logging match3 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch1
+                            
+                            	Set IPv6 logging no\-match1 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch2
+                            
+                            	Set IPv6 logging no\-match2 discriminator
+                            	**type**\:  str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set IPv6 logging no\-match3 discriminator
+                            	**type**\:  str
                             
                             
 
                             """
 
-                            _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
-                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__init__()
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator, self).__init__()
 
-                                self.yang_name = "location"
-                                self.yang_parent_name = "locations"
+                                self.yang_name = "ipv6-discriminator"
+                                self.yang_parent_name = "ipv6"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                                self.location = YLeaf(YType.str, "location")
+                                self.match1 = YLeaf(YType.str, "match1")
+
+                                self.match2 = YLeaf(YType.str, "match2")
+
+                                self.match3 = YLeaf(YType.str, "match3")
+
+                                self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                                self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                                self._segment_path = lambda: "ipv6-discriminator"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("location") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.location.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.location.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "location" + "[location='" + self.location.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.location.is_set or self.location.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.location.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "location"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "location"):
-                                    self.location = value
-                                    self.location.value_namespace = name_space
-                                    self.location.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.location:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.location:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "locations" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "location"):
-                                for c in self.location:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.location.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "location"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            self.all.is_set or
-                            (self.contexts is not None and self.contexts.has_data()) or
-                            (self.locations is not None and self.locations.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.all.yfilter != YFilter.not_set or
-                            (self.contexts is not None and self.contexts.has_operation()) or
-                            (self.locations is not None and self.locations.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "applied-to" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.all.is_set or self.all.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.all.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "contexts"):
-                            if (self.contexts is None):
-                                self.contexts = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts()
-                                self.contexts.parent = self
-                                self._children_name_map["contexts"] = "contexts"
-                            return self.contexts
-
-                        if (child_yang_name == "locations"):
-                            if (self.locations is None):
-                                self.locations = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations()
-                                self.locations.parent = self
-                                self._children_name_map["locations"] = "locations"
-                            return self.locations
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "contexts" or name == "locations" or name == "all"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "all"):
-                            self.all = value
-                            self.all.value_namespace = name_space
-                            self.all.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    return (
-                        self.name.is_set or
-                        (self.applied_to is not None and self.applied_to.has_data()) or
-                        (self.rulenames is not None and self.rulenames.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.name.yfilter != YFilter.not_set or
-                        (self.applied_to is not None and self.applied_to.has_operation()) or
-                        (self.rulenames is not None and self.rulenames.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "rule-set" + "[name='" + self.name.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/rule-sets/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.name.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "applied-to"):
-                        if (self.applied_to is None):
-                            self.applied_to = Syslog.Correlator.RuleSets.RuleSet.AppliedTo()
-                            self.applied_to.parent = self
-                            self._children_name_map["applied_to"] = "applied-to"
-                        return self.applied_to
-
-                    if (child_yang_name == "rulenames"):
-                        if (self.rulenames is None):
-                            self.rulenames = Syslog.Correlator.RuleSets.RuleSet.Rulenames()
-                            self.rulenames.parent = self
-                            self._children_name_map["rulenames"] = "rulenames"
-                        return self.rulenames
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "applied-to" or name == "rulenames" or name == "name"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "name"):
-                        self.name = value
-                        self.name.value_namespace = name_space
-                        self.name.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.rule_set:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.rule_set:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "rule-sets" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "rule-set"):
-                    for c in self.rule_set:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.Correlator.RuleSets.RuleSet()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.rule_set.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "rule-set"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (
-                self.buffer_size.is_set or
-                (self.rule_sets is not None and self.rule_sets.has_data()) or
-                (self.rules is not None and self.rules.has_data()))
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.buffer_size.yfilter != YFilter.not_set or
-                (self.rule_sets is not None and self.rule_sets.has_operation()) or
-                (self.rules is not None and self.rules.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "Cisco-IOS-XR-infra-correlator-cfg:correlator" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.buffer_size.is_set or self.buffer_size.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.buffer_size.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "rule-sets"):
-                if (self.rule_sets is None):
-                    self.rule_sets = Syslog.Correlator.RuleSets()
-                    self.rule_sets.parent = self
-                    self._children_name_map["rule_sets"] = "rule-sets"
-                return self.rule_sets
-
-            if (child_yang_name == "rules"):
-                if (self.rules is None):
-                    self.rules = Syslog.Correlator.Rules()
-                    self.rules.parent = self
-                    self._children_name_map["rules"] = "rules"
-                return self.rules
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "rule-sets" or name == "rules" or name == "buffer-size"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "buffer-size"):
-                self.buffer_size = value
-                self.buffer_size.value_namespace = name_space
-                self.buffer_size.value_namespace_prefix = name_space_prefix
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
+
+
+                        class Ipv6SeverityLevels(Entity):
+                            """
+                            Severity container of the logging host
+                            
+                            .. attribute:: ipv6_severity_level
+                            
+                            	Severity for the logging host
+                            	**type**\: list of    :py:class:`Ipv6SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
+                            
+                            	**status**\: obsolete
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels, self).__init__()
+
+                                self.yang_name = "ipv6-severity-levels"
+                                self.yang_parent_name = "ipv6"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"ipv6-severity-level" : ("ipv6_severity_level", Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel)}
+
+                                self.ipv6_severity_level = YList(self)
+                                self._segment_path = lambda: "ipv6-severity-levels"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels, [], name, value)
+
+
+                            class Ipv6SeverityLevel(Entity):
+                                """
+                                Severity for the logging host
+                                
+                                .. attribute:: severity  <key>
+                                
+                                	Severity for the logging host
+                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-syslog-cfg'
+                                _revision = '2016-06-22'
+
+                                def __init__(self):
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__init__()
+
+                                    self.yang_name = "ipv6-severity-level"
+                                    self.yang_parent_name = "ipv6-severity-levels"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.severity = YLeaf(YType.enumeration, "severity")
+                                    self._segment_path = lambda: "ipv6-severity-level" + "[severity='" + self.severity.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, ['severity'], name, value)
+
+
+                        class Ipv6SeverityPort(Entity):
+                            """
+                            Severity/Port for the logging host
+                            
+                            .. attribute:: port
+                            
+                            	Port for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 514
+                            
+                            .. attribute:: severity
+                            
+                            	Severity for the logging host
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 6
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'infra-syslog-cfg'
+                            _revision = '2016-06-22'
+
+                            def __init__(self):
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort, self).__init__()
+
+                                self.yang_name = "ipv6-severity-port"
+                                self.yang_parent_name = "ipv6"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+                                self.is_presence_container = True
+
+                                self.port = YLeaf(YType.int32, "port")
+
+                                self.severity = YLeaf(YType.int32, "severity")
+                                self._segment_path = lambda: "ipv6-severity-port"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort, ['port', 'severity'], name, value)
+
+
+    class Ipv4(Entity):
+        """
+        Syslog TOS bit for outgoing messages
+        
+        .. attribute:: dscp
+        
+        	DSCP value
+        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Dscp>`
+        
+        	**presence node**\: True
+        
+        	**status**\: obsolete
+        
+        .. attribute:: precedence
+        
+        	Precedence value
+        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Precedence>`
+        
+        	**presence node**\: True
+        
+        	**status**\: obsolete
+        
+        .. attribute:: tos
+        
+        	Type of service
+        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.Ipv4, self).__init__()
+
+            self.yang_name = "ipv4"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"dscp" : ("dscp", Syslog.Ipv4.Dscp), "precedence" : ("precedence", Syslog.Ipv4.Precedence), "tos" : ("tos", Syslog.Ipv4.Tos)}
+            self._child_list_classes = {}
+
+            self.dscp = None
+            self._children_name_map["dscp"] = "dscp"
+            self._children_yang_names.add("dscp")
+
+            self.precedence = None
+            self._children_name_map["precedence"] = "precedence"
+            self._children_yang_names.add("precedence")
+
+            self.tos = Syslog.Ipv4.Tos()
+            self.tos.parent = self
+            self._children_name_map["tos"] = "tos"
+            self._children_yang_names.add("tos")
+            self._segment_path = lambda: "ipv4"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+
+        class Dscp(Entity):
+            """
+            DSCP value
+            
+            .. attribute:: type
+            
+            	Logging TOS type DSCP
+            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
+            
+            	**mandatory**\: True
+            
+            .. attribute:: unused
+            
+            	Unused
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: value
+            
+            	Logging DSCP value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv4.Dscp, self).__init__()
+
+                self.yang_name = "dscp"
+                self.yang_parent_name = "ipv4"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+                self.is_presence_container = True
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.unused = YLeaf(YType.str, "unused")
+
+                self.value = YLeaf(YType.str, "value")
+                self._segment_path = lambda: "dscp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv4.Dscp, ['type', 'unused', 'value'], name, value)
+
+
+        class Precedence(Entity):
+            """
+            Precedence value
+            
+            .. attribute:: type
+            
+            	Logging TOS type precedence
+            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
+            
+            	**mandatory**\: True
+            
+            .. attribute:: unused
+            
+            	Unused
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
+            .. attribute:: value
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv4.Precedence, self).__init__()
+
+                self.yang_name = "precedence"
+                self.yang_parent_name = "ipv4"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+                self.is_presence_container = True
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.unused = YLeaf(YType.str, "unused")
+
+                self.value = YLeaf(YType.str, "value")
+                self._segment_path = lambda: "precedence"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv4.Precedence, ['type', 'unused', 'value'], name, value)
+
+
+        class Tos(Entity):
+            """
+            Type of service
+            
+            .. attribute:: dscp
+            
+            	Logging DSCP value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
+            .. attribute:: precedence
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	Logging TOS type DSCP or precedence
+            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv4.Tos, self).__init__()
+
+                self.yang_name = "tos"
+                self.yang_parent_name = "ipv4"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.dscp = YLeaf(YType.str, "dscp")
+
+                self.precedence = YLeaf(YType.str, "precedence")
+
+                self.type = YLeaf(YType.enumeration, "type")
+                self._segment_path = lambda: "tos"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv4/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv4.Tos, ['dscp', 'precedence', 'type'], name, value)
+
+
+    class Ipv6(Entity):
+        """
+        Syslog traffic class bit for outgoing messages
+        
+        .. attribute:: dscp
+        
+        	DSCP value
+        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Dscp>`
+        
+        	**presence node**\: True
+        
+        	**status**\: obsolete
+        
+        .. attribute:: precedence
+        
+        	Precedence value
+        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Precedence>`
+        
+        	**presence node**\: True
+        
+        	**status**\: obsolete
+        
+        .. attribute:: traffic_class
+        
+        	Type of traffic class
+        	**type**\:   :py:class:`TrafficClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.Ipv6, self).__init__()
+
+            self.yang_name = "ipv6"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"dscp" : ("dscp", Syslog.Ipv6.Dscp), "precedence" : ("precedence", Syslog.Ipv6.Precedence), "traffic-class" : ("traffic_class", Syslog.Ipv6.TrafficClass)}
+            self._child_list_classes = {}
+
+            self.dscp = None
+            self._children_name_map["dscp"] = "dscp"
+            self._children_yang_names.add("dscp")
+
+            self.precedence = None
+            self._children_name_map["precedence"] = "precedence"
+            self._children_yang_names.add("precedence")
+
+            self.traffic_class = Syslog.Ipv6.TrafficClass()
+            self.traffic_class.parent = self
+            self._children_name_map["traffic_class"] = "traffic-class"
+            self._children_yang_names.add("traffic-class")
+            self._segment_path = lambda: "ipv6"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+
+        class Dscp(Entity):
+            """
+            DSCP value
+            
+            .. attribute:: type
+            
+            	Logging TOS type DSCP
+            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
+            
+            	**mandatory**\: True
+            
+            .. attribute:: unused
+            
+            	Unused
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: value
+            
+            	Logging DSCP value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv6.Dscp, self).__init__()
+
+                self.yang_name = "dscp"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+                self.is_presence_container = True
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.unused = YLeaf(YType.str, "unused")
+
+                self.value = YLeaf(YType.str, "value")
+                self._segment_path = lambda: "dscp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv6.Dscp, ['type', 'unused', 'value'], name, value)
+
+
+        class Precedence(Entity):
+            """
+            Precedence value
+            
+            .. attribute:: type
+            
+            	Logging TOS type precedence
+            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
+            
+            	**mandatory**\: True
+            
+            .. attribute:: unused
+            
+            	Unused
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
+            .. attribute:: value
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv6.Precedence, self).__init__()
+
+                self.yang_name = "precedence"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+                self.is_presence_container = True
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.unused = YLeaf(YType.str, "unused")
+
+                self.value = YLeaf(YType.str, "value")
+                self._segment_path = lambda: "precedence"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv6.Precedence, ['type', 'unused', 'value'], name, value)
+
+
+        class TrafficClass(Entity):
+            """
+            Type of traffic class
+            
+            .. attribute:: dscp
+            
+            	Logging DSCP value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
+            .. attribute:: precedence
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	Logging TOS type DSCP or precedence
+            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.Ipv6.TrafficClass, self).__init__()
+
+                self.yang_name = "traffic-class"
+                self.yang_parent_name = "ipv6"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.dscp = YLeaf(YType.str, "dscp")
+
+                self.precedence = YLeaf(YType.str, "precedence")
+
+                self.type = YLeaf(YType.enumeration, "type")
+                self._segment_path = lambda: "traffic-class"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/ipv6/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.Ipv6.TrafficClass, ['dscp', 'precedence', 'type'], name, value)
+
+
+    class LoggingFacilities(Entity):
+        """
+        Modify message logging facilities
+        
+        .. attribute:: facility_level
+        
+        	Facility from which logging is done
+        	**type**\:   :py:class:`Facility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Facility>`
+        
+        	**default value**\: local7
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.LoggingFacilities, self).__init__()
+
+            self.yang_name = "logging-facilities"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.facility_level = YLeaf(YType.enumeration, "facility-level")
+            self._segment_path = lambda: "logging-facilities"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.LoggingFacilities, ['facility_level'], name, value)
+
+
+    class MonitorLogging(Entity):
+        """
+        Set monitor logging
+        
+        .. attribute:: logging_level
+        
+        	Monitor Logging Level
+        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        
+        	**default value**\: debug
+        
+        .. attribute:: monitor_discriminator
+        
+        	Set monitor logging discriminators
+        	**type**\:   :py:class:`MonitorDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.MonitorLogging, self).__init__()
+
+            self.yang_name = "monitor-logging"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"monitor-discriminator" : ("monitor_discriminator", Syslog.MonitorLogging.MonitorDiscriminator)}
+            self._child_list_classes = {}
+
+            self.logging_level = YLeaf(YType.enumeration, "logging-level")
+
+            self.monitor_discriminator = Syslog.MonitorLogging.MonitorDiscriminator()
+            self.monitor_discriminator.parent = self
+            self._children_name_map["monitor_discriminator"] = "monitor-discriminator"
+            self._children_yang_names.add("monitor-discriminator")
+            self._segment_path = lambda: "monitor-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.MonitorLogging, ['logging_level'], name, value)
+
+
+        class MonitorDiscriminator(Entity):
+            """
+            Set monitor logging discriminators
+            
+            .. attribute:: match1
+            
+            	Set monitor logging match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match2
+            
+            	Set monitor logging match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: match3
+            
+            	Set monitor logging match3 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch1
+            
+            	Set monitor logging no\-match1 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch2
+            
+            	Set monitor logging no\-match2 discriminator
+            	**type**\:  str
+            
+            .. attribute:: nomatch3
+            
+            	Set monitor logging no\-match3 discriminator
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.MonitorLogging.MonitorDiscriminator, self).__init__()
+
+                self.yang_name = "monitor-discriminator"
+                self.yang_parent_name = "monitor-logging"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.match1 = YLeaf(YType.str, "match1")
+
+                self.match2 = YLeaf(YType.str, "match2")
+
+                self.match3 = YLeaf(YType.str, "match3")
+
+                self.nomatch1 = YLeaf(YType.str, "nomatch1")
+
+                self.nomatch2 = YLeaf(YType.str, "nomatch2")
+
+                self.nomatch3 = YLeaf(YType.str, "nomatch3")
+                self._segment_path = lambda: "monitor-discriminator"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/monitor-logging/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.MonitorLogging.MonitorDiscriminator, ['match1', 'match2', 'match3', 'nomatch1', 'nomatch2', 'nomatch3'], name, value)
+
+
+    class SourceInterfaceTable(Entity):
+        """
+        Configure source interface
+        
+        .. attribute:: source_interface_values
+        
+        	Specify interface for source address in logging transactions
+        	**type**\:   :py:class:`SourceInterfaceValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.SourceInterfaceTable, self).__init__()
+
+            self.yang_name = "source-interface-table"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"source-interface-values" : ("source_interface_values", Syslog.SourceInterfaceTable.SourceInterfaceValues)}
+            self._child_list_classes = {}
+
+            self.source_interface_values = Syslog.SourceInterfaceTable.SourceInterfaceValues()
+            self.source_interface_values.parent = self
+            self._children_name_map["source_interface_values"] = "source-interface-values"
+            self._children_yang_names.add("source-interface-values")
+            self._segment_path = lambda: "source-interface-table"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+
+        class SourceInterfaceValues(Entity):
+            """
+            Specify interface for source address in logging
+            transactions
+            
+            .. attribute:: source_interface_value
+            
+            	Source interface
+            	**type**\: list of    :py:class:`SourceInterfaceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__init__()
+
+                self.yang_name = "source-interface-values"
+                self.yang_parent_name = "source-interface-table"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"source-interface-value" : ("source_interface_value", Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue)}
+
+                self.source_interface_value = YList(self)
+                self._segment_path = lambda: "source-interface-values"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/source-interface-table/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues, [], name, value)
+
+
+            class SourceInterfaceValue(Entity):
+                """
+                Source interface
+                
+                .. attribute:: src_interface_name_value  <key>
+                
+                	Which Interface
+                	**type**\:  str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                
+                .. attribute:: source_interface_vrfs
+                
+                	Configure source interface VRF
+                	**type**\:   :py:class:`SourceInterfaceVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs>`
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__init__()
+
+                    self.yang_name = "source-interface-value"
+                    self.yang_parent_name = "source-interface-values"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"source-interface-vrfs" : ("source_interface_vrfs", Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs)}
+                    self._child_list_classes = {}
+
+                    self.src_interface_name_value = YLeaf(YType.str, "src-interface-name-value")
+
+                    self.source_interface_vrfs = Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs()
+                    self.source_interface_vrfs.parent = self
+                    self._children_name_map["source_interface_vrfs"] = "source-interface-vrfs"
+                    self._children_yang_names.add("source-interface-vrfs")
+                    self._segment_path = lambda: "source-interface-value" + "[src-interface-name-value='" + self.src_interface_name_value.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/source-interface-table/source-interface-values/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, ['src_interface_name_value'], name, value)
+
+
+                class SourceInterfaceVrfs(Entity):
+                    """
+                    Configure source interface VRF
+                    
+                    .. attribute:: source_interface_vrf
+                    
+                    	Specify VRF for source interface
+                    	**type**\: list of    :py:class:`SourceInterfaceVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
+
+                    def __init__(self):
+                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__init__()
+
+                        self.yang_name = "source-interface-vrfs"
+                        self.yang_parent_name = "source-interface-value"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"source-interface-vrf" : ("source_interface_vrf", Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf)}
+
+                        self.source_interface_vrf = YList(self)
+                        self._segment_path = lambda: "source-interface-vrfs"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, [], name, value)
+
+
+                    class SourceInterfaceVrf(Entity):
+                        """
+                        Specify VRF for source interface
+                        
+                        .. attribute:: vrf_name  <key>
+                        
+                        	Name of the VRF instance
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-syslog-cfg'
+                        _revision = '2016-06-22'
+
+                        def __init__(self):
+                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__init__()
+
+                            self.yang_name = "source-interface-vrf"
+                            self.yang_parent_name = "source-interface-vrfs"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self._segment_path = lambda: "source-interface-vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, ['vrf_name'], name, value)
 
 
     class Suppression(Entity):
@@ -12572,18 +5069,24 @@ class Syslog(Entity):
         """
 
         _prefix = 'infra-correlator-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-05-01'
 
         def __init__(self):
             super(Syslog.Suppression, self).__init__()
 
             self.yang_name = "suppression"
             self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"rules" : ("rules", Syslog.Suppression.Rules)}
+            self._child_list_classes = {}
 
             self.rules = Syslog.Suppression.Rules()
             self.rules.parent = self
             self._children_name_map["rules"] = "rules"
             self._children_yang_names.add("rules")
+            self._segment_path = lambda: "Cisco-IOS-XR-infra-correlator-cfg:suppression"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
 
 
         class Rules(Entity):
@@ -12600,39 +5103,24 @@ class Syslog(Entity):
             """
 
             _prefix = 'infra-correlator-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-05-01'
 
             def __init__(self):
                 super(Syslog.Suppression.Rules, self).__init__()
 
                 self.yang_name = "rules"
                 self.yang_parent_name = "suppression"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"rule" : ("rule", Syslog.Suppression.Rules.Rule)}
 
                 self.rule = YList(self)
+                self._segment_path = lambda: "rules"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(Syslog.Suppression.Rules, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(Syslog.Suppression.Rules, self).__setattr__(name, value)
+                self._perform_setattr(Syslog.Suppression.Rules, [], name, value)
 
 
             class Rule(Entity):
@@ -12666,13 +5154,17 @@ class Syslog(Entity):
                 """
 
                 _prefix = 'infra-correlator-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-05-01'
 
                 def __init__(self):
                     super(Syslog.Suppression.Rules.Rule, self).__init__()
 
                     self.yang_name = "rule"
                     self.yang_parent_name = "rules"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"alarm-causes" : ("alarm_causes", Syslog.Suppression.Rules.Rule.AlarmCauses), "applied-to" : ("applied_to", Syslog.Suppression.Rules.Rule.AppliedTo)}
+                    self._child_list_classes = {}
 
                     self.name = YLeaf(YType.str, "name")
 
@@ -12687,349 +5179,11 @@ class Syslog(Entity):
                     self.applied_to.parent = self
                     self._children_name_map["applied_to"] = "applied-to"
                     self._children_yang_names.add("applied-to")
+                    self._segment_path = lambda: "rule" + "[name='" + self.name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/rules/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("name",
-                                    "all_alarms") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Syslog.Suppression.Rules.Rule, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Syslog.Suppression.Rules.Rule, self).__setattr__(name, value)
-
-
-                class AppliedTo(Entity):
-                    """
-                    Applied to the Rule
-                    
-                    .. attribute:: all
-                    
-                    	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: sources
-                    
-                    	Table of configured sources to apply
-                    	**type**\:   :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__init__()
-
-                        self.yang_name = "applied-to"
-                        self.yang_parent_name = "rule"
-
-                        self.all = YLeaf(YType.empty, "all")
-
-                        self.sources = Syslog.Suppression.Rules.Rule.AppliedTo.Sources()
-                        self.sources.parent = self
-                        self._children_name_map["sources"] = "sources"
-                        self._children_yang_names.add("sources")
-
-                    def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("all") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__setattr__(name, value)
-
-
-                    class Sources(Entity):
-                        """
-                        Table of configured sources to apply
-                        
-                        .. attribute:: source
-                        
-                        	An alarm source
-                        	**type**\: list of    :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__init__()
-
-                            self.yang_name = "sources"
-                            self.yang_parent_name = "applied-to"
-
-                            self.source = YList(self)
-
-                        def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__setattr__(name, value)
-
-
-                        class Source(Entity):
-                            """
-                            An alarm source
-                            
-                            .. attribute:: source  <key>
-                            
-                            	Source
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-correlator-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__init__()
-
-                                self.yang_name = "source"
-                                self.yang_parent_name = "sources"
-
-                                self.source = YLeaf(YType.str, "source")
-
-                            def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("source") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__setattr__(name, value)
-
-                            def has_data(self):
-                                return self.source.is_set
-
-                            def has_operation(self):
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.source.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "source" + "[source='" + self.source.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.source.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "source"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "source"):
-                                    self.source = value
-                                    self.source.value_namespace = name_space
-                                    self.source.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.source:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.source:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "sources" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "source"):
-                                for c in self.source:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.source.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "source"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            self.all.is_set or
-                            (self.sources is not None and self.sources.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.all.yfilter != YFilter.not_set or
-                            (self.sources is not None and self.sources.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "applied-to" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.all.is_set or self.all.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.all.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "sources"):
-                            if (self.sources is None):
-                                self.sources = Syslog.Suppression.Rules.Rule.AppliedTo.Sources()
-                                self.sources.parent = self
-                                self._children_name_map["sources"] = "sources"
-                            return self.sources
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "sources" or name == "all"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "all"):
-                            self.all = value
-                            self.all.value_namespace = name_space
-                            self.all.value_namespace_prefix = name_space_prefix
+                    self._perform_setattr(Syslog.Suppression.Rules.Rule, ['name', 'all_alarms'], name, value)
 
 
                 class AlarmCauses(Entity):
@@ -13046,39 +5200,23 @@ class Syslog(Entity):
                     """
 
                     _prefix = 'infra-correlator-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-05-01'
 
                     def __init__(self):
                         super(Syslog.Suppression.Rules.Rule.AlarmCauses, self).__init__()
 
                         self.yang_name = "alarm-causes"
                         self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"alarm-cause" : ("alarm_cause", Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause)}
 
                         self.alarm_cause = YList(self)
+                        self._segment_path = lambda: "alarm-causes"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(Syslog.Suppression.Rules.Rule.AlarmCauses, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(Syslog.Suppression.Rules.Rule.AlarmCauses, self).__setattr__(name, value)
+                        self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses, [], name, value)
 
 
                     class AlarmCause(Entity):
@@ -13112,550 +5250,567 @@ class Syslog(Entity):
                         """
 
                         _prefix = 'infra-correlator-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-05-01'
 
                         def __init__(self):
                             super(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, self).__init__()
 
                             self.yang_name = "alarm-cause"
                             self.yang_parent_name = "alarm-causes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.category = YLeaf(YType.str, "category")
 
                             self.group = YLeaf(YType.str, "group")
 
                             self.code = YLeaf(YType.str, "code")
+                            self._segment_path = lambda: "alarm-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[code='" + self.code.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("category",
-                                            "group",
-                                            "code") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.category.is_set or
-                                self.group.is_set or
-                                self.code.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.category.yfilter != YFilter.not_set or
-                                self.group.yfilter != YFilter.not_set or
-                                self.code.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "alarm-cause" + "[category='" + self.category.get() + "']" + "[group='" + self.group.get() + "']" + "[code='" + self.code.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.category.is_set or self.category.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.category.get_name_leafdata())
-                            if (self.group.is_set or self.group.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.group.get_name_leafdata())
-                            if (self.code.is_set or self.code.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.code.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "category" or name == "group" or name == "code"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "category"):
-                                self.category = value
-                                self.category.value_namespace = name_space
-                                self.category.value_namespace_prefix = name_space_prefix
-                            if(value_path == "group"):
-                                self.group = value
-                                self.group.value_namespace = name_space
-                                self.group.value_namespace_prefix = name_space_prefix
-                            if(value_path == "code"):
-                                self.code = value
-                                self.code.value_namespace = name_space
-                                self.code.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.alarm_cause:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.alarm_cause:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "alarm-causes" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "alarm-cause"):
-                            for c in self.alarm_cause:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.alarm_cause.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "alarm-cause"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.name.is_set or
-                        self.all_alarms.is_set or
-                        (self.alarm_causes is not None and self.alarm_causes.has_data()) or
-                        (self.applied_to is not None and self.applied_to.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.name.yfilter != YFilter.not_set or
-                        self.all_alarms.yfilter != YFilter.not_set or
-                        (self.alarm_causes is not None and self.alarm_causes.has_operation()) or
-                        (self.applied_to is not None and self.applied_to.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "rule" + "[name='" + self.name.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/rules/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.name.get_name_leafdata())
-                    if (self.all_alarms.is_set or self.all_alarms.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.all_alarms.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "alarm-causes"):
-                        if (self.alarm_causes is None):
-                            self.alarm_causes = Syslog.Suppression.Rules.Rule.AlarmCauses()
-                            self.alarm_causes.parent = self
-                            self._children_name_map["alarm_causes"] = "alarm-causes"
-                        return self.alarm_causes
-
-                    if (child_yang_name == "applied-to"):
-                        if (self.applied_to is None):
-                            self.applied_to = Syslog.Suppression.Rules.Rule.AppliedTo()
-                            self.applied_to.parent = self
-                            self._children_name_map["applied_to"] = "applied-to"
-                        return self.applied_to
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "alarm-causes" or name == "applied-to" or name == "name" or name == "all-alarms"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "name"):
-                        self.name = value
-                        self.name.value_namespace = name_space
-                        self.name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "all-alarms"):
-                        self.all_alarms = value
-                        self.all_alarms.value_namespace = name_space
-                        self.all_alarms.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.rule:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.rule:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "rules" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "rule"):
-                    for c in self.rule:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = Syslog.Suppression.Rules.Rule()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.rule.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "rule"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.rules is not None and self.rules.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.rules is not None and self.rules.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "Cisco-IOS-XR-infra-correlator-cfg:suppression" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "rules"):
-                if (self.rules is None):
-                    self.rules = Syslog.Suppression.Rules()
-                    self.rules.parent = self
-                    self._children_name_map["rules"] = "rules"
-                return self.rules
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "rules"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            self.enable_console_logging.is_set or
-            self.host_name_prefix.is_set or
-            self.local_log_file_size.is_set or
-            self.suppress_duplicates.is_set or
-            (self.alarm_logger is not None and self.alarm_logger.has_data()) or
-            (self.archive is not None and self.archive.has_data()) or
-            (self.buffered_logging is not None and self.buffered_logging.has_data()) or
-            (self.console_logging is not None and self.console_logging.has_data()) or
-            (self.correlator is not None and self.correlator.has_data()) or
-            (self.files is not None and self.files.has_data()) or
-            (self.history_logging is not None and self.history_logging.has_data()) or
-            (self.host_server is not None and self.host_server.has_data()) or
-            (self.ipv4 is not None and self.ipv4.has_data()) or
-            (self.ipv6 is not None and self.ipv6.has_data()) or
-            (self.logging_facilities is not None and self.logging_facilities.has_data()) or
-            (self.monitor_logging is not None and self.monitor_logging.has_data()) or
-            (self.source_interface_table is not None and self.source_interface_table.has_data()) or
-            (self.suppression is not None and self.suppression.has_data()) or
-            (self.trap_logging is not None and self.trap_logging.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            self.enable_console_logging.yfilter != YFilter.not_set or
-            self.host_name_prefix.yfilter != YFilter.not_set or
-            self.local_log_file_size.yfilter != YFilter.not_set or
-            self.suppress_duplicates.yfilter != YFilter.not_set or
-            (self.alarm_logger is not None and self.alarm_logger.has_operation()) or
-            (self.archive is not None and self.archive.has_operation()) or
-            (self.buffered_logging is not None and self.buffered_logging.has_operation()) or
-            (self.console_logging is not None and self.console_logging.has_operation()) or
-            (self.correlator is not None and self.correlator.has_operation()) or
-            (self.files is not None and self.files.has_operation()) or
-            (self.history_logging is not None and self.history_logging.has_operation()) or
-            (self.host_server is not None and self.host_server.has_operation()) or
-            (self.ipv4 is not None and self.ipv4.has_operation()) or
-            (self.ipv6 is not None and self.ipv6.has_operation()) or
-            (self.logging_facilities is not None and self.logging_facilities.has_operation()) or
-            (self.monitor_logging is not None and self.monitor_logging.has_operation()) or
-            (self.source_interface_table is not None and self.source_interface_table.has_operation()) or
-            (self.suppression is not None and self.suppression.has_operation()) or
-            (self.trap_logging is not None and self.trap_logging.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-infra-syslog-cfg:syslog" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-        if (self.enable_console_logging.is_set or self.enable_console_logging.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.enable_console_logging.get_name_leafdata())
-        if (self.host_name_prefix.is_set or self.host_name_prefix.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.host_name_prefix.get_name_leafdata())
-        if (self.local_log_file_size.is_set or self.local_log_file_size.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.local_log_file_size.get_name_leafdata())
-        if (self.suppress_duplicates.is_set or self.suppress_duplicates.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.suppress_duplicates.get_name_leafdata())
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "alarm-logger"):
-            if (self.alarm_logger is None):
-                self.alarm_logger = Syslog.AlarmLogger()
-                self.alarm_logger.parent = self
-                self._children_name_map["alarm_logger"] = "alarm-logger"
-            return self.alarm_logger
-
-        if (child_yang_name == "archive"):
-            if (self.archive is None):
-                self.archive = Syslog.Archive()
-                self.archive.parent = self
-                self._children_name_map["archive"] = "archive"
-            return self.archive
-
-        if (child_yang_name == "buffered-logging"):
-            if (self.buffered_logging is None):
-                self.buffered_logging = Syslog.BufferedLogging()
-                self.buffered_logging.parent = self
-                self._children_name_map["buffered_logging"] = "buffered-logging"
-            return self.buffered_logging
-
-        if (child_yang_name == "console-logging"):
-            if (self.console_logging is None):
-                self.console_logging = Syslog.ConsoleLogging()
-                self.console_logging.parent = self
-                self._children_name_map["console_logging"] = "console-logging"
-            return self.console_logging
-
-        if (child_yang_name == "correlator"):
-            if (self.correlator is None):
-                self.correlator = Syslog.Correlator()
-                self.correlator.parent = self
-                self._children_name_map["correlator"] = "correlator"
-            return self.correlator
-
-        if (child_yang_name == "files"):
-            if (self.files is None):
-                self.files = Syslog.Files()
-                self.files.parent = self
-                self._children_name_map["files"] = "files"
-            return self.files
-
-        if (child_yang_name == "history-logging"):
-            if (self.history_logging is None):
-                self.history_logging = Syslog.HistoryLogging()
-                self.history_logging.parent = self
-                self._children_name_map["history_logging"] = "history-logging"
-            return self.history_logging
-
-        if (child_yang_name == "host-server"):
-            if (self.host_server is None):
-                self.host_server = Syslog.HostServer()
-                self.host_server.parent = self
-                self._children_name_map["host_server"] = "host-server"
-            return self.host_server
-
-        if (child_yang_name == "ipv4"):
-            if (self.ipv4 is None):
-                self.ipv4 = Syslog.Ipv4()
-                self.ipv4.parent = self
-                self._children_name_map["ipv4"] = "ipv4"
-            return self.ipv4
-
-        if (child_yang_name == "ipv6"):
-            if (self.ipv6 is None):
-                self.ipv6 = Syslog.Ipv6()
-                self.ipv6.parent = self
-                self._children_name_map["ipv6"] = "ipv6"
-            return self.ipv6
-
-        if (child_yang_name == "logging-facilities"):
-            if (self.logging_facilities is None):
-                self.logging_facilities = Syslog.LoggingFacilities()
-                self.logging_facilities.parent = self
-                self._children_name_map["logging_facilities"] = "logging-facilities"
-            return self.logging_facilities
-
-        if (child_yang_name == "monitor-logging"):
-            if (self.monitor_logging is None):
-                self.monitor_logging = Syslog.MonitorLogging()
-                self.monitor_logging.parent = self
-                self._children_name_map["monitor_logging"] = "monitor-logging"
-            return self.monitor_logging
-
-        if (child_yang_name == "source-interface-table"):
-            if (self.source_interface_table is None):
-                self.source_interface_table = Syslog.SourceInterfaceTable()
-                self.source_interface_table.parent = self
-                self._children_name_map["source_interface_table"] = "source-interface-table"
-            return self.source_interface_table
-
-        if (child_yang_name == "suppression"):
-            if (self.suppression is None):
-                self.suppression = Syslog.Suppression()
-                self.suppression.parent = self
-                self._children_name_map["suppression"] = "suppression"
-            return self.suppression
-
-        if (child_yang_name == "trap-logging"):
-            if (self.trap_logging is None):
-                self.trap_logging = Syslog.TrapLogging()
-                self.trap_logging.parent = self
-                self._children_name_map["trap_logging"] = "trap-logging"
-            return self.trap_logging
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "alarm-logger" or name == "archive" or name == "buffered-logging" or name == "console-logging" or name == "correlator" or name == "files" or name == "history-logging" or name == "host-server" or name == "ipv4" or name == "ipv6" or name == "logging-facilities" or name == "monitor-logging" or name == "source-interface-table" or name == "suppression" or name == "trap-logging" or name == "enable-console-logging" or name == "host-name-prefix" or name == "local-log-file-size" or name == "suppress-duplicates"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        if(value_path == "enable-console-logging"):
-            self.enable_console_logging = value
-            self.enable_console_logging.value_namespace = name_space
-            self.enable_console_logging.value_namespace_prefix = name_space_prefix
-        if(value_path == "host-name-prefix"):
-            self.host_name_prefix = value
-            self.host_name_prefix.value_namespace = name_space
-            self.host_name_prefix.value_namespace_prefix = name_space_prefix
-        if(value_path == "local-log-file-size"):
-            self.local_log_file_size = value
-            self.local_log_file_size.value_namespace = name_space
-            self.local_log_file_size.value_namespace_prefix = name_space_prefix
-        if(value_path == "suppress-duplicates"):
-            self.suppress_duplicates = value
-            self.suppress_duplicates.value_namespace = name_space
-            self.suppress_duplicates.value_namespace_prefix = name_space_prefix
+                            self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, ['category', 'group', 'code'], name, value)
+
+
+                class AppliedTo(Entity):
+                    """
+                    Applied to the Rule
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: sources
+                    
+                    	Table of configured sources to apply
+                    	**type**\:   :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__init__()
+
+                        self.yang_name = "applied-to"
+                        self.yang_parent_name = "rule"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"sources" : ("sources", Syslog.Suppression.Rules.Rule.AppliedTo.Sources)}
+                        self._child_list_classes = {}
+
+                        self.all = YLeaf(YType.empty, "all")
+
+                        self.sources = Syslog.Suppression.Rules.Rule.AppliedTo.Sources()
+                        self.sources.parent = self
+                        self._children_name_map["sources"] = "sources"
+                        self._children_yang_names.add("sources")
+                        self._segment_path = lambda: "applied-to"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo, ['all'], name, value)
+
+
+                    class Sources(Entity):
+                        """
+                        Table of configured sources to apply
+                        
+                        .. attribute:: source
+                        
+                        	An alarm source
+                        	**type**\: list of    :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__init__()
+
+                            self.yang_name = "sources"
+                            self.yang_parent_name = "applied-to"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"source" : ("source", Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source)}
+
+                            self.source = YList(self)
+                            self._segment_path = lambda: "sources"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, [], name, value)
+
+
+                        class Source(Entity):
+                            """
+                            An alarm source
+                            
+                            .. attribute:: source  <key>
+                            
+                            	Source
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__init__()
+
+                                self.yang_name = "source"
+                                self.yang_parent_name = "sources"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.source = YLeaf(YType.str, "source")
+                                self._segment_path = lambda: "source" + "[source='" + self.source.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, ['source'], name, value)
+
+
+    class TrapLogging(Entity):
+        """
+        Set trap logging
+        
+        .. attribute:: logging_level
+        
+        	Trap logging level
+        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        
+        	**default value**\: info
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(Syslog.TrapLogging, self).__init__()
+
+            self.yang_name = "trap-logging"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.logging_level = YLeaf(YType.enumeration, "logging-level")
+            self._segment_path = lambda: "trap-logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.TrapLogging, ['logging_level'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Syslog()
+        return self._top_entity
+
+class SyslogService(Entity):
+    """
+    Syslog Timestamp Services
+    
+    .. attribute:: timestamps
+    
+    	Timestamp debug/log messages configuration
+    	**type**\:   :py:class:`Timestamps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps>`
+    
+    
+
+    """
+
+    _prefix = 'infra-syslog-cfg'
+    _revision = '2016-06-22'
+
+    def __init__(self):
+        super(SyslogService, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "syslog-service"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"timestamps" : ("timestamps", SyslogService.Timestamps)}
+        self._child_list_classes = {}
+
+        self.timestamps = SyslogService.Timestamps()
+        self.timestamps.parent = self
+        self._children_name_map["timestamps"] = "timestamps"
+        self._children_yang_names.add("timestamps")
+        self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service"
+
+
+    class Timestamps(Entity):
+        """
+        Timestamp debug/log messages configuration
+        
+        .. attribute:: debug
+        
+        	Timestamp debug messages
+        	**type**\:   :py:class:`Debug <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug>`
+        
+        .. attribute:: enable
+        
+        	Enable timestamp debug/log messages
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: log
+        
+        	Timestamp log messages
+        	**type**\:   :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-cfg'
+        _revision = '2016-06-22'
+
+        def __init__(self):
+            super(SyslogService.Timestamps, self).__init__()
+
+            self.yang_name = "timestamps"
+            self.yang_parent_name = "syslog-service"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"debug" : ("debug", SyslogService.Timestamps.Debug), "log" : ("log", SyslogService.Timestamps.Log)}
+            self._child_list_classes = {}
+
+            self.enable = YLeaf(YType.empty, "enable")
+
+            self.debug = SyslogService.Timestamps.Debug()
+            self.debug.parent = self
+            self._children_name_map["debug"] = "debug"
+            self._children_yang_names.add("debug")
+
+            self.log = SyslogService.Timestamps.Log()
+            self.log.parent = self
+            self._children_name_map["log"] = "log"
+            self._children_yang_names.add("log")
+            self._segment_path = lambda: "timestamps"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SyslogService.Timestamps, ['enable'], name, value)
+
+
+        class Debug(Entity):
+            """
+            Timestamp debug messages
+            
+            .. attribute:: debug_datetime
+            
+            	Timestamp with date and time
+            	**type**\:   :py:class:`DebugDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime>`
+            
+            .. attribute:: debug_timestamp_disable
+            
+            	Disable timestamp debug messages
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: debug_uptime
+            
+            	Timestamp with systime uptime
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(SyslogService.Timestamps.Debug, self).__init__()
+
+                self.yang_name = "debug"
+                self.yang_parent_name = "timestamps"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"debug-datetime" : ("debug_datetime", SyslogService.Timestamps.Debug.DebugDatetime)}
+                self._child_list_classes = {}
+
+                self.debug_timestamp_disable = YLeaf(YType.empty, "debug-timestamp-disable")
+
+                self.debug_uptime = YLeaf(YType.empty, "debug-uptime")
+
+                self.debug_datetime = SyslogService.Timestamps.Debug.DebugDatetime()
+                self.debug_datetime.parent = self
+                self._children_name_map["debug_datetime"] = "debug-datetime"
+                self._children_yang_names.add("debug-datetime")
+                self._segment_path = lambda: "debug"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SyslogService.Timestamps.Debug, ['debug_timestamp_disable', 'debug_uptime'], name, value)
+
+
+            class DebugDatetime(Entity):
+                """
+                Timestamp with date and time
+                
+                .. attribute:: datetime_value
+                
+                	Set time format for debug msg
+                	**type**\:   :py:class:`DatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue>`
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(SyslogService.Timestamps.Debug.DebugDatetime, self).__init__()
+
+                    self.yang_name = "debug-datetime"
+                    self.yang_parent_name = "debug"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"datetime-value" : ("datetime_value", SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue)}
+                    self._child_list_classes = {}
+
+                    self.datetime_value = SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue()
+                    self.datetime_value.parent = self
+                    self._children_name_map["datetime_value"] = "datetime-value"
+                    self._children_yang_names.add("datetime-value")
+                    self._segment_path = lambda: "debug-datetime"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/debug/%s" % self._segment_path()
+
+
+                class DatetimeValue(Entity):
+                    """
+                    Set time format for debug msg
+                    
+                    .. attribute:: msec
+                    
+                    	Seconds
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: enable
+                    
+                    .. attribute:: time_stamp_value
+                    
+                    	Time
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: enable
+                    
+                    .. attribute:: time_zone
+                    
+                    	Timezone
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: disable
+                    
+                    .. attribute:: year
+                    
+                    	Year
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: disable
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
+
+                    def __init__(self):
+                        super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__init__()
+
+                        self.yang_name = "datetime-value"
+                        self.yang_parent_name = "debug-datetime"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.msec = YLeaf(YType.enumeration, "msec")
+
+                        self.time_stamp_value = YLeaf(YType.enumeration, "time-stamp-value")
+
+                        self.time_zone = YLeaf(YType.enumeration, "time-zone")
+
+                        self.year = YLeaf(YType.enumeration, "year")
+                        self._segment_path = lambda: "datetime-value"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/debug/debug-datetime/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, ['msec', 'time_stamp_value', 'time_zone', 'year'], name, value)
+
+
+        class Log(Entity):
+            """
+            Timestamp log messages
+            
+            .. attribute:: log_datetime
+            
+            	Timestamp with date and time
+            	**type**\:   :py:class:`LogDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime>`
+            
+            .. attribute:: log_timestamp_disable
+            
+            	Disable timestamp log messages
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: log_uptime
+            
+            	Timestamp with systime uptime
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-cfg'
+            _revision = '2016-06-22'
+
+            def __init__(self):
+                super(SyslogService.Timestamps.Log, self).__init__()
+
+                self.yang_name = "log"
+                self.yang_parent_name = "timestamps"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"log-datetime" : ("log_datetime", SyslogService.Timestamps.Log.LogDatetime)}
+                self._child_list_classes = {}
+
+                self.log_timestamp_disable = YLeaf(YType.empty, "log-timestamp-disable")
+
+                self.log_uptime = YLeaf(YType.empty, "log-uptime")
+
+                self.log_datetime = SyslogService.Timestamps.Log.LogDatetime()
+                self.log_datetime.parent = self
+                self._children_name_map["log_datetime"] = "log-datetime"
+                self._children_yang_names.add("log-datetime")
+                self._segment_path = lambda: "log"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SyslogService.Timestamps.Log, ['log_timestamp_disable', 'log_uptime'], name, value)
+
+
+            class LogDatetime(Entity):
+                """
+                Timestamp with date and time
+                
+                .. attribute:: log_datetime_value
+                
+                	Set timestamp for log message
+                	**type**\:   :py:class:`LogDatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue>`
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    super(SyslogService.Timestamps.Log.LogDatetime, self).__init__()
+
+                    self.yang_name = "log-datetime"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"log-datetime-value" : ("log_datetime_value", SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue)}
+                    self._child_list_classes = {}
+
+                    self.log_datetime_value = SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue()
+                    self.log_datetime_value.parent = self
+                    self._children_name_map["log_datetime_value"] = "log-datetime-value"
+                    self._children_yang_names.add("log-datetime-value")
+                    self._segment_path = lambda: "log-datetime"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/log/%s" % self._segment_path()
+
+
+                class LogDatetimeValue(Entity):
+                    """
+                    Set timestamp for log message
+                    
+                    .. attribute:: msec
+                    
+                    	Seconds
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: enable
+                    
+                    .. attribute:: time_stamp_value
+                    
+                    	Time
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: enable
+                    
+                    .. attribute:: time_zone
+                    
+                    	Timezone
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: disable
+                    
+                    .. attribute:: year
+                    
+                    	Year
+                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    
+                    	**default value**\: disable
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-syslog-cfg'
+                    _revision = '2016-06-22'
+
+                    def __init__(self):
+                        super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__init__()
+
+                        self.yang_name = "log-datetime-value"
+                        self.yang_parent_name = "log-datetime"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.msec = YLeaf(YType.enumeration, "msec")
+
+                        self.time_stamp_value = YLeaf(YType.enumeration, "time-stamp-value")
+
+                        self.time_zone = YLeaf(YType.enumeration, "time-zone")
+
+                        self.year = YLeaf(YType.enumeration, "year")
+                        self._segment_path = lambda: "log-datetime-value"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog-service/timestamps/log/log-datetime/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, ['msec', 'time_stamp_value', 'time_zone', 'year'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = SyslogService()
         return self._top_entity
 

@@ -33,16 +33,15 @@ SASE\: Stand Alone Synchronization Equipment
 SSM\: Synchronization Status Messaging
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Cisconetsyncclockmode(Enum):
+class CiscoNetsyncClockMode(Enum):
     """
-    Cisconetsyncclockmode
+    CiscoNetsyncClockMode
 
     Clock operating mode\:
 
@@ -75,9 +74,9 @@ class Cisconetsyncclockmode(Enum):
     netsyncClockModeLocked = Enum.YLeaf(4, "netsyncClockModeLocked")
 
 
-class Cisconetsynceecoption(Enum):
+class CiscoNetsyncEECOption(Enum):
     """
-    Cisconetsynceecoption
+    CiscoNetsyncEECOption
 
     Network synchronization EEC (Ethernet Equipment Clock)
 
@@ -126,9 +125,9 @@ class Cisconetsynceecoption(Enum):
     netsyncEECOptionInvalid = Enum.YLeaf(4, "netsyncEECOptionInvalid")
 
 
-class Cisconetsyncesmccap(Enum):
+class CiscoNetsyncESMCCap(Enum):
     """
-    Cisconetsyncesmccap
+    CiscoNetsyncESMCCap
 
     Network synchronization clock source interface ESMC
 
@@ -173,9 +172,9 @@ class Cisconetsyncesmccap(Enum):
     netsyncESMCCapInvalid = Enum.YLeaf(5, "netsyncESMCCapInvalid")
 
 
-class Cisconetsynciftype(Enum):
+class CiscoNetsyncIfType(Enum):
     """
-    Cisconetsynciftype
+    CiscoNetsyncIfType
 
     Network synchronization clock source Interface type.
 
@@ -258,9 +257,9 @@ class Cisconetsynciftype(Enum):
     netsyncIfTypeAtm = Enum.YLeaf(9, "netsyncIfTypeAtm")
 
 
-class Cisconetsyncnetworkoption(Enum):
+class CiscoNetsyncNetworkOption(Enum):
     """
-    Cisconetsyncnetworkoption
+    CiscoNetsyncNetworkOption
 
     Network synchronization networking options.
 
@@ -317,9 +316,9 @@ class Cisconetsyncnetworkoption(Enum):
     netsyncNetworkOptionInvalid = Enum.YLeaf(6, "netsyncNetworkOptionInvalid")
 
 
-class Cisconetsyncqlmode(Enum):
+class CiscoNetsyncQLMode(Enum):
     """
-    Cisconetsyncqlmode
+    CiscoNetsyncQLMode
 
     The clock mode of the network synchronization clock selection
 
@@ -372,9 +371,9 @@ class Cisconetsyncqlmode(Enum):
     netsyncQLModeQlEnabled = Enum.YLeaf(3, "netsyncQLModeQlEnabled")
 
 
-class Cisconetsyncqualitylevel(Enum):
+class CiscoNetsyncQualityLevel(Enum):
     """
-    Cisconetsyncqualitylevel
+    CiscoNetsyncQualityLevel
 
     Clock source QL (quality level) is defined in ITU\-T G.781
 
@@ -605,9 +604,9 @@ class Cisconetsyncqualitylevel(Enum):
     netsyncQualityLevelUNK = Enum.YLeaf(36, "netsyncQualityLevelUNK")
 
 
-class Cisconetsyncssmcap(Enum):
+class CiscoNetsyncSSMCap(Enum):
     """
-    Cisconetsyncssmcap
+    CiscoNetsyncSSMCap
 
     Network synchronization clock source interface SSM
 
@@ -650,57 +649,40 @@ class Cisconetsyncssmcap(Enum):
     netsyncSSMCapInvalid = Enum.YLeaf(5, "netsyncSSMCapInvalid")
 
 
-class Cisconetsyncalarminfo(Bits):
-    """
-    Cisconetsyncalarminfo
 
-    Input clock source's alarm reasons\:
-    
-    netsyncSrcAlarmReasonAIS      \- Alarm Indication Signal
-    netsyncSrcAlarmReasonOOR      \- Out of range
-    netsyncSrcAlarmReasonOIR      \- Online Insertion Removal
-    netsyncSrcAlarmReasonInternal \- Internal
-    Keys are:- netsyncSrcAlarmReasonInternal , netsyncSrcAlarmReasonOIR , netsyncSrcAlarmReasonAIS , netsyncSrcAlarmReasonOOR
-
-    """
-
-    def __init__(self):
-        super(Cisconetsyncalarminfo, self).__init__()
-
-
-class CiscoNetsyncMib(Entity):
+class CISCONETSYNCMIB(Entity):
     """
     
     
     .. attribute:: cisconetsyncmibnotifcontrol
     
     	
-    	**type**\:   :py:class:`Cisconetsyncmibnotifcontrol <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cisconetsyncmibnotifcontrol>`
+    	**type**\:   :py:class:`Cisconetsyncmibnotifcontrol <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol>`
     
     .. attribute:: cnsclkselglobaltable
     
     	G.781 clock selection process table. This table contains the global parameters for the G.781 clock selection process
-    	**type**\:   :py:class:`Cnsclkselglobaltable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsclkselglobaltable>`
+    	**type**\:   :py:class:`Cnsclkselglobaltable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsclkselglobaltable>`
     
     .. attribute:: cnsextoutputtable
     
     	T4 external output table. This table contains a list of T4 external outputs.  Each T4 external output is associated with clock source(s) to be found in cnsT4ClockSourceTable. The clock selection process considers all the available clock sources and select the T4 clock source based on the G.781 clock selection algorithm
-    	**type**\:   :py:class:`Cnsextoutputtable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsextoutputtable>`
+    	**type**\:   :py:class:`Cnsextoutputtable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable>`
     
     .. attribute:: cnsinputsourcetable
     
     	T0 clock source table. This table contains a list of input sources for input T0 clock selection
-    	**type**\:   :py:class:`Cnsinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsinputsourcetable>`
+    	**type**\:   :py:class:`Cnsinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsinputsourcetable>`
     
     .. attribute:: cnsselectedinputsourcetable
     
     	T0 selected clock source table. This table contains the selected clock source for the input T0 clock
-    	**type**\:   :py:class:`Cnsselectedinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsselectedinputsourcetable>`
+    	**type**\:   :py:class:`Cnsselectedinputsourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsselectedinputsourcetable>`
     
     .. attribute:: cnst4clocksourcetable
     
     	T4 clock source table. This table contains a list of input sources for a specific T4 external output. An entry shall be added to cnsExtOutputTable first. Then clock sources shall be added in this table for the selection process to select the appropriate T4 clock source
-    	**type**\:   :py:class:`Cnst4Clocksourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnst4Clocksourcetable>`
+    	**type**\:   :py:class:`Cnst4Clocksourcetable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnst4Clocksourcetable>`
     
     
 
@@ -710,41 +692,46 @@ class CiscoNetsyncMib(Entity):
     _revision = '2010-10-15'
 
     def __init__(self):
-        super(CiscoNetsyncMib, self).__init__()
+        super(CISCONETSYNCMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-NETSYNC-MIB"
         self.yang_parent_name = "CISCO-NETSYNC-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"ciscoNetsyncMIBNotifControl" : ("cisconetsyncmibnotifcontrol", CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol), "cnsClkSelGlobalTable" : ("cnsclkselglobaltable", CISCONETSYNCMIB.Cnsclkselglobaltable), "cnsExtOutputTable" : ("cnsextoutputtable", CISCONETSYNCMIB.Cnsextoutputtable), "cnsInputSourceTable" : ("cnsinputsourcetable", CISCONETSYNCMIB.Cnsinputsourcetable), "cnsSelectedInputSourceTable" : ("cnsselectedinputsourcetable", CISCONETSYNCMIB.Cnsselectedinputsourcetable), "cnsT4ClockSourceTable" : ("cnst4clocksourcetable", CISCONETSYNCMIB.Cnst4Clocksourcetable)}
+        self._child_list_classes = {}
 
-        self.cisconetsyncmibnotifcontrol = CiscoNetsyncMib.Cisconetsyncmibnotifcontrol()
+        self.cisconetsyncmibnotifcontrol = CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol()
         self.cisconetsyncmibnotifcontrol.parent = self
         self._children_name_map["cisconetsyncmibnotifcontrol"] = "ciscoNetsyncMIBNotifControl"
         self._children_yang_names.add("ciscoNetsyncMIBNotifControl")
 
-        self.cnsclkselglobaltable = CiscoNetsyncMib.Cnsclkselglobaltable()
+        self.cnsclkselglobaltable = CISCONETSYNCMIB.Cnsclkselglobaltable()
         self.cnsclkselglobaltable.parent = self
         self._children_name_map["cnsclkselglobaltable"] = "cnsClkSelGlobalTable"
         self._children_yang_names.add("cnsClkSelGlobalTable")
 
-        self.cnsextoutputtable = CiscoNetsyncMib.Cnsextoutputtable()
+        self.cnsextoutputtable = CISCONETSYNCMIB.Cnsextoutputtable()
         self.cnsextoutputtable.parent = self
         self._children_name_map["cnsextoutputtable"] = "cnsExtOutputTable"
         self._children_yang_names.add("cnsExtOutputTable")
 
-        self.cnsinputsourcetable = CiscoNetsyncMib.Cnsinputsourcetable()
+        self.cnsinputsourcetable = CISCONETSYNCMIB.Cnsinputsourcetable()
         self.cnsinputsourcetable.parent = self
         self._children_name_map["cnsinputsourcetable"] = "cnsInputSourceTable"
         self._children_yang_names.add("cnsInputSourceTable")
 
-        self.cnsselectedinputsourcetable = CiscoNetsyncMib.Cnsselectedinputsourcetable()
+        self.cnsselectedinputsourcetable = CISCONETSYNCMIB.Cnsselectedinputsourcetable()
         self.cnsselectedinputsourcetable.parent = self
         self._children_name_map["cnsselectedinputsourcetable"] = "cnsSelectedInputSourceTable"
         self._children_yang_names.add("cnsSelectedInputSourceTable")
 
-        self.cnst4clocksourcetable = CiscoNetsyncMib.Cnst4Clocksourcetable()
+        self.cnst4clocksourcetable = CISCONETSYNCMIB.Cnst4Clocksourcetable()
         self.cnst4clocksourcetable.parent = self
         self._children_name_map["cnst4clocksourcetable"] = "cnsT4ClockSourceTable"
         self._children_yang_names.add("cnsT4ClockSourceTable")
+        self._segment_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB"
 
 
     class Cisconetsyncmibnotifcontrol(Entity):
@@ -764,82 +751,21 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cisconetsyncmibnotifcontrol, self).__init__()
+            super(CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol, self).__init__()
 
             self.yang_name = "ciscoNetsyncMIBNotifControl"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.cnsmibenablestatusnotification = YLeaf(YType.boolean, "cnsMIBEnableStatusNotification")
+            self._segment_path = lambda: "ciscoNetsyncMIBNotifControl"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("cnsmibenablestatusnotification") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cisconetsyncmibnotifcontrol, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cisconetsyncmibnotifcontrol, self).__setattr__(name, value)
-
-        def has_data(self):
-            return self.cnsmibenablestatusnotification.is_set
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.cnsmibenablestatusnotification.yfilter != YFilter.not_set)
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "ciscoNetsyncMIBNotifControl" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-            if (self.cnsmibenablestatusnotification.is_set or self.cnsmibenablestatusnotification.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.cnsmibenablestatusnotification.get_name_leafdata())
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsMIBEnableStatusNotification"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "cnsMIBEnableStatusNotification"):
-                self.cnsmibenablestatusnotification = value
-                self.cnsmibenablestatusnotification.value_namespace = name_space
-                self.cnsmibenablestatusnotification.value_namespace_prefix = name_space_prefix
+            self._perform_setattr(CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol, ['cnsmibenablestatusnotification'], name, value)
 
 
     class Cnsclkselglobaltable(Entity):
@@ -851,7 +777,7 @@ class CiscoNetsyncMib(Entity):
         .. attribute:: cnsclkselglobalentry
         
         	An entry is added to cnsClkSelGlobalTable when G.781 clock selection is enabled in the device configuration.  The entry is removed when G.781 clock selection is removed from the configuration
-        	**type**\: list of    :py:class:`Cnsclkselglobalentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsclkselglobaltable.Cnsclkselglobalentry>`
+        	**type**\: list of    :py:class:`Cnsclkselglobalentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry>`
         
         
 
@@ -861,36 +787,21 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cnsclkselglobaltable, self).__init__()
+            super(CISCONETSYNCMIB.Cnsclkselglobaltable, self).__init__()
 
             self.yang_name = "cnsClkSelGlobalTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cnsClkSelGlobalEntry" : ("cnsclkselglobalentry", CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry)}
 
             self.cnsclkselglobalentry = YList(self)
+            self._segment_path = lambda: "cnsClkSelGlobalTable"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cnsclkselglobaltable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cnsclkselglobaltable, self).__setattr__(name, value)
+            self._perform_setattr(CISCONETSYNCMIB.Cnsclkselglobaltable, [], name, value)
 
 
         class Cnsclkselglobalentry(Entity):
@@ -910,7 +821,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsclkselglobclockmode
             
             	This object indicates the operating mode of the system clock
-            	**type**\:   :py:class:`Cisconetsyncclockmode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncclockmode>`
+            	**type**\:   :py:class:`CiscoNetsyncClockMode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncClockMode>`
             
             .. attribute:: cnsclkselglobcurrholdoverseconds
             
@@ -924,7 +835,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsclkselglobeecoption
             
             	This object indicates the network synchronization EEC (Ethernet Equipment Clock) option
-            	**type**\:   :py:class:`Cisconetsynceecoption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsynceecoption>`
+            	**type**\:   :py:class:`CiscoNetsyncEECOption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncEECOption>`
             
             .. attribute:: cnsclkselglobesmcmode
             
@@ -957,7 +868,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsclkselglobnetworkoption
             
             	This object indicates the synchronization network option
-            	**type**\:   :py:class:`Cisconetsyncnetworkoption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncnetworkoption>`
+            	**type**\:   :py:class:`CiscoNetsyncNetworkOption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncNetworkOption>`
             
             .. attribute:: cnsclkselglobnofsources
             
@@ -971,7 +882,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsclkselglobprocessmode
             
             	This object indicates the QL mode of the network synchronization clock selection process as described in ITU\-T standard G.781 section 5.12
-            	**type**\:   :py:class:`Cisconetsyncqlmode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqlmode>`
+            	**type**\:   :py:class:`CiscoNetsyncQLMode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQLMode>`
             
             .. attribute:: cnsclkselglobrevertivemode
             
@@ -995,10 +906,14 @@ class CiscoNetsyncMib(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CiscoNetsyncMib.Cnsclkselglobaltable.Cnsclkselglobalentry, self).__init__()
+                super(CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry, self).__init__()
 
                 self.yang_name = "cnsClkSelGlobalEntry"
                 self.yang_parent_name = "cnsClkSelGlobalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cnsclkselgloprocindex = YLeaf(YType.uint32, "cnsClkSelGloProcIndex")
 
@@ -1025,254 +940,28 @@ class CiscoNetsyncMib(Entity):
                 self.cnsclkselglobrevertivemode = YLeaf(YType.boolean, "cnsClkSelGlobRevertiveMode")
 
                 self.cnsclkselglobwtrtime = YLeaf(YType.uint32, "cnsClkSelGlobWtrTime")
+                self._segment_path = lambda: "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + self.cnsclkselgloprocindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cnsclkselgloprocindex",
-                                "cnsclkselglobclockmode",
-                                "cnsclkselglobcurrholdoverseconds",
-                                "cnsclkselglobeecoption",
-                                "cnsclkselglobesmcmode",
-                                "cnsclkselglobholdofftime",
-                                "cnsclkselgloblastholdoverseconds",
-                                "cnsclkselglobnetsyncenable",
-                                "cnsclkselglobnetworkoption",
-                                "cnsclkselglobnofsources",
-                                "cnsclkselglobprocessmode",
-                                "cnsclkselglobrevertivemode",
-                                "cnsclkselglobwtrtime") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoNetsyncMib.Cnsclkselglobaltable.Cnsclkselglobalentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoNetsyncMib.Cnsclkselglobaltable.Cnsclkselglobalentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cnsclkselgloprocindex.is_set or
-                    self.cnsclkselglobclockmode.is_set or
-                    self.cnsclkselglobcurrholdoverseconds.is_set or
-                    self.cnsclkselglobeecoption.is_set or
-                    self.cnsclkselglobesmcmode.is_set or
-                    self.cnsclkselglobholdofftime.is_set or
-                    self.cnsclkselgloblastholdoverseconds.is_set or
-                    self.cnsclkselglobnetsyncenable.is_set or
-                    self.cnsclkselglobnetworkoption.is_set or
-                    self.cnsclkselglobnofsources.is_set or
-                    self.cnsclkselglobprocessmode.is_set or
-                    self.cnsclkselglobrevertivemode.is_set or
-                    self.cnsclkselglobwtrtime.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cnsclkselgloprocindex.yfilter != YFilter.not_set or
-                    self.cnsclkselglobclockmode.yfilter != YFilter.not_set or
-                    self.cnsclkselglobcurrholdoverseconds.yfilter != YFilter.not_set or
-                    self.cnsclkselglobeecoption.yfilter != YFilter.not_set or
-                    self.cnsclkselglobesmcmode.yfilter != YFilter.not_set or
-                    self.cnsclkselglobholdofftime.yfilter != YFilter.not_set or
-                    self.cnsclkselgloblastholdoverseconds.yfilter != YFilter.not_set or
-                    self.cnsclkselglobnetsyncenable.yfilter != YFilter.not_set or
-                    self.cnsclkselglobnetworkoption.yfilter != YFilter.not_set or
-                    self.cnsclkselglobnofsources.yfilter != YFilter.not_set or
-                    self.cnsclkselglobprocessmode.yfilter != YFilter.not_set or
-                    self.cnsclkselglobrevertivemode.yfilter != YFilter.not_set or
-                    self.cnsclkselglobwtrtime.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + self.cnsclkselgloprocindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cnsclkselgloprocindex.is_set or self.cnsclkselgloprocindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselgloprocindex.get_name_leafdata())
-                if (self.cnsclkselglobclockmode.is_set or self.cnsclkselglobclockmode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobclockmode.get_name_leafdata())
-                if (self.cnsclkselglobcurrholdoverseconds.is_set or self.cnsclkselglobcurrholdoverseconds.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobcurrholdoverseconds.get_name_leafdata())
-                if (self.cnsclkselglobeecoption.is_set or self.cnsclkselglobeecoption.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobeecoption.get_name_leafdata())
-                if (self.cnsclkselglobesmcmode.is_set or self.cnsclkselglobesmcmode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobesmcmode.get_name_leafdata())
-                if (self.cnsclkselglobholdofftime.is_set or self.cnsclkselglobholdofftime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobholdofftime.get_name_leafdata())
-                if (self.cnsclkselgloblastholdoverseconds.is_set or self.cnsclkselgloblastholdoverseconds.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselgloblastholdoverseconds.get_name_leafdata())
-                if (self.cnsclkselglobnetsyncenable.is_set or self.cnsclkselglobnetsyncenable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobnetsyncenable.get_name_leafdata())
-                if (self.cnsclkselglobnetworkoption.is_set or self.cnsclkselglobnetworkoption.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobnetworkoption.get_name_leafdata())
-                if (self.cnsclkselglobnofsources.is_set or self.cnsclkselglobnofsources.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobnofsources.get_name_leafdata())
-                if (self.cnsclkselglobprocessmode.is_set or self.cnsclkselglobprocessmode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobprocessmode.get_name_leafdata())
-                if (self.cnsclkselglobrevertivemode.is_set or self.cnsclkselglobrevertivemode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobrevertivemode.get_name_leafdata())
-                if (self.cnsclkselglobwtrtime.is_set or self.cnsclkselglobwtrtime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsclkselglobwtrtime.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cnsClkSelGloProcIndex" or name == "cnsClkSelGlobClockMode" or name == "cnsClkSelGlobCurrHoldoverSeconds" or name == "cnsClkSelGlobEECOption" or name == "cnsClkSelGlobESMCMode" or name == "cnsClkSelGlobHoldoffTime" or name == "cnsClkSelGlobLastHoldoverSeconds" or name == "cnsClkSelGlobNetsyncEnable" or name == "cnsClkSelGlobNetworkOption" or name == "cnsClkSelGlobNofSources" or name == "cnsClkSelGlobProcessMode" or name == "cnsClkSelGlobRevertiveMode" or name == "cnsClkSelGlobWtrTime"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cnsClkSelGloProcIndex"):
-                    self.cnsclkselgloprocindex = value
-                    self.cnsclkselgloprocindex.value_namespace = name_space
-                    self.cnsclkselgloprocindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobClockMode"):
-                    self.cnsclkselglobclockmode = value
-                    self.cnsclkselglobclockmode.value_namespace = name_space
-                    self.cnsclkselglobclockmode.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobCurrHoldoverSeconds"):
-                    self.cnsclkselglobcurrholdoverseconds = value
-                    self.cnsclkselglobcurrholdoverseconds.value_namespace = name_space
-                    self.cnsclkselglobcurrholdoverseconds.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobEECOption"):
-                    self.cnsclkselglobeecoption = value
-                    self.cnsclkselglobeecoption.value_namespace = name_space
-                    self.cnsclkselglobeecoption.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobESMCMode"):
-                    self.cnsclkselglobesmcmode = value
-                    self.cnsclkselglobesmcmode.value_namespace = name_space
-                    self.cnsclkselglobesmcmode.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobHoldoffTime"):
-                    self.cnsclkselglobholdofftime = value
-                    self.cnsclkselglobholdofftime.value_namespace = name_space
-                    self.cnsclkselglobholdofftime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobLastHoldoverSeconds"):
-                    self.cnsclkselgloblastholdoverseconds = value
-                    self.cnsclkselgloblastholdoverseconds.value_namespace = name_space
-                    self.cnsclkselgloblastholdoverseconds.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobNetsyncEnable"):
-                    self.cnsclkselglobnetsyncenable = value
-                    self.cnsclkselglobnetsyncenable.value_namespace = name_space
-                    self.cnsclkselglobnetsyncenable.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobNetworkOption"):
-                    self.cnsclkselglobnetworkoption = value
-                    self.cnsclkselglobnetworkoption.value_namespace = name_space
-                    self.cnsclkselglobnetworkoption.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobNofSources"):
-                    self.cnsclkselglobnofsources = value
-                    self.cnsclkselglobnofsources.value_namespace = name_space
-                    self.cnsclkselglobnofsources.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobProcessMode"):
-                    self.cnsclkselglobprocessmode = value
-                    self.cnsclkselglobprocessmode.value_namespace = name_space
-                    self.cnsclkselglobprocessmode.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobRevertiveMode"):
-                    self.cnsclkselglobrevertivemode = value
-                    self.cnsclkselglobrevertivemode.value_namespace = name_space
-                    self.cnsclkselglobrevertivemode.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsClkSelGlobWtrTime"):
-                    self.cnsclkselglobwtrtime = value
-                    self.cnsclkselglobwtrtime.value_namespace = name_space
-                    self.cnsclkselglobwtrtime.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cnsclkselglobalentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cnsclkselglobalentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cnsClkSelGlobalTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cnsClkSelGlobalEntry"):
-                for c in self.cnsclkselglobalentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoNetsyncMib.Cnsclkselglobaltable.Cnsclkselglobalentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cnsclkselglobalentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsClkSelGlobalEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry, ['cnsclkselgloprocindex', 'cnsclkselglobclockmode', 'cnsclkselglobcurrholdoverseconds', 'cnsclkselglobeecoption', 'cnsclkselglobesmcmode', 'cnsclkselglobholdofftime', 'cnsclkselgloblastholdoverseconds', 'cnsclkselglobnetsyncenable', 'cnsclkselglobnetworkoption', 'cnsclkselglobnofsources', 'cnsclkselglobprocessmode', 'cnsclkselglobrevertivemode', 'cnsclkselglobwtrtime'], name, value)
 
 
-    class Cnsselectedinputsourcetable(Entity):
+    class Cnsextoutputtable(Entity):
         """
-        T0 selected clock source table.
-        This table contains the selected clock source for the input T0
-        clock.
+        T4 external output table.
+        This table contains a list of T4 external outputs.
         
-        .. attribute:: cnsselectedinputsourceentry
+        Each T4 external output is associated with clock
+        source(s) to be found in cnsT4ClockSourceTable.
+        The clock selection process considers all the
+        available clock sources and select the T4 clock
+        source based on the G.781 clock selection algorithm.
         
-        	An entry is created in the table when the G.781 clock selection process has successfully selected a T0 clock source.  The entry shall remain during the time the G.781 clock selection process remains enabled
-        	**type**\: list of    :py:class:`Cnsselectedinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry>`
+        .. attribute:: cnsextoutputentry
+        
+        	An entry is created in the table when a user adds a T4 external output in the configuration.  A T4 external output configured input clock sources are defined in cnsT4ClockSourceTable.  An entry is removed from the table when a user removes a T4 external output from the configuration
+        	**type**\: list of    :py:class:`Cnsextoutputentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry>`
         
         
 
@@ -1282,92 +971,85 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cnsselectedinputsourcetable, self).__init__()
+            super(CISCONETSYNCMIB.Cnsextoutputtable, self).__init__()
 
-            self.yang_name = "cnsSelectedInputSourceTable"
+            self.yang_name = "cnsExtOutputTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cnsExtOutputEntry" : ("cnsextoutputentry", CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry)}
 
-            self.cnsselectedinputsourceentry = YList(self)
+            self.cnsextoutputentry = YList(self)
+            self._segment_path = lambda: "cnsExtOutputTable"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cnsselectedinputsourcetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cnsselectedinputsourcetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCONETSYNCMIB.Cnsextoutputtable, [], name, value)
 
 
-        class Cnsselectedinputsourceentry(Entity):
+        class Cnsextoutputentry(Entity):
             """
-            An entry is created in the table when the G.781 clock
-            selection process has successfully selected a T0 clock
-            source.  The entry shall remain during the time
-            the G.781 clock selection process remains enabled.
+            An entry is created in the table when a user adds
+            a T4 external output in the configuration.  A T4 external
+            output configured input clock sources are defined in
+            cnsT4ClockSourceTable.
             
-            .. attribute:: cnsselinpsrcnetsyncindex  <key>
+            An entry is removed from the table when a user removes
+            a T4 external output from the configuration.
             
-            	An index that uniquely represents an entry in this table. This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
+            .. attribute:: cnsextoutlistindex  <key>
+            
+            	An index that uniquely represents an entry in this table.  This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cnsselinpsrcfsw
+            .. attribute:: cnsextoutfsw
             
-            	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source.  The 'true' value indicates the currently selected clock source is a result of the forced switching. The 'false' value indicates the currently selected clock source is not a result of forced switching
+            	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source, The T4 selected synchronization source is identified by cnsExtOutSelNetsyncIndex, which contains the index to the clock source in cnsT4ClockSourceTable.  The 'true' value indicates the currently selected T4 clock source is a result of the forced switching. The 'false' value indicates the currently selected T4 clock source is not a result of forced switching
             	**type**\:  bool
             
-            .. attribute:: cnsselinpsrcintftype
+            .. attribute:: cnsextoutintftype
             
-            	This object indicates the type of the selected T0 clock
-            	**type**\:   :py:class:`Cisconetsynciftype <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsynciftype>`
+            	This object indicates the interface type of the T4 external output
+            	**type**\:   :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
-            .. attribute:: cnsselinpsrcmsw
+            .. attribute:: cnsextoutmsw
             
-            	This object indicates the manual switching flag. The 'true' value indicates the currently selected clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode. Furthermore, in QL\-enabled mode, a manual switch can be performed only to a source which has the highest available QL
+            	This object indicates the manual switching flag.  The 'true' value indicates the currently selected T4 clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode.  A clock source is enabled when it occupies in row in cnsT4ClockSourceTable.  A clock source is not locked out when cnsT4ClkSrcLockout contains the value 'false'. A clock source is not in signal failure condition when cnsT4ClkSrcSignalFailure contains the value 'false'.  The QL is identified in cnsT4ClkSrcQualityLevel.  In QL\-enabled mode, a manual switch can be  performed only to a source which has the highest available QL
             	**type**\:  bool
             
-            .. attribute:: cnsselinpsrcname
+            .. attribute:: cnsextoutname
             
-            	This object indicates the name of the selected T0 clock
+            	This object indicates the name of a T4 external output
             	**type**\:  str
             
             	**length:** 1..255
             
-            .. attribute:: cnsselinpsrcpriority
+            .. attribute:: cnsextoutpriority
             
-            	This object indicates the configured priority of the selected T0 clock. A smaller value represents a higher priority
+            	This object indicates the priority of the selected clock source for a T4 external output.  A smaller value represents a higher priority
             	**type**\:  int
             
             	**range:** 1..1024
             
-            .. attribute:: cnsselinpsrcqualitylevel
+            .. attribute:: cnsextoutqualitylevel
             
-            	This object indicates the selected T0 clock source's effective quality level, which is the derived clock quality based on the three factors\:  (a) Received quality level.  (b) Configured Rx quality level.  This factor supersedes (a).  (c) System overridden quality level as a result of exceptional events such as signal failure or ESMC failure.  This factor supersedes (a) and (b)
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	This object indicates the clock quality of the T4 external output
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
-            .. attribute:: cnsselinpsrctimestamp
+            .. attribute:: cnsextoutselnetsyncindex
             
-            	This object indicates the timestamp of the T0 clock source being selected by the G.781 clock selection process
+            	An index that uniquely represents the selected input clock source whose information is reported by a row in cnsT4ClockSourceTable. The index lists the value of cnsT4ClkSrcNetsyncIndex, which is the input clock source of the T4 external output selected by the G.781 clock selection process
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 1..4294967295
+            
+            .. attribute:: cnsextoutsquelch
+            
+            	This object indicates whether or not a T4 external output is squelched.  Squelching is a sychronization function defined to prevent transmission of a timing signal with a quality that is lower than the quality of the clock in the receiving networks element or SASE. It is also used for the prevention of timing loops
+            	**type**\:  bool
             
             
 
@@ -1377,217 +1059,37 @@ class CiscoNetsyncMib(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CiscoNetsyncMib.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, self).__init__()
+                super(CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry, self).__init__()
 
-                self.yang_name = "cnsSelectedInputSourceEntry"
-                self.yang_parent_name = "cnsSelectedInputSourceTable"
+                self.yang_name = "cnsExtOutputEntry"
+                self.yang_parent_name = "cnsExtOutputTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.cnsselinpsrcnetsyncindex = YLeaf(YType.uint32, "cnsSelInpSrcNetsyncIndex")
+                self.cnsextoutlistindex = YLeaf(YType.uint32, "cnsExtOutListIndex")
 
-                self.cnsselinpsrcfsw = YLeaf(YType.boolean, "cnsSelInpSrcFSW")
+                self.cnsextoutfsw = YLeaf(YType.boolean, "cnsExtOutFSW")
 
-                self.cnsselinpsrcintftype = YLeaf(YType.enumeration, "cnsSelInpSrcIntfType")
+                self.cnsextoutintftype = YLeaf(YType.enumeration, "cnsExtOutIntfType")
 
-                self.cnsselinpsrcmsw = YLeaf(YType.boolean, "cnsSelInpSrcMSW")
+                self.cnsextoutmsw = YLeaf(YType.boolean, "cnsExtOutMSW")
 
-                self.cnsselinpsrcname = YLeaf(YType.str, "cnsSelInpSrcName")
+                self.cnsextoutname = YLeaf(YType.str, "cnsExtOutName")
 
-                self.cnsselinpsrcpriority = YLeaf(YType.uint32, "cnsSelInpSrcPriority")
+                self.cnsextoutpriority = YLeaf(YType.uint32, "cnsExtOutPriority")
 
-                self.cnsselinpsrcqualitylevel = YLeaf(YType.enumeration, "cnsSelInpSrcQualityLevel")
+                self.cnsextoutqualitylevel = YLeaf(YType.enumeration, "cnsExtOutQualityLevel")
 
-                self.cnsselinpsrctimestamp = YLeaf(YType.uint32, "cnsSelInpSrcTimestamp")
+                self.cnsextoutselnetsyncindex = YLeaf(YType.uint32, "cnsExtOutSelNetsyncIndex")
+
+                self.cnsextoutsquelch = YLeaf(YType.boolean, "cnsExtOutSquelch")
+                self._segment_path = lambda: "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cnsselinpsrcnetsyncindex",
-                                "cnsselinpsrcfsw",
-                                "cnsselinpsrcintftype",
-                                "cnsselinpsrcmsw",
-                                "cnsselinpsrcname",
-                                "cnsselinpsrcpriority",
-                                "cnsselinpsrcqualitylevel",
-                                "cnsselinpsrctimestamp") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoNetsyncMib.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoNetsyncMib.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cnsselinpsrcnetsyncindex.is_set or
-                    self.cnsselinpsrcfsw.is_set or
-                    self.cnsselinpsrcintftype.is_set or
-                    self.cnsselinpsrcmsw.is_set or
-                    self.cnsselinpsrcname.is_set or
-                    self.cnsselinpsrcpriority.is_set or
-                    self.cnsselinpsrcqualitylevel.is_set or
-                    self.cnsselinpsrctimestamp.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcnetsyncindex.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcfsw.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcintftype.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcmsw.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcname.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcpriority.yfilter != YFilter.not_set or
-                    self.cnsselinpsrcqualitylevel.yfilter != YFilter.not_set or
-                    self.cnsselinpsrctimestamp.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + self.cnsselinpsrcnetsyncindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cnsselinpsrcnetsyncindex.is_set or self.cnsselinpsrcnetsyncindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcnetsyncindex.get_name_leafdata())
-                if (self.cnsselinpsrcfsw.is_set or self.cnsselinpsrcfsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcfsw.get_name_leafdata())
-                if (self.cnsselinpsrcintftype.is_set or self.cnsselinpsrcintftype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcintftype.get_name_leafdata())
-                if (self.cnsselinpsrcmsw.is_set or self.cnsselinpsrcmsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcmsw.get_name_leafdata())
-                if (self.cnsselinpsrcname.is_set or self.cnsselinpsrcname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcname.get_name_leafdata())
-                if (self.cnsselinpsrcpriority.is_set or self.cnsselinpsrcpriority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcpriority.get_name_leafdata())
-                if (self.cnsselinpsrcqualitylevel.is_set or self.cnsselinpsrcqualitylevel.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrcqualitylevel.get_name_leafdata())
-                if (self.cnsselinpsrctimestamp.is_set or self.cnsselinpsrctimestamp.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsselinpsrctimestamp.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cnsSelInpSrcNetsyncIndex" or name == "cnsSelInpSrcFSW" or name == "cnsSelInpSrcIntfType" or name == "cnsSelInpSrcMSW" or name == "cnsSelInpSrcName" or name == "cnsSelInpSrcPriority" or name == "cnsSelInpSrcQualityLevel" or name == "cnsSelInpSrcTimestamp"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cnsSelInpSrcNetsyncIndex"):
-                    self.cnsselinpsrcnetsyncindex = value
-                    self.cnsselinpsrcnetsyncindex.value_namespace = name_space
-                    self.cnsselinpsrcnetsyncindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcFSW"):
-                    self.cnsselinpsrcfsw = value
-                    self.cnsselinpsrcfsw.value_namespace = name_space
-                    self.cnsselinpsrcfsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcIntfType"):
-                    self.cnsselinpsrcintftype = value
-                    self.cnsselinpsrcintftype.value_namespace = name_space
-                    self.cnsselinpsrcintftype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcMSW"):
-                    self.cnsselinpsrcmsw = value
-                    self.cnsselinpsrcmsw.value_namespace = name_space
-                    self.cnsselinpsrcmsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcName"):
-                    self.cnsselinpsrcname = value
-                    self.cnsselinpsrcname.value_namespace = name_space
-                    self.cnsselinpsrcname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcPriority"):
-                    self.cnsselinpsrcpriority = value
-                    self.cnsselinpsrcpriority.value_namespace = name_space
-                    self.cnsselinpsrcpriority.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcQualityLevel"):
-                    self.cnsselinpsrcqualitylevel = value
-                    self.cnsselinpsrcqualitylevel.value_namespace = name_space
-                    self.cnsselinpsrcqualitylevel.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsSelInpSrcTimestamp"):
-                    self.cnsselinpsrctimestamp = value
-                    self.cnsselinpsrctimestamp.value_namespace = name_space
-                    self.cnsselinpsrctimestamp.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cnsselectedinputsourceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cnsselectedinputsourceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cnsSelectedInputSourceTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cnsSelectedInputSourceEntry"):
-                for c in self.cnsselectedinputsourceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoNetsyncMib.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cnsselectedinputsourceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsSelectedInputSourceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry, ['cnsextoutlistindex', 'cnsextoutfsw', 'cnsextoutintftype', 'cnsextoutmsw', 'cnsextoutname', 'cnsextoutpriority', 'cnsextoutqualitylevel', 'cnsextoutselnetsyncindex', 'cnsextoutsquelch'], name, value)
 
 
     class Cnsinputsourcetable(Entity):
@@ -1599,7 +1101,7 @@ class CiscoNetsyncMib(Entity):
         .. attribute:: cnsinputsourceentry
         
         	An entry is created in the table when a user adds a T0 clock source in the configuration. An entry is removed  in the table when a user removes a T0 clock source from the configuration
-        	**type**\: list of    :py:class:`Cnsinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsinputsourcetable.Cnsinputsourceentry>`
+        	**type**\: list of    :py:class:`Cnsinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry>`
         
         
 
@@ -1609,36 +1111,21 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cnsinputsourcetable, self).__init__()
+            super(CISCONETSYNCMIB.Cnsinputsourcetable, self).__init__()
 
             self.yang_name = "cnsInputSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cnsInputSourceEntry" : ("cnsinputsourceentry", CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry)}
 
             self.cnsinputsourceentry = YList(self)
+            self._segment_path = lambda: "cnsInputSourceTable"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cnsinputsourcetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cnsinputsourcetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCONETSYNCMIB.Cnsinputsourcetable, [], name, value)
 
 
         class Cnsinputsourceentry(Entity):
@@ -1663,12 +1150,12 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsinpsrcalarminfo
             
             	This object indicates the alarm reasons of an input clock source if an alarm event is being reported on it
-            	**type**\:   :py:class:`Cisconetsyncalarminfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncalarminfo>`
+            	**type**\:   :py:class:`CiscoNetsyncAlarmInfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncAlarmInfo>`
             
             .. attribute:: cnsinpsrcesmccap
             
             	This object indicates the ESMC capability of an input clock source configured for the T0 clock selection.  This is applicable only to Synchronous Ethernet input clock source identified by cnsInpSrcIntfType 'netsyncIfTypeEthernet'
-            	**type**\:   :py:class:`Cisconetsyncesmccap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncesmccap>`
+            	**type**\:   :py:class:`CiscoNetsyncESMCCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncESMCCap>`
             
             .. attribute:: cnsinpsrcfsw
             
@@ -1687,7 +1174,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsinpsrcintftype
             
             	This object indicates the type of an input clock source configured for the T0 clock selection
-            	**type**\:   :py:class:`Cisconetsynciftype <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsynciftype>`
+            	**type**\:   :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
             .. attribute:: cnsinpsrclockout
             
@@ -1716,27 +1203,27 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsinpsrcqualitylevel
             
             	This object indicates the current clock quality level of the input clock source.  This is the effective quality which is derived from three values\:  1) most recent clock quality level received, 2) forced clock quality level (entered via configuration) 3) overridden clock quality level as a result of line protocol down, signal failure, or alarms
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnsinpsrcqualitylevelrx
             
             	This object indicates the last clock quality level received on the input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnsinpsrcqualitylevelrxcfg
             
             	This object indicates the configured receive clock quality level of an input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnsinpsrcqualityleveltx
             
             	This object indicates the most recent clock quality level transmitted on the input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnsinpsrcqualityleveltxcfg
             
             	This object indicates the configured transmit clock quality level of an input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnsinpsrcsignalfailure
             
@@ -1746,7 +1233,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnsinpsrcssmcap
             
             	This object indicates the SSM capability of an input clock source configured for the T0 clock selection. This is applicable only to any synchronous interface clock source except SyncE interface, which is identified by cnsInpSrcIntfType 'netsyncIfTypeEthernet'
-            	**type**\:   :py:class:`Cisconetsyncssmcap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncssmcap>`
+            	**type**\:   :py:class:`CiscoNetsyncSSMCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncSSMCap>`
             
             .. attribute:: cnsinpsrcwtrtime
             
@@ -1765,10 +1252,14 @@ class CiscoNetsyncMib(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CiscoNetsyncMib.Cnsinputsourcetable.Cnsinputsourceentry, self).__init__()
+                super(CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry, self).__init__()
 
                 self.yang_name = "cnsInputSourceEntry"
                 self.yang_parent_name = "cnsInputSourceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cnsinpsrcnetsyncindex = YLeaf(YType.uint32, "cnsInpSrcNetsyncIndex")
 
@@ -1807,311 +1298,23 @@ class CiscoNetsyncMib(Entity):
                 self.cnsinpsrcssmcap = YLeaf(YType.enumeration, "cnsInpSrcSSMCap")
 
                 self.cnsinpsrcwtrtime = YLeaf(YType.uint32, "cnsInpSrcWtrTime")
+                self._segment_path = lambda: "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + self.cnsinpsrcnetsyncindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cnsinpsrcnetsyncindex",
-                                "cnsinpsrcalarm",
-                                "cnsinpsrcalarminfo",
-                                "cnsinpsrcesmccap",
-                                "cnsinpsrcfsw",
-                                "cnsinpsrcholdofftime",
-                                "cnsinpsrcintftype",
-                                "cnsinpsrclockout",
-                                "cnsinpsrcmsw",
-                                "cnsinpsrcname",
-                                "cnsinpsrcpriority",
-                                "cnsinpsrcqualitylevel",
-                                "cnsinpsrcqualitylevelrx",
-                                "cnsinpsrcqualitylevelrxcfg",
-                                "cnsinpsrcqualityleveltx",
-                                "cnsinpsrcqualityleveltxcfg",
-                                "cnsinpsrcsignalfailure",
-                                "cnsinpsrcssmcap",
-                                "cnsinpsrcwtrtime") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoNetsyncMib.Cnsinputsourcetable.Cnsinputsourceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoNetsyncMib.Cnsinputsourcetable.Cnsinputsourceentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cnsinpsrcnetsyncindex.is_set or
-                    self.cnsinpsrcalarm.is_set or
-                    self.cnsinpsrcalarminfo.is_set or
-                    self.cnsinpsrcesmccap.is_set or
-                    self.cnsinpsrcfsw.is_set or
-                    self.cnsinpsrcholdofftime.is_set or
-                    self.cnsinpsrcintftype.is_set or
-                    self.cnsinpsrclockout.is_set or
-                    self.cnsinpsrcmsw.is_set or
-                    self.cnsinpsrcname.is_set or
-                    self.cnsinpsrcpriority.is_set or
-                    self.cnsinpsrcqualitylevel.is_set or
-                    self.cnsinpsrcqualitylevelrx.is_set or
-                    self.cnsinpsrcqualitylevelrxcfg.is_set or
-                    self.cnsinpsrcqualityleveltx.is_set or
-                    self.cnsinpsrcqualityleveltxcfg.is_set or
-                    self.cnsinpsrcsignalfailure.is_set or
-                    self.cnsinpsrcssmcap.is_set or
-                    self.cnsinpsrcwtrtime.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cnsinpsrcnetsyncindex.yfilter != YFilter.not_set or
-                    self.cnsinpsrcalarm.yfilter != YFilter.not_set or
-                    self.cnsinpsrcalarminfo.yfilter != YFilter.not_set or
-                    self.cnsinpsrcesmccap.yfilter != YFilter.not_set or
-                    self.cnsinpsrcfsw.yfilter != YFilter.not_set or
-                    self.cnsinpsrcholdofftime.yfilter != YFilter.not_set or
-                    self.cnsinpsrcintftype.yfilter != YFilter.not_set or
-                    self.cnsinpsrclockout.yfilter != YFilter.not_set or
-                    self.cnsinpsrcmsw.yfilter != YFilter.not_set or
-                    self.cnsinpsrcname.yfilter != YFilter.not_set or
-                    self.cnsinpsrcpriority.yfilter != YFilter.not_set or
-                    self.cnsinpsrcqualitylevel.yfilter != YFilter.not_set or
-                    self.cnsinpsrcqualitylevelrx.yfilter != YFilter.not_set or
-                    self.cnsinpsrcqualitylevelrxcfg.yfilter != YFilter.not_set or
-                    self.cnsinpsrcqualityleveltx.yfilter != YFilter.not_set or
-                    self.cnsinpsrcqualityleveltxcfg.yfilter != YFilter.not_set or
-                    self.cnsinpsrcsignalfailure.yfilter != YFilter.not_set or
-                    self.cnsinpsrcssmcap.yfilter != YFilter.not_set or
-                    self.cnsinpsrcwtrtime.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + self.cnsinpsrcnetsyncindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cnsinpsrcnetsyncindex.is_set or self.cnsinpsrcnetsyncindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcnetsyncindex.get_name_leafdata())
-                if (self.cnsinpsrcalarm.is_set or self.cnsinpsrcalarm.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcalarm.get_name_leafdata())
-                if (self.cnsinpsrcalarminfo.is_set or self.cnsinpsrcalarminfo.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcalarminfo.get_name_leafdata())
-                if (self.cnsinpsrcesmccap.is_set or self.cnsinpsrcesmccap.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcesmccap.get_name_leafdata())
-                if (self.cnsinpsrcfsw.is_set or self.cnsinpsrcfsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcfsw.get_name_leafdata())
-                if (self.cnsinpsrcholdofftime.is_set or self.cnsinpsrcholdofftime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcholdofftime.get_name_leafdata())
-                if (self.cnsinpsrcintftype.is_set or self.cnsinpsrcintftype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcintftype.get_name_leafdata())
-                if (self.cnsinpsrclockout.is_set or self.cnsinpsrclockout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrclockout.get_name_leafdata())
-                if (self.cnsinpsrcmsw.is_set or self.cnsinpsrcmsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcmsw.get_name_leafdata())
-                if (self.cnsinpsrcname.is_set or self.cnsinpsrcname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcname.get_name_leafdata())
-                if (self.cnsinpsrcpriority.is_set or self.cnsinpsrcpriority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcpriority.get_name_leafdata())
-                if (self.cnsinpsrcqualitylevel.is_set or self.cnsinpsrcqualitylevel.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcqualitylevel.get_name_leafdata())
-                if (self.cnsinpsrcqualitylevelrx.is_set or self.cnsinpsrcqualitylevelrx.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcqualitylevelrx.get_name_leafdata())
-                if (self.cnsinpsrcqualitylevelrxcfg.is_set or self.cnsinpsrcqualitylevelrxcfg.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcqualitylevelrxcfg.get_name_leafdata())
-                if (self.cnsinpsrcqualityleveltx.is_set or self.cnsinpsrcqualityleveltx.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcqualityleveltx.get_name_leafdata())
-                if (self.cnsinpsrcqualityleveltxcfg.is_set or self.cnsinpsrcqualityleveltxcfg.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcqualityleveltxcfg.get_name_leafdata())
-                if (self.cnsinpsrcsignalfailure.is_set or self.cnsinpsrcsignalfailure.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcsignalfailure.get_name_leafdata())
-                if (self.cnsinpsrcssmcap.is_set or self.cnsinpsrcssmcap.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcssmcap.get_name_leafdata())
-                if (self.cnsinpsrcwtrtime.is_set or self.cnsinpsrcwtrtime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsinpsrcwtrtime.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cnsInpSrcNetsyncIndex" or name == "cnsInpSrcAlarm" or name == "cnsInpSrcAlarmInfo" or name == "cnsInpSrcESMCCap" or name == "cnsInpSrcFSW" or name == "cnsInpSrcHoldoffTime" or name == "cnsInpSrcIntfType" or name == "cnsInpSrcLockout" or name == "cnsInpSrcMSW" or name == "cnsInpSrcName" or name == "cnsInpSrcPriority" or name == "cnsInpSrcQualityLevel" or name == "cnsInpSrcQualityLevelRx" or name == "cnsInpSrcQualityLevelRxCfg" or name == "cnsInpSrcQualityLevelTx" or name == "cnsInpSrcQualityLevelTxCfg" or name == "cnsInpSrcSignalFailure" or name == "cnsInpSrcSSMCap" or name == "cnsInpSrcWtrTime"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cnsInpSrcNetsyncIndex"):
-                    self.cnsinpsrcnetsyncindex = value
-                    self.cnsinpsrcnetsyncindex.value_namespace = name_space
-                    self.cnsinpsrcnetsyncindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcAlarm"):
-                    self.cnsinpsrcalarm = value
-                    self.cnsinpsrcalarm.value_namespace = name_space
-                    self.cnsinpsrcalarm.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcAlarmInfo"):
-                    self.cnsinpsrcalarminfo[value] = True
-                if(value_path == "cnsInpSrcESMCCap"):
-                    self.cnsinpsrcesmccap = value
-                    self.cnsinpsrcesmccap.value_namespace = name_space
-                    self.cnsinpsrcesmccap.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcFSW"):
-                    self.cnsinpsrcfsw = value
-                    self.cnsinpsrcfsw.value_namespace = name_space
-                    self.cnsinpsrcfsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcHoldoffTime"):
-                    self.cnsinpsrcholdofftime = value
-                    self.cnsinpsrcholdofftime.value_namespace = name_space
-                    self.cnsinpsrcholdofftime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcIntfType"):
-                    self.cnsinpsrcintftype = value
-                    self.cnsinpsrcintftype.value_namespace = name_space
-                    self.cnsinpsrcintftype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcLockout"):
-                    self.cnsinpsrclockout = value
-                    self.cnsinpsrclockout.value_namespace = name_space
-                    self.cnsinpsrclockout.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcMSW"):
-                    self.cnsinpsrcmsw = value
-                    self.cnsinpsrcmsw.value_namespace = name_space
-                    self.cnsinpsrcmsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcName"):
-                    self.cnsinpsrcname = value
-                    self.cnsinpsrcname.value_namespace = name_space
-                    self.cnsinpsrcname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcPriority"):
-                    self.cnsinpsrcpriority = value
-                    self.cnsinpsrcpriority.value_namespace = name_space
-                    self.cnsinpsrcpriority.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcQualityLevel"):
-                    self.cnsinpsrcqualitylevel = value
-                    self.cnsinpsrcqualitylevel.value_namespace = name_space
-                    self.cnsinpsrcqualitylevel.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcQualityLevelRx"):
-                    self.cnsinpsrcqualitylevelrx = value
-                    self.cnsinpsrcqualitylevelrx.value_namespace = name_space
-                    self.cnsinpsrcqualitylevelrx.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcQualityLevelRxCfg"):
-                    self.cnsinpsrcqualitylevelrxcfg = value
-                    self.cnsinpsrcqualitylevelrxcfg.value_namespace = name_space
-                    self.cnsinpsrcqualitylevelrxcfg.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcQualityLevelTx"):
-                    self.cnsinpsrcqualityleveltx = value
-                    self.cnsinpsrcqualityleveltx.value_namespace = name_space
-                    self.cnsinpsrcqualityleveltx.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcQualityLevelTxCfg"):
-                    self.cnsinpsrcqualityleveltxcfg = value
-                    self.cnsinpsrcqualityleveltxcfg.value_namespace = name_space
-                    self.cnsinpsrcqualityleveltxcfg.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcSignalFailure"):
-                    self.cnsinpsrcsignalfailure = value
-                    self.cnsinpsrcsignalfailure.value_namespace = name_space
-                    self.cnsinpsrcsignalfailure.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcSSMCap"):
-                    self.cnsinpsrcssmcap = value
-                    self.cnsinpsrcssmcap.value_namespace = name_space
-                    self.cnsinpsrcssmcap.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsInpSrcWtrTime"):
-                    self.cnsinpsrcwtrtime = value
-                    self.cnsinpsrcwtrtime.value_namespace = name_space
-                    self.cnsinpsrcwtrtime.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cnsinputsourceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cnsinputsourceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cnsInputSourceTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cnsInputSourceEntry"):
-                for c in self.cnsinputsourceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoNetsyncMib.Cnsinputsourcetable.Cnsinputsourceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cnsinputsourceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsInputSourceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry, ['cnsinpsrcnetsyncindex', 'cnsinpsrcalarm', 'cnsinpsrcalarminfo', 'cnsinpsrcesmccap', 'cnsinpsrcfsw', 'cnsinpsrcholdofftime', 'cnsinpsrcintftype', 'cnsinpsrclockout', 'cnsinpsrcmsw', 'cnsinpsrcname', 'cnsinpsrcpriority', 'cnsinpsrcqualitylevel', 'cnsinpsrcqualitylevelrx', 'cnsinpsrcqualitylevelrxcfg', 'cnsinpsrcqualityleveltx', 'cnsinpsrcqualityleveltxcfg', 'cnsinpsrcsignalfailure', 'cnsinpsrcssmcap', 'cnsinpsrcwtrtime'], name, value)
 
 
-    class Cnsextoutputtable(Entity):
+    class Cnsselectedinputsourcetable(Entity):
         """
-        T4 external output table.
-        This table contains a list of T4 external outputs.
+        T0 selected clock source table.
+        This table contains the selected clock source for the input T0
+        clock.
         
-        Each T4 external output is associated with clock
-        source(s) to be found in cnsT4ClockSourceTable.
-        The clock selection process considers all the
-        available clock sources and select the T4 clock
-        source based on the G.781 clock selection algorithm.
+        .. attribute:: cnsselectedinputsourceentry
         
-        .. attribute:: cnsextoutputentry
-        
-        	An entry is created in the table when a user adds a T4 external output in the configuration.  A T4 external output configured input clock sources are defined in cnsT4ClockSourceTable.  An entry is removed from the table when a user removes a T4 external output from the configuration
-        	**type**\: list of    :py:class:`Cnsextoutputentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry>`
+        	An entry is created in the table when the G.781 clock selection process has successfully selected a T0 clock source.  The entry shall remain during the time the G.781 clock selection process remains enabled
+        	**type**\: list of    :py:class:`Cnsselectedinputsourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry>`
         
         
 
@@ -2121,100 +1324,77 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cnsextoutputtable, self).__init__()
+            super(CISCONETSYNCMIB.Cnsselectedinputsourcetable, self).__init__()
 
-            self.yang_name = "cnsExtOutputTable"
+            self.yang_name = "cnsSelectedInputSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cnsSelectedInputSourceEntry" : ("cnsselectedinputsourceentry", CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry)}
 
-            self.cnsextoutputentry = YList(self)
+            self.cnsselectedinputsourceentry = YList(self)
+            self._segment_path = lambda: "cnsSelectedInputSourceTable"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cnsextoutputtable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cnsextoutputtable, self).__setattr__(name, value)
+            self._perform_setattr(CISCONETSYNCMIB.Cnsselectedinputsourcetable, [], name, value)
 
 
-        class Cnsextoutputentry(Entity):
+        class Cnsselectedinputsourceentry(Entity):
             """
-            An entry is created in the table when a user adds
-            a T4 external output in the configuration.  A T4 external
-            output configured input clock sources are defined in
-            cnsT4ClockSourceTable.
+            An entry is created in the table when the G.781 clock
+            selection process has successfully selected a T0 clock
+            source.  The entry shall remain during the time
+            the G.781 clock selection process remains enabled.
             
-            An entry is removed from the table when a user removes
-            a T4 external output from the configuration.
+            .. attribute:: cnsselinpsrcnetsyncindex  <key>
             
-            .. attribute:: cnsextoutlistindex  <key>
-            
-            	An index that uniquely represents an entry in this table.  This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
+            	An index that uniquely represents an entry in this table. This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cnsextoutfsw
+            .. attribute:: cnsselinpsrcfsw
             
-            	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source, The T4 selected synchronization source is identified by cnsExtOutSelNetsyncIndex, which contains the index to the clock source in cnsT4ClockSourceTable.  The 'true' value indicates the currently selected T4 clock source is a result of the forced switching. The 'false' value indicates the currently selected T4 clock source is not a result of forced switching
+            	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source.  The 'true' value indicates the currently selected clock source is a result of the forced switching. The 'false' value indicates the currently selected clock source is not a result of forced switching
             	**type**\:  bool
             
-            .. attribute:: cnsextoutintftype
+            .. attribute:: cnsselinpsrcintftype
             
-            	This object indicates the interface type of the T4 external output
-            	**type**\:   :py:class:`Cisconetsynciftype <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsynciftype>`
+            	This object indicates the type of the selected T0 clock
+            	**type**\:   :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
-            .. attribute:: cnsextoutmsw
+            .. attribute:: cnsselinpsrcmsw
             
-            	This object indicates the manual switching flag.  The 'true' value indicates the currently selected T4 clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode.  A clock source is enabled when it occupies in row in cnsT4ClockSourceTable.  A clock source is not locked out when cnsT4ClkSrcLockout contains the value 'false'. A clock source is not in signal failure condition when cnsT4ClkSrcSignalFailure contains the value 'false'.  The QL is identified in cnsT4ClkSrcQualityLevel.  In QL\-enabled mode, a manual switch can be  performed only to a source which has the highest available QL
+            	This object indicates the manual switching flag. The 'true' value indicates the currently selected clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode. Furthermore, in QL\-enabled mode, a manual switch can be performed only to a source which has the highest available QL
             	**type**\:  bool
             
-            .. attribute:: cnsextoutname
+            .. attribute:: cnsselinpsrcname
             
-            	This object indicates the name of a T4 external output
+            	This object indicates the name of the selected T0 clock
             	**type**\:  str
             
             	**length:** 1..255
             
-            .. attribute:: cnsextoutpriority
+            .. attribute:: cnsselinpsrcpriority
             
-            	This object indicates the priority of the selected clock source for a T4 external output.  A smaller value represents a higher priority
+            	This object indicates the configured priority of the selected T0 clock. A smaller value represents a higher priority
             	**type**\:  int
             
             	**range:** 1..1024
             
-            .. attribute:: cnsextoutqualitylevel
+            .. attribute:: cnsselinpsrcqualitylevel
             
-            	This object indicates the clock quality of the T4 external output
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	This object indicates the selected T0 clock source's effective quality level, which is the derived clock quality based on the three factors\:  (a) Received quality level.  (b) Configured Rx quality level.  This factor supersedes (a).  (c) System overridden quality level as a result of exceptional events such as signal failure or ESMC failure.  This factor supersedes (a) and (b)
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
-            .. attribute:: cnsextoutselnetsyncindex
+            .. attribute:: cnsselinpsrctimestamp
             
-            	An index that uniquely represents the selected input clock source whose information is reported by a row in cnsT4ClockSourceTable. The index lists the value of cnsT4ClkSrcNetsyncIndex, which is the input clock source of the T4 external output selected by the G.781 clock selection process
+            	This object indicates the timestamp of the T0 clock source being selected by the G.781 clock selection process
             	**type**\:  int
             
-            	**range:** 1..4294967295
-            
-            .. attribute:: cnsextoutsquelch
-            
-            	This object indicates whether or not a T4 external output is squelched.  Squelching is a sychronization function defined to prevent transmission of a timing signal with a quality that is lower than the quality of the clock in the receiving networks element or SASE. It is also used for the prevention of timing loops
-            	**type**\:  bool
+            	**range:** 0..4294967295
             
             
 
@@ -2224,228 +1404,35 @@ class CiscoNetsyncMib(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry, self).__init__()
+                super(CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, self).__init__()
 
-                self.yang_name = "cnsExtOutputEntry"
-                self.yang_parent_name = "cnsExtOutputTable"
+                self.yang_name = "cnsSelectedInputSourceEntry"
+                self.yang_parent_name = "cnsSelectedInputSourceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
-                self.cnsextoutlistindex = YLeaf(YType.uint32, "cnsExtOutListIndex")
+                self.cnsselinpsrcnetsyncindex = YLeaf(YType.uint32, "cnsSelInpSrcNetsyncIndex")
 
-                self.cnsextoutfsw = YLeaf(YType.boolean, "cnsExtOutFSW")
+                self.cnsselinpsrcfsw = YLeaf(YType.boolean, "cnsSelInpSrcFSW")
 
-                self.cnsextoutintftype = YLeaf(YType.enumeration, "cnsExtOutIntfType")
+                self.cnsselinpsrcintftype = YLeaf(YType.enumeration, "cnsSelInpSrcIntfType")
 
-                self.cnsextoutmsw = YLeaf(YType.boolean, "cnsExtOutMSW")
+                self.cnsselinpsrcmsw = YLeaf(YType.boolean, "cnsSelInpSrcMSW")
 
-                self.cnsextoutname = YLeaf(YType.str, "cnsExtOutName")
+                self.cnsselinpsrcname = YLeaf(YType.str, "cnsSelInpSrcName")
 
-                self.cnsextoutpriority = YLeaf(YType.uint32, "cnsExtOutPriority")
+                self.cnsselinpsrcpriority = YLeaf(YType.uint32, "cnsSelInpSrcPriority")
 
-                self.cnsextoutqualitylevel = YLeaf(YType.enumeration, "cnsExtOutQualityLevel")
+                self.cnsselinpsrcqualitylevel = YLeaf(YType.enumeration, "cnsSelInpSrcQualityLevel")
 
-                self.cnsextoutselnetsyncindex = YLeaf(YType.uint32, "cnsExtOutSelNetsyncIndex")
-
-                self.cnsextoutsquelch = YLeaf(YType.boolean, "cnsExtOutSquelch")
+                self.cnsselinpsrctimestamp = YLeaf(YType.uint32, "cnsSelInpSrcTimestamp")
+                self._segment_path = lambda: "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + self.cnsselinpsrcnetsyncindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cnsextoutlistindex",
-                                "cnsextoutfsw",
-                                "cnsextoutintftype",
-                                "cnsextoutmsw",
-                                "cnsextoutname",
-                                "cnsextoutpriority",
-                                "cnsextoutqualitylevel",
-                                "cnsextoutselnetsyncindex",
-                                "cnsextoutsquelch") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cnsextoutlistindex.is_set or
-                    self.cnsextoutfsw.is_set or
-                    self.cnsextoutintftype.is_set or
-                    self.cnsextoutmsw.is_set or
-                    self.cnsextoutname.is_set or
-                    self.cnsextoutpriority.is_set or
-                    self.cnsextoutqualitylevel.is_set or
-                    self.cnsextoutselnetsyncindex.is_set or
-                    self.cnsextoutsquelch.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cnsextoutlistindex.yfilter != YFilter.not_set or
-                    self.cnsextoutfsw.yfilter != YFilter.not_set or
-                    self.cnsextoutintftype.yfilter != YFilter.not_set or
-                    self.cnsextoutmsw.yfilter != YFilter.not_set or
-                    self.cnsextoutname.yfilter != YFilter.not_set or
-                    self.cnsextoutpriority.yfilter != YFilter.not_set or
-                    self.cnsextoutqualitylevel.yfilter != YFilter.not_set or
-                    self.cnsextoutselnetsyncindex.yfilter != YFilter.not_set or
-                    self.cnsextoutsquelch.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cnsextoutlistindex.is_set or self.cnsextoutlistindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutlistindex.get_name_leafdata())
-                if (self.cnsextoutfsw.is_set or self.cnsextoutfsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutfsw.get_name_leafdata())
-                if (self.cnsextoutintftype.is_set or self.cnsextoutintftype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutintftype.get_name_leafdata())
-                if (self.cnsextoutmsw.is_set or self.cnsextoutmsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutmsw.get_name_leafdata())
-                if (self.cnsextoutname.is_set or self.cnsextoutname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutname.get_name_leafdata())
-                if (self.cnsextoutpriority.is_set or self.cnsextoutpriority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutpriority.get_name_leafdata())
-                if (self.cnsextoutqualitylevel.is_set or self.cnsextoutqualitylevel.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutqualitylevel.get_name_leafdata())
-                if (self.cnsextoutselnetsyncindex.is_set or self.cnsextoutselnetsyncindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutselnetsyncindex.get_name_leafdata())
-                if (self.cnsextoutsquelch.is_set or self.cnsextoutsquelch.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutsquelch.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cnsExtOutListIndex" or name == "cnsExtOutFSW" or name == "cnsExtOutIntfType" or name == "cnsExtOutMSW" or name == "cnsExtOutName" or name == "cnsExtOutPriority" or name == "cnsExtOutQualityLevel" or name == "cnsExtOutSelNetsyncIndex" or name == "cnsExtOutSquelch"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cnsExtOutListIndex"):
-                    self.cnsextoutlistindex = value
-                    self.cnsextoutlistindex.value_namespace = name_space
-                    self.cnsextoutlistindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutFSW"):
-                    self.cnsextoutfsw = value
-                    self.cnsextoutfsw.value_namespace = name_space
-                    self.cnsextoutfsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutIntfType"):
-                    self.cnsextoutintftype = value
-                    self.cnsextoutintftype.value_namespace = name_space
-                    self.cnsextoutintftype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutMSW"):
-                    self.cnsextoutmsw = value
-                    self.cnsextoutmsw.value_namespace = name_space
-                    self.cnsextoutmsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutName"):
-                    self.cnsextoutname = value
-                    self.cnsextoutname.value_namespace = name_space
-                    self.cnsextoutname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutPriority"):
-                    self.cnsextoutpriority = value
-                    self.cnsextoutpriority.value_namespace = name_space
-                    self.cnsextoutpriority.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutQualityLevel"):
-                    self.cnsextoutqualitylevel = value
-                    self.cnsextoutqualitylevel.value_namespace = name_space
-                    self.cnsextoutqualitylevel.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutSelNetsyncIndex"):
-                    self.cnsextoutselnetsyncindex = value
-                    self.cnsextoutselnetsyncindex.value_namespace = name_space
-                    self.cnsextoutselnetsyncindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsExtOutSquelch"):
-                    self.cnsextoutsquelch = value
-                    self.cnsextoutsquelch.value_namespace = name_space
-                    self.cnsextoutsquelch.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cnsextoutputentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cnsextoutputentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cnsExtOutputTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cnsExtOutputEntry"):
-                for c in self.cnsextoutputentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cnsextoutputentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsExtOutputEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry, ['cnsselinpsrcnetsyncindex', 'cnsselinpsrcfsw', 'cnsselinpsrcintftype', 'cnsselinpsrcmsw', 'cnsselinpsrcname', 'cnsselinpsrcpriority', 'cnsselinpsrcqualitylevel', 'cnsselinpsrctimestamp'], name, value)
 
 
     class Cnst4Clocksourcetable(Entity):
@@ -2460,7 +1447,7 @@ class CiscoNetsyncMib(Entity):
         .. attribute:: cnst4clocksourceentry
         
         	An entry is created in the table when a user adds a clock source to a T4 external output in the configuration. The T4 external output is defined in the T4 external output table. An entry is removed in the table when a user removes a T4 clock source from the configuration
-        	**type**\: list of    :py:class:`Cnst4Clocksourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnst4Clocksourcetable.Cnst4Clocksourceentry>`
+        	**type**\: list of    :py:class:`Cnst4Clocksourceentry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry>`
         
         
 
@@ -2470,36 +1457,21 @@ class CiscoNetsyncMib(Entity):
         _revision = '2010-10-15'
 
         def __init__(self):
-            super(CiscoNetsyncMib.Cnst4Clocksourcetable, self).__init__()
+            super(CISCONETSYNCMIB.Cnst4Clocksourcetable, self).__init__()
 
             self.yang_name = "cnsT4ClockSourceTable"
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cnsT4ClockSourceEntry" : ("cnst4clocksourceentry", CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry)}
 
             self.cnst4clocksourceentry = YList(self)
+            self._segment_path = lambda: "cnsT4ClockSourceTable"
+            self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoNetsyncMib.Cnst4Clocksourcetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoNetsyncMib.Cnst4Clocksourcetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCONETSYNCMIB.Cnst4Clocksourcetable, [], name, value)
 
 
         class Cnst4Clocksourceentry(Entity):
@@ -2517,7 +1489,7 @@ class CiscoNetsyncMib(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncMib.Cnsextoutputtable.Cnsextoutputentry>`
+            	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry>`
             
             .. attribute:: cnst4clksrcnetsyncindex  <key>
             
@@ -2534,12 +1506,12 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnst4clksrcalarminfo
             
             	This object indicates the alarm reasons of a T4 input clock source if an alarm event is being reported on the clock source
-            	**type**\:   :py:class:`Cisconetsyncalarminfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncalarminfo>`
+            	**type**\:   :py:class:`CiscoNetsyncAlarmInfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncAlarmInfo>`
             
             .. attribute:: cnst4clksrcesmccap
             
             	This object indicates the ESMC capability of an input clock source configured for the T4 clock selection.  This is applicable only to Synchronous Ethernet input clock source identified by cnsT4ClkSrcIntfType 'netsyncIfTypeEthernet'
-            	**type**\:   :py:class:`Cisconetsyncesmccap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncesmccap>`
+            	**type**\:   :py:class:`CiscoNetsyncESMCCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncESMCCap>`
             
             .. attribute:: cnst4clksrcfsw
             
@@ -2558,7 +1530,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnst4clksrcintftype
             
             	This object indicates the type of an input clock source configured for the T4 clock selection
-            	**type**\:   :py:class:`Cisconetsynciftype <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsynciftype>`
+            	**type**\:   :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
             .. attribute:: cnst4clksrclockout
             
@@ -2587,27 +1559,27 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnst4clksrcqualitylevel
             
             	This object indicates the current clock quality level of the T4 input clock source.  This is the effective quality which is derived from three values\:  1) most recent clock quality level received, 2) forced clock quality level (entered via configuration) 3) overridden clock quality level as a result of line protocol down, signal failure, or alarms
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnst4clksrcqualitylevelrx
             
             	This object indicates the last clock quality level received on the T4 input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnst4clksrcqualitylevelrxcfg
             
             	This object indicates the configured receive clock quality level of a T4 input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnst4clksrcqualityleveltx
             
             	This object indicates the most recent clock quality level transmitted on the T4 input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnst4clksrcqualityleveltxcfg
             
             	This object indicates the configured transmit clock quality level of a T4 input clock source
-            	**type**\:   :py:class:`Cisconetsyncqualitylevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncqualitylevel>`
+            	**type**\:   :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
             .. attribute:: cnst4clksrcsignalfailure
             
@@ -2617,7 +1589,7 @@ class CiscoNetsyncMib(Entity):
             .. attribute:: cnst4clksrcssmcap
             
             	This object indicates the SSM capability of an input clock source configured for the T4 clock selection. This is applicable only to any synchronous interface clock source except SyncE interface, which is identified by cnsT4ClkSrcIntfType 'netsyncIfTypeEthernet'
-            	**type**\:   :py:class:`Cisconetsyncssmcap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.Cisconetsyncssmcap>`
+            	**type**\:   :py:class:`CiscoNetsyncSSMCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncSSMCap>`
             
             .. attribute:: cnst4clksrcwtrtime
             
@@ -2636,10 +1608,14 @@ class CiscoNetsyncMib(Entity):
             _revision = '2010-10-15'
 
             def __init__(self):
-                super(CiscoNetsyncMib.Cnst4Clocksourcetable.Cnst4Clocksourceentry, self).__init__()
+                super(CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry, self).__init__()
 
                 self.yang_name = "cnsT4ClockSourceEntry"
                 self.yang_parent_name = "cnsT4ClockSourceTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.cnsextoutlistindex = YLeaf(YType.str, "cnsExtOutListIndex")
 
@@ -2680,398 +1656,13 @@ class CiscoNetsyncMib(Entity):
                 self.cnst4clksrcssmcap = YLeaf(YType.enumeration, "cnsT4ClkSrcSSMCap")
 
                 self.cnst4clksrcwtrtime = YLeaf(YType.uint32, "cnsT4ClkSrcWtrTime")
+                self._segment_path = lambda: "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']" + "[cnsT4ClkSrcNetsyncIndex='" + self.cnst4clksrcnetsyncindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("cnsextoutlistindex",
-                                "cnst4clksrcnetsyncindex",
-                                "cnst4clksrcalarm",
-                                "cnst4clksrcalarminfo",
-                                "cnst4clksrcesmccap",
-                                "cnst4clksrcfsw",
-                                "cnst4clksrcholdofftime",
-                                "cnst4clksrcintftype",
-                                "cnst4clksrclockout",
-                                "cnst4clksrcmsw",
-                                "cnst4clksrcname",
-                                "cnst4clksrcpriority",
-                                "cnst4clksrcqualitylevel",
-                                "cnst4clksrcqualitylevelrx",
-                                "cnst4clksrcqualitylevelrxcfg",
-                                "cnst4clksrcqualityleveltx",
-                                "cnst4clksrcqualityleveltxcfg",
-                                "cnst4clksrcsignalfailure",
-                                "cnst4clksrcssmcap",
-                                "cnst4clksrcwtrtime") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoNetsyncMib.Cnst4Clocksourcetable.Cnst4Clocksourceentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoNetsyncMib.Cnst4Clocksourcetable.Cnst4Clocksourceentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.cnsextoutlistindex.is_set or
-                    self.cnst4clksrcnetsyncindex.is_set or
-                    self.cnst4clksrcalarm.is_set or
-                    self.cnst4clksrcalarminfo.is_set or
-                    self.cnst4clksrcesmccap.is_set or
-                    self.cnst4clksrcfsw.is_set or
-                    self.cnst4clksrcholdofftime.is_set or
-                    self.cnst4clksrcintftype.is_set or
-                    self.cnst4clksrclockout.is_set or
-                    self.cnst4clksrcmsw.is_set or
-                    self.cnst4clksrcname.is_set or
-                    self.cnst4clksrcpriority.is_set or
-                    self.cnst4clksrcqualitylevel.is_set or
-                    self.cnst4clksrcqualitylevelrx.is_set or
-                    self.cnst4clksrcqualitylevelrxcfg.is_set or
-                    self.cnst4clksrcqualityleveltx.is_set or
-                    self.cnst4clksrcqualityleveltxcfg.is_set or
-                    self.cnst4clksrcsignalfailure.is_set or
-                    self.cnst4clksrcssmcap.is_set or
-                    self.cnst4clksrcwtrtime.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.cnsextoutlistindex.yfilter != YFilter.not_set or
-                    self.cnst4clksrcnetsyncindex.yfilter != YFilter.not_set or
-                    self.cnst4clksrcalarm.yfilter != YFilter.not_set or
-                    self.cnst4clksrcalarminfo.yfilter != YFilter.not_set or
-                    self.cnst4clksrcesmccap.yfilter != YFilter.not_set or
-                    self.cnst4clksrcfsw.yfilter != YFilter.not_set or
-                    self.cnst4clksrcholdofftime.yfilter != YFilter.not_set or
-                    self.cnst4clksrcintftype.yfilter != YFilter.not_set or
-                    self.cnst4clksrclockout.yfilter != YFilter.not_set or
-                    self.cnst4clksrcmsw.yfilter != YFilter.not_set or
-                    self.cnst4clksrcname.yfilter != YFilter.not_set or
-                    self.cnst4clksrcpriority.yfilter != YFilter.not_set or
-                    self.cnst4clksrcqualitylevel.yfilter != YFilter.not_set or
-                    self.cnst4clksrcqualitylevelrx.yfilter != YFilter.not_set or
-                    self.cnst4clksrcqualitylevelrxcfg.yfilter != YFilter.not_set or
-                    self.cnst4clksrcqualityleveltx.yfilter != YFilter.not_set or
-                    self.cnst4clksrcqualityleveltxcfg.yfilter != YFilter.not_set or
-                    self.cnst4clksrcsignalfailure.yfilter != YFilter.not_set or
-                    self.cnst4clksrcssmcap.yfilter != YFilter.not_set or
-                    self.cnst4clksrcwtrtime.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']" + "[cnsT4ClkSrcNetsyncIndex='" + self.cnst4clksrcnetsyncindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.cnsextoutlistindex.is_set or self.cnsextoutlistindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnsextoutlistindex.get_name_leafdata())
-                if (self.cnst4clksrcnetsyncindex.is_set or self.cnst4clksrcnetsyncindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcnetsyncindex.get_name_leafdata())
-                if (self.cnst4clksrcalarm.is_set or self.cnst4clksrcalarm.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcalarm.get_name_leafdata())
-                if (self.cnst4clksrcalarminfo.is_set or self.cnst4clksrcalarminfo.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcalarminfo.get_name_leafdata())
-                if (self.cnst4clksrcesmccap.is_set or self.cnst4clksrcesmccap.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcesmccap.get_name_leafdata())
-                if (self.cnst4clksrcfsw.is_set or self.cnst4clksrcfsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcfsw.get_name_leafdata())
-                if (self.cnst4clksrcholdofftime.is_set or self.cnst4clksrcholdofftime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcholdofftime.get_name_leafdata())
-                if (self.cnst4clksrcintftype.is_set or self.cnst4clksrcintftype.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcintftype.get_name_leafdata())
-                if (self.cnst4clksrclockout.is_set or self.cnst4clksrclockout.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrclockout.get_name_leafdata())
-                if (self.cnst4clksrcmsw.is_set or self.cnst4clksrcmsw.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcmsw.get_name_leafdata())
-                if (self.cnst4clksrcname.is_set or self.cnst4clksrcname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcname.get_name_leafdata())
-                if (self.cnst4clksrcpriority.is_set or self.cnst4clksrcpriority.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcpriority.get_name_leafdata())
-                if (self.cnst4clksrcqualitylevel.is_set or self.cnst4clksrcqualitylevel.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcqualitylevel.get_name_leafdata())
-                if (self.cnst4clksrcqualitylevelrx.is_set or self.cnst4clksrcqualitylevelrx.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcqualitylevelrx.get_name_leafdata())
-                if (self.cnst4clksrcqualitylevelrxcfg.is_set or self.cnst4clksrcqualitylevelrxcfg.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcqualitylevelrxcfg.get_name_leafdata())
-                if (self.cnst4clksrcqualityleveltx.is_set or self.cnst4clksrcqualityleveltx.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcqualityleveltx.get_name_leafdata())
-                if (self.cnst4clksrcqualityleveltxcfg.is_set or self.cnst4clksrcqualityleveltxcfg.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcqualityleveltxcfg.get_name_leafdata())
-                if (self.cnst4clksrcsignalfailure.is_set or self.cnst4clksrcsignalfailure.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcsignalfailure.get_name_leafdata())
-                if (self.cnst4clksrcssmcap.is_set or self.cnst4clksrcssmcap.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcssmcap.get_name_leafdata())
-                if (self.cnst4clksrcwtrtime.is_set or self.cnst4clksrcwtrtime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cnst4clksrcwtrtime.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cnsExtOutListIndex" or name == "cnsT4ClkSrcNetsyncIndex" or name == "cnsT4ClkSrcAlarm" or name == "cnsT4ClkSrcAlarmInfo" or name == "cnsT4ClkSrcESMCCap" or name == "cnsT4ClkSrcFSW" or name == "cnsT4ClkSrcHoldoffTime" or name == "cnsT4ClkSrcIntfType" or name == "cnsT4ClkSrcLockout" or name == "cnsT4ClkSrcMSW" or name == "cnsT4ClkSrcName" or name == "cnsT4ClkSrcPriority" or name == "cnsT4ClkSrcQualityLevel" or name == "cnsT4ClkSrcQualityLevelRx" or name == "cnsT4ClkSrcQualityLevelRxCfg" or name == "cnsT4ClkSrcQualityLevelTx" or name == "cnsT4ClkSrcQualityLevelTxCfg" or name == "cnsT4ClkSrcSignalFailure" or name == "cnsT4ClkSrcSSMCap" or name == "cnsT4ClkSrcWtrTime"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cnsExtOutListIndex"):
-                    self.cnsextoutlistindex = value
-                    self.cnsextoutlistindex.value_namespace = name_space
-                    self.cnsextoutlistindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcNetsyncIndex"):
-                    self.cnst4clksrcnetsyncindex = value
-                    self.cnst4clksrcnetsyncindex.value_namespace = name_space
-                    self.cnst4clksrcnetsyncindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcAlarm"):
-                    self.cnst4clksrcalarm = value
-                    self.cnst4clksrcalarm.value_namespace = name_space
-                    self.cnst4clksrcalarm.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcAlarmInfo"):
-                    self.cnst4clksrcalarminfo[value] = True
-                if(value_path == "cnsT4ClkSrcESMCCap"):
-                    self.cnst4clksrcesmccap = value
-                    self.cnst4clksrcesmccap.value_namespace = name_space
-                    self.cnst4clksrcesmccap.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcFSW"):
-                    self.cnst4clksrcfsw = value
-                    self.cnst4clksrcfsw.value_namespace = name_space
-                    self.cnst4clksrcfsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcHoldoffTime"):
-                    self.cnst4clksrcholdofftime = value
-                    self.cnst4clksrcholdofftime.value_namespace = name_space
-                    self.cnst4clksrcholdofftime.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcIntfType"):
-                    self.cnst4clksrcintftype = value
-                    self.cnst4clksrcintftype.value_namespace = name_space
-                    self.cnst4clksrcintftype.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcLockout"):
-                    self.cnst4clksrclockout = value
-                    self.cnst4clksrclockout.value_namespace = name_space
-                    self.cnst4clksrclockout.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcMSW"):
-                    self.cnst4clksrcmsw = value
-                    self.cnst4clksrcmsw.value_namespace = name_space
-                    self.cnst4clksrcmsw.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcName"):
-                    self.cnst4clksrcname = value
-                    self.cnst4clksrcname.value_namespace = name_space
-                    self.cnst4clksrcname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcPriority"):
-                    self.cnst4clksrcpriority = value
-                    self.cnst4clksrcpriority.value_namespace = name_space
-                    self.cnst4clksrcpriority.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcQualityLevel"):
-                    self.cnst4clksrcqualitylevel = value
-                    self.cnst4clksrcqualitylevel.value_namespace = name_space
-                    self.cnst4clksrcqualitylevel.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcQualityLevelRx"):
-                    self.cnst4clksrcqualitylevelrx = value
-                    self.cnst4clksrcqualitylevelrx.value_namespace = name_space
-                    self.cnst4clksrcqualitylevelrx.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcQualityLevelRxCfg"):
-                    self.cnst4clksrcqualitylevelrxcfg = value
-                    self.cnst4clksrcqualitylevelrxcfg.value_namespace = name_space
-                    self.cnst4clksrcqualitylevelrxcfg.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcQualityLevelTx"):
-                    self.cnst4clksrcqualityleveltx = value
-                    self.cnst4clksrcqualityleveltx.value_namespace = name_space
-                    self.cnst4clksrcqualityleveltx.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcQualityLevelTxCfg"):
-                    self.cnst4clksrcqualityleveltxcfg = value
-                    self.cnst4clksrcqualityleveltxcfg.value_namespace = name_space
-                    self.cnst4clksrcqualityleveltxcfg.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcSignalFailure"):
-                    self.cnst4clksrcsignalfailure = value
-                    self.cnst4clksrcsignalfailure.value_namespace = name_space
-                    self.cnst4clksrcsignalfailure.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcSSMCap"):
-                    self.cnst4clksrcssmcap = value
-                    self.cnst4clksrcssmcap.value_namespace = name_space
-                    self.cnst4clksrcssmcap.value_namespace_prefix = name_space_prefix
-                if(value_path == "cnsT4ClkSrcWtrTime"):
-                    self.cnst4clksrcwtrtime = value
-                    self.cnst4clksrcwtrtime.value_namespace = name_space
-                    self.cnst4clksrcwtrtime.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cnst4clocksourceentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cnst4clocksourceentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cnsT4ClockSourceTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cnsT4ClockSourceEntry"):
-                for c in self.cnst4clocksourceentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoNetsyncMib.Cnst4Clocksourcetable.Cnst4Clocksourceentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cnst4clocksourceentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cnsT4ClockSourceEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.cisconetsyncmibnotifcontrol is not None and self.cisconetsyncmibnotifcontrol.has_data()) or
-            (self.cnsclkselglobaltable is not None and self.cnsclkselglobaltable.has_data()) or
-            (self.cnsextoutputtable is not None and self.cnsextoutputtable.has_data()) or
-            (self.cnsinputsourcetable is not None and self.cnsinputsourcetable.has_data()) or
-            (self.cnsselectedinputsourcetable is not None and self.cnsselectedinputsourcetable.has_data()) or
-            (self.cnst4clocksourcetable is not None and self.cnst4clocksourcetable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.cisconetsyncmibnotifcontrol is not None and self.cisconetsyncmibnotifcontrol.has_operation()) or
-            (self.cnsclkselglobaltable is not None and self.cnsclkselglobaltable.has_operation()) or
-            (self.cnsextoutputtable is not None and self.cnsextoutputtable.has_operation()) or
-            (self.cnsinputsourcetable is not None and self.cnsinputsourcetable.has_operation()) or
-            (self.cnsselectedinputsourcetable is not None and self.cnsselectedinputsourcetable.has_operation()) or
-            (self.cnst4clocksourcetable is not None and self.cnst4clocksourcetable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "ciscoNetsyncMIBNotifControl"):
-            if (self.cisconetsyncmibnotifcontrol is None):
-                self.cisconetsyncmibnotifcontrol = CiscoNetsyncMib.Cisconetsyncmibnotifcontrol()
-                self.cisconetsyncmibnotifcontrol.parent = self
-                self._children_name_map["cisconetsyncmibnotifcontrol"] = "ciscoNetsyncMIBNotifControl"
-            return self.cisconetsyncmibnotifcontrol
-
-        if (child_yang_name == "cnsClkSelGlobalTable"):
-            if (self.cnsclkselglobaltable is None):
-                self.cnsclkselglobaltable = CiscoNetsyncMib.Cnsclkselglobaltable()
-                self.cnsclkselglobaltable.parent = self
-                self._children_name_map["cnsclkselglobaltable"] = "cnsClkSelGlobalTable"
-            return self.cnsclkselglobaltable
-
-        if (child_yang_name == "cnsExtOutputTable"):
-            if (self.cnsextoutputtable is None):
-                self.cnsextoutputtable = CiscoNetsyncMib.Cnsextoutputtable()
-                self.cnsextoutputtable.parent = self
-                self._children_name_map["cnsextoutputtable"] = "cnsExtOutputTable"
-            return self.cnsextoutputtable
-
-        if (child_yang_name == "cnsInputSourceTable"):
-            if (self.cnsinputsourcetable is None):
-                self.cnsinputsourcetable = CiscoNetsyncMib.Cnsinputsourcetable()
-                self.cnsinputsourcetable.parent = self
-                self._children_name_map["cnsinputsourcetable"] = "cnsInputSourceTable"
-            return self.cnsinputsourcetable
-
-        if (child_yang_name == "cnsSelectedInputSourceTable"):
-            if (self.cnsselectedinputsourcetable is None):
-                self.cnsselectedinputsourcetable = CiscoNetsyncMib.Cnsselectedinputsourcetable()
-                self.cnsselectedinputsourcetable.parent = self
-                self._children_name_map["cnsselectedinputsourcetable"] = "cnsSelectedInputSourceTable"
-            return self.cnsselectedinputsourcetable
-
-        if (child_yang_name == "cnsT4ClockSourceTable"):
-            if (self.cnst4clocksourcetable is None):
-                self.cnst4clocksourcetable = CiscoNetsyncMib.Cnst4Clocksourcetable()
-                self.cnst4clocksourcetable.parent = self
-                self._children_name_map["cnst4clocksourcetable"] = "cnsT4ClockSourceTable"
-            return self.cnst4clocksourcetable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "ciscoNetsyncMIBNotifControl" or name == "cnsClkSelGlobalTable" or name == "cnsExtOutputTable" or name == "cnsInputSourceTable" or name == "cnsSelectedInputSourceTable" or name == "cnsT4ClockSourceTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry, ['cnsextoutlistindex', 'cnst4clksrcnetsyncindex', 'cnst4clksrcalarm', 'cnst4clksrcalarminfo', 'cnst4clksrcesmccap', 'cnst4clksrcfsw', 'cnst4clksrcholdofftime', 'cnst4clksrcintftype', 'cnst4clksrclockout', 'cnst4clksrcmsw', 'cnst4clksrcname', 'cnst4clksrcpriority', 'cnst4clksrcqualitylevel', 'cnst4clksrcqualitylevelrx', 'cnst4clksrcqualitylevelrxcfg', 'cnst4clksrcqualityleveltx', 'cnst4clksrcqualityleveltxcfg', 'cnst4clksrcsignalfailure', 'cnst4clksrcssmcap', 'cnst4clksrcwtrtime'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoNetsyncMib()
+        self._top_entity = CISCONETSYNCMIB()
         return self._top_entity
 

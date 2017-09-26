@@ -41,7 +41,7 @@ module Cisco-IOS-XR-infra-rcmd-oper {
        rcmd: Show command for Route Convergence Monitoring &
          Diagnostics
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision "2015-11-09" {
@@ -73,7 +73,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "event-id";
               description "IP-FRR Event data";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific IP-FRR Event";
               }
               uses RCMD-SHOW-IPFRR-EVENT-INFO;
@@ -101,7 +103,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "spf-run-number";
               description "SPF Event data";
               leaf spf-run-number {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific SPF run";
               }
               uses RCMD-OSPF-SPF-RUN;
@@ -117,7 +121,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular OSPF
                 IP-FRR Event";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific IP-FRR Event";
               }
               uses RCMD-SHOW-IPFRR-EVENT-INFO;
@@ -133,7 +139,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular OSPF
                 SPF run";
               leaf spf-run-number {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific SPF run";
               }
               uses RCMD-OSPF-SPF-RUN;
@@ -149,7 +157,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "event-id";
               description "OSPF Summary-External Prefix Event data";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -163,7 +173,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "event-id";
               description "OSPF Prefix Event data";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -181,7 +193,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular OSPF
                 Prefix Event";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -197,7 +211,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular OSPF
                 Prefix Event";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -254,7 +270,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "event-id";
               description "IP-FRR Event data";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific IP-FRR Event";
               }
               uses RCMD-SHOW-IPFRR-EVENT-INFO;
@@ -282,7 +300,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "spf-run-number";
               description "SPF Event data";
               leaf spf-run-number {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific SPF run";
               }
               uses RCMD-ISIS-SPF-RUN;
@@ -298,7 +318,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular ISIS
                 IP-FRR Event";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific IP-FRR Event";
               }
               uses RCMD-SHOW-IPFRR-EVENT-INFO;
@@ -314,7 +336,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular ISIS
                 SPF run";
               leaf spf-run-number {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific SPF run";
               }
               uses RCMD-ISIS-SPF-RUN;
@@ -328,7 +352,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "event-id";
               description "Prefix Event data";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -344,7 +370,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
                 "Offline operational data for particular ISIS
                 Prefix Event";
               leaf event-id {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Specific Event ID";
               }
               uses RCMD-SHOW-PREFIX-EVENT;
@@ -358,7 +386,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
               key "serial-number";
               description "Regenerated LSP data";
               leaf serial-number {
-                type int32;
+                type uint32 {
+                  range "1..4294967295";
+                }
                 description "Data for a particular regenerated LSP";
               }
               uses RCMD-REGEN-LSP-INFO;
@@ -388,7 +418,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
           key "event-id";
           description "Session";
           leaf event-id {
-            type int32;
+            type uint32 {
+              range "1..4294967295";
+            }
             description "Specific Event ID";
           }
           uses RCMD-SHOW-LDP-SESSION-EVENT;
@@ -402,7 +434,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
           key "event-id";
           description "RemoteLFA";
           leaf event-id {
-            type int32;
+            type uint32 {
+              range "1..4294967295";
+            }
             description "Specific Event ID";
           }
           uses RCMD-SHOW-LDP-RLFA-EVENT;
@@ -416,7 +450,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
           key "event-id";
           description "Summary operational data for Remote LFA";
           leaf event-id {
-            type int32;
+            type uint32 {
+              range "1..4294967295";
+            }
             description "Specific Event ID";
           }
           uses RCMD-SHOW-LDP-RLFA-EVENT;
@@ -434,7 +470,9 @@ module Cisco-IOS-XR-infra-rcmd-oper {
           key "event-no";
           description "Events";
           leaf event-no {
-            type int32;
+            type uint32 {
+              range "1..4294967295";
+            }
             description "Specific Event No.";
           }
           uses RCMD-SHOW-INTF-EVENT;

@@ -23,9 +23,14 @@ module Cisco-IOS-XR-snmp-test-trap-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR action package configuration.
 
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2017 by Cisco Systems, Inc.
      All rights reserved.";
     
+    revision "2017-05-01" {
+        description
+            "Fixing backward compatibility error in module.";
+    }    
+
     revision "2016-10-25" {
         description
             "IOS XR 6.2.1 revision.";

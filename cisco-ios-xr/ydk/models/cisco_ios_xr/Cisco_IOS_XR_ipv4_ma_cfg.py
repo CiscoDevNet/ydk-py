@@ -8,11 +8,10 @@ for the following management objects\:
   ipv4\-network\-global\: IPv4 network global configuration data
   subscriber\-pta\: subscriber pta
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -107,6 +106,10 @@ class Ipv4NetworkGlobal(Entity):
 
         self.yang_name = "ipv4-network-global"
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-ma-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"qppb" : ("qppb", Ipv4NetworkGlobal.Qppb), "unnumbered" : ("unnumbered", Ipv4NetworkGlobal.Unnumbered)}
+        self._child_list_classes = {}
 
         self.reassemble_max_packets = YLeaf(YType.uint32, "reassemble-max-packets")
 
@@ -123,280 +126,10 @@ class Ipv4NetworkGlobal(Entity):
         self.unnumbered.parent = self
         self._children_name_map["unnumbered"] = "unnumbered"
         self._children_yang_names.add("unnumbered")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in ("reassemble_max_packets",
-                        "reassemble_time_out",
-                        "source_route") and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(Ipv4NetworkGlobal, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(Ipv4NetworkGlobal, self).__setattr__(name, value)
-
-
-    class Unnumbered(Entity):
-        """
-        Enable IPv4 processing without an explicit
-        address
-        
-        .. attribute:: mpls
-        
-        	Configure MPLS routing protocol parameters
-        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-ma-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            super(Ipv4NetworkGlobal.Unnumbered, self).__init__()
-
-            self.yang_name = "unnumbered"
-            self.yang_parent_name = "ipv4-network-global"
-
-            self.mpls = Ipv4NetworkGlobal.Unnumbered.Mpls()
-            self.mpls.parent = self
-            self._children_name_map["mpls"] = "mpls"
-            self._children_yang_names.add("mpls")
-
-
-        class Mpls(Entity):
-            """
-            Configure MPLS routing protocol parameters
-            
-            .. attribute:: te
-            
-            	IPv4 commands for MPLS Traffic Engineering
-            	**type**\:   :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-ma-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                super(Ipv4NetworkGlobal.Unnumbered.Mpls, self).__init__()
-
-                self.yang_name = "mpls"
-                self.yang_parent_name = "unnumbered"
-
-                self.te = Ipv4NetworkGlobal.Unnumbered.Mpls.Te()
-                self.te.parent = self
-                self._children_name_map["te"] = "te"
-                self._children_yang_names.add("te")
-
-
-            class Te(Entity):
-                """
-                IPv4 commands for MPLS Traffic Engineering
-                
-                .. attribute:: interface
-                
-                	Enable IP processing without an explicit address on MPLS Traffic\-Eng
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__init__()
-
-                    self.yang_name = "te"
-                    self.yang_parent_name = "mpls"
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("interface") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return self.interface.is_set
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.interface.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "te" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/mpls/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.interface.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "interface"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "interface"):
-                        self.interface = value
-                        self.interface.value_namespace = name_space
-                        self.interface.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (self.te is not None and self.te.has_data())
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    (self.te is not None and self.te.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "mpls" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "te"):
-                    if (self.te is None):
-                        self.te = Ipv4NetworkGlobal.Unnumbered.Mpls.Te()
-                        self.te.parent = self
-                        self._children_name_map["te"] = "te"
-                    return self.te
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "te"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.mpls is not None and self.mpls.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.mpls is not None and self.mpls.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "unnumbered" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "mpls"):
-                if (self.mpls is None):
-                    self.mpls = Ipv4NetworkGlobal.Unnumbered.Mpls()
-                    self.mpls.parent = self
-                    self._children_name_map["mpls"] = "mpls"
-                return self.mpls
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "mpls"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+        self._perform_setattr(Ipv4NetworkGlobal, ['reassemble_max_packets', 'reassemble_time_out', 'source_route'], name, value)
 
 
     class Qppb(Entity):
@@ -425,170 +158,122 @@ class Ipv4NetworkGlobal(Entity):
 
             self.yang_name = "qppb"
             self.yang_parent_name = "ipv4-network-global"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
 
             self.destination = YLeaf(YType.enumeration, "destination")
 
             self.source = YLeaf(YType.enumeration, "source")
+            self._segment_path = lambda: "qppb"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in ("destination",
-                            "source") and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(Ipv4NetworkGlobal.Qppb, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(Ipv4NetworkGlobal.Qppb, self).__setattr__(name, value)
+            self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['destination', 'source'], name, value)
 
-        def has_data(self):
-            return (
-                self.destination.is_set or
-                self.source.is_set)
 
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                self.destination.yfilter != YFilter.not_set or
-                self.source.yfilter != YFilter.not_set)
+    class Unnumbered(Entity):
+        """
+        Enable IPv4 processing without an explicit
+        address
+        
+        .. attribute:: mpls
+        
+        	Configure MPLS routing protocol parameters
+        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
+        
+        
 
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "qppb" + path_buffer
+        """
 
-            return path_buffer
+        _prefix = 'ipv4-ma-cfg'
+        _revision = '2015-07-30'
 
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+        def __init__(self):
+            super(Ipv4NetworkGlobal.Unnumbered, self).__init__()
 
-            leaf_name_data = LeafDataList()
-            if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.destination.get_name_leafdata())
-            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.source.get_name_leafdata())
+            self.yang_name = "unnumbered"
+            self.yang_parent_name = "ipv4-network-global"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"mpls" : ("mpls", Ipv4NetworkGlobal.Unnumbered.Mpls)}
+            self._child_list_classes = {}
 
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
+            self.mpls = Ipv4NetworkGlobal.Unnumbered.Mpls()
+            self.mpls.parent = self
+            self._children_name_map["mpls"] = "mpls"
+            self._children_yang_names.add("mpls")
+            self._segment_path = lambda: "unnumbered"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
 
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
 
-            return None
+        class Mpls(Entity):
+            """
+            Configure MPLS routing protocol parameters
+            
+            .. attribute:: te
+            
+            	IPv4 commands for MPLS Traffic Engineering
+            	**type**\:   :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
+            
+            
 
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "destination" or name == "source"):
-                return True
-            return False
+            """
 
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "destination"):
-                self.destination = value
-                self.destination.value_namespace = name_space
-                self.destination.value_namespace_prefix = name_space_prefix
-            if(value_path == "source"):
-                self.source = value
-                self.source.value_namespace = name_space
-                self.source.value_namespace_prefix = name_space_prefix
+            _prefix = 'ipv4-ma-cfg'
+            _revision = '2015-07-30'
 
-    def has_data(self):
-        return (
-            self.reassemble_max_packets.is_set or
-            self.reassemble_time_out.is_set or
-            self.source_route.is_set or
-            (self.qppb is not None and self.qppb.has_data()) or
-            (self.unnumbered is not None and self.unnumbered.has_data()))
+            def __init__(self):
+                super(Ipv4NetworkGlobal.Unnumbered.Mpls, self).__init__()
 
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            self.reassemble_max_packets.yfilter != YFilter.not_set or
-            self.reassemble_time_out.yfilter != YFilter.not_set or
-            self.source_route.yfilter != YFilter.not_set or
-            (self.qppb is not None and self.qppb.has_operation()) or
-            (self.unnumbered is not None and self.unnumbered.has_operation()))
+                self.yang_name = "mpls"
+                self.yang_parent_name = "unnumbered"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"te" : ("te", Ipv4NetworkGlobal.Unnumbered.Mpls.Te)}
+                self._child_list_classes = {}
 
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global" + path_buffer
+                self.te = Ipv4NetworkGlobal.Unnumbered.Mpls.Te()
+                self.te.parent = self
+                self._children_name_map["te"] = "te"
+                self._children_yang_names.add("te")
+                self._segment_path = lambda: "mpls"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/%s" % self._segment_path()
 
-        return path_buffer
 
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
+            class Te(Entity):
+                """
+                IPv4 commands for MPLS Traffic Engineering
+                
+                .. attribute:: interface
+                
+                	Enable IP processing without an explicit address on MPLS Traffic\-Eng
+                	**type**\:  str
+                
+                
 
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-        if (self.reassemble_max_packets.is_set or self.reassemble_max_packets.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.reassemble_max_packets.get_name_leafdata())
-        if (self.reassemble_time_out.is_set or self.reassemble_time_out.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.reassemble_time_out.get_name_leafdata())
-        if (self.source_route.is_set or self.source_route.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.source_route.get_name_leafdata())
+                """
 
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
+                _prefix = 'ipv4-ma-cfg'
+                _revision = '2015-07-30'
 
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
+                def __init__(self):
+                    super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__init__()
 
-        if (child_yang_name == "qppb"):
-            if (self.qppb is None):
-                self.qppb = Ipv4NetworkGlobal.Qppb()
-                self.qppb.parent = self
-                self._children_name_map["qppb"] = "qppb"
-            return self.qppb
+                    self.yang_name = "te"
+                    self.yang_parent_name = "mpls"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-        if (child_yang_name == "unnumbered"):
-            if (self.unnumbered is None):
-                self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
-                self.unnumbered.parent = self
-                self._children_name_map["unnumbered"] = "unnumbered"
-            return self.unnumbered
+                    self.interface = YLeaf(YType.str, "interface")
+                    self._segment_path = lambda: "te"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/mpls/%s" % self._segment_path()
 
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "qppb" or name == "unnumbered" or name == "reassemble-max-packets" or name == "reassemble-time-out" or name == "source-route"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        if(value_path == "reassemble-max-packets"):
-            self.reassemble_max_packets = value
-            self.reassemble_max_packets.value_namespace = name_space
-            self.reassemble_max_packets.value_namespace_prefix = name_space_prefix
-        if(value_path == "reassemble-time-out"):
-            self.reassemble_time_out = value
-            self.reassemble_time_out.value_namespace = name_space
-            self.reassemble_time_out.value_namespace_prefix = name_space_prefix
-        if(value_path == "source-route"):
-            self.source_route = value
-            self.source_route.value_namespace = name_space
-            self.source_route.value_namespace_prefix = name_space_prefix
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, ['interface'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4NetworkGlobal()
@@ -620,77 +305,16 @@ class SubscriberPta(Entity):
 
         self.yang_name = "subscriber-pta"
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-ma-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
 
         self.tcp_mss_adjust = YLeaf(YType.uint32, "tcp-mss-adjust")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:subscriber-pta"
 
     def __setattr__(self, name, value):
-        self._check_monkey_patching_error(name, value)
-        with _handle_type_error():
-            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
-            if isinstance(value, Enum.YLeaf):
-                value = value.name
-            if name in ("tcp_mss_adjust") and name in self.__dict__:
-                if isinstance(value, YLeaf):
-                    self.__dict__[name].set(value.get())
-                elif isinstance(value, YLeafList):
-                    super(SubscriberPta, self).__setattr__(name, value)
-                else:
-                    self.__dict__[name].set(value)
-            else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
-                super(SubscriberPta, self).__setattr__(name, value)
-
-    def has_data(self):
-        return self.tcp_mss_adjust.is_set
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            self.tcp_mss_adjust.yfilter != YFilter.not_set)
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-ipv4-ma-cfg:subscriber-pta" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-        if (self.tcp_mss_adjust.is_set or self.tcp_mss_adjust.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.tcp_mss_adjust.get_name_leafdata())
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "tcp-mss-adjust"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        if(value_path == "tcp-mss-adjust"):
-            self.tcp_mss_adjust = value
-            self.tcp_mss_adjust.value_namespace = name_space
-            self.tcp_mss_adjust.value_namespace_prefix = name_space_prefix
+        self._perform_setattr(SubscriberPta, ['tcp_mss_adjust'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberPta()

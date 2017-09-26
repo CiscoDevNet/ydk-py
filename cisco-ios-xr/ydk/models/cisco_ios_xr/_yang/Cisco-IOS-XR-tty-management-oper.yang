@@ -10,12 +10,10 @@ module Cisco-IOS-XR-tty-management-oper {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-tty-server-oper { prefix "a1"; }
 
   include Cisco-IOS-XR-tty-management-oper-sub1 {
-    revision-date 2015-01-07;
+    revision-date 2017-05-01;
   }
 
   /*** META INFORMATION ***/
@@ -41,8 +39,13 @@ module Cisco-IOS-XR-tty-management-oper {
        Cisco-IOS-XR-tty-server-oper
      module with state data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-01-07" {
     description

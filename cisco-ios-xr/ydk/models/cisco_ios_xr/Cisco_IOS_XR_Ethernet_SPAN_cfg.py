@@ -12,11 +12,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-l2vpn\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -145,11 +144,16 @@ class SpanMonitorSession(Entity):
 
         self.yang_name = "span-monitor-session"
         self.yang_parent_name = "Cisco-IOS-XR-Ethernet-SPAN-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"sessions" : ("sessions", SpanMonitorSession.Sessions)}
+        self._child_list_classes = {}
 
         self.sessions = SpanMonitorSession.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
         self._children_yang_names.add("sessions")
+        self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
 
 
     class Sessions(Entity):
@@ -173,32 +177,17 @@ class SpanMonitorSession(Entity):
 
             self.yang_name = "sessions"
             self.yang_parent_name = "span-monitor-session"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"session" : ("session", SpanMonitorSession.Sessions.Session)}
 
             self.session = YList(self)
+            self._segment_path = lambda: "sessions"
+            self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(SpanMonitorSession.Sessions, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(SpanMonitorSession.Sessions, self).__setattr__(name, value)
+            self._perform_setattr(SpanMonitorSession.Sessions, [], name, value)
 
 
         class Session(Entity):
@@ -236,6 +225,10 @@ class SpanMonitorSession(Entity):
 
                 self.yang_name = "session"
                 self.yang_parent_name = "sessions"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"destination" : ("destination", SpanMonitorSession.Sessions.Session.Destination)}
+                self._child_list_classes = {}
 
                 self.session = YLeaf(YType.str, "session")
 
@@ -245,31 +238,11 @@ class SpanMonitorSession(Entity):
                 self.destination.parent = self
                 self._children_name_map["destination"] = "destination"
                 self._children_yang_names.add("destination")
+                self._segment_path = lambda: "session" + "[session='" + self.session.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("session",
-                                "class_") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(SpanMonitorSession.Sessions.Session, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(SpanMonitorSession.Sessions.Session, self).__setattr__(name, value)
+                self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_'], name, value)
 
 
             class Destination(Entity):
@@ -281,7 +254,7 @@ class SpanMonitorSession(Entity):
                 	Specify the destination interface name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: destination_ipv4_address
                 
@@ -314,6 +287,10 @@ class SpanMonitorSession(Entity):
 
                     self.yang_name = "destination"
                     self.yang_parent_name = "session"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
                     self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
 
@@ -322,272 +299,10 @@ class SpanMonitorSession(Entity):
                     self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
 
                     self.destination_type = YLeaf(YType.enumeration, "destination-type")
+                    self._segment_path = lambda: "destination"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("destination_interface_name",
-                                    "destination_ipv4_address",
-                                    "destination_ipv6_address",
-                                    "destination_type") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(SpanMonitorSession.Sessions.Session.Destination, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(SpanMonitorSession.Sessions.Session.Destination, self).__setattr__(name, value)
-
-                def has_data(self):
-                    return (
-                        self.destination_interface_name.is_set or
-                        self.destination_ipv4_address.is_set or
-                        self.destination_ipv6_address.is_set or
-                        self.destination_type.is_set)
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.destination_interface_name.yfilter != YFilter.not_set or
-                        self.destination_ipv4_address.yfilter != YFilter.not_set or
-                        self.destination_ipv6_address.yfilter != YFilter.not_set or
-                        self.destination_type.yfilter != YFilter.not_set)
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "destination" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.destination_interface_name.is_set or self.destination_interface_name.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination_interface_name.get_name_leafdata())
-                    if (self.destination_ipv4_address.is_set or self.destination_ipv4_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination_ipv4_address.get_name_leafdata())
-                    if (self.destination_ipv6_address.is_set or self.destination_ipv6_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination_ipv6_address.get_name_leafdata())
-                    if (self.destination_type.is_set or self.destination_type.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.destination_type.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "destination-interface-name" or name == "destination-ipv4-address" or name == "destination-ipv6-address" or name == "destination-type"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "destination-interface-name"):
-                        self.destination_interface_name = value
-                        self.destination_interface_name.value_namespace = name_space
-                        self.destination_interface_name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "destination-ipv4-address"):
-                        self.destination_ipv4_address = value
-                        self.destination_ipv4_address.value_namespace = name_space
-                        self.destination_ipv4_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "destination-ipv6-address"):
-                        self.destination_ipv6_address = value
-                        self.destination_ipv6_address.value_namespace = name_space
-                        self.destination_ipv6_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "destination-type"):
-                        self.destination_type = value
-                        self.destination_type.value_namespace = name_space
-                        self.destination_type.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                return (
-                    self.session.is_set or
-                    self.class_.is_set or
-                    (self.destination is not None and self.destination.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.session.yfilter != YFilter.not_set or
-                    self.class_.yfilter != YFilter.not_set or
-                    (self.destination is not None and self.destination.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "session" + "[session='" + self.session.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.session.is_set or self.session.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.session.get_name_leafdata())
-                if (self.class_.is_set or self.class_.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.class_.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "destination"):
-                    if (self.destination is None):
-                        self.destination = SpanMonitorSession.Sessions.Session.Destination()
-                        self.destination.parent = self
-                        self._children_name_map["destination"] = "destination"
-                    return self.destination
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "destination" or name == "session" or name == "class"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "session"):
-                    self.session = value
-                    self.session.value_namespace = name_space
-                    self.session.value_namespace_prefix = name_space_prefix
-                if(value_path == "class"):
-                    self.class_ = value
-                    self.class_.value_namespace = name_space
-                    self.class_.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.session:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.session:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "sessions" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "session"):
-                for c in self.session:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = SpanMonitorSession.Sessions.Session()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.session.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "session"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (self.sessions is not None and self.sessions.has_data())
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.sessions is not None and self.sessions.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "sessions"):
-            if (self.sessions is None):
-                self.sessions = SpanMonitorSession.Sessions()
-                self.sessions.parent = self
-                self._children_name_map["sessions"] = "sessions"
-            return self.sessions
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "sessions"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                    self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address', 'destination_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()

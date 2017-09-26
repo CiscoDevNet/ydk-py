@@ -7,11 +7,10 @@ This module contains definitions
 for the following management objects\:
   platform\-fault\-manager\: PFM data space
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -46,6 +45,10 @@ class PlatformFaultManager(Entity):
 
         self.yang_name = "platform-fault-manager"
         self.yang_parent_name = "Cisco-IOS-XR-pfm-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"exclude" : ("exclude", PlatformFaultManager.Exclude), "racks" : ("racks", PlatformFaultManager.Racks)}
+        self._child_list_classes = {}
 
         self.exclude = PlatformFaultManager.Exclude()
         self.exclude.parent = self
@@ -56,6 +59,7 @@ class PlatformFaultManager(Entity):
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
         self._children_yang_names.add("racks")
+        self._segment_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager"
 
 
     class Exclude(Entity):
@@ -79,11 +83,17 @@ class PlatformFaultManager(Entity):
 
             self.yang_name = "exclude"
             self.yang_parent_name = "platform-fault-manager"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"fault-type1s" : ("fault_type1s", PlatformFaultManager.Exclude.FaultType1S)}
+            self._child_list_classes = {}
 
             self.fault_type1s = PlatformFaultManager.Exclude.FaultType1S()
             self.fault_type1s.parent = self
             self._children_name_map["fault_type1s"] = "fault-type1s"
             self._children_yang_names.add("fault-type1s")
+            self._segment_path = lambda: "exclude"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager/%s" % self._segment_path()
 
 
         class FaultType1S(Entity):
@@ -107,32 +117,17 @@ class PlatformFaultManager(Entity):
 
                 self.yang_name = "fault-type1s"
                 self.yang_parent_name = "exclude"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"fault-type1" : ("fault_type1", PlatformFaultManager.Exclude.FaultType1S.FaultType1)}
 
                 self.fault_type1 = YList(self)
+                self._segment_path = lambda: "fault-type1s"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager/exclude/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in () and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(PlatformFaultManager.Exclude.FaultType1S, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(PlatformFaultManager.Exclude.FaultType1S, self).__setattr__(name, value)
+                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S, [], name, value)
 
 
             class FaultType1(Entity):
@@ -168,6 +163,10 @@ class PlatformFaultManager(Entity):
 
                     self.yang_name = "fault-type1"
                     self.yang_parent_name = "fault-type1s"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"fault-type2s" : ("fault_type2s", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S), "racks" : ("racks", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks)}
+                    self._child_list_classes = {}
 
                     self.hw_fault_type1 = YLeaf(YType.str, "hw-fault-type1")
 
@@ -180,30 +179,11 @@ class PlatformFaultManager(Entity):
                     self.racks.parent = self
                     self._children_name_map["racks"] = "racks"
                     self._children_yang_names.add("racks")
+                    self._segment_path = lambda: "fault-type1" + "[hw-fault-type1='" + self.hw_fault_type1.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager/exclude/fault-type1s/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in ("hw_fault_type1") and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1, self).__setattr__(name, value)
+                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1, ['hw_fault_type1'], name, value)
 
 
                 class FaultType2S(Entity):
@@ -227,32 +207,16 @@ class PlatformFaultManager(Entity):
 
                         self.yang_name = "fault-type2s"
                         self.yang_parent_name = "fault-type1"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"fault-type2" : ("fault_type2", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2)}
 
                         self.fault_type2 = YList(self)
+                        self._segment_path = lambda: "fault-type2s"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S, self).__setattr__(name, value)
+                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S, [], name, value)
 
 
                     class FaultType2(Entity):
@@ -288,6 +252,10 @@ class PlatformFaultManager(Entity):
 
                             self.yang_name = "fault-type2"
                             self.yang_parent_name = "fault-type2s"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"fault-type3s" : ("fault_type3s", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S), "racks" : ("racks", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks)}
+                            self._child_list_classes = {}
 
                             self.hw_fault_type2 = YLeaf(YType.str, "hw-fault-type2")
 
@@ -300,30 +268,10 @@ class PlatformFaultManager(Entity):
                             self.racks.parent = self
                             self._children_name_map["racks"] = "racks"
                             self._children_yang_names.add("racks")
+                            self._segment_path = lambda: "fault-type2" + "[hw-fault-type2='" + self.hw_fault_type2.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("hw_fault_type2") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2, self).__setattr__(name, value)
+                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2, ['hw_fault_type2'], name, value)
 
 
                         class FaultType3S(Entity):
@@ -347,32 +295,16 @@ class PlatformFaultManager(Entity):
 
                                 self.yang_name = "fault-type3s"
                                 self.yang_parent_name = "fault-type2"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"fault-type3" : ("fault_type3", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3)}
 
                                 self.fault_type3 = YList(self)
+                                self._segment_path = lambda: "fault-type3s"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S, self).__setattr__(name, value)
+                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S, [], name, value)
 
 
                             class FaultType3(Entity):
@@ -403,6 +335,10 @@ class PlatformFaultManager(Entity):
 
                                     self.yang_name = "fault-type3"
                                     self.yang_parent_name = "fault-type3s"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"racks" : ("racks", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks)}
+                                    self._child_list_classes = {}
 
                                     self.hw_fault_type3 = YLeaf(YType.str, "hw-fault-type3")
 
@@ -410,30 +346,10 @@ class PlatformFaultManager(Entity):
                                     self.racks.parent = self
                                     self._children_name_map["racks"] = "racks"
                                     self._children_yang_names.add("racks")
+                                    self._segment_path = lambda: "fault-type3" + "[hw-fault-type3='" + self.hw_fault_type3.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("hw_fault_type3") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3, self).__setattr__(name, value)
+                                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3, ['hw_fault_type3'], name, value)
 
 
                                 class Racks(Entity):
@@ -457,32 +373,16 @@ class PlatformFaultManager(Entity):
 
                                         self.yang_name = "racks"
                                         self.yang_parent_name = "fault-type3"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"rack" : ("rack", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack)}
 
                                         self.rack = YList(self)
+                                        self._segment_path = lambda: "racks"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks, self).__setattr__(name, value)
+                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks, [], name, value)
 
 
                                     class Rack(Entity):
@@ -513,6 +413,10 @@ class PlatformFaultManager(Entity):
 
                                             self.yang_name = "rack"
                                             self.yang_parent_name = "racks"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"slots" : ("slots", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots)}
+                                            self._child_list_classes = {}
 
                                             self.rack = YLeaf(YType.int32, "rack")
 
@@ -520,30 +424,10 @@ class PlatformFaultManager(Entity):
                                             self.slots.parent = self
                                             self._children_name_map["slots"] = "slots"
                                             self._children_yang_names.add("slots")
+                                            self._segment_path = lambda: "rack" + "[rack='" + self.rack.get() + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("rack") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack, self).__setattr__(name, value)
+                                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack, ['rack'], name, value)
 
 
                                         class Slots(Entity):
@@ -567,32 +451,16 @@ class PlatformFaultManager(Entity):
 
                                                 self.yang_name = "slots"
                                                 self.yang_parent_name = "rack"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {"slot" : ("slot", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot)}
 
                                                 self.slot = YList(self)
+                                                self._segment_path = lambda: "slots"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in () and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots, self).__setattr__(name, value)
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots, [], name, value)
 
 
                                             class Slot(Entity):
@@ -628,6 +496,10 @@ class PlatformFaultManager(Entity):
 
                                                     self.yang_name = "slot"
                                                     self.yang_parent_name = "slots"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {"fault-summary" : ("fault_summary", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary), "hardware-fault-devices" : ("hardware_fault_devices", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices)}
+                                                    self._child_list_classes = {}
 
                                                     self.slot = YLeaf(YType.str, "slot")
 
@@ -640,30 +512,10 @@ class PlatformFaultManager(Entity):
                                                     self.hardware_fault_devices.parent = self
                                                     self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
                                                     self._children_yang_names.add("hardware-fault-devices")
+                                                    self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
 
                                                 def __setattr__(self, name, value):
-                                                    self._check_monkey_patching_error(name, value)
-                                                    with _handle_type_error():
-                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                "Please use list append or extend method."
-                                                                                .format(value))
-                                                        if isinstance(value, Enum.YLeaf):
-                                                            value = value.name
-                                                        if name in ("slot") and name in self.__dict__:
-                                                            if isinstance(value, YLeaf):
-                                                                self.__dict__[name].set(value.get())
-                                                            elif isinstance(value, YLeafList):
-                                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
-                                                            else:
-                                                                self.__dict__[name].set(value)
-                                                        else:
-                                                            if hasattr(value, "parent") and name != "parent":
-                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                    value.parent = self
-                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                    value.parent = self
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
+                                                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
                                                 class FaultSummary(Entity):
@@ -710,6 +562,10 @@ class PlatformFaultManager(Entity):
 
                                                         self.yang_name = "fault-summary"
                                                         self.yang_parent_name = "slot"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
 
                                                         self.severity_critical_count = YLeaf(YType.int32, "severity-critical-count")
 
@@ -718,104 +574,10 @@ class PlatformFaultManager(Entity):
                                                         self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
 
                                                         self.total = YLeaf(YType.int32, "total")
+                                                        self._segment_path = lambda: "fault-summary"
 
                                                     def __setattr__(self, name, value):
-                                                        self._check_monkey_patching_error(name, value)
-                                                        with _handle_type_error():
-                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                    "Please use list append or extend method."
-                                                                                    .format(value))
-                                                            if isinstance(value, Enum.YLeaf):
-                                                                value = value.name
-                                                            if name in ("severity_critical_count",
-                                                                        "severity_emergency_or_alert_count",
-                                                                        "severity_error_count",
-                                                                        "total") and name in self.__dict__:
-                                                                if isinstance(value, YLeaf):
-                                                                    self.__dict__[name].set(value.get())
-                                                                elif isinstance(value, YLeafList):
-                                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-                                                                else:
-                                                                    self.__dict__[name].set(value)
-                                                            else:
-                                                                if hasattr(value, "parent") and name != "parent":
-                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                        value.parent = self
-                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                        value.parent = self
-                                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-
-                                                    def has_data(self):
-                                                        return (
-                                                            self.severity_critical_count.is_set or
-                                                            self.severity_emergency_or_alert_count.is_set or
-                                                            self.severity_error_count.is_set or
-                                                            self.total.is_set)
-
-                                                    def has_operation(self):
-                                                        return (
-                                                            self.yfilter != YFilter.not_set or
-                                                            self.severity_critical_count.yfilter != YFilter.not_set or
-                                                            self.severity_emergency_or_alert_count.yfilter != YFilter.not_set or
-                                                            self.severity_error_count.yfilter != YFilter.not_set or
-                                                            self.total.yfilter != YFilter.not_set)
-
-                                                    def get_segment_path(self):
-                                                        path_buffer = ""
-                                                        path_buffer = "fault-summary" + path_buffer
-
-                                                        return path_buffer
-
-                                                    def get_entity_path(self, ancestor):
-                                                        path_buffer = ""
-                                                        if (ancestor is None):
-                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                        else:
-                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                        leaf_name_data = LeafDataList()
-                                                        if (self.severity_critical_count.is_set or self.severity_critical_count.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.severity_critical_count.get_name_leafdata())
-                                                        if (self.severity_emergency_or_alert_count.is_set or self.severity_emergency_or_alert_count.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.severity_emergency_or_alert_count.get_name_leafdata())
-                                                        if (self.severity_error_count.is_set or self.severity_error_count.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.severity_error_count.get_name_leafdata())
-                                                        if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.total.get_name_leafdata())
-
-                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                        return entity_path
-
-                                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                        if child is not None:
-                                                            return child
-
-                                                        return None
-
-                                                    def has_leaf_or_child_of_name(self, name):
-                                                        if(name == "severity-critical-count" or name == "severity-emergency-or-alert-count" or name == "severity-error-count" or name == "total"):
-                                                            return True
-                                                        return False
-
-                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                        if(value_path == "severity-critical-count"):
-                                                            self.severity_critical_count = value
-                                                            self.severity_critical_count.value_namespace = name_space
-                                                            self.severity_critical_count.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "severity-emergency-or-alert-count"):
-                                                            self.severity_emergency_or_alert_count = value
-                                                            self.severity_emergency_or_alert_count.value_namespace = name_space
-                                                            self.severity_emergency_or_alert_count.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "severity-error-count"):
-                                                            self.severity_error_count = value
-                                                            self.severity_error_count.value_namespace = name_space
-                                                            self.severity_error_count.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "total"):
-                                                            self.total = value
-                                                            self.total.value_namespace = name_space
-                                                            self.total.value_namespace_prefix = name_space_prefix
+                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
 
 
                                                 class HardwareFaultDevices(Entity):
@@ -839,32 +601,16 @@ class PlatformFaultManager(Entity):
 
                                                         self.yang_name = "hardware-fault-devices"
                                                         self.yang_parent_name = "slot"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {"hardware-fault-device" : ("hardware_fault_device", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice)}
 
                                                         self.hardware_fault_device = YList(self)
+                                                        self._segment_path = lambda: "hardware-fault-devices"
 
                                                     def __setattr__(self, name, value):
-                                                        self._check_monkey_patching_error(name, value)
-                                                        with _handle_type_error():
-                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                    "Please use list append or extend method."
-                                                                                    .format(value))
-                                                            if isinstance(value, Enum.YLeaf):
-                                                                value = value.name
-                                                            if name in () and name in self.__dict__:
-                                                                if isinstance(value, YLeaf):
-                                                                    self.__dict__[name].set(value.get())
-                                                                elif isinstance(value, YLeafList):
-                                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
-                                                                else:
-                                                                    self.__dict__[name].set(value)
-                                                            else:
-                                                                if hasattr(value, "parent") and name != "parent":
-                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                        value.parent = self
-                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                        value.parent = self
-                                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
+                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
                                                     class HardwareFaultDevice(Entity):
@@ -895,34 +641,18 @@ class PlatformFaultManager(Entity):
 
                                                             self.yang_name = "hardware-fault-device"
                                                             self.yang_parent_name = "hardware-fault-devices"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {"hardware-fault-type" : ("hardware_fault_type", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType)}
 
                                                             self.hw_fault_device = YLeaf(YType.str, "hw-fault-device")
 
                                                             self.hardware_fault_type = YList(self)
+                                                            self._segment_path = lambda: "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']"
 
                                                         def __setattr__(self, name, value):
-                                                            self._check_monkey_patching_error(name, value)
-                                                            with _handle_type_error():
-                                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                        "Please use list append or extend method."
-                                                                                        .format(value))
-                                                                if isinstance(value, Enum.YLeaf):
-                                                                    value = value.name
-                                                                if name in ("hw_fault_device") and name in self.__dict__:
-                                                                    if isinstance(value, YLeaf):
-                                                                        self.__dict__[name].set(value.get())
-                                                                    elif isinstance(value, YLeafList):
-                                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
-                                                                    else:
-                                                                        self.__dict__[name].set(value)
-                                                                else:
-                                                                    if hasattr(value, "parent") and name != "parent":
-                                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                            value.parent = self
-                                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                            value.parent = self
-                                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
+                                                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
                                                         class HardwareFaultType(Entity):
@@ -992,6 +722,10 @@ class PlatformFaultManager(Entity):
 
                                                                 self.yang_name = "hardware-fault-type"
                                                                 self.yang_parent_name = "hardware-fault-device"
+                                                                self.is_top_level_class = False
+                                                                self.has_list_ancestor = True
+                                                                self._child_container_classes = {}
+                                                                self._child_list_classes = {}
 
                                                                 self.hw_fault_type = YLeaf(YType.str, "hw-fault-type")
 
@@ -1010,618 +744,10 @@ class PlatformFaultManager(Entity):
                                                                 self.device_version = YLeaf(YType.int32, "device-version")
 
                                                                 self.process_id = YLeaf(YType.int32, "process-id")
+                                                                self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                                             def __setattr__(self, name, value):
-                                                                self._check_monkey_patching_error(name, value)
-                                                                with _handle_type_error():
-                                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                            "Please use list append or extend method."
-                                                                                            .format(value))
-                                                                    if isinstance(value, Enum.YLeaf):
-                                                                        value = value.name
-                                                                    if name in ("hw_fault_type",
-                                                                                "condition_description",
-                                                                                "condition_name",
-                                                                                "condition_raised_timestamp",
-                                                                                "condition_severity",
-                                                                                "device_description",
-                                                                                "device_key",
-                                                                                "device_version",
-                                                                                "process_id") and name in self.__dict__:
-                                                                        if isinstance(value, YLeaf):
-                                                                            self.__dict__[name].set(value.get())
-                                                                        elif isinstance(value, YLeafList):
-                                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-                                                                        else:
-                                                                            self.__dict__[name].set(value)
-                                                                    else:
-                                                                        if hasattr(value, "parent") and name != "parent":
-                                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                                value.parent = self
-                                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                                value.parent = self
-                                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-
-                                                            def has_data(self):
-                                                                return (
-                                                                    self.hw_fault_type.is_set or
-                                                                    self.condition_description.is_set or
-                                                                    self.condition_name.is_set or
-                                                                    self.condition_raised_timestamp.is_set or
-                                                                    self.condition_severity.is_set or
-                                                                    self.device_description.is_set or
-                                                                    self.device_key.is_set or
-                                                                    self.device_version.is_set or
-                                                                    self.process_id.is_set)
-
-                                                            def has_operation(self):
-                                                                return (
-                                                                    self.yfilter != YFilter.not_set or
-                                                                    self.hw_fault_type.yfilter != YFilter.not_set or
-                                                                    self.condition_description.yfilter != YFilter.not_set or
-                                                                    self.condition_name.yfilter != YFilter.not_set or
-                                                                    self.condition_raised_timestamp.yfilter != YFilter.not_set or
-                                                                    self.condition_severity.yfilter != YFilter.not_set or
-                                                                    self.device_description.yfilter != YFilter.not_set or
-                                                                    self.device_key.yfilter != YFilter.not_set or
-                                                                    self.device_version.yfilter != YFilter.not_set or
-                                                                    self.process_id.yfilter != YFilter.not_set)
-
-                                                            def get_segment_path(self):
-                                                                path_buffer = ""
-                                                                path_buffer = "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']" + path_buffer
-
-                                                                return path_buffer
-
-                                                            def get_entity_path(self, ancestor):
-                                                                path_buffer = ""
-                                                                if (ancestor is None):
-                                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                                else:
-                                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                                leaf_name_data = LeafDataList()
-                                                                if (self.hw_fault_type.is_set or self.hw_fault_type.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.hw_fault_type.get_name_leafdata())
-                                                                if (self.condition_description.is_set or self.condition_description.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.condition_description.get_name_leafdata())
-                                                                if (self.condition_name.is_set or self.condition_name.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.condition_name.get_name_leafdata())
-                                                                if (self.condition_raised_timestamp.is_set or self.condition_raised_timestamp.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.condition_raised_timestamp.get_name_leafdata())
-                                                                if (self.condition_severity.is_set or self.condition_severity.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.condition_severity.get_name_leafdata())
-                                                                if (self.device_description.is_set or self.device_description.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.device_description.get_name_leafdata())
-                                                                if (self.device_key.is_set or self.device_key.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.device_key.get_name_leafdata())
-                                                                if (self.device_version.is_set or self.device_version.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.device_version.get_name_leafdata())
-                                                                if (self.process_id.is_set or self.process_id.yfilter != YFilter.not_set):
-                                                                    leaf_name_data.append(self.process_id.get_name_leafdata())
-
-                                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                                return entity_path
-
-                                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                                if child is not None:
-                                                                    return child
-
-                                                                return None
-
-                                                            def has_leaf_or_child_of_name(self, name):
-                                                                if(name == "hw-fault-type" or name == "condition-description" or name == "condition-name" or name == "condition-raised-timestamp" or name == "condition-severity" or name == "device-description" or name == "device-key" or name == "device-version" or name == "process-id"):
-                                                                    return True
-                                                                return False
-
-                                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                                if(value_path == "hw-fault-type"):
-                                                                    self.hw_fault_type = value
-                                                                    self.hw_fault_type.value_namespace = name_space
-                                                                    self.hw_fault_type.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "condition-description"):
-                                                                    self.condition_description = value
-                                                                    self.condition_description.value_namespace = name_space
-                                                                    self.condition_description.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "condition-name"):
-                                                                    self.condition_name = value
-                                                                    self.condition_name.value_namespace = name_space
-                                                                    self.condition_name.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "condition-raised-timestamp"):
-                                                                    self.condition_raised_timestamp = value
-                                                                    self.condition_raised_timestamp.value_namespace = name_space
-                                                                    self.condition_raised_timestamp.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "condition-severity"):
-                                                                    self.condition_severity = value
-                                                                    self.condition_severity.value_namespace = name_space
-                                                                    self.condition_severity.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "device-description"):
-                                                                    self.device_description = value
-                                                                    self.device_description.value_namespace = name_space
-                                                                    self.device_description.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "device-key"):
-                                                                    self.device_key = value
-                                                                    self.device_key.value_namespace = name_space
-                                                                    self.device_key.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "device-version"):
-                                                                    self.device_version = value
-                                                                    self.device_version.value_namespace = name_space
-                                                                    self.device_version.value_namespace_prefix = name_space_prefix
-                                                                if(value_path == "process-id"):
-                                                                    self.process_id = value
-                                                                    self.process_id.value_namespace = name_space
-                                                                    self.process_id.value_namespace_prefix = name_space_prefix
-
-                                                        def has_data(self):
-                                                            for c in self.hardware_fault_type:
-                                                                if (c.has_data()):
-                                                                    return True
-                                                            return self.hw_fault_device.is_set
-
-                                                        def has_operation(self):
-                                                            for c in self.hardware_fault_type:
-                                                                if (c.has_operation()):
-                                                                    return True
-                                                            return (
-                                                                self.yfilter != YFilter.not_set or
-                                                                self.hw_fault_device.yfilter != YFilter.not_set)
-
-                                                        def get_segment_path(self):
-                                                            path_buffer = ""
-                                                            path_buffer = "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']" + path_buffer
-
-                                                            return path_buffer
-
-                                                        def get_entity_path(self, ancestor):
-                                                            path_buffer = ""
-                                                            if (ancestor is None):
-                                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                            else:
-                                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                            leaf_name_data = LeafDataList()
-                                                            if (self.hw_fault_device.is_set or self.hw_fault_device.yfilter != YFilter.not_set):
-                                                                leaf_name_data.append(self.hw_fault_device.get_name_leafdata())
-
-                                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                            return entity_path
-
-                                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                            if child is not None:
-                                                                return child
-
-                                                            if (child_yang_name == "hardware-fault-type"):
-                                                                for c in self.hardware_fault_type:
-                                                                    segment = c.get_segment_path()
-                                                                    if (segment_path == segment):
-                                                                        return c
-                                                                c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType()
-                                                                c.parent = self
-                                                                local_reference_key = "ydk::seg::%s" % segment_path
-                                                                self._local_refs[local_reference_key] = c
-                                                                self.hardware_fault_type.append(c)
-                                                                return c
-
-                                                            return None
-
-                                                        def has_leaf_or_child_of_name(self, name):
-                                                            if(name == "hardware-fault-type" or name == "hw-fault-device"):
-                                                                return True
-                                                            return False
-
-                                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                            if(value_path == "hw-fault-device"):
-                                                                self.hw_fault_device = value
-                                                                self.hw_fault_device.value_namespace = name_space
-                                                                self.hw_fault_device.value_namespace_prefix = name_space_prefix
-
-                                                    def has_data(self):
-                                                        for c in self.hardware_fault_device:
-                                                            if (c.has_data()):
-                                                                return True
-                                                        return False
-
-                                                    def has_operation(self):
-                                                        for c in self.hardware_fault_device:
-                                                            if (c.has_operation()):
-                                                                return True
-                                                        return self.yfilter != YFilter.not_set
-
-                                                    def get_segment_path(self):
-                                                        path_buffer = ""
-                                                        path_buffer = "hardware-fault-devices" + path_buffer
-
-                                                        return path_buffer
-
-                                                    def get_entity_path(self, ancestor):
-                                                        path_buffer = ""
-                                                        if (ancestor is None):
-                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                        else:
-                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                        leaf_name_data = LeafDataList()
-
-                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                        return entity_path
-
-                                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                        if child is not None:
-                                                            return child
-
-                                                        if (child_yang_name == "hardware-fault-device"):
-                                                            for c in self.hardware_fault_device:
-                                                                segment = c.get_segment_path()
-                                                                if (segment_path == segment):
-                                                                    return c
-                                                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice()
-                                                            c.parent = self
-                                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                                            self._local_refs[local_reference_key] = c
-                                                            self.hardware_fault_device.append(c)
-                                                            return c
-
-                                                        return None
-
-                                                    def has_leaf_or_child_of_name(self, name):
-                                                        if(name == "hardware-fault-device"):
-                                                            return True
-                                                        return False
-
-                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                        pass
-
-                                                def has_data(self):
-                                                    return (
-                                                        self.slot.is_set or
-                                                        (self.fault_summary is not None and self.fault_summary.has_data()) or
-                                                        (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_data()))
-
-                                                def has_operation(self):
-                                                    return (
-                                                        self.yfilter != YFilter.not_set or
-                                                        self.slot.yfilter != YFilter.not_set or
-                                                        (self.fault_summary is not None and self.fault_summary.has_operation()) or
-                                                        (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_operation()))
-
-                                                def get_segment_path(self):
-                                                    path_buffer = ""
-                                                    path_buffer = "slot" + "[slot='" + self.slot.get() + "']" + path_buffer
-
-                                                    return path_buffer
-
-                                                def get_entity_path(self, ancestor):
-                                                    path_buffer = ""
-                                                    if (ancestor is None):
-                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                    else:
-                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                    leaf_name_data = LeafDataList()
-                                                    if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
-                                                        leaf_name_data.append(self.slot.get_name_leafdata())
-
-                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                    return entity_path
-
-                                                def get_child_by_name(self, child_yang_name, segment_path):
-                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                    if child is not None:
-                                                        return child
-
-                                                    if (child_yang_name == "fault-summary"):
-                                                        if (self.fault_summary is None):
-                                                            self.fault_summary = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary()
-                                                            self.fault_summary.parent = self
-                                                            self._children_name_map["fault_summary"] = "fault-summary"
-                                                        return self.fault_summary
-
-                                                    if (child_yang_name == "hardware-fault-devices"):
-                                                        if (self.hardware_fault_devices is None):
-                                                            self.hardware_fault_devices = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices()
-                                                            self.hardware_fault_devices.parent = self
-                                                            self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
-                                                        return self.hardware_fault_devices
-
-                                                    return None
-
-                                                def has_leaf_or_child_of_name(self, name):
-                                                    if(name == "fault-summary" or name == "hardware-fault-devices" or name == "slot"):
-                                                        return True
-                                                    return False
-
-                                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                    if(value_path == "slot"):
-                                                        self.slot = value
-                                                        self.slot.value_namespace = name_space
-                                                        self.slot.value_namespace_prefix = name_space_prefix
-
-                                            def has_data(self):
-                                                for c in self.slot:
-                                                    if (c.has_data()):
-                                                        return True
-                                                return False
-
-                                            def has_operation(self):
-                                                for c in self.slot:
-                                                    if (c.has_operation()):
-                                                        return True
-                                                return self.yfilter != YFilter.not_set
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "slots" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                if (child_yang_name == "slot"):
-                                                    for c in self.slot:
-                                                        segment = c.get_segment_path()
-                                                        if (segment_path == segment):
-                                                            return c
-                                                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot()
-                                                    c.parent = self
-                                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                                    self._local_refs[local_reference_key] = c
-                                                    self.slot.append(c)
-                                                    return c
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "slot"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                pass
-
-                                        def has_data(self):
-                                            return (
-                                                self.rack.is_set or
-                                                (self.slots is not None and self.slots.has_data()))
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.rack.yfilter != YFilter.not_set or
-                                                (self.slots is not None and self.slots.has_operation()))
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "rack" + "[rack='" + self.rack.get() + "']" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.rack.is_set or self.rack.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.rack.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "slots"):
-                                                if (self.slots is None):
-                                                    self.slots = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots()
-                                                    self.slots.parent = self
-                                                    self._children_name_map["slots"] = "slots"
-                                                return self.slots
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "slots" or name == "rack"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "rack"):
-                                                self.rack = value
-                                                self.rack.value_namespace = name_space
-                                                self.rack.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.rack:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.rack:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "racks" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "rack"):
-                                            for c in self.rack:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.rack.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "rack"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.hw_fault_type3.is_set or
-                                        (self.racks is not None and self.racks.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.hw_fault_type3.yfilter != YFilter.not_set or
-                                        (self.racks is not None and self.racks.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "fault-type3" + "[hw-fault-type3='" + self.hw_fault_type3.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.hw_fault_type3.is_set or self.hw_fault_type3.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.hw_fault_type3.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "racks"):
-                                        if (self.racks is None):
-                                            self.racks = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks()
-                                            self.racks.parent = self
-                                            self._children_name_map["racks"] = "racks"
-                                        return self.racks
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "racks" or name == "hw-fault-type3"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "hw-fault-type3"):
-                                        self.hw_fault_type3 = value
-                                        self.hw_fault_type3.value_namespace = name_space
-                                        self.hw_fault_type3.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.fault_type3:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.fault_type3:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "fault-type3s" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "fault-type3"):
-                                    for c in self.fault_type3:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.fault_type3.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "fault-type3"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
+                                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
 
 
                         class Racks(Entity):
@@ -1645,32 +771,16 @@ class PlatformFaultManager(Entity):
 
                                 self.yang_name = "racks"
                                 self.yang_parent_name = "fault-type2"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"rack" : ("rack", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack)}
 
                                 self.rack = YList(self)
+                                self._segment_path = lambda: "racks"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks, self).__setattr__(name, value)
+                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks, [], name, value)
 
 
                             class Rack(Entity):
@@ -1701,6 +811,10 @@ class PlatformFaultManager(Entity):
 
                                     self.yang_name = "rack"
                                     self.yang_parent_name = "racks"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"slots" : ("slots", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots)}
+                                    self._child_list_classes = {}
 
                                     self.rack = YLeaf(YType.int32, "rack")
 
@@ -1708,30 +822,10 @@ class PlatformFaultManager(Entity):
                                     self.slots.parent = self
                                     self._children_name_map["slots"] = "slots"
                                     self._children_yang_names.add("slots")
+                                    self._segment_path = lambda: "rack" + "[rack='" + self.rack.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("rack") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack, self).__setattr__(name, value)
+                                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack, ['rack'], name, value)
 
 
                                 class Slots(Entity):
@@ -1755,32 +849,16 @@ class PlatformFaultManager(Entity):
 
                                         self.yang_name = "slots"
                                         self.yang_parent_name = "rack"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"slot" : ("slot", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot)}
 
                                         self.slot = YList(self)
+                                        self._segment_path = lambda: "slots"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots, self).__setattr__(name, value)
+                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots, [], name, value)
 
 
                                     class Slot(Entity):
@@ -1816,6 +894,10 @@ class PlatformFaultManager(Entity):
 
                                             self.yang_name = "slot"
                                             self.yang_parent_name = "slots"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {"fault-summary" : ("fault_summary", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary), "hardware-fault-devices" : ("hardware_fault_devices", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices)}
+                                            self._child_list_classes = {}
 
                                             self.slot = YLeaf(YType.str, "slot")
 
@@ -1828,30 +910,10 @@ class PlatformFaultManager(Entity):
                                             self.hardware_fault_devices.parent = self
                                             self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
                                             self._children_yang_names.add("hardware-fault-devices")
+                                            self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("slot") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
+                                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
                                         class FaultSummary(Entity):
@@ -1898,6 +960,10 @@ class PlatformFaultManager(Entity):
 
                                                 self.yang_name = "fault-summary"
                                                 self.yang_parent_name = "slot"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
                                                 self.severity_critical_count = YLeaf(YType.int32, "severity-critical-count")
 
@@ -1906,104 +972,10 @@ class PlatformFaultManager(Entity):
                                                 self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
 
                                                 self.total = YLeaf(YType.int32, "total")
+                                                self._segment_path = lambda: "fault-summary"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in ("severity_critical_count",
-                                                                "severity_emergency_or_alert_count",
-                                                                "severity_error_count",
-                                                                "total") and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-
-                                            def has_data(self):
-                                                return (
-                                                    self.severity_critical_count.is_set or
-                                                    self.severity_emergency_or_alert_count.is_set or
-                                                    self.severity_error_count.is_set or
-                                                    self.total.is_set)
-
-                                            def has_operation(self):
-                                                return (
-                                                    self.yfilter != YFilter.not_set or
-                                                    self.severity_critical_count.yfilter != YFilter.not_set or
-                                                    self.severity_emergency_or_alert_count.yfilter != YFilter.not_set or
-                                                    self.severity_error_count.yfilter != YFilter.not_set or
-                                                    self.total.yfilter != YFilter.not_set)
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "fault-summary" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-                                                if (self.severity_critical_count.is_set or self.severity_critical_count.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.severity_critical_count.get_name_leafdata())
-                                                if (self.severity_emergency_or_alert_count.is_set or self.severity_emergency_or_alert_count.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.severity_emergency_or_alert_count.get_name_leafdata())
-                                                if (self.severity_error_count.is_set or self.severity_error_count.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.severity_error_count.get_name_leafdata())
-                                                if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.total.get_name_leafdata())
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "severity-critical-count" or name == "severity-emergency-or-alert-count" or name == "severity-error-count" or name == "total"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                if(value_path == "severity-critical-count"):
-                                                    self.severity_critical_count = value
-                                                    self.severity_critical_count.value_namespace = name_space
-                                                    self.severity_critical_count.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "severity-emergency-or-alert-count"):
-                                                    self.severity_emergency_or_alert_count = value
-                                                    self.severity_emergency_or_alert_count.value_namespace = name_space
-                                                    self.severity_emergency_or_alert_count.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "severity-error-count"):
-                                                    self.severity_error_count = value
-                                                    self.severity_error_count.value_namespace = name_space
-                                                    self.severity_error_count.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "total"):
-                                                    self.total = value
-                                                    self.total.value_namespace = name_space
-                                                    self.total.value_namespace_prefix = name_space_prefix
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
 
 
                                         class HardwareFaultDevices(Entity):
@@ -2027,32 +999,16 @@ class PlatformFaultManager(Entity):
 
                                                 self.yang_name = "hardware-fault-devices"
                                                 self.yang_parent_name = "slot"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {"hardware-fault-device" : ("hardware_fault_device", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice)}
 
                                                 self.hardware_fault_device = YList(self)
+                                                self._segment_path = lambda: "hardware-fault-devices"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in () and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
                                             class HardwareFaultDevice(Entity):
@@ -2083,34 +1039,18 @@ class PlatformFaultManager(Entity):
 
                                                     self.yang_name = "hardware-fault-device"
                                                     self.yang_parent_name = "hardware-fault-devices"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {"hardware-fault-type" : ("hardware_fault_type", PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType)}
 
                                                     self.hw_fault_device = YLeaf(YType.str, "hw-fault-device")
 
                                                     self.hardware_fault_type = YList(self)
+                                                    self._segment_path = lambda: "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']"
 
                                                 def __setattr__(self, name, value):
-                                                    self._check_monkey_patching_error(name, value)
-                                                    with _handle_type_error():
-                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                "Please use list append or extend method."
-                                                                                .format(value))
-                                                        if isinstance(value, Enum.YLeaf):
-                                                            value = value.name
-                                                        if name in ("hw_fault_device") and name in self.__dict__:
-                                                            if isinstance(value, YLeaf):
-                                                                self.__dict__[name].set(value.get())
-                                                            elif isinstance(value, YLeafList):
-                                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
-                                                            else:
-                                                                self.__dict__[name].set(value)
-                                                        else:
-                                                            if hasattr(value, "parent") and name != "parent":
-                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                    value.parent = self
-                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                    value.parent = self
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
+                                                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
                                                 class HardwareFaultType(Entity):
@@ -2180,6 +1120,10 @@ class PlatformFaultManager(Entity):
 
                                                         self.yang_name = "hardware-fault-type"
                                                         self.yang_parent_name = "hardware-fault-device"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {}
+                                                        self._child_list_classes = {}
 
                                                         self.hw_fault_type = YLeaf(YType.str, "hw-fault-type")
 
@@ -2198,627 +1142,10 @@ class PlatformFaultManager(Entity):
                                                         self.device_version = YLeaf(YType.int32, "device-version")
 
                                                         self.process_id = YLeaf(YType.int32, "process-id")
+                                                        self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                                     def __setattr__(self, name, value):
-                                                        self._check_monkey_patching_error(name, value)
-                                                        with _handle_type_error():
-                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                                    "Please use list append or extend method."
-                                                                                    .format(value))
-                                                            if isinstance(value, Enum.YLeaf):
-                                                                value = value.name
-                                                            if name in ("hw_fault_type",
-                                                                        "condition_description",
-                                                                        "condition_name",
-                                                                        "condition_raised_timestamp",
-                                                                        "condition_severity",
-                                                                        "device_description",
-                                                                        "device_key",
-                                                                        "device_version",
-                                                                        "process_id") and name in self.__dict__:
-                                                                if isinstance(value, YLeaf):
-                                                                    self.__dict__[name].set(value.get())
-                                                                elif isinstance(value, YLeafList):
-                                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-                                                                else:
-                                                                    self.__dict__[name].set(value)
-                                                            else:
-                                                                if hasattr(value, "parent") and name != "parent":
-                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                        value.parent = self
-                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                        value.parent = self
-                                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-
-                                                    def has_data(self):
-                                                        return (
-                                                            self.hw_fault_type.is_set or
-                                                            self.condition_description.is_set or
-                                                            self.condition_name.is_set or
-                                                            self.condition_raised_timestamp.is_set or
-                                                            self.condition_severity.is_set or
-                                                            self.device_description.is_set or
-                                                            self.device_key.is_set or
-                                                            self.device_version.is_set or
-                                                            self.process_id.is_set)
-
-                                                    def has_operation(self):
-                                                        return (
-                                                            self.yfilter != YFilter.not_set or
-                                                            self.hw_fault_type.yfilter != YFilter.not_set or
-                                                            self.condition_description.yfilter != YFilter.not_set or
-                                                            self.condition_name.yfilter != YFilter.not_set or
-                                                            self.condition_raised_timestamp.yfilter != YFilter.not_set or
-                                                            self.condition_severity.yfilter != YFilter.not_set or
-                                                            self.device_description.yfilter != YFilter.not_set or
-                                                            self.device_key.yfilter != YFilter.not_set or
-                                                            self.device_version.yfilter != YFilter.not_set or
-                                                            self.process_id.yfilter != YFilter.not_set)
-
-                                                    def get_segment_path(self):
-                                                        path_buffer = ""
-                                                        path_buffer = "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']" + path_buffer
-
-                                                        return path_buffer
-
-                                                    def get_entity_path(self, ancestor):
-                                                        path_buffer = ""
-                                                        if (ancestor is None):
-                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                        else:
-                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                        leaf_name_data = LeafDataList()
-                                                        if (self.hw_fault_type.is_set or self.hw_fault_type.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.hw_fault_type.get_name_leafdata())
-                                                        if (self.condition_description.is_set or self.condition_description.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.condition_description.get_name_leafdata())
-                                                        if (self.condition_name.is_set or self.condition_name.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.condition_name.get_name_leafdata())
-                                                        if (self.condition_raised_timestamp.is_set or self.condition_raised_timestamp.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.condition_raised_timestamp.get_name_leafdata())
-                                                        if (self.condition_severity.is_set or self.condition_severity.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.condition_severity.get_name_leafdata())
-                                                        if (self.device_description.is_set or self.device_description.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.device_description.get_name_leafdata())
-                                                        if (self.device_key.is_set or self.device_key.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.device_key.get_name_leafdata())
-                                                        if (self.device_version.is_set or self.device_version.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.device_version.get_name_leafdata())
-                                                        if (self.process_id.is_set or self.process_id.yfilter != YFilter.not_set):
-                                                            leaf_name_data.append(self.process_id.get_name_leafdata())
-
-                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                        return entity_path
-
-                                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                        if child is not None:
-                                                            return child
-
-                                                        return None
-
-                                                    def has_leaf_or_child_of_name(self, name):
-                                                        if(name == "hw-fault-type" or name == "condition-description" or name == "condition-name" or name == "condition-raised-timestamp" or name == "condition-severity" or name == "device-description" or name == "device-key" or name == "device-version" or name == "process-id"):
-                                                            return True
-                                                        return False
-
-                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                        if(value_path == "hw-fault-type"):
-                                                            self.hw_fault_type = value
-                                                            self.hw_fault_type.value_namespace = name_space
-                                                            self.hw_fault_type.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "condition-description"):
-                                                            self.condition_description = value
-                                                            self.condition_description.value_namespace = name_space
-                                                            self.condition_description.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "condition-name"):
-                                                            self.condition_name = value
-                                                            self.condition_name.value_namespace = name_space
-                                                            self.condition_name.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "condition-raised-timestamp"):
-                                                            self.condition_raised_timestamp = value
-                                                            self.condition_raised_timestamp.value_namespace = name_space
-                                                            self.condition_raised_timestamp.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "condition-severity"):
-                                                            self.condition_severity = value
-                                                            self.condition_severity.value_namespace = name_space
-                                                            self.condition_severity.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "device-description"):
-                                                            self.device_description = value
-                                                            self.device_description.value_namespace = name_space
-                                                            self.device_description.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "device-key"):
-                                                            self.device_key = value
-                                                            self.device_key.value_namespace = name_space
-                                                            self.device_key.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "device-version"):
-                                                            self.device_version = value
-                                                            self.device_version.value_namespace = name_space
-                                                            self.device_version.value_namespace_prefix = name_space_prefix
-                                                        if(value_path == "process-id"):
-                                                            self.process_id = value
-                                                            self.process_id.value_namespace = name_space
-                                                            self.process_id.value_namespace_prefix = name_space_prefix
-
-                                                def has_data(self):
-                                                    for c in self.hardware_fault_type:
-                                                        if (c.has_data()):
-                                                            return True
-                                                    return self.hw_fault_device.is_set
-
-                                                def has_operation(self):
-                                                    for c in self.hardware_fault_type:
-                                                        if (c.has_operation()):
-                                                            return True
-                                                    return (
-                                                        self.yfilter != YFilter.not_set or
-                                                        self.hw_fault_device.yfilter != YFilter.not_set)
-
-                                                def get_segment_path(self):
-                                                    path_buffer = ""
-                                                    path_buffer = "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']" + path_buffer
-
-                                                    return path_buffer
-
-                                                def get_entity_path(self, ancestor):
-                                                    path_buffer = ""
-                                                    if (ancestor is None):
-                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                    else:
-                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                    leaf_name_data = LeafDataList()
-                                                    if (self.hw_fault_device.is_set or self.hw_fault_device.yfilter != YFilter.not_set):
-                                                        leaf_name_data.append(self.hw_fault_device.get_name_leafdata())
-
-                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                    return entity_path
-
-                                                def get_child_by_name(self, child_yang_name, segment_path):
-                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                    if child is not None:
-                                                        return child
-
-                                                    if (child_yang_name == "hardware-fault-type"):
-                                                        for c in self.hardware_fault_type:
-                                                            segment = c.get_segment_path()
-                                                            if (segment_path == segment):
-                                                                return c
-                                                        c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType()
-                                                        c.parent = self
-                                                        local_reference_key = "ydk::seg::%s" % segment_path
-                                                        self._local_refs[local_reference_key] = c
-                                                        self.hardware_fault_type.append(c)
-                                                        return c
-
-                                                    return None
-
-                                                def has_leaf_or_child_of_name(self, name):
-                                                    if(name == "hardware-fault-type" or name == "hw-fault-device"):
-                                                        return True
-                                                    return False
-
-                                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                    if(value_path == "hw-fault-device"):
-                                                        self.hw_fault_device = value
-                                                        self.hw_fault_device.value_namespace = name_space
-                                                        self.hw_fault_device.value_namespace_prefix = name_space_prefix
-
-                                            def has_data(self):
-                                                for c in self.hardware_fault_device:
-                                                    if (c.has_data()):
-                                                        return True
-                                                return False
-
-                                            def has_operation(self):
-                                                for c in self.hardware_fault_device:
-                                                    if (c.has_operation()):
-                                                        return True
-                                                return self.yfilter != YFilter.not_set
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "hardware-fault-devices" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                if (child_yang_name == "hardware-fault-device"):
-                                                    for c in self.hardware_fault_device:
-                                                        segment = c.get_segment_path()
-                                                        if (segment_path == segment):
-                                                            return c
-                                                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice()
-                                                    c.parent = self
-                                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                                    self._local_refs[local_reference_key] = c
-                                                    self.hardware_fault_device.append(c)
-                                                    return c
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "hardware-fault-device"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                pass
-
-                                        def has_data(self):
-                                            return (
-                                                self.slot.is_set or
-                                                (self.fault_summary is not None and self.fault_summary.has_data()) or
-                                                (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_data()))
-
-                                        def has_operation(self):
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.slot.yfilter != YFilter.not_set or
-                                                (self.fault_summary is not None and self.fault_summary.has_operation()) or
-                                                (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_operation()))
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "slot" + "[slot='" + self.slot.get() + "']" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.slot.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "fault-summary"):
-                                                if (self.fault_summary is None):
-                                                    self.fault_summary = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary()
-                                                    self.fault_summary.parent = self
-                                                    self._children_name_map["fault_summary"] = "fault-summary"
-                                                return self.fault_summary
-
-                                            if (child_yang_name == "hardware-fault-devices"):
-                                                if (self.hardware_fault_devices is None):
-                                                    self.hardware_fault_devices = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices()
-                                                    self.hardware_fault_devices.parent = self
-                                                    self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
-                                                return self.hardware_fault_devices
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "fault-summary" or name == "hardware-fault-devices" or name == "slot"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "slot"):
-                                                self.slot = value
-                                                self.slot.value_namespace = name_space
-                                                self.slot.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.slot:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.slot:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "slots" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "slot"):
-                                            for c in self.slot:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.slot.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "slot"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.rack.is_set or
-                                        (self.slots is not None and self.slots.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.rack.yfilter != YFilter.not_set or
-                                        (self.slots is not None and self.slots.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "rack" + "[rack='" + self.rack.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.rack.is_set or self.rack.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.rack.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "slots"):
-                                        if (self.slots is None):
-                                            self.slots = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots()
-                                            self.slots.parent = self
-                                            self._children_name_map["slots"] = "slots"
-                                        return self.slots
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "slots" or name == "rack"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "rack"):
-                                        self.rack = value
-                                        self.rack.value_namespace = name_space
-                                        self.rack.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.rack:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.rack:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "racks" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "rack"):
-                                    for c in self.rack:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.rack.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "rack"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-                        def has_data(self):
-                            return (
-                                self.hw_fault_type2.is_set or
-                                (self.fault_type3s is not None and self.fault_type3s.has_data()) or
-                                (self.racks is not None and self.racks.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.hw_fault_type2.yfilter != YFilter.not_set or
-                                (self.fault_type3s is not None and self.fault_type3s.has_operation()) or
-                                (self.racks is not None and self.racks.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "fault-type2" + "[hw-fault-type2='" + self.hw_fault_type2.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.hw_fault_type2.is_set or self.hw_fault_type2.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.hw_fault_type2.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "fault-type3s"):
-                                if (self.fault_type3s is None):
-                                    self.fault_type3s = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S()
-                                    self.fault_type3s.parent = self
-                                    self._children_name_map["fault_type3s"] = "fault-type3s"
-                                return self.fault_type3s
-
-                            if (child_yang_name == "racks"):
-                                if (self.racks is None):
-                                    self.racks = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks()
-                                    self.racks.parent = self
-                                    self._children_name_map["racks"] = "racks"
-                                return self.racks
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "fault-type3s" or name == "racks" or name == "hw-fault-type2"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "hw-fault-type2"):
-                                self.hw_fault_type2 = value
-                                self.hw_fault_type2.value_namespace = name_space
-                                self.hw_fault_type2.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.fault_type2:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.fault_type2:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "fault-type2s" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "fault-type2"):
-                            for c in self.fault_type2:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.fault_type2.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "fault-type2"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
+                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
 
 
                 class Racks(Entity):
@@ -2842,32 +1169,16 @@ class PlatformFaultManager(Entity):
 
                         self.yang_name = "racks"
                         self.yang_parent_name = "fault-type1"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"rack" : ("rack", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack)}
 
                         self.rack = YList(self)
+                        self._segment_path = lambda: "racks"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in () and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks, self).__setattr__(name, value)
+                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks, [], name, value)
 
 
                     class Rack(Entity):
@@ -2898,6 +1209,10 @@ class PlatformFaultManager(Entity):
 
                             self.yang_name = "rack"
                             self.yang_parent_name = "racks"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"slots" : ("slots", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots)}
+                            self._child_list_classes = {}
 
                             self.rack = YLeaf(YType.int32, "rack")
 
@@ -2905,30 +1220,10 @@ class PlatformFaultManager(Entity):
                             self.slots.parent = self
                             self._children_name_map["slots"] = "slots"
                             self._children_yang_names.add("slots")
+                            self._segment_path = lambda: "rack" + "[rack='" + self.rack.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("rack") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack, self).__setattr__(name, value)
+                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack, ['rack'], name, value)
 
 
                         class Slots(Entity):
@@ -2952,32 +1247,16 @@ class PlatformFaultManager(Entity):
 
                                 self.yang_name = "slots"
                                 self.yang_parent_name = "rack"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"slot" : ("slot", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot)}
 
                                 self.slot = YList(self)
+                                self._segment_path = lambda: "slots"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in () and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots, self).__setattr__(name, value)
+                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots, [], name, value)
 
 
                             class Slot(Entity):
@@ -3013,6 +1292,10 @@ class PlatformFaultManager(Entity):
 
                                     self.yang_name = "slot"
                                     self.yang_parent_name = "slots"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"fault-summary" : ("fault_summary", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary), "hardware-fault-devices" : ("hardware_fault_devices", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices)}
+                                    self._child_list_classes = {}
 
                                     self.slot = YLeaf(YType.str, "slot")
 
@@ -3025,30 +1308,10 @@ class PlatformFaultManager(Entity):
                                     self.hardware_fault_devices.parent = self
                                     self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
                                     self._children_yang_names.add("hardware-fault-devices")
+                                    self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("slot") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
+                                    self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
                                 class FaultSummary(Entity):
@@ -3095,6 +1358,10 @@ class PlatformFaultManager(Entity):
 
                                         self.yang_name = "fault-summary"
                                         self.yang_parent_name = "slot"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
 
                                         self.severity_critical_count = YLeaf(YType.int32, "severity-critical-count")
 
@@ -3103,104 +1370,10 @@ class PlatformFaultManager(Entity):
                                         self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
 
                                         self.total = YLeaf(YType.int32, "total")
+                                        self._segment_path = lambda: "fault-summary"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in ("severity_critical_count",
-                                                        "severity_emergency_or_alert_count",
-                                                        "severity_error_count",
-                                                        "total") and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-
-                                    def has_data(self):
-                                        return (
-                                            self.severity_critical_count.is_set or
-                                            self.severity_emergency_or_alert_count.is_set or
-                                            self.severity_error_count.is_set or
-                                            self.total.is_set)
-
-                                    def has_operation(self):
-                                        return (
-                                            self.yfilter != YFilter.not_set or
-                                            self.severity_critical_count.yfilter != YFilter.not_set or
-                                            self.severity_emergency_or_alert_count.yfilter != YFilter.not_set or
-                                            self.severity_error_count.yfilter != YFilter.not_set or
-                                            self.total.yfilter != YFilter.not_set)
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "fault-summary" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-                                        if (self.severity_critical_count.is_set or self.severity_critical_count.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.severity_critical_count.get_name_leafdata())
-                                        if (self.severity_emergency_or_alert_count.is_set or self.severity_emergency_or_alert_count.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.severity_emergency_or_alert_count.get_name_leafdata())
-                                        if (self.severity_error_count.is_set or self.severity_error_count.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.severity_error_count.get_name_leafdata())
-                                        if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                                            leaf_name_data.append(self.total.get_name_leafdata())
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "severity-critical-count" or name == "severity-emergency-or-alert-count" or name == "severity-error-count" or name == "total"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        if(value_path == "severity-critical-count"):
-                                            self.severity_critical_count = value
-                                            self.severity_critical_count.value_namespace = name_space
-                                            self.severity_critical_count.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "severity-emergency-or-alert-count"):
-                                            self.severity_emergency_or_alert_count = value
-                                            self.severity_emergency_or_alert_count.value_namespace = name_space
-                                            self.severity_emergency_or_alert_count.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "severity-error-count"):
-                                            self.severity_error_count = value
-                                            self.severity_error_count.value_namespace = name_space
-                                            self.severity_error_count.value_namespace_prefix = name_space_prefix
-                                        if(value_path == "total"):
-                                            self.total = value
-                                            self.total.value_namespace = name_space
-                                            self.total.value_namespace_prefix = name_space_prefix
+                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
 
 
                                 class HardwareFaultDevices(Entity):
@@ -3224,32 +1397,16 @@ class PlatformFaultManager(Entity):
 
                                         self.yang_name = "hardware-fault-devices"
                                         self.yang_parent_name = "slot"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {"hardware-fault-device" : ("hardware_fault_device", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice)}
 
                                         self.hardware_fault_device = YList(self)
+                                        self._segment_path = lambda: "hardware-fault-devices"
 
                                     def __setattr__(self, name, value):
-                                        self._check_monkey_patching_error(name, value)
-                                        with _handle_type_error():
-                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                    "Please use list append or extend method."
-                                                                    .format(value))
-                                            if isinstance(value, Enum.YLeaf):
-                                                value = value.name
-                                            if name in () and name in self.__dict__:
-                                                if isinstance(value, YLeaf):
-                                                    self.__dict__[name].set(value.get())
-                                                elif isinstance(value, YLeafList):
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
-                                                else:
-                                                    self.__dict__[name].set(value)
-                                            else:
-                                                if hasattr(value, "parent") and name != "parent":
-                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                        value.parent = self
-                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                        value.parent = self
-                                                super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
+                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
                                     class HardwareFaultDevice(Entity):
@@ -3280,34 +1437,18 @@ class PlatformFaultManager(Entity):
 
                                             self.yang_name = "hardware-fault-device"
                                             self.yang_parent_name = "hardware-fault-devices"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"hardware-fault-type" : ("hardware_fault_type", PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType)}
 
                                             self.hw_fault_device = YLeaf(YType.str, "hw-fault-device")
 
                                             self.hardware_fault_type = YList(self)
+                                            self._segment_path = lambda: "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._check_monkey_patching_error(name, value)
-                                            with _handle_type_error():
-                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                        "Please use list append or extend method."
-                                                                        .format(value))
-                                                if isinstance(value, Enum.YLeaf):
-                                                    value = value.name
-                                                if name in ("hw_fault_device") and name in self.__dict__:
-                                                    if isinstance(value, YLeaf):
-                                                        self.__dict__[name].set(value.get())
-                                                    elif isinstance(value, YLeafList):
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
-                                                    else:
-                                                        self.__dict__[name].set(value)
-                                                else:
-                                                    if hasattr(value, "parent") and name != "parent":
-                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                            value.parent = self
-                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                            value.parent = self
-                                                    super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
+                                            self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
                                         class HardwareFaultType(Entity):
@@ -3377,6 +1518,10 @@ class PlatformFaultManager(Entity):
 
                                                 self.yang_name = "hardware-fault-type"
                                                 self.yang_parent_name = "hardware-fault-device"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {}
+                                                self._child_list_classes = {}
 
                                                 self.hw_fault_type = YLeaf(YType.str, "hw-fault-type")
 
@@ -3395,675 +1540,10 @@ class PlatformFaultManager(Entity):
                                                 self.device_version = YLeaf(YType.int32, "device-version")
 
                                                 self.process_id = YLeaf(YType.int32, "process-id")
+                                                self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._check_monkey_patching_error(name, value)
-                                                with _handle_type_error():
-                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                            "Please use list append or extend method."
-                                                                            .format(value))
-                                                    if isinstance(value, Enum.YLeaf):
-                                                        value = value.name
-                                                    if name in ("hw_fault_type",
-                                                                "condition_description",
-                                                                "condition_name",
-                                                                "condition_raised_timestamp",
-                                                                "condition_severity",
-                                                                "device_description",
-                                                                "device_key",
-                                                                "device_version",
-                                                                "process_id") and name in self.__dict__:
-                                                        if isinstance(value, YLeaf):
-                                                            self.__dict__[name].set(value.get())
-                                                        elif isinstance(value, YLeafList):
-                                                            super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-                                                        else:
-                                                            self.__dict__[name].set(value)
-                                                    else:
-                                                        if hasattr(value, "parent") and name != "parent":
-                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                                value.parent = self
-                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                                value.parent = self
-                                                        super(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-
-                                            def has_data(self):
-                                                return (
-                                                    self.hw_fault_type.is_set or
-                                                    self.condition_description.is_set or
-                                                    self.condition_name.is_set or
-                                                    self.condition_raised_timestamp.is_set or
-                                                    self.condition_severity.is_set or
-                                                    self.device_description.is_set or
-                                                    self.device_key.is_set or
-                                                    self.device_version.is_set or
-                                                    self.process_id.is_set)
-
-                                            def has_operation(self):
-                                                return (
-                                                    self.yfilter != YFilter.not_set or
-                                                    self.hw_fault_type.yfilter != YFilter.not_set or
-                                                    self.condition_description.yfilter != YFilter.not_set or
-                                                    self.condition_name.yfilter != YFilter.not_set or
-                                                    self.condition_raised_timestamp.yfilter != YFilter.not_set or
-                                                    self.condition_severity.yfilter != YFilter.not_set or
-                                                    self.device_description.yfilter != YFilter.not_set or
-                                                    self.device_key.yfilter != YFilter.not_set or
-                                                    self.device_version.yfilter != YFilter.not_set or
-                                                    self.process_id.yfilter != YFilter.not_set)
-
-                                            def get_segment_path(self):
-                                                path_buffer = ""
-                                                path_buffer = "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']" + path_buffer
-
-                                                return path_buffer
-
-                                            def get_entity_path(self, ancestor):
-                                                path_buffer = ""
-                                                if (ancestor is None):
-                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                                else:
-                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                                leaf_name_data = LeafDataList()
-                                                if (self.hw_fault_type.is_set or self.hw_fault_type.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.hw_fault_type.get_name_leafdata())
-                                                if (self.condition_description.is_set or self.condition_description.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.condition_description.get_name_leafdata())
-                                                if (self.condition_name.is_set or self.condition_name.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.condition_name.get_name_leafdata())
-                                                if (self.condition_raised_timestamp.is_set or self.condition_raised_timestamp.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.condition_raised_timestamp.get_name_leafdata())
-                                                if (self.condition_severity.is_set or self.condition_severity.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.condition_severity.get_name_leafdata())
-                                                if (self.device_description.is_set or self.device_description.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.device_description.get_name_leafdata())
-                                                if (self.device_key.is_set or self.device_key.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.device_key.get_name_leafdata())
-                                                if (self.device_version.is_set or self.device_version.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.device_version.get_name_leafdata())
-                                                if (self.process_id.is_set or self.process_id.yfilter != YFilter.not_set):
-                                                    leaf_name_data.append(self.process_id.get_name_leafdata())
-
-                                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                                return entity_path
-
-                                            def get_child_by_name(self, child_yang_name, segment_path):
-                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                                if child is not None:
-                                                    return child
-
-                                                return None
-
-                                            def has_leaf_or_child_of_name(self, name):
-                                                if(name == "hw-fault-type" or name == "condition-description" or name == "condition-name" or name == "condition-raised-timestamp" or name == "condition-severity" or name == "device-description" or name == "device-key" or name == "device-version" or name == "process-id"):
-                                                    return True
-                                                return False
-
-                                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                                if(value_path == "hw-fault-type"):
-                                                    self.hw_fault_type = value
-                                                    self.hw_fault_type.value_namespace = name_space
-                                                    self.hw_fault_type.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "condition-description"):
-                                                    self.condition_description = value
-                                                    self.condition_description.value_namespace = name_space
-                                                    self.condition_description.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "condition-name"):
-                                                    self.condition_name = value
-                                                    self.condition_name.value_namespace = name_space
-                                                    self.condition_name.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "condition-raised-timestamp"):
-                                                    self.condition_raised_timestamp = value
-                                                    self.condition_raised_timestamp.value_namespace = name_space
-                                                    self.condition_raised_timestamp.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "condition-severity"):
-                                                    self.condition_severity = value
-                                                    self.condition_severity.value_namespace = name_space
-                                                    self.condition_severity.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "device-description"):
-                                                    self.device_description = value
-                                                    self.device_description.value_namespace = name_space
-                                                    self.device_description.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "device-key"):
-                                                    self.device_key = value
-                                                    self.device_key.value_namespace = name_space
-                                                    self.device_key.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "device-version"):
-                                                    self.device_version = value
-                                                    self.device_version.value_namespace = name_space
-                                                    self.device_version.value_namespace_prefix = name_space_prefix
-                                                if(value_path == "process-id"):
-                                                    self.process_id = value
-                                                    self.process_id.value_namespace = name_space
-                                                    self.process_id.value_namespace_prefix = name_space_prefix
-
-                                        def has_data(self):
-                                            for c in self.hardware_fault_type:
-                                                if (c.has_data()):
-                                                    return True
-                                            return self.hw_fault_device.is_set
-
-                                        def has_operation(self):
-                                            for c in self.hardware_fault_type:
-                                                if (c.has_operation()):
-                                                    return True
-                                            return (
-                                                self.yfilter != YFilter.not_set or
-                                                self.hw_fault_device.yfilter != YFilter.not_set)
-
-                                        def get_segment_path(self):
-                                            path_buffer = ""
-                                            path_buffer = "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']" + path_buffer
-
-                                            return path_buffer
-
-                                        def get_entity_path(self, ancestor):
-                                            path_buffer = ""
-                                            if (ancestor is None):
-                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                            else:
-                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                            leaf_name_data = LeafDataList()
-                                            if (self.hw_fault_device.is_set or self.hw_fault_device.yfilter != YFilter.not_set):
-                                                leaf_name_data.append(self.hw_fault_device.get_name_leafdata())
-
-                                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                                            return entity_path
-
-                                        def get_child_by_name(self, child_yang_name, segment_path):
-                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                            if child is not None:
-                                                return child
-
-                                            if (child_yang_name == "hardware-fault-type"):
-                                                for c in self.hardware_fault_type:
-                                                    segment = c.get_segment_path()
-                                                    if (segment_path == segment):
-                                                        return c
-                                                c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType()
-                                                c.parent = self
-                                                local_reference_key = "ydk::seg::%s" % segment_path
-                                                self._local_refs[local_reference_key] = c
-                                                self.hardware_fault_type.append(c)
-                                                return c
-
-                                            return None
-
-                                        def has_leaf_or_child_of_name(self, name):
-                                            if(name == "hardware-fault-type" or name == "hw-fault-device"):
-                                                return True
-                                            return False
-
-                                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                                            if(value_path == "hw-fault-device"):
-                                                self.hw_fault_device = value
-                                                self.hw_fault_device.value_namespace = name_space
-                                                self.hw_fault_device.value_namespace_prefix = name_space_prefix
-
-                                    def has_data(self):
-                                        for c in self.hardware_fault_device:
-                                            if (c.has_data()):
-                                                return True
-                                        return False
-
-                                    def has_operation(self):
-                                        for c in self.hardware_fault_device:
-                                            if (c.has_operation()):
-                                                return True
-                                        return self.yfilter != YFilter.not_set
-
-                                    def get_segment_path(self):
-                                        path_buffer = ""
-                                        path_buffer = "hardware-fault-devices" + path_buffer
-
-                                        return path_buffer
-
-                                    def get_entity_path(self, ancestor):
-                                        path_buffer = ""
-                                        if (ancestor is None):
-                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                        else:
-                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                        leaf_name_data = LeafDataList()
-
-                                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                                        return entity_path
-
-                                    def get_child_by_name(self, child_yang_name, segment_path):
-                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                        if child is not None:
-                                            return child
-
-                                        if (child_yang_name == "hardware-fault-device"):
-                                            for c in self.hardware_fault_device:
-                                                segment = c.get_segment_path()
-                                                if (segment_path == segment):
-                                                    return c
-                                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice()
-                                            c.parent = self
-                                            local_reference_key = "ydk::seg::%s" % segment_path
-                                            self._local_refs[local_reference_key] = c
-                                            self.hardware_fault_device.append(c)
-                                            return c
-
-                                        return None
-
-                                    def has_leaf_or_child_of_name(self, name):
-                                        if(name == "hardware-fault-device"):
-                                            return True
-                                        return False
-
-                                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                                        pass
-
-                                def has_data(self):
-                                    return (
-                                        self.slot.is_set or
-                                        (self.fault_summary is not None and self.fault_summary.has_data()) or
-                                        (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_data()))
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.slot.yfilter != YFilter.not_set or
-                                        (self.fault_summary is not None and self.fault_summary.has_operation()) or
-                                        (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_operation()))
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "slot" + "[slot='" + self.slot.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.slot.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    if (child_yang_name == "fault-summary"):
-                                        if (self.fault_summary is None):
-                                            self.fault_summary = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary()
-                                            self.fault_summary.parent = self
-                                            self._children_name_map["fault_summary"] = "fault-summary"
-                                        return self.fault_summary
-
-                                    if (child_yang_name == "hardware-fault-devices"):
-                                        if (self.hardware_fault_devices is None):
-                                            self.hardware_fault_devices = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices()
-                                            self.hardware_fault_devices.parent = self
-                                            self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
-                                        return self.hardware_fault_devices
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "fault-summary" or name == "hardware-fault-devices" or name == "slot"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "slot"):
-                                        self.slot = value
-                                        self.slot.value_namespace = name_space
-                                        self.slot.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.slot:
-                                    if (c.has_data()):
-                                        return True
-                                return False
-
-                            def has_operation(self):
-                                for c in self.slot:
-                                    if (c.has_operation()):
-                                        return True
-                                return self.yfilter != YFilter.not_set
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "slots" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "slot"):
-                                    for c in self.slot:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.slot.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "slot"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                pass
-
-                        def has_data(self):
-                            return (
-                                self.rack.is_set or
-                                (self.slots is not None and self.slots.has_data()))
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.rack.yfilter != YFilter.not_set or
-                                (self.slots is not None and self.slots.has_operation()))
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "rack" + "[rack='" + self.rack.get() + "']" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.rack.is_set or self.rack.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.rack.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "slots"):
-                                if (self.slots is None):
-                                    self.slots = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots()
-                                    self.slots.parent = self
-                                    self._children_name_map["slots"] = "slots"
-                                return self.slots
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "slots" or name == "rack"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "rack"):
-                                self.rack = value
-                                self.rack.value_namespace = name_space
-                                self.rack.value_namespace_prefix = name_space_prefix
-
-                    def has_data(self):
-                        for c in self.rack:
-                            if (c.has_data()):
-                                return True
-                        return False
-
-                    def has_operation(self):
-                        for c in self.rack:
-                            if (c.has_operation()):
-                                return True
-                        return self.yfilter != YFilter.not_set
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "racks" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "rack"):
-                            for c in self.rack:
-                                segment = c.get_segment_path()
-                                if (segment_path == segment):
-                                    return c
-                            c = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack()
-                            c.parent = self
-                            local_reference_key = "ydk::seg::%s" % segment_path
-                            self._local_refs[local_reference_key] = c
-                            self.rack.append(c)
-                            return c
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "rack"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        pass
-
-                def has_data(self):
-                    return (
-                        self.hw_fault_type1.is_set or
-                        (self.fault_type2s is not None and self.fault_type2s.has_data()) or
-                        (self.racks is not None and self.racks.has_data()))
-
-                def has_operation(self):
-                    return (
-                        self.yfilter != YFilter.not_set or
-                        self.hw_fault_type1.yfilter != YFilter.not_set or
-                        (self.fault_type2s is not None and self.fault_type2s.has_operation()) or
-                        (self.racks is not None and self.racks.has_operation()))
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "fault-type1" + "[hw-fault-type1='" + self.hw_fault_type1.get() + "']" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager/exclude/fault-type1s/%s" % self.get_segment_path()
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-                    if (self.hw_fault_type1.is_set or self.hw_fault_type1.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.hw_fault_type1.get_name_leafdata())
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "fault-type2s"):
-                        if (self.fault_type2s is None):
-                            self.fault_type2s = PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S()
-                            self.fault_type2s.parent = self
-                            self._children_name_map["fault_type2s"] = "fault-type2s"
-                        return self.fault_type2s
-
-                    if (child_yang_name == "racks"):
-                        if (self.racks is None):
-                            self.racks = PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks()
-                            self.racks.parent = self
-                            self._children_name_map["racks"] = "racks"
-                        return self.racks
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "fault-type2s" or name == "racks" or name == "hw-fault-type1"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "hw-fault-type1"):
-                        self.hw_fault_type1 = value
-                        self.hw_fault_type1.value_namespace = name_space
-                        self.hw_fault_type1.value_namespace_prefix = name_space_prefix
-
-            def has_data(self):
-                for c in self.fault_type1:
-                    if (c.has_data()):
-                        return True
-                return False
-
-            def has_operation(self):
-                for c in self.fault_type1:
-                    if (c.has_operation()):
-                        return True
-                return self.yfilter != YFilter.not_set
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "fault-type1s" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager/exclude/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "fault-type1"):
-                    for c in self.fault_type1:
-                        segment = c.get_segment_path()
-                        if (segment_path == segment):
-                            return c
-                    c = PlatformFaultManager.Exclude.FaultType1S.FaultType1()
-                    c.parent = self
-                    local_reference_key = "ydk::seg::%s" % segment_path
-                    self._local_refs[local_reference_key] = c
-                    self.fault_type1.append(c)
-                    return c
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "fault-type1"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                pass
-
-        def has_data(self):
-            return (self.fault_type1s is not None and self.fault_type1s.has_data())
-
-        def has_operation(self):
-            return (
-                self.yfilter != YFilter.not_set or
-                (self.fault_type1s is not None and self.fault_type1s.has_operation()))
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "exclude" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "fault-type1s"):
-                if (self.fault_type1s is None):
-                    self.fault_type1s = PlatformFaultManager.Exclude.FaultType1S()
-                    self.fault_type1s.parent = self
-                    self._children_name_map["fault_type1s"] = "fault-type1s"
-                return self.fault_type1s
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "fault-type1s"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
 
 
     class Racks(Entity):
@@ -4087,32 +1567,17 @@ class PlatformFaultManager(Entity):
 
             self.yang_name = "racks"
             self.yang_parent_name = "platform-fault-manager"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"rack" : ("rack", PlatformFaultManager.Racks.Rack)}
 
             self.rack = YList(self)
+            self._segment_path = lambda: "racks"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(PlatformFaultManager.Racks, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(PlatformFaultManager.Racks, self).__setattr__(name, value)
+            self._perform_setattr(PlatformFaultManager.Racks, [], name, value)
 
 
         class Rack(Entity):
@@ -4143,6 +1608,10 @@ class PlatformFaultManager(Entity):
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"slots" : ("slots", PlatformFaultManager.Racks.Rack.Slots)}
+                self._child_list_classes = {}
 
                 self.rack = YLeaf(YType.int32, "rack")
 
@@ -4150,30 +1619,11 @@ class PlatformFaultManager(Entity):
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
                 self._children_yang_names.add("slots")
+                self._segment_path = lambda: "rack" + "[rack='" + self.rack.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfm-oper:platform-fault-manager/racks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("rack") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(PlatformFaultManager.Racks.Rack, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(PlatformFaultManager.Racks.Rack, self).__setattr__(name, value)
+                self._perform_setattr(PlatformFaultManager.Racks.Rack, ['rack'], name, value)
 
 
             class Slots(Entity):
@@ -4197,32 +1647,16 @@ class PlatformFaultManager(Entity):
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"slot" : ("slot", PlatformFaultManager.Racks.Rack.Slots.Slot)}
 
                     self.slot = YList(self)
+                    self._segment_path = lambda: "slots"
 
                 def __setattr__(self, name, value):
-                    self._check_monkey_patching_error(name, value)
-                    with _handle_type_error():
-                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                "Please use list append or extend method."
-                                                .format(value))
-                        if isinstance(value, Enum.YLeaf):
-                            value = value.name
-                        if name in () and name in self.__dict__:
-                            if isinstance(value, YLeaf):
-                                self.__dict__[name].set(value.get())
-                            elif isinstance(value, YLeafList):
-                                super(PlatformFaultManager.Racks.Rack.Slots, self).__setattr__(name, value)
-                            else:
-                                self.__dict__[name].set(value)
-                        else:
-                            if hasattr(value, "parent") and name != "parent":
-                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                    value.parent = self
-                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                    value.parent = self
-                            super(PlatformFaultManager.Racks.Rack.Slots, self).__setattr__(name, value)
+                    self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots, [], name, value)
 
 
                 class Slot(Entity):
@@ -4258,6 +1692,10 @@ class PlatformFaultManager(Entity):
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"fault-summary" : ("fault_summary", PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary), "hardware-fault-devices" : ("hardware_fault_devices", PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices)}
+                        self._child_list_classes = {}
 
                         self.slot = YLeaf(YType.str, "slot")
 
@@ -4270,30 +1708,10 @@ class PlatformFaultManager(Entity):
                         self.hardware_fault_devices.parent = self
                         self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
                         self._children_yang_names.add("hardware-fault-devices")
+                        self._segment_path = lambda: "slot" + "[slot='" + self.slot.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._check_monkey_patching_error(name, value)
-                        with _handle_type_error():
-                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                    "Please use list append or extend method."
-                                                    .format(value))
-                            if isinstance(value, Enum.YLeaf):
-                                value = value.name
-                            if name in ("slot") and name in self.__dict__:
-                                if isinstance(value, YLeaf):
-                                    self.__dict__[name].set(value.get())
-                                elif isinstance(value, YLeafList):
-                                    super(PlatformFaultManager.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
-                                else:
-                                    self.__dict__[name].set(value)
-                            else:
-                                if hasattr(value, "parent") and name != "parent":
-                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                        value.parent = self
-                                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                                        value.parent = self
-                                super(PlatformFaultManager.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
+                        self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
                     class FaultSummary(Entity):
@@ -4340,6 +1758,10 @@ class PlatformFaultManager(Entity):
 
                             self.yang_name = "fault-summary"
                             self.yang_parent_name = "slot"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
 
                             self.severity_critical_count = YLeaf(YType.int32, "severity-critical-count")
 
@@ -4348,104 +1770,10 @@ class PlatformFaultManager(Entity):
                             self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
 
                             self.total = YLeaf(YType.int32, "total")
+                            self._segment_path = lambda: "fault-summary"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in ("severity_critical_count",
-                                            "severity_emergency_or_alert_count",
-                                            "severity_error_count",
-                                            "total") and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, self).__setattr__(name, value)
-
-                        def has_data(self):
-                            return (
-                                self.severity_critical_count.is_set or
-                                self.severity_emergency_or_alert_count.is_set or
-                                self.severity_error_count.is_set or
-                                self.total.is_set)
-
-                        def has_operation(self):
-                            return (
-                                self.yfilter != YFilter.not_set or
-                                self.severity_critical_count.yfilter != YFilter.not_set or
-                                self.severity_emergency_or_alert_count.yfilter != YFilter.not_set or
-                                self.severity_error_count.yfilter != YFilter.not_set or
-                                self.total.yfilter != YFilter.not_set)
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "fault-summary" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-                            if (self.severity_critical_count.is_set or self.severity_critical_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.severity_critical_count.get_name_leafdata())
-                            if (self.severity_emergency_or_alert_count.is_set or self.severity_emergency_or_alert_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.severity_emergency_or_alert_count.get_name_leafdata())
-                            if (self.severity_error_count.is_set or self.severity_error_count.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.severity_error_count.get_name_leafdata())
-                            if (self.total.is_set or self.total.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total.get_name_leafdata())
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "severity-critical-count" or name == "severity-emergency-or-alert-count" or name == "severity-error-count" or name == "total"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "severity-critical-count"):
-                                self.severity_critical_count = value
-                                self.severity_critical_count.value_namespace = name_space
-                                self.severity_critical_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "severity-emergency-or-alert-count"):
-                                self.severity_emergency_or_alert_count = value
-                                self.severity_emergency_or_alert_count.value_namespace = name_space
-                                self.severity_emergency_or_alert_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "severity-error-count"):
-                                self.severity_error_count = value
-                                self.severity_error_count.value_namespace = name_space
-                                self.severity_error_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total"):
-                                self.total = value
-                                self.total.value_namespace = name_space
-                                self.total.value_namespace_prefix = name_space_prefix
+                            self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
 
 
                     class HardwareFaultDevices(Entity):
@@ -4469,32 +1797,16 @@ class PlatformFaultManager(Entity):
 
                             self.yang_name = "hardware-fault-devices"
                             self.yang_parent_name = "slot"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"hardware-fault-device" : ("hardware_fault_device", PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice)}
 
                             self.hardware_fault_device = YList(self)
+                            self._segment_path = lambda: "hardware-fault-devices"
 
                         def __setattr__(self, name, value):
-                            self._check_monkey_patching_error(name, value)
-                            with _handle_type_error():
-                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                        "Please use list append or extend method."
-                                                        .format(value))
-                                if isinstance(value, Enum.YLeaf):
-                                    value = value.name
-                                if name in () and name in self.__dict__:
-                                    if isinstance(value, YLeaf):
-                                        self.__dict__[name].set(value.get())
-                                    elif isinstance(value, YLeafList):
-                                        super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
-                                    else:
-                                        self.__dict__[name].set(value)
-                                else:
-                                    if hasattr(value, "parent") and name != "parent":
-                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                            value.parent = self
-                                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                                            value.parent = self
-                                    super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__setattr__(name, value)
+                            self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
                         class HardwareFaultDevice(Entity):
@@ -4525,34 +1837,18 @@ class PlatformFaultManager(Entity):
 
                                 self.yang_name = "hardware-fault-device"
                                 self.yang_parent_name = "hardware-fault-devices"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"hardware-fault-type" : ("hardware_fault_type", PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType)}
 
                                 self.hw_fault_device = YLeaf(YType.str, "hw-fault-device")
 
                                 self.hardware_fault_type = YList(self)
+                                self._segment_path = lambda: "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._check_monkey_patching_error(name, value)
-                                with _handle_type_error():
-                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                            "Please use list append or extend method."
-                                                            .format(value))
-                                    if isinstance(value, Enum.YLeaf):
-                                        value = value.name
-                                    if name in ("hw_fault_device") and name in self.__dict__:
-                                        if isinstance(value, YLeaf):
-                                            self.__dict__[name].set(value.get())
-                                        elif isinstance(value, YLeafList):
-                                            super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
-                                        else:
-                                            self.__dict__[name].set(value)
-                                    else:
-                                        if hasattr(value, "parent") and name != "parent":
-                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                value.parent = self
-                                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                value.parent = self
-                                        super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__setattr__(name, value)
+                                self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
                             class HardwareFaultType(Entity):
@@ -4622,6 +1918,10 @@ class PlatformFaultManager(Entity):
 
                                     self.yang_name = "hardware-fault-type"
                                     self.yang_parent_name = "hardware-fault-device"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
                                     self.hw_fault_type = YLeaf(YType.str, "hw-fault-type")
 
@@ -4640,562 +1940,10 @@ class PlatformFaultManager(Entity):
                                     self.device_version = YLeaf(YType.int32, "device-version")
 
                                     self.process_id = YLeaf(YType.int32, "process-id")
+                                    self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._check_monkey_patching_error(name, value)
-                                    with _handle_type_error():
-                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                                                "Please use list append or extend method."
-                                                                .format(value))
-                                        if isinstance(value, Enum.YLeaf):
-                                            value = value.name
-                                        if name in ("hw_fault_type",
-                                                    "condition_description",
-                                                    "condition_name",
-                                                    "condition_raised_timestamp",
-                                                    "condition_severity",
-                                                    "device_description",
-                                                    "device_key",
-                                                    "device_version",
-                                                    "process_id") and name in self.__dict__:
-                                            if isinstance(value, YLeaf):
-                                                self.__dict__[name].set(value.get())
-                                            elif isinstance(value, YLeafList):
-                                                super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-                                            else:
-                                                self.__dict__[name].set(value)
-                                        else:
-                                            if hasattr(value, "parent") and name != "parent":
-                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                                    value.parent = self
-                                                elif value.parent is None and value.yang_name in self._children_yang_names:
-                                                    value.parent = self
-                                            super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__setattr__(name, value)
-
-                                def has_data(self):
-                                    return (
-                                        self.hw_fault_type.is_set or
-                                        self.condition_description.is_set or
-                                        self.condition_name.is_set or
-                                        self.condition_raised_timestamp.is_set or
-                                        self.condition_severity.is_set or
-                                        self.device_description.is_set or
-                                        self.device_key.is_set or
-                                        self.device_version.is_set or
-                                        self.process_id.is_set)
-
-                                def has_operation(self):
-                                    return (
-                                        self.yfilter != YFilter.not_set or
-                                        self.hw_fault_type.yfilter != YFilter.not_set or
-                                        self.condition_description.yfilter != YFilter.not_set or
-                                        self.condition_name.yfilter != YFilter.not_set or
-                                        self.condition_raised_timestamp.yfilter != YFilter.not_set or
-                                        self.condition_severity.yfilter != YFilter.not_set or
-                                        self.device_description.yfilter != YFilter.not_set or
-                                        self.device_key.yfilter != YFilter.not_set or
-                                        self.device_version.yfilter != YFilter.not_set or
-                                        self.process_id.yfilter != YFilter.not_set)
-
-                                def get_segment_path(self):
-                                    path_buffer = ""
-                                    path_buffer = "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']" + path_buffer
-
-                                    return path_buffer
-
-                                def get_entity_path(self, ancestor):
-                                    path_buffer = ""
-                                    if (ancestor is None):
-                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                    else:
-                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                    leaf_name_data = LeafDataList()
-                                    if (self.hw_fault_type.is_set or self.hw_fault_type.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.hw_fault_type.get_name_leafdata())
-                                    if (self.condition_description.is_set or self.condition_description.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.condition_description.get_name_leafdata())
-                                    if (self.condition_name.is_set or self.condition_name.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.condition_name.get_name_leafdata())
-                                    if (self.condition_raised_timestamp.is_set or self.condition_raised_timestamp.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.condition_raised_timestamp.get_name_leafdata())
-                                    if (self.condition_severity.is_set or self.condition_severity.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.condition_severity.get_name_leafdata())
-                                    if (self.device_description.is_set or self.device_description.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.device_description.get_name_leafdata())
-                                    if (self.device_key.is_set or self.device_key.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.device_key.get_name_leafdata())
-                                    if (self.device_version.is_set or self.device_version.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.device_version.get_name_leafdata())
-                                    if (self.process_id.is_set or self.process_id.yfilter != YFilter.not_set):
-                                        leaf_name_data.append(self.process_id.get_name_leafdata())
-
-                                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                                    return entity_path
-
-                                def get_child_by_name(self, child_yang_name, segment_path):
-                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                    if child is not None:
-                                        return child
-
-                                    return None
-
-                                def has_leaf_or_child_of_name(self, name):
-                                    if(name == "hw-fault-type" or name == "condition-description" or name == "condition-name" or name == "condition-raised-timestamp" or name == "condition-severity" or name == "device-description" or name == "device-key" or name == "device-version" or name == "process-id"):
-                                        return True
-                                    return False
-
-                                def set_value(self, value_path, value, name_space, name_space_prefix):
-                                    if(value_path == "hw-fault-type"):
-                                        self.hw_fault_type = value
-                                        self.hw_fault_type.value_namespace = name_space
-                                        self.hw_fault_type.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "condition-description"):
-                                        self.condition_description = value
-                                        self.condition_description.value_namespace = name_space
-                                        self.condition_description.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "condition-name"):
-                                        self.condition_name = value
-                                        self.condition_name.value_namespace = name_space
-                                        self.condition_name.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "condition-raised-timestamp"):
-                                        self.condition_raised_timestamp = value
-                                        self.condition_raised_timestamp.value_namespace = name_space
-                                        self.condition_raised_timestamp.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "condition-severity"):
-                                        self.condition_severity = value
-                                        self.condition_severity.value_namespace = name_space
-                                        self.condition_severity.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "device-description"):
-                                        self.device_description = value
-                                        self.device_description.value_namespace = name_space
-                                        self.device_description.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "device-key"):
-                                        self.device_key = value
-                                        self.device_key.value_namespace = name_space
-                                        self.device_key.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "device-version"):
-                                        self.device_version = value
-                                        self.device_version.value_namespace = name_space
-                                        self.device_version.value_namespace_prefix = name_space_prefix
-                                    if(value_path == "process-id"):
-                                        self.process_id = value
-                                        self.process_id.value_namespace = name_space
-                                        self.process_id.value_namespace_prefix = name_space_prefix
-
-                            def has_data(self):
-                                for c in self.hardware_fault_type:
-                                    if (c.has_data()):
-                                        return True
-                                return self.hw_fault_device.is_set
-
-                            def has_operation(self):
-                                for c in self.hardware_fault_type:
-                                    if (c.has_operation()):
-                                        return True
-                                return (
-                                    self.yfilter != YFilter.not_set or
-                                    self.hw_fault_device.yfilter != YFilter.not_set)
-
-                            def get_segment_path(self):
-                                path_buffer = ""
-                                path_buffer = "hardware-fault-device" + "[hw-fault-device='" + self.hw_fault_device.get() + "']" + path_buffer
-
-                                return path_buffer
-
-                            def get_entity_path(self, ancestor):
-                                path_buffer = ""
-                                if (ancestor is None):
-                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                                else:
-                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                                leaf_name_data = LeafDataList()
-                                if (self.hw_fault_device.is_set or self.hw_fault_device.yfilter != YFilter.not_set):
-                                    leaf_name_data.append(self.hw_fault_device.get_name_leafdata())
-
-                                entity_path = EntityPath(path_buffer, leaf_name_data)
-                                return entity_path
-
-                            def get_child_by_name(self, child_yang_name, segment_path):
-                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                                if child is not None:
-                                    return child
-
-                                if (child_yang_name == "hardware-fault-type"):
-                                    for c in self.hardware_fault_type:
-                                        segment = c.get_segment_path()
-                                        if (segment_path == segment):
-                                            return c
-                                    c = PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType()
-                                    c.parent = self
-                                    local_reference_key = "ydk::seg::%s" % segment_path
-                                    self._local_refs[local_reference_key] = c
-                                    self.hardware_fault_type.append(c)
-                                    return c
-
-                                return None
-
-                            def has_leaf_or_child_of_name(self, name):
-                                if(name == "hardware-fault-type" or name == "hw-fault-device"):
-                                    return True
-                                return False
-
-                            def set_value(self, value_path, value, name_space, name_space_prefix):
-                                if(value_path == "hw-fault-device"):
-                                    self.hw_fault_device = value
-                                    self.hw_fault_device.value_namespace = name_space
-                                    self.hw_fault_device.value_namespace_prefix = name_space_prefix
-
-                        def has_data(self):
-                            for c in self.hardware_fault_device:
-                                if (c.has_data()):
-                                    return True
-                            return False
-
-                        def has_operation(self):
-                            for c in self.hardware_fault_device:
-                                if (c.has_operation()):
-                                    return True
-                            return self.yfilter != YFilter.not_set
-
-                        def get_segment_path(self):
-                            path_buffer = ""
-                            path_buffer = "hardware-fault-devices" + path_buffer
-
-                            return path_buffer
-
-                        def get_entity_path(self, ancestor):
-                            path_buffer = ""
-                            if (ancestor is None):
-                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                            else:
-                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                            leaf_name_data = LeafDataList()
-
-                            entity_path = EntityPath(path_buffer, leaf_name_data)
-                            return entity_path
-
-                        def get_child_by_name(self, child_yang_name, segment_path):
-                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                            if child is not None:
-                                return child
-
-                            if (child_yang_name == "hardware-fault-device"):
-                                for c in self.hardware_fault_device:
-                                    segment = c.get_segment_path()
-                                    if (segment_path == segment):
-                                        return c
-                                c = PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice()
-                                c.parent = self
-                                local_reference_key = "ydk::seg::%s" % segment_path
-                                self._local_refs[local_reference_key] = c
-                                self.hardware_fault_device.append(c)
-                                return c
-
-                            return None
-
-                        def has_leaf_or_child_of_name(self, name):
-                            if(name == "hardware-fault-device"):
-                                return True
-                            return False
-
-                        def set_value(self, value_path, value, name_space, name_space_prefix):
-                            pass
-
-                    def has_data(self):
-                        return (
-                            self.slot.is_set or
-                            (self.fault_summary is not None and self.fault_summary.has_data()) or
-                            (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_data()))
-
-                    def has_operation(self):
-                        return (
-                            self.yfilter != YFilter.not_set or
-                            self.slot.yfilter != YFilter.not_set or
-                            (self.fault_summary is not None and self.fault_summary.has_operation()) or
-                            (self.hardware_fault_devices is not None and self.hardware_fault_devices.has_operation()))
-
-                    def get_segment_path(self):
-                        path_buffer = ""
-                        path_buffer = "slot" + "[slot='" + self.slot.get() + "']" + path_buffer
-
-                        return path_buffer
-
-                    def get_entity_path(self, ancestor):
-                        path_buffer = ""
-                        if (ancestor is None):
-                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                        else:
-                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                        leaf_name_data = LeafDataList()
-                        if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slot.get_name_leafdata())
-
-                        entity_path = EntityPath(path_buffer, leaf_name_data)
-                        return entity_path
-
-                    def get_child_by_name(self, child_yang_name, segment_path):
-                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                        if child is not None:
-                            return child
-
-                        if (child_yang_name == "fault-summary"):
-                            if (self.fault_summary is None):
-                                self.fault_summary = PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary()
-                                self.fault_summary.parent = self
-                                self._children_name_map["fault_summary"] = "fault-summary"
-                            return self.fault_summary
-
-                        if (child_yang_name == "hardware-fault-devices"):
-                            if (self.hardware_fault_devices is None):
-                                self.hardware_fault_devices = PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices()
-                                self.hardware_fault_devices.parent = self
-                                self._children_name_map["hardware_fault_devices"] = "hardware-fault-devices"
-                            return self.hardware_fault_devices
-
-                        return None
-
-                    def has_leaf_or_child_of_name(self, name):
-                        if(name == "fault-summary" or name == "hardware-fault-devices" or name == "slot"):
-                            return True
-                        return False
-
-                    def set_value(self, value_path, value, name_space, name_space_prefix):
-                        if(value_path == "slot"):
-                            self.slot = value
-                            self.slot.value_namespace = name_space
-                            self.slot.value_namespace_prefix = name_space_prefix
-
-                def has_data(self):
-                    for c in self.slot:
-                        if (c.has_data()):
-                            return True
-                    return False
-
-                def has_operation(self):
-                    for c in self.slot:
-                        if (c.has_operation()):
-                            return True
-                    return self.yfilter != YFilter.not_set
-
-                def get_segment_path(self):
-                    path_buffer = ""
-                    path_buffer = "slots" + path_buffer
-
-                    return path_buffer
-
-                def get_entity_path(self, ancestor):
-                    path_buffer = ""
-                    if (ancestor is None):
-                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
-                    else:
-                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                    leaf_name_data = LeafDataList()
-
-                    entity_path = EntityPath(path_buffer, leaf_name_data)
-                    return entity_path
-
-                def get_child_by_name(self, child_yang_name, segment_path):
-                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                    if child is not None:
-                        return child
-
-                    if (child_yang_name == "slot"):
-                        for c in self.slot:
-                            segment = c.get_segment_path()
-                            if (segment_path == segment):
-                                return c
-                        c = PlatformFaultManager.Racks.Rack.Slots.Slot()
-                        c.parent = self
-                        local_reference_key = "ydk::seg::%s" % segment_path
-                        self._local_refs[local_reference_key] = c
-                        self.slot.append(c)
-                        return c
-
-                    return None
-
-                def has_leaf_or_child_of_name(self, name):
-                    if(name == "slot"):
-                        return True
-                    return False
-
-                def set_value(self, value_path, value, name_space, name_space_prefix):
-                    pass
-
-            def has_data(self):
-                return (
-                    self.rack.is_set or
-                    (self.slots is not None and self.slots.has_data()))
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.rack.yfilter != YFilter.not_set or
-                    (self.slots is not None and self.slots.has_operation()))
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "rack" + "[rack='" + self.rack.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager/racks/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.rack.is_set or self.rack.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.rack.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                if (child_yang_name == "slots"):
-                    if (self.slots is None):
-                        self.slots = PlatformFaultManager.Racks.Rack.Slots()
-                        self.slots.parent = self
-                        self._children_name_map["slots"] = "slots"
-                    return self.slots
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "slots" or name == "rack"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "rack"):
-                    self.rack = value
-                    self.rack.value_namespace = name_space
-                    self.rack.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.rack:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.rack:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "racks" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "rack"):
-                for c in self.rack:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = PlatformFaultManager.Racks.Rack()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.rack.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "rack"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.exclude is not None and self.exclude.has_data()) or
-            (self.racks is not None and self.racks.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.exclude is not None and self.exclude.has_operation()) or
-            (self.racks is not None and self.racks.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-pfm-oper:platform-fault-manager" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "exclude"):
-            if (self.exclude is None):
-                self.exclude = PlatformFaultManager.Exclude()
-                self.exclude.parent = self
-                self._children_name_map["exclude"] = "exclude"
-            return self.exclude
-
-        if (child_yang_name == "racks"):
-            if (self.racks is None):
-                self.racks = PlatformFaultManager.Racks()
-                self.racks.parent = self
-                self._children_name_map["racks"] = "racks"
-            return self.racks
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "exclude" or name == "racks"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                                    self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformFaultManager()

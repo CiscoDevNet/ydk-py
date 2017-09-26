@@ -15,16 +15,15 @@ iLBC   \- internet Low Bitrate Codec
 iSAC   \- internet Speech Audio Codec
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Cvccodertyperate(Enum):
+class CvcCoderTypeRate(Enum):
     """
-    Cvccodertyperate
+    CvcCoderTypeRate
 
     Represents the coder type\-rate for voice/fax compression
 
@@ -271,9 +270,9 @@ class Cvccodertyperate(Enum):
     aacld = Enum.YLeaf(40, "aacld")
 
 
-class Cvcfaxtransmitrate(Enum):
+class CvcFaxTransmitRate(Enum):
     """
-    Cvcfaxtransmitrate
+    CvcFaxTransmitRate
 
     This object specifies the default transmit rate of FAX
 
@@ -336,9 +335,9 @@ class Cvcfaxtransmitrate(Enum):
     fax12000 = Enum.YLeaf(8, "fax12000")
 
 
-class Cvch320Calltype(Enum):
+class CvcH320CallType(Enum):
     """
-    Cvch320Calltype
+    CvcH320CallType
 
     This object specifies the H320 call type of a voice call.
 
@@ -357,9 +356,9 @@ class Cvch320Calltype(Enum):
     secondary = Enum.YLeaf(2, "secondary")
 
 
-class Cvcinbandsignaling(Enum):
+class CvcInBandSignaling(Enum):
     """
-    Cvcinbandsignaling
+    CvcInBandSignaling
 
     Represents the type of in\-band signaling used between
 
@@ -414,9 +413,9 @@ class Cvcinbandsignaling(Enum):
     gr303 = Enum.YLeaf(5, "gr303")
 
 
-class Cvcspeechcoderrate(Enum):
+class CvcSpeechCoderRate(Enum):
     """
-    Cvcspeechcoderrate
+    CvcSpeechCoderRate
 
     This object specifies the most desirable codec of
 
@@ -605,9 +604,9 @@ class Cvcspeechcoderrate(Enum):
     aacld = Enum.YLeaf(30, "aacld")
 
 
-class Cvcvideocoderrate(Enum):
+class CvcVideoCoderRate(Enum):
     """
-    Cvcvideocoderrate
+    CvcVideoCoderRate
 
     This object specifies the encoding type used to compress
 
@@ -637,19 +636,19 @@ class Cvcvideocoderrate(Enum):
 
 
 
-class CiscoVoiceCommonDialControlMib(Entity):
+class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
     """
     
     
     .. attribute:: cvcommondccallactivetable
     
     	This table is a common extension to the call active table of IETF Dial Control MIB. It contains common call  leg information about a network call leg
-    	**type**\:   :py:class:`Cvcommondccallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable>`
+    	**type**\:   :py:class:`Cvcommondccallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable>`
     
     .. attribute:: cvcommondccallhistorytable
     
     	This table is the Common extension to the call history table of IETF Dial Control MIB. It contains Common call  leg information about a network call leg
-    	**type**\:   :py:class:`Cvcommondccallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable>`
+    	**type**\:   :py:class:`Cvcommondccallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable>`
     
     
 
@@ -659,21 +658,26 @@ class CiscoVoiceCommonDialControlMib(Entity):
     _revision = '2010-06-30'
 
     def __init__(self):
-        super(CiscoVoiceCommonDialControlMib, self).__init__()
+        super(CISCOVOICECOMMONDIALCONTROLMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
         self.yang_parent_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"cvCommonDcCallActiveTable" : ("cvcommondccallactivetable", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable), "cvCommonDcCallHistoryTable" : ("cvcommondccallhistorytable", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable)}
+        self._child_list_classes = {}
 
-        self.cvcommondccallactivetable = CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable()
+        self.cvcommondccallactivetable = CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable()
         self.cvcommondccallactivetable.parent = self
         self._children_name_map["cvcommondccallactivetable"] = "cvCommonDcCallActiveTable"
         self._children_yang_names.add("cvCommonDcCallActiveTable")
 
-        self.cvcommondccallhistorytable = CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable()
+        self.cvcommondccallhistorytable = CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable()
         self.cvcommondccallhistorytable.parent = self
         self._children_name_map["cvcommondccallhistorytable"] = "cvCommonDcCallHistoryTable"
         self._children_yang_names.add("cvCommonDcCallHistoryTable")
+        self._segment_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
 
 
     class Cvcommondccallactivetable(Entity):
@@ -685,7 +689,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
         .. attribute:: cvcommondccallactiveentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the  call establishment to a network dialpeer.              The entry is deleted when its associated call active entry  in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcommondccallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable.Cvcommondccallactiveentry>`
+        	**type**\: list of    :py:class:`Cvcommondccallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry>`
         
         
 
@@ -695,36 +699,21 @@ class CiscoVoiceCommonDialControlMib(Entity):
         _revision = '2010-06-30'
 
         def __init__(self):
-            super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable, self).__init__()
+            super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable, self).__init__()
 
             self.yang_name = "cvCommonDcCallActiveTable"
             self.yang_parent_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cvCommonDcCallActiveEntry" : ("cvcommondccallactiveentry", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry)}
 
             self.cvcommondccallactiveentry = YList(self)
+            self._segment_path = lambda: "cvCommonDcCallActiveTable"
+            self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable, [], name, value)
 
 
         class Cvcommondccallactiveentry(Entity):
@@ -747,7 +736,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DialControlMib.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
             .. attribute:: callactiveindex  <key>
             
@@ -756,7 +745,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DialControlMib.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
             .. attribute:: cvcommondccallactivecalleridblock
             
@@ -780,7 +769,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             .. attribute:: cvcommondccallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg  for the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
+            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallactiveconnectionid
             
@@ -792,7 +781,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             .. attribute:: cvcommondccallactiveinbandsignaling
             
             	Specifies the type of in\-band signaling being used on the call.  This object is instantiated only for  Connection Trunk calls
-            	**type**\:   :py:class:`Cvcinbandsignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvcinbandsignaling>`
+            	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
             .. attribute:: cvcommondccallactivevadenable
             
@@ -807,10 +796,14 @@ class CiscoVoiceCommonDialControlMib(Entity):
             _revision = '2010-06-30'
 
             def __init__(self):
-                super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable.Cvcommondccallactiveentry, self).__init__()
+                super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, self).__init__()
 
                 self.yang_name = "cvCommonDcCallActiveEntry"
                 self.yang_parent_name = "cvCommonDcCallActiveTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
 
@@ -829,206 +822,11 @@ class CiscoVoiceCommonDialControlMib(Entity):
                 self.cvcommondccallactiveinbandsignaling = YLeaf(YType.enumeration, "cvCommonDcCallActiveInBandSignaling")
 
                 self.cvcommondccallactivevadenable = YLeaf(YType.boolean, "cvCommonDcCallActiveVADEnable")
+                self._segment_path = lambda: "cvCommonDcCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("callactivesetuptime",
-                                "callactiveindex",
-                                "cvcommondccallactivecalleridblock",
-                                "cvcommondccallactivecallingname",
-                                "cvcommondccallactivecodecbytes",
-                                "cvcommondccallactivecodertyperate",
-                                "cvcommondccallactiveconnectionid",
-                                "cvcommondccallactiveinbandsignaling",
-                                "cvcommondccallactivevadenable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable.Cvcommondccallactiveentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable.Cvcommondccallactiveentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.callactivesetuptime.is_set or
-                    self.callactiveindex.is_set or
-                    self.cvcommondccallactivecalleridblock.is_set or
-                    self.cvcommondccallactivecallingname.is_set or
-                    self.cvcommondccallactivecodecbytes.is_set or
-                    self.cvcommondccallactivecodertyperate.is_set or
-                    self.cvcommondccallactiveconnectionid.is_set or
-                    self.cvcommondccallactiveinbandsignaling.is_set or
-                    self.cvcommondccallactivevadenable.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.callactivesetuptime.yfilter != YFilter.not_set or
-                    self.callactiveindex.yfilter != YFilter.not_set or
-                    self.cvcommondccallactivecalleridblock.yfilter != YFilter.not_set or
-                    self.cvcommondccallactivecallingname.yfilter != YFilter.not_set or
-                    self.cvcommondccallactivecodecbytes.yfilter != YFilter.not_set or
-                    self.cvcommondccallactivecodertyperate.yfilter != YFilter.not_set or
-                    self.cvcommondccallactiveconnectionid.yfilter != YFilter.not_set or
-                    self.cvcommondccallactiveinbandsignaling.yfilter != YFilter.not_set or
-                    self.cvcommondccallactivevadenable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cvCommonDcCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallActiveTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.callactivesetuptime.is_set or self.callactivesetuptime.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.callactivesetuptime.get_name_leafdata())
-                if (self.callactiveindex.is_set or self.callactiveindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.callactiveindex.get_name_leafdata())
-                if (self.cvcommondccallactivecalleridblock.is_set or self.cvcommondccallactivecalleridblock.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactivecalleridblock.get_name_leafdata())
-                if (self.cvcommondccallactivecallingname.is_set or self.cvcommondccallactivecallingname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactivecallingname.get_name_leafdata())
-                if (self.cvcommondccallactivecodecbytes.is_set or self.cvcommondccallactivecodecbytes.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactivecodecbytes.get_name_leafdata())
-                if (self.cvcommondccallactivecodertyperate.is_set or self.cvcommondccallactivecodertyperate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactivecodertyperate.get_name_leafdata())
-                if (self.cvcommondccallactiveconnectionid.is_set or self.cvcommondccallactiveconnectionid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactiveconnectionid.get_name_leafdata())
-                if (self.cvcommondccallactiveinbandsignaling.is_set or self.cvcommondccallactiveinbandsignaling.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactiveinbandsignaling.get_name_leafdata())
-                if (self.cvcommondccallactivevadenable.is_set or self.cvcommondccallactivevadenable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallactivevadenable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "callActiveSetupTime" or name == "callActiveIndex" or name == "cvCommonDcCallActiveCallerIDBlock" or name == "cvCommonDcCallActiveCallingName" or name == "cvCommonDcCallActiveCodecBytes" or name == "cvCommonDcCallActiveCoderTypeRate" or name == "cvCommonDcCallActiveConnectionId" or name == "cvCommonDcCallActiveInBandSignaling" or name == "cvCommonDcCallActiveVADEnable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "callActiveSetupTime"):
-                    self.callactivesetuptime = value
-                    self.callactivesetuptime.value_namespace = name_space
-                    self.callactivesetuptime.value_namespace_prefix = name_space_prefix
-                if(value_path == "callActiveIndex"):
-                    self.callactiveindex = value
-                    self.callactiveindex.value_namespace = name_space
-                    self.callactiveindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveCallerIDBlock"):
-                    self.cvcommondccallactivecalleridblock = value
-                    self.cvcommondccallactivecalleridblock.value_namespace = name_space
-                    self.cvcommondccallactivecalleridblock.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveCallingName"):
-                    self.cvcommondccallactivecallingname = value
-                    self.cvcommondccallactivecallingname.value_namespace = name_space
-                    self.cvcommondccallactivecallingname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveCodecBytes"):
-                    self.cvcommondccallactivecodecbytes = value
-                    self.cvcommondccallactivecodecbytes.value_namespace = name_space
-                    self.cvcommondccallactivecodecbytes.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveCoderTypeRate"):
-                    self.cvcommondccallactivecodertyperate = value
-                    self.cvcommondccallactivecodertyperate.value_namespace = name_space
-                    self.cvcommondccallactivecodertyperate.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveConnectionId"):
-                    self.cvcommondccallactiveconnectionid = value
-                    self.cvcommondccallactiveconnectionid.value_namespace = name_space
-                    self.cvcommondccallactiveconnectionid.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveInBandSignaling"):
-                    self.cvcommondccallactiveinbandsignaling = value
-                    self.cvcommondccallactiveinbandsignaling.value_namespace = name_space
-                    self.cvcommondccallactiveinbandsignaling.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallActiveVADEnable"):
-                    self.cvcommondccallactivevadenable = value
-                    self.cvcommondccallactivevadenable.value_namespace = name_space
-                    self.cvcommondccallactivevadenable.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cvcommondccallactiveentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cvcommondccallactiveentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cvCommonDcCallActiveTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cvCommonDcCallActiveEntry"):
-                for c in self.cvcommondccallactiveentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable.Cvcommondccallactiveentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cvcommondccallactiveentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cvCommonDcCallActiveEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactivecalleridblock', 'cvcommondccallactivecallingname', 'cvcommondccallactivecodecbytes', 'cvcommondccallactivecodertyperate', 'cvcommondccallactiveconnectionid', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivevadenable'], name, value)
 
 
     class Cvcommondccallhistorytable(Entity):
@@ -1040,7 +838,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
         .. attribute:: cvcommondccallhistoryentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call history entry in the IETF Dial Control MIB is  created and the call history entry contains information  for the call establishment to a network dialpeer. The entry is deleted when its associated call history  entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcommondccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable.Cvcommondccallhistoryentry>`
+        	**type**\: list of    :py:class:`Cvcommondccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry>`
         
         
 
@@ -1050,36 +848,21 @@ class CiscoVoiceCommonDialControlMib(Entity):
         _revision = '2010-06-30'
 
         def __init__(self):
-            super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable, self).__init__()
+            super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable, self).__init__()
 
             self.yang_name = "cvCommonDcCallHistoryTable"
             self.yang_parent_name = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cvCommonDcCallHistoryEntry" : ("cvcommondccallhistoryentry", CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry)}
 
             self.cvcommondccallhistoryentry = YList(self)
+            self._segment_path = lambda: "cvCommonDcCallHistoryTable"
+            self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._check_monkey_patching_error(name, value)
-            with _handle_type_error():
-                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                        "Please use list append or extend method."
-                                        .format(value))
-                if isinstance(value, Enum.YLeaf):
-                    value = value.name
-                if name in () and name in self.__dict__:
-                    if isinstance(value, YLeaf):
-                        self.__dict__[name].set(value.get())
-                    elif isinstance(value, YLeafList):
-                        super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable, self).__setattr__(name, value)
-                    else:
-                        self.__dict__[name].set(value)
-                else:
-                    if hasattr(value, "parent") and name != "parent":
-                        if hasattr(value, "is_presence_container") and value.is_presence_container:
-                            value.parent = self
-                        elif value.parent is None and value.yang_name in self._children_yang_names:
-                            value.parent = self
-                    super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable, self).__setattr__(name, value)
+            self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable, [], name, value)
 
 
         class Cvcommondccallhistoryentry(Entity):
@@ -1102,7 +885,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry>`
+            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
             
             .. attribute:: cvcommondccallhistorycalleridblock
             
@@ -1126,7 +909,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             .. attribute:: cvcommondccallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for  the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
+            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallhistoryconnectionid
             
@@ -1138,7 +921,7 @@ class CiscoVoiceCommonDialControlMib(Entity):
             .. attribute:: cvcommondccallhistoryinbandsignaling
             
             	Specifies the type of in\-band signaling used on the call.  This object is instantiated only for  Connection Trunk calls
-            	**type**\:   :py:class:`Cvcinbandsignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvcinbandsignaling>`
+            	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
             .. attribute:: cvcommondccallhistoryvadenable
             
@@ -1153,10 +936,14 @@ class CiscoVoiceCommonDialControlMib(Entity):
             _revision = '2010-06-30'
 
             def __init__(self):
-                super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, self).__init__()
+                super(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, self).__init__()
 
                 self.yang_name = "cvCommonDcCallHistoryEntry"
                 self.yang_parent_name = "cvCommonDcCallHistoryTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
 
                 self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
 
@@ -1173,256 +960,13 @@ class CiscoVoiceCommonDialControlMib(Entity):
                 self.cvcommondccallhistoryinbandsignaling = YLeaf(YType.enumeration, "cvCommonDcCallHistoryInBandSignaling")
 
                 self.cvcommondccallhistoryvadenable = YLeaf(YType.boolean, "cvCommonDcCallHistoryVADEnable")
+                self._segment_path = lambda: "cvCommonDcCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._check_monkey_patching_error(name, value)
-                with _handle_type_error():
-                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
-                                            "Please use list append or extend method."
-                                            .format(value))
-                    if isinstance(value, Enum.YLeaf):
-                        value = value.name
-                    if name in ("ccallhistoryindex",
-                                "cvcommondccallhistorycalleridblock",
-                                "cvcommondccallhistorycallingname",
-                                "cvcommondccallhistorycodecbytes",
-                                "cvcommondccallhistorycodertyperate",
-                                "cvcommondccallhistoryconnectionid",
-                                "cvcommondccallhistoryinbandsignaling",
-                                "cvcommondccallhistoryvadenable") and name in self.__dict__:
-                        if isinstance(value, YLeaf):
-                            self.__dict__[name].set(value.get())
-                        elif isinstance(value, YLeafList):
-                            super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, self).__setattr__(name, value)
-                        else:
-                            self.__dict__[name].set(value)
-                    else:
-                        if hasattr(value, "parent") and name != "parent":
-                            if hasattr(value, "is_presence_container") and value.is_presence_container:
-                                value.parent = self
-                            elif value.parent is None and value.yang_name in self._children_yang_names:
-                                value.parent = self
-                        super(CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, self).__setattr__(name, value)
-
-            def has_data(self):
-                return (
-                    self.ccallhistoryindex.is_set or
-                    self.cvcommondccallhistorycalleridblock.is_set or
-                    self.cvcommondccallhistorycallingname.is_set or
-                    self.cvcommondccallhistorycodecbytes.is_set or
-                    self.cvcommondccallhistorycodertyperate.is_set or
-                    self.cvcommondccallhistoryconnectionid.is_set or
-                    self.cvcommondccallhistoryinbandsignaling.is_set or
-                    self.cvcommondccallhistoryvadenable.is_set)
-
-            def has_operation(self):
-                return (
-                    self.yfilter != YFilter.not_set or
-                    self.ccallhistoryindex.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistorycalleridblock.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistorycallingname.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistorycodecbytes.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistorycodertyperate.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistoryconnectionid.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistoryinbandsignaling.yfilter != YFilter.not_set or
-                    self.cvcommondccallhistoryvadenable.yfilter != YFilter.not_set)
-
-            def get_segment_path(self):
-                path_buffer = ""
-                path_buffer = "cvCommonDcCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']" + path_buffer
-
-                return path_buffer
-
-            def get_entity_path(self, ancestor):
-                path_buffer = ""
-                if (ancestor is None):
-                    path_buffer = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallHistoryTable/%s" % self.get_segment_path()
-                else:
-                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-                leaf_name_data = LeafDataList()
-                if (self.ccallhistoryindex.is_set or self.ccallhistoryindex.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.ccallhistoryindex.get_name_leafdata())
-                if (self.cvcommondccallhistorycalleridblock.is_set or self.cvcommondccallhistorycalleridblock.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistorycalleridblock.get_name_leafdata())
-                if (self.cvcommondccallhistorycallingname.is_set or self.cvcommondccallhistorycallingname.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistorycallingname.get_name_leafdata())
-                if (self.cvcommondccallhistorycodecbytes.is_set or self.cvcommondccallhistorycodecbytes.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistorycodecbytes.get_name_leafdata())
-                if (self.cvcommondccallhistorycodertyperate.is_set or self.cvcommondccallhistorycodertyperate.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistorycodertyperate.get_name_leafdata())
-                if (self.cvcommondccallhistoryconnectionid.is_set or self.cvcommondccallhistoryconnectionid.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistoryconnectionid.get_name_leafdata())
-                if (self.cvcommondccallhistoryinbandsignaling.is_set or self.cvcommondccallhistoryinbandsignaling.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistoryinbandsignaling.get_name_leafdata())
-                if (self.cvcommondccallhistoryvadenable.is_set or self.cvcommondccallhistoryvadenable.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.cvcommondccallhistoryvadenable.get_name_leafdata())
-
-                entity_path = EntityPath(path_buffer, leaf_name_data)
-                return entity_path
-
-            def get_child_by_name(self, child_yang_name, segment_path):
-                child = self._get_child_by_seg_name([child_yang_name, segment_path])
-                if child is not None:
-                    return child
-
-                return None
-
-            def has_leaf_or_child_of_name(self, name):
-                if(name == "cCallHistoryIndex" or name == "cvCommonDcCallHistoryCallerIDBlock" or name == "cvCommonDcCallHistoryCallingName" or name == "cvCommonDcCallHistoryCodecBytes" or name == "cvCommonDcCallHistoryCoderTypeRate" or name == "cvCommonDcCallHistoryConnectionId" or name == "cvCommonDcCallHistoryInBandSignaling" or name == "cvCommonDcCallHistoryVADEnable"):
-                    return True
-                return False
-
-            def set_value(self, value_path, value, name_space, name_space_prefix):
-                if(value_path == "cCallHistoryIndex"):
-                    self.ccallhistoryindex = value
-                    self.ccallhistoryindex.value_namespace = name_space
-                    self.ccallhistoryindex.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryCallerIDBlock"):
-                    self.cvcommondccallhistorycalleridblock = value
-                    self.cvcommondccallhistorycalleridblock.value_namespace = name_space
-                    self.cvcommondccallhistorycalleridblock.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryCallingName"):
-                    self.cvcommondccallhistorycallingname = value
-                    self.cvcommondccallhistorycallingname.value_namespace = name_space
-                    self.cvcommondccallhistorycallingname.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryCodecBytes"):
-                    self.cvcommondccallhistorycodecbytes = value
-                    self.cvcommondccallhistorycodecbytes.value_namespace = name_space
-                    self.cvcommondccallhistorycodecbytes.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryCoderTypeRate"):
-                    self.cvcommondccallhistorycodertyperate = value
-                    self.cvcommondccallhistorycodertyperate.value_namespace = name_space
-                    self.cvcommondccallhistorycodertyperate.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryConnectionId"):
-                    self.cvcommondccallhistoryconnectionid = value
-                    self.cvcommondccallhistoryconnectionid.value_namespace = name_space
-                    self.cvcommondccallhistoryconnectionid.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryInBandSignaling"):
-                    self.cvcommondccallhistoryinbandsignaling = value
-                    self.cvcommondccallhistoryinbandsignaling.value_namespace = name_space
-                    self.cvcommondccallhistoryinbandsignaling.value_namespace_prefix = name_space_prefix
-                if(value_path == "cvCommonDcCallHistoryVADEnable"):
-                    self.cvcommondccallhistoryvadenable = value
-                    self.cvcommondccallhistoryvadenable.value_namespace = name_space
-                    self.cvcommondccallhistoryvadenable.value_namespace_prefix = name_space_prefix
-
-        def has_data(self):
-            for c in self.cvcommondccallhistoryentry:
-                if (c.has_data()):
-                    return True
-            return False
-
-        def has_operation(self):
-            for c in self.cvcommondccallhistoryentry:
-                if (c.has_operation()):
-                    return True
-            return self.yfilter != YFilter.not_set
-
-        def get_segment_path(self):
-            path_buffer = ""
-            path_buffer = "cvCommonDcCallHistoryTable" + path_buffer
-
-            return path_buffer
-
-        def get_entity_path(self, ancestor):
-            path_buffer = ""
-            if (ancestor is None):
-                path_buffer = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
-            else:
-                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
-
-            leaf_name_data = LeafDataList()
-
-            entity_path = EntityPath(path_buffer, leaf_name_data)
-            return entity_path
-
-        def get_child_by_name(self, child_yang_name, segment_path):
-            child = self._get_child_by_seg_name([child_yang_name, segment_path])
-            if child is not None:
-                return child
-
-            if (child_yang_name == "cvCommonDcCallHistoryEntry"):
-                for c in self.cvcommondccallhistoryentry:
-                    segment = c.get_segment_path()
-                    if (segment_path == segment):
-                        return c
-                c = CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable.Cvcommondccallhistoryentry()
-                c.parent = self
-                local_reference_key = "ydk::seg::%s" % segment_path
-                self._local_refs[local_reference_key] = c
-                self.cvcommondccallhistoryentry.append(c)
-                return c
-
-            return None
-
-        def has_leaf_or_child_of_name(self, name):
-            if(name == "cvCommonDcCallHistoryEntry"):
-                return True
-            return False
-
-        def set_value(self, value_path, value, name_space, name_space_prefix):
-            pass
-
-    def has_data(self):
-        return (
-            (self.cvcommondccallactivetable is not None and self.cvcommondccallactivetable.has_data()) or
-            (self.cvcommondccallhistorytable is not None and self.cvcommondccallhistorytable.has_data()))
-
-    def has_operation(self):
-        return (
-            self.yfilter != YFilter.not_set or
-            (self.cvcommondccallactivetable is not None and self.cvcommondccallactivetable.has_operation()) or
-            (self.cvcommondccallhistorytable is not None and self.cvcommondccallhistorytable.has_operation()))
-
-    def get_segment_path(self):
-        path_buffer = ""
-        path_buffer = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB" + path_buffer
-
-        return path_buffer
-
-    def get_entity_path(self, ancestor):
-        path_buffer = ""
-        if (not ancestor is None):
-            raise YPYModelError("ancestor has to be None for top-level node")
-
-        path_buffer = self.get_segment_path()
-        leaf_name_data = LeafDataList()
-
-        entity_path = EntityPath(path_buffer, leaf_name_data)
-        return entity_path
-
-    def get_child_by_name(self, child_yang_name, segment_path):
-        child = self._get_child_by_seg_name([child_yang_name, segment_path])
-        if child is not None:
-            return child
-
-        if (child_yang_name == "cvCommonDcCallActiveTable"):
-            if (self.cvcommondccallactivetable is None):
-                self.cvcommondccallactivetable = CiscoVoiceCommonDialControlMib.Cvcommondccallactivetable()
-                self.cvcommondccallactivetable.parent = self
-                self._children_name_map["cvcommondccallactivetable"] = "cvCommonDcCallActiveTable"
-            return self.cvcommondccallactivetable
-
-        if (child_yang_name == "cvCommonDcCallHistoryTable"):
-            if (self.cvcommondccallhistorytable is None):
-                self.cvcommondccallhistorytable = CiscoVoiceCommonDialControlMib.Cvcommondccallhistorytable()
-                self.cvcommondccallhistorytable.parent = self
-                self._children_name_map["cvcommondccallhistorytable"] = "cvCommonDcCallHistoryTable"
-            return self.cvcommondccallhistorytable
-
-        return None
-
-    def has_leaf_or_child_of_name(self, name):
-        if(name == "cvCommonDcCallActiveTable" or name == "cvCommonDcCallHistoryTable"):
-            return True
-        return False
-
-    def set_value(self, value_path, value, name_space, name_space_prefix):
-        pass
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, ['ccallhistoryindex', 'cvcommondccallhistorycalleridblock', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistoryvadenable'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = CiscoVoiceCommonDialControlMib()
+        self._top_entity = CISCOVOICECOMMONDIALCONTROLMIB()
         return self._top_entity
 

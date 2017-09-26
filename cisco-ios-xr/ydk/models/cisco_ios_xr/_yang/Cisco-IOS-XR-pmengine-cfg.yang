@@ -9,8 +9,6 @@ module Cisco-IOS-XR-pmengine-cfg {
 
   /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
   import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
 
   /*** META INFORMATION ***/
@@ -36,14 +34,72 @@ module Cisco-IOS-XR-pmengine-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
 
-     Copyright (c) 2013-2016 by Cisco Systems, Inc.
+     Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
+
+  revision "2017-05-01" {
+    description
+      "Fixing backward compatibility error in module.";
+  }
 
   revision "2015-11-09" {
     description
       "IOS XR 6.0 revision.";
   }
 
+  typedef Secyif-report {
+    type enumeration {
+      enum report-if-inpkts-untagged {
+        value 134217728;
+        description "PM SECYIF if InPktsUntagged report";
+      }
+      enum report-if-inpkts-not-ag {
+        value 134217729;
+        description "PM SECYIF if InPktsNoTag report";
+      }
+      enum report-if-inpktsbadtag {
+        value 134217730;
+        description "PM SECYIF if InPktsBadTag report";
+      }
+      enum report-if-inpkts-unknown-sci {
+        value 134217731;
+        description "PM SECYIF if InPktsUnknownSCI report";
+      }
+      enum report-if-inpktsnosci {
+        value 134217732;
+        description "PM SECYIF if InPktsNoSCI report";
+      }
+      enum report-if-inpkts-overrun {
+        value 134217733;
+        description "PM SECYIF if InPktsOverrun report";
+      }
+      enum report-if-inoctets-validate-d {
+        value 134217734;
+        description "PM SECYIF if InOctetsValidated report";
+      }
+      enum report-if-inoctetsdecrypted {
+        value 134217735;
+        description "PM SECYIF if InOctetsDecrypted report";
+      }
+      enum report-if-outpkts-untagged {
+        value 134217736;
+        description "PM SECYIF if OutPktsUntagged report";
+      }
+      enum report-if-outpkts-too-long {
+        value 134217737;
+        description "PM SECYIF if OutPktsTooLong report";
+      }
+      enum report-if-outoctetsprotected {
+        value 134217738;
+        description "PM SECYIF if OutOctetsProtected report";
+      }
+      enum report-if-outoctetsencrypted {
+        value 134217739;
+        description "PM SECYIF if OutOctetsEncrypted report";
+      }
+    }
+    description "Secyif report";
+  }
   typedef Gfp-report {
     type enumeration {
       enum report-rx-bit-err {
@@ -452,6 +508,31 @@ module Cisco-IOS-XR-pmengine-cfg {
       }
     }
     description "Sts threshold";
+  }
+  typedef Secytx-report {
+    type enumeration {
+      enum report-tx-outpktsprotected {
+        value 150994944;
+        description "PM SECYTX tx OutPktsProtected report";
+      }
+      enum report-tx-outpktsencrypted {
+        value 150994945;
+        description "PM SECYTX tx OutPktsEncrypted report";
+      }
+      enum report-tx-outoctetsprotected {
+        value 150994946;
+        description "PM SECYTX tx OutOctetsProtected report";
+      }
+      enum report-tx-outoctetsencrypted {
+        value 150994947;
+        description "PM SECYTX tx OutOctetsEncrypted report";
+      }
+      enum report-tx-outpkts-too-long {
+        value 150994948;
+        description "PM SECYTX tx OutPktsTooLong report";
+      }
+    }
+    description "Secytx report";
   }
   typedef Ocn-report {
     type enumeration {
@@ -1382,6 +1463,59 @@ module Cisco-IOS-XR-pmengine-cfg {
     }
     description "Fec threshold";
   }
+  typedef Secyif-threshold {
+    type enumeration {
+      enum thresh-if-inpkts-untagged {
+        value 150994944;
+        description "PM SECYIF if InPktsUntagged thresh";
+      }
+      enum thresh-if-inpkts-not-ag {
+        value 150994945;
+        description "PM SECYIF if InPktsNoTag thresh";
+      }
+      enum thresh-if-inpktsbadtag {
+        value 150994946;
+        description "PM SECYIF if InPktsBadTag thresh";
+      }
+      enum thresh-if-inpktsunkownsci {
+        value 150994947;
+        description "PM SECYIF if InPktsUnknownSCI thresh";
+      }
+      enum thresh-if-inpktsnosci {
+        value 150994948;
+        description "PM SECYIF if InPktsNoSCI thresh";
+      }
+      enum thresh-if-inpkts-overrun {
+        value 150994949;
+        description "PM SECYIF if InPktsOverrun thresh";
+      }
+      enum thresh-if-inoctets-validate-d {
+        value 150994950;
+        description "PM SECYIF if InOctetsValidated thresh";
+      }
+      enum thresh-if-inoctetsdecrypted {
+        value 150994951;
+        description "PM SECYIF if InOctetsDecrypted thresh";
+      }
+      enum thresh-if-outpkts-untagged {
+        value 150994952;
+        description "PM SECYIF if OutPktsUntagged thresh";
+      }
+      enum thresh-if-thresh-outpkts-too-long {
+        value 150994953;
+        description "PM SECYIF if OutPktsTooLong thresh";
+      }
+      enum thresh-if-outoctetsprotected {
+        value 150994954;
+        description "PM SECYIF if OutOctetsProtected thresh";
+      }
+      enum thresh-if-outoctetsencrypted {
+        value 150994955;
+        description "PM SECYIF if OutOctetsEncrypted thresh";
+      }
+    }
+    description "Secyif threshold";
+  }
   typedef Sts-report {
     type enumeration {
       enum report-cv {
@@ -1719,6 +1853,31 @@ module Cisco-IOS-XR-pmengine-cfg {
     }
     description "Otn report";
   }
+  typedef Secytx-threshold {
+    type enumeration {
+      enum thresh-tx-outpktsprotected {
+        value 134217728;
+        description "PM SECYTX tx OutPktsProtected thresh";
+      }
+      enum thresh-tx-outpktsencrypted {
+        value 134217729;
+        description "PM SECYTX tx OutPktsEncrypted thresh";
+      }
+      enum thresh-tx-outoctetsprotected {
+        value 134217730;
+        description "PM SECYTX tx OutOctetsProtected thresh";
+      }
+      enum thresh-tx-outoctetsencrypted {
+        value 134217731;
+        description "PM SECYTX tx OutOctetsEncrypted thresh";
+      }
+      enum thresh-tx-outpkts-too-long {
+        value 134217732;
+        description "PM SECYTX tx OutPktsTooLong thresh";
+      }
+    }
+    description "Secytx threshold";
+  }
   typedef Fec-report {
     type enumeration {
       enum report-ec-bits {
@@ -1784,6 +1943,104 @@ module Cisco-IOS-XR-pmengine-cfg {
       }
     }
     description "Path report";
+  }
+  typedef Secyrx-report {
+    type enumeration {
+      enum report-rx-inpktsun-check-ed {
+        value 117440512;
+        description "PM SECYRX rx InPktsUnchecked report";
+      }
+      enum report-rx-inpkts-delayed {
+        value 117440513;
+        description "PM SECYRX rx InPktsDelayed report";
+      }
+      enum report-rx-inpktslate {
+        value 117440514;
+        description "PM SECYRX rx InPktsLate report";
+      }
+      enum report-rx-inpktsok {
+        value 117440515;
+        description "PM SECYRX rx InPktsOK report";
+      }
+      enum report-rx-inpkts-invalid {
+        value 117440516;
+        description "PM SECYRX rx InPktsInvalid report";
+      }
+      enum report-rx-inpkts-not-valid {
+        value 117440517;
+        description "PM SECYRX rx InPktsNotValid report";
+      }
+      enum report-rx-inpkts-not-usingsa {
+        value 117440518;
+        description "PM SECYRX rx InPktsNotUsingSA sa report";
+      }
+      enum report-rx-inpktsunusedsa {
+        value 117440519;
+        description "PM SECYRX rx InPktsUnusedSA report";
+      }
+      enum report-rx-inpkts-untagged-hit {
+        value 117440520;
+        description "PM SECYRX rx InPktsUntaggedHit report";
+      }
+      enum report-rx-inoctets-validate-d {
+        value 117440521;
+        description "PM SECYRX rx InOctetsValidated report";
+      }
+      enum report-rx-inoctetsdecrypted {
+        value 117440522;
+        description "PM SECYRX rx InOctetsDecrypted report";
+      }
+    }
+    description "Secyrx report";
+  }
+  typedef Secyrx-threshold {
+    type enumeration {
+      enum thresh-rx-inpktsun-check-ed {
+        value 117440512;
+        description "PM SECYRX rx InPktsUnchecked thresh";
+      }
+      enum thresh-rx-inpkts-delayed {
+        value 117440513;
+        description "PM SECYRX rx InPktsDelayed thresh";
+      }
+      enum thresh-rx-inpktslate {
+        value 117440514;
+        description "PM SECYRX rx InPktsLate thresh";
+      }
+      enum thresh-rx-inpktsok {
+        value 117440515;
+        description "PM SECYRX rx InPktsOK thresh";
+      }
+      enum thresh-rx-inpkts-invalid {
+        value 117440516;
+        description "PM SECYRX rx InPktsInvalid thresh";
+      }
+      enum thresh-rx-inpkts-not-valid {
+        value 117440517;
+        description "PM SECYRX rx InPktsNotValid thresh";
+      }
+      enum thresh-rx-inpkts-not-usingsa {
+        value 117440518;
+        description "PM SECYRX rx InPktsNotUsingSA thresh";
+      }
+      enum thresh-rx-inpktsunusedsa {
+        value 117440519;
+        description "PM SECYRX rx InPktsUnusedSA thresh";
+      }
+      enum thresh-rx-inpkts-untagged-hit {
+        value 117440520;
+        description "PM SECYRX rx InPktsUntaggedHit thresh";
+      }
+      enum thresh-rx-inoctets-validate-d {
+        value 117440521;
+        description "PM SECYRX rx InOctetsValidated thresh";
+      }
+      enum thresh-rx-inoctetsdecrypted {
+        value 117440522;
+        description "PM SECYRX rx InOctetsDecrypted thresh";
+      }
+    }
+    description "Secyrx threshold";
   }
   typedef Gfp-threshold {
     type enumeration {
@@ -2406,8 +2663,94 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf optics-threshold-value {
                 type int32;
+                description "Optics Thresh Value";
+              }
+              leaf dbm {
+                type int32;
+                default "0";
+                description
+                  "Used only for Opt and Opr,To Enter
+                  Threshold in dbm use 1";
+              }
+            }
+          }
+        }
+
+        container second30secyif {
+          description "Configure secy-if performance monitoring";
+
+          container second30secyif-thresholds {
+            description "Configure threshold on secyif parameters";
+
+            list second30secyif-threshold {
+              key "secyif-threshold";
+              description "none";
+              leaf secyif-threshold {
+                type Secyif-threshold;
+                description "Secyif Threshold Type";
+              }
+              leaf secyif-threshold-value {
+                type int32;
                 mandatory true;
-                description "Optics Threshold Value";
+                description "Secyif Threshold Value";
+              }
+            }
+          }
+
+          container second30secyif-reports {
+            description "set secyif TCA reporting status";
+
+            list second30secyif-report {
+              key "secyif-report";
+              description "none";
+              leaf secyif-report {
+                type Secyif-report;
+                description "Secyif Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secyif Report";
+              }
+            }
+          }
+        }
+
+        container second30secyrx {
+          description "Configure secy-rx performance monitoring";
+
+          container second30secyrx-thresholds {
+            description "Configure threshold on secyrx parameters";
+
+            list second30secyrx-threshold {
+              key "secyrx-threshold";
+              description "none";
+              leaf secyrx-threshold {
+                type Secyrx-threshold;
+                description "Secyrx Threshold Type";
+              }
+              leaf secyrx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secyrx Threshold Value";
+              }
+            }
+          }
+
+          container second30secyrx-reports {
+            description "set secyrx TCA reporting status";
+
+            list second30secyrx-report {
+              key "secyrx-report";
+              description "none";
+              leaf secyrx-report {
+                type Secyrx-report;
+                description "Secyrx Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secyrx Report";
               }
             }
           }
@@ -2448,6 +2791,46 @@ module Cisco-IOS-XR-pmengine-cfg {
                 type Report;
                 mandatory true;
                 description "Otn Report";
+              }
+            }
+          }
+        }
+
+        container second30secytx {
+          description "Configure secy-tx performance monitoring";
+
+          container second30secytx-thresholds {
+            description "Configure threshold on secytx parameters";
+
+            list second30secytx-threshold {
+              key "secytx-threshold";
+              description "none";
+              leaf secytx-threshold {
+                type Secytx-threshold;
+                description "Secytx Threshold Type";
+              }
+              leaf secytx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secytx Threshold Value";
+              }
+            }
+          }
+
+          container second30secytx-reports {
+            description "set secytx TCA reporting status";
+
+            list second30secytx-report {
+              key "secytx-report";
+              description "none";
+              leaf secytx-report {
+                type Secytx-report;
+                description "Secytx Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secytx Report";
               }
             }
           }
@@ -2672,6 +3055,126 @@ module Cisco-IOS-XR-pmengine-cfg {
                 type Report;
                 mandatory true;
                 description "Fec Report";
+              }
+            }
+          }
+        }
+
+        container hour24secyif {
+          description "Configure secy-if performance monitoring";
+
+          container hour24secyif-reports {
+            description "set secyif TCA reporting status";
+
+            list hour24secyif-report {
+              key "secyif-report";
+              description "none";
+              leaf secyif-report {
+                type Secyif-report;
+                description "Secyif Report type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Secyif Report";
+              }
+            }
+          }
+
+          container hour24secyif-thresholds {
+            description "Configure secyif threshold";
+
+            list hour24secyif-threshold {
+              key "secyif-threshold";
+              description "none";
+              leaf secyif-threshold {
+                type Secyif-threshold;
+                description "Secyif Threshold Type";
+              }
+              leaf secyif-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secyif threshold value";
+              }
+            }
+          }
+        }
+
+        container hour24secyrx {
+          description "Configure secy-rx performance monitoring";
+
+          container hour24secyrx-reports {
+            description "set secyrx TCA reporting status";
+
+            list hour24secyrx-report {
+              key "secyrx-report";
+              description "none";
+              leaf secyrx-report {
+                type Secyrx-report;
+                description "Secyrx Report type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Secyrx Report";
+              }
+            }
+          }
+
+          container hour24secyrx-thresholds {
+            description "Configure secyrx threshold";
+
+            list hour24secyrx-threshold {
+              key "secyrx-threshold";
+              description "none";
+              leaf secyrx-threshold {
+                type Secyrx-threshold;
+                description "Secyrx Threshold Type";
+              }
+              leaf secyrx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secyrx threshold value";
+              }
+            }
+          }
+        }
+
+        container hour24secytx {
+          description "Configure secy-tx performance monitoring";
+
+          container hour24secytx-thresholds {
+            description "Configure secytx threshold";
+
+            list hour24secytx-threshold {
+              key "secytx-threshold";
+              description "none";
+              leaf secytx-threshold {
+                type Secytx-threshold;
+                description "Secytx Threshold Type";
+              }
+              leaf secytx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secytx threshold value";
+              }
+            }
+          }
+
+          container hour24secytx-reports {
+            description "set secytx TCA reporting status";
+
+            list hour24secytx-report {
+              key "secytx-report";
+              description "none";
+              leaf secytx-report {
+                type Secytx-report;
+                description "Secytx Report type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Secytx Report";
               }
             }
           }
@@ -3103,6 +3606,86 @@ module Cisco-IOS-XR-pmengine-cfg {
           }
         }
 
+        container minute15secyif {
+          description "Configure secy-if performance monitoring";
+
+          container minute15secyif-reports {
+            description "set secyif TCA reporting status";
+
+            list minute15secyif-report {
+              key "secyif-report";
+              description "none";
+              leaf secyif-report {
+                type Secyif-report;
+                description "Secyif Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secyif Report";
+              }
+            }
+          }
+
+          container minute15secyif-thresholds {
+            description "Configure threshold on secyif parameters";
+
+            list minute15secyif-threshold {
+              key "secyif-threshold";
+              description "none";
+              leaf secyif-threshold {
+                type Secyif-threshold;
+                description "Secyif Threshold Type";
+              }
+              leaf secyif-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secyif Threshold Value";
+              }
+            }
+          }
+        }
+
+        container minute15secyrx {
+          description "Configure secy-rx performance monitoring";
+
+          container minute15secyrx-reports {
+            description "set secyrx TCA reporting status";
+
+            list minute15secyrx-report {
+              key "secyrx-report";
+              description "none";
+              leaf secyrx-report {
+                type Secyrx-report;
+                description "Secyrx Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secyrx Report";
+              }
+            }
+          }
+
+          container minute15secyrx-thresholds {
+            description "Configure threshold on secyrx parameters";
+
+            list minute15secyrx-threshold {
+              key "secyrx-threshold";
+              description "none";
+              leaf secyrx-threshold {
+                type Secyrx-threshold;
+                description "Secyrx Threshold Type";
+              }
+              leaf secyrx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secyrx Threshold Value";
+              }
+            }
+          }
+        }
+
         container minute15fec {
           description "Configure fec g709 performance monitoring";
 
@@ -3140,6 +3723,46 @@ module Cisco-IOS-XR-pmengine-cfg {
                 type Report;
                 mandatory true;
                 description "Fec Report";
+              }
+            }
+          }
+        }
+
+        container minute15secytx {
+          description "Configure secy-tx performance monitoring";
+
+          container minute15secytx-reports {
+            description "set secytx TCA reporting status";
+
+            list minute15secytx-report {
+              key "secytx-report";
+              description "none";
+              leaf secytx-report {
+                type Secytx-report;
+                description "Secytx Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description "Enabled Secytx Report";
+              }
+            }
+          }
+
+          container minute15secytx-thresholds {
+            description "Configure threshold on secytx parameters";
+
+            list minute15secytx-threshold {
+              key "secytx-threshold";
+              description "none";
+              leaf secytx-threshold {
+                type Secytx-threshold;
+                description "Secytx Threshold Type";
+              }
+              leaf secytx-threshold-value {
+                type int32;
+                mandatory true;
+                description "Secytx Threshold Value";
               }
             }
           }

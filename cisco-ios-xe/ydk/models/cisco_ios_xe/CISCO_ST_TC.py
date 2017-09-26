@@ -4,16 +4,15 @@ This module defines textual conventions used in
 Storage Area Network technology specific mibs.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Fcaddresstype(Enum):
+class FcAddressType(Enum):
     """
-    Fcaddresstype
+    FcAddressType
 
     Denotes if a Fibre Channel Address is
 
@@ -36,9 +35,9 @@ class Fcaddresstype(Enum):
     fcid = Enum.YLeaf(2, "fcid")
 
 
-class Fcifservicestatetype(Enum):
+class FcIfServiceStateType(Enum):
     """
-    Fcifservicestatetype
+    FcIfServiceStateType
 
     Represents the service state of a Fibre Channel
 
@@ -67,9 +66,9 @@ class Fcifservicestatetype(Enum):
     outOfService = Enum.YLeaf(2, "outOfService")
 
 
-class Fcifsfpdiagleveltype(Enum):
+class FcIfSfpDiagLevelType(Enum):
     """
-    Fcifsfpdiagleveltype
+    FcIfSfpDiagLevelType
 
     Represents the severity level of the SFP
 
@@ -106,9 +105,9 @@ class Fcifsfpdiagleveltype(Enum):
     highAlarm = Enum.YLeaf(6, "highAlarm")
 
 
-class Fcifspeed(Enum):
+class FcIfSpeed(Enum):
     """
-    Fcifspeed
+    FcIfSpeed
 
     Represents the speed of a fibre channel port.
 
@@ -201,9 +200,9 @@ class Fcifspeed(Enum):
     autoMaxSixteenG = Enum.YLeaf(11, "autoMaxSixteenG")
 
 
-class Fcportmoduletypes(Enum):
+class FcPortModuleTypes(Enum):
     """
-    Fcportmoduletypes
+    FcPortModuleTypes
 
     Represents module type of the port connector. This
 
@@ -358,9 +357,9 @@ class Fcportmoduletypes(Enum):
     x2Dwdm = Enum.YLeaf(20, "x2Dwdm")
 
 
-class Fcporttxtypes(Enum):
+class FcPortTxTypes(Enum):
     """
-    Fcporttxtypes
+    FcPortTxTypes
 
     Represents port transciever technology types.
 
@@ -441,9 +440,9 @@ class Fcporttxtypes(Enum):
     tenGigBaseEw = Enum.YLeaf(12, "tenGigBaseEw")
 
 
-class Fcporttypes(Enum):
+class FcPortTypes(Enum):
     """
-    Fcporttypes
+    FcPortTypes
 
     Represents fibre channel port types\:
 
@@ -586,9 +585,9 @@ class Fcporttypes(Enum):
     tnpPort = Enum.YLeaf(18, "tnpPort")
 
 
-class Interfaceopermode(Enum):
+class InterfaceOperMode(Enum):
     """
-    Interfaceopermode
+    InterfaceOperMode
 
     Represents the operational mode of an interface
 
@@ -748,18 +747,5 @@ class Interfaceopermode(Enum):
 
     tnpPort = Enum.YLeaf(21, "tnpPort")
 
-
-class Fcclassofservices(Bits):
-    """
-    Fcclassofservices
-
-    Represents the class of service capability of an
-    NxPort or FxPort.
-    Keys are:- class6 , class2 , classF , class1 , class5 , class4 , class3
-
-    """
-
-    def __init__(self):
-        super(Fcclassofservices, self).__init__()
 
 

@@ -6,16 +6,15 @@ management information base (MIBs) modules for
 managing Cisco Express Forwarding (CEF).
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Cefadjlinktype(Enum):
+class CefAdjLinkType(Enum):
     """
-    Cefadjlinktype
+    CefAdjLinkType
 
     Link type for the adjacency. The adjacency link type 
 
@@ -46,9 +45,9 @@ class Cefadjlinktype(Enum):
     unknown = Enum.YLeaf(5, "unknown")
 
 
-class Cefadminstatus(Enum):
+class CefAdminStatus(Enum):
     """
-    Cefadminstatus
+    CefAdminStatus
 
     Admin status of CEF. The admin status of CEF
 
@@ -67,9 +66,9 @@ class Cefadminstatus(Enum):
     disabled = Enum.YLeaf(2, "disabled")
 
 
-class Cefccaction(Enum):
+class CefCCAction(Enum):
     """
-    Cefccaction
+    CefCCAction
 
     The action to be performed for the consistency
 
@@ -110,9 +109,9 @@ class Cefccaction(Enum):
     ccActionNone = Enum.YLeaf(3, "ccActionNone")
 
 
-class Cefccstatus(Enum):
+class CefCCStatus(Enum):
     """
-    Cefccstatus
+    CefCCStatus
 
     The status of consistency checker operation. 
 
@@ -151,9 +150,9 @@ class Cefccstatus(Enum):
     ccStatusDone = Enum.YLeaf(3, "ccStatusDone")
 
 
-class Cefcctype(Enum):
+class CefCCType(Enum):
     """
-    Cefcctype
+    CefCCType
 
     Type of the consistency checker.
 
@@ -350,9 +349,9 @@ class Cefcctype(Enum):
     fullScanFibSwHw = Enum.YLeaf(13, "fullScanFibSwHw")
 
 
-class Ceffailurereason(Enum):
+class CefFailureReason(Enum):
     """
-    Ceffailurereason
+    CefFailureReason
 
     Reason of CEF Failure\:
 
@@ -415,9 +414,9 @@ class Ceffailurereason(Enum):
     internalError = Enum.YLeaf(7, "internalError")
 
 
-class Cefforwardingelementspecialtype(Enum):
+class CefForwardingElementSpecialType(Enum):
     """
-    Cefforwardingelementspecialtype
+    CefForwardingElementSpecialType
 
     Type of special forwarding element 
 
@@ -506,9 +505,9 @@ class Cefforwardingelementspecialtype(Enum):
     none = Enum.YLeaf(9, "none")
 
 
-class Cefipversion(Enum):
+class CefIpVersion(Enum):
     """
-    Cefipversion
+    CefIpVersion
 
     The version of CEF IP forwarding.
 
@@ -523,9 +522,9 @@ class Cefipversion(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-class Cefoperstatus(Enum):
+class CefOperStatus(Enum):
     """
-    Cefoperstatus
+    CefOperStatus
 
     Operational status of CEF.
 
@@ -540,9 +539,9 @@ class Cefoperstatus(Enum):
     down = Enum.YLeaf(2, "down")
 
 
-class Cefpathtype(Enum):
+class CefPathType(Enum):
     """
-    Cefpathtype
+    CefPathType
 
     Type of the CEF Path.
 
@@ -609,9 +608,9 @@ class Cefpathtype(Enum):
     unknown = Enum.YLeaf(9, "unknown")
 
 
-class Cefprefixsearchstate(Enum):
+class CefPrefixSearchState(Enum):
     """
-    Cefprefixsearchstate
+    CefPrefixSearchState
 
     The state of prefix search operation. 
 
@@ -647,21 +646,5 @@ class Cefprefixsearchstate(Enum):
 
     noMatchFound = Enum.YLeaf(3, "noMatchFound")
 
-
-class Cefadjacencysource(Bits):
-    """
-    Cefadjacencysource
-
-    The mechanism by which the adjacency is learned.
-    As the mechanism of learning the adjacency can be
-    multiple (e.g. 'arp' and 'atmPVC'), hence the 
-    value of this object represents the bit mask of
-    adjacency sources.
-    Keys are:- ipPseudowireAdj , nbma , multicast , linkRawAdj , ipv6ND , arp , fibLc , cmcc , atom , unknown , ipv6SixtoFourTunnel , frMap , atmSVC , atmBundle , lec , virtual , atmTVC , atmPVC , ipv6IsaTapTunnel , ipv6AutoTunnel , p2pAdj , nhrp , mpoa
-
-    """
-
-    def __init__(self):
-        super(Cefadjacencysource, self).__init__()
 
 

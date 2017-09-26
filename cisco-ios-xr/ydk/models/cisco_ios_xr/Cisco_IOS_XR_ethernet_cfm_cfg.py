@@ -10,11 +10,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-infra\-sla\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -130,7 +129,19 @@ class CfmService(Enum):
 
     	MEPs and MIPs are permitted
 
-    .. data:: down_meps = 4
+    .. data:: vlan_aware_flexible_cross_connect = 4
+
+    	Use a VLAN-aware Flexible Cross Connect - all
+
+    	MEPs will be Up MEPs and MIPs are permitted
+
+    .. data:: vlan_unaware_flexible_cross_connect = 5
+
+    	Use a VLAN-unaware Flexible Cross Connect - all
+
+    	MEPs will be Up MEPs and MIPs are permitted
+
+    .. data:: down_meps = 6
 
     	Down MEPs - no MIPs permitted
 
@@ -142,7 +153,11 @@ class CfmService(Enum):
 
     mp2mp_cross_connect = Enum.YLeaf(3, "mp2mp-cross-connect")
 
-    down_meps = Enum.YLeaf(4, "down-meps")
+    vlan_aware_flexible_cross_connect = Enum.YLeaf(4, "vlan-aware-flexible-cross-connect")
+
+    vlan_unaware_flexible_cross_connect = Enum.YLeaf(5, "vlan-unaware-flexible-cross-connect")
+
+    down_meps = Enum.YLeaf(6, "down-meps")
 
 
 class CfmShortMaNameFormat(Enum):

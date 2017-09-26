@@ -1,0 +1,156 @@
+""" Cisco_IOS_XR_freqsync_cfg 
+
+This module contains a collection of YANG definitions
+for Cisco IOS\-XR freqsync package configuration.
+
+This module contains definitions
+for the following management objects\:
+  frequency\-synchronization\: frequency synchronization
+
+This YANG module augments the
+  Cisco\-IOS\-XR\-snmp\-agent\-cfg,
+  Cisco\-IOS\-XR\-ifmgr\-cfg
+  Cisco\-IOS\-XR\-config\-mda\-cfg
+modules with configuration data.
+
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+"""
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
+from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+class FsyncClockSource(Enum):
+    """
+    FsyncClockSource
+
+    Fsync clock source
+
+    .. data:: system = 1
+
+    	System
+
+    .. data:: independent = 3
+
+    	Independent
+
+    """
+
+    system = Enum.YLeaf(1, "system")
+
+    independent = Enum.YLeaf(3, "independent")
+
+
+class FsyncSourceSelectionLogging(Enum):
+    """
+    FsyncSourceSelectionLogging
+
+    Fsync source selection logging
+
+    .. data:: changes = 1
+
+    	Log selection changes
+
+    .. data:: errors = 2
+
+    	Log selection errors
+
+    """
+
+    changes = Enum.YLeaf(1, "changes")
+
+    errors = Enum.YLeaf(2, "errors")
+
+
+class FsyncSystemTimingMode(Enum):
+    """
+    FsyncSystemTimingMode
+
+    Fsync system timing mode
+
+    .. data:: line_only = 2
+
+    	Line-interfaces only
+
+    .. data:: clock_only = 3
+
+    	Clock-interfaces only
+
+    """
+
+    line_only = Enum.YLeaf(2, "line-only")
+
+    clock_only = Enum.YLeaf(3, "clock-only")
+
+
+
+class FrequencySynchronization(Entity):
+    """
+    frequency synchronization
+    
+    .. attribute:: clock_interface_source_type
+    
+    	Clock interface source type
+    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
+    
+    .. attribute:: enable
+    
+    	Enable Frequency Synchronization
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
+    .. attribute:: quality_level_option
+    
+    	Quality level option
+    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+    
+    	**default value**\: option-1
+    
+    .. attribute:: source_selection_logging
+    
+    	Source selection logging option
+    	**type**\:   :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
+    
+    .. attribute:: system_timing_mode
+    
+    	System timing mode
+    	**type**\:   :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSystemTimingMode>`
+    
+    
+
+    """
+
+    _prefix = 'freqsync-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(FrequencySynchronization, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "frequency-synchronization"
+        self.yang_parent_name = "Cisco-IOS-XR-freqsync-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
+
+        self.enable = YLeaf(YType.empty, "enable")
+
+        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+        self.source_selection_logging = YLeaf(YType.enumeration, "source-selection-logging")
+
+        self.system_timing_mode = YLeaf(YType.enumeration, "system-timing-mode")
+        self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(FrequencySynchronization, ['clock_interface_source_type', 'enable', 'quality_level_option', 'source_selection_logging', 'system_timing_mode'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = FrequencySynchronization()
+        return self._top_entity
+

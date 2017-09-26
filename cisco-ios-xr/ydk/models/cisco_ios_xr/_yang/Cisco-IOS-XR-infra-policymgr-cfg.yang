@@ -30,11 +30,34 @@
       Copyright (c) 2013, 2015-2017 by Cisco Systems, Inc.
       All rights reserved.";
 
+   revision "2017-08-11" {
+      description
+        "IOS XR 6.3.1 revision.";
+   }
+
+   revision "2017-06-27" {
+      description
+        "IOS XR 6.3.1 revision.";
+   }
+
+   revision "2017-05-15" {
+     description
+       "IOS XR 6.3.1 revision.";
+   }
+
+  revision "2017-04-03" {
+     description
+       "IOS XR 6.3.1 revision.";
+   }
    revision "2017-03-03" {
+     description
+       "IOS XR 6.3.1 revision.";
+   }
+ 
+   revision "2017-02-15" {
      description
        "IOS XR 6.2.1 revision.";
    }
- 
    revision "2017-02-08" {
      description
        "IOS XR 6.2.1 revision.";
@@ -246,7 +269,7 @@
   }
    typedef Float-str {
      type string {
-       pattern "[0-9]+(\.[0-9]+)?";
+       pattern '[0-9]+(\.[0-9]+)?';
      }
      description "Floating point number string representation.";
    }
@@ -278,7 +301,7 @@
    
    typedef Num-range {
      type string {
-       pattern "(\d+)|(\d+\-\d+)";
+       pattern '(\d+)|(\d+\-\d+)';
      }
      description "Numeric value or range string representation.
                   Should be single value or range <min>-<max>.";
@@ -287,12 +310,12 @@
    typedef Protocol {
      type string {
        pattern 
-         "([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|"+
-         "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\-"+
-         "([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|"+
-         "((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|"+
-         "(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|"+
-         "(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))";
+         '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|'+
+         '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\-'+
+         '([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|'+
+         '((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|'+
+         '(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|'+
+         '(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))';
      }
      description "Numeric value or range or string representation.
                   Should be single value or range 0..255.";
@@ -457,6 +480,12 @@
      description "Authorize identifier.";
    }
    
+   typedef dhcp-client-id-options {
+     type string {
+       pattern "(none)|(ascii)|(hex)";
+     }
+     description "DHCP client Id Flag option.";
+   }
  
    grouping MATCH {
      description "Supported 'match' or 'match-not' actions.";
@@ -715,17 +744,33 @@
        }
        description "Match Circuit id regex."; 
      }
-     leaf-list dhcp-client-id {
-       type string {
-         length "1..32";
+     list dhcp-client-id {
+       key "value flag";
+       description "Match dhcp client ID.";
+       leaf value {
+         type string {
+           length "1..32";
+         }
+         description "Dhcp client Id.";
        }
-       description "Match dhcp client ID."; 
+       leaf flag{
+         type dhcp-client-id-options;
+         description "Dhcp client id Ascii/Hex";
+       }
      }
-     leaf-list dhcp-client-id-regex {
-       type string {
-         length "1..32";
+     list dhcp-client-id-regex {
+       key "value flag";
+       description "Match dhcp client id regex.";
+       leaf value {
+         type string {
+           length "1..32";
+         }
+         description "Dhcp client id regular expression.";
        }
-       description "Match dhcp client id regex."; 
+       leaf flag {
+         type dhcp-client-id-options;
+         description "Dhcp client Id regex Ascii/Hex.";
+       }
      }
      list domain-name {
        key "name format";
@@ -951,7 +996,7 @@
          range "0..7";
        }
        description 
-         "Sets the discard class.";
+         "Sets the forward class.";
      }
      leaf df {
        type uint8 {
@@ -1101,7 +1146,7 @@
          description "Class-map rule.";
          leaf class-name {
            type string {
-             pattern "[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}";
+             pattern '[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}';
            }
            description "Name of class.";
          }
@@ -1224,7 +1269,7 @@
        description "Class-map rule.";
        leaf class-name {
          type string {
-           pattern "[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}";
+           pattern '[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}';
          }
          description "Name of class-map.";
        }
@@ -1510,7 +1555,7 @@
            "Configure a child service policy.";
          leaf policy-name {
            type string {
-             pattern "[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}";
+             pattern '[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}';
            }
            description "Name of service-policy.";
          }
@@ -1720,7 +1765,29 @@
          description "Policy action DECAP GRE.";
        }
        container pbr-redirect {
-           description "Policy action redirect";
+          description "Policy action redirect";
+          container ipv4 {
+            description "Policy action redirect IPv4";
+            leaf ipv4-next-hop {
+              type inet:ipv4-address-no-zone;
+              description "IPv4 address.";
+            }
+            leaf vrf {
+              type string;
+              description "IPv4 VRF.";
+            } 
+          }
+          container ipv6 {
+            description "Policy action redirect IPv6";
+            leaf ipv6-next-hop {
+              type inet:ipv6-address-no-zone;
+              description "IPv6 address.";
+            }
+            leaf vrf {
+              type string;
+              description "IPv6 VRF.";
+            } 
+          }
           container next-hop {
              description "Next hop address.";
                container route-target {
@@ -1790,23 +1857,21 @@
          description "Policy action fragment. Fragment name";
        }
        container service-function-path {
-         must "path-id" {
-           description "path id must be present.";
-         }
+         presence "This container is present for service-
+                   function-path configuration";
          description "Policy action service function path.";
          leaf path-id {
            type uint32 {
              range "1..16777215";
            }
-           must "../index" {
-             description "index must be set.";
-           }
+           mandatory true;
            description "Service function path id.";
          }
          leaf index {
            type uint8 {
              range "1..255";
            }
+           mandatory true;
            description "Service function path index.";
          }
          leaf metadata {
@@ -1834,7 +1899,7 @@
          }
          leaf name {
            type string {
-             pattern "[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}";
+             pattern '[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}';
            }
            description "Name of class-map.";
          }
@@ -1854,7 +1919,7 @@
          }
          leaf name {
            type string {
-             pattern "[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}";
+             pattern '[a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}';
            }
            description "Name of policy-map.";
          }
