@@ -27,7 +27,7 @@ HERE = path.abspath(path.dirname(__file__))
 INSTALL_REQUIREMENTS = ['ydk>=0.6.1']
 
 NMSP_PKG_NAME = "ydk-models-ietf"
-NMSP_PKG_VERSION = "0.1.3"
+NMSP_PKG_VERSION = "0.1.4"
 NMSP_PKG_DEPENDENCIES = []
 
 
