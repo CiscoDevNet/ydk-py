@@ -14,7 +14,7 @@ The YANG Development Kit (YDK) is a Software Development Kit that provides API's
 
 Backward Compatibility
 ----------------------
-Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
+Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/guides/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
 
 
 System Requirements
@@ -24,28 +24,29 @@ Linux
 Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Py::
 
    $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
-   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.6.1/libydk_0.6.1-1_amd64.deb
-   $ sudo gdebi libydk_0.6.1-1_amd64.deb
+   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.6.2/libydk_0.6.2-1_amd64.deb
+   $ sudo gdebi libydk_0.6.2-1_amd64.deb
 
 Centos (Fedora-based) - The following packages must be present in your system before installing YDK-Py::
 
-   $ sudo yum install epel-release libssh-devel gcc-c++
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.6.1/libydk-0.6.1-1.x86_64.rpm
-   $ sudo ln –fs /usr/bin/cmake3 /usr/bin/cmake && export PATH=/usr/bin:$PATH
+   $ sudo yum install epel-release libssh-devel gcc-c++ python-devel
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.6.2/libydk-0.6.2-1.x86_64.rpm
 
 macOS
 ~~~~~
-It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_ and the following homebrew packages on your system before installing YDK-Py::
+It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_ and the following homebrew packages on your system before installing YDK-Py.
+
+You can download the latest python package from `here <https://www.python.org/downloads/>`_. Please do not use the homebrew version of python as it causes issues with installing ydk packages. Please execute ``brew rm python python3`` to remove any homebrew python packages::
 
    $ xcode-select --install
    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   $ brew install python pkg-config libssh xml2 curl pcre cmake
-   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.1/libydk-0.6.1-Darwin.pkg
-   $ sudo installer -pkg libydk-0.6.1-Darwin.pkg -target /
+   $ brew install pkg-config libssh xml2 libxml2 curl pcre cmake
+   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.2/libydk-0.6.2-Darwin.tar.gz
+   $ sudo installer -pkg libydk-0.6.2-Darwin.pkg -target /
 
 Windows
 ~~~~~~~
-Currently, YDK-Py from release 0.6.1 onwards is not supported on Windows.
+Currently, YDK-Py from release 0.6.2 onwards is not supported on Windows.
 
 
 Python Requirements
@@ -126,4 +127,4 @@ Documentation and Support
 
 Release Notes
 --------------
-The current YDK release version is 0.6.1 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.6.2 (beta). YDK-Py is licensed under the Apache 2.0 License.
